@@ -1,0 +1,82 @@
+# Main configuration file for the RAG system
+
+# Data paths
+paths:
+  raw_data: "data/raw"
+  processed_data: "data/processed"
+  embeddings_cache: "data/embeddings"
+
+# PDF extraction settings
+pdf_extraction:
+  tool: "marker"  # marker or pymupdf
+  output_format: "markdown"
+  disable_images: true
+  enable_metadata: true
+
+# Text chunking settings
+text_chunking:
+  method: "word"  # word or sentence
+  chunk_size: 512
+  overlap: 200
+  overlap_sentences: 2  # Only used if method is 'sentence'
+  
+# Embedding settings
+embeddings:
+  model: "all-MiniLM-L6-v2"
+  dimension: 384  # This should match the model's output dimension
+  cache_embeddings: true
+
+# Milvus vector database settings
+milvus:
+  host: "localhost"
+  port: "19530"
+  collection_name: "MiniLM_embeddings"
+  index_type: "HNSW"
+  metric_type: "L2"
+  index_params:
+    M: 8
+    efConstruction: 64
+  search_params:
+    nprobe: 10
+
+# Language model settings
+llm:
+  # Models
+  default_model: "llama-2-7b-chat.Q4_0.gguf"
+  models:
+    llama2:
+      path: "llama-2-7b-chat.Q4_0.gguf"
+      model_type: "llama"
+    mistral:
+      path: "mistral-7b-instruct-v0.1.Q4_0.gguf"
+      model_type: "mistral"
+      
+  # Generation parameters
+  generation:
+    max_new_tokens: 512
+    temperature: 0.7
+    top_p: 0.9
+    top_k: 40
+
+# RAG settings
+rag:
+  naive:
+    top_k: 5
+    system_prompt: "You are a helpful assistant that answers questions about Portuguese political party programs. Base your answers only on the provided context. If you don't know the answer, say so."
+  
+  agentic:
+    enabled: false  # Set to true when implemented
+    top_k: 5
+    max_iterations: 3
+    system_prompt: "You are an expert political analyst helping to answer questions about Portuguese political party programs. Use logical reasoning and examine the evidence carefully. Base your answers only on the provided context."
+
+# Dependencies
+dependencies:
+  required:
+    - pymilvus
+    - sentence-transformers
+    - langchain
+    - ctransformers
+    - markdown
+    - click
+    - pypdf
