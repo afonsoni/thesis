@@ -24,7 +24,7 @@ A nossa missão é limpar Portugal desta corrupção e desta podridão que desac
 
 Nós queremos, e vamos, devolver o prestígio às instituições e dignifi car a autoridade do Estado através das Forças de Segurança e das Forças Armadas. **O CHEGA apresenta-se a eleições com um programa de governo capaz de transformar Portugal.** Durante 50 anos, os portugueses deram o seu voto sempre aos mesmos e nada mudou – só piorou!
 
-![](_page_2_Picture_13.jpeg)
+*O Presidente do CHEGA Dr. André Ventura* **Agora é a nossa vez. Confi em em nós. Nós vamos limpar Portugal!**
 
 # ÍNDICE **LIMPAR PORTUGAL**
 
@@ -44,7 +44,8 @@ PÁG. 14
 
 ![](_page_4_Picture_10.jpeg)
 
-- **TORNAR PORTUGAL SEGURO** PÁG. 22
+**TORNAR PORTUGAL SEGURO** PÁG. 22
+
 ![](_page_4_Picture_12.jpeg)
 
 **JOVENS COM UM FUTURO** 
@@ -83,12 +84,6 @@ PÁG. 136
 
 PÁG. 154
 
-PÁG. 172
-
-**DAR VOZ ÀS COMUNIDADES PORTUGUESAS**
-
-**REFORMAR A CONSTITUIÇÃO**
-
 **RESTITUIR A DIGNIDADE AOS TRABALHADORES**
 
 **ASSEGURAR A SOBERANIA ENERGÉTICA** PÁG. 94
@@ -123,6 +118,10 @@ PÁG. 172
 
 **MUDAR O SISTEMA POLÍTICO** PÁG. 166
 
+![](_page_4_Picture_37.jpeg)
+
+**DAR VOZ ÀS COMUNIDADES PORTUGUESAS**
+
 ![](_page_5_Picture_0.jpeg)
 
 I CAPÍTULO
@@ -145,7 +144,7 @@ São quase 50 anos de um ditadura de influências, da tentativa de normalizar um
 
 Importa reverter este estado de coisas provocando uma revolução de mentalidades, bem como da forma de agir e de funcionar. Não o dizemos por demagogia ou por populismo, mas por sentir que a falta de transparência que afecta a política, o desporto, a administração pública e a própria justiça configura um dos factores que mais afasta o cidadão comum da causa pública. Os portugueses que trabalham, que pretendem proporcionar às gerações vindouras um país digno, marcado pela ascensão do mérito, que confere oportunidades a quem trabalha, a quem investiga, a quem se dedica ao bem comum, sentem que é este o momento de dar o seu grito de revolta, com vista à construção de um Portugal mais justo.
 
-Não podemos esquecer que esta corrupção, que é transversal a todos os sectores da vida económica e social, tem causado elevados danos ao país, custando milhões de euros aos cofres do Estado. Importa referir que um estudo realizado em 2018 determinou que a corrupção em Portugal tem um custo superior a 18 mil milhões de euros anuais**1** .
+Não podemos esquecer que esta corrupção, que é transversal a todos os sectores da vida económica e social, tem causado elevados danos ao país, custando milhões de euros aos cofres do Estado. Importa referir que um estudo realizado em 2018 determinou que a corrupção em Portugal tem um custo superior a 18 mil milhões de euros anuais**<sup>1</sup>** .
 
 Seguramente que hoje teríamos uma carga fiscal muito mais aliviada se não fosse a permanente necessidade de cobrir os buracos orçamentais causados pelos efeitos nefastos de todo um sistema instalado.
 
@@ -273,13 +272,13 @@ Alteração dos prazos de prescrição dos crimes sexuais contra menores e de um
 
 Os profissionais da área sentem-se pouco valorizados (e com razão) e com excesso de trabalho. Veja-se o caso dos oficiais de justiça que se encontram em greve há quase um ano porque as suas reivindicações continuam a ser ignoradas. A tabela de honorários dos advogados inseridos no sistema de acesso ao Direito não é actualizada desde 2004 e o número de magistrados do Ministério Público continua a ser inferior ao desejável. Todos estes factores contribuem para o entorpecimento do sistema e para o desânimo de quem todos os dias trabalha para ele.
 
-A tudo isto importa acrescentar que a percepção das pessoas sobre a justiça não é das melhores, já que uma percentagem significativa acredita que há interferência política na justiça ou que os juízes não são suficientemente independentes no exercício das suas funções**1** .
+A tudo isto importa acrescentar que a percepção das pessoas sobre a justiça não é das melhores, já que uma percentagem significativa acredita que há interferência política na justiça ou que os juízes não são suficientemente independentes no exercício das suas funções**<sup>1</sup>** .
 
 E, por fim, persiste a ideia que a impunidade é uma constante nos tribunais portugueses, que há uma justiça para ricos e outra para pobres e que ninguém vai preso. Embora não corresponda inteiramente à verdade, é indiscutível que a nossa justiça é branda e que quem tem mais condições económicas tem uma maior capacidade de se fazer representar judicialmente.
 
 O sistema de acesso ao Direito, por sua vez, não tem cumprido a sua função constitucional, pois verdadeiramente o acesso aos tribunais não está garantido. Actualmente, só as pessoas numa situação de quase indigência conseguem ser beneficiárias do acesso ao Direito, ou seja, ficar isentos do pagamento de taxas de justiça e ter um defensor oficioso nomeado. Qualquer pessoa com um mínimo de rendimento fica excluída da possibilidade de beneficiar deste sistema, o que na maior parte das vezes lhe retira a possibilidade de vir a litigar, porque simplesmente não tem capacidade económica para pagar os serviços de um advogado e ainda pagar taxas de justiça, que no nosso país são demasiado altas. Assim, ou só as pessoas muitos pobres ou só as muito ricas conseguem verdadeiramente ver os seus direitos serem discutidos num tribunal, ficando a classe média em geral alheada desse direito.
 
-O cidadão comum sente-se afastado da justiça seja porque deixou de acreditar nela, seja porque é cara e demorada. Segundo dados do Painel de Avaliação da Justiça na União Europeia (UE) em 2023, com reporte a dados de 2021, Portugal é o quinto pior Estado-membro da UE em termos de morosidade, com um total de 792 dias para a primeira instância, 836 para a segunda e 261 para a terceira**2**.
+O cidadão comum sente-se afastado da justiça seja porque deixou de acreditar nela, seja porque é cara e demorada. Segundo dados do Painel de Avaliação da Justiça na União Europeia (UE) em 2023, com reporte a dados de 2021, Portugal é o quinto pior Estado-membro da UE em termos de morosidade, com um total de 792 dias para a primeira instância, 836 para a segunda e 261 para a terceira**<sup>2</sup>**.
 
 A nossa justiça acaba por falhar em todas as características que lhe são essenciais: ser confiável, acessível, universal e garantir aos cidadãos uma resolução justa e célere dos seus problemas. Sabe-se, no entanto, que uma reforma na justiça não é fácil, nem rápida. Precisamente por isso, a reforma da justiça que se pretende precisa necessariamente de uma ponderação de vários planos e tempos e, portanto, devem ser vistas medidas de curto/ médio e longo prazo, assim como medidas mais específicas e outras de carácter mais geral, tudo com a devida planificação. Por outro lado, pretende-se uma reforma responsável, que tenha em atenção os interesses dos cidadãos hoje, mas também das gerações futuras, que consiga dar resposta a uma sociedade em permanente mutação e com respeito pelos direitos fundamentais dos cidadãos.
 
@@ -287,7 +286,7 @@ A nossa justiça acaba por falhar em todas as características que lhe são esse
 
 • Desburocratizar a justiça, racionalizar os gastos, simplificar os processos e acabar com a morosidade nos tribunais, sem comprometer os direitos, liberdades e garantias dos cidadãos;
 
-**<sup>1</sup>** Flash Eurobarometer 489 - Perceived independence of the national justice systems in the EU among the general public. **2** https://commission.europa.eu/system/files/2023-07/50_1_52628_coun_chap_portugal_en.pdf | https://www.tsf.pt/portugal/sociedade/portugal-e-o-5-pais-da-ue-com-maior-duracao-dosprocessos-nos-tribunais-16496519.html
+**<sup>1</sup>** Flash Eurobarometer 489 - Perceived independence of the national justice systems in the EU among the general public. **2** https://commission.europa.eu/system/files/2023-07/50\_1\_52628\_coun\_chap\_portugal\_en.pdf | https://www.tsf.pt/portugal/sociedade/portugal-e-o-5-pais-da-ue-com-maior-duracao-dosprocessos-nos-tribunais-16496519.html
 
 ![](_page_14_Picture_1.jpeg)
 
@@ -428,7 +427,8 @@ técnicos de reinserção social:
 
 • Promover uma maior utilização dos meios técnicos de controlo à distância;
 
-- Proceder à revisão das fichas de risco;
+• Proceder à revisão das fichas de risco;
+
 • Aumentar o número de casas-abrigo e assegurar a existência de uma rede nacional com implementação em todo o território;
 
 • Melhorar o financiamento das entidades que prestam apoio às vítimas.
@@ -440,7 +440,8 @@ técnicos de reinserção social:
 
 • Mais formação para todos os envolvidos, reduzindo as potenciais situações de revitimização;
 
-- Alteração do regime de declarações para memória futura;
+• Alteração do regime de declarações para memória futura;
+
 • Assegurar que no momento da queixa é atribuído defensor oficioso à vítima;
 
 • Garantir à vítima a possibilidade de proceder à suspensão provisória do processo;
@@ -515,11 +516,11 @@ Reforça a protecção dos idosos que sejam vítimas de crimes.
 
 **CONTRA** Partido Socialista, PCP **ABSTENÇÃO** PSD, PAN, L **FAVOR** CHEGA, IL, BE
 
-## **REJEITADO**
+# **REJEITADO**
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** IL, PCP, L **FAVOR** PSD, CHEGA, BE, PAN
 
-## **REJEITADO**
+# **REJEITADO**
 
 **CONTRA** Partido Socialista, PSD, PCP, BE **ABSTENÇÃO** L **FAVOR** CHEGA, IL, PAN
 
@@ -535,7 +536,7 @@ Para além da falta de valorização, existe também uma enorme desprotecção d
 
 É verdade que durante o exercício das suas funções os membros dos órgãos de polícia criminal são frequentemente confrontados com situações complexas e que podem incluir violência. É também verdade que a maioria dos contactos com o público são pacíficos. No entanto, não se pode ignorar as situações em que não o são, especialmente nos casos em que os cidadãos actuam no sentido de exercer violência contra os polícias e de constranger a sua actuação, sendo que em alguns desses casos os agressores estão armados, o que eleva o risco de ofensa à integridade física do polícia.
 
-O CHEGA não esquece ainda a dimensão da saúde mental e os números relativos a suicídios nas forças de segurança, que são verdadeiramente alarmantes. Segundo o noticiado na Revista Visão**1** , nas últimas duas décadas, 160 elementos das forças de segurança – 80 na PSP e 80 na GNR – terminaram com a própria vida. Sendo que comparativamente, a taxa de incidência de suicídios nas forças de segurança varia entre o dobro e o triplo face à população geral. Esta é uma estatística a que o CHEGA não pode ficar indiferente. Pelo que, em suma, na sequência do que o Partido CHE-GA tem feito – uma vez que tem sido a única composição político-partidária a proceder insistentemente à defesa pública das forças de segurança – urge reorganizar, requalificar e redefinir, em ordem a obter aquilo que se pode resumir em poucas palavras: "Valorização e dignificação das forças de segurança".
+O CHEGA não esquece ainda a dimensão da saúde mental e os números relativos a suicídios nas forças de segurança, que são verdadeiramente alarmantes. Segundo o noticiado na Revista Visão**<sup>1</sup>** , nas últimas duas décadas, 160 elementos das forças de segurança – 80 na PSP e 80 na GNR – terminaram com a própria vida. Sendo que comparativamente, a taxa de incidência de suicídios nas forças de segurança varia entre o dobro e o triplo face à população geral. Esta é uma estatística a que o CHEGA não pode ficar indiferente. Pelo que, em suma, na sequência do que o Partido CHE-GA tem feito – uma vez que tem sido a única composição político-partidária a proceder insistentemente à defesa pública das forças de segurança – urge reorganizar, requalificar e redefinir, em ordem a obter aquilo que se pode resumir em poucas palavras: "Valorização e dignificação das forças de segurança".
 
 #### **PRIORIDADES**
 
@@ -621,7 +622,7 @@ progressão, assim como seguros de vida e de acidentes de trabalho, a cobrir 24h
 
 Aumenta para 500 Euros a componente fixa do suplemento por serviço e risco nas forças de segurança auferido pelos militares da GNR e pelos agentes da PSP
 
-# **REJEITADO CONTRA** Partido Socialista
+## **REJEITADO CONTRA** Partido Socialista
 
 **ABSTENÇÃO** PSD, IL, PCP, BE, L **FAVOR** CHEGA, PAN
 
@@ -671,7 +672,7 @@ Classificação da profissão de desgaste rápido para os sapadores florestais
 
 # IV CAPÍTULO **GARANTIR O ACESSO À SAÚDE. COMO?**
 
-**O**CHEGA reconhece que a saúde é um pilar fundamental para o bem-estar dos cidadãos e, como tal, entende que é urgente a reestruturação profunda do Serviço Nacional de Saúde (SNS), que deve, desde logo, passar a designar-se Sistema Nacional de Saúde. Este é caracterizado por uma articulação estreita entre o sector público, privado e social.
+**O**CHEGA reconhece que a saúde é um pilar funda-mental para o bem-estar dos cidadãos e, como tal, entende que é urgente a reestruturação profunda do Serviço Nacional de Saúde (SNS), que deve, desde logo, passar a designar-se Sistema Nacional de Saúde. Este é caracterizado por uma articulação estreita entre o sector público, privado e social.
 
 O compromisso do CHEGA para as eleições legislativas de 2024 é o de abordar de forma global os desafios actuais e construir um sistema de saúde que seja universal, eficiente, integrado e equitativo.
 
@@ -679,7 +680,7 @@ Neste sentido, a medida prioritária a desenvolver é a informatização de todo
 
 A grave crise que atravessa o Serviço Nacional de Saúde deve-se a políticas públicas infrutíferas, com grave enviesamento ideológico e baseadas na presunção e no preconceito. Isto levou a uma crescente degradação do serviço de saúde e, consequentemente, no estado de saúde dos portugueses, na degradação de instalações e equipamentos, bem como nas condições de trabalho e em pressões desumanas sobre os profissionais de saúde, sobretudo ao nível dos serviços hospitalares, mas também em todos os outros que integram o SNS.
 
-As dificuldades de acesso são o primeiro obstáculo que os cidadãos encontram quando precisam de resolver os seus problemas de saúde. Um exemplo disso é a falta de médicos de família, que tem vindo a aumentar e que actualmente coloca mais de 1.700.000**1** cidadãos sem ver cumprida a promessa de António Costa sucessivamente adiada: "2017 é, de uma vez por todas, o ano em que todos os portugueses terão um médico de família atribuído"**2**.
+As dificuldades de acesso são o primeiro obstáculo que os cidadãos encontram quando precisam de resolver os seus problemas de saúde. Um exemplo disso é a falta de médicos de família, que tem vindo a aumentar e que actualmente coloca mais de 1.700.000**<sup>1</sup>** cidadãos sem ver cumprida a promessa de António Costa sucessivamente adiada: "2017 é, de uma vez por todas, o ano em que todos os portugueses terão um médico de família atribuído"**<sup>2</sup>**.
 
 Este falhanço político é mais uma prova da incapacidade dos governos anteriores em resolver este problema. Em breve, e neste ritmo, mais de 2 milhões de portugueses estarão sem médico de família.
 
@@ -695,7 +696,7 @@ As carreiras profissionais também carecem de uma adequada valorização, devend
 
 As alterações demográficas, as transições de natureza epi-
 
-**<sup>1</sup>** Utentes Inscritos em Cuidados de Saúde Primários — Transparência (sns.gov.pt) **2** Cf. Jornal de Negócios, 2016
+**<sup>1</sup>** Utentes Inscritos em Cuidados de Saúde Primários — Transparência (sns.gov.pt) **<sup>2</sup>**Cf. Jornal de Negócios, 2016
 
 ![](_page_28_Picture_1.jpeg)
 
@@ -707,13 +708,11 @@ Apesar de uma parte significativa dos serviços prestados pelo Serviço Nacional
 
 A determinação dos custos, da sua estrutura, de todos os actos prestados tem de ser conhecida e pública para que uma real comparação possa ser realizada, com base na garantia de controlo e supervisão da qualidade, indicador que irá permitir fazer as opções e determinar o financiamento. Este processo deve ser comum a todos os sectores, agentes, instituições e prestações do sistema.
 
-O CHEGA reconhece a importância de devolver ao SNS a capacidade de atrair e fixar profissionais e, neste âmbito, importa referir que entre fevereiro e outubro de 2023, 1.780**3** profissionais abandonaram o SNS. Pese embora tenham sido promovidos diversos concursos para contratação de médicos, o resultado revelou reiteradamente a falta de atractividade do SNS, uma tendência que não pode ser subestimada.
+O CHEGA reconhece a importância de devolver ao SNS a capacidade de atrair e fixar profissionais e, neste âmbito, importa referir que entre fevereiro e outubro de 2023, 1.780**<sup>3</sup>** profissionais abandonaram o SNS. Pese embora tenham sido promovidos diversos concursos para contratação de médicos, o resultado revelou reiteradamente a falta de atractividade do SNS, uma tendência que não pode ser subestimada.
 
-Assim, o CHEGA propõe um Sistema Nacional de Saúde guiado pela eficiência, qualidade, incentivando a contratualização de parcerias público-privadas onde se revele necessário e modelos de gestão por objectivos. Defendemos Comprometemo-nos a aferir de forma credível os níveis de satisfação dos utentes em diferentes valências, proporcionando ferramentas de comparação entre sectores público, privado e social.
+Assim, o CHEGA propõe um Sistema Nacional de Saúde guiado pela eficiência, qualidade, incentivando a contratualização de parcerias público-privadas onde se revele necessário e modelos de gestão por objectivos. Defendemos a autonomia de gestão das instituições hospitalares públicas, baseada em critérios de transparência e competência, e a comparação entre os diversos sectores.
 
-cas, baseada em critérios de transparência e competência,
-
-e a comparação entre os diversos sectores.
+Comprometemo-nos a aferir de forma credível os níveis de satisfação dos utentes em diferentes valências, proporcionando ferramentas de comparação entre sectores público, privado e social.
 
 A proposta do CHEGA para a saúde, através deste programa para as eleições legislativas de 2024, reflete o compromisso inabalável de construir um sistema de saúde robusto, centrado nas pessoas e capaz de responder aos desafios emergentes.
 
@@ -739,7 +738,7 @@ A proposta do CHEGA para a saúde, através deste programa para as eleições le
 
 • Dinamização da telemedicina na prestação de cuidados de saúde, permitindo consultas remotas e acessíveis atra-
 
-**3** Análise Mensal do Balanço Social – SNS
+**<sup>3</sup>** Análise Mensal do Balanço Social – SNS
 
 vés de tecnologias digitais;
 
@@ -853,7 +852,7 @@ Recomenda ao Governo o alargamento urgente da Rede de Cuidados Paliativos
 
 # V CAPÍTULO **ASSEGURAR HABITAÇÃO DIGNA. COMO?**
 
-**A**habitação em Portugal assume contornos preocupantes, marcados pela escassez de soluções eficazes e pelo desalinhamento com os princípios constitucionais. É imperativo definir uma abordagem pragmática e consistente, que equilibre a oferta com a procura, um equilíbrio que deve ser transversal às diferentes nuances do parque imobiliário.
+**A**habitação em Portugal assume contornos preo-cupantes, marcados pela escassez de soluções eficazes e pelo desalinhamento com os princípios constitucionais. É imperativo definir uma abordagem pragmática e consistente, que equilibre a oferta com a procura, um equilíbrio que deve ser transversal às diferentes nuances do parque imobiliário.
 
 Contudo, ao longo dos anos, tem-se assistido a uma desconsideração sistemática dos princípios constitucionais, com governos predominantemente socialistas a adoptarem medidas que resultaram no agravamento da crise habitacional. Programas como "1º Direito" e "Arrendamento Acessível" não só revelaram adesão muito limitada como, por vezes, foram desajustados da realidade e das necessidades reais do mercado.
 
@@ -865,15 +864,15 @@ Esta abordagem coerciva cria um ambiente de incerteza e desconfiança no sector 
 
 O Estado não deve interferir na propriedade privada, mas desenhar políticas que estimulem o investimento público e privado, criar incentivos fiscais, simplificar processos burocráticos e promover a segurança jurídica. Com base na lógica de mercado "quanto maior a oferta, mais baixo será o valor" pode e deve ser promovida mais oferta, com base no cálculo do índice de disponibilidade habitacional, este composto por vários indicadores, por região, que relaciona procura e oferta de habitação, disponibilidade de solo, densidade populacional e infra-estruturas de suporte.
 
-O CHEGA acredita que o caminho reside numa reforma substancial das políticas para responder às necessidades das famílias e promover um mercado habitacional mais dinâmico e acessível. O mercado imobiliário português enfrenta uma crise acentuada, especialmente nas grandes cidades**1** , impactando desproporcionalmente os jovens adultos. De acordo com os dados do INE, entre 2013 e 2022 construíram-se 150.000 alojamentos, menos 480.000 que na década anterior.
+O CHEGA acredita que o caminho reside numa reforma substancial das políticas para responder às necessidades das famílias e promover um mercado habitacional mais dinâmico e acessível. O mercado imobiliário português enfrenta uma crise acentuada, especialmente nas grandes cidades**<sup>1</sup>** , impactando desproporcionalmente os jovens adultos. De acordo com os dados do INE, entre 2013 e 2022 construíram-se 150.000 alojamentos, menos 480.000 que na década anterior.
 
 O aumento dos preços das casas a partir de 2017 agravou a acessibilidade, tanto na aquisição como no arrendamento, especialmente nas áreas metropolitanas de Lisboa e Porto. As famílias enfrentam actualmente a necessidade de dedicar uma fatia muito significativa do seu rendimento para comprar ou arrendar casa. A instabilidade no emprego, os baixos salários e condições restritivas por parte da Banca, condicionam o acesso ao crédito e, por consequência, à aquisição de habitação.
 
-Actualmente, um jovem que deseje comprar ou arrendar uma casa precisa estar muito bem estabelecido profissionalmente. Por este motivo, Portugal ocupa o 2º lugar no ranking dos países onde quase 80% dos jovens adultos ainda vive com os pais, muito acima da média europeia de aproximadamente 50%**2**.
+Actualmente, um jovem que deseje comprar ou arrendar uma casa precisa estar muito bem estabelecido profissionalmente. Por este motivo, Portugal ocupa o 2º lugar no ranking dos países onde quase 80% dos jovens adultos ainda vive com os pais, muito acima da média europeia de aproximadamente 50%**<sup>2</sup>**.
 
 Na última década, observou-se uma diminuição significativa na construção de novas habitações em Portugal, atribuível em parte à priorização da reabilitação urbana e às restrições financeiras e operacionais no sector da construção, acentuada por diversos elementos relacionados com o ordenamento fiscal e regulatório.
 
-Os dados do INE**3** demonstram que os prazos médios de
+Os dados do INE**<sup>3</sup>** demonstram que os prazos médios de
 
 **<sup>1</sup>** Cf.-FFMS-crise-da-habitacao-nas-grandes-cidades-uma-analise
 
@@ -921,7 +920,7 @@ Perante este cenário crítico é imperativo adoptar medidas políticas abrangen
 
 **125.** Investir significativamente na melhoria e expansão de redes de transporte público e serviços essenciais, como es-
 
-**<sup>3</sup>** INE, Informação de 2021 e 2022 com base nas Estimativas de Obras Concluídas **4** https://www.portaldahabitacao.pt/chavenamao-ferramentas/-/asset_publisher/0ChxS95jgkNa/content/benef%2525c3%2525adcios-fiscais-reabilita%2525c3%2525a7%2525c3%2525a3o
+**<sup>3</sup>** INE, Informação de 2021 e 2022 com base nas Estimativas de Obras Concluídas **<sup>4</sup>** https://www.portaldahabitacao.pt/chavenamao-ferramentas/-/asset\_publisher/0ChxS95jgkNa/content/benef%2525c3%2525adcios-fiscais-reabilita%2525c3%2525a7%2525c3%2525a3o
 
 ![](_page_37_Picture_1.jpeg)
 
@@ -1001,7 +1000,7 @@ Estabelece medidas de apoio e protecção dos particulares, por motivo do aument
 
 # VI CAPÍTULO **LIBERTAR O ENSINO DE IDEOLOGIAS. COMO?**
 
-**A**má gestão socialista tem levado à degradação dos serviços de educação públicos. Os resultados não enganam: incumprimentos e injustiças nas carreiras e salários de educadores, professores, técnicos operacionais e demais funcionários; perda significativa do seu poder de compra; sofrimento físico e psicológico que atinge metade de um corpo socioprofissional dominantemente feminino; indisciplina nas salas de aula; transições de ano altamente facilitadas por imposição dos políticos; consequentes quebras acentuadas nos resultados internacionais do PISA 2022 em literacia, leitura, matemática e ciência de alunos com quinze anos; excessiva burocracia; ensino especial fortemente fragilizado por falta de apoios para pessoas com deficiência; números sem precedentes de alunos com falta de professores a pelo menos uma disciplina; incapacidade dos estabelecimentos de ensino de responderem à degradação do património edificado; um ministério da Educação em descalabro financeiro e o mais que se possa acrescentar.
+**A**má gestão socialista tem levado à degradação dos serviços de educação públicos. Os resulta-dos não enganam: incumprimentos e injustiças nas carreiras e salários de educadores, professores, técnicos operacionais e demais funcionários; perda significativa do seu poder de compra; sofrimento físico e psicológico que atinge metade de um corpo socioprofissional dominantemente feminino; indisciplina nas salas de aula; transições de ano altamente facilitadas por imposição dos políticos; consequentes quebras acentuadas nos resultados internacionais do PISA 2022 em literacia, leitura, matemática e ciência de alunos com quinze anos; excessiva burocracia; ensino especial fortemente fragilizado por falta de apoios para pessoas com deficiência; números sem precedentes de alunos com falta de professores a pelo menos uma disciplina; incapacidade dos estabelecimentos de ensino de responderem à degradação do património edificado; um ministério da Educação em descalabro financeiro e o mais que se possa acrescentar.
 
 Combater a crise neste sector exige a predisposição para renovar o contexto envolvente a partir do princípio: a família educa, a escola ensina. Daí que o sucesso das reformas dependa da transição da designação ministério da Educação para ministério do Ensino de modo a assegurar a autonomia entre a família e a escola.
 
@@ -1169,9 +1168,9 @@ Procede à isenção de propinas para alunos a frequentar estágios profissionai
 
 # VII CAPÍTULO **GARANTIR FRONTEIRAS CONTROLADAS. COMO?**
 
-**A**imigração em Portugal é um fenómeno relativamente recente. Em 1995, apenas 1,7% da população era constituída por imigrantes. No entanto, a partir de 2016, assistimos a um aumento constante dos fluxos migratórios com destino ao nosso país o que levou a que, já em 2022, 10% da população residente fosse constituída por imigrantes. Isto é, o dobro do que se verificava há apenas 10 anos**1** .
+**A**imigração em Portugal é um fenómeno relati-vamente recente. Em 1995, apenas 1,7% da população era constituída por imigrantes. No entanto, a partir de 2016, assistimos a um aumento constante dos fluxos migratórios com destino ao nosso país o que levou a que, já em 2022, 10% da população residente fosse constituída por imigrantes. Isto é, o dobro do que se verificava há apenas 10 anos**<sup>1</sup>** .
 
-Mas, 2022 foi também o ano em que mais imigrantes entraram em Portugal desde que há registo, num total de 118.000**2**. Isto sem contar com os imigrantes sem documentos, que por razões óbvias, não entram nestas estatísticas, mas que na realidade ninguém sabe ao certo quantos são. Portugal tem a singularidade de ser dos poucos países europeus que permite a um trabalhador imigrante, em situação ilegal, fazer o pedido de visto.
+Mas, 2022 foi também o ano em que mais imigrantes entraram em Portugal desde que há registo, num total de 118.000**<sup>2</sup>**. Isto sem contar com os imigrantes sem documentos, que por razões óbvias, não entram nestas estatísticas, mas que na realidade ninguém sabe ao certo quantos são. Portugal tem a singularidade de ser dos poucos países europeus que permite a um trabalhador imigrante, em situação ilegal, fazer o pedido de visto.
 
 A política migratória irresponsável de "portas abertas" e sem qualquer controlo, implementada pelo PS com o apoio dos demais partidos de esquerda, trouxe-nos até à actual situação. O próprio Serviço de Estrangeiros e Fronteiras (SEF), um serviço de segurança e um órgão de polícia criminal, com competências específicas para o controlo de fronteiras, regularização de estrangeiros e investigação criminal no âmbito do tráfico de seres humanos e do auxílio à imigração ilegal, foi extinto há poucos meses sem a menor hesitação. A Agência para a Integração, Migrações e Asilo (AIMA), desprovida das funções policiais, e que veio substituir o SEF, tem já mais de 350.000 processos de regularização pendentes.
 
@@ -1179,7 +1178,7 @@ Esta política migratória irresponsável de "portas abertas" e sem qualquer con
 
 • Comparando com os restantes países da União Europeia, entre 2012 e 2021, Portugal foi dos países onde mais aumentou o número de imigrantes, tendo por base a população residente. Destes imigrantes, 31% estão no patamar da pobreza ou exclusão social.
 
-• Assistimos nos últimos anos a um aumento do crime organizado**3** e das redes criminosas a operar no nosso país, principalmente aquelas que se dedicam ao tráfico humano onde, muitas das vezes, os próprios imigrantes, são as principais vítimas**4**.
+• Assistimos nos últimos anos a um aumento do crime organizado**<sup>3</sup>** e das redes criminosas a operar no nosso país, principalmente aquelas que se dedicam ao tráfico humano onde, muitas das vezes, os próprios imigrantes, são as principais vítimas**<sup>4</sup>**.
 
 • Pressão Migratória sobre o Serviço Nacional de Saúde (SNS). Segundo o Ministério da Saúde estão inscritos no Registo Nacional de Utentes (RNU) 1.560.468 estrangeiros. Especialidades como obstetrícia e ortopedia estão sob imensa pressão. Em algumas Unidades de Saúde do país, a maioria dos utentes já são imigrantes.
 
@@ -1241,7 +1240,7 @@ Assim, e perante a actual política migratória irresponsável de "portas aberta
 
 **180.** Impedir o avanço do fundamentalismo islâmico e garantir que as novas comunidades respeitam a lei da liberdade religiosa, os direitos humanos, nomeadamente os direitos das mulheres e crianças.
 
-**4** Megaoperação: PJ trava rede que faz circular milhares de migrantes ilegais na Europa graças a uma lei portuguesa
+**<sup>4</sup>** Megaoperação: PJ trava rede que faz circular milhares de migrantes ilegais na Europa graças a uma lei portuguesa
 
 **<sup>3</sup>** Crime organizado: relatório da secreta aponta para 1000 elementos do PCC a atuar em Portugal
 
@@ -1289,7 +1288,7 @@ VIII CAPÍTULO
 
 # **MAIS RENDIMENTOS PARA AS FAMÍLIAS E EMPRESAS. COMO?**
 
-**M**ais de vinte e cinco anos de estagnação económica, injustiça social, empobrecimento e perda do poder de compra levaram à desmotivação geral dos portugueses.
+**M**ais de vinte e cinco anos de estagnação eco-nómica, injustiça social, empobrecimento e perda do poder de compra levaram à desmotivação geral dos portugueses.
 
 A política fiscal seguida nas últimas décadas é totalmente desadequada, perseguindo por inúmeras vezes o processo de criação de riqueza, penalizando os salários de quem mais trabalha e mais se esforça, as empresas que potencializam o seu crescimento e criam emprego.
 
@@ -1445,13 +1444,13 @@ Ponto 2, Alínea b), N.º 3, Artigo 2.º do Código do IRS / Aumento para 80% da
 
 # IX CAPÍTULO **JOVENS COM UM FUTURO EM PORTUGAL. COMO?**
 
-**P**ortugal é hoje um país em que, para um jovem, é mais fácil sair do que ficar. Em 2020, Portugal tornou-se o 13º país mais pobre da União Europeia. Cerca de 4,5 milhões de portugueses encontram-se em situação de pobreza, auferindo menos de 554 euros por mês. Este número reduz-se para 1,9 milhões quando são considerados apoios sociais. No entanto, esta redução, que à partida nos pode parecer exclusivamente positiva, tem contornos mais latos uma vez que evidencia que 2,6 milhões de portugueses estão directamente dependentes do Estado para viver e os 1,9 milhões de portugueses sem acesso a estes apoios limitam-se a sobreviver. Segundo o Pordata, em 2020, dois em cada cinco famílias portuguesas tinham rendimentos inferiores a 830 euros por mês, o que perfaz, aproximadamente 10.000 euros por ano.**1**
+**P**ortugal é hoje um país em que, para um jovem, é mais fácil sair do que ficar. Em 2020, Portugal tor-nou-se o 13º país mais pobre da União Europeia. Cerca de 4,5 milhões de portugueses encontram-se em situação de pobreza, auferindo menos de 554 euros por mês. Este número reduz-se para 1,9 milhões quando são considerados apoios sociais. No entanto, esta redução, que à partida nos pode parecer exclusivamente positiva, tem contornos mais latos uma vez que evidencia que 2,6 milhões de portugueses estão directamente dependentes do Estado para viver e os 1,9 milhões de portugueses sem acesso a estes apoios limitam-se a sobreviver. Segundo o Pordata, em 2020, dois em cada cinco famílias portuguesas tinham rendimentos inferiores a 830 euros por mês, o que perfaz, aproximadamente 10.000 euros por ano.**<sup>1</sup>**
 
-Ao contrário do que se poderia pensar, os obstáculos dos jovens (pessoas com idades compreendidas entre os 15 e os 24 anos) não terminam quando encontram trabalho, visto que 75% dos jovens em Portugal ganham menos do que 950 euros por mês e mais de 50% recebe menos de 800 euros, de acordo com um estudo da Fundação Francisco Manuel dos Santos (FFMS). Apenas 19% dos jovens em Portugal dizem viver confortável com aquilo que ganham, metade dos entrevistados deste estudo tinham contratos precários e somente 3% dos jovens ganhavam mais de 1.642 euros, um valor que não chega sequer a ser superior a alguns salários mínimos na União Europeia. A falta de emprego e as condições salariais motivam mais de 26% dos jovens a pensarem diariamente abandonar o emprego que têm. Consequentemente, o estudo revelou também que um terço dos jovens querem sair de Portugal.**2**
+Ao contrário do que se poderia pensar, os obstáculos dos jovens (pessoas com idades compreendidas entre os 15 e os 24 anos) não terminam quando encontram trabalho, visto que 75% dos jovens em Portugal ganham menos do que 950 euros por mês e mais de 50% recebe menos de 800 euros, de acordo com um estudo da Fundação Francisco Manuel dos Santos (FFMS). Apenas 19% dos jovens em Portugal dizem viver confortável com aquilo que ganham, metade dos entrevistados deste estudo tinham contratos precários e somente 3% dos jovens ganhavam mais de 1.642 euros, um valor que não chega sequer a ser superior a alguns salários mínimos na União Europeia. A falta de emprego e as condições salariais motivam mais de 26% dos jovens a pensarem diariamente abandonar o emprego que têm. Consequentemente, o estudo revelou também que um terço dos jovens querem sair de Portugal.**<sup>2</sup>**
 
-Com o empobrecimento gradual das novas gerações e com os problemas na habitação que têm sido verificados nos últimos anos, os jovens ficaram particularmente expostos e vulneráveis. Há 20 anos, cerca de 70% dos jovens eram proprietários de uma habitação. No entanto, hoje esse número desceu drasticamente para os 40%. Os jovens têm sofrido com as crises económicas e mostram, mais do que nunca, ser das camadas mais frágeis da sociedade.**3** Como tal, não espanta que Portugal seja um dos países da União Europeia onde os jovens têm mais dificuldade em sair de casa dos pais, sendo que o fazem em média aos 33,6 anos de idade. Para sair de casa dos progenitores e alcançar a emancipação, os jovens precisam de empregos com condições atractivas que permitam uma vida decente que lhes possibilite lutar pelos seus sonhos e ambições. No entanto, em Portugal a situação está crítica e a insegurança profissional está associada ao adiamento na entrada no mercado de trabalho e ao aumento da depressão e ansiedade nas camadas mais jovens da sociedade.**4**
+Com o empobrecimento gradual das novas gerações e com os problemas na habitação que têm sido verificados nos últimos anos, os jovens ficaram particularmente expostos e vulneráveis. Há 20 anos, cerca de 70% dos jovens eram proprietários de uma habitação. No entanto, hoje esse número desceu drasticamente para os 40%. Os jovens têm sofrido com as crises económicas e mostram, mais do que nunca, ser das camadas mais frágeis da sociedade.**<sup>3</sup>** Como tal, não espanta que Portugal seja um dos países da União Europeia onde os jovens têm mais dificuldade em sair de casa dos pais, sendo que o fazem em média aos 33,6 anos de idade. Para sair de casa dos progenitores e alcançar a emancipação, os jovens precisam de empregos com condições atractivas que permitam uma vida decente que lhes possibilite lutar pelos seus sonhos e ambições. No entanto, em Portugal a situação está crítica e a insegurança profissional está associada ao adiamento na entrada no mercado de trabalho e ao aumento da depressão e ansiedade nas camadas mais jovens da sociedade.**<sup>4</sup>**
 
-A incerteza no futuro, a insegurança profissional e o fraco planeamento político adiam perpetuamente a vida do jovem português. Isto partindo da premissa de um jovem que fique em Portugal, porque a realidade da emigração é também bastante preocupante. Recentemente, um estudo da Associação BRP e da Deloitte apresentou dados verdadeiramente perturbadores. Cerca de 25% da população portuguesa vive actualmente fora de Portugal, como tal, somos o 8º país do mundo com a maior taxa de emigração. Pior ainda, cerca de 61% dos portugueses não tencionam voltar para o seu país. Os dados são mais alarmantes para as novas gerações, nomeadamente a geração Z: cerca de 50% está predisposta a emigrar, praticamente o dobro da geração que lhe antecedeu.**5**
+A incerteza no futuro, a insegurança profissional e o fraco planeamento político adiam perpetuamente a vida do jovem português. Isto partindo da premissa de um jovem que fique em Portugal, porque a realidade da emigração é também bastante preocupante. Recentemente, um estudo da Associação BRP e da Deloitte apresentou dados verdadeiramente perturbadores. Cerca de 25% da população portuguesa vive actualmente fora de Portugal, como tal, somos o 8º país do mundo com a maior taxa de emigração. Pior ainda, cerca de 61% dos portugueses não tencionam voltar para o seu país. Os dados são mais alarmantes para as novas gerações, nomeadamente a geração Z: cerca de 50% está predisposta a emigrar, praticamente o dobro da geração que lhe antecedeu.**<sup>5</sup>**
 
 Simultaneamente é também especialmente preocupante os dados mais recentes sobre os jovens qualificados que decidem procurar oportunidades fora de Portugal. Praticamente 40% dos jovens recém-formados todos os anos vão viver para o estrangeiro. Praticamente 50 000 jovens entraram numa licenciatura em Portugal no ano de 2023, se isto se mantiver, em três ou quatro anos, cerca de 20.000 destes jovens irão procurar concretizar-se noutro local do mundo. Se todos os anos saírem cerca de 20.000 portugueses qualificados e recém-formados, ao fim de 10 anos, terão saído 200.000 portugueses. Em 20 anos terão saído 400.000 portugueses. É uma catástrofe social com graves responsabilidades políticas e que demonstra a falência moral desta República e dos seus governantes.
 
@@ -1569,8 +1568,6 @@ Amplia o leque de beneficiários do programa Porta 65 Jovem, assegurando o direi
 
 ![](_page_65_Picture_0.jpeg)
 
-**X CAPÍTULO**
-
 ![](_page_66_Picture_0.jpeg)
 
 # X CAPÍTULO **FAZER PORTUGAL CRESCER. COMO?**
@@ -1597,7 +1594,9 @@ O turismo desempenha um papel fundamental na economia de Portugal e tem uma impo
 
 Quando se pretende combater o êxodo rural, o turismo tem o potencial de impulsionar o desenvolvimento regional ao atrair visitantes para regiões fora dos principais centros urbanos. O turismo contribui para a fixação das populações e para a criação de novos negócios e empregos, atrai investimentos em infra-estruturas e serviços, o que contribui para o desenvolvimento geral do país como um todo. Através do turismo promove-se a imagem de Portugal e o seu conhecimento no estrangeiro, o que beneficia a reputação e a atractividade do país. A inovação, por sua vez, impulsiona o crescimento económico, permitindo que as empresas criem produtos, serviços e processos mais eficientes, o que aumenta a produtividade e a competitividade das empresas portuguesas. Além disso, a inovação promove a diversificação da economia, reduzindo a dependência de sectores tradicionais, ajudando a criar um ambiente económico mais resiliente e menos susceptível a flutuações económicas globais, atraindo investimentos estrangeiros e impulsionando o empreendedorismo, gerando empregos qualificados e estimulando a criação de novas empresas.
 
-A verdade é que a única forma de conseguir criar riqueza geracional sustentada é através de uma forte aposta na tecnologia e inovação. Há 500 anos Portugal construiu um império marítimo que espantou o mundo, criando riqueza nunca antes vista no pequeno reino "entalado" entre a poderosa Castela e o mar Atlântico. Nessa época, a necessidade aguçou o engenho, levando os nossos antepassados a apostar numa expansão marítima alicerçada na inovação tecnológica que caracterizava os exploradores e marinheiros portugueses da altura. Essa idade de ouro de Portugal só foi possível porque o rei e as elites da época perceberam que a única forma de ultrapassar os conhecidos condicionantes geopolíticos e geográficos seria através de uma aposta concertada na inovação tecnológica e no conhecimento. A superioridade tecnológica portuguesa à época era de tal ordem que um pequeno punhado de bravos marinheiros conseguiu chegar a terras longínquas, isto devido a um armamento inovador e à sua superioridade nas ciências matemáticas, astronomia, navegação, geografia e estudo das marés.
+A verdade é que a única forma de conseguir criar riqueza geracional sustentada é através de uma forte aposta na tecnologia e inovação. Há 500 anos Portugal construiu um império marítimo que espantou o mundo, criando riqueza nunca antes vista no pequeno reino "entalado" entre a poderosa Castela e o mar Atlântico. Nessa época, a necessidade aguçou o engenho, levando os nossos antepassados
+
+![](_page_68_Picture_2.jpeg)
 
 Hoje em dia, no século XXI, os mares por explorar são outros, obrigando-nos a adaptar aos desafios modernos para conseguirmos competir num mundo global onde o factor geográfico já não é tão determinante. Actualmente, os novos mares por explorar encontram-se no mundo digital e não há razão objectiva para que Portugal não possa voltar a ser exportador de tecnologia e conhecimento de ponta, permitindo assim dar um salto qualitativo imenso, criando dessa forma riqueza geracional que nos permita sair da cauda da Europa e voltar a ter uma palavra a dizer na cena internacional.
 
@@ -1615,12 +1614,14 @@ Em suma, os desafios profundos que enfrentamos exigem uma resposta inovadora e d
 
 • Implementar uma política orientada para o crescimento económico;
 
-- Racionalizar as empresas públicas e torná-las competitivas;
+• Racionalizar as empresas públicas e torná-las competitivas;
+
 • Promover o turismo como factor de progresso e de correcção de assimetrias internas;
 
 • Apostar na inovação como elemento diferenciador, gerador de vantagem competitiva e de riqueza geracional;
 
-- Apoiar a internacionalização das nossas empresas.
+• Apoiar a internacionalização das nossas empresas.
+
 #### **PROPOSTAS**
 
 **229.** Reduzir a carga fiscal para incentivar o investimento e estimular o crescimento das empresas, nomeadamente:
@@ -1753,7 +1754,7 @@ Artigo 121.º-A (Suspensão da Contribuição do Serviço Rodoviário)
 
 # XI CAPÍTULO **RESTITUIR A DIGNIDADE AOS TRABALHADORES. COMO?**
 
-**N**o contexto económico global em que nos inserimos é da maior relevância destacar a importância que os trabalhadores e o factor "trabalho" possuem, quer para dar impulso à produção, à inovação e ao crescimento dos vários sectores da economia, quer como alicerces fundacionais para a manutenção de sociedades prósperas e da paz social.
+**N**o contexto económico global em que nos inseri-mos é da maior relevância destacar a importân-cia que os trabalhadores e o factor "trabalho" possuem, quer para dar impulso à produção, à inovação e ao crescimento dos vários sectores da economia, quer como alicerces fundacionais para a manutenção de sociedades prósperas e da paz social.
 
 Neste âmbito pode ainda afirmar-se que sem trabalhadores não existiam bens, nem serviços, sendo estes o resultado palpável das suas capacidades, conhecimentos e esforços. Seja no sector agrícola, industrial, de serviços ou tecnológico, o resultado do esforço dos trabalhadores constitui o alicerce sobre o qual repousa o desenvolvimento de um país e as suas condições sócio-económicas. Os trabalhadores geram riqueza, promovem o desenvolvimento e fortalecem a base financeira das nações.
 
@@ -1773,7 +1774,7 @@ Em termos concretos, a produtividade por trabalhador em Portugal é 28% inferior
 
 a diferença entre os custos do trabalho por pessoa empregada e os custos do trabalho por hora são os que apresentam o maior diferencial, o que significa que no nosso país trabalha-se muito, mas produz-se pouco.
 
-No que diz respeito à taxa de desemprego jovem é de referir que, em setembro de 2023, a mesma fixou-se nos 20,3% e que, "desde 2015, a taxa de desemprego dos jovens com menos de 25 anos tem sido mais do dobro da população em geral. Durante a pandemia, chegou a ser 3,5 vezes superior."**1** . Esta situação, por sua vez, justifica a emigração dos jovens portugueses mais qualificados, uma vez que "as perspectivas salariais também pesam nas decisões de emigrar, dado que os salários de países próximos são significativamente mais elevados do que os oferecidos em Portugal. Em paridade de poder de compra, os salários mensais dos jovens com menos de 30 anos representavam 55% da média da UE-27, 33% da média salarial na Suíça e 47% na Alemanha, alguns dos principais destinos de emigração de portugueses."**2**.
+No que diz respeito à taxa de desemprego jovem é de referir que, em setembro de 2023, a mesma fixou-se nos 20,3% e que, "desde 2015, a taxa de desemprego dos jovens com menos de 25 anos tem sido mais do dobro da população em geral. Durante a pandemia, chegou a ser 3,5 vezes superior."**<sup>1</sup>** . Esta situação, por sua vez, justifica a emigração dos jovens portugueses mais qualificados, uma vez que "as perspectivas salariais também pesam nas decisões de emigrar, dado que os salários de países próximos são significativamente mais elevados do que os oferecidos em Portugal. Em paridade de poder de compra, os salários mensais dos jovens com menos de 30 anos representavam 55% da média da UE-27, 33% da média salarial na Suíça e 47% na Alemanha, alguns dos principais destinos de emigração de portugueses."**<sup>2</sup>**.
 
 Portugal enfrenta, assim, desafios significativos relacionados com o seu desenvolvimento. Um país que não consegue proporcionar empregos para os seus jovens mais qualificados, além de estar a falhar na sua política educativa e laboral, está a condenar o futuro do país, pois perde os seus jovens mais talentosos, persistindo dessa forma um círculo vicioso que urge terminar.
 
@@ -1789,7 +1790,8 @@ Só com empresas fortes financeiramente teremos empregos, trabalho digno e capac
 
 • Procurar atingir o pleno emprego e o progresso social;
 
-- Lutar contra a exclusão social;
+• Lutar contra a exclusão social;
+
 • Promover o equilíbrio na relação entre o trabalho e a vida familiar.
 
 #### **PROPOSTAS**
@@ -1808,7 +1810,7 @@ Só com empresas fortes financeiramente teremos empregos, trabalho digno e capac
 
 **261.** Assegurar que os recibos de vencimento contêm um conjunto de informações relevantes, tais como descontos ou deduções, incluindo o valor acumulado de retenção de IRS e de descontos para a Segurança Social do ano corren-
 
-**<sup>1</sup>** In: "Livro Branco – Mais e Melhores Empregos para os Jovens"; p. 1; Fundação José Neves; Observatório do Emprego Jovem e Organização Internacional do Trabalho; Dezembro 2022. **2** Ibidem; p. 14.
+**<sup>1</sup>** In: "Livro Branco – Mais e Melhores Empregos para os Jovens"; p. 1; Fundação José Neves; Observatório do Emprego Jovem e Organização Internacional do Trabalho; Dezembro 2022. **<sup>2</sup>** Ibidem; p. 14.
 
 te e as contribuições efetuadas pela entidade empregadora para a Segurança Social respeitantes ao trabalhador, incluindo o valor acumulado para o ano corrente.
 
@@ -1825,6 +1827,8 @@ te e as contribuições efetuadas pela entidade empregadora para a Segurança So
 **267.** Estabelecer estratégias de intervenção ou prevenção dos riscos psicossociais em contexto laboral e avaliar a possibilidade de criar a figura do psicólogo do trabalho.
 
 **268.** Promover a longevidade ativa voluntária, alargando a presença dos seniores no mercado de trabalho, facilitando a acumulação de pensão-reforma e trabalho e criando um sistema de tutoria juniores/seniores para transmitir conhecimentos industriais estratégicos, conforme proposta da CIP.
+
+![](_page_77_Picture_11.jpeg)
 
 # XI CAPÍTULO **O QUE JÁ FIZEMOS PARA RESTITUIR A DIGNIDADE AOS TRABALHADORES**
 
@@ -1872,7 +1876,7 @@ Modifica o regime do horário flexível de trabalhador com responsabilidades fam
 
 # XII CAPÍTULO **SALVAR A SEGURANÇA SOCIAL. COMO?**
 
-**S**alvar a Segurança Social, enquanto sistema de garantia dos direitos básicos dos cidadãos e um dos pilares de um Estado de Direito democrático, é uma prioridade absoluta, no sentido de garantir que os portugueses se sintam seguros no presente, mas sobretudo no futuro, depois de uma vida de trabalho em que contribuíram para o desenvolvimento de Portugal.
+**S**alvar a Segurança Social, enquanto sistema de ga-rantia dos direitos básicos dos cidadãos e um dos pilares de um Estado de Direito democrático, é uma prioridade absoluta, no sentido de garantir que os portugueses se sintam seguros no presente, mas sobretudo no futuro, depois de uma vida de trabalho em que contribuíram para o desenvolvimento de Portugal.
 
 A Segurança Social é essencial para a coesão social, assegurando a protecção social e o apoio a grupos vulneráveis, bem como o pagamento das pensões de reforma, pelo que assegurar a sua sustentabilidade é absolutamente fundamental para o bem-estar dos portugueses.
 
@@ -1902,7 +1906,8 @@ A cultura organizacional da Segurança Social deverá mudar no sentido de tratar
 
 • Apoiar as famílias e proteger os mais vulneráveis: crianças e idosos;
 
-- Garantir protecção social no desemprego e doença;
+• Garantir protecção social no desemprego e doença;
+
 • Trabalhar para a sustentabilidade da Segurança Social e procurar formas alternativas do seu financiamento;
 
 • Proceder à simplificação de procedimentos, facilmente auditáveis, para total transparência.
@@ -1997,7 +2002,7 @@ Artigo 80.º-A – Aumento do valor da pensão mínima
 
 # XIII CAPÍTULO **VALORIZAR O PAPEL DA FAMÍLIA NA SOCIEDADE. COMO?**
 
-**A**família é a célula base da sociedade, sendo uma instituição que precede ao próprio Estado. Assim, a sua importância transcende qualquer barreira temporal, qualquer definição legal e qualquer tentativa de mudança de paradigma civilizacional. O CHEGA quer mudar o paradigma estrutural do nosso país e quer fazê-lo centrando a sua acção no apoio à família, porque sociedades prósperas e saudáveis dependem de famílias prósperas e felizes.
+**A**família é a célula base da sociedade, sendo uma instituição que precede ao próprio Esta-do. Assim, a sua importância transcende qualquer barreira temporal, qualquer definição legal e qualquer tentativa de mudança de paradigma civilizacional. O CHEGA quer mudar o paradigma estrutural do nosso país e quer fazê-lo centrando a sua acção no apoio à família, porque sociedades prósperas e saudáveis dependem de famílias prósperas e felizes.
 
 A família desempenha um papel vital na transmissão de valores, na promoção da estabilidade social e no cuidado das gerações futuras. O reconhecimento da importância da família deve ser acompanhado de políticas que fortaleçam esse núcleo essencial da sociedade e promovam o bem-estar de todos os seus membros.
 
@@ -2137,7 +2142,7 @@ Artigo 80.º-A (Apoio à Natalidade)
 
 # XIV CAPÍTULO **ASSEGURAR A SOBERANIA ENERGÉTICA. COMO?**
 
-**N**uma altura em que a energia é cada vez mais um ponto fulcral da discussão política no cenário nacional e internacional, quer pelos conflitos emergentes, quer pelo desígnio europeu de transformação do sector energético, é imperativo que Portugal assuma uma estratégia nacional pragmática e equilibrada de forma a assegurar um futuro energético seguro e próspero para os nossos cidadãos. Portugal deve ter uma abordagem que garanta a sua soberania e que defenda o superior interesse dos cidadãos portugueses, resistindo ao aproveitamento ideológico que avança nestas matérias com evidentes desafios aos direitos, liberdades e garantias.
+**N**uma altura em que a energia é cada vez mais um ponto fulcral da discussão política no cenário na-cional e internacional, quer pelos conflitos emergentes, quer pelo desígnio europeu de transformação do sector energético, é imperativo que Portugal assuma uma estratégia nacional pragmática e equilibrada de forma a assegurar um futuro energético seguro e próspero para os nossos cidadãos. Portugal deve ter uma abordagem que garanta a sua soberania e que defenda o superior interesse dos cidadãos portugueses, resistindo ao aproveitamento ideológico que avança nestas matérias com evidentes desafios aos direitos, liberdades e garantias.
 
 Por um lado, devemos pugnar pelo realismo das propostas garantindo que novos modelos de produção e consumo de energia não se traduzem no sufoco financeiro para as classes média e mais pobres. De facto, os portugueses pagam hoje uma das facturas de electricidade mais caras no seio da União Europeia. Assim, depois de décadas a investir na incorporação de energias renováveis no sistema de produção energética nacional e reconhecendo que mantemos uma dependência externa significativa, importa considerar novas soluções e tecnologias que verdadeiramente se traduzam num alívio das contas das famílias portuguesas e no aumento da soberania energética nacional.
 
@@ -2231,7 +2236,7 @@ projectos energéticos anunciados (eólicos offshore, hidrogénio verde, explora
 
 Artigo 123.º-A (Estudo técnico-económico visando a autonomia energética via Energia Nuclear)
 
-#### **REJEITADO**
+## **REJEITADO**
 
 **CONTRA** Partido Socialista, PSD, PCP, BE, PAN, L **ABSTENÇÃO** --- **FAVOR** CHEGA, IL
 
@@ -2283,7 +2288,7 @@ Reformulação da proposta para instalação de turbinas eólicas offshore, tend
 
 # XV CAPÍTULO **EQUILÍBRIO NA DEFESA DO AMBIENTE E DO BEM-ESTAR ANIMAL. COMO?**
 
-**P**ortugal é berço de uma diversidade natural sem paralelo, mas enfrenta hoje um desafio crucial: preservar o seu legado inestimável enquanto promove o progresso económico e social. O CHEGA defende uma visão conservadora acerca da ecologia e que se fundamenta na convicção de que a natureza não é apenas um recurso a ser explorado, mas um património a ser cuidadosamente gerido para as futuras gerações. O CHEGA considera que o verdadeiro conservadorismo ambiental reconhece a interdependência entre o ser humano e o ambiente, priorizando uma abordagem que respeita ambos.
+**P**ortugal é berço de uma diversidade natural sem paralelo, mas enfrenta hoje um desafio crucial: pre-servar o seu legado inestimável enquanto promove o progresso económico e social. O CHEGA defende uma visão conservadora acerca da ecologia e que se fundamenta na convicção de que a natureza não é apenas um recurso a ser explorado, mas um património a ser cuidadosamente gerido para as futuras gerações. O CHEGA considera que o verdadeiro conservadorismo ambiental reconhece a interdependência entre o ser humano e o ambiente, priorizando uma abordagem que respeita ambos.
 
 No actual contexto, marcado por desafios ambientais prementes, a resposta não deve ser a de uma adopção de um ambientalismo radical que desconsidera as realidades socioeconómicas. As políticas extremistas que vêm sendo adoptadas, muitas vezes resultam em consequências negativas para as nossas comunidades do mundo rural, assim como para a indústria e para o cidadão comum. A título de exemplo, a desactivação e encerramento prematuro e precipitado de infra-estruturas essenciais, tal como a imposição de excessivas restrições em nome de um certo tipo de ambientalismo, sem considerar alternativas viáveis, têm levado a um retrocesso económico e social, com a agravante de tornar Portugal mais dependente em termos energéticos, perdendo soberania.
 
@@ -2446,7 +2451,7 @@ duos assente no princípio da economia circular;
 
 Altera o DL nº. 276/2001, de 17 de outubro, aumentando a protecção dos animais de companhia
 
-# **REJEITADO**
+## **REJEITADO**
 
 **CONTRA** Partido Socialista, PSD, BE **ABSTENÇÃO** PCP, L **FAVOR** CHEGA, IL, PAN
 
@@ -2490,7 +2495,7 @@ Artigo 123.º-A (Criação de um programa piloto de recolha porta a porta de Res
 
 **O**país debate-se com o despovoamento do interior do território causado, por um lado, pelos baixos índices de natalidade registados em Portugal e, por outro, pela deslocação das populações para o litoral. As populações aderem e localizam-se em áreas onde encontram condições de subsistência, leia-se "emprego", ou vantagens para investimento e, em Portugal, os investimentos que geram os meios de subsistência estão cada vez mais localizados no litoral e nos grandes centros urbanos.
 
-Os Censos 2021 vieram confirmar a tendência de diminuição da população de forma sustentada e agravada no interior do território. Em alguns casos registaram-se perdas de população na ordem dos 15 a 20% em apenas 10 anos, como é o caso de concelhos como Peso da Régua, Alfândega da Fé, Melgaço, Manteigas, Chamusca, Pinhel, Penamacor, Fronteira, Avis, Santa Marta de Penaguião, Mora, Gavião, Figueira de Castelo Rodrigo, Castanheira de Pera, Almeida, Torre de Moncorvo, Tabuaço, Nisa, ou Barrancos.**1**
+Os Censos 2021 vieram confirmar a tendência de diminuição da população de forma sustentada e agravada no interior do território. Em alguns casos registaram-se perdas de população na ordem dos 15 a 20% em apenas 10 anos, como é o caso de concelhos como Peso da Régua, Alfândega da Fé, Melgaço, Manteigas, Chamusca, Pinhel, Penamacor, Fronteira, Avis, Santa Marta de Penaguião, Mora, Gavião, Figueira de Castelo Rodrigo, Castanheira de Pera, Almeida, Torre de Moncorvo, Tabuaço, Nisa, ou Barrancos.**<sup>1</sup>**
 
 Ao longo dos anos foram feitas diversas promessas de supostas medidas de atracção de populações, algumas promovidas pelos próprios Municípios, outras ao nível governamental, programas aparentemente atractivos, mas de mera cosmética propagandística sem qualquer eficácia, porque lhes falta sempre o fundamental: os meios de subsistência.
 
@@ -2590,15 +2595,14 @@ Por outro lado, sendo muitas as necessidades e escassos os meios, deve ser efect
 
 • O Estado deverá procurar manter na TAP uma participa-
 
-![](_page_112_Picture_1.jpeg)
-
 ção que lhe permita ter um assento no conselho de Administração.
 
 • O Estado deverá renegociar com a VINCI, no âmbito da escolha da solução aeroportuária para Lisboa, uma participação que lhe permita ter um assento na Administração da empresa ANA.
 
 • Nas empresas industriais estratégicas para o cluster aeronáutico (TAP Enginnering e OGMA), o Estado deve manter uma posição accionista adequada à tipologia do negócio, no mínimo com um assento na Administração dessas empresas.
 
-- Garantir a permanência do Hub em Lisboa;
+• Garantir a permanência do Hub em Lisboa;
+
 • Assegurar os postos de trabalho dos trabalhadores da TAP;
 
 • Manter a Sede da TAP em Portugal, garantindo que os impostos continuam a ser pagos no nosso país.
@@ -2635,8 +2639,6 @@ Por outro lado, sendo muitas as necessidades e escassos os meios, deve ser efect
 
 **416.** Proceder à análise das implicações das medidas constantes do Livro Branco dos Transportes elaborado pela Comissão Europeia e a negociação das medidas convenientes à situação periférica do nosso País.
 
-**113**
-
 **417.** Acabar com a exigência de pagamento de portagens nas auto-estradas do interior do país, procedendo-se à renegociação dos contratos de concessão.
 
 **418.** Abrir à iniciativa privada as empresas actualmente detidas pelo Estado ou nas quais o Estado e outras entidades públicas detenham, directa ou indirectamente, a maioria do capital social, favorecendo, também, a participação das autarquias no capital e na gestão, designadamente do Metropolitano de Lisboa, da Transtejo e da Soflusa.
@@ -2669,7 +2671,7 @@ Por outro lado, sendo muitas as necessidades e escassos os meios, deve ser efect
 
 Prevê a implementação de um plano gradual de isenção do pagamento de portagens
 
-#### **REJEITADO**
+## **REJEITADO**
 
 **CONTRA** Partido Socialista, L **ABSTENÇÃO** PSD, IL, PCP, BE, PAN **FAVOR** CHEGA
 
@@ -2685,9 +2687,7 @@ Altera o regime jurídico que estabelece a actividade de transporte individual e
 
 Recomenda ao Governo a requalificação do IC8
 
-# **CONTRA** Partido Socialista, PCP, BE, L
-
-**REJEITADO**
+## **REJEITADO CONTRA** Partido Socialista, PCP, BE, L
 
 **ABSTENÇÃO** PSD, PAN **FAVOR** CHEGA, IL
 
@@ -2711,9 +2711,11 @@ Recomenda ao Governo a revisão dos termos da PPP da Lusoponte, com vista à red
 
 Restituição de benefícios económicos e sociais aos colaboradores da TAP
 
-# **REJEITADO**
+# **CONTRA** Partido Socialista
 
-**CONTRA** Partido Socialista **ABSTENÇÃO** 1 PS, PCP, BE, L **FAVOR** PSD, CHEGA, IL, PAN
+**REJEITADO**
+
+**ABSTENÇÃO** 1 PS, PCP, BE, L **FAVOR** PSD, CHEGA, IL, PAN
 
 ## **REJEITADO**
 
@@ -2723,11 +2725,11 @@ Restituição de benefícios económicos e sociais aos colaboradores da TAP
 
 **PROJECTO DE RESOLUÇÃO 499/XV/1 (CH)** Pela ligação ferroviária à cidade de Viseu
 
-#### **PROPOSTA DE ALTERAÇÃO OE 24 Nº 492C (CH)**
+## **PROPOSTA DE ALTERAÇÃO OE 24 Nº 492C (CH)**
 
 Artigo 121.º-A (Ligação Ferroviária de Bragança ao resto do país e à linha de alta velocidade espanhola)
 
-#### **PROPOSTA DE ALTERAÇÃO OE 24 Nº 670C (CH)**
+## **PROPOSTA DE ALTERAÇÃO OE 24 Nº 670C (CH)**
 
 Artigo 121.º-A (Reactivação das carreiras de passageiros entre Portimão e Funchal)
 
@@ -2735,7 +2737,7 @@ Artigo 121.º-A (Reactivação das carreiras de passageiros entre Portimão e Fu
 
 Artigo 121.º-A (Construção da Linha Maia II em modo Metro Ligeiro Convencional e sua ligação a Ermesinde)
 
-#### **PROPOSTA DE ALTERAÇÃO OE 24 Nº 1439C (CH)** Artigo 120.º-A (Modernização da Linha da Beira Alta)
+## **PROPOSTA DE ALTERAÇÃO OE 24 Nº 1439C (CH)** Artigo 120.º-A (Modernização da Linha da Beira Alta)
 
 **PROPOSTA DE ALTERAÇÃO OE 24 Nº 1569C (CH)** Artigo 119.º-A (Conclusão do IP2 entre a A6, em Estremoz, e a A23, na Barragem do Fratel)
 
@@ -2745,7 +2747,7 @@ Artigo 121.º-A (Construção da Linha Maia II em modo Metro Ligeiro Convenciona
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** PSD,PCP, L **FAVOR** CHEGA, IL, BE, PAN
 
-## **REJEITADO**
+# **REJEITADO**
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** IL, PCP, L **FAVOR** PSD, CHEGA, BE, PAN
 
@@ -2757,7 +2759,7 @@ Artigo 121.º-A (Construção da Linha Maia II em modo Metro Ligeiro Convenciona
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** PSD, PCP, L **FAVOR** CHEGA, IL, BE,PAN
 
-## **REJEITADO**
+# **REJEITADO**
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** PSD, IL, PCP, PAN, L **FAVOR** CHEGA, BE
 
@@ -2767,7 +2769,7 @@ Artigo 121.º-A (Construção da Linha Maia II em modo Metro Ligeiro Convenciona
 
 # XVII CAPÍTULO **VALORIZAR O MUNDO RURAL E OS AGRICULTORES PORTUGUESES. COMO?**
 
-**P**ara o CHEGA o sector primário virá sempre em primeiro lugar e deverá construir um verdadeiro desígnio nacional. O sector primário, historicamente representativo do mundo rural, da agricultura, bem como das pescas, sempre foi um dos sectores mais importantes como elemento de soberania nacional.
+**P**ara o CHEGA o sector primário virá sempre em pri-meiro lugar e deverá construir um verdadeiro de-sígnio nacional. O sector primário, historicamente representativo do mundo rural, da agricultura, bem como das pescas, sempre foi um dos sectores mais importantes como elemento de soberania nacional.
 
 Um dos desafios que Portugal enfrenta é precisamente o da soberania alimentar, bem como o de equilibrar a assimetria entre o interior e o litoral do seu território - entre o mundo rural e as zonas urbanas. Ainda que sejamos auto- -suficientes em alguns produtos alimentares, poucos, é absolutamente necessário introduzir em Portugal uma verdadeira estratégia de investimento e protecção da agricultura portuguesa. O défice de produção em Portugal continua a ser dos mais altos da UE-27, representando 10% do total das nossas importações, o que significa que dependemos dos outros países para nos alimentarmos e o conflito armado na Ucrânia deixa esse facto ainda mais evidente.
 
@@ -2865,7 +2867,7 @@ reconversão e melhoria económica das áreas agrícolas, protegendo e moderniza
 
 Recomenda ao Governo a construção, modernização e reabilitação dos sistemas de regadio
 
-#### **REJEITADO**
+## **REJEITADO**
 
 **CONTRA** Partido Socialista, PCP, BE, PAN, L **ABSTENÇÃO** PSD **FAVOR** CHEGA, IL
 
@@ -2925,6 +2927,8 @@ Considerando a descentralização de competências fundamental para os municípi
 
 ![](_page_128_Picture_1.jpeg)
 
+município e, para que o financiamento da descentralização seja feito sem burocracias" .
+
 O poder local e os municípios desempenham um papel fundamental em muitas outras áreas, como o combate à pobreza, a transformação digital, a habitação, a educação e ensino, ambiente, bem-estar animal, saúde e até emprego. A aposta num municipalismo forte, de respeito pela autonomia do poder local e olhando para a descentralização de competências como um fim e não como um meio, trarão ao país respostas para grande parte dos actuais problemas sociais e económicos que atravessamos, melhor qualidade de vida para os cidadãos e finanças públicas mais eficientes.
 
 #### **PRIORIDADES**
@@ -2973,7 +2977,8 @@ O poder local e os municípios desempenham um papel fundamental em muitas outras
 
 **465.** Revisão dos impostos municipais, nomeadamente:
 
-- O IMI, conforme proposto no ponto 8 deste programa;
+• O IMI, conforme proposto no ponto 8 deste programa;
+
 • Taxa municipal de direitos de Passagem (TMDP), de forma a que nos municípios em que seja cobrada, as empresas que oferecem redes e serviços de comunicações electrónicas acessíveis ao público em local fixo sejam responsáveis pelo seu pagamento;
 
 • Taxa de ocupação de Subsolo (TOS) que deve deixar de ser cobrada às famílias.
@@ -3006,7 +3011,7 @@ colos com entidades do sector privado e social que permitam dar resposta imediat
 
 # XVIII CAPÍTULO **O QUE JÁ FIZEMOS PARA SIMPLIFICAR PORTUGAL**
 
-#### **PROJECTO DE LEI 514/XV/1 (CH)**
+## **PROJECTO DE LEI 514/XV/1 (CH)**
 
 **PROJECTO DE LEI 98/XV/1 (CH)**
 
@@ -3078,7 +3083,8 @@ Esta introdução estabelece, assim, o tom e o contexto para as políticas detal
 
 #### **PRIORIDADES**
 
-- Repensar o modelo de financiamento e promover a sustentabilidade do sector cultural;
+• Repensar o modelo de financiamento e promover a sustentabilidade do sector cultural;
+
 • Aflorar sinergias entre o turismo e o património cultural por forma a que ambos se promovam um ao outro;
 
 • Investir na educação, formação e internacionalização do património cultural português;
@@ -3159,17 +3165,17 @@ Artigo 111.º-A (Incentivo Financeiro à Cultura Tradicional)
 
 # **REJEITADO**
 
+**SEM VOTAÇÃO**
+
+**SEM VOTAÇÃO**
+
+**SEM VOTAÇÃO**
+
 **CONTRA** Partido Socialista **ABSTENÇÃO** PSD, IL PCP, BE, L **FAVOR** CHEGA, PAN
 
 # **REJEITADO**
 
 **CONTRA** Partido Socialista, IL, PAN, L **ABSTENÇÃO** PSD, PCP, BE **FAVOR** CHEGA
-
-# **SEM VOTAÇÃO**
-
-# **SEM VOTAÇÃO**
-
-**SEM VOTAÇÃO**
 
 ![](_page_139_Picture_0.jpeg)
 
@@ -3389,9 +3395,9 @@ Tornar as Forças Armadas mais atrativas e valorizar a Carreira Militar
 
 **PROJECTO DE RESOLUÇÃO 849/XV/1 (CH)**
 
-## **SEM VOTAÇÃO**
+# **SEM VOTAÇÃO**
 
-## **PROJECTO DE LEI 7/XV/1 (CH)**
+#### **PROJECTO DE LEI 7/XV/1 (CH)**
 
 Militares das Forças Armadas
 
@@ -3399,7 +3405,7 @@ Aumenta o valor relativo ao Complemento Especial de Pensão dos Antigos Combaten
 
 Pela Revisão e Alteração do Sistema Remuneratório dos
 
-## **REJEITADO**
+# **REJEITADO**
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** PSD, IL, PCP, BE, L **FAVOR** CHEGA, PAN
 
@@ -3425,7 +3431,7 @@ Procede à atualização dos montantes da componente fixa do suplemento de condi
 
 # XXII CAPÍTULO **DAR VOZ ÀS COMUNIDADES PORTUGUESAS. COMO?**
 
-**O**s portugueses da diáspora, organizados em comunidades um pouco por todo o mundo, não só são parte integrante da nação portuguesa, como se constituem como um dos seus mais valiosos activos. Valiosos, desde logo, porque souberam, desafiando o desconhecido, partir à procura de uma vida melhor. Valiosos, ainda, pela sua capacidade de trabalho, inventividade e capacidade para vencer em ambientes estranhos e, não poucas vezes, inicialmente hostis. Valiosos, finalmente, porque representam uma força não despicienda em inúmeros países de acolhimento onde ganharam um peso económico, social e político bem relevante, o que as pode transformar num pilar não despiciendo da nossa política externa. Isto também porque, sem jamais abdicarem das suas raízes, as nossas comunidades de emigrantes souberam sempre integrar-se pacificamente nos países de acolhimento, respeitando as suas leis e os seus usos e costumes sem abdicarem dos seus e sem renunciarem às suas raízes mais profundas. Tendo isto em conta, considera o CHEGA que os cerca de cinco milhões de portugueses espalhados pelo mundo são portugueses de parte inteira e como tal devem ser entendidos e tratados. Para o CHEGA, e isso é um ponto assente e incontornável, Portugal tem 15 milhões de habitantes e não apenas aqueles 10 milhões que residem no território nacional.
+**O**s portugueses da diáspora, organizados em co-munidades um pouco por todo o mundo, não só são parte integrante da nação portuguesa, como se constituem como um dos seus mais valiosos activos. Valiosos, desde logo, porque souberam, desafiando o desconhecido, partir à procura de uma vida melhor. Valiosos, ainda, pela sua capacidade de trabalho, inventividade e capacidade para vencer em ambientes estranhos e, não poucas vezes, inicialmente hostis. Valiosos, finalmente, porque representam uma força não despicienda em inúmeros países de acolhimento onde ganharam um peso económico, social e político bem relevante, o que as pode transformar num pilar não despiciendo da nossa política externa. Isto também porque, sem jamais abdicarem das suas raízes, as nossas comunidades de emigrantes souberam sempre integrar-se pacificamente nos países de acolhimento, respeitando as suas leis e os seus usos e costumes sem abdicarem dos seus e sem renunciarem às suas raízes mais profundas. Tendo isto em conta, considera o CHEGA que os cerca de cinco milhões de portugueses espalhados pelo mundo são portugueses de parte inteira e como tal devem ser entendidos e tratados. Para o CHEGA, e isso é um ponto assente e incontornável, Portugal tem 15 milhões de habitantes e não apenas aqueles 10 milhões que residem no território nacional.
 
 Tal implica uma muito particular atenção do CHEGA e justifica plenamente a proposta de criação de um conjunto de mecanismos e de medidas tendente a que essas comunidades possam participar tão activamente na vida política, social e económica do país quanto aqueles que residem em território nacional. Por exemplo, não faz qualquer sentido funcional ou político que as Comunidades Portuguesas estejam sob a tutela do Ministério dos Negócios Estrangeiro. A criação do Ministério das Comunidades representa, quer um sinal de uma nova atitude para com as Comunidades, quer um primeiro passo para uma real integração dessas Comunidades no todo nacional.
 
@@ -3433,7 +3439,8 @@ Tal implica uma muito particular atenção do CHEGA e justifica plenamente a pro
 
 • Reconhecer e valorizar as comunidades portuguesas pelo mundo como parte inteira e integrante da nação portuguesa;
 
-- Reforçar a ligação dos membros das nossas comunidades
+• Reforçar a ligação dos membros das nossas comunidades
+
 às suas raízes portuguesas;
 
 • Facilitar o acesso dos emigrantes aos serviços da administração pública e simplificar os processos;
@@ -3458,7 +3465,7 @@ Tal implica uma muito particular atenção do CHEGA e justifica plenamente a pro
 
 • Permitir a realização de todos os actos administrativos até aqui realizados exclusivamente nos Consulados Portugueses de forma presencial;
 
-• Estar localizados no terreno de forma estratégica por forma a reforçar e melhorar o serviço de atendimento aos portugueses aí residentes, devendo estar, nomeadamen100.000 habitantes;
+• Estar localizados no terreno de forma estratégica por forma a reforçar e melhorar o serviço de atendimento aos portugueses aí residentes, devendo estar, nomeadamen-
 
 ![](_page_154_Picture_1.jpeg)
 
@@ -3528,13 +3535,15 @@ Recomenda ao Governo a abertura de postos de atendimento com um perfil semelhant
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** PSD, IL, PCP, BE, PAN, L **FAVOR** CHEGA
 
+![](_page_156_Picture_3.jpeg)
+
 ![](_page_157_Picture_0.jpeg)
 
 ![](_page_158_Picture_0.jpeg)
 
 # XXIII CAPÍTULO **POR UMA EUROPA DE NAÇÕES SOBERANAS. COMO?**
 
-**O**CHEGA considera que a Política Externa deve ter em consideração os interesses permanentes, as constantes históricas, a herança cultural, os determinismos geográficos e a evolução tecnológica. Assim, o CHEGA defende uma política externa que assuma como princípio básico de actuação o de privilegiar as relações bilaterais sobre as relações multilaterais e isto porque estas últimas caracterizam-se, no essencial, pela incapacidade de decisão que abre o caminho ao triunfo dos parceiro mais poderosos sentados à volta da mesa. As grandes plataformas multilaterais, alimentadas por uma burocracia crescente, não eleita e cada vez mais poderosa, representam um grave perigo para a independência das nações que as integram e para as suas democracias liberais.
+**O**CHEGA considera que a Política Externa deve ter em consideração os interesses permanen-tes, as constantes históricas, a herança cultural, os determinismos geográficos e a evolução tecnológica. Assim, o CHEGA defende uma política externa que assuma como princípio básico de actuação o de privilegiar as relações bilaterais sobre as relações multilaterais e isto porque estas últimas caracterizam-se, no essencial, pela incapacidade de decisão que abre o caminho ao triunfo dos parceiro mais poderosos sentados à volta da mesa. As grandes plataformas multilaterais, alimentadas por uma burocracia crescente, não eleita e cada vez mais poderosa, representam um grave perigo para a independência das nações que as integram e para as suas democracias liberais.
 
 Defende-se, pois, uma política externa que tenha em conta a necessidade de reestruturar o espaço mediterrânico; consolidar o Atlântico-norte; reconstruir o Atlântico-sul; desenvolver um espaço lusófono e redefinir o espaço europeu. Estes cinco eixos configuram a estrutura básica da política externa, que terá de ser necessariamente sempre entendida como de "geometria variável", porquanto, conforme as circunstâncias que se coloquem, haverá que privilegiar de forma distinta, um ou outro, ou mais do que um desses cinco eixos.
 
@@ -3750,13 +3759,11 @@ Altera a lei do financiamento dos partidos políticos e das campanhas eleitorais
 
 ![](_page_169_Figure_0.jpeg)
 
-![](_page_169_Picture_1.jpeg)
-
 ![](_page_170_Picture_0.jpeg)
 
 # XXV PARTE **REFORMAR A CONSTITUIÇÃO E LIMPÁ-LA DA CARGA IDEOLÓGICA. COMO?**
 
-**A**actual Constituição da República Portuguesa foi redigida num período de radicalismo revolucionário e, apesar de constituir um marco histórico, político e jurídico, importa agora actualizá-la. Desde logo é urgente eliminar os resquícios dos combates ideológicos dos anos 60 e 70. Manter referências ao período 'fascista' ou determinar o 'caminho para o socialismo' não é adequado a um texto constitucional que se mantém em vigor e que é a pedra angular do ordenamento jurídico português.
+**A**actual Constituição da República Portuguesa foi redigida num período de radicalismo revolucio-nário e, apesar de constituir um marco histórico, político e jurídico, importa agora actualizá-la. Desde logo é urgente eliminar os resquícios dos combates ideológicos dos anos 60 e 70. Manter referências ao período 'fascista' ou determinar o 'caminho para o socialismo' não é adequado a um texto constitucional que se mantém em vigor e que é a pedra angular do ordenamento jurídico português.
 
 A par de uma limpeza ideológica necessária, o CHEGA pretende assegurar e ampliar os direitos dos cidadãos nas diversas áreas da justiça criminal, administrativa e mesmo fiscal, mas também garantir que os direitos fundamentais não obstaculizam as mudanças que sejam desejadas e aprovadas pelos cidadãos, como é o caso da aplicação de penas de carácter perpétuo, de penas que digam respeito a tratamentos químicos que se considerem necessários para a prevenção de crimes de natureza sexual, ou excepções ao princípio da presunção de inocência.
 
@@ -3812,6 +3819,8 @@ No âmbito das instituições políticas, o CHEGA apresenta várias propostas qu
 
 **SEM VOTAÇÃO**
 
+**SEM VOTAÇÃO**
+
 Uma Constituição para o futuro de Portugal
 
 #### **PROJECTO DE LEI 143/XV/1 ª (CH)**
@@ -3820,10 +3829,6 @@ Uma Constituição para o futuro de Portugal
 
 Determina que a Assembleia da República deve autorizar o levantamento de imunidade dos Deputados para efeitos de prestar declarações ou ser constituído arguido sempre que não esteja em causa factos relacionados com votos e opiniões que estes emitirem no exercício das suas funções
 
-#### **SEM VOTAÇÃO**
-
-![](_page_173_Picture_10.jpeg)
-
-![](_page_174_Picture_3.jpeg)
+![](_page_173_Picture_9.jpeg)
 
 ![](_page_175_Picture_0.jpeg)
