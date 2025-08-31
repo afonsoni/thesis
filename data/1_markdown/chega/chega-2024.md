@@ -4,7 +4,7 @@
 
 # CARTA DO PRESIDENTE **LIMPAR PORTUGAL**
 
-#### *Meus caros,*
+#### _Meus caros,_
 
 Volvidos dois anos, estamos novamente à beira de eleições legislativas. Ninguém esperava que o sufrágio se realizasse este ano, pois o PS governava com maioria absoluta e, por isso, seria de esperar que a legislatura cumprisse os seus quatro anos.
 
@@ -24,7 +24,7 @@ A nossa missão é limpar Portugal desta corrupção e desta podridão que desac
 
 Nós queremos, e vamos, devolver o prestígio às instituições e dignifi car a autoridade do Estado através das Forças de Segurança e das Forças Armadas. **O CHEGA apresenta-se a eleições com um programa de governo capaz de transformar Portugal.** Durante 50 anos, os portugueses deram o seu voto sempre aos mesmos e nada mudou – só piorou!
 
-*O Presidente do CHEGA Dr. André Ventura* **Agora é a nossa vez. Confi em em nós. Nós vamos limpar Portugal!**
+_O Presidente do CHEGA Dr. André Ventura_ **Agora é a nossa vez. Confi em em nós. Nós vamos limpar Portugal!**
 
 # ÍNDICE **LIMPAR PORTUGAL**
 
@@ -48,7 +48,7 @@ PÁG. 14
 
 ![](_page_4_Picture_12.jpeg)
 
-**JOVENS COM UM FUTURO** 
+**JOVENS COM UM FUTURO**
 
 **LIBERTAR O ENSINO DE IDEOLOGIAS** PÁG. 42
 
@@ -102,7 +102,7 @@ PÁG. 154
 
 ![](_page_4_Picture_29.jpeg)
 
-**SALVAR A SEGURANÇA** 
+**SALVAR A SEGURANÇA**
 
 **EQUILÍBRIO NA DEFESA DO AMBIENTE E DO BEM-ESTAR ANIMAL** PÁG. 102
 
@@ -1342,7 +1342,7 @@ Queremos com isto criar um sistema mais transparente, mais seguro para os cidad�
 
 **183.** Isentar de IRS o designado "15.º salário", sem quaisquer condicionantes.
 
-**184.** Introduzir uma *flat tax* de IRC de 15% para as regiões autónomas e para o interior do país e de 18% para o resto do território.
+**184.** Introduzir uma _flat tax_ de IRC de 15% para as regiões autónomas e para o interior do país e de 18% para o resto do território.
 
 **185.** Criar um modelo de número único de identificação para as pessoas e empresas, assim evitando que a mesma pessoa tenha que ter número de utente, de cartão de cidadão, de contribuinte, de Segurança Social, de eleitor, etc.
 

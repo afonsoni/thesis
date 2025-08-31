@@ -1,6 +1,6 @@
 # RAG System for Political Programs Analysis
 
-A modular Retrieval-Augmented Generation (RAG) system for analyzing Portuguese political party programs with support for base, corrective, and agentic RAG implementations.
+A modular Retrieval-Augmented Generation (RAG) system for analyzing Portuguese political party programs with support for different RAG implementations, including agentic RAG.
 
 ## Project Structure
 
@@ -10,8 +10,9 @@ thesis/
 ├── config/
 │   └── config.yaml
 ├── data/
-│   ├── raw/
-│   └── processed/
+│   ├── 0_raw/
+│   ├── 1_markdown/
+│   └── 2_processed/
 ├── src/
 │   ├── data/
 │   │   ├── extraction/
@@ -123,16 +124,19 @@ Dependencies are automatically checked and installed when running `--setup`.
 ## Usage Examples
 
 ### Basic Query
+
 ```bash
 python main.py --query "Quais são as propostas do PS para a educação?"
 ```
 
 ### Advanced Analysis
+
 ```bash
 python main.py --implementation agentic --query "Compare as políticas ambientais de todos os partidos" --top-k 10
 ```
 
 ### Custom System Prompt
+
 ```bash
 python main.py --system "You are a political expert. Provide detailed analysis." --query "Economic policies"
 ```
@@ -155,12 +159,14 @@ print(result["response"])
 ## Architecture
 
 ### Base RAG Flow
+
 1. User query → Embedding generation
 2. Vector similarity search in Milvus
 3. Retrieve top-k documents
 4. Format context + generate response with LLM
 
 ### Corrective RAG Flow
+
 1. Initial retrieval (same as base)
 2. Evaluate retrieval quality using LLM
 3. If quality is insufficient, refine query
@@ -168,6 +174,7 @@ print(result["response"])
 5. Generate final response
 
 ### Agentic RAG Flow
+
 1. Plan search strategy (break query into sub-questions)
 2. Iterative search across multiple sub-queries
 3. Assess information completeness after each iteration

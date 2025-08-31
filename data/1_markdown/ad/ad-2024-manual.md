@@ -3,33 +3,33 @@
 O CAMINHO
 Políticas de Futuro
 
-# Sumário Executivo
+## Sumário Executivo
 
-Em  2024, teremos  uma  oportunidade  única  de  escolher  o  rumo  do  nosso  país  para  os  próximos anos. Uma oportunidade de renovar a esperança, a confiança e a ambição de construir um Portugal mais justo, mais próspero e mais sustentável. Uma oportunidade de afirmar a nossa identidade, a nossa cultura e os nossos valores no mundo. Uma opor-tunidade de unir os portugueses em torno de um projeto comum, que respeite a diversi-dade, a liberdade e a democracia.
+Em 2024, teremos uma oportunidade única de escolher o rumo do nosso país para os próximos anos. Uma oportunidade de renovar a esperança, a confiança e a ambição de construir um Portugal mais justo, mais próspero e mais sustentável. Uma oportunidade de afirmar a nossa identidade, a nossa cultura e os nossos valores no mundo. Uma opor-tunidade de unir os portugueses em torno de um projeto comum, que respeite a diversi-dade, a liberdade e a democracia.
 
-É  por  isso  que  apresentamos  este  Programa  eleitoral, fruto  de  um  amplo  debate  e  de  uma coligação ambiciosa entre partidos que partilham uma visão reformista, moderna e humanista para o nosso país. Um Programa assente em pilares fundamentais: a educação, a ciência e a cultura; a sustentabilidade, a agricultura e o mar; a coesão territorial e a descentralização; e a saúde, o desporto e o bem-estar; e uma economia competitiva, próspera e equilibrada que sirva as pessoas, não deixando ninguém para trás.
+É por isso que apresentamos este Programa eleitoral, fruto de um amplo debate e de uma coligação ambiciosa entre partidos que partilham uma visão reformista, moderna e humanista para o nosso país. Um Programa assente em pilares fundamentais: a educação, a ciência e a cultura; a sustentabilidade, a agricultura e o mar; a coesão territorial e a descentralização; e a saúde, o desporto e o bem-estar; e uma economia competitiva, próspera e equilibrada que sirva as pessoas, não deixando ninguém para trás.
 
 Acreditamos que a educação, a ciência e a cultura são os motores do desenvolvimento humano, da inovação e da competitividade. Queremos uma educação de qualidade para todos, que promova a igualdade de oportunidades, a exigência e a autonomia. Quere-mos uma ciência de excelência, que estimule a investigação, a transferência de conhe-cimento e a cooperação internacional. Queremos uma cultura viva, que valorize a nossa história, a nossa língua e a nossa criatividade.
 
-Acreditamos  que  a  sustentabilidade,  a  agricultura  e  o  mar  são  os  eixos  da  transição  energética, da segurança alimentar e da valorização dos recursos naturais. Queremos um ambiente saudável, que proteja a biodiversidade, a qualidade da água e do ar, e que combata as alterações climáticas. Queremos uma agricultura moderna e competitiva, que  garanta  a  produção  de  alimentos  de  qualidade,  a  valorização  do  mundo  rural,  a  preservação das florestas e a proteção animal. Queremos um mar rico, que potencie as atividades marítimas, a economia azul e a soberania nacional.
+Acreditamos que a sustentabilidade, a agricultura e o mar são os eixos da transição energética, da segurança alimentar e da valorização dos recursos naturais. Queremos um ambiente saudável, que proteja a biodiversidade, a qualidade da água e do ar, e que combata as alterações climáticas. Queremos uma agricultura moderna e competitiva, que garanta a produção de alimentos de qualidade, a valorização do mundo rural, a preservação das florestas e a proteção animal. Queremos um mar rico, que potencie as atividades marítimas, a economia azul e a soberania nacional.
 
 Acreditamos que a coesão territorial e a descentralização são as bases da coesão social, da dinamização económica e da participação cívica. Queremos um território equilibrado, que reduza as assimetrias regionais, que promova a mobilidade e a acessibilidade, e que reforce a solidariedade entre o litoral e o interior. Queremos uma descentralização efetiva, que aproxime os cidadãos dos centros de decisão, que fortaleça o poder local e regional, e que garanta a subsidiariedade e a autonomia.
 
-Acreditamos que a saúde, o desporto e o bem-estar são os pilares da qualidade de vida, da  prevenção  e  da  inclusão.  Queremos  uma  saúde  universal,  que  assegure  o  acesso  a  cuidados de saúde de qualidade, que melhore a gestão e a eficiência do Serviço Nacional de Saúde, e que aposte na inovação e na digitalização. Queremos um desporto para todos, que incentive a prática e a atividade física, e que fomente os valores do fair-play e da ética. Queremos um bem-estar integral, que abranja as dimensões física, mental, emocional e social, que promova a felicidade e a resiliência, e que combata a pobreza e a exclusão.
+Acreditamos que a saúde, o desporto e o bem-estar são os pilares da qualidade de vida, da prevenção e da inclusão. Queremos uma saúde universal, que assegure o acesso a cuidados de saúde de qualidade, que melhore a gestão e a eficiência do Serviço Nacional de Saúde, e que aposte na inovação e na digitalização. Queremos um desporto para todos, que incentive a prática e a atividade física, e que fomente os valores do fair-play e da ética. Queremos um bem-estar integral, que abranja as dimensões física, mental, emocional e social, que promova a felicidade e a resiliência, e que combata a pobreza e a exclusão.
 
-Mas o eixo mais relevante são as políticas sociais e a promoção do bem-estar das populações. Queremos uma sociedade mais justa, mais solidária e mais humana, que respeite a dignidade da pessoa humana, que proteja os mais vulneráveis, que valorize o trabalho e o mérito, e que estimule a responsabilidade e a cidadania. Queremos uma sociedade mais aberta, mais diversa e mais inclusiva, que promova uma imigração regulada e acolha os migrantes, que incentive a natalidade, que promova a longevidade com qualidade de vida, que combata todas as formas de discriminação e de violência, e que celebre a pluralidade  e  a  tolerância.  Queremos  uma  sociedade  mais  transparente,  mais  ética  e  mais democrática, que combata a corrupção, que reforme a justiça, que defenda a segurança e a ordem pública, e que reforce a soberania nacional e a integração europeia, a visão atlantista a e lusofonia.
+Mas o eixo mais relevante são as políticas sociais e a promoção do bem-estar das populações. Queremos uma sociedade mais justa, mais solidária e mais humana, que respeite a dignidade da pessoa humana, que proteja os mais vulneráveis, que valorize o trabalho e o mérito, e que estimule a responsabilidade e a cidadania. Queremos uma sociedade mais aberta, mais diversa e mais inclusiva, que promova uma imigração regulada e acolha os migrantes, que incentive a natalidade, que promova a longevidade com qualidade de vida, que combata todas as formas de discriminação e de violência, e que celebre a pluralidade e a tolerância. Queremos uma sociedade mais transparente, mais ética e mais democrática, que combata a corrupção, que reforme a justiça, que defenda a segurança e a ordem pública, e que reforce a soberania nacional e a integração europeia, a visão atlantista a e lusofonia.
 
-Queremos  mais  equidade  intergeracional,  com  as  preocupações  prioritárias  de  gerar  oportunidades para os jovens se fixarem em Portugal e se emanciparem, e de garantir aos mais velhos a segurança física e económica, o acesso à saúde em tempo e de qualidade, e a participação ativa na vida em sociedade.
+Queremos mais equidade intergeracional, com as preocupações prioritárias de gerar oportunidades para os jovens se fixarem em Portugal e se emanciparem, e de garantir aos mais velhos a segurança física e económica, o acesso à saúde em tempo e de qualidade, e a participação ativa na vida em sociedade.
 
 Este é o nosso Programa, este é o nosso compromisso, este é o nosso desafio. Convidamos todos os portugueses e portuguesas a juntarem-se a nós nesta missão de construir um futuro melhor para Portugal. Um futuro que honre o nosso passado, que aproveite o nosso presente, e que realize o nosso potencial. Um futuro que seja de todos e para todos. Um futuro que seja nosso.
 
-# COM AMBIÇÃO
+## COM AMBIÇÃO
 
-## QUALIFICAÇÃO
+### QUALIFICAÇÃO
 
-### EDUCAÇÃO E FORMAÇÃO
+#### EDUCAÇÃO E FORMAÇÃO
 
-#### 1. Porque é preciso mudar
+##### 1. Porque é preciso mudar
 
 Há uma geração de alunos a ficar para trás e que precisa de uma educação que lhe dê futuro. Os resultados dos últimos 8 anos na Educação são preocupantes, sobretudo pela degradação da aprendizagem, pelo conflito social nas escolas e pela escassez de professores.
 
@@ -39,35 +39,35 @@ Desde 2016, os desempenhos dos alunos portugueses caíram consistentemente nas v
 
 Num contexto de tão rápidas mudanças sociais, tecnológicas e culturais, a Educação precisa de um rumo firme que, perante um futuro tão imprevisível, se concentre nos pilares do desenvolvimento humano: o conhecimento, a cultura e os valores de cidadania. É preciso mudar. E a mudança que defendemos começa aqui: devolver à educação e à Escola Pública o rigor, a serenidade, o diálogo e a prospeção de que necessitam.
 
-#### 2. Metas
+##### 2. Metas
 
 - Recolocar os alunos portugueses com níveis de desempenho acima da média da OCDE nas avaliações do PISA 2028;
 - Reconhecer a importância dos professores: recuperar integralmente o tempo de serviço congelado, de forma faseada nos próximos 5 anos (à razão de 20% ao ano), e atrair novos professores para, até 2028, superar estruturalmente a escassez de professores;
 - Apostar nos mais novos: universalizar o acesso ao pré-escolar a partir dos 3 anos de idade;
 - Elevar exigência sem deixar alunos para trás: aplicar, a partir do ano letivo 2024- 2025, provas de aferição no 4º e no 6º anos de escolaridade, publicar resultados e apoiar os alunos em risco de insucesso escolar.
 
-#### 3. Medidas
+##### 3. Medidas
 
-#### APRENDER MAIS: RECUPERAR A APRENDIZAGEM E NÃO DEIXAR ALUNOS PARA TRÁS
+###### APRENDER MAIS: RECUPERAR A APRENDIZAGEM E NÃO DEIXAR ALUNOS PARA TRÁS
 
 - Implementar o A+A, "Aprender Mais Agora", um plano de recuperação da aprendizagem que realmente permita aos alunos construir um caminho de sucesso escolar. O A+A incluirá recursos adequados para o apoio aos alunos, a capacitação de docentes para implementar um sistema de tutorias, assim como o reforço de créditos horários;
 - Avaliar a possibilidade de majorar o financiamento das escolas TEIP, para fomentar projetos de maior integração e igualdade de oportunidades.
 
-#### MODERNIZAR O SISTEMA EDUCATIVO
+###### MODERNIZAR O SISTEMA EDUCATIVO
 
 - Redefinir o papel do Ministério da Educação, atribuindo responsabilidades de regulador e não de decisor sobre o funcionamento de todas as escolas públicas;
 - Reestruturar os ciclos do ensino básico, integrando os 1º e 2º ciclos, de forma a alinhar com a tendência internacional e garantir uma maior continuidade nas abordagens e um desenvolvimento integral dos alunos;
 - Criar uma plataforma integrada de todos os serviços do Ministério da Educação;
 - Investir em recursos digitais que simplifiquem os processos administrativos.
 
-#### COMEÇAR CEDO: A EDUCAÇÃO DOS 0 AOS 6 ANOS DE IDADE
+##### COMEÇAR CEDO: A EDUCAÇÃO DOS 0 AOS 6 ANOS DE IDADE
 
 - Integrar a faixa etária dos 0 aos 3 anos no sistema educativo tutelado pelo Ministério da Educação;
 - Acesso universal e gratuito: alargar a oferta pública e sem custos para as famílias de creche e de pré-escolar, seja aumentando a capacidade da oferta existente no Estado, seja contratualizando com o sector social, particular e cooperativo;
 - Produzir orientações para o período 0-6 anos e proporcionar às instituições o acesso a materiais educativos adequados ao desenvolvimento nas áreas das linguagens (oral, escrita, artísticas e digitais), da matemática, das ciências e da motricidade;
 - Reforçar a formação inicial e contínua de Educadores que trabalhem com crianças de 0-3 anos, assim como a formação de Auxiliares de Ação Educativa.
 
-#### UM CURRÍCULO EXIGENTE E FLEXÍVEL PARA DESAFIOS IMPREVISÍVEIS
+###### UM CURRÍCULO EXIGENTE E FLEXÍVEL PARA DESAFIOS IMPREVISÍVEIS
 
 - Desenvolver um currículo centrado no conhecimento científico e cultural, revendo as "Aprendizagens Essenciais" e os documentos orientadores do ensino, elevando as expectativas em relação à aprendizagem dos alunos;
 - Flexibilizar as cargas letivas obrigatórias nos vários níveis de escolaridade;
@@ -75,40 +75,40 @@ Num contexto de tão rápidas mudanças sociais, tecnológicas e culturais, a Ed
 - Reforçar o ensino experimental das Ciências;
 - Redefinir os percursos científico-humanísticos do ensino secundário, no sentido de alargar as disciplinas que os alunos podem livremente escolher frequentar.
 
-#### CONFIAR NAS ESCOLAS PÚBLICAS: MAIS AUTONOMIA PARA ENSINAR
+###### CONFIAR NAS ESCOLAS PÚBLICAS: MAIS AUTONOMIA PARA ENSINAR
 
 - Melhorar o sistema de transferência de competências para as Autarquias, articuladamente com as escolas;
 - Construir, em diálogo com os diretores e professores, um novo modelo de autonomia e gestão das escolas, que robusteça a autonomia financeira, pedagógica e de gestão de recursos humanos das escolas;
 - Atualizar o financiamento e rever a regulamentação das Atividades de Enriquecimento Curricular (AEC);
 - Redefinir os parâmetros técnicos de construção e reabilitação dos edifícios escolares.
 
-#### MONITORIZAR A APRENDIZAGEM: UMA AVALIAÇÃO RIGOROSA
+###### MONITORIZAR A APRENDIZAGEM: UMA AVALIAÇÃO RIGOROSA
 
 - Implementar provas de aferição a Português, Matemática e uma disciplina rotativa (a cada 3 anos) nos 4.º e 6.º anos (anos de final de ciclo), de aplicação universal e obrigatória;
 - Publicar os resultados das provas de aferição, a nível nacional e de agrupamento, para fins de prestação de contas e valorização das provas;
 - Rever a aplicação do atual modelo de avaliação das aprendizagens (vulgo aplicação do projeto MAIA).
 
-#### UMA EDUCAÇÃO INCLUSIVA E PARA TODOS
+###### UMA EDUCAÇÃO INCLUSIVA E PARA TODOS
 
 - Avaliar o impacto do atual Regime Jurídico da Educação Inclusiva;
 - Melhorar a inclusão de pais e encarregados de educação dos alunos com necessidades educativas especiais nos processos de decisão e escolha do percurso escolar dos seus educandos;
 - Reforçar os meios para o ensino do «Português Língua Não Materna», considerando o aumento do número de estudantes estrangeiros em Portugal.
 
-#### COMBATER AS DESIGUALDADES SOCIAIS
+###### COMBATER AS DESIGUALDADES SOCIAIS
 
 - Avaliar o aumento da dotação para a Ação Social Escolar;
 - Avaliar o aumento dos valores de comparticipação do Material Escolar e do Valor Máximo atribuído para as Visitas de Estudo;
 - Melhorar o sistema de apoio às famílias carenciadas que frequentam o ensino particular e cooperativo;
 - Combater a segregação social entre escolas, avaliando as regras de prioridade nas matrículas, impondo transparência no processo de alocação dos alunos e publicando as áreas de influência geográfica das escolas da rede pública.
 
-#### DIVERSIDADE E LIBERDADE PARA APRENDER
+###### DIVERSIDADE E LIBERDADE PARA APRENDER
 
 - Promover uma rede de escolas de ensino artístico especializado de música, dança e teatro;
 - Melhorar o modelo de Contrato de Patrocínio, destinado a financiar os estabelecimentos de Ensino Artístico Especializado;
 - Implementar um programa de sensibilização para o valor do ensino profissional;
 - Otimizar a rede de oferta de ensino profissional e melhorar o seu modelo de financiamento.
 
-#### RECONHECER A IMPORTÂNCIA DOS PROFESSORES
+###### RECONHECER A IMPORTÂNCIA DOS PROFESSORES
 
 - Iniciar a recuperação integral do tempo de serviço perdido dos professores, a ser implementada ao longo da Legislatura, à razão de 20% ao ano;
 - Criar uma dedução em sede de IRS das despesas de alojamento dos professores que se encontrem deslocados a mais de 70 km da sua área de residência;
@@ -119,7 +119,7 @@ Num contexto de tão rápidas mudanças sociais, tecnológicas e culturais, a Ed
 - Alterar o modelo de colocação de docentes, de modo a ter em consideração outros fatores, como a residência e avaliação, garantindo equidade, adaptabilidade, eficiência e eficácia;
 - Criar um modelo especial de remuneração e de avaliação dos Diretores das Escolas.
 
-#### UM PROGRAMA DE EMERGÊNCIA PARA ATRAIR NOVOS PROFESSORES
+###### UM PROGRAMA DE EMERGÊNCIA PARA ATRAIR NOVOS PROFESSORES
 
 - Desenvolver uma campanha nacional de sensibilização para a importância dos professores, para incentivar mais jovens a escolher esta profissão;
 - Analisar a possibilidade de horas extra dos professores, de forma temporária e facultativa;
@@ -127,9 +127,9 @@ Num contexto de tão rápidas mudanças sociais, tecnológicas e culturais, a Ed
 - Rever o salário em início de carreira docente e rever os restantes índices e escalões, no sentido de simplificar o sistema remuneratório;
 - Adequar a formação inicial de professores, em linha com as necessidades do sistema educativo.
 
-### CIÊNCIA E ENSINO SUPERIOR
+#### CIÊNCIA E ENSINO SUPERIOR
 
-#### 1. Porque é preciso mudar
+##### 1. Porque é preciso mudar
 
 O conhecimento, as competências, a capacidade de fazer diferente e melhor, são o que hoje distingue as sociedades mais prósperas e evoluídas. A Ciência e o Ensino Superior são dois eixos fundamentais para o futuro do país, mas a sua missão só será concretizada invertendo a trajetória de desinvestimento, combatendo a desvalorização das carreiras e revertendo a degradação das infraestruturas.
 
@@ -139,14 +139,14 @@ Os princípios orientadores relativamente ao ensino superior deverão ser: Efeti
 
 No que concerne à Ciência, a excelência tem de ser encarada como o pilar fundamental para impulsionar a inovação, reforçar a propriedade intelectual, aumentar a competitividade da economia portuguesa e a qualidade de vida no nosso país. Em 2022, a despesa em I&D cifrou-se nos 1,73% do PIB, um valor muito inferior aos 2,23% da média da UE. Neste ecossistema são atores as universidades, os institutos politécnicos e os centros de investigação, mas também as empresas, desde pequenas empresas inovadoras até às diferentes fileiras industriais e associações sectoriais. No seu conjunto, geram conhecimento, inovação e contribuem para a formação e captação de profissionais altamente qualificados.
 
-#### 2. Metas
+##### 2. Metas
 
 - Aproximar, até 2030, o valor de 3% do PIB de investimento (público e privado) em Ciência e Inovação;
 - Aproximar a percentagem de adultos entre os 25-34 anos com diploma de ensino superior, que deverá ser superior a 50% até 2030;
 - A percentagem de estudantes e recém-diplomados a beneficiar da exposição à aprendizagem em contexto laboral deverá atingir os 65% até 2030;
 - No prazo da legislatura, em articulação com o privado, a duplicação da oferta de camas de residências estudantis.
 
-#### 3. Medidas
+##### 3. Medidas
 
 - Generalizar o acesso às formações superiores:
   - Alargar e diversificar a base de captação de candidatos;
@@ -157,12 +157,12 @@ No que concerne à Ciência, a excelência tem de ser encarada como o pilar fund
   - Estimular a atratividade dos curricula nas áreas CTEAM (Ciências, Tecnologia, Engenharia, Artes e Matemática).
 - Promover o sucesso escolar e a qualidade de vida do estudante.
 
-#### ESTUDANTES E ALOJAMENTO
+###### ESTUDANTES E ALOJAMENTO
 
 - Aumentar o investimento direto na criação e requalificação de alojamento para os estudantes do Ensino Superior, através da construção de novas residências (utilizando o Plano de Recuperação e Resiliência e o PT 2030), bem como realocando e recuperando para esta função edifícios devolutos do Estado. Adicionalmente, contratualizar com autarquias locais, instituições sociais e investidores privados a construção de residências estudantis e com residências estudantis privadas;
 - Estimular e alargar as redes de apoio a idosos que recebem estudantes deslocados nas suas casas, mediante avaliações prévias feitas pelas IES.
 
-#### ESTUDANTES: APOIOS SOCIAIS E BEM-ESTAR
+###### ESTUDANTES: APOIOS SOCIAIS E BEM-ESTAR
 
 - Adequar e reforçar os programas de bolsas de estudo e apoios financeiros à real situação socioeconómica dos estudantes;
 - Reforçar a capacidade de resposta, em todas as instituições de Ensino Superior, de serviços de apoio psicológico e de saúde mental;
@@ -198,7 +198,7 @@ No que concerne à Ciência, a excelência tem de ser encarada como o pilar fund
   - Desburocratizar as relações institucionais entre o Ministério da tutela, a DGES, a FCT, a A3ES e outras;
   - Rever os critérios e fórmulas de financiamento com contratualização plurianual e incentivo à captação de financiamentos externos.
 
-#### A CIÊNCIA COMO INSTRUMENTO DE DESENVOLVIMENTO
+###### A CIÊNCIA COMO INSTRUMENTO DE DESENVOLVIMENTO
 
 - Assegurar a sustentabilidade do sistema científico:
   - Reforçar a sinergia entre o Ensino Superior, a Investigação e a Inovação, garantindo um sistema mais coeso;
@@ -220,9 +220,9 @@ No que concerne à Ciência, a excelência tem de ser encarada como o pilar fund
   - Revisitar a missão dos Laboratórios de Estado, dos Laboratórios Associados e Colaborativos visando clarificar a sua missão;
   - Dinamizar um programa de apoio ao registo de patentes e de outra propriedade intelectual das empresas portuguesas a nível internacional – Europa, EUA, Ásia.
 
-### CULTURA
+#### CULTURA
 
-#### 1. Porque é preciso mudar
+##### 1. Porque é preciso mudar
 
 A identidade de Portugal caracteriza-se pela sua história e pela cultura que sempre soubemos construir e preservar. A cultura forma e define o cidadão. Dá-lhe identidade, valoriza-o e completa-o. A cultura é um bem inestimável, com valor intrínseco. O setor cultural em Portugal defronta-se com problemas de um subfinanciamento enraizado, de uma visão centralista e de baixas taxas de participação cultural. É necessário agir sobre estes fatores, capacitar o setor e democratizar o acesso à cultura, bem como potenciar o recurso à inovação e promover a internacionalização da cultura portuguesa.
 
@@ -232,14 +232,14 @@ Exige-se uma mudança no paradigma da Criação Artística, numa ação mobiliza
 
 Assistimos a uma ausência de uma efetiva ação de promoção da língua portuguesa, que acaba por ignorar a nossa identidade coletiva e a singular presença de Portugal à escala global.
 
-#### 2. Metas
+##### 2. Metas
 
 - Aumentar em 50% o valor atribuído à cultura no Orçamento de Estado, ao longo dos próximos 4 anos;
 - Alargar a oferta do ensino da dança, teatro, música, cinema e artes plásticas aos primeiros anos do ensino, de forma a aumentar a acessibilidade os públicos da cultura, em particular os mais jovens;
 - Reforçar o regime legal do Mecenato Cultural, criando um regime atrativo e mobilizador, que permita melhorar o apoio ao setor da cultura;
 - Promover a salvaguarda, a conservação e a reabilitação do património cultural.
 
-#### 3. Medidas
+##### 3. Medidas
 
 - Estimular o acesso à cultura e ao património por parte das crianças e dos jovens em idade escolar;
 - Implementar uma estratégia nacional para a criação artística nas artes performativas e visuais, na música, nas artes de rua e nos cruzamentos disciplinares e na sua relação com as indústrias criativas;
@@ -261,11 +261,11 @@ Assistimos a uma ausência de uma efetiva ação de promoção da língua portug
 - Desenvolver e implementar um Plano Estratégico do Cinema e do Audiovisual;
 - Preparar e consensualizar, com a devida antecedência, os programas de celebração de datas com elevado significado histórico nacional. Em particular, a celebração, durante a legislatura, dos 900 anos da batalha de São Mamede (1128), uma das datas fundadoras da nacionalidade.
 
-## SUSTENTABILIDADE
+### SUSTENTABILIDADE
 
-### AMBIENTE, ÁGUA, AÇÃO CLIMÁTICA E PROTEÇÃO ANIMAL E DOS ECOSSISTEMAS
+#### AMBIENTE, ÁGUA, AÇÃO CLIMÁTICA E PROTEÇÃO ANIMAL E DOS ECOSSISTEMAS
 
-#### 1. Porque é preciso mudar
+##### 1. Porque é preciso mudar
 
 Portugal tem de aproveitar as possibilidades criadas pelo Pacto Ecológico Europeu e por uma nova ambição europeia de transição para uma economia mais sustentável, e uma sociedade justa e próspera, com uma economia moderna, mais eficiente na utilização de recursos e competitiva, tendo como objetivo atingir a neutralidade carbónica em 2050.
 
@@ -287,16 +287,16 @@ Neste contexto, é necessário remunerar os serviços dos ecossistemas através 
 
 A proteção animal é uma preocupação a que continuaremos a corresponder com medidas concretas que penalizem os maus-tratos e o abandono de animais de companhia, assegurando respostas efetivas para os atuais problemas. Temos assumido posições equilibradas e progressistas ao longo dos anos, não entendendo a causa animal como arma de arremesso político ou de confrontação entre grupos sociais, sendo de evitar os extremismos e os populismos em seu redor. Independentemente das responsabilidades e das lacunas da administração central, importa colocar um maior foco nas políticas de proximidade no apoio ao bem-estar animal, assegurando condições para que a administração local e outras entidades possam ter uma ação mais eficaz, dispondo dos recursos adequados.
 
-#### 2. Metas
+##### 2. Metas
 
 - Concretizar uma estratégia de aplicação do Pacto Ecológico Europeu que crie oportunidades e emprego no sector do ambiente, estimulando as mudanças de produção exigidas pela União Europeia, mas protegendo os sectores que geram por cá emprego e sustentabilidade;
 - Assegurar o acesso, com eficiência económica e hídrica e coesão territorial, ao abastecimento de água para consumo humano e aproveitamento agrícola e eliminar substancialmente as perdas reais de água nos sistemas públicos de abastecimento até 2030;
 - Cumprir as metas de Portugal relativamente aos resíduos, designadamente com a redução significativa das taxas de deposição em aterro e desenvolvimento das soluções infraestruturais alternativas;
 - Combater a desertificação do território procurando através de adaptações no sector agrícola e da efetiva remuneração dos serviços da biodiversidade, com suporte na estruturação de um mercado voluntario de carbono.
 
-#### 3. Medidas
+##### 3. Medidas
 
-#### RESÍDUOS E A PROMOÇÃO DA CIRCULARIDADE DA ECONOMIA
+###### RESÍDUOS E A PROMOÇÃO DA CIRCULARIDADE DA ECONOMIA
 
 - Assegurar no terreno o cumprimento das metas ambientais assumidas junto da CE através da implementação efetiva dos planos sectoriais aprovados para o horizonte 2024-2030 (PNGR, PERSU, PERNU e PAEC) e, simultaneamente, proceder a uma reestruturação com reforço de competências e recursos da CAGER;
 - Apostar na economia circular, na gestão dos resíduos, da água e recursos hídricos e na gestão dos solos;
@@ -306,48 +306,48 @@ A proteção animal é uma preocupação a que continuaremos a corresponder com 
 - Promover a dinamização de processo de desclassificação de resíduos para multiplicar os seus usos seguros e desonerar as operações de tratamento;
 - Executar a Estratégia dos Biorresíduos (criando condições para que a recolha seletiva e sua reciclagem seja operacionalizada em todo o território nacional).
 
-#### DESENVOLVIMENTO DA FISCALIDADE VERDE
+###### DESENVOLVIMENTO DA FISCALIDADE VERDE
 
 - Dar seguimento às alterações introduzidas pela Reforma da Fiscalidade Verde (2015). As medidas na fiscalidade verde serão neutras do ponto de vista orçamental.
 
-#### ÁGUA
+###### ÁGUA
 
 - Promover um Programa de Acão para a Digitalização Integral do Ciclo da Água, prevendo medidas para modernizar a gestão dos recursos hídricos numa lógica de transformação tecnológica (tecnologia de medição, transmissão e tratamento da informação);
 - Incrementar a percentagem de água para reutilização;
 - Aumentar a capacidade de armazenamento de água e reduzir a percentagem dos caudais fluviais que desaguam no mar nos rios onde esses valores são muito elevados, com a criação de reservas em zonas rurais, aliados à gestão integrada das águas superficiais e subterrâneas. Salienta-se a necessidade de executar um plano integral de redimensionamento e desassoreamento de albufeiras e barragens a nível nacional, e estudar a possibilidade de transferências de caudais (salvaguardados os devidos impactos sociais, económicos e ambientais), bem como, e a remoção de barreiras obsoletas nos rios e o restauro dos ecossistemas fluviais. Defender os interesses nacionais relativamente aos rios internacionais provenientes de Espanha;
 - Estudar a racionalidade económica, incluindo com análise custo-benefício, eventuais soluções inovadores para ampliar o acesso e disponibilidade efetiva de recursos hídricos para consumo humano e agrícola em todo o território nacional, incluindo ponderando soluções de dessalinização.
 
-#### PROTECÇÃO DO LITORAL
+###### PROTECÇÃO DO LITORAL
 
 - Criar o Programa de Ação para Resiliência do Litoral 2025-2040, através do PRR e do PT20-30, que preveja intervenções estruturais e investimentos continuados num contexto em que se intensificam os fenómenos climáticos extremos;
 - Criar um Programa de restauro e revitalização de zonas estuarinas, através do PRR e do PT20-30, destinado a intervenções integradas de adaptação às alterações climáticas, regeneração urbana, mobilidade sustentável e valorização territorial (Programa FOZ);
 - Atualizar, investir e monitorizar os instrumentos e mecanismos de proteção do Litoral, com o objetivo de rever e atualizar a Estratégia Nacional para a Gestão Integrada da Zona Costeira, concluir os Programas da Orla Costeira (POC).
 
-#### BIODIVERSIDADE E CONSERVAÇÃO DA NATUREZA
+###### BIODIVERSIDADE E CONSERVAÇÃO DA NATUREZA
 
 - Apostar na valorização dos serviços dos ecossistemas como incentivo ao cumprimento das metas ambientais e medida de justiça e coesão territorial;
-- Concluir a elaboração dos *Programas Especiais de Áreas Protegidas* e reforçar a sua vigilância e atualizar, investir e monitorizar os instrumentos e mecanismos de proteção da biodiversidade e conservação da natureza;
-- Elaborar o *Plano Nacional de Restauro da Natureza*, acautelando as especificidades nacionais, a redução de riscos induzidos e a necessidade de investimentos que remunerem os proprietários pelos serviços prestados pelos ecossistemas;
+- Concluir a elaboração dos _Programas Especiais de Áreas Protegidas_ e reforçar a sua vigilância e atualizar, investir e monitorizar os instrumentos e mecanismos de proteção da biodiversidade e conservação da natureza;
+- Elaborar o _Plano Nacional de Restauro da Natureza_, acautelando as especificidades nacionais, a redução de riscos induzidos e a necessidade de investimentos que remunerem os proprietários pelos serviços prestados pelos ecossistemas;
 - Fomentar o aumento de espaços verdes nos centros urbanos e implementar medidas de Eficiência Energética em territórios urbanos com maiores vulnerabilidades sociais e riscos de pobreza energética.
 
-#### GOVERNAÇÃO AMBIENTAL
+###### GOVERNAÇÃO AMBIENTAL
 
 - Simplificar os licenciamentos ambientais e reforço da necessária transparência e fiscalização, com efetivo e não apenas aparente reforço das obrigações ambientais;
 - Implementar Planos Municipais de Descarbonização e Premiar os Municípios que mais contribuírem para o cumprimento dos objetivos ambientais de Portugal;
 - Criar um Portal Único do Licenciamento com vista a assegurar a total transparência e integridade dos processos de licenciamento, com a digitalização integral do processo de licenciamento e que disponibilize, de um modo claro e acessível, o enquadramento legal, indicadores de desempenho e fundamentação das decisões de todos os responsáveis/órgãos competentes envolvidos na cadeia de decisão dos procedimentos;
-- Criar o Programa de Avaliação de Impacte Ambiental AIA 2.0, enquanto instrumento de apoio aos procedimentos de Avaliação de Impacte Ambiental *(Programa AIA 2.0),* com recurso a tecnologias de inteligência artificial para maior transparência e celeridade das decisões;
+- Criar o Programa de Avaliação de Impacte Ambiental AIA 2.0, enquanto instrumento de apoio aos procedimentos de Avaliação de Impacte Ambiental _(Programa AIA 2.0),_ com recurso a tecnologias de inteligência artificial para maior transparência e celeridade das decisões;
 - Promover as Compras Públicas Circulares e Ecológica, que seja conjugado com critérios económicos e , e vincular toda a administração pública, central e local, à inclusão de critérios ambientais equivalentes aos estabelecidos no quadro do Pacto Ecológico Europeu e do Regulamento da Taxonomia nos seus procedimentos de aquisição.
 
-#### PROTEÇÃO ANIMAL
+###### PROTEÇÃO ANIMAL
 
 - Rever, clarificar e reforçar a legislação que penaliza o abandono e os maus-tratos a animais de companhia;
 - Desenvolver uma campanha nacional de sensibilização contra o abandono de animais que seja mais eficaz na indução de comportamentos responsáveis;
 - Reforçar as condições dos Centros de Recolha Oficiais (CRO) e dos programas que desenvolvem;
 - Desenvolver uma nova geração de políticas de proximidade no reforço da proteção animal.
 
-### AGRICULTURA, FLORESTAS E ALIMENTAÇÃO
+#### AGRICULTURA, FLORESTAS E ALIMENTAÇÃO
 
-#### 1. Porque é preciso mudar
+##### 1. Porque é preciso mudar
 
 Os terrenos agrícolas e florestais representam cerca de 78% do território nacional, a que correspondem mais de 7 milhões de hectares, o que, por si só, justifica a sua importância; se a essa área acrescentarmos as áreas de matos e incultos (16%) podemos falar de um setor com relevância em 95% do território.
 
@@ -361,7 +361,7 @@ A renovação do pacto social da agricultura com a sociedade passará também, n
 
 De igual modo, a Floresta não tem estado nas prioridades. Trata-se de setor estrutural para a coesão territorial e social, para a paisagem e para o clima do nosso País. Um setor com fileiras em que somos líderes mundiais, representando cerca de 11% das exportações nacionais.
 
-#### 2. Metas
+##### 2. Metas
 
 - Dar relevância política e institucional ao setor da Agricultura no seio do Governo e aos seus organismos, com a reintegração das florestas e do desenvolvimento rural no mesmo Ministério;
 - Regularizar as dívidas com os agricultores e regressar a uma política de pagamentos atempados e certos;
@@ -386,7 +386,7 @@ De igual modo, a Floresta não tem estado nas prioridades. Trata-se de setor est
 - Reforçar a comercialização de produtos locais e valorizar a produção nacional, através da criação de um selo CCA;
 - Aumentar o número de produtos IGP, DOP e ETG.
 
-#### 3. Medidas
+##### 3. Medidas
 
 - Acesso à terra:
   - Criar linhas de crédito de longo prazo, com juros bonificados, nomeadamente através do Banco de Fomento, para a aquisição de terrenos agrícolas nos quais se pretenda desenvolver um projeto de investimento agrícola;
@@ -447,7 +447,7 @@ De igual modo, a Floresta não tem estado nas prioridades. Trata-se de setor est
   - Possibilitar a integração nos investimentos elegíveis de formação avançada em universidades nacionais e estrangeiras, sobretudo em áreas de gestão.
 - Aposta na qualificação dos colaboradores e agricultores:
   - Promover a criação de uma rede de "estágios profissionais" entre diferentes empresas agrícolas, para facilitar a partilha de boas práticas e de conhecimento;
-  - Promover um programa de qualificação em *soft skills* dirigido para empresários agrícolas, incluindo competências de comunicação.
+  - Promover um programa de qualificação em _soft skills_ dirigido para empresários agrícolas, incluindo competências de comunicação.
 - Captação de talento para o setor:
   - Criar um programa de estágios para áreas críticas nas explorações agrícolas;
   - Promover o estabelecimento de projetos de I&D ou de transferência de conhecimento entre o Ensino Superior e empresas tecnológicas, com empresas do setor agrícola, agroalimentar e/ou florestal.
@@ -474,9 +474,9 @@ De igual modo, a Floresta não tem estado nas prioridades. Trata-se de setor est
   - Desenvolver ações de literacia alimentar desde o 1.º ciclo de ensino, através de cooperação entre os agentes do setor;
   - Criar campanhas de educação alimentar.
 
-### MAR E PESCAS
+#### MAR E PESCAS
 
-#### 1. Porque é preciso mudar
+##### 1. Porque é preciso mudar
 
 O Mar é o maior ativo natural português. Constitui um ativo real de valor económico, ambiental, político e geoestratégico; um ativo potencial de equilíbrio, progresso, afirmação e prestígio internacional do País, um fator de Identidade Nacional e de Individualidade do País. A especial fragilidade dos oceanos e da sua biodiversidade obriga a uma exploração dos recursos e usos marinhos de modo sustentado e sustentável, através de uma abordagem holística e global dos assuntos do mar, tendo em conta o(s) ecossistema(s) marinho(s).
 
@@ -488,11 +488,11 @@ No que se refere à plataforma continental, é importante não desistir do proce
 
 A área das pescas tem uma importância económica, ambiental e social indelével, devendo procurar-se o equilíbrio entre a exploração dos recursos e a preservação dos ecossistemas marinhos, potenciando as fileiras das pescas na economia do mar. É essencial retomar-se o ordenamento e a gestão efetiva do planeamento espacial do espaço marítimo e das zonas costeiras, assegurando a adequada articulação entre as diferentes atividades humanas que concorrem pelo espaço e recursos marítimos e minimizando a incompatibilidade e conflitualidade na utilização destes recursos.
 
-#### 2. Metas
+##### 2. Metas
 
 • Expandir a rede de áreas marinhas protegidas de modo a proteger e preservar a biodiversidade, principalmente os ecossistemas raros ou frágeis, bem como o habitat de espécies e outras formas de vida marinha em vias de extinção, ameaçadas ou em perigo.
 
-#### 3. Medidas
+##### 3. Medidas
 
 - Construir Consciência Marítima:
   - Conhecer para proteger: criar condições para conhecermos o Mar sob soberania ou jurisdição portuguesa, incluindo os fundos marinhos e as zonas costeira, através dum investimento significativo no conhecimento e na investigação científica do Mar;
@@ -507,7 +507,7 @@ A área das pescas tem uma importância económica, ambiental e social indeléve
   - Criar um modelo de governança para as áreas marinhas protegidas, que garanta a devida orientação, coerência e articulação entre as instituições com competências na sua classificação, gestão, monitorização, fiscalização, e a publicação de dados sobre estas matérias;
   - Retomar a Conta Satélite do Mar, recolhendo, analisando e publicando dados atualizados sobre a Economia do Mar;
   - Adotar menos burocracia e mais certeza jurídica: tornar a legislação e os processos ligados à economia do mar mais claros, menos discricionários, e com prazos de decisão razoáveis para que as empresas que pretendam investir na economia do mar o possam fazer de forma esclarecida, planeada e segura;
-  - Compatibilizar a exploração racional dos recursos e usos do Espaço Marítimo Nacional com as atividades tradicionais existentes (pesca, turismo e outras) e respeitando a proteção do meio ambiente sob impacto e criando condições sustentáveis para a produção eólica *offshore*;
+  - Compatibilizar a exploração racional dos recursos e usos do Espaço Marítimo Nacional com as atividades tradicionais existentes (pesca, turismo e outras) e respeitando a proteção do meio ambiente sob impacto e criando condições sustentáveis para a produção eólica _offshore_;
   - Defender um investimento público e privado nos portos de pesca;
   - Estabelecer um Plano de Reestruturação da Frota Pesqueira Nacional, através do PRR e do PT20-30;
   - Assegurar o investimento, através do PRR e do PT20-30, nas infraestruturas base necessárias à facilitação e estímulo de acesso ao Mar e nas regiões ribeirinhas das embarcações de pequeno porte e artes de pesca;
@@ -522,9 +522,9 @@ A área das pescas tem uma importância económica, ambiental e social indeléve
 - Concretizar sem mais atrasos e hesitações os processos de construção dos novos navios patrulha oceânicos e colocá-los ao serviço do país e da vigilância de toda a área marítima sob gestão nacional;
 - Garantir que as atividades marítimas se podem desenrolar em segurança nas áreas sob soberania, jurisdição ou responsabilidade nacional, cumprindo as obrigações internacionais e Europeias, implementando uma Estratégia de Segurança Marítima, combatendo atividades ilegais e promovendo a cooperação internacional.
 
-### CIDADES, COMUNIDADES E COESÃO TERRITORIAL
+#### CIDADES, COMUNIDADES E COESÃO TERRITORIAL
 
-#### 1. Porque é preciso mudar
+##### 1. Porque é preciso mudar
 
 O Programa Nacional da Política de Ordenamento do Território (PNPOT) salienta a existência de uma realidade regional e nacional que ultrapassa as clássicas grelhas de leitura norte/sul, interior/litoral e urbano/rural.
 
@@ -538,12 +538,12 @@ A fraca capacidade de planeamento territorial de longo prazo, torna as política
 
 No que diz respeito às Autonomias Regionais, sempre lutámos pela defesa da Autonomia Política das Regiões Autónomas e pelo respeito integral e inegociável pela dignidade e competências dos órgãos de governo próprio das mesmas. Assim como sempre respeitámos e acolhemos as legítimas aspirações das nossas Regiões Autónomas de incrementarem o seu contributo ativo para a coesão territorial e social do nosso País. Sempre no estrito respeito pelos respetivos Estatutos político-administrativos.
 
-#### 2. Metas
+##### 2. Metas
 
 - Garantir que o território tem cobertura de comunicações eletrónicas e dados em 2030;
 - Aprofundar o processo de descentralização municipal e intermunicipal, dotando os municípios e as áreas metropolitanas e comunidades intermunicipais e Comunidades Intermunicipais de competências relevantes capazes de assumir efetivamente a condução e gestão dos serviços públicos descentralizados, bem como do respetivo envelope de recursos humanos, materiais e financeiros adequados e dos mecanismos de responsabilização e avaliação transparente.
 
-#### 3. Medidas
+##### 3. Medidas
 
 - Apostar na transferência de competências para os municípios e entidades intermunicipais, reforçar as competências atribuídas às áreas metropolitanas e comunidades intermunicipais em estreita articulação com os municípios, como alavanca de descentralização e desenvolvimento regional, num quadro de transparência e efetiva transferência de recursos para o seu cumprimento, garantindo assim complementaridades em função da escala territorial e da área setorial;
 - Adequar a Lei das Finanças Locais e demais instrumentos normativos ao processo de descentralização;
@@ -553,7 +553,7 @@ No que diz respeito às Autonomias Regionais, sempre lutámos pela defesa da Aut
 - Estimular a partilha de boas práticas entre municípios e a transparência comparativa dos desempenhos da gestão e desempenho dos vários municípios;
 - Melhorar a governança e a coordenação territorial, definindo prioridades de desenvolvimento territorial, consolidando os centros urbanos regionais e reforçando o papel das pequenas e médias cidades no combate à desertificação e perda demográfica;
 - Promover a visão da cidade e território como plataforma, reformulando os processos de elaboração e disponibilização dos instrumentos de gestão territorial;
-- Redesenhar o *Programa de Valorização do Interior,* incentivar a recuperação das casas das aldeias;
+- Redesenhar o _Programa de Valorização do Interior,_ incentivar a recuperação das casas das aldeias;
 - Capacitar as universidades e politécnicos dos territórios de baixa densidade, através do PRR e do PT20-30, criando polos de inovação e fixação de populações;
 - Tornar os processos de planeamento urbanístico mais eficazes, aumentando a transparência e acesso, e reduzindo custos de contexto e prazos;
 - Adotar um novo modelo de governação do licenciamento das atividades económicas capaz de garantir a captação de investimento no território, através de uma metodologia célere, transparente e promotora de um processo transparente de concorrência;
@@ -562,11 +562,11 @@ No que diz respeito às Autonomias Regionais, sempre lutámos pela defesa da Aut
 - Garantir o Princípio da Continuidade Territorial, assumindo a República as suas responsabilidades ao nível do transporte marítimo e aéreo de pessoas e mercadorias, nas comunicações, na cultura e no desporto;
 - Rever a Lei de Finanças das Regiões Autónomas e analisar a possibilidade de criação de Sistemas Fiscais Regionais.
 
-# COM SENSIBILIDADE SOCIAL
+## COM SENSIBILIDADE SOCIAL
 
-## SAÚDE
+### SAÚDE
 
-#### 1. Porque é preciso mudar
+##### 1. Porque é preciso mudar
 
 O diagnóstico crítico sobre o grave estado atual da Saúde em Portugal está bem documentado por fontes sérias e idôneas. Partilhamos das preocupações crescentes com a agudização de problemas estruturais do SNS não resolvidos e agravados pelos governos do Partido Socialista – motivo da forte desmotivação atual dos profissionais de saúde e insatisfação da população portuguesa. Nos últimos anos, Portugal estagnou no comparativo internacional dos sistemas de saúde e degradou gravemente as condições de acesso universal aos cuidados de saúde.
 
@@ -598,14 +598,14 @@ O esforço individual e coletivo para uma saúde de qualidade é desproporcionad
 
 A garantia constitucional de acesso universal aos cuidados de saúde deve ser cumprida com recurso a todos os meios públicos, privados e sociais existentes e devidamente articulados, num sistema competitivo que premeia a eficiência e a qualidade da resposta de saúde aos cidadãos.
 
-#### 2. Metas
+##### 2. Metas
 
 - Ter a ambição de colocar o sistema de saúde português entre os dez melhores do mundo, em 2040, de acordo com os seguintes indicadores internacionais:
   - mortalidade por cancro e doença cardiovascular;
   - tempo de vida sem doença;
   - tempos de resposta a consulta e cirurgia;
   - esperança média de vida à nascença;
-  - despesa *per capita* de saúde *out-of-pocket.*
+  - despesa _per capita_ de saúde _out-of-pocket._
 - Implementar o Plano de Emergência do SNS 2024-2025 com aplicação do Plano de Motivação dos Profissionais de Saúde;
 - Inaugurar novas Parcerias Público-Sociais para unidades de Cuidados Paliativos e Unidades de Cuidados Continuados de 2ª Geração;
 - Assegurar o cumprimento dos Tempos Máximos de Resposta Garantidos (TMRG) em todos os Hospitais portugueses para os doentes oncológicos até final de 2027;
@@ -617,17 +617,17 @@ A garantia constitucional de acesso universal aos cuidados de saúde deve ser cu
 - Incrementar o orçamento dos programas transversais de promoção da Saúde e Saúde preventiva em sede interministerial com franco envolvimento das Autarquias Locais;
 - Fortalecer a rede pública de apoio à Fertilidade e Procriação Medicamente Assistida;
 - Estabelecer um novo programa nacional de Saúde Oral com unidades privadas de Medicina Dentária;
-- Criar a Agência Nacional Digital da Saúde e o Registo Eletrónico de Saúde Único (RES\_U) para cada pessoa;
-- Construir três Centros Ambulatoriais, até 2028, em co-promoção com municípios ou Comunidades Intermunicipais, baseados em programas de *Value-Based Healthcare*;
+- Criar a Agência Nacional Digital da Saúde e o Registo Eletrónico de Saúde Único (RES_U) para cada pessoa;
+- Construir três Centros Ambulatoriais, até 2028, em co-promoção com municípios ou Comunidades Intermunicipais, baseados em programas de _Value-Based Healthcare_;
 - Rever as ULS e concretizar Sistemas Locais de Saúde flexíveis com participação de entidades públicas, privadas e sociais.
 
-#### 3. Medidas
+##### 3. Medidas
 
-#### COMBATER A DESIGUALDADE DE ACESSO À SAÚDE
+###### COMBATER A DESIGUALDADE DE ACESSO À SAÚDE
 
 - Apresentar um Plano de Emergência SNS 2024-2025, nos primeiros 60 dias do novo Governo, sustentado por uma reorientação estratégica da política global do Governo nesta área, designadamente com o seguinte enquadramento legislativo e financeiro em 2024:
 
-##### Ao nível das Consultas
+**Ao nível das Consultas**
 
 - Garantir a emissão do Voucher Consulta de Especialidade, com liberdade de escolha do prestador pelo utente quando é ultrapassado o Tempo Máximo de Resposta Garantido (TMRG);
 - Promover um incremento sustentado das USF tipo B;
@@ -639,7 +639,7 @@ A garantia constitucional de acesso universal aos cuidados de saúde deve ser cu
 - Abrir USF tipo C nas áreas metropolitanas Lisboa e Porto (projeto-piloto);
 - Alargar consultas de Psicologia Clínica, Terapia de Reabilitação e Nutrição nos Centros de Saúde.
 
-##### Ao nível das Urgências
+**Ao nível das Urgências**
 
 - Implementar um Plano de Motivação dos Profissionais de Saúde;
 - Redefinir a Rede de Urgências e referenciação hospitalares;
@@ -649,12 +649,12 @@ A garantia constitucional de acesso universal aos cuidados de saúde deve ser cu
 - Criar um modelo de equipas dedicadas com auditoria externa;
 - Implementar benefícios especiais para equipas de Urgência.
 
-##### Ao nível das Cirurgias
+**Ao nível das Cirurgias**
 
 - Desenvolver as CRIs públicos de segunda geração;
-- Criar novos incentivos no programa SIGIC com indicadores de *outcome* clínico reportados pelo paciente;
+- Criar novos incentivos no programa SIGIC com indicadores de _outcome_ clínico reportados pelo paciente;
 - Promover a auditoria regional e nacional a TMRG na rede hospitalar;
-- Implementar indicadores hospitalares obrigatórios de *outcome* cirúrgico;
+- Implementar indicadores hospitalares obrigatórios de _outcome_ cirúrgico;
 - Desenvolver um sistema concorrencial competitivo para cirurgia de ambulatório;
 - Organizar uma resposta pública no SNS com vista ao aumento da natalidade e maior acesso às técnicas de Procriação Medicamente Assistida, com práticas sustentadas numa sólida moldura ética:
   - Reforçar o Investimento nos centros públicos de PMA (Procriação Medicamente Assistida) em recursos humanos, equipamentos e espaços físicos;
@@ -664,17 +664,17 @@ A garantia constitucional de acesso universal aos cuidados de saúde deve ser cu
   - Assegurar a referenciação mais precoce dos Médicos de Família para centros de PMA;
   - Aprofundar e melhorar os protocolos clínicos e boas práticas assistenciais para obtenção da menor mortalidade infantil da UE.
 
-#### MOTIVAR OS PROFISSIONAIS DE SAÚDE
+###### MOTIVAR OS PROFISSIONAIS DE SAÚDE
 
 • Criar o Plano de Motivação dos Profissionais de Saúde, de forma a valorizar autonomamente todos os recursos humanos envolvidos na prestação dos cuidados de saúde às pessoas, em especial no SNS. Este plano versará sobre as carreiras dos médicos, enfermeiros, farmacêuticos, administradores, psicólogos, fisioterapeutas, nutricionistas e técnicos auxiliares de saúde. Este plano versará sobre incentivos laborais, desenvolvimento de carreiras, flexibilidade de horários de trabalho, diferenciação profissional, novos perfis de competências.
 
-##### Médicos
+**Médicos**
 
 - Promover uma abordagem específica com as Ordens Profissionais e as associações representativas no que respeita à retenção de jovens quadros médicos, enfermeiros e outros profissionais de saúde no sistema de saúde português;
 - Definir, nas zonas mais carenciadas do País, um novo conjunto de incentivos para atração de profissionais de saúde, em articulação com as autarquias locais;
 - Construir, progressivamente, equipas multidisciplinares mais alargadas no SNS, nomeadamente, ao nível dos cuidados de saúde primários.
 
-#### PROMOVER A SAÚDE E A PREVENÇÃO DA DOENÇA
+###### PROMOVER A SAÚDE E A PREVENÇÃO DA DOENÇA
 
 - Fomentar e promover ações e iniciativas na área da prevenção em saúde;
 - Criar um Programa Prioritário de Promoção da Saúde Oral;
@@ -682,7 +682,7 @@ A garantia constitucional de acesso universal aos cuidados de saúde deve ser cu
 - Garantir a realização de um check-up anual tendo por base as boas práticas internacionais, num protocolo personalizado de cuidados de saúde entre prestadores públicos, privados e sociais;
 - Aproveitar e potenciar a vasta rede capilar em todo o território nacional das Misericórdias e IPSS nas ações de promoção da saúde e prevenção da doença.
 
-#### ALARGAR CUIDADOS DE PROXIMIDADE
+###### ALARGAR CUIDADOS DE PROXIMIDADE
 
 Desenvolver Sistemas Locais de Saúde e reforçar equipas clínicas de proximidade, reavaliando o processo das ULS quanto à escala, âmbito e funcionalidade. Na área social:
 
@@ -694,11 +694,11 @@ Desenvolver Sistemas Locais de Saúde e reforçar equipas clínicas de proximida
 - Desenvolver Redes de Cuidados continuados, paliativos e de centros ambulatórios de Proximidade;
 - Avaliar, com a Ordem dos Médicos, a criação da especialidade de Medicina Paliativa.
 
-#### ECOSSISTEMA NACIONAL DE DADOS EM SAÚDE
+###### ECOSSISTEMA NACIONAL DE DADOS EM SAÚDE
 
-- Criar um Ecossistema Nacional de Dados em Saúde, implementar o Registo Eletrónico de Saúde Único (RES\_U) e transformar a SPMS na Agência Nacional Digital na Saúde.
+- Criar um Ecossistema Nacional de Dados em Saúde, implementar o Registo Eletrónico de Saúde Único (RES_U) e transformar a SPMS na Agência Nacional Digital na Saúde.
 
-#### NOVO MODELO DE GESTÃO HOSPITALAR
+###### NOVO MODELO DE GESTÃO HOSPITALAR
 
 - Desenvolver um novo modelo de contratualização do SNS, com uma nova entidade dedicada para o efeito, sujeito a uma supervisão profissional de alto nível e transparente;
 - Reformular a Direção Executiva do SNS, com uma alteração profunda da sua estrutura orgânica – mais simplificada –, e das suas competências funcionais;
@@ -707,9 +707,9 @@ Desenvolver Sistemas Locais de Saúde e reforçar equipas clínicas de proximida
 - Possibilitar a eleição direta de Diretor(a) Clínico(a) e Enfermeiro(a) Diretor(a), ficando a opção a cargo de cada Unidade Hospitalar;
 - Fazer evoluir o estatuto dos Hospitais Universitários atribuindo tempo protegido obrigatório e cíclico para funções formativas e de investigação de acordo com modelos internacionais validados além do tempo clínico e assistencial dos profissionais de saúde – e acelerar os Centros Académicos Clínicos em projetos de I&D+I com impacto reconhecível nos resultados de saúde dos doentes e na conceção/validação/ produção industrial de bens e produtos.
 
-## DESPORTO E ATIVIDADE FÍSICA
+### DESPORTO E ATIVIDADE FÍSICA
 
-#### 1. Porque é preciso mudar
+##### 1. Porque é preciso mudar
 
 O contexto com que nos deparamos é desafiante, desde logo pela constatação da ausência de uma política pública para o desporto nacional ancorada num documento de orientação estratégico com dotação orçamental, objetivos e métricas a atingir. Acresce que a organização administrativa do setor desportivo é confusa, impondo-se o reforço da sua coerência estrutural e orgânica.
 
@@ -717,14 +717,14 @@ Todos os indicadores apontam para fracos níveis de prática de atividade físic
 
 O verdadeiro potencial de desenvolvimento desportivo do País só será alcançado através de um programa de investimento robusto e com critério, enquadrado de forma eficiente e sustentável por um planeamento estratégico, com envolvimento de todos os agentes, promovendo a participação, a excelência e a inclusão no desporto, para que todos os cidadãos possam alcançar os seus objetivos ao nível do bem-estar físico, mental e social, construindo uma nação mais saudável e ativa, unida e vitoriosa.
 
-#### 2. Metas
+##### 2. Metas
 
 - Diminuir o nível de obesidade infantil e excesso de peso;
 - Reduzir a percentagem da população sedentária;
 - Aumentar a prática de atividade física e desportiva da população;
 - Diminuir a diferença na prática de atividade física e desportiva entre homens e mulheres.
 
-#### 3. Medidas
+##### 3. Medidas
 
 - Elaborar um Plano Estratégico para a atividade física e desporto, com um novo modelo de coordenação de políticas de bem-estar/saúde, com os objetivos de promoção e aumento dos indices de prática desportiva e os seus benefícios sociais:
   - Aumentar os índices de prática desportiva com frequência e de qualidade para toda a população;
@@ -744,9 +744,9 @@ O verdadeiro potencial de desenvolvimento desportivo do País só será alcança
   - Apoiar a qualificação, certificação e intervenção do movimento associativo nos diferentes níveis de atividade, nomeadamente no sentido de, através de fundos Europeus, garantir o acesso às instalações desportivas de pessoas com deficiência, bem como a reabilitação das instalações desportivas;
   - Aproximar o investimento direto no Desporto e os indicadores de atividade física e desportiva da população portuguesa da média dos países da União Europeia.
 
-## POLÍTICAS SOCIAIS, TRABALHO E SEGURANÇA SOCIAL
+### POLÍTICAS SOCIAIS, TRABALHO E SEGURANÇA SOCIAL
 
-#### 1. Porque é preciso mudar
+##### 1. Porque é preciso mudar
 
 Portugal não pode desenvolver-se com base num modelo de crescimento assente em salários baixos.
 
@@ -768,7 +768,7 @@ Em Portugal, 42% dos portugueses estão em risco de pobreza antes de receberem t
 
 De igual modo, as novas dinâmicas sociais, decorrentes de mudanças aceleradas pelo impacto da massiva adoção digital e da denominada transição verde, podem afetar os equilíbrios socio-laborais vigentes durante largas décadas e exigem capacidade de antecipação de novas respostas pelo Estado.
 
-#### 2. Metas
+##### 2. Metas
 
 - Reduzir a taxa de pobreza entre os trabalhadores;
 - Aumentar o valor de referência do Complemento Solidário para Idosos (CSI) para um valor de 820 euros em 2028, tendo como objetivo a equiparação ao valor do salário mínimo nacional, na legislatura seguinte;
@@ -777,7 +777,7 @@ De igual modo, as novas dinâmicas sociais, decorrentes de mudanças aceleradas 
 - Reduzir a população com contrato a termo;
 - Aumentar a percentagem de população em idade ativa a participar em atividades de educação e formação.
 
-#### 3. Medidas
+##### 3. Medidas
 
 - Dignificar o trabalho e o emprego, combater a pobreza e a precariedade:
   - Substituir um conjunto alargado de apoios sociais, sem perdas para ninguém, por um Suplemento Remunerativo Solidário - sistema de subsídio ao trabalho, com a possibilidade de acumulação de rendimentos do trabalho com RSI, pensão social, ou outros apoios sociais dirigidos a situações sociais limite, que atenue o empobrecimento dos trabalhadores empregados e incentive a sua participação ativa no mercado de trabalho que tenha em conta a dimensão e composição do agregado familiar;
@@ -808,9 +808,9 @@ De igual modo, as novas dinâmicas sociais, decorrentes de mudanças aceleradas 
   - Capacitar as instituições do setor social para respostas inovadoras que privilegiem a autonomia, o apoio domiciliário e o papel dos cuidadores informais, em detrimento da institucionalização dos utentes;
   - Dinamizar os Conselhos Locais de Ação Social e a criação de Planos Estratégicos Locais de Ação Social, que garantam a previsibilidade do investimento e do financiamento dos serviços ao nível local.
 
-## MIGRAÇÕES
+### MIGRAÇÕES
 
-#### 1. Porque é preciso mudar
+##### 1. Porque é preciso mudar
 
 Portugal enfrenta desafios significativos em relação à imigração. Perante uma legislação ineficaz e uma falta de articulação entre o setor público, privado e social, proliferam redes de tráfico humano capazes de atrocidades sociais nunca vistas no nosso País. Isso tem igualmente problemas sociais complexos como o desafio na habitação e a persistência de fenómenos xenófobos. Apenas com políticas holísticas e colaborativas, envolvendo o Estado, o setor empresarial e a Economia Social, se conseguirá promover uma imigração regulada, com humanismo, digna e construtiva para o desenvolvimento sustentável de Portugal.
 
@@ -820,13 +820,13 @@ Estas políticas devem ser desenvolvidas pela Agência para as Migrações, em a
 
 A decisão de extinguir o SEF foi desastrosa e dividir por cinco entidades agrava o problema, que muitas vezes ocorre em Portugal, de serviços que não comunicam, nem partilham informação nem cooperam. Avaliar com prioridade os efeitos da extinção do SEF e as suas potenciais consequências em matéria de eficiência na gestão das fronteiras, coordenação de serviços e forças, combate as redes de trafico de pessoas e imigração ilegal e diligência e humanismo na integração dos migrantes legais de que necessitamos.
 
-#### 2. Metas
+##### 2. Metas
 
 - Garantir uma política de imigração regulada e que assegure que os imigrantes em Portugal tenham seus direitos fundamentais respeitados e promovidos;
 - Fixação do talento nacional e atração de imigrantes profissionais qualificados;
 - Garantir um controlo efetivo das fronteiras portuguesas e da fronteira externa da União Europeia.
 
-#### 3. Medidas
+##### 3. Medidas
 
 - Combater a imigração ilegal e o tráfico humano, prevenindo e protegendo as vítimas destas práticas, apoiando devidamente as forças e serviços de segurança envolvidos neste combate;
 - Lutar contra a xenofobia e a exclusão social, implementando estratégias de combate a qualquer discriminação e promovendo a inclusão social dos imigrantes;
@@ -842,9 +842,9 @@ A decisão de extinguir o SEF foi desastrosa e dividir por cinco entidades agrav
 - Aprofundar a proximidade e articulação entre as necessidades do mercado de trabalho, empresas, instituições de ensino superior e as redes de jovens qualificados emigrados;
 - Apoiar, do ponto de vista prático e burocrático, o regresso de emigrantes.
 
-## NATALIDADE, LONGEVIDADE E BEM-ESTAR
+### NATALIDADE, LONGEVIDADE E BEM-ESTAR
 
-#### 1. Porque é preciso mudar
+##### 1. Porque é preciso mudar
 
 O Governo socialista não foi capaz de proporcionar ao país uma agenda intergeracional, um novo contrato social, capaz de unir gerações e de incentivar o contributo de todas elas como ativo para uma sociedade próspera e coesa. Hoje em Portugal, infelizmente, o envelhecimento é percecionado como um problema ao invés de uma conquista civilizacional e de uma oportunidade social, cultural e económica, promotora da sustentabilidade nacional e da valorização do capital humano.
 
@@ -868,20 +868,20 @@ Importa garantir que também as empresas e organizações desenvolvem internamen
 
 A essência das políticas públicas deve assentar num desígnio nacional, verdadeiramente coletivo ou comunitário: melhorar o bem-estar e a qualidade de vida de todos os portugueses.
 
-#### 2. Metas
+##### 2. Metas
 
-- **Felicidade e sociedade do bem-estar:** Colocar Portugal no top 10 do *ranking* de felicidade medido pelo *World Happiness Report,* do *Active Ageing Index* e *AgeWatch Index;*
+- **Felicidade e sociedade do bem-estar:** Colocar Portugal no top 10 do _ranking_ de felicidade medido pelo _World Happiness Report,_ do _Active Ageing Index_ e _AgeWatch Index;_
 - **Natalidade:** Aproximar, no médio prazo, o valor do Índice Sintético de Fecundidade de 2,1 filhos por mulher, com políticas constantes e consensualizadas que favoreçam a natalidade;
 - **Juventude:** Reduzir a idade média em que os jovens deixam a casa dos pais;
 - **Longevidade:** Aumentar a expetativa de vida saudável aos 65 anos de idade, dos atuais 8 anos para 12 anos;
 - **Longevidade:** Apresentar uma proposta de Estatuto do Idoso, até 2026.
 
-#### 3. Medidas
+##### 3. Medidas
 
 - Colocar a Demografia e a Longevidade como prioridade na agenda política;
 - Construir um Compromisso Social e Político para a Demografia e a Longevidade, que permita mobilizar um trabalho conjunto entre os serviços sociais e de saúde, os setores público, social e solidário e privado, sem cegueiras ideológicas, desde o governo central ao poder local.
 
-#### NATALIDADE
+###### NATALIDADE
 
 - Definir uma Estratégia Nacional para a Natalidade e Longevidade;
 - Garantir o acesso universal e gratuito às creches e ao pré-escolar, mobilizando os setores público, social e privado;
@@ -894,7 +894,7 @@ A essência das políticas públicas deve assentar num desígnio nacional, verda
 - Ponderar a redução do IVA para a taxa mínima na alimentação para bebés, apoiando as famílias no acesso a alimentação adequada do ponto de vista nutricional às necessidades dos bebés;
 - Facilitar e agilizar os processos de adoção, reduzindo a burocracia e oferecendo apoio para as famílias que optam por adotar.
 
-#### LONGEVIDADE E INTERGERACIONALIDADE
+###### LONGEVIDADE E INTERGERACIONALIDADE
 
 - Adotar um Estatuto para o Idoso, conseguindo prever um conjunto sistematizado de direitos e promover ações proativas visando um envelhecimento ativo, respeitado e valorizado por toda a sociedade;
 - Garantir novos modelos e respostas sociais, que apoiem a permanência de idosos nas suas casas, nas comunidades, pelo maior tempo possível, ou em residências autónomas e independentes, com níveis de assistência em função das necessidades, retardando ou evitando a institucionalização;
@@ -916,20 +916,20 @@ A essência das políticas públicas deve assentar num desígnio nacional, verda
 - Criar o Programa de Saúde Prioritário para as Demências e efetivar a Estratégia da Saúde na Área das Demências, aprovada em 2018;
 - Alargar rastreios aos cancros do pulmão, próstata e gástrico e melhorar o acesso aos rastreios do colo do útero, mama e colorretal.
 
-#### INTEGRAÇÃO DE PESSOAS COM DOENÇAS DEGENERATIVAS
+###### INTEGRAÇÃO DE PESSOAS COM DOENÇAS DEGENERATIVAS
 
 - Adotar um programa estratégico de inclusão para pessoas com doenças degenerativas, incluindo apoio psicológico e de saúde mental;
 - Utilizar tecnologias digitais na assistência, acompanhamento e cuidado dos doentes;
 - Apoiar a criação de redes de transportes específicos e dedicado;
 - Incentivar o emprego, voluntariado e valorização do cuidador informal.
 
-#### DESEMPREGO APÓS OS 50 ANOS
+###### DESEMPREGO APÓS OS 50 ANOS
 
-- Desenhar programas de *upskilling* e *reskilling (hard* e *soft skills)* específicos consoante as necessidades de mercado identificadas, incluindo a possibilidade de mudança de carreira.
+- Desenhar programas de _upskilling_ e _reskilling (hard_ e _soft skills)_ específicos consoante as necessidades de mercado identificadas, incluindo a possibilidade de mudança de carreira.
 
-## DIVERSIDADE, INCLUSÃO E IGUALDADE DE GÉNERO
+### DIVERSIDADE, INCLUSÃO E IGUALDADE DE GÉNERO
 
-#### 1. Porque é preciso mudar
+##### 1. Porque é preciso mudar
 
 A temática da Diversidade, Inclusão e Igualdade de Género deve ser integrada no conceito de Direitos Humanos universalmente protegidos.
 
@@ -945,25 +945,25 @@ No que diz respeito à inclusão de pessoas com deficiência, a realidade é cla
 
 Defendemos uma sociedade inclusiva baseada nos princípios da não segregação e não exclusão das pessoas com deficiência, trabalhando no sentido de eliminar os preconceitos sociais enfrentados, seja na sociedade em geral, seja no seu contexto familiar, criando as condições para uma vida com oportunidades de desenvolvimento das capacidades e do potencial das pessoas com deficiência.
 
-#### 2. Metas
+##### 2. Metas
 
 - Redução da disparidade salarial entre homens e mulheres para trabalho igual;
 - Redução da violência doméstica e de género;
 - Apresentação de uma lei de bases para a deficiência e inclusão.
 
-#### 3. Medidas
+##### 3. Medidas
 
-#### IGUALDADE DE GÉNERO
+###### IGUALDADE DE GÉNERO
 
 - Ponderar a equiparação da licença de maternidade e de paternidade pós-parto;
 - Reforçar a monitorização sobre a obrigatoriedade de equiparação de salários;
 - Reforçar a legislação sobre quotas para liderança feminina e presença em comissões executivas.
 
-#### VIOLÊNCIA DOMÉSTICA E DE GÉNERO
+###### VIOLÊNCIA DOMÉSTICA E DE GÉNERO
 
 - Avaliar, de forma global, todas as medidas em vigor, monitorização da implementação e atualização das mesmas e consolidação de toda a legislação aplicável a esta temática de forma a permitir o acesso, de forma compreensível e simplificada, para melhor execução das mesmas, com métricas pré-estabelecidas por área;
 - Transpor efetivamente a Proposta de Diretiva, na sua versão final adotada pelas Instituições Europeias, e antecipação da revisão da legislação existente com vista à maior equidade no tratamento das vítimas das diversas formas de violência identificadas;
-- Criminalizar determinadas formas de violência: tipificação especial e específica do crime de assédio sexual e do crime de "ciberperseguição", de "ciberassédio" e de incitamento à violência e ao ódio *online*;
+- Criminalizar determinadas formas de violência: tipificação especial e específica do crime de assédio sexual e do crime de "ciberperseguição", de "ciberassédio" e de incitamento à violência e ao ódio _online_;
 - Adotar um plano integrado entre as diversas áreas e intervenientes, com fluxo de informação célere entre todas as autoridades policiais, judiciais e que prestam apoio na área, incluindo ações de informação conjunta dos vários intervenientes;
 - Expandir a Rede Nacional de Apoio à Vítima por forma a abranger todo o território nacional;
 - Instalar salas de apoio à vítima em todas as esquadras da Polícia de Segurança Pública e postos da Guarda Nacional Republicana, destinadas ao acolhimento de casos de maus-tratos a crianças e vítimas de violência doméstica;
@@ -976,43 +976,43 @@ Defendemos uma sociedade inclusiva baseada nos princípios da não segregação 
 - Alargar os programas de reabilitação para agressores de violência doméstica;
 - Prevenir e combater a violência doméstica contra pessoas idosas.
 
-#### INCLUSÃO DE PESSOAS COM DEFICIÊNCIA
+###### INCLUSÃO DE PESSOAS COM DEFICIÊNCIA
 
 - Fomentar a educação inclusiva desde idade precoce, nomeadamente através do reforço dos meios e recursos afetos às ELI (Equipas Locais de Intervenção), certificar que todos os alunos tenham acesso ao currículo e a materiais adaptados e progridem nas aprendizagens, em contexto de turma. Assegurar que a formação de professores contempla a deficiência e a diferenciação pedagógica. Garantir a inclusão de todos os alunos na ETI, independentemente da sua situação pessoal e social:
   - Assegurar que escolas públicas têm professores de ensino especial em número suficiente para as incapacidades dos alunos que lhes foram alocados e que as escolas privadas devem ter qualquer apoio dependente da demonstração da existência de alunos com NEE devidamente apoiados por professores especializados.
 - Criar um Plano individual de transição que permita a entrada no mercado de trabalho:
-  - Introduzir um programa de treino de competências em contexto laboral no Plano Individual de Transição, que vise a aprendizagem de funções básicas laborais num local de trabalho (formação *on the job*) e monitorização do impacto das ações;
+  - Introduzir um programa de treino de competências em contexto laboral no Plano Individual de Transição, que vise a aprendizagem de funções básicas laborais num local de trabalho (formação _on the job_) e monitorização do impacto das ações;
   - Criar um plano nacional de apoio a todos os jovens com deficiência na transição da escola para o mercado de trabalho, que passe pela sua profissionalização e pela garantia de apoios para o jovem e a sua família nessa fase.
 - Promover o acesso a empregos sustentáveis e de qualidade:
   - Incrementar vantagens fiscais às empresas que contratem pessoas com deficiência acima da quota legal;
   - Criar contratos de emprego-formação para pessoas com deficiência;
   - Criar uma lei de bases para a deficiência e inclusão que sistematize a principal regulamentação existente.
 
-# COM SENTIDO DE ESTADO
+## COM SENTIDO DE ESTADO
 
-## TRANSPARÊNCIA E COMBATE À CORRUPÇÃO
+### TRANSPARÊNCIA E COMBATE À CORRUPÇÃO
 
-#### 1. Porque é preciso mudar
+##### 1. Porque é preciso mudar
 
 A corrupção é um dos maiores problemas que afeta a qualidade da democracia, a eficiência da gestão pública, a equidade da distribuição de recursos, e a confiança dos cidadãos nas instituições. A corrupção mina os valores da transparência, da responsabilidade, da participação e da integridade. Valores esses que são essenciais para uma sociedade livre, justa e solidária.
 
-Portugal tem sido classificado como um dos países da União Europeia com maior perceção de corrupção, segundo o índice da Transparência Internacional. A posição internacional do País tem vindo a agravar-se nos últimos 8 anos. Conforme nota a Transparência Internacional de Portugal, no *Corruption Perception Index 2023* o País atingiu agora o seu pior resultado desde 2012 (a par 2020), "tendo inclusive perdido a liderança entre os países lusófonos (que agora pertence a Cabo Verde). Também o inquérito do Eurobarómetro Especial 2023, do Parlamento Europeu, tinha revelado que 93% dos portugueses consideravam a corrupção como prática generalizada no nosso país, um número que coloca Portugal como o terceiro país na União Europeia (UE) onde a perceção deste crime é maior". E "apesar da aprovação dos mecanismos e instrumentos previstos na Estratégia Nacional de Combate à Corrupção em 2021, mantêm-se elevados os sentimentos de desconfiança dos portugueses e dos organismos internacionais sobre a eficácia das políticas de combate à corrupção em Portugal" .
+Portugal tem sido classificado como um dos países da União Europeia com maior perceção de corrupção, segundo o índice da Transparência Internacional. A posição internacional do País tem vindo a agravar-se nos últimos 8 anos. Conforme nota a Transparência Internacional de Portugal, no _Corruption Perception Index 2023_ o País atingiu agora o seu pior resultado desde 2012 (a par 2020), "tendo inclusive perdido a liderança entre os países lusófonos (que agora pertence a Cabo Verde). Também o inquérito do Eurobarómetro Especial 2023, do Parlamento Europeu, tinha revelado que 93% dos portugueses consideravam a corrupção como prática generalizada no nosso país, um número que coloca Portugal como o terceiro país na União Europeia (UE) onde a perceção deste crime é maior". E "apesar da aprovação dos mecanismos e instrumentos previstos na Estratégia Nacional de Combate à Corrupção em 2021, mantêm-se elevados os sentimentos de desconfiança dos portugueses e dos organismos internacionais sobre a eficácia das políticas de combate à corrupção em Portugal".
 
 A falta de transparência e a corrupção têm custos elevados para a economia, para a coesão social, e para a credibilidade internacional do país.
 
 Assim, propõe-se aqui um pacote de medidas que promovem integridade e transparência na governação, a responsabilidade política e o firme e decisivo combate à corrupção em todas as suas formas, com vista a fortalecer a confiança dos cidadãos nas instituições democráticas. Este pacote assenta em três pilares: a prevenção, a repressão, e a educação.
 
-#### 2. Metas
+##### 2. Metas
 
 - Aumentar a eficácia e a celeridade da investigação e da punição dos crimes de corrupção, através da criminalização do enriquecimento ilícito, da reforma dos mecanismos institucionais e processuais de combate à corrupção, e da proteção dos denunciantes e das vítimas;
 - Aumentar a integridade e a transparência da governação pública e reconstruir uma cultura de responsabilidade política, através da regulamentação do lobbying, da redução de conflitos de interesse, e da melhoria dos sistemas de declaração de rendimentos, património e interesses;
 - Melhorar a posição de Portugal no Índice de Perceção da Corrupção.
 
-#### 3. Medidas
+##### 3. Medidas
 
-#### PREVENÇÃO
+###### PREVENÇÃO
 
-- **Regulamentar o *lobbying,*** definindo os conceitos, os princípios, os procedimentos, e as sanções aplicáveis à atividade de influência junto dos decisores públicos, e criando um registo obrigatório e público de lobistas e de entidades representadas. O regime incluirá:
+- **Regulamentar o _lobbying,_** definindo os conceitos, os princípios, os procedimentos, e as sanções aplicáveis à atividade de influência junto dos decisores públicos, e criando um registo obrigatório e público de lobistas e de entidades representadas. O regime incluirá:
   - A criação de um Registo de Transparência, que é uma base de dados que inclua todos os representantes (individuais ou coletivos) de interesses legítimos que pretendam contactar entidades e decisores públicos, incluindo órgãos de soberania, administração pública e reguladores. O Registo deve ser comum a todas as entidades públicas, obrigatório, de acesso público e gratuito e consultável por todas as entidades públicas;
   - Criação de um Código de Conduta do Registo de Transparência, para os Representantes de Interesses Legítimos e das Entidades Públicas que estabeleça: (a) regras gerais para as relações entre representantes de interesses legítimos e entidades públicas; (b) impedimentos e incompatibilidades;
   - A adoção da Agenda Pública que regista e divulga as interações formais ou informais entre os titulares, dirigentes ou representantes das instituições públicas e os representantes de interesses legítimos. Inclui também a obrigação de publicitar as reuniões de todos os titulares de cargos políticos e altos cargos públicos com grupos de interesse (com eventual hiato de tempo devido a eventuais questões de segurança ou reserva temporária indispensável ao interesse público), com indicação de reuniões, entidades envolvidas e com um arquivo da correspondente documentação que delas tenha resultado, designadamente presenças, tópicos focados e decisões adotadas;
@@ -1020,7 +1020,7 @@ Assim, propõe-se aqui um pacote de medidas que promovem integridade e transpar�
 - **Reforma institucional das entidades públicas especializadas na transparência e prevenção de corrupção,** designadamente o Mecanismo Nacional Anti-Corrupção (MENAC), a Entidade da Transparência e a Entidade das Contas e Financiamento Político, baseada na avaliação do seu desenho institucional e desempenho;
 - **Implementar a "Pegada Legislativa" do Governo,** através da publicação no seu portal na internet, de modo acessível, das várias etapas de cada processo legislativo (decreto-lei) e regulamentar do executivo;
 - Garantir a **rastreabilidade de todos os atos e procedimentos da administração pública e de todos os órgãos do Estado,** criando a obrigação de utilização de sistemas informáticos de gestão dos procedimentos administrativos, que registem todos os atos praticados pelos órgãos do Estado e das Autarquias, bem como todas as interações e comunicações realizadas com os utentes e com outras entidades públicas;
-- **Instituir o** *Scoring* **de Ética e Integridade** (SEI) para as entidades públicas, que meça o nível de cumprimento das obrigações previstas no Regime geral de Prevenção da Corrupção. O SEI será organizado pelo MENAC (ou a entidade na qual este se integre), divulgado no Portal da Transparência, e deve ser associado a incentivos e penalizações em função dos resultados dessa avaliação cujos critérios e medição devem ser transparentes e objetivos;
+- **Instituir o _Scoring_ de Ética e Integridade** (SEI) para as entidades públicas, que meça o nível de cumprimento das obrigações previstas no Regime geral de Prevenção da Corrupção. O SEI será organizado pelo MENAC (ou a entidade na qual este se integre), divulgado no Portal da Transparência, e deve ser associado a incentivos e penalizações em função dos resultados dessa avaliação cujos critérios e medição devem ser transparentes e objetivos;
 - **Reforçar as regras de transparência, controlo dos conflitos de interesses, incompatibilidades e de impedimentos dos titulares de cargos políticos** e de altos cargos públicos, incluindo:
   - Alargando o período de nojo para o exercício de funções em entidades privadas relacionadas com a sua área de atuação. Delimitação e redefinição das regras existentes quanto ao exercício de funções posteriores ao exercício do cargo político;
   - Restringir a acumulação de funções públicas e privadas que possam gerar conflitos de interesse;
@@ -1038,7 +1038,7 @@ Assim, propõe-se aqui um pacote de medidas que promovem integridade e transpar�
 - Reforçar a **consulta pública** em processos legislativo e regulamentar do Governo, alargando as audições orais ou escritas, incluindo organizações da sociedade civil e especialistas nacionais e internacionais;
 - **Publicação de todas as decisões judiciais,** de todos os tribunais, incluindo os de primeira instância, online, cumprindo as recomendações do GRECO.
 
-#### REPRESSÃO E PENALIZAÇÃO
+###### REPRESSÃO E PENALIZAÇÃO
 
 Reformar os mecanismos institucionais e processuais e as regras substanciais relacionados com o combate à corrupção, reforçando a autonomia, a especialização, e a coordenação das entidades competentes, e introduzindo soluções inovadoras experimentadas em outros ordenamentos e medidas de simplificação, de aceleração e de efetivação dos processos judiciais, como sejam:
 
@@ -1050,14 +1050,14 @@ Reformar os mecanismos institucionais e processuais e as regras substanciais rel
 - **Alargar e robustecer as medidas de direito premial do Código Penal,** designadamente expandindo os âmbitos subjetivo, temporal e objetivo da dispensa de pena, com vista a favorecer a descoberta da verdade e a carreação de prova em processos-crime. A dispensa deve ser possível no crime de corrupção, própria ou imprópria, e ser ponderada em outros de gravidade sancionatória como a associação criminosa, tráfico de droga e relacionados com terrorismo. Deve-se também robustecer a aplicação dos mecanismos premiais da suspensão provisória do processo e atenuação especial da pena para quem em fases subsequentes do procedimento tiver contribuído decisivamente para a descoberta da verdade;
 - Fixar no Código do Processo Penal o **limite máximo de 72 horas para decisão jurisdicional após detenção,** permitindo a intervenção de mais do que um juiz no processo para tal efeito.
 
-#### EDUCAÇÃO
+###### EDUCAÇÃO
 
 - Incluir conteúdos curriculares sobre a prevenção e o combate à corrupção, nos diferentes níveis de ensino;
 - Divulgar as boas práticas e os casos de sucesso na prevenção e no combate à corrupção, reconhecendo e valorizando os exemplos de transparência e de integridade, e incentivando a replicação e a disseminação dessas melhores práticas.
 
-## SISTEMA POLÍTICO E ELEITORAL
+### SISTEMA POLÍTICO E ELEITORAL
 
-#### 1. Porque é preciso mudar
+##### 1. Porque é preciso mudar
 
 No ano em que se comemoram os 50 anos do 25 de Abril, o nosso País tem o dever de revitalizar a sua Democracia, promovendo ativamente os princípios e valores consagrados na nossa Constituição, e que, por força do progresso e das dinâmicas sociais, carecem de permanente mobilização.
 
@@ -1077,12 +1077,12 @@ Só a uniformização dos métodos de votação nos círculos das comunidades po
 
 Uma vez que cada vez mais os eleitores têm necessidade de se movimentar dentro ou fora do território pelas mais variadas razões, pessoais ou profissionais, sempre que seja exequível, para combater a abstenção, deve promover-se o voto em mobilidade, em especial nas eleições onde tal seja exequível, como sucede nas eleições Presidenciais ou Europeias, onde apenas existe um boletim de voto.
 
-#### 2. Metas
+##### 2. Metas
 
 - Garantir melhores condições para uma maior participação cívica e eleitoral;
 - Reforçar a proximidade entre os cidadãos e os titulares de cargos políticos.
 
-#### 3. Medidas
+##### 3. Medidas
 
 - Rever a Lei de Financiamento dos Partidos Políticos e das Campanhas Eleitorais, reforçando o princípio da responsabilização individual dos políticos em detrimento da responsabilidade pelo risco;
 - Reforçar as competências da Assembleia da República e propor que qualquer alteração ao seu Regimento careça da aprovação por uma maioria de dois terços;
@@ -1096,24 +1096,24 @@ Uma vez que cada vez mais os eleitores têm necessidade de se movimentar dentro 
 - Criação de um Código Eleitoral, com respeito pelas autonomias das Regiões Autónomas;
 - Reforçar as autonomias regionais, logo que possível, em sede de revisão constitucional.
 
-## COMUNICAÇÃO SOCIAL E COMBATE À DESINFORMAÇÃO
+### COMUNICAÇÃO SOCIAL E COMBATE À DESINFORMAÇÃO
 
-#### 1. Porque é preciso mudar
+##### 1. Porque é preciso mudar
 
-O setor dos *média* vive uma das suas mais graves crises de sempre, em resultado de mudanças profundas na organização do espaço público e informativo que, para além de afetarem a sustentabilidade das empresas de comunicação social e a estabilidade dos respetivos trabalhadores, colocam em risco o pluralismo e liberdade de informar e a liberdade de expressão que são pilares fundamentais estruturantes da democracia.
+O setor dos _média_ vive uma das suas mais graves crises de sempre, em resultado de mudanças profundas na organização do espaço público e informativo que, para além de afetarem a sustentabilidade das empresas de comunicação social e a estabilidade dos respetivos trabalhadores, colocam em risco o pluralismo e liberdade de informar e a liberdade de expressão que são pilares fundamentais estruturantes da democracia.
 
 O Estado não pode alhear-se dos problemas de uma área tão sensível e crítica para a saúde da nossa democracia e sociedade, como aconteceu durante os governos do Partido Socialista.
 
-A extensão e escala dos desafios exigem uma articulação e complementaridade entre políticas nacionais e europeias. Do ponto de vista do quadro legislativo europeu, o PSD assumirá um papel ativo na conceção, adoção e transposição e de políticas para promover a sustentabilidade, independência e uma equilibrada regulação dos diferentes intervenientes no ecossistema mediático e da sua articulação com o ecossistema digital, incluindo uma adequada distribuição de valor em toda a cadeia desse ecossistema. Impõe-se nomeadamente a procura de soluções criativas para os problemas do setor e que, ao mesmo tempo, reforcem o seu papel, informativo, social, cultural e económico tanto em Portugal, como no espaço lusófono e no mundo. Em simultâneo, a desinformação e as *fake news* são um dos maiores desafios do nosso tempo. Elas afetam a credibilidade das instituições, a confiança dos cidadãos, a participação cívica, a coesão social e a segurança nacional. São uma ameaça à democracia e aos valores que a sustentam.
+A extensão e escala dos desafios exigem uma articulação e complementaridade entre políticas nacionais e europeias. Do ponto de vista do quadro legislativo europeu, o PSD assumirá um papel ativo na conceção, adoção e transposição e de políticas para promover a sustentabilidade, independência e uma equilibrada regulação dos diferentes intervenientes no ecossistema mediático e da sua articulação com o ecossistema digital, incluindo uma adequada distribuição de valor em toda a cadeia desse ecossistema. Impõe-se nomeadamente a procura de soluções criativas para os problemas do setor e que, ao mesmo tempo, reforcem o seu papel, informativo, social, cultural e económico tanto em Portugal, como no espaço lusófono e no mundo. Em simultâneo, a desinformação e as _fake news_ são um dos maiores desafios do nosso tempo. Elas afetam a credibilidade das instituições, a confiança dos cidadãos, a participação cívica, a coesão social e a segurança nacional. São uma ameaça à democracia e aos valores que a sustentam.
 
-Não podemos ficar indiferente a este problema. Pelo contrário, devemos assumir um papel ativo e propositivo na defesa da verdade, da transparência, da pluralidade e da responsabilidade no espaço público. Todos temos de combater a desinformação e as *fake news*, proteger os direitos e deveres dos cidadãos e dos meios de comunicação, e promover a educação e a literacia mediática.
+Não podemos ficar indiferente a este problema. Pelo contrário, devemos assumir um papel ativo e propositivo na defesa da verdade, da transparência, da pluralidade e da responsabilidade no espaço público. Todos temos de combater a desinformação e as _fake news_, proteger os direitos e deveres dos cidadãos e dos meios de comunicação, e promover a educação e a literacia mediática.
 
-#### 2. Metas
+##### 2. Metas
 
 - Garantir a pluralidade, independência e sustentabilidade de uma comunicação social livre, em benefício de uma cidadania informada e plena;
 - Aumentar o nível de confiança dos cidadãos nas instituições democráticas, nos meios de comunicação e nos agentes políticos, reduzindo a abstenção e o descrédito.
 
-#### 3. Medidas
+##### 3. Medidas
 
 - Criar um Plano de Ação para os média, envolvendo o setor dos media tradicionais e digitais, a academia, a sociedade civil, de forma a dar resposta aos graves problemas estruturais e conjunturais decorrentes das profundas mudanças tecnológicas, da configuração da nova oferta de conteúdos, da crise nas cadeias de produção e da violação de direitos de consumidores e empresas;
 - Avaliar a possibilidade de criar uma dedução no IRS de despesas com órgãos de comunicação social e introduzir modelos de incentivo ao consumo de conteúdos de órgãos de comunicação social;
@@ -1124,33 +1124,33 @@ Não podemos ficar indiferente a este problema. Pelo contrário, devemos assumir
 - Salvaguardar o papel e a missão do serviço público de rádio, televisão e multimédia, garantindo a sua independência e transparência;
 - Valorizar os meios de comunicação regional e local;
 - Reforçar o papel, independência e eficácia da regulação e supervisão e reforçar o papel da Entidade Reguladora para a Comunicação Social (ERC) na fiscalização e na sanção de práticas de desinformação e de manipulação da informação, garantindo a sua independência, a sua eficácia e a sua articulação com outras entidades nacionais e internacionais;
-- Estimular a criação e o reconhecimento de plataformas de verificação de factos *(fact-checking)*, que possam contribuir para a validação, a contextualização e a correção da informação que circula nas redes sociais e nos meios digitais;
-- Criar um código de conduta para os agentes políticos, os partidos e as campanhas eleitorais, que estabeleça princípios e regras éticas para a comunicação política, e que preveja mecanismos de monitorização e de denúncia de casos de desinformação e de *fake news,* designadamente, através da utilização da inteligência artificial generativa;
+- Estimular a criação e o reconhecimento de plataformas de verificação de factos _(fact-checking)_, que possam contribuir para a validação, a contextualização e a correção da informação que circula nas redes sociais e nos meios digitais;
+- Criar um código de conduta para os agentes políticos, os partidos e as campanhas eleitorais, que estabeleça princípios e regras éticas para a comunicação política, e que preveja mecanismos de monitorização e de denúncia de casos de desinformação e de _fake news,_ designadamente, através da utilização da inteligência artificial generativa;
 - Desenvolver uma estratégia nacional de educação e de literacia mediática, que envolva o sistema educativo, as universidades, as bibliotecas, as associações e as organizações da sociedade civil, e que promova o desenvolvimento de competências críticas, analíticas e criativas dos cidadãos, em relação aos meios de comunicação e à informação.
 
-## DEFESA DO CONSUMIDOR
+### DEFESA DO CONSUMIDOR
 
-#### 1. Porque é preciso mudar
+##### 1. Porque é preciso mudar
 
 As políticas de defesa do consumidor devem proteger os interesses e os direitos dos cidadãos que adquirem bens e serviços no mercado. Uma defesa do consumidor eficaz contribui para a qualidade de vida, a segurança, a saúde e a educação dos consumidores, bem como para o desenvolvimento económico e social do país. E devem ser baseadas nos princípios da transparência, da informação, da participação, da prevenção e da reparação.
 
-#### 2. Metas
+##### 2. Metas
 
 - Reforçar a educação e a literacia digital dos consumidores;
 - Melhorar a fiscalização e a resolução alternativa de litígios de consumo.
 
-#### 3. Medidas
+##### 3. Medidas
 
-#### DEFESA DO CONSUMIDOR
+###### DEFESA DO CONSUMIDOR
 
 - Simplificar os mecanismos de reclamação e de resolução de conflitos;
 - Criar um sistema de mediação e arbitragem de consumo, que permita resolver de forma rápida, eficaz e gratuita os conflitos entre consumidores e fornecedores de bens e serviços;
 - Reforçar a fiscalização e a aplicação de sanções aos infratores das normas de defesa do consumidor, especialmente nos setores mais sensíveis, como a energia, as telecomunicações, os transportes e a saúde;
 - Promover a educação e a literacia financeira dos consumidores, para que possam tomar decisões informadas e responsáveis sobre os seus créditos, poupanças e investimentos.
 
-## JUSTIÇA
+### JUSTIÇA
 
-#### 1. Porque é preciso mudar
+##### 1. Porque é preciso mudar
 
 A Justiça precisa de uma reforma sólida e não de alterações casuísticas. Precisa de uma reforma profunda, com um horizonte que vá para além de uma legislatura.
 
@@ -1168,7 +1168,7 @@ O montante elevado das custas judiciais representa muitas vezes um obstáculo no
 
 Nenhuma Reforma da Justiça pode lograr sucesso sem o empenho e a motivação de todos os seus agentes. É urgente atrair talentos e valorizar a carreira dos magistrados. Assim como valorizar as carreiras dos funcionários da Justiça e dos Guardas Prisionais. É, igualmente, fundamental que os tribunais disponham de todas as condições físicas, administrativas e financeiras, que garantam o seu normal funcionamento.
 
-#### 2. Metas
+##### 2. Metas
 
 - Atingir, de forma significativa, uma redução substancial da duração efetiva dos processos judiciais;
 - Expandir o acesso à Justiça, especialmente para as populações mais vulneráveis;
@@ -1178,9 +1178,9 @@ Nenhuma Reforma da Justiça pode lograr sucesso sem o empenho e a motivação de
 - Promover uma Justiça económica célere e amiga da competitividade e do desenvolvimento;
 - Aumentar o recurso a meios alternativos de resolução de litígios.
 
-#### 3. Medidas
+##### 3. Medidas
 
-#### INSTITUCIONALIZAÇÃO DA REFORMA DA JUSTIÇA
+###### INSTITUCIONALIZAÇÃO DA REFORMA DA JUSTIÇA
 
 - Propor a criação de uma Comissão Permanente para a Reforma da Justiça (CPRJ), a funcionar preferencialmente junto da Assembleia da República, com a seguinte missão:
   - Apresentar uma Proposta de Reforma Integral e Integrada para a Modernização do Sistema de Justiça;
@@ -1197,7 +1197,7 @@ Nenhuma Reforma da Justiça pode lograr sucesso sem o empenho e a motivação de
   - Clarificar a posição constitucional do Ministério Público como uma magistratura autónoma, hierarquizada, independente do poder executivo.
 - Promover o estudo e um amplo debate sobre as vantagens e desvantagens da unificação da jurisdição comum com a jurisdição administrativa e fiscal, no sentido da existência de uma ordem única de tribunais, um único Supremo Tribunal e um único Conselho Superior da Magistratura Judicial.
 
-#### CELERIDADE PROCESSUAL
+###### CELERIDADE PROCESSUAL
 
 - Desenvolver alterações da legislação processual penal no sentido de combater a formação dos chamados megaprocessos, que entorpecem a ação dos tribunais e se arrastam anos a fio, frustrando a aplicação de uma justiça célere e eficaz;
 - Proceder à revisão das normas processuais, nomeadamente em processo civil, em processo penal e em processos administrativo e tributário, de modo a reduzir as situações em que, injustificadamente, é possível a apresentação de expedientes processuais com a única finalidade de atrasar a marcha do processo;
@@ -1210,17 +1210,17 @@ Nenhuma Reforma da Justiça pode lograr sucesso sem o empenho e a motivação de
   - Aumento do número de salas de audiência disponíveis, por forma a evitar retardamento nos agendamentos;
 - Reforçar a disponibilização de assessores para as magistraturas.
 
-#### JUSTIÇA ECONÓMICA
+###### JUSTIÇA ECONÓMICA
 
 - Criar uma unidade para recuperação dos atrasos nos processos, priorizando os mais antigos;
 - Apoiar e fomentar a especialização dos juízes, e não apenas dos tribunais, especialmente nas áreas de contencioso económico em transformação acelerada;
 - Reforçar e simplificar os procedimentos de resolução alternativa de conflitos no âmbito de causas de pequeno valor e de grandes litigantes, libertando os tribunais cíveis, e garantindo uma justiça mais rápida e eficiente;
 - Facilitar a recuperação extrajudicial das empresas, com a instituição de um procedimento de mediação extrajudicial entre credores e devedores, que incentive a negociação fora dos Tribunais, de modo a aumentar a celeridade nos processos de recuperação, que crie um clima de contexto favorável à recuperação de empresas em situação económica difícil, mas não insolvente, e que evite o anátema que constitui para a recuperação de uma empresa a intervenção judicial na homologação de uma recuperação empresarial;
-- Reformar os regimes de insolvência, com alteração de paradigma nos regimes de insolvência e recuperação de empresas, adotando as melhores práticas europeias no que respeita ao *cram-down* de credores para facilitação de acordos de reestruturação e no que concerne à facilitação de conversão de dívida em capital; mais responsabilidade (poder de negociação) atribuída aos credores; facilitação de financiamento *floating charge* (credores assumem responsabilidades de gestão em determinadas circunstâncias);
+- Reformar os regimes de insolvência, com alteração de paradigma nos regimes de insolvência e recuperação de empresas, adotando as melhores práticas europeias no que respeita ao _cram-down_ de credores para facilitação de acordos de reestruturação e no que concerne à facilitação de conversão de dívida em capital; mais responsabilidade (poder de negociação) atribuída aos credores; facilitação de financiamento _floating charge_ (credores assumem responsabilidades de gestão em determinadas circunstâncias);
 - Agilizar os processos de heranças, em particular quando envolvam bens imóveis e participações sociais em empresas, facilitando o espoletar da sua alienação e/ou divisão (convertendo-se em liquidez essa parte dos ativos da herança), favorecendo em simultâneo a sua resolução fora dos tribunais e evitando pendências de décadas;
 - Simplificar os processos de registo de propriedade, combinando o registo de âmbito notarial e fiscal, e diminuindo os custos de transação em particular de propriedades rústicas de pequena dimensão, contribuindo para uma menor pulverização da propriedade e uma mais rentável gestão do território.
 
-#### VALORIZAÇÃO DE CARREIRAS
+###### VALORIZAÇÃO DE CARREIRAS
 
 - Rever os modelos de formação contínua dos Magistrados;
 - Encetar um processo de revisão e valorização das carreiras profissionais, incluindo o estatuto dos funcionários de justiça e o estatuto profissional dos Guardas Prisionais;
@@ -1229,7 +1229,7 @@ Nenhuma Reforma da Justiça pode lograr sucesso sem o empenho e a motivação de
 - Garantir o reforço e otimização dos recursos humanos, bem como assegurar a qualificação dos profissionais para problemáticas criminais específicas;
 - Aprofundar a especialização dos magistrados.
 
-#### SISTEMA PRISIONAL
+###### SISTEMA PRISIONAL
 
 - Alargar programas específicos de intervenção nas áreas da Saúde Mental/ Toxicodependência/Novas adições e da Delinquência juvenil;
 - Reforçar e alargar as equipas de vigilância eletrónica;
@@ -1237,15 +1237,15 @@ Nenhuma Reforma da Justiça pode lograr sucesso sem o empenho e a motivação de
 - Reforçar a prestação de trabalho a favor da comunidade como alternativa à reclusão;
 - Redimensionar a rede de Estabelecimentos Prisionais e das equipas de reinserção social e promover a diferenciação e individualização da intervenção dos Estabelecimentos Prisionais.
 
-#### ACESSO À JUSTIÇA E FUNCIONAMENTO DOS TRIBUNAIS
+###### ACESSO À JUSTIÇA E FUNCIONAMENTO DOS TRIBUNAIS
 
 - Promover a reforma do Regulamento das Custas Judiciais;
 - Atribuir autonomia administrativa e financeira aos Tribunais de primeira instância;
 - Requalificar os edifícios dos tribunais e reforçar o desenvolvimento dos respetivos equipamentos tecnológicos.
 
-## SEGURANÇA E PROTEÇÃO CIVIL
+### SEGURANÇA E PROTEÇÃO CIVIL
 
-#### 1. Porque é preciso mudar
+##### 1. Porque é preciso mudar
 
 Portugal é reconhecido como um país estável e um destino seguro. Tal constitui uma vantagem estratégica indiscutível, nomeadamente, em tempos em que se acentuam fatores de instabilidade em tantos países das mais diferentes latitudes. Impõe-se, em primeira instância, reconhecer que esta vantagem advém do mérito, da qualidade, da dedicação e do brio do trabalho das Forças e Serviços de Segurança, que dia-a-dia contribuem para este resultado. Sem segurança, fica diminuída a plena expressão dos direitos, liberdades e garantias dos cidadãos.
 
@@ -1263,14 +1263,14 @@ No âmbito das ameaças globais à Segurança Interna, assume relevância críti
 
 De igual modo, compete ao Estado garantir serviços de Proteção Civil eficazes e que contribuam para o bem-estar das comunidades. A este respeito, as críticas de que a recente reorganização territorial do modelo de funcionamento da ANEPC (Autoridade Nacional de Emergência e Proteção Civil) tem sido alvo. Dever-se-á evitar a duplicação do número de responsáveis em cada um dos territórios e qualquer disrupção que possa cortar laços e capacidade operacional construída ao longo de décadas, acentuando-se, assim, em muitos casos, a diferenciação entre litoral e centros urbanos e o interior com os seus territórios de baixa densidade e inúmeras carências de recursos humanos.
 
-#### 2. Metas
+##### 2. Metas
 
 - Redução da taxa de criminalidade, em particular a criminalidade violenta e grave e aumentar os níveis de perceção de segurança;
 - Redução da sinistralidade rodoviária;
 - Implementação efetiva e eficaz da Diretiva de segurança no ciberespaço (NIS2);
 - Plano de Regularização das dívidas aos Corpos de Bombeiros: garantir que todas as entidades efetuam os pagamentos devidos no prazo de 30 dias.
 
-#### 3. Medidas
+##### 3. Medidas
 
 - Encetar, com caráter prioritário, um processo de valorização profissional e remuneratória dos homens e mulheres que servem nas forças e serviços de segurança;
 - Melhorar a ação integrada das forças de segurança pública articulando com a Justiça e a Defesa, de forma a afirmar a autoridade do Estado e a reforçar o sentimento de segurança em todos os seus fatores;
@@ -1286,7 +1286,7 @@ De igual modo, compete ao Estado garantir serviços de Proteção Civil eficazes
 - Revisitar o enquadramento legal dos serviços de informações, no sentido de reforço das suas competências e recursos, em linha com o verificado na generalidade dos nossos parceiros europeus;
 - Avaliar os novos modelos de controlo dos fluxos fronteiriços, colaborando ativamente nos organismos europeus e internacionais, destacando a relevância da cooperação internacional nesta dimensão.
 
-#### CIBERSEGURANÇA
+###### CIBERSEGURANÇA
 
 - Consensualizar uma revisão da Estratégia Nacional de Segurança no Ciberespaço e adotar adequadamente a Diretiva europeia nesta área (NIS2), com o objetivo de promover uma Nação digital resiliente;
 - Dotar o Centro Nacional de Cibersegurança de recursos adequados às necessidades presentes e futuras, alargando as suas responsabilidades e atribuições no domínio da segurança da informação;
@@ -1296,7 +1296,7 @@ De igual modo, compete ao Estado garantir serviços de Proteção Civil eficazes
 - Combater o cibercrime e as ameaças híbridas, como a desinformação, a propaganda e a interferência eleitoral, através de uma legislação adequada, de uma ação judicial eficaz e de uma resposta conjunta, em cooperação com os nossos aliados;
 - Assegurar a inclusão e a acessibilidade digital de todos os cidadãos, especialmente dos mais vulneráveis, como os idosos, os deficientes e os carenciados, garantindo- -lhes o acesso a equipamentos, serviços e apoios de cibersegurança.
 
-#### PROTEÇÃO CIVIL
+###### PROTEÇÃO CIVIL
 
 - Reestruturar a organização territorial das entidades de proteção civil;
 - Proceder a uma reorganização estrutural do Sector Operacional dos Bombeiros;
@@ -1305,9 +1305,9 @@ De igual modo, compete ao Estado garantir serviços de Proteção Civil eficazes
 - Implementar um Plano Plurianual de Investimento para reequipamento dos Corpos de Bombeiros;
 - Desenvolver a valorização dos Bombeiros profissionais e voluntários.
 
-## DEFESA NACIONAL
+### DEFESA NACIONAL
 
-#### 1. Porque é preciso mudar
+##### 1. Porque é preciso mudar
 
 A Defesa Nacional é uma área de soberania tradicionalmente consensual e convergente entre os partidos do apelidado "arco da governação". No entanto, iniciamos o ano de 2024 a enfrentar desafios internos e internacionais sem precedentes, com repercussões diretas na Defesa Nacional, sendo necessário perspetivá-la, de forma responsável e coerente, como uma área de soberania capacitada, competitiva e internacionalizada. Nesta senda, pretendemos defender e promover o reforço do papel de Portugal no multilateralismo efetivo no âmbito da NATO, União Europeia e Nações Unidas, ao mesmo tempo que valorizamos a CPLP como ativo estratégico para os nossos interesses e valores, em matéria de política externa, de segurança e defesa.
 
@@ -1319,7 +1319,7 @@ Ao nível de investimentos, a execução da Lei da Programação Militar (LPM) c
 
 No que diz respeito à meta dos 2% do PIB definida pela NATO, o governo do Partido Socialista previa atingir o valor de referência de 2% em 2030. Não obstante, a meta dos 2% não deve ser um fim em si mesmo. Mais do que gastar mais é importante gastar melhor, ou seja, investir em investigação e tecnologia com uma preocupação e ambição de médio prazo.
 
-#### 2. Metas
+##### 2. Metas
 
 - Garantir a capacidade, os meios e a prontidão das Forças Armadas para o cumprimento das suas missões;
 - Aumentar o investimento em Defesa e desenvolver a indústria nacional de defesa, aproximando o valor da despesa em % do PIB do compromisso assumido por Portugal no âmbito da NATO;
@@ -1328,7 +1328,7 @@ No que diz respeito à meta dos 2% do PIB definida pela NATO, o governo do Parti
 - Impulsionar e valorizar os quadros permanentes de praças;
 - Garantir e consolidar uma capacidade de ciberdefesa resiliente e fiável.
 
-#### 3. Medidas
+##### 3. Medidas
 
 - Garantir Forças Armadas capacitadas:
   - Manter e desenvolver as capacidades inerentes a um conflito convencional;
@@ -1355,9 +1355,9 @@ No que diz respeito à meta dos 2% do PIB definida pela NATO, o governo do Parti
 - Promover a participação de empresas portuguesas em consórcios de investigação, desenvolvimento e produção nas áreas da defesa, potenciando as encomendas de equipamentos e de material realizadas pelas FFAA;
 - Dignificar e respeitar os antigos combatentes e a sua memória, avaliando o aumento dos apoios que lhes são concedidos.
 
-## POLÍTICA EXTERNA, COMUNIDADES E ASSUNTOS EUROPEUS
+### POLÍTICA EXTERNA, COMUNIDADES E ASSUNTOS EUROPEUS
 
-#### 1. Porque é preciso mudar
+##### 1. Porque é preciso mudar
 
 Portugal, a Europa e o Mundo enfrentam, hoje, grandes desafios.
 
@@ -1377,7 +1377,7 @@ A Lusofonia é o pilar que assegura a singularidade portuguesa e distingue o nos
 
 É essencial promover uma política externa económica e comercial alinhada com os objetivos de criação de riqueza e de desenvolvimento económico e social, que passa pelo desenvolvimento de uma estratégia de Internacionalização e de Diplomacia Económica.
 
-#### 2. Metas
+##### 2. Metas
 
 - Reforçar o papel da diplomacia e na defesa dos interesses de Portugal no mundo e na afirmação externa de Portugal, como um país desenvolvido e uma economia dinâmica baseada em actividades de alto valor acrescentado e conteúdo tecnológico de ponta, que reforce a interdependência com o resto Mundo;
 - Cumprir os objetivos da política climática e de transição energética da UE, no âmbito do Pacto Ecológico Europeu, enquanto afirmação e credibilização internacional do País;
@@ -1385,18 +1385,18 @@ A Lusofonia é o pilar que assegura a singularidade portuguesa e distingue o nos
 - Aumentar o número de estudantes lusófonos matriculados em programas de intercâmbio académico entre os países da CPLP;
 - Aumentar o volume de comércio entre os países lusófonos, promovendo parcerias económicas e diversificação das relações comerciais;
 
- Contribuir com meios militares e recursos provenientes de países lusófonos em missões internacionais de paz, demonstrando o compromisso ativo dos países lusófonos na promoção da estabilidade global;
+Contribuir com meios militares e recursos provenientes de países lusófonos em missões internacionais de paz, demonstrando o compromisso ativo dos países lusófonos na promoção da estabilidade global;
 
 • Reforçar o papel da diplomacia económica.
 
-#### 3. Medidas
+##### 3. Medidas
 
-#### PORTUGAL GLOBAL
+###### PORTUGAL GLOBAL
 
 - Promover candidatura de Portugal para o Conselho de Segurança no biénio 2027- 2028;
 - Promover e apoiar a candidatura e o trabalho de portugueses nas Organizações Internacionais.
 
-#### PORTUGAL EUROPEU
+###### PORTUGAL EUROPEU
 
 - Aprofundar a Política Externa e de Segurança Comum, em parceria com a NATO;
 - Continuar a apoiar a defesa da Ucrânia, na linha das diretrizes Europeias;
@@ -1407,7 +1407,7 @@ A Lusofonia é o pilar que assegura a singularidade portuguesa e distingue o nos
 - Implementar a estratégia digital da UE, designadamente no domínio da Inteligência Artificial;
 - Redefinir e dinamizar a Estratégia Nacional para as Carreiras Europeias.
 
-#### PORTUGAL ATLÂNTICO
+###### PORTUGAL ATLÂNTICO
 
 - Promover a divulgação de informações sobre as atividades da NATO, no sentido de aproximar os cidadãos da Aliança Atlântica e fomentar uma compreensão mais ampla das ações desenvolvidas no âmbito da mesma;
 - Implementar medidas efetivas de vigilância e cooperação internacional: assegurar a segurança e a sustentabilidade do espaço atlântico;
@@ -1416,7 +1416,7 @@ A Lusofonia é o pilar que assegura a singularidade portuguesa e distingue o nos
 - Garantir a segurança e a eficiência dos cabos submarinos;
 - Promover ações culturais junto das comunidades Portuguesas.
 
-#### LUSOFONIA
+###### LUSOFONIA
 
 - Contribuir para o reforço do papel da CPLP nas diferentes relações: política, diplomática, social e económica, através da consolidação da identidade Lusófona;
 - Promover um alinhamento global e apoio recíproco em candidaturas internacionais;
@@ -1427,23 +1427,23 @@ A Lusofonia é o pilar que assegura a singularidade portuguesa e distingue o nos
 - Estimular a promoção e o ensino da língua portuguesa nos sistemas educacionais dos países lusófonos, incentivando intercâmbios académicos e a criação de programas conjuntos que fortaleçam a língua como ferramenta de comunicação e expressão;
 - Estabelecer redes de cooperação entre instituições académicas, culturais e empresariais nos países lusófonos, facilitando a troca de conhecimento, tecnologia e boas práticas em diversas áreas.
 
-#### COMUNIDADES PORTUGUESAS E DIÁSPORA
+###### COMUNIDADES PORTUGUESAS E DIÁSPORA
 
 - Adaptar a rede do Ensino de Português no Estrangeiro e de Escolas Portuguesas à nova realidade sociológica das nossas Comunidades, criando cursos nos novos destinos da nossa emigração e continuando a apostar no crescimento da rede de escolas no exterior;
 - Contribuir para uma maior credibilização do Conselho das Comunidades Portuguesas e para o fomento dos níveis de participação política dos portugueses nos países de acolhimento;
 - Estudar a reorganização do atual modelo de agendamento de atos consulares, ao mesmo tempo que se procurará aproveitar as potencialidades do Consulado Virtual, da Chave Móvel Digital e das Permanências Consulares;
 - Apostar no desenvolvimento da rede de Gabinetes de Apoio ao Emigrante (Gabinetes de Apoio ao Emigrante 2.0) e fomentar a criação dos Conselhos da Diáspora junto dos municípios e uma maior articulação com os serviços dependentes dos Governos Regionais dos Açores e da Madeira. Ainda neste domínio, é nossa intenção dar continuidade e melhorar o Gabinete de Apoio ao Investidor da Diáspora, o Plano Nacional de Apoio ao Investidor da Diáspora e o Programa Regressar.
 
-# CENÁRIO ORÇAMENTAL
+## CENÁRIO ORÇAMENTAL
 
 A evolução da receita fiscal tem em consideração as medidas com impacto orçamental apresentadas na tabela "Cenário Orçamental AD em % PIB" e o alargamento das bases tributárias resultante do cenário macroeconómico da AD. Estas crescem ao ritmo do consumo nominal (para impostos sobre a produção e importação), ao ritmo do PIB nominal (para os impostos sobre rendimento e património), ou ao ritmo das remunerações (no caso das Contribuições para a Segurança Social). Os valores totais reportados são semelhantes aos que seriam obtidos com elasticidades estimadas para obtenção da receita de IVA, IRS, IRC e outros impostos, a partir de dados mais desagregados. Em relação a Vendas e outras receitas correntes admite-se um crescimento igual ao do PIB nominal. As receitas de capital correspondem aos valores nominais (correspondentes às percentagens do PIB nominal) do cenário orçamental do CFP.
 
 Em relação à evolução da despesa, os consumos intermédios, subsídios e outra despesa corrente crescem cerca de 4% em 2025 e 2026 e cerca de 3% em 2027 e 2028. As despesas com pessoal crescem 4.5% por ano entre 2025 e 2028 (agregando aumentos salariais, revisão de carreiras e promoções/progressões). Para as prestações sociais admitem-se valores nominais que correspondam às percentagens do PIB nominal no cenário orçamental do CFP (que incorporam a aplicação das regras de atualização de pensões). Dado o maior crescimento do PIB nominal (via aumento real) no cenário macroeconómico da AD, os valores nominais mais que acomodam os aumentos do CSI, a despesa adicional com as creches e pré-escolar e ao custo líquido da criação do Suplemento Remunerativo Solidário. Também não se considera uma menor despesa com subsídio de desemprego, apesar de uma maior queda da taxa de desemprego no cenário macroeconómico da AD, o que permite uma margem de segurança adicional. Para as despesas de capital admitem-se valores nominais correspondentes às percentagens do PIB nominal no cenário orçamental do CPF; mais uma vez, aplica-se plenamente um princípio de prudência que enviesará em alta este item da despesa dado o maior crescimento do PIB nominal no cenário macroeconómico da AD. A despesa com juros é calculada com base na taxa de juro implícita considerada pelo CFP, que antecipa uma estabilização das taxas de juro aplicáveis ao stock de dívida. A evolução da dívida considera os valores nominais dos ajustamentos défice-dívida (correspondentes às percentagens do PIB nominal) consideradas pelo CFP.
 
-## Tabela 1: Cenário Orçamental AD 2023-2028 (% PIB)
+**Tabela 1: Cenário Orçamental AD 2023-2028 (% PIB)**
 
 | Projeção para a Conta das Administrações Públicas (% PIB exceto onde indicado) | 2023  | 2024  | 2025  | 2026  | 2027  | 2028  |
-|--------------------------------------------------------------------------------|-------|-------|-------|-------|-------|-------|
+| ------------------------------------------------------------------------------ | ----- | ----- | ----- | ----- | ----- | ----- |
 | Receita Total                                                                  | 44.1  | 44.5  | 43.7  | 43.3  | 42.4  | 42.3  |
 | Receita corrente                                                               | 43.1  | 43.3  | 42.2  | 42.0  | 41.9  | 41.8  |
 | Receita fiscal                                                                 | 25.5  | 25.8  | 24.7  | 24.5  | 24.3  | 24.0  |
@@ -1480,20 +1480,20 @@ Em relação à evolução da despesa, os consumos intermédios, subsídios e ou
 
 O impacto orçamental das principais medidas do Programa da AD, encontra-se detalhado na tabela abaixo:
 
-#### Tabela 3: Receitas
+**Tabela 3: Receitas**
 
 | Medida AD                                                                                                                                           | Rúbrica OE                             | Horizonte Temporal | Total Medida |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------|--------------------|--------------|
+| --------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- | ------------------ | ------------ |
 | Redução gradual de IRC de 21% para 15% ao ritmo de 2 p.p. por ano                                                                                   | Impostos sobre rendimento e património | 2025-2027          | 1,500        |
 | Isenção de contribuições e IRS sobre prémios de desempenho e redução das taxas marginais de IRS até ao 8º escalão entre 0,5 e 3 p.p. face a 2023    | Impostos sobre rendimento e património | 2024-2026          | 2,000        |
 | Adoção do IRS Jovem                                                                                                                                 | Impostos sobre rendimento e património | 2025               | 1,000        |
 | Eliminação do IMT e Imposto de Selo para compra de habitação própria e permanente por jovens até aos 35 anos e redução para 6% do IVA da construção | Impostos sobre produção e importação   | 2025               | 500          |
 | TOTAL MEDIDAS                                                                                                                                       |                                        |                    | 5,000        |
 
-#### Tabela 4: Despesas
+**Tabela 4: Despesas**
 
 | Medida AD                                                                                              | Rúbrica OE           |           | Total Medida |
-|--------------------------------------------------------------------------------------------------------|----------------------|-----------|--------------|
+| ------------------------------------------------------------------------------------------------------ | -------------------- | --------- | ------------ |
 | Reposição gradual do tempo de serviço dos professores (60 milhões por ano)                             | Despesas com pessoal | 2025-2028 | 240          |
 | Aumento gradual do Complemento Solidário para Idosos até 820€ (estimativa alta de 200 milhões por ano) | Prestações sociais   | 2025-2028 | 800          |
 | Introdução do Suplemento Remunerativo Solidário                                                        | Prestações sociais   | 2025-2028 | 800          |
@@ -1568,7 +1568,7 @@ O Programa Económico de Reformas Estruturais da AD divide-se em **4 pilares,** 
 
 #### I. REDUZIR IMPOSTOS SOBRE O TRABALHO E O INVESTIMENTO
 
-#### Reforma Fiscal:
+##### Reforma Fiscal:
 
 1. Redução do IRS para todos, com redução das taxas, especialmente para a classe média;
 2. IRS Jovem até 15% para os jovens até aos 35 anos;
@@ -1577,7 +1577,7 @@ O Programa Económico de Reformas Estruturais da AD divide-se em **4 pilares,** 
 5. Simplificação e estabilidade fiscal;
 6. Aceleração da justiça tributária.
 
-#### Reforma dos apoios sociais com:
+##### Reforma dos apoios sociais com:
 
 7. Criação de Novo Suplemento Remunerativo Solidário, tipo IRS negativo;
 8. Aumento do referencial do CSI para 820€;
@@ -1663,7 +1663,7 @@ Após 8 anos de governação do Partido Socialista, que totalizou 22 dos último
 - A essa carga fiscal recorde tem correspondido um **Estado em séria falência operacional**, com gravíssimos problemas nos serviços públicos mais críticos, da saúde à educação, da justiça à segurança, da habitação aos serviços de atendimento ao público;
 - Na **Saúde**, o número de utentes sem médico de família passou de cerca de 1 milhão para 1,7 milhões de pessoas, aumentaram as listas de espera para consultas e cirurgias e os tempos de espera tornaram-se ainda mais indignos; as urgências e serviços de maternidade funcionam em intermitência. Em sinal de desistência (possível para quem tem recursos) já cerca de 5 milhões de portugueses têm uma segunda cobertura (seguro de saúde privada, ADSE ou outros sistemas), que é paga em acréscimo aos impostos que suportam para financiar o SNS;
 - Na **Educação**, o desempenho dos alunos portugueses tem caído dramaticamente desde 2018, em todas as avaliações internacionais, em todas as dimensões (português, matemática e ciências). Nas escolas acumulam-se os alunos sem aulas, e os professores estão esgotados e em conflito com o Governo. Em sinal de desistência (possível para quem tem recursos) já cerca de 25% dos estudantes do ensino secundário frequentam escolas privadas;
-- Os preços das casas aumentaram muito mais do que os rendimentos das famílias. Desde 2016 até ao final de 2022, os preços da habitação subiram 89% ao passo que o rendimento nominal *per capita* aumentou 33,8%;
+- Os preços das casas aumentaram muito mais do que os rendimentos das famílias. Desde 2016 até ao final de 2022, os preços da habitação subiram 89% ao passo que o rendimento nominal _per capita_ aumentou 33,8%;
 - A produtividade também tem estado praticamente estagnada, crescendo a uma taxa média anual de 0,7% entre 2000 e 2022;
 - Persistem **baixos níveis de investimento e poupança**. A formação bruta de capital fixo em percentagem do PIB é hoje muito inferior aos valores do início do século (20% vs 27%) e a taxa de poupança das famílias atinge os níveis mais baixos de que há memória.
 
@@ -1680,14 +1680,13 @@ A AD rejeita, designadamente, as seguintes **visões e atitudes do atual Partido
 - iii. **A fixação ideológica na propriedade e gestão estatal**, em vez de colocar o foco no nível de provisão e acessibilidade geral dos bens, serviços e recursos financeiros. Esta fixação coarta a liberdade de iniciativa privada e social e, sobretudo, prejudica as pessoas. Em áreas tão críticas como a saúde, educação e habitação, a recente governação e as palavras do atual líder socialista mostram como o que conta é a gestão ser pública, e não se a oferta existe e é acessível a tempo e com qualidade. A AD acredita numa economia social de mercado, com coexistência e complementaridade entre as ofertas pública, privada e social. A AD afirma a prioridade política de salvar o SNS e a escola pública da degradação induzida pela governação socialista. E a AD afirma que fundamental é garantir a provisão do serviço: a saúde para doentes e saudáveis, a educação para os alunos, e a casa para quem quer cá residir. Para colocarmos as pessoas no centro das políticas públicas é necessário mobilizar a produção dos três setores, numa complementaridade que maximiza o serviço às pessoas, em vez da cegueira ideológica que restringe a oferta acessível por todos, especialmente os mais pobres;
 - iv. A **intenção de redistribuir não acompanhada de igual preocupação com a criação significativa da riqueza** que a possa suportar. A diferente visão para os salários é exemplificativa. O Partido Socialista foca-se apenas no salário mínimo, aceitando a compressão do diferencial para o salário médio e a pobreza entre os trabalhadores, e enuncia como objetivo e métrica maior de longo prazo aumentar o peso relativo dos salários no PIB (qualquer que ele seja). O foco da AD é em aumentar os rendimentos de todos, incluindo os mais baixos do trabalho e os dos pensionistas, mas igual, e paralelamente, os da classe média. A AD quer que a fatia dos salários cresça, não necessariamente por redução da fatia do rendimento de capital, mas por aumento do tamanho total do bolo em que ambos participam;
 - v. O **desprezo pela cultura do mérito, da exigência, do esforço e do trabalho**. Da educação à fiscalidade, do trabalho aos Fundos Europeus, multiplicam-se os exemplos dos desincentivos à exigência, ao reconhecimento e valorização do mérito, e à cultura de avaliação. Multiplicam-se também os sinais de quem prefere nivelar por baixo: a tributação do rendimento do trabalho, que castiga quem transforma qualificações em mais produção, e a que incide sobre as empresas, que penaliza os ganhos de escala e de resultados; a abolição de avaliações na educação; a eliminação das modalidades de oferta pública de saúde que, comprovadamente, atingiram melhores resultados em termos financeiros e de prestação de serviço. Justiça social implica garantir igualdade de oportunidades, mas também reconhecer o esforço, o trabalho, o risco e a inovação;
-vi. A **cultura de informalidade e o enfraquecimento das instituições e regras** que garantem a transparência e racionalidade das decisões e a igualdade perante a lei. Seja por perpetuação no poder, seja por características próprias, a experiência do líder do Partido Socialista está marcada por exemplos dessa cultura de informalidade, designadamente em despachos sobre investimentos estruturantes logo desautorizados, ou em autorizações de indemnizações e contratos de gestores públicos à margem da lei, fora dos canais formais e sem a avaliação técnica adequada. Na mesma linha de informalidade e falta de transparência, os vários governos do Partido Socialista repetiram intervenções ocultadas e interferências pouco consentâneas com a imparcialidade no âmbito de relações entre acionistas privados, fazendo, designadamente (ou ameaçando fazer) leis à medida de certos investidores ou tomando posições societárias em violação das exigências legais de procedimento e transparência;
-
+- vi. A **cultura de informalidade e o enfraquecimento das instituições e regras** que garantem a transparência e racionalidade das decisões e a igualdade perante a lei. Seja por perpetuação no poder, seja por características próprias, a experiência do líder do Partido Socialista está marcada por exemplos dessa cultura de informalidade, designadamente em despachos sobre investimentos estruturantes logo desautorizados, ou em autorizações de indemnizações e contratos de gestores públicos à margem da lei, fora dos canais formais e sem a avaliação técnica adequada. Na mesma linha de informalidade e falta de transparência, os vários governos do Partido Socialista repetiram intervenções ocultadas e interferências pouco consentâneas com a imparcialidade no âmbito de relações entre acionistas privados, fazendo, designadamente (ou ameaçando fazer) leis à medida de certos investidores ou tomando posições societárias em violação das exigências legais de procedimento e transparência;
 - vii. A **captura para o Estado da maior parte dos Fundos Europeus**, designadamente o PRR, desviando-os das empresas que são mais capazes de gerar valor acrescentado. Os governos socialistas têm usado os Fundos Europeus para disfarçar os cortes no investimento público e para financiar despesa corrente do Estado;
 - viii.O **enfraquecimento da independência dos reguladores** económicos e outras instituições críticas, promovendo a substituição de dirigentes efetivamente autónomos, a ocupação de cargos diretivos por membros ou aliados partidários, e condicionamento financeiro ou por via operacional, usando cativações, limitações financeiras e na gestão de recursos humanos. As nomeações para Banco de Portugal e ERSE, a não recondução do Presidente do Tribunal de Contas e da Procuradora-Geral da República, e as cativações generalizadas que debilitaram reguladores, como a CMVM, são exemplos notórios;
 - ix. A **instrumentalização dos recursos públicos ao serviço do poder partidário,** que se verificam desde as utilizações de meios públicos até aos negócios e nacionalizações ruinosas em nome de um certo projeto ideológico ou de negociações interpartidárias, como se verificou nas nacionalizações da TAP e da EFACEC, das aquisições clandestinas de capital dos CTT, ou da extinção de PPP na saúde;
 - x. O **paternalismo económico dos governantes**, que apostam em benefícios e normas fiscais, incluindo em IRC, ou regulatórias, para tentar microgerir as empresas e a sua atividade, convictos de serem os mais capazes para definir como realizar maior valor social em cada setor económico, e aparentemente desconhecedores de que a realidade, inovação e dinâmica económica vai sempre tentar ultrapassar barreiras ineficientes, mas de modos menos transparentes e justos;
 - xi. O **desrespeito pela proteção da confiança dos investidores**, especialmente dos estrangeiros, que observam governos e dirigentes socialistas que, depois de ameaçarem explicitamente não pagar dívidas assumidas pelo Estado, agora multiplicam iniciativas legislativas e anúncios que rompem unilateral e até retroativamente com compromissos e regimes do Estado português, como se verificou com as licenças de alojamento local, autorizações de residência para investimento, regras tributárias como as para residentes não habituais. E do mesmo modo com o lançamento de tributações "extraordinárias" e ameaças de retaliação individualizada pelo poder público (por exemplo, quando um Secretário de Estado foi encarregue de filtrar politicamente pagamentos de faturas emitidas por serviços comerciais prestados ao setor público por certa empresa que anunciou a sua política de preços);
-xii. A **desistência de estancar e reverter a queda do stock de capital público** que foi causada pela escolha de utilizar o investimento público como variável central do ajustamento orçamental, materializada em anos de cativações, cortes e sub-execução das promessas orçamentais. Estas escolhas deixaram os serviços, equipamentos e o património do Estado em degradação, o que compromete a missão dos seus profissionais e o serviço aos cidadãos.
+  xii. A **desistência de estancar e reverter a queda do stock de capital público** que foi causada pela escolha de utilizar o investimento público como variável central do ajustamento orçamental, materializada em anos de cativações, cortes e sub-execução das promessas orçamentais. Estas escolhas deixaram os serviços, equipamentos e o património do Estado em degradação, o que compromete a missão dos seus profissionais e o serviço aos cidadãos.
 
 #### 3. DIAGNÓSTICO DE UMA ECONOMIA ESTAGNADA
 
@@ -1703,7 +1702,7 @@ O gráfico 1 mostra que a economia portuguesa não consegue crescer, de forma su
 
 Fonte: Ameco e Conselho de Finanças Públicas
 
-O PIB *per capita* em paridade de poder de compra praticamente não convergiu com a média da área do euro (Gráfico 3), o que significa que não nos aproximamos do pelotão da frente da UE, e apresenta uma fortíssima divergência com os países da Coesão. Portugal é sucessivamente ultrapassado pelos países da Coesão, caminhando para a cauda da Europa. Desde 2000, houve seis países da Coesão que nos ultrapassaram nesta medida. Em 2024, segundo as previsões da Comissão Europeia, a Roménia deverá ultrapassar-nos.
+O PIB _per capita_ em paridade de poder de compra praticamente não convergiu com a média da área do euro (Gráfico 3), o que significa que não nos aproximamos do pelotão da frente da UE, e apresenta uma fortíssima divergência com os países da Coesão. Portugal é sucessivamente ultrapassado pelos países da Coesão, caminhando para a cauda da Europa. Desde 2000, houve seis países da Coesão que nos ultrapassaram nesta medida. Em 2024, segundo as previsões da Comissão Europeia, a Roménia deverá ultrapassar-nos.
 
 **Gráfico 3: PIB per capita em paridade de poder de compra em Portugal**
 
@@ -1714,7 +1713,7 @@ As perspetivas económicas para os próximos anos (ver Tabela 1, com base nas pr
 **Tabela 1: Enquadramento Macroeconómico 2023-2037**
 
 | Taxa de variação anual média exceto onde indicado | 2023-27 | 2028-32 | 2033-37 | 2023-2037 |
-|---------------------------------------------------|---------|---------|---------|-----------|
+| ------------------------------------------------- | ------- | ------- | ------- | --------- |
 | Indicadores macroeconómicos                       |         |         |         |           |
 | PIB real                                          | 1,8     | 1,1     | 0,7     | 1,2       |
 | Produtividade total dos fatores (p.p.)            | 1,3     | 0,9     | 0,6     | 0,9       |
@@ -1745,7 +1744,7 @@ Esta estagnação económica resulta de inúmeros fatores:
 - **Serviços públicos pouco eficientes**, que não estão orientados para responder eficazmente às necessidades de famílias e empresas; colapso operacional do Estado em diversos setores;
 - **Elevados níveis de corrupção, fragilidade das instituições e cultura de informalidade na governação** e nas relações com o poder;
 - **Custos de contexto elevados, burocracia excessiva, regulação desajustada**;
-- **Pouca concorrência em diversos setores, com elevadas barreiras à entrada e à saída**, que alimentam um grande número de empresas *zombie*;
+- **Pouca concorrência em diversos setores, com elevadas barreiras à entrada e à saída**, que alimentam um grande número de empresas _zombie_;
 - **Sistema de Justiça complexo, oneroso, moroso e pouco eficiente**, com baixo recurso a mecanismos de arbitragem;
 - **Rigidez e segmentação do mercado de trabalho, com elevada taxa de desemprego jovem**;
 - **Um sistema de apoios sociais que prejudica fortemente os trabalhadores de menores rendimentos** desincentivando-os a aumentar os seus rendimentos e qualificações;
@@ -1763,13 +1762,13 @@ Também em resultado destes fatores, **a sociedade portuguesa está economicamen
 
 **Os maus resultados dos últimos oito anos de governação socialista tornam urgente repensar as políticas públicas de forma profunda e propor uma agenda transformadora da economia**. A política económica da AD tem de ser substancialmente diferente da seguida nestes 25 anos. Não pode ser uma política de emergência financeira – como a que teve de ser seguida pelos governos PSD/CDS-PP de Durão Barroso e Passos Coelho, – nem pode ser uma política financeiramente insustentável, como a adotada pelos governos de José Sócrates, nem ainda uma política imobilista e puramente redistributiva, sem reformas estruturais de António Guterres e António Costa, com este último inclusivamente revertendo algumas reformas desenvolvidas pelo Governo PSD/CDS de Passos Coelho. Não se podem esperar resultados diferentes com as mesmas políticas, ou com alterações marginais das mesmas políticas.
 
-**Temos de tirar Portugal do caminho que fez nos últimos anos, de empobrecimento relativo e em rota para ser o país mais pobre da Europa em termos de PIB** *per capita*. A experiência portuguesa na década que se iniciou em 1985 e vários casos europeus no presente demonstram que é possível alcançar muito mais, desde que o país e o Governo queiram e façam por isso. Portugal pode conseguir muito mais, desde que haja visão, ambição, coragem e capacidade de reformar e implementar políticas diferentes.
+**Temos de tirar Portugal do caminho que fez nos últimos anos, de empobrecimento relativo e em rota para ser o país mais pobre da Europa em termos de PIB** _per capita_. A experiência portuguesa na década que se iniciou em 1985 e vários casos europeus no presente demonstram que é possível alcançar muito mais, desde que o país e o Governo queiram e façam por isso. Portugal pode conseguir muito mais, desde que haja visão, ambição, coragem e capacidade de reformar e implementar políticas diferentes.
 
 **O nosso destino está nas nossas mãos.** Estamos num mundo globalizado e interdependente, e somos uma economia aberta, relativamente pequena, com recursos e vantagens competitivas limitados e algumas heranças pesadas. No passado, já fomos capazes de alcançar elevados níveis de desenvolvimento e muitos nestas mesmas condições crescem e prosperam mais do que nós. É possível consegui-lo também hoje. Tal depende principalmente das nossas escolhas, da nossa ambição e da nossa capacidade reformista.
 
 **Portugal tem potencial e vantagens competitivas**: de localização geoestratégica, segurança, relativa coesão social, língua, integração europeia, posição nas relações internacionais (incluindo laços lusófonos e transatlânticos), estabilidade e credibilidade na gestão financeira pública recuperada a partir de 2011, capacidade empresarial instalada em muitos setores, capacidade formativa e de inovação de grande qualidade em algumas áreas, alguns recursos naturais e culturais com elevado potencial, recursos humanos muito competitivos em contexto adequado, e dimensão e centralidade territorial marítima.
 
-Infelizmente, a história deste século e, em particular, destes **últimos 8 anos de governação socialista, é de uma oportunidade perdida**. Desde logo, por um lamentável desperdício daquele potencial e vantagens competitivas. Depois, por uma incapacidade de, além da propaganda, aproveitar as oportunidades trazidas por fenómenos globais de relocalização das cadeias de produção (*nearshoring*), transição energética e digital, bem como o Plano de Recuperação e Resiliência (PRR) e os restantes Fundos Europeus.
+Infelizmente, a história deste século e, em particular, destes **últimos 8 anos de governação socialista, é de uma oportunidade perdida**. Desde logo, por um lamentável desperdício daquele potencial e vantagens competitivas. Depois, por uma incapacidade de, além da propaganda, aproveitar as oportunidades trazidas por fenómenos globais de relocalização das cadeias de produção (_nearshoring_), transição energética e digital, bem como o Plano de Recuperação e Resiliência (PRR) e os restantes Fundos Europeus.
 
 **Em particular, a governação socialista desperdiçou a conjuntura económica externa mais favorável de qualquer Governo desde a estabilização da nossa democracia**, as possibilidades abertas pelo ciclo reformista do último Governo do PSD/CDS-PP (preservação das instituições, recuperação financeira do Estado, banca e sector privado, abertura da economia e início da recuperação económica e do emprego), o enorme estímulo monetário e financeiro do BCE e um conjunto de Fundos Europeus recebidos, sem precedente histórico.
 
@@ -1813,7 +1812,7 @@ A Ambição, a Visão e as Orientações Estratégicas da AD materializam-se num
 
 **Fruto deste desempenho, o sistema fiscal português é, hoje, considerado o quarto pior em termos de competitividade** entre os estados-membros da OCDE no 2023 International Tax Competitiveness Index elaborado pela Tax Foundation. Entre os 38 países da OCDE, Portugal ocupa a 34ª posição na ordenação global, a 37ª e penúltima posição no ranking da tributação das empresas e a 29ª posição na tributação dos indivíduos.
 
-A Reforma Fiscal proposta pela AD pretende alterar este *status quo* e, em consonância com o objetivo de gestão mais eficiente da despesa pública, tem como objetivos centrais: **(a) a redução gradual e sustentável da carga fiscal**, com prioridade para a redução do IRS e em especial para os jovens até aos 35 anos, e sobre o investimento/ poupança, e otimização (adicional) do Sistema Fiscal por via de uma reconfiguração que privilegie o alívio nos impostos mais distorcivos da atividade económica (b) **simplificação e redução dos custos de cumprimento das obrigações fiscais**, (c) **diminuição e racionalização da despesa fiscal** (benefícios fiscais), (d) **reforço da estabilidade e previsibilidade tributária** (e) **agilização da justiça tributária**, (f) **aperfeiçoamento da administração tributária** na sua organização e equilíbrio na relação com os contribuintes.
+A Reforma Fiscal proposta pela AD pretende alterar este _status quo_ e, em consonância com o objetivo de gestão mais eficiente da despesa pública, tem como objetivos centrais: **(a) a redução gradual e sustentável da carga fiscal**, com prioridade para a redução do IRS e em especial para os jovens até aos 35 anos, e sobre o investimento/ poupança, e otimização (adicional) do Sistema Fiscal por via de uma reconfiguração que privilegie o alívio nos impostos mais distorcivos da atividade económica (b) **simplificação e redução dos custos de cumprimento das obrigações fiscais**, (c) **diminuição e racionalização da despesa fiscal** (benefícios fiscais), (d) **reforço da estabilidade e previsibilidade tributária** (e) **agilização da justiça tributária**, (f) **aperfeiçoamento da administração tributária** na sua organização e equilíbrio na relação com os contribuintes.
 
 - a. A **redução da carga fiscal é uma prioridade assumida, devendo ser implementada de modo gradual e sustentável.** O esforço de redução de impostos será **concentrado no IRS**, especialmente sobre o trabalho, pensões e poupança e **no IRC**, especialmente sobre o investimento. Além do efeito da redução fiscal na aceleração do crescimento económico (que, por um princípio de prudência, não deve ser sobrevalorizado), a sustentabilidade orçamental desta redução de impostos é reforçada pela racionalização dos benefícios fiscais dispersos, numa ótica de ampliação das bases tributárias. Assim, incluem-se nesta orientação as seguintes medidas:
   - **Redução do IRS até ao 8.º escalão,** através da redução de taxas marginais entre 0,5 e até 3 pontos percentuais face a 2023, com maior enfoque na classe média;
@@ -1824,7 +1823,7 @@ A Reforma Fiscal proposta pela AD pretende alterar este *status quo* e, em conso
     - **Revisão dos limiares dos escalões de IRS** de forma a garantir que os mesmos se encontram adaptados à realidade da economia portuguesa;
     - Introdução de uma **noção sintética e abrangente de rendimento** sujeito a IRS, que corrija as injustiças e sub-tributações resultantes da atual definição limitativa de rendimentos sujeitos a IRS, que permita um maior desagravamento das taxas marginais;
     - Criação de um **imposto negativo para beneficiar as famílias de menores rendimentos**, consagrado num designado Suplemento Remunerativo Solidário (ver Reforma dos Apoios Sociais), em plena articulação com o mínimo de existência do IRS, e financiado pela consolidação nesta prestação da miríade de apoios sociais dispersos.
-  - **Criação de contas-poupança isenta de impostos**, adotando um regime em que certo nível de contribuições dos trabalhadores e das suas entidades empregadoras sejam livres de IRS, salvo se e quando forem distribuídas, pagas ou, de qualquer forma, apropriadas pelos respetivos titulares. Tal passa pela introdução de contas poupança com possibilidade de acesso a grande diversidade de instrumentos, com eventuais limites à entrada, inspirada no modelo de ISA *accounts*  no Reino Unido ou nas contas 401K nos Estados Unidos. As contribuições e reinvestimentos destes proveitos não são tributados, incluindo se forem utilizados para amortização de crédito à habitação que onere a casa de morada de família. Poderá ponderar-se tratamento semelhante aos rendimentos prediais e de capitais (aplicando-se, assim, o princípio de que, se reinvestidos, continuam a não ser tributados);
+  - **Criação de contas-poupança isenta de impostos**, adotando um regime em que certo nível de contribuições dos trabalhadores e das suas entidades empregadoras sejam livres de IRS, salvo se e quando forem distribuídas, pagas ou, de qualquer forma, apropriadas pelos respetivos titulares. Tal passa pela introdução de contas poupança com possibilidade de acesso a grande diversidade de instrumentos, com eventuais limites à entrada, inspirada no modelo de ISA _accounts_ no Reino Unido ou nas contas 401K nos Estados Unidos. As contribuições e reinvestimentos destes proveitos não são tributados, incluindo se forem utilizados para amortização de crédito à habitação que onere a casa de morada de família. Poderá ponderar-se tratamento semelhante aos rendimentos prediais e de capitais (aplicando-se, assim, o princípio de que, se reinvestidos, continuam a não ser tributados);
   - **Redução das taxas de IRC**, começando com a redução gradual de 2 pontos percentuais por ano até aos 15% no final da Legislatura. Esta redução deverá acompanhar a transposição para a ordem jurídica nacional dos trabalhos em curso, ao nível da OCDE e da UE, relativas à garantia de um nível mínimo mundial de tributação para os grupos de empresas multinacionais e grandes grupos nacionais na União, que se destina a assegurar a tributação efetiva dos lucros a uma taxa de 15%. Por outro lado, verifica-se que a imposição de estruturas progressivas de taxas está associada a fenómenos de fragmentação do lucro por estruturas multi- -societárias, com impactos na escala dos negócios e na dimensão das empresas. A derrama municipal e a sua distribuição por município têm escassa eficácia e produzem efeitos perniciosos na eficiência e transparência. Deve, assim, caminhar-se no sentido de eliminar, de forma gradual, a progressividade da derrama estadual, e de eliminar a derrama municipal em sede de IRC;
   - **Medidas promotoras do (re)investimento e de ganhos de escala**:
     - Eliminação de constrangimentos à realização de reorganizações societárias e de benefícios em função da dimensão, através do aperfeiçoamento de clarificação do regime legal e fiscal aplicável às reorganizações empresariais. No caso de cisões e/ou reorganizações empresariais, evitando que o tratamento dos benefícios fiscais nas empresas resultantes seja um incentivo à inação. Revisão dos custos fiscais associados a operações de aquisição e/ou fusão;
@@ -1861,7 +1860,7 @@ Durante a presente legislativa, a AD considera crítico, por não poder esperar,
 
 #### O NOVO SUPLEMENTO REMUNERATIVO SOLIDÁRIO PARA COMBATER A POBREZA ENTRE TRABALHADORES
 
-**O sistema de Proteção Social deve estar focado em proporcionar uma efetiva** *proteção* **a quem está mais vulnerável, promovendo o seu** *emprego* **e** *a sua valorização profissional*. Existe em Portugal uma armadilha de pobreza. A multiplicidade de componentes do regime de segurança social e dos Apoios sociais, e a complexidade das suas regras, dificulta o seu acesso ao cidadão mais vulnerável, e a previsibilidade do apoio público quando esta é mais necessária.
+**O sistema de Proteção Social deve estar focado em proporcionar uma efetiva** _proteção_ **a quem está mais vulnerável, promovendo o seu** _emprego_ **e** _a sua valorização profissional_. Existe em Portugal uma armadilha de pobreza. A multiplicidade de componentes do regime de segurança social e dos Apoios sociais, e a complexidade das suas regras, dificulta o seu acesso ao cidadão mais vulnerável, e a previsibilidade do apoio público quando esta é mais necessária.
 
 **As regras de retirada dos apoios sociais ignoram os riscos inerentes à entrada no mercado de trabalho, colocando o trabalhador no dilema de participar no mercado e perder apoios sociais, ou manter-se na inatividade**. Este impacto pernicioso na participação no mercado e na valorização profissional tem de ser corrigido com vista a incentivar o trabalho e a assegurar a justiça social. Por princípio, quem participa no mercado de trabalho não deve ter rendimentos inferiores ao apoio público que teria se tivesse ficado inativo.
 
@@ -1910,11 +1909,11 @@ O ambiente de negócios em Portugal degradou-se nos últimos anos. Portugal pass
 - **Promover a simplificação geral dos processos administrativos e licenciamentos nas diferentes áreas para os cidadãos e empresas**. Fazer avaliações regulares da execução dos mecanismos de simplificação de licenciamento existentes (por exemplo licenciamento urbanístico) e futuros;
 - Imposição de "sunset clauses" às regras de licenciamento, ou seja, as regras/exigências burocráticas expiram no final de determinado prazo ou na ausência de uma clarificação relativa a um processo (necessidade de mapeamento público e claro do workflow dos processos administrativos e digitalização integral dos processos);
 - **Aplicação de princípios de "only once", proibindo entidades públicas de solicitarem documentos e informações que estão na posse de outras entidades públicas**;
-- **Evoluir para uma orientação geral de substituição do controlo prévio por fiscalização** *a posteriori*. Nos regimes de controlo prévio, impor o deferimento tácito como regra geral, sustentado em termos de responsabilidade dos autores dos projetos, mas sem prescindir da responsabilização pública pelo silêncio ou omissão de análise;
+- **Evoluir para uma orientação geral de substituição do controlo prévio por fiscalização** _a posteriori_. Nos regimes de controlo prévio, impor o deferimento tácito como regra geral, sustentado em termos de responsabilidade dos autores dos projetos, mas sem prescindir da responsabilização pública pelo silêncio ou omissão de análise;
 - **Criação de incentivos ao "aconselhamento para a aprovação"** (em vez da atitude de "rejeição à partida" por receios de responsabilização por ilegalidade);
 - **Consagrar o Ponto único de entrada para licenciamentos complexos** (em vez de submissão a múltiplas entidades).
 
-#### **Reforço da Regulação Económica Independente (da concorrência e setorial), designadamente através de:**
+##### Reforço da Regulação Económica Independente (da concorrência e setorial), designadamente através de:
 
 - **Robustecimento da independência das Entidades Reguladoras por**:
   - Alteração das regras de designação para os órgãos de administração das entidades reguladoras envolvendo:
@@ -1924,7 +1923,7 @@ O ambiente de negócios em Portugal degradou-se nos últimos anos. Portugal pass
   - Garantia da efetiva independência orgânica, funcional, técnica e financeira das entidades reguladoras, designadamente excluindo condicionamentos políticos como cativações orçamentais ou interferências nas políticas de recursos humanos;
   - Reforço do regime de receitas próprias dos Reguladores e da sua autonomia financeira e administrativa;
   - Obrigatoriedade de formação dos membros da administração das entidades reguladoras em áreas como, por exemplo, a gestão de projetos e comunicação.
-- Reforço da prestação de contas (*accountability*) e da avaliação e monitorização da atividade das Entidades Reguladoras e análise de Impacto regulatório (AIR), incluindo exigência de desenvolvimento de um barómetro de avaliação das entidades reguladoras, com indicadores agregados de medidas de independência, transparência, desempenho e governança; e obrigatoriedade de publicação, na página da internet de cada entidade reguladora, do plano de atividades, com nível e detalhe e objetivos que permitam a sua avaliação e do relatório de regulação;
+- Reforço da prestação de contas (_accountability_) e da avaliação e monitorização da atividade das Entidades Reguladoras e análise de Impacto regulatório (AIR), incluindo exigência de desenvolvimento de um barómetro de avaliação das entidades reguladoras, com indicadores agregados de medidas de independência, transparência, desempenho e governança; e obrigatoriedade de publicação, na página da internet de cada entidade reguladora, do plano de atividades, com nível e detalhe e objetivos que permitam a sua avaliação e do relatório de regulação;
 - Garantia de uniformidade e especialização no controlo jurisdicional das entidades reguladoras, designadamente com:
   - Criação de um Regime Único de Contraordenações das Autoridades Reguladoras;
   - Atribuição de efetivos poderes de intervenção processual a todas as Autoridades Reguladoras;
@@ -1934,18 +1933,18 @@ O ambiente de negócios em Portugal degradou-se nos últimos anos. Portugal pass
 
 **Evoluir ainda mais (não obstante as medidas recentes aprovadas por pressão europeia) na liberalização do acesso a profissões, impondo o princípio de inexistência de conflito de interesses nas entidades que regulam o acesso às profissões.**
 
-#### **Libertar recursos financeiros das empresas que são retidos pelo Estado:**
+##### Libertar recursos financeiros das empresas que são retidos pelo Estado:
 
 - Aplicação efetiva, aceleração e automatização da compensação de créditos tributários;
 - Implementar, até ao final da legislatura, no âmbito de toda a Administração Pública, a Conta-Corrente de empresas com o Estado;
 - Iniciar esforços junto da Comissão Europeia por forma a alargar o regime de IVA de Caixa existente dos atuais 500 mil € de faturação para 2 milhões (máximo permitido pela Diretiva, sujeito a autorização da Comissão Europeia);
 - Eliminar Pagamentos em Atraso do Estado às Empresas Fornecedoras de bens e serviços, implementando modelos de pagamento compulsório de faturas em certo prazo; Garantir nas entidades públicas pagamento a 30 dias.
 
-#### **Consagração da IES (reformulada) como meio privilegiado para o fornecimento de toda a informação para fins estatísticos e fiscais pelas empresas.**
+##### Consagração da IES (reformulada) como meio privilegiado para o fornecimento de toda a informação para fins estatísticos e fiscais pelas empresas.
 
-Apostar na **promoção da Concorrência no Setor bancário***,* que passa pelo estudo criterioso e implementação de*:* restrições ao *bundling* de produtos (ou a penalizações no *spread* do Crédito a Empresas e Crédito à Habitação por não contratação de seguros e outros produtos; revisão dos seguros obrigatórios); promoção de acesso a fundos do mercado monetário e a dívida pública de forma simples, permitindo um acesso mais generalizado a instrumentos muito líquidos e concorrentes dos depósitos bancários.
+Apostar na **promoção da Concorrência no Setor bancário**, que passa pelo estudo criterioso e implementação de: restrições ao _bundling_ de produtos (ou a penalizações no _spread_ do Crédito a Empresas e Crédito à Habitação por não contratação de seguros e outros produtos; revisão dos seguros obrigatórios); promoção de acesso a fundos do mercado monetário e a dívida pública de forma simples, permitindo um acesso mais generalizado a instrumentos muito líquidos e concorrentes dos depósitos bancários.
 
-#### **Revogação de Medidas penalizadoras do Alojamento Local**
+##### Revogação de Medidas penalizadoras do Alojamento Local
 
 Eliminar de imediato a Contribuição Extraordinária sobre o Alojamento Local, a caducidade das licenças anteriores ao programa Mais Habitação, e revendo simultaneamente as limitações legais impostas pelo Governo socialista.
 
@@ -1961,13 +1960,13 @@ Em primeiro lugar, e em linha com o Reforço dos mecanismos fiscais de capitaliz
 
 - **Maior flexibilidade na aplicação e utilização dos diferentes instrumentos de apoio à capitalização e à recapitalização**. Eliminar/minimizar custos relativos a comissões taxas, emolumentos, escrituras, etc;
 - Apoiar o investimento em capital de risco, estudando a possibilidade de introduzir instrumentos como:
-  - **Linha de coinvestimento para** *start-ups* **e capital de risco**: Criação de um fundo para investimento híbridos de capital (títulos convertíveis) disponíveis para fundos de capital de risco, aceleradoras, "business angels" e "corporate ventures" que pretendam reforçar o capital e assegurar uma almofada financeira para empresas em carteira, muitas vezes impossibilitadas de aceder ao crédito bancário em condições acessíveis;
-  - e/ou a criação de um fundo de fundos, a ser implementado até ao final da legislatura, financiado com fundos do PT 2030, que possa adquirir unidades de participação em fundos de venture capital, sejam já existentes, sejam novos fundos, desde que demonstrem a capacidade de encontrar financiamento privado. O Fundo poderá ter por objetivo adquirir Unidades de Participação em fundos orientados para empresas em fase de *scale-up*.
+  - **Linha de coinvestimento para** _start-ups_ **e capital de risco**: Criação de um fundo para investimento híbridos de capital (títulos convertíveis) disponíveis para fundos de capital de risco, aceleradoras, "business angels" e "corporate ventures" que pretendam reforçar o capital e assegurar uma almofada financeira para empresas em carteira, muitas vezes impossibilitadas de aceder ao crédito bancário em condições acessíveis;
+  - e/ou a criação de um fundo de fundos, a ser implementado até ao final da legislatura, financiado com fundos do PT 2030, que possa adquirir unidades de participação em fundos de venture capital, sejam já existentes, sejam novos fundos, desde que demonstrem a capacidade de encontrar financiamento privado. O Fundo poderá ter por objetivo adquirir Unidades de Participação em fundos orientados para empresas em fase de _scale-up_.
 - **Reforço dos fundos de capitalização das empresas**: Reforço/criação de fundos imobiliários em conjunto com os bancos e proprietários, de modo que as empresas possam financiar a sua atividade através da entrega e arrendamento dos seus imóveis, com um prazo de recompra;
 - **Auditoria aos mais de 30 fundos de investimento e garantias geridos por entidades públicas** com especial destaque ao Fundo de Contra-Garantia Mútuo que, pela sua dimensão, representa um risco relevante para as contas públicas. Será dada prioridade à resolução de portfolios com mais de 10 anos de forma a identificar e resolver participações não-estratégicas do Estado. Esta abordagem assegura uma gestão responsável e eficaz dos fundos, promove a transparência e liberta recursos públicos para co-investir com investidores privados em novos projetos estratégicos;
 - **Negociar com Comissão Europeia a eliminação da restrição das empresas detidas por capital de risco em serem consideradas como PME**. A lógica de grupo, nas empresas detidas por capital de risco, deve cingir-se à matéria fiscal das normas anti- -abuso;
 - Eliminação das restrições/obstáculos injustificados ao acesso das empresas ao mercado de capitais, incluindo entrada em bolsa;
-- Eliminação das restrições/obstáculos injustificados a formas alternativas e inovadoras de financiamento (*fintech*, fundos de reestruturação, modelos de entrada de capital, quasi-capital etc.) preservando a segurança dos pequenos investidores.
+- Eliminação das restrições/obstáculos injustificados a formas alternativas e inovadoras de financiamento (_fintech_, fundos de reestruturação, modelos de entrada de capital, quasi-capital etc.) preservando a segurança dos pequenos investidores.
 
 Dada a importância do financiamento bancário nas empresas portuguesas, justificam- -se ainda medidas nesta área:
 
@@ -2017,7 +2016,7 @@ Em matéria de internacionalização das empresas, a AD defende que **devem ser 
 
 Em matéria de atração de IDE, a AD propõe:
 
-- **Estudar um programa específico (com medidas fiscais e não-fiscais) para a captação de grandes projetos industriais e aproveitamento do movimento global de reorganização das cadeias de valor e** *nearshoring***;**
+- **Estudar um programa específico (com medidas fiscais e não-fiscais) para a captação de grandes projetos industriais e aproveitamento do movimento global de reorganização das cadeias de valor e _nearshoring_;**
 - **Criação de um regime de "Validação prévia de Investimento"**: Neste programa, que visa atrair investimento privado, sobretudo IDE, deve ser criado um regime fiscal e de incentivos a vigorar por 10 anos. Este regime deve ser baseado em "templates" previamente preparados e uniformes de pedido e de decisão, assinados com cada empresa investidora. Deve inspirar-se nos conceitos de Acordos Prévios de Preços de Transferência e de Pedido de Informação Prévia Vinculativa (APA e PIV) e deve permitir alargar o campo de aplicação destes instrumentos no futuro, graças à experiência ganha com a sua aplicação prática.
 
 #### 2.2.3. REFORMA DO SISTEMA DOS FUNDOS EUROPEUS
@@ -2027,7 +2026,7 @@ Na Reforma do Sistema de Fundos Europeu da AD o Estado assume-se como parceiro d
 - No âmbito da governação do PRR, corrigir as deficiências que têm sido identificadas pelos diferentes órgãos de supervisão, tais como a falta de capacidade para evitar o duplo financiamento e os conflitos de interesse;
 - Reforçar os meios humanos e tecnológicos para poder acelerar o PT2030, cuja implementação está significativamente atrasada;
 - Normalizar, racionalizar e estratificar a informação a prestar pelas empresas, solicitando cada estrato de informação em função da necessidade e depositando toda a informação numa plataforma única e acessível a todas as entidades públicas, em articulação com a reforma do Estado;
-- Neste quadro, criar a noção de "gestor de cliente", que pode ser digital, que permite a oportunidade de conexão rápida e ágil com plataformas de captação de investimento, via Banco Português de Fomento, *private equity* e financiamento pela banca comercial. Neste modelo, o "gestor de cliente" da empresa pode propor os fundos e quadros comunitários adequados ao crescimento da empresa;
+- Neste quadro, criar a noção de "gestor de cliente", que pode ser digital, que permite a oportunidade de conexão rápida e ágil com plataformas de captação de investimento, via Banco Português de Fomento, _private equity_ e financiamento pela banca comercial. Neste modelo, o "gestor de cliente" da empresa pode propor os fundos e quadros comunitários adequados ao crescimento da empresa;
 - Otimizar a execução dos fundos comunitários, com enfoque no valor acrescentado, com máxima exigência na aprovação e total alinhamento com transformação de longo prazo da economia;
 - Promover soluções de cedência gratuita de liquidez, que poderão envolver a banca comercial ou o BPF, para eliminação dos atrasos acumulados na disponibilização de fundos já aprovados;
 - Dar prioridade à capacitação dos gestores, com programas formativos sugeridos, em parceria com as escolas de negócios nacionais, por forma a aumentar a capacidade dos gestores nacionais. Os programas formativos devem ser desenhados à medida, com um pendor prático forte, com partilhas de casos e modelos de gestão. Esta medida seria de cariz facultativo, mas poderia resultar na majoração dos incentivos relacionados com os fundos.
@@ -2058,7 +2057,7 @@ Para atingir estes objetivos, propomos:
 - Incentivar investimentos em tecnologias digitais que promovam a criação de emprego em sectores que carecem de elevado nível de formação e competências especializadas, garantindo a formação e requalificação de trabalhadores e a adaptação da organização do trabalho às novas tecnologias;
 - Reforçar a participação em projetos de investigação de redes europeias;
 - Alargar o apoio da Fundação para a Ciência e Tecnologia (FCT) à mobilidade de professores a outras Universidades de Investigação;
-- Estimular a cultura de *spin-off* de empresas a partir da academia;
+- Estimular a cultura de _spin-off_ de empresas a partir da academia;
 - Criar um Fundo de Inovação Digital, com o objetivo de apoiar a investigação, o desenvolvimento e a adoção de tecnologias emergentes pelas empresas portuguesas, através da prestação de assistência financeira e técnica e da facilitação do acesso a mercados e redes;
 - Promover a integração digital na criação de novos produtos e serviços e na implementação de novas práticas, processos e modelos de produção e de negócio, incluindo canais de distribuição;
 - Fortalecer a infraestrutura digital e cibernética do país para garantir independência e soberania tecnológica, e investir em tecnologias emergentes, assegurando a cibersegurança da informação, a proteção das infraestruturas, a proteção de dados e a privacidade online;
@@ -2066,7 +2065,7 @@ Para atingir estes objetivos, propomos:
 - Modernizar e digitalizar a administração pública e Implementar um Plano de Serviços Públicos Digitais, com o objetivo de disponibilizar todos os serviços públicos online e garantir a sua qualidade, eficiência e facilidade de utilização, aplicando os princípios da conceção centrada no utilizador, dos dados abertos e da interoperabilidade;
 - Reforçar as qualificações da Administração Pública na área da digitalização e desenvolver um programa especial de contratação de especialistas em tecnologias de informação:
   - **Fase 1: "One-stop-shop" –** Acelerar a agregação dos diversos serviços públicos numa só plataforma para cidadãos e empresas: Portal das Finanças, segurança social direta, Siga, IRN, id.gov.pt, Portal do SNS, Portal das Matrículas, Portal da empresa, etc;
-  - **Fase 2: "No-stop-shop" –** Prestação de serviços públicos de forma automática – aqui inverte-se o *modus operandi*, sendo o cidadão apenas responsável por garantir a informação atualizada para que o Estado possa espoletar o serviço automaticamente;
+  - **Fase 2: "No-stop-shop" –** Prestação de serviços públicos de forma automática – aqui inverte-se o _modus operandi_, sendo o cidadão apenas responsável por garantir a informação atualizada para que o Estado possa espoletar o serviço automaticamente;
   - **Fase 3: "Proactive-stop-shop" –** Interação com o cidadão e recomendação mediante necessidades, com base em algoritmos e em inteligência artificial.
 - Apoiar a investigação, a inovação e o empreendedorismo em IA e estimular a adoção e a utilização da IA nos setores público e privado;
 - Promover e investir no desenvolvimento da infraestrutura computacional de alto desempenho em Portugal, que permita a investigação, inovação, desenvolvimento e comercialização de soluções de inteligência artificial em Portugal;
@@ -2087,7 +2086,7 @@ A aceleração do crescimento económico em Portugal beneficia com a revitaliza�
 
 Os setores do Turismo e Serviços em Portugal são fundamentais para a economia nacional. Em 2022, o peso do setor do Turismo na Economia atingiu 29,2 mil milhões de euros, 12,2% do PIB, um valor que representa um recorde em termos relativos e que conheceu novos aumentos. O impacto do setor na economia estende-se igualmente à sua importância no território e no emprego, para além do seu impacto em setores como a Cultura, Saúde ou a Educação. Contudo, este reforço do peso do setor na economia terá de ser suportado numa estrutura de remuneração que não seja assente numa competitividade de baixos salários ou salários mínimos.
 
-No contexto de um conjunto de tendências no Turismo, Comércio e Serviços, as soluções de políticas públicas no Espaço Europeu, que Portugal deve acompanhar para ser competitivo, têm procurado acautelar modelos de crescimento de oferta turística que criem valor acrescentado, mas também integração com as economias locais. No que concerne concretamente aos Serviços, a crescente localização de recursos e estruturas de multinacionais *(nearshore)*, no País, impõe políticas de habitação, de acesso a cuidados de saúde, e de educação e formação compatíveis. Tem-se verificado igualmente uma tendência para a requalificação de profissionais aproveitando todas as capacidades disponíveis, bem como atração, desenvolvimento e qualificação de imigrantes, ao mesmo tempo que os regimes de trabalho devem ser compatibilizados com a prestação de alguns serviços à escala internacional, prestados a partir de geografias locais.
+No contexto de um conjunto de tendências no Turismo, Comércio e Serviços, as soluções de políticas públicas no Espaço Europeu, que Portugal deve acompanhar para ser competitivo, têm procurado acautelar modelos de crescimento de oferta turística que criem valor acrescentado, mas também integração com as economias locais. No que concerne concretamente aos Serviços, a crescente localização de recursos e estruturas de multinacionais _(nearshore)_, no País, impõe políticas de habitação, de acesso a cuidados de saúde, e de educação e formação compatíveis. Tem-se verificado igualmente uma tendência para a requalificação de profissionais aproveitando todas as capacidades disponíveis, bem como atração, desenvolvimento e qualificação de imigrantes, ao mesmo tempo que os regimes de trabalho devem ser compatibilizados com a prestação de alguns serviços à escala internacional, prestados a partir de geografias locais.
 
 Desta forma, temos como objetivos neste setor:
 
@@ -2103,7 +2102,7 @@ Para alcançar estes objetivos, temos as seguintes medidas:
 - Promover uma imigração qualificada;
 - Atrair Transporte Aéreo regular e diversificado nos aeroportos nacionais, e decidir rapidamente sobre a construção do novo aeroporto;
 - Clarificar as regras de investimento imobiliário e atração de investimento (residentes e não residentes);
-- Valorizar o ensino e formação contínua em Turismo e criar/consolidar uma rede nacional integrada de formação *(hubs)*, com escala e qualidade, suportando conteúdos programáticos complementares que potenciam a oferta de qualidade;
+- Valorizar o ensino e formação contínua em Turismo e criar/consolidar uma rede nacional integrada de formação _(hubs)_, com escala e qualidade, suportando conteúdos programáticos complementares que potenciam a oferta de qualidade;
 - Consolidar Portugal como destino turístico de excelência em tudo o que está ligado à economia azul, ao mar e às atividades náuticas, eixo fundamental para a nossa oferta.
 
 ##### COMÉRCIO E SERVIÇOS
@@ -2128,10 +2127,10 @@ Algumas medidas prioritárias incluem:
 - Simplificar e reforçar os direitos dos cidadãos no âmbito do direito administrativo [e fiscal, ver Reforma Fiscal], garantindo aos cidadãos um processo mais célere e equilibrado;
 - **Agilizar os processos de heranças**, em particular quando envolvam bens imóveis e participações sociais em empresas, facilitando o despoletar da sua alienação e/ou divisão (convertendo-se em liquidez essa parte dos ativos da herança), favorecendo em simultâneo a sua resolução fora dos tribunais e evitando pendências de décadas;
 - **Simplificar os processos de registo de propriedade**, combinando o registo de âmbito notarial e fiscal, e diminuindo os custos de transação em particular de propriedades rústicas de pequena dimensão, contribuindo para uma menor pulverização da propriedade e uma mais rentável gestão do território;
-- **Reforma dos regimes de Insolvência**, com alteração de paradigma nos regimes de insolvência e recuperação de empresas, adotando as melhores práticas europeias no que respeita ao *cram-down* de credores para facilitação de acordos de reestruturação e no que concerne à facilitação de conversão de dívida em capital; mais responsabilidade (poder de negociação) atribuída aos credores; facilitação de financiamento *floating charge* (credores assumem responsabilidades de gestão em determinadas circunstâncias);
+- **Reforma dos regimes de Insolvência**, com alteração de paradigma nos regimes de insolvência e recuperação de empresas, adotando as melhores práticas europeias no que respeita ao _cram-down_ de credores para facilitação de acordos de reestruturação e no que concerne à facilitação de conversão de dívida em capital; mais responsabilidade (poder de negociação) atribuída aos credores; facilitação de financiamento _floating charge_ (credores assumem responsabilidades de gestão em determinadas circunstâncias);
 - **Rever o regime dos avales pessoais** exigidos pelas instituições financeiras e que na prática destroem a responsabilidade limitada das empresas (e/ou a sua capacidade de financiamento e tomada de risco), como sucede em outros países europeus;
 - **Criação de uma unidade para recuperação dos atrasos nos processos,** a começar pelos mais antigos;
-- **Apoiar e fomentar a especialização dos juízes**  e não apenas dos tribunais, principalmente nas áreas de contencioso económico e técnico em transformação acelerada: digital, concorrência e regulação, contratação pública, energia, ambiente, questões financeiras e fiscais, criminalidade internacional e criminalidade violenta.
+- **Apoiar e fomentar a especialização dos juízes** e não apenas dos tribunais, principalmente nas áreas de contencioso económico e técnico em transformação acelerada: digital, concorrência e regulação, contratação pública, energia, ambiente, questões financeiras e fiscais, criminalidade internacional e criminalidade violenta.
 
 #### 2.3.2. MOBILIDADE, INFRAESTRUTURAS E COMUNICAÇÕES
 
@@ -2236,7 +2235,7 @@ Também assim o abandono pela Espanha e França da parte mais importante das obr
 
 Outro sinal preocupante diz respeito ao enfraquecimento da independência e capacidade do regulador da energia, seja pela nomeação direta de membros do conselho administração com ligações ao governo e ao partido socialista, seja pela interferência da maioria socialista quer em sede tarifária, quer quanto à sujeição a cativações e outras subordinações organizativas ao governo. Como resultado das erradas políticas socialistas e de um regulador pouco independente do poder político, Portugal inverteu uma tendência de descida no défice tarifário que já durava há muitos anos, passando para valores perto de 2.000M€, um valor enorme que pesará nos próximos anos nos bolsos dos portugueses e dificultará algumas políticas estruturais de transição energética.
 
-No que diz respeito à concorrência no mercado português, entre operadores nacionais e internacionais, seja na eletricidade ou no gás, os dados também não são animadores. As alterações constantes de regras e de políticas aumentaram a perceção de risco para as empresas, tendo algumas abandonado a atividade no nosso país, com consequências diretas para o MIBEL, sendo a face visível da falta de transparência, racionalidade e garantias de competitividade na exploração de oportunidades de produção de energias renováveis (desde logo, no eólico *offshore*) e de produção industrial ligada ao setor (do hidrogénio à extração e refinação do lítio).
+No que diz respeito à concorrência no mercado português, entre operadores nacionais e internacionais, seja na eletricidade ou no gás, os dados também não são animadores. As alterações constantes de regras e de políticas aumentaram a perceção de risco para as empresas, tendo algumas abandonado a atividade no nosso país, com consequências diretas para o MIBEL, sendo a face visível da falta de transparência, racionalidade e garantias de competitividade na exploração de oportunidades de produção de energias renováveis (desde logo, no eólico _offshore_) e de produção industrial ligada ao setor (do hidrogénio à extração e refinação do lítio).
 
 A transição energética e a descarbonização são necessidades civilizacionais e oportunidades económicas muito importantes para Portugal, mas não podem ser implementadas "a qualquer custo". Pelo contrário, devem assentar num equilíbrio virtuoso entre, por um lado, ambição nos objetivos de transição energética, e, por outro, escolhas políticas, planeamento e implementação assentes no realismo, imparcialidade, transparência, integridade e competência decisória, racionalidade económica, sustentabilidade financeira, neutralidade tecnológica e competitividade para as empresas e famílias portuguesas. Para isso, também na energia é necessário que Portugal tenha uma nova política e uma nova governação.
 
@@ -2252,7 +2251,7 @@ Para atingir estas metas propomos as seguintes medidas:
 
 • Promover a análise e planeamento, transparentes e participados, das necessidades adicionais de geração, transporte e distribuição elétrica do Sistema Elétrico Nacional e do desenvolvimento de energias renováveis, que devem ponderar os compromissos de descarbonização do Estado Português, as intenções de consumo, a articulação das variabilidades na produção e no consumo, a maturidade tecnológica, as possibilidades de produção descentralizada junto do consumidor, as capacidades de interligação e de armazenamento e as exportações e importações;
 
-- Promover a transição para energias renováveis, quer de produção de energia elétrica em terra e no mar *(offshore),* quer de gases renováveis, com vista a cumprir os compromissos internacionais de Portugal e aproveitar os recursos naturais do País, e respeitando os princípios de sustentabilidade ambiental, racionalidade e eficiência económica, competitividade para a economia nacional, neutralidade tecnológica, sustentabilidade financeira, transparência, liberdade e igualdade concorrencial (incluindo no acesso às possibilidades de produção), proteção dos consumidores relativamente aos custos, e segurança e independência energética do País;
+- Promover a transição para energias renováveis, quer de produção de energia elétrica em terra e no mar _(offshore),_ quer de gases renováveis, com vista a cumprir os compromissos internacionais de Portugal e aproveitar os recursos naturais do País, e respeitando os princípios de sustentabilidade ambiental, racionalidade e eficiência económica, competitividade para a economia nacional, neutralidade tecnológica, sustentabilidade financeira, transparência, liberdade e igualdade concorrencial (incluindo no acesso às possibilidades de produção), proteção dos consumidores relativamente aos custos, e segurança e independência energética do País;
 - Promover o uso de matérias renováveis provenientes da agricultura, pecuária e floresta como substitutos de matérias de origem fóssil, através da incorporação de produtos agrícolas e florestais na economia circular e na construção sustentável. Promover a instalação de centros de recolha e transporte de biomassa residual para facilitar o aproveitamento desses recursos de forma mais eficiente;
 - Reformar as instituições públicas de regulação e administração no setor da energia, de modo a desburocratizar e acelerar os processos de licenciamento e autorização e reforçar a fiscalização. É indispensavel respeitar e fortalecer a independência da ERSE. É necessário também capacitar técnica e humanamente a DGEG e as outras instituições e agências públicas nacionais de energia, ponderando a sua fusão;
 - Lutar pela concretização efetiva do reforço significativo das interligações elétricas entre Península Ibérica e França, garantindo um aumento de capacidade equivalente, pelo menos, ao constante dos compromissos subscritos por Portugal, Espanha, França e Comissão Europeia em 2014-15;
@@ -2288,7 +2287,7 @@ Nesse sentido, o Programa Eleitoral da AD inclui um "Pacote de Medidas para a In
 
 #### 3.1.1. REFORMA DAS FINANÇAS PÚBLICAS E DA GESTÃO FINANCEIRA DO ESTADO
 
-**A Reforma das Finanças Públicas e da Gestão Financeira do Estado** implica dotar o Setor Público de instrumentos de gestão (financeira, contabilística, de custeio, de património, *asset management*, recursos humanos e tecnologia) modernos e de ponta, e não a atual situação, em que parte substancial desta gestão é feita com instrumentos dos anos 80 e tecnologia obsoleta. Só uma reforma profunda pode permitir uma melhor gestão pública, com melhores serviços, e poupanças efetivas na despesa pública.
+**A Reforma das Finanças Públicas e da Gestão Financeira do Estado** implica dotar o Setor Público de instrumentos de gestão (financeira, contabilística, de custeio, de património, _asset management_, recursos humanos e tecnologia) modernos e de ponta, e não a atual situação, em que parte substancial desta gestão é feita com instrumentos dos anos 80 e tecnologia obsoleta. Só uma reforma profunda pode permitir uma melhor gestão pública, com melhores serviços, e poupanças efetivas na despesa pública.
 
 Os portugueses exigem um "Estado mais Qualificado" e eficiente, capaz de produzir níveis de proteção e de desenvolvimento social elevados com um nível rigoroso de utilização de recursos, que não comprometa a competitividade da economia e a produção de riqueza. Deste modo, os portugueses poderão usufruir de serviços públicos de qualidade com carga fiscal e custos de contexto mais baixos.
 
@@ -2297,7 +2296,7 @@ Alcançar um "Estado mais Qualificado" pressupõe uma reforma profunda do Estado
 - Reorganização de funções, e extinção de observatórios inúteis, estruturas duplicadas e revisão de despesa associada, transversal a toda a Administração Pública. Elaboração de um plano para realizar revisões da despesa nos principais ministérios e nas grandes áreas de despesa, baseados em auditorias externas, avaliações independentes, com o apoio do Tribunal de Contas, da IGF e da OCDE;
 - Elaboração de um quadro de referência orçamental de médio prazo, enquadrado por uma regra da despesa, definindo quais os tetos máximos de despesa por ministério;
 - Aumento da flexibilidade gestionária dos organismos e entidades operativas, assegurando, assim, uma maior responsabilização dessas entidades e dos ministérios setoriais, dando-lhes uma maior autonomia financeira e reduzindo o grau de rigidez da despesa corrente;
-- Reformar o processo orçamental, melhorando a sua transparência, e reforçar o papel do Conselho de Finanças Públicas. Uma abordagem *top-down*, que permita uma definição clara das dotações orçamentais atribuídas a cada Ministério e serviço. Reforço da autorização de despesa como elemento central do processo orçamental. Atribuição de capacidade e responsabilidade pela gestão das dotações orçamentais aos respetivos ministérios e organismos, com a manutenção de mecanismos de controlo de emergência atribuídos ao Ministério das Finanças. A política abusiva de cativações é a negação destes princípios e significa a demissão de fazer uma gestão eficiente dos recursos públicos;
+- Reformar o processo orçamental, melhorando a sua transparência, e reforçar o papel do Conselho de Finanças Públicas. Uma abordagem _top-down_, que permita uma definição clara das dotações orçamentais atribuídas a cada Ministério e serviço. Reforço da autorização de despesa como elemento central do processo orçamental. Atribuição de capacidade e responsabilidade pela gestão das dotações orçamentais aos respetivos ministérios e organismos, com a manutenção de mecanismos de controlo de emergência atribuídos ao Ministério das Finanças. A política abusiva de cativações é a negação destes princípios e significa a demissão de fazer uma gestão eficiente dos recursos públicos;
 - Implementar uma efetiva orçamentação por programas (OP), definindo para cada ministério objetivos, indicadores e metas. Trata-se de uma alteração da tradicional orçamentação centrada nos recursos disponíveis ("inputs"), para uma lógica assente em objetivos e metas para a produção do setor público ("outputs") e para os impactos das políticas ("outcomes");
 - Implementar o SNC-AP e, consequentemente, ter uma contabilidade analítica em cada serviço, apurando o custo de cada bem/serviço produzido e de cada departamento interno;
 - Criar um Portal da transparência orçamental que permita aos portugueses conhecer, de uma forma acessível, onde são aplicados os recursos que cedem ao Estado sob a forma de impostos e outras transferências;
@@ -2325,7 +2324,7 @@ Alcançar um "Estado mais Qualificado" pressupõe uma reforma profunda do Estado
   - Assegurar a interoperabilidade dos vários serviços das administrações públicas;
   - Progredir na digitalização, desmaterialização de processos, desenvolvimento tecnológico, reforço da cibersegurança, e integração de ferramentas de inteligência artificial na Administração Pública;
   - Avançar na disseminação da interação por via digital e remota com os serviços administrativos do Estado, mas sempre garantindo a assistência pessoal (incluindo através dos Espaços do Cidadão e apoio telefónico) aos que têm dificuldades técnicas, económicas ou de info-exclusão;
-  - Simplificar, concentrar e responsabilizar a interface da relação entre a empresa e a Administração Pública, através de um**a Rede Pública de Gestores dos Clientes Empresariais,** que seja também um Balcão ou Ponto Único, com interface também digital (e-balcão), baseado no **conceito de** *one-stop-shop*, onde os investidores e empresários podem tratar de todos os temas relacionados com a empresa: laborais, licenças, fiscalidade, segurança social, entre outros.
+  - Simplificar, concentrar e responsabilizar a interface da relação entre a empresa e a Administração Pública, através de um**a Rede Pública de Gestores dos Clientes Empresariais,** que seja também um Balcão ou Ponto Único, com interface também digital (e-balcão), baseado no **conceito de** _one-stop-shop_, onde os investidores e empresários podem tratar de todos os temas relacionados com a empresa: laborais, licenças, fiscalidade, segurança social, entre outros.
 - Aprofundamento da digitalização dos processos internos e externos da administração pública e introdução gradual de inteligência artificial, sempre desenhada e controlada por pessoas nos processos administrativos decisórios;
 - Implementar uma cultura e prática de sistemática Avaliação de Políticas Públicas, incluindo por entidades privadas ou públicas independentes; Portugal tem uma das piores classificações da UE (3.4. em 10) na área da definição de políticas com base em factos e de avaliação do seu impacto à posteriori;
   - Reforçar a utilização de métricas que permitam avaliar a qualidade nos serviços prestados, através da monitorização dos resultados e com implementação de planos de melhoria;
@@ -2338,10 +2337,10 @@ O universo das empresas públicas é composto pelo setor empresarial do Estado, 
 Em 2013, o Governo do PSD/CDS-PP alterou a legislação de forma a aplicar à gestão do setor público empresarial as melhores práticas internacionais. O controlo é realizado através de 3 instrumentos: Relatório e Contas, Relatório do Governo Societário e Planos de atividade e Orçamento. Segundo o Conselho das Finanças Públicas, em fevereiro de 2023, 96% das empresas tinha apresentado o Relatório e Contas relativo a 2021, 80% o Relatório de Governo Societário, e apenas 62% tinham Planos de Atividade e Orçamento analisados pela Unidade Técnica de Acompanhamento e Monitorização do Setor Público Empresarial. Em fevereiro de 2023, a DGTF tinha aprovado apenas 56% dos Relatórios e Contas submetidos ao Tribunal de Contas, 57% dos relatórios de Governo Societário analisados pela UTAM e 77% dos planos de Atividade e orçamento analisados pela UTAM. Urge assim a adoção de medidas tendentes a resolver as atuais insuficiências.
 
 - **Medidas de reporte:**
-  - Acelerar a implementação da legislação introduzida em 2013, em particular no que diz respeito à publicação e aprovação dos instrumentos de gestão, permitindo um reforço de *accountability* do setor público, e que sejam feitas recomendações à gestão das empresas de forma mais eficiente;
+  - Acelerar a implementação da legislação introduzida em 2013, em particular no que diz respeito à publicação e aprovação dos instrumentos de gestão, permitindo um reforço de _accountability_ do setor público, e que sejam feitas recomendações à gestão das empresas de forma mais eficiente;
   - Assegurar que em todas empresas relevantes o reporte inclui as obrigações de serviço público e as compensações que a empresa recebe do Estado para o cumprir;
   - Retomar a publicação do Relatório sobre o Cumprimento das Práticas de Bom Governo da UTAM (o último refere-se ao exercício de 2017);
-- **Medidas para o Conselho da Administração.** Em vários países da OCDE, as empresas do setor empresarial do estado têm membros independentes, que não representam os acionistas, mas que servem para defender os interesses de outros *stakeholders*, por exemplo trabalhadores e utilizadores dos serviços da empresa pública;
+- **Medidas para o Conselho da Administração.** Em vários países da OCDE, as empresas do setor empresarial do estado têm membros independentes, que não representam os acionistas, mas que servem para defender os interesses de outros _stakeholders_, por exemplo trabalhadores e utilizadores dos serviços da empresa pública;
   - Nas empresas de maior dimensão, à semelhança das empresas privadas, introduzir membros independentes e representantes dos trabalhadores como Administradores não executivos;
   - Incentivar uma maior diversidade no Conselho de Administração, designadamente no que diz respeito à nacionalidade;
   - Introduzir critérios objetivos de avaliação da Administração, incluindo o desempenho na obrigação de prestação do serviço público.
@@ -2391,7 +2390,7 @@ Portugal precisa de superar este paradigma e recuperar o atraso ainda existente 
 - **Simplificação do código do trabalho através da racionalização do articulado, focada em reduzir custos de contexto por procedimentos de caracter administrativo com baixo valor económico e social,** assim garantindo a maior implementação e compreensão das regras pelas partes;
 - **Garantir o aumento do salário mínimo nacional em linha com a inflação mais os ganhos de produtividade como regra geral,** e criação de uma comissão técnica independente sobre o "Salário Digno" que analise e avalie o impacto da subida do SMN no emprego (que motive desvios à regra geral) e que proponha políticas a médio prazo tendo em vista a redução da pobreza e a dignidade no emprego dos trabalhadores com baixos salários;
 - **Convergir os direitos à proteção social dos trabalhadores independentes, eventualmente os cuidadores informais e ainda em novas formas de emprego** (trabalhadores nas plataformas digitais e em trabalho remoto para empresas externas) com o regime dos trabalhadores por conta de outrem, no que diz respeito à proteção no desemprego, doença, parentalidade ou reforma, no âmbito de uma revisão profunda do Código Contributivo, no sentido de garantir simplificação, harmonização e equidade;
-- **Substituição de um conjunto alargado de apoios sociais por um Suplemento Remunerativo Solidário** *(ver Reforma dos apoios sociais*).
+- **Substituição de um conjunto alargado de apoios sociais por um Suplemento Remunerativo Solidário** _(ver Reforma dos apoios sociais_).
 
 ##### **Valorizar a concertação social e o diálogo social**
 
@@ -2465,8 +2464,8 @@ Assim a AD considera crítico que Portugal esteja perto e presente na vida dos s
 - **Reforço de recursos da rede consular e câmaras de comércio, dando resposta ao crescimento da diáspora** e reforçando a ligação efetiva entre a diáspora e o tecido económico e empresarial português;
 - **Criação de um serviço de apoio ao emigrante** (com presença online) com o objetivo de promover a informação e assim a integração mais próxima das redes de emigração portuguesa na vida nacional;
 - **Adaptação, agilização e desburocratização dos processos notariais e de registos formalizados na rede consular;**
-- **Ligação com associações de emigrantes** e incentivo especial à criação de *networks* internacionais;
-- Realização de um Fórum Anual da Emigração em Portugal para promover a participação da diáspora em Portugal com o objetivo de dar conhecimento aos emigrantes portugueses de oportunidades de **investimento** em negócios existentes ou novos negócios, **comércio** *(export/import),* e até **emprego** em Portugal ou fora (ex: exportação de serviços pode ser feita através de comunidades emigrantes);
+- **Ligação com associações de emigrantes** e incentivo especial à criação de _networks_ internacionais;
+- Realização de um Fórum Anual da Emigração em Portugal para promover a participação da diáspora em Portugal com o objetivo de dar conhecimento aos emigrantes portugueses de oportunidades de **investimento** em negócios existentes ou novos negócios, **comércio** _(export/import),_ e até **emprego** em Portugal ou fora (ex: exportação de serviços pode ser feita através de comunidades emigrantes);
 - **Recolha de informação sobre os destinos, qualificações e expectativas profissionais dos emigrantes que deixam Portugal** – temporários e permanentes, por forma a garantir o permanente ajuste da ligação de Portugal à Diáspora.
 
 ##### **Imigração regulada com integração humanista**
@@ -2503,7 +2502,7 @@ Ao contrário das políticas atuais, a AD defende a mobilização de toda a soci
 
 A resposta socialista imediata à grave crise de acessibilidade habitacional, desde há décadas e de novo nesta última governação, tem sido a do controlo administrativo de preços, por congelamento de rendas ou pela sua limitação dentro de bandas muito estritas, ignorando as regras vigentes, para todos.
 
-**Ora, as experiências de travões de rendas muito estritos resultaram mal em Portugal e no mundo fora, e falharam de tal forma, com aumentos de 30% das rendas dos novos contratos, que o atual Governo recuou temporariamente em 2023 na sua adoção.** 
+**Ora, as experiências de travões de rendas muito estritos resultaram mal em Portugal e no mundo fora, e falharam de tal forma, com aumentos de 30% das rendas dos novos contratos, que o atual Governo recuou temporariamente em 2023 na sua adoção.**
 
 Estas medidas não apoiam quem mais precisa. Os arrendatários já dentro do mercado poderão sentir um benefício no curto prazo, mas no médio e longo prazo são prejudicados pela quebra do investimento e da renovação e manutenção dos imóveis. Os proprietários são prejudicados por lhes ser imposta uma tarefa de redistributiva que cumpre ao Estado e à política orçamental e fiscal. Os maiores prejudicados são os que procuram casa agora, ou num futuro breve quando os seus contratos terminam, porque são confrontados com um mercado mais pequeno, resultado da fuga dos proprietários que vendem os imóveis e procuram outras formas de investimento. A medida é também socialmente injusta, tantas vezes protegendo arrendatários com rendimentos superiores aos proprietários que vêm congelada a remuneração das suas poupanças.
 
@@ -2522,7 +2521,7 @@ Para assegurar o aumento da oferta habitacional, seja ela privada, estimulada co
   - Aplicação de IVA à taxa mínima de 6% nas obras e serviços de construção e reabilitação e alargamento da dedutibilidade.
 - **Programa de Parcerias Público-Privadas para a construção e reabilitação em larga escala**, quer de habitação geral quer de alojamento para estudantes;
 - **Estímulo e facilitação de novos conceitos de alojamento no mercado português**, incluindo com regulatory sand box (build to rent, mixed housing com bónus de densidade urbanística para habitação a custos moderados, co-living, habitação modular, cooperativas de habitação, utilização flexível dual das residências de estudantes);
-- **Análise do novo enquadramento legislativo do licenciamento e controlo urbanístico**, reforçando sempre que necessário o caminho da simplificação e redução de obstáculos ao licenciamento e transição de modelo de controlo urbanístico prévio para fiscalização *ex-post;*
+- **Análise do novo enquadramento legislativo do licenciamento e controlo urbanístico**, reforçando sempre que necessário o caminho da simplificação e redução de obstáculos ao licenciamento e transição de modelo de controlo urbanístico prévio para fiscalização _ex-post;_
 - **Planeamento e implementação da política e oferta de transportes públicos que sustente a possibilidade de aumento dos perímetros urbanos** e o encurtamento das distâncias físicas e temporais entre os existentes, garantindo uma utilização do território de forma sustentável e socialmente coesa e harmoniosa como forma de garantir acesso à habitação.
 
 ##### **Estabilidade e confiança no mercado de arrendamento**
@@ -2561,7 +2560,7 @@ Este cenário é marcado por uma forte incerteza em vários domínios: a evoluç
 **Tabela A: Cenário do Conselho de Finanças Públicas 2023-2027**
 
 | Taxa de variação anual média exceto onde indicado (%) | 2023 | 2024 | 2025 | 2026 | 2027 |
-|-------------------------------------------------------|------|------|------|------|------|
+| ----------------------------------------------------- | ---- | ---- | ---- | ---- | ---- |
 | PIB e componentes da Despesa (em termos reais)        |      |      |      |      |      |
 | PIB                                                   | 2,2  | 1,6  | 1,8  | 1,9  | 2,0  |
 | Consumo privado                                       | 1,5  | 1,2  | 1,5  | 1,8  | 2,0  |
@@ -2591,7 +2590,7 @@ Em termos de crescimento económico, as medidas da AD resultam num aumento suste
 **Tabela B: Cenário Macroeconómica da AD 2023-2028**
 
 | Taxa de variação anual média exceto onde indicado (%) | 2023 | 2024 | 2025 | 2026 | 2027 | 2028 |
-|-------------------------------------------------------|------|------|------|------|------|------|
+| ----------------------------------------------------- | ---- | ---- | ---- | ---- | ---- | ---- |
 | PIB e componentes da Despesa (em termos reais)        |      |      |      |      |      |      |
 | PIB                                                   | 2,2  | 1,6  | 2,5  | 2,7  | 3,0  | 3,4  |
 | Consumo privado                                       | 1,5  | 1,2  | 2,0  | 2,3  | 2,8  | 3,2  |

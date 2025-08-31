@@ -268,7 +268,7 @@ A protecção da pesca – local, costeira e longínqua – e das comunidades pi
 
 - A indústria, como alicerce nuclear do desenvolvimento económico, é ponto de partida para a substituição de importações por produção nacional, assim como do crescimento da exportação de bens. É objetivo estratégico alcançar, no médio-longo prazo, um significativo e sustentado crescimento do VAB (Valor Acrescentado Bruto) industrial no PIB, sem que tal signifique a perda de peso absoluto de outros ramos.
 
- O Governo PS, depois de ter repetido anúncios de reindustrialização do País, particularmente com o PRR, acabou por ser cúmplice activo do grande capital na fragilização ou mesmo destruição de importantes activos industriais, de que são exemplo, entre outros, a Refinaria de Matosinhos e a Efacec, com os riscos que enfrenta na sequência da privatização. Impõe-se, assim, a defesa do existente tecido industrial, nomeadamente das suas unidades com produções básicas e estratégicas, combatendoaprecipitaçãode encerramentos, desmantelamentos ou deslocalizações determinadas pela lógica dos interesses accionistas, promovendo ao mesmo tempo a inovação tecnológica e/ou organizacional e um forte investimento na modernização dos processos produtivos,tendo em vista, entre outros aspetos, ganhos de eficiência e redução de impactos ambientais.
+O Governo PS, depois de ter repetido anúncios de reindustrialização do País, particularmente com o PRR, acabou por ser cúmplice activo do grande capital na fragilização ou mesmo destruição de importantes activos industriais, de que são exemplo, entre outros, a Refinaria de Matosinhos e a Efacec, com os riscos que enfrenta na sequência da privatização. Impõe-se, assim, a defesa do existente tecido industrial, nomeadamente das suas unidades com produções básicas e estratégicas, combatendoaprecipitaçãode encerramentos, desmantelamentos ou deslocalizações determinadas pela lógica dos interesses accionistas, promovendo ao mesmo tempo a inovação tecnológica e/ou organizacional e um forte investimento na modernização dos processos produtivos,tendo em vista, entre outros aspetos, ganhos de eficiência e redução de impactos ambientais.
 
 O País precisa de uma política industrial com objectivos estratégicos claros, meios disponíveis para os concretizar e um programa de reindustrialização, com adensamento da malha industrial e elevação do valor acrescentado, pelo que cabe adoptar as seguintes orientações:
 
@@ -662,7 +662,7 @@ Em Portugal os salários têm um peso reduzido nos custos totais das empresas.
 
 O salário médio em Portugal é expressão de uma injusta repartição do rendimento nacional, particularmente desfavorável ao trabalho, e tem vindo todos os anos a perder poder de compra, facto diretamente ligado ao boicote da negociação colectiva.
 
- O aumento geral dos salários, com o consequente aumento do salário médio, além de contribuir para uma mais justa repartição da riqueza tem impactos positivos na produtividade, na dinamização do mercado interno, na criação de emprego e na obtenção de mais receitas para o Estado e a Segurança Social.
+O aumento geral dos salários, com o consequente aumento do salário médio, além de contribuir para uma mais justa repartição da riqueza tem impactos positivos na produtividade, na dinamização do mercado interno, na criação de emprego e na obtenção de mais receitas para o Estado e a Segurança Social.
 
 Impõe-se um significativo aumento do salário médio, concretizando a convergência acelerada com o salário médio da zona Euro.
 
@@ -978,15 +978,15 @@ Alargando os critérios de acesso e com o aumento mensal de €70 euros da compo
 
 ###### Proposta do PCP **Valorização das Pensões Mínimas**
 
-|    |    |    |    |    |    |
-|----|----|----|----|----|----|
-| Regime Geral Valor mínimo das pensões de invalidez e velhice — número de anos de descontos | Valor actual (em euros) | Actual % de Indexação ao IAS* | Proposta do PCP para 2024 (em euros) | Valor do aumento (em euros) | % de Indexação ao IAS* |
-| inferior a 15 anos | 319.31 | 62.7 | 325.93 | + 6.62 | 64 |
-| de 15 a 20 anos | 335.09 | 65.8 | 341.20 | + 6.11 | 67 |
-| de 21 a 30 anos | 369.72 | 72.6 | 381.95 | + 12.22 | 75 |
-| superior a 30 anos | 462.41 | 90.8 | 468.52 | + 6.11 | 92 |
-| 36 a 40 anos | | | 509.26 | + 46.85 | 100 |
-| superior a 40 anos | | | 555.09 | + 92.69 | 109 |
+|                                                                                            |                         |                                |                                      |                             |                         |
+| ------------------------------------------------------------------------------------------ | ----------------------- | ------------------------------ | ------------------------------------ | --------------------------- | ----------------------- |
+| Regime Geral Valor mínimo das pensões de invalidez e velhice — número de anos de descontos | Valor actual (em euros) | Actual % de Indexação ao IAS\* | Proposta do PCP para 2024 (em euros) | Valor do aumento (em euros) | % de Indexação ao IAS\* |
+| inferior a 15 anos                                                                         | 319.31                  | 62.7                           | 325.93                               | + 6.62                      | 64                      |
+| de 15 a 20 anos                                                                            | 335.09                  | 65.8                           | 341.20                               | + 6.11                      | 67                      |
+| de 21 a 30 anos                                                                            | 369.72                  | 72.6                           | 381.95                               | + 12.22                     | 75                      |
+| superior a 30 anos                                                                         | 462.41                  | 90.8                           | 468.52                               | + 6.11                      | 92                      |
+| 36 a 40 anos                                                                               |                         |                                | 509.26                               | + 46.85                     | 100                     |
+| superior a 40 anos                                                                         |                         |                                | 555.09                               | + 92.69                     | 109                     |
 
 \* Valor do IAS em 2024 – 509,26€ Indexação ao IAS das Pensões e de Outras Prestações Sociais, a que se refere o art.º 7.º do Dec.Lei n.º 53-B/2006
 

@@ -26,24 +26,25 @@ Acreditamos que a defesa e a preservação dos ecossistemas, a valorização dos
 
 Recusamos a mercantilização das pessoas, do trabalho e da natureza. Embora a ação pública ou estatal seja crucial na criação de uma economia mista, na sua regulação e proteção do bem comum, o nosso socialismo não é um estatismo, incorporando as três es- feras previstas na Constituição - pública, cooperativa e privada. Neste sentido, o Estado deve gerir e regular áreas estratégicas e setores essenciais à garantia dos direitos fundamentais e à dignidade da vida humana, reforçando o Estado Social. O setor associativo e cooperativo deve ser fortemente incentivado para garantir um desenvolvimento socialmente justo, sustentável e ecológico. E o setor privado deve ser incentivado para a transição justa para uma nova economia verde, do conhecimento e de base social.
 
-Assim, nesta época de emergência ecológica e social, defendemos um Novo Pacto Verde (*Green New Deal*) que contemple um forte investimento público a nível nacional e, sobretudo, europeu para uma rápida transição ecológica que assegure a resolução das carências sociais existentes e o aumento do bem-estar. Para isso, precisamos de uma verdadeira redistribuição da riqueza, de justiça fiscal, de efetiva regulação pública e fomento da economia cooperativa e solidária, colocando a economia ao serviço das pessoas, de uma sociedade mais igualitária e respeitadora da natureza, do clima e do planeta.
+Assim, nesta época de emergência ecológica e social, defendemos um Novo Pacto Verde (_Green New Deal_) que contemple um forte investimento público a nível nacional e, sobretudo, europeu para uma rápida transição ecológica que assegure a resolução das carências sociais existentes e o aumento do bem-estar. Para isso, precisamos de uma verdadeira redistribuição da riqueza, de justiça fiscal, de efetiva regulação pública e fomento da economia cooperativa e solidária, colocando a economia ao serviço das pessoas, de uma sociedade mais igualitária e respeitadora da natureza, do clima e do planeta.
 
 Por isso defendemos:
 
-1. **Promover um Novo Pacto Verde** - *Green New Deal* - um plano estratégico para uma economia diversa, verde e justa ao qual está associado um plano de investimento ambicioso, para Portugal e para a Europa, que identifique os setores prioritários, as infraestruturas necessárias para as próximas décadas e aposte nos setores-chave de valorização dos recursos e competências do país para fazer face à emergência climática e ecológica, assegurando a solidez da qualificação e da formação da população, a criação de empregos verdes e estáveis mediante uma transição laboral justa e participada, e assegurando a coesão territorial pela redução da fratura entre centro e periferias.
+1. **Promover um Novo Pacto Verde** - _Green New Deal_ - um plano estratégico para uma economia diversa, verde e justa ao qual está associado um plano de investimento ambicioso, para Portugal e para a Europa, que identifique os setores prioritários, as infraestruturas necessárias para as próximas décadas e aposte nos setores-chave de valorização dos recursos e competências do país para fazer face à emergência climática e ecológica, assegurando a solidez da qualificação e da formação da população, a criação de empregos verdes e estáveis mediante uma transição laboral justa e participada, e assegurando a coesão territorial pela redução da fratura entre centro e periferias.
 
 2. **Aumentar as fontes de receitas do Estado e fomentar a redistribuição** através:
-	- do combate à evasão e elisão fiscais, ao recurso a *offshores* e outros mecanismos de planeamento fiscal agressivo responsáveis por perdas significativas para economia nacional, através da implementação das medidas previstas no Plano Estratégico de Combate à Fraude e Evasão Fiscal e Aduaneira e do acompanhamento permanente e aplicação das recomendações das instituições e grupos de trabalho supranacionais e intergovernamentais sobre a matéria;
-	- do aumento das taxas do adicional de solidariedade sobre o setor bancário;
-	- do reforço da tributação do património imobiliário que não se destine a habitação permanente e das grandes fortunas;
-	- da redução do peso dos impostos sobre os rendimentos do trabalho na receita fiscal total, e aumentando a contribuição dos impostos sobre a riqueza e rendimentos capitais;
-	- da introdução do imposto sucessório para grandes heranças e grandes doações, que venha a constituir uma "herança social" - transferência direta atribuída quando atingida a maioridade;
-	- do aumento da tributação das transações financeiras, a partir de determinado limite, das emissões de carbono e da produção de resíduos;
-	- da regulação e revisão da tributação de criptomoedas;
-	- da introdução da progressividade nos impostos sobre os rendimentos do capital, nomeadamente através da introdução de escalões na taxa liberatória ou da obrigatoriedade de englobamento em sede de IRS;
-	- do aumento a consignação de IRS de 0,5% para 1%, permitindo ainda que um máximo de 4 entidades diferentes possam ser beneficiadas pelo valor da consignação;
-	- criação de uma sobretaxa extraordinária progressiva, a cobrar em sede de IRC, sobre o lucro de empresas nos setores da energia, da banca, seguros, imobiliário, da distribuição alimentar e do armamento que apresentem um lucro apurado igual ou superior a um milhão e quinhentos mil euros;
-	- do aumento do valor de referência para isenção da contribuição a pagar pela entidade contratante de trabalhadores independentes, de forma a proteger associações, cooperativas e micro empresas.
+
+   - do combate à evasão e elisão fiscais, ao recurso a _offshores_ e outros mecanismos de planeamento fiscal agressivo responsáveis por perdas significativas para economia nacional, através da implementação das medidas previstas no Plano Estratégico de Combate à Fraude e Evasão Fiscal e Aduaneira e do acompanhamento permanente e aplicação das recomendações das instituições e grupos de trabalho supranacionais e intergovernamentais sobre a matéria;
+   - do aumento das taxas do adicional de solidariedade sobre o setor bancário;
+   - do reforço da tributação do património imobiliário que não se destine a habitação permanente e das grandes fortunas;
+   - da redução do peso dos impostos sobre os rendimentos do trabalho na receita fiscal total, e aumentando a contribuição dos impostos sobre a riqueza e rendimentos capitais;
+   - da introdução do imposto sucessório para grandes heranças e grandes doações, que venha a constituir uma "herança social" - transferência direta atribuída quando atingida a maioridade;
+   - do aumento da tributação das transações financeiras, a partir de determinado limite, das emissões de carbono e da produção de resíduos;
+   - da regulação e revisão da tributação de criptomoedas;
+   - da introdução da progressividade nos impostos sobre os rendimentos do capital, nomeadamente através da introdução de escalões na taxa liberatória ou da obrigatoriedade de englobamento em sede de IRS;
+   - do aumento a consignação de IRS de 0,5% para 1%, permitindo ainda que um máximo de 4 entidades diferentes possam ser beneficiadas pelo valor da consignação;
+   - criação de uma sobretaxa extraordinária progressiva, a cobrar em sede de IRC, sobre o lucro de empresas nos setores da energia, da banca, seguros, imobiliário, da distribuição alimentar e do armamento que apresentem um lucro apurado igual ou superior a um milhão e quinhentos mil euros;
+   - do aumento do valor de referência para isenção da contribuição a pagar pela entidade contratante de trabalhadores independentes, de forma a proteger associações, cooperativas e micro empresas.
 
 3. **Assegurar a justa tributação das grandes empresas multinacionais** que, recorrendo a mecanismos de planeamento fiscal agressivo evitam pagar impostos nos países onde geram uma parte significativa dos seus lucros, optando por declarar os seus rendimentos em jurisdições com regimes fiscais mais favoráveis e acabando a estar sujeitas a taxas efetivas sobre os seus lucros muito inferiores àquelas a que estariam sujeitas em Portugal ou que outras empresas até de menor dimensão pagam efetivamente.
 
@@ -54,27 +55,30 @@ Por isso defendemos:
 6. **Promover a banca ética e solidária**, alterando o quadro legislativo para a diferenciar da categoria das "sociedades financeiras de microcrédito" e reduzindo os requisitos de capital necessários.
 
 7. **Fomentar a economia local, solidária e colaborativa**:
-	- apoiando a criação e o desenvolvimento de cooperativas e de empresas autogeridas pelos trabalhadores que garantam o desenvolvimento ecológico e sustentável legislando o direito à autogestão previsto constitucionalmente, nomeadamente implementando uma versão nacional da lei Marcora - que, em caso de falência de uma empresa privada, permite aos trabalhadores receber o valor dos subsídios de desemprego a que teriam direito como capital para recuperarem o negócio transformando-o numa cooperativa viável -, bem como outra legislação italiana, uruguaia e francesa para fortalecer o setor cooperativo;
-	- estimular a criação de moedas locais e complementares ao euro, que permitam trocas locais entre empresas e cidadãos, sem valor nos circuitos financeiros e sem encorajamento à acumulação nem à especulação;
-	- adaptar a lógica das compras públicas centralizadas, substituindo-as por compras do Estado nos mercado locais onde os serviços se encontram instalados para promover o comércio local e, indiretamente, o emprego nas zonas de baixa densidade populacional, com exceção nos casos em que as compras públicas centralizadas conferem poder negocial ao Estado face a grandes grupos económicos ou a fornecedores únicos;
-	- fomentar a inovação e investimento empresarial com objetivos ecológicos, com impacto social significativo e de alto valor acrescentado.
+
+   - apoiando a criação e o desenvolvimento de cooperativas e de empresas autogeridas pelos trabalhadores que garantam o desenvolvimento ecológico e sustentável legislando o direito à autogestão previsto constitucionalmente, nomeadamente implementando uma versão nacional da lei Marcora - que, em caso de falência de uma empresa privada, permite aos trabalhadores receber o valor dos subsídios de desemprego a que teriam direito como capital para recuperarem o negócio transformando-o numa cooperativa viável -, bem como outra legislação italiana, uruguaia e francesa para fortalecer o setor cooperativo;
+   - estimular a criação de moedas locais e complementares ao euro, que permitam trocas locais entre empresas e cidadãos, sem valor nos circuitos financeiros e sem encorajamento à acumulação nem à especulação;
+   - adaptar a lógica das compras públicas centralizadas, substituindo-as por compras do Estado nos mercado locais onde os serviços se encontram instalados para promover o comércio local e, indiretamente, o emprego nas zonas de baixa densidade populacional, com exceção nos casos em que as compras públicas centralizadas conferem poder negocial ao Estado face a grandes grupos económicos ou a fornecedores únicos;
+   - fomentar a inovação e investimento empresarial com objetivos ecológicos, com impacto social significativo e de alto valor acrescentado.
 
 8. **Apoiar o desenvolvimento económico de base social**, criando na legislação portuguesa o conceito e reconhecimento de empresa social como aquela que tem como objetivo responder a um problema social e/ ou ambiental, com redistribuição de mais de 50% do lucro entre os funcionários, a comunidade e reinvestidos na empresa, fortalecendo o compromisso com a equidade e o desenvolvimento sustentável. Além disso, serão implementados programas de capacitação para promover modelos de negócios socialmente responsáveis, procurando posicionar o país como líder em inovação social e empresarial.
 
 9. **Criar uma estrutura pública de apoio e fomento à economia social e cooperativismo** que, dotada de orçamentação adequada e trabalhadores formados para esse âmbito, possa:
-	- criar uma linha de crédito para a criação de novas cooperativas de cariz social, incluindo na forma de empréstimo com baixa taxa de juro ou na forma de capital social da cooperativa, cobrindo, até um montante a definir caso a caso, o financiamento inicial aportado pelos cooperantes;
-	- promover um ecossistema de atividade socioeconómica e formativa, geração de emprego e impacto social;
-	- criar laboratórios de intercooperação para construir cidades cooperativas;
-	- apoiar tecnicamente a criação de novas cooperativas.
+
+   - criar uma linha de crédito para a criação de novas cooperativas de cariz social, incluindo na forma de empréstimo com baixa taxa de juro ou na forma de capital social da cooperativa, cobrindo, até um montante a definir caso a caso, o financiamento inicial aportado pelos cooperantes;
+   - promover um ecossistema de atividade socioeconómica e formativa, geração de emprego e impacto social;
+   - criar laboratórios de intercooperação para construir cidades cooperativas;
+   - apoiar tecnicamente a criação de novas cooperativas.
 
 10. **Incentivar fiscalmente o investimento em cooperativas**, isentando até um determinado montante ou reduzindo a taxa de retenção na fonte na aquisição de títulos de capital ou nos empréstimos de cooperadores às cooperativas.
 
 11. **Promover a economia social e solidária e o setor cooperativo em Portugal**,
-	- apoiando a formação, nomeadamente ao nível do ensino superior, na área da economia social e solidária;
-	- criando, em cooperação com a CASES (Cooperativa António Sérgio para a Economia Social), uma rede que inclua investigadores académicos e as instituições da economia social, promovendo o diálogo permanente e a troca de experiências e assegurando que o conhecimento académico e o conhecimento no terreno se influenciam mutuamente;
-	- promovendo a experimentação em Portugal de formas inovadoras de economia social e solidária através de cooperativas, nomeadamente em áreas tecnológicas;
-	- estabelecendo Parcerias Público-Cooperativas com os produtores locais, com prioridade aos do setor cooperativo e solidário, para a aquisição regular e de longo prazo de bens e serviços.
-	- criar condições na banca comercial que facilite o acesso coletivo a crédito por parte das cooperativas, enquanto não existe uma banca ética e solidária.
+
+    - apoiando a formação, nomeadamente ao nível do ensino superior, na área da economia social e solidária;
+    - criando, em cooperação com a CASES (Cooperativa António Sérgio para a Economia Social), uma rede que inclua investigadores académicos e as instituições da economia social, promovendo o diálogo permanente e a troca de experiências e assegurando que o conhecimento académico e o conhecimento no terreno se influenciam mutuamente;
+    - promovendo a experimentação em Portugal de formas inovadoras de economia social e solidária através de cooperativas, nomeadamente em áreas tecnológicas;
+    - estabelecendo Parcerias Público-Cooperativas com os produtores locais, com prioridade aos do setor cooperativo e solidário, para a aquisição regular e de longo prazo de bens e serviços.
+    - criar condições na banca comercial que facilite o acesso coletivo a crédito por parte das cooperativas, enquanto não existe uma banca ética e solidária.
 
 12. **Na falta de uma Banca Ética e Solidária**, criar condições na banca comercial que facilitem o acesso coletivo a crédito por parte das cooperativas.
 
@@ -85,9 +89,10 @@ Por isso defendemos:
 15. **Realizar anualmente um debate parlamentar de alto nível sobre o Estado do Ambiente em Portugal.**
 
 16. **Focar os órgãos de governação na transição do modelo de desenvolvimento a longo prazo**:
-	- criando um Gabinete para a Transição, com o propósito de estudar e promover as estratégias para a transição de modelo de desenvolvimento, que seja uma estrutura de consulta obrigatória do Governo, e que garanta a sua implementação gradual e solidária entre gerações e independente dos ciclos eleitorais e de visões de curto prazo;
-	- institucionalizando sessões plenárias regulares na Assembleia da República e Assembleias Municipais para debate e pareceres sobre o Estado do Desenvolvimento do País e sobre ação governativa no domínio das políticas de desenvolvimento;
-	- reforçando os meios humanos e técnicos de apoio à avaliação de políticas de desenvolvimento.
+
+    - criando um Gabinete para a Transição, com o propósito de estudar e promover as estratégias para a transição de modelo de desenvolvimento, que seja uma estrutura de consulta obrigatória do Governo, e que garanta a sua implementação gradual e solidária entre gerações e independente dos ciclos eleitorais e de visões de curto prazo;
+    - institucionalizando sessões plenárias regulares na Assembleia da República e Assembleias Municipais para debate e pareceres sobre o Estado do Desenvolvimento do País e sobre ação governativa no domínio das políticas de desenvolvimento;
+    - reforçando os meios humanos e técnicos de apoio à avaliação de políticas de desenvolvimento.
 
 17. **Apoiar o desenvolvimento social e económico do país através do Banco Português do Fomento,** que deverá ser um verdadeiro banco de desenvolvimento com presença descentralizada a nível territorial e que assegure articulação com a Caixa Geral de Depósitos que deve ser orientada para o financiamento das Pequenas e Médias Empresas em condições mais favoráveis que as oferecidas pela banca comercial. O Banco Português do Fomento deve também apoiar a criação de novos mercados, investindo em áreas de maior risco comercial ou com falhas de mercado, viabilizando e reduzindo o custo de inovações e novas soluções para investimento industrial da economia verde e digital.
 
@@ -108,142 +113,156 @@ A nossa sociedade não tem sido capaz de interromper a reprodução intergeracio
 Por isso defendemos:
 
 1. **Dar prioridade à erradicação da pobreza em Portugal**, revendo e aprofundando a Estratégia Nacional de Combate à Pobreza e interrompendo a reprodução intergeracional da pobreza. A Estratégia Nacional de Combate à Pobreza 2021-2030 (ENPC) não tem os recursos, o financiamento e o alcance social proporcional à gravidade do problema em Portugal, carecendo de uma revisão que aporte mais ambição, capacidade e que consolide como seus objetivos estratégicos:
-	- o combate à pobreza, a melhor redistribuição da riqueza e combate às desigualdades e a promoção do bem-estar e da autonomia económica das pessoas e do país;
-	- um especial foco às novas dinâmicas sociais como as crescentes dificuldades de acesso à habitação que aumenta a insegurança financeira das pessoas e famílias e o número de pessoas em situação sem-abrigo;
-	- criar um mecanismo de apoio que permita excluir de situação de pobreza mulheres em período de gravidez e agregados familiares com bebés até 2 anos, considerando os impactos dessa situação no desenvolvimento precoce de bebés e contribuindo para a redução das iniquidades;
-	- combater a pobreza infantil e todas as formas de exclusão no período da infância e juventude, garantindo condições de desenvolvimento integral das crianças e jovens e contribuindo para maior equidade e para a melhoria dos indicadores de educação, formação e qualificação;
-	- apostar em perspectivas de médio e longo prazo de execução das políticas, preparando desde já o plano após 2030 e promovendo a justiça intergeracional.
 
-2. **Garantir os direitos e a integração das pessoas em situação de sem-abrigo**, dotando o orçamento do Estado com as verbas necessárias para a Estratégia Nacional para a Integração das Pessoas em Situação de Sem-Abrigo, dando resposta ao aumento da população em situação de sem-abrigo de forma a cumprir os objetivos da Plataforma Europeia de Combate à Situação de Sem-Abrigo, que visa o fim da situação de sem-abrigo até 2030 através do apoio integrado ao nível da habitação, da saúde, do emprego e da formação escolar e profissional. Assim, damos prioridade ao alargamento do programa *housing-first* garantindo maior capacidade de alojamento e apartamentos partilhados, abrangendo todos os concelhos, aumentando também as respostas específicas para mulheres, pessoas LGBTQIA+, famílias - incluindo as monoparentais, bem como a flexibilidade de soluções e mecanismos. Regular o recurso ao design urbano hostil, que inviabiliza o uso de espaços públicos ou de acesso ao público, bem como de mobiliário urbano, para descanso ou pernoita de pessoas em situação de sem-abrigo.
+   - o combate à pobreza, a melhor redistribuição da riqueza e combate às desigualdades e a promoção do bem-estar e da autonomia económica das pessoas e do país;
+   - um especial foco às novas dinâmicas sociais como as crescentes dificuldades de acesso à habitação que aumenta a insegurança financeira das pessoas e famílias e o número de pessoas em situação sem-abrigo;
+   - criar um mecanismo de apoio que permita excluir de situação de pobreza mulheres em período de gravidez e agregados familiares com bebés até 2 anos, considerando os impactos dessa situação no desenvolvimento precoce de bebés e contribuindo para a redução das iniquidades;
+   - combater a pobreza infantil e todas as formas de exclusão no período da infância e juventude, garantindo condições de desenvolvimento integral das crianças e jovens e contribuindo para maior equidade e para a melhoria dos indicadores de educação, formação e qualificação;
+   - apostar em perspectivas de médio e longo prazo de execução das políticas, preparando desde já o plano após 2030 e promovendo a justiça intergeracional.
+
+2. **Garantir os direitos e a integração das pessoas em situação de sem-abrigo**, dotando o orçamento do Estado com as verbas necessárias para a Estratégia Nacional para a Integração das Pessoas em Situação de Sem-Abrigo, dando resposta ao aumento da população em situação de sem-abrigo de forma a cumprir os objetivos da Plataforma Europeia de Combate à Situação de Sem-Abrigo, que visa o fim da situação de sem-abrigo até 2030 através do apoio integrado ao nível da habitação, da saúde, do emprego e da formação escolar e profissional. Assim, damos prioridade ao alargamento do programa _housing-first_ garantindo maior capacidade de alojamento e apartamentos partilhados, abrangendo todos os concelhos, aumentando também as respostas específicas para mulheres, pessoas LGBTQIA+, famílias - incluindo as monoparentais, bem como a flexibilidade de soluções e mecanismos. Regular o recurso ao design urbano hostil, que inviabiliza o uso de espaços públicos ou de acesso ao público, bem como de mobiliário urbano, para descanso ou pernoita de pessoas em situação de sem-abrigo.
 
 3. **Combater a segregação nas suas múltiplas dimensões**, promovendo a atribuição de habitação pública de forma mais transversal e inclusiva e criando mecanismos mais eficazes de investigação de denúncias de discriminação no acesso a arrendamento. Adotar medidas que contrariem a segregação nas escolas públicas com base no rendimento, origem racial e étnica ou outros eixos de exclusão e discriminação e implementar o Programa Cidade Sem Periferias para garantir condições de habitação, transportes, espaço público, serviços e escolas para todas as pessoas.
 
 4. **Garantir a igualdade de género em todas as suas interseções**, ao:
-	- garantir que os Quadros de Avaliação e Responsabilidade das instituições públicas tenham, entre os seus objetivos, a plena igualdade de género;
-	- promover a publicação de indicadores discriminados por género;
-	- garantir a perspetiva de género na elaboração de todos os programas orçamentais e a sua monitorização anual e tornando obrigatória a avaliação de impacto de género, e a sua consequente publicação, na definição de políticas públicas - medidas que devem ser monitorizadas pela tutela para a Cidadania e a Igualdade e apoiadas pela CIG - Comissão para a Cidadania e a Igualdade de Género. Assegurar também que a Conta Geral do Estado passa a disponibilizar informação sobre o impacto de género das medidas executadas em cada ano;
-	- garantir a plena aplicação da Lei da Igualdade Salarial, com o reforço dos meios dedicados à ação preventiva da CITE e à ação fiscalizadora ACT, incluindo a punição das empresas que adotem políticas remuneratórias discriminatórias;
-	- reforçar a representação equilibrada dos géneros na administração das empresas e instituições públicas, estabelecendo a paridade como regra nos órgãos diretivos;
-	- promover a paridade de género na comunicação social através da Entidade Reguladora da Comunicação Social e em órgãos coletivos de administração, gestão e acompanhamento de instituições e fundações culturais sob alçada do Estado e do setor privado;
-	- reforçar o papel dos homens na parentalidade e na participação e divisão de tarefas familiares;
-	- promover campanhas de sensibilização para a eliminação dos estereótipos de género e dos papéis sociais atribuídos a cada género;
-	- combater as desigualdades de género nas pensões, nomeadamente através do aumento progressivo dos valores mínimos das pensões não contributivas e das pensões mínimas do regime geral da Segurança Social.
+
+   - garantir que os Quadros de Avaliação e Responsabilidade das instituições públicas tenham, entre os seus objetivos, a plena igualdade de género;
+   - promover a publicação de indicadores discriminados por género;
+   - garantir a perspetiva de género na elaboração de todos os programas orçamentais e a sua monitorização anual e tornando obrigatória a avaliação de impacto de género, e a sua consequente publicação, na definição de políticas públicas - medidas que devem ser monitorizadas pela tutela para a Cidadania e a Igualdade e apoiadas pela CIG - Comissão para a Cidadania e a Igualdade de Género. Assegurar também que a Conta Geral do Estado passa a disponibilizar informação sobre o impacto de género das medidas executadas em cada ano;
+   - garantir a plena aplicação da Lei da Igualdade Salarial, com o reforço dos meios dedicados à ação preventiva da CITE e à ação fiscalizadora ACT, incluindo a punição das empresas que adotem políticas remuneratórias discriminatórias;
+   - reforçar a representação equilibrada dos géneros na administração das empresas e instituições públicas, estabelecendo a paridade como regra nos órgãos diretivos;
+   - promover a paridade de género na comunicação social através da Entidade Reguladora da Comunicação Social e em órgãos coletivos de administração, gestão e acompanhamento de instituições e fundações culturais sob alçada do Estado e do setor privado;
+   - reforçar o papel dos homens na parentalidade e na participação e divisão de tarefas familiares;
+   - promover campanhas de sensibilização para a eliminação dos estereótipos de género e dos papéis sociais atribuídos a cada género;
+   - combater as desigualdades de género nas pensões, nomeadamente através do aumento progressivo dos valores mínimos das pensões não contributivas e das pensões mínimas do regime geral da Segurança Social.
 
 5. **Combater a violência de género, a violência doméstica e no namoro**:
-	- realizar um inquérito representativo anualmente, de modo a que o Estado, comunidade académica e organizações da sociedade civil disponham de dados concretos que permitam melhor combater e prevenir a violência de género;
-	- reforçar conteúdos educativos sobre a igualdade de género, não discriminação, direitos sexuais e reprodutivos no currículo escolar;
-	- criar um Plano Nacional de Prevenção e Combate à Violência Sexual e de Promoção da Segurança Digital e Presencial de Crianças e Jovens com vista à sensibilização para as várias formas de violência sexual contra crianças e jovens e capacitação sobre a produção e partilha de conteúdos digitais que podem ser ilegitimamente utilizados para a prática de crimes de exploração sexual de crianças e de pornografia infantil;
-	- reforçar o apoio às organizações não governamentais que trabalham no apoio às vítimas e na prevenção e combate de violência de género, de violência doméstica, da violência sexual, do tráfico e exploração de seres humanos e reforçar a linha de apoio para as organizações, sem fins lucrativos, que atuam no domínio da igualdade de género;
-	- implementar uma rede de serviços de apoio a vítimas e sobreviventes de violência que siga os padrões internacionais (Conselho da Europa, Nações Unidas) no que respeita à disponibilidade, modelos de intervenção e qualidade dos serviços, incluindo a criação de uma bolsa especializada de tradução e interpretação disponível para entidades que atendem pessoas com deficiência, migrantes e outras comunidades com especificidades linguísticas e culturais, no âmbito do apoio a vítimas de violência doméstica, violência de género, violência sexual e trauma;
-	- estabelecer em meio hospitalar procedimentos e orientações para profissionais de saúde, pessoal técnico auxiliar de saúde e forças de segurança para a identificação e assistência a vítimas de violência física e sexual, incluindo violência doméstica;
-	- alargar o prazo de denúncia e o prazo de prescrição de crimes sexuais;
-	- investir na investigação e combate ao crime organizado que alimenta o tráfico e exploração de seres humanos, nomeadamente a exploração sexual;
-	- formar profissionais de setores prioritários, como da saúde, educação, justiça, e administração local, assim como de forças e serviços de segurança e da Segurança Social para a prevenção, identificação e atuação em situações de risco e a identificação de sinais de exposição individual e coletiva a eventos potencialmente traumáticos e para o correto encaminhamento de vítimas para serviços de apoio especializados;
-	- traduzir e disseminar informação regular e atualizada sobre Convenções Internacionais de Direitos Humanos das quais o Estado Português é signatário e criar programas de formação obrigatória e regular para profissionais das forças e serviços de segurança, do direito e da justiça;
-	- garantir, nos serviços e estruturas do Estado, a adoção de boas práticas de prevenção do assédio no local de trabalho alinhadas com as recomendações da CITE - Comissão para a Igualdade no Trabalho e no Emprego - e criando incentivos à adoção de orientações semelhantes nas empresas privadas;
-	- reforçar e dotar de orçamento adequado programas e medidas obrigatórias de intervenção e reabilitação para pessoas agressoras, com foco na diminuição de reincidência e prevenção da revitimização;
-	- garantir aconselhamento jurídico e apoio judiciário gratuito para todas as pessoas a quem tenha sido atribuído o estatuto de vítima especialmente vulnerável, independentemente da sua capacidade económica, prestando também apoio e informação sobre as medidas de proteção e de apoio a que podem recorrer;
-	- continuar a expansão da rede de casas-abrigo, de acolhimento de emergência e de soluções habitacionais que promovam a autonomização das vítimas, garantindo uma maior cobertura nacional e reforço das condições dos serviços especializados a vítimas e suas famílias;
-	- promover a coordenação entre as secções de família e menores e as secções criminais dos tribunais judiciais para proteção rápida das vítimas e das suas famílias;
-	- reforçar as campanhas de sensibilização contra a violência no namoro, violência doméstica, mutilação genital feminina e assédio moral e sexual.
+
+   - realizar um inquérito representativo anualmente, de modo a que o Estado, comunidade académica e organizações da sociedade civil disponham de dados concretos que permitam melhor combater e prevenir a violência de género;
+   - reforçar conteúdos educativos sobre a igualdade de género, não discriminação, direitos sexuais e reprodutivos no currículo escolar;
+   - criar um Plano Nacional de Prevenção e Combate à Violência Sexual e de Promoção da Segurança Digital e Presencial de Crianças e Jovens com vista à sensibilização para as várias formas de violência sexual contra crianças e jovens e capacitação sobre a produção e partilha de conteúdos digitais que podem ser ilegitimamente utilizados para a prática de crimes de exploração sexual de crianças e de pornografia infantil;
+   - reforçar o apoio às organizações não governamentais que trabalham no apoio às vítimas e na prevenção e combate de violência de género, de violência doméstica, da violência sexual, do tráfico e exploração de seres humanos e reforçar a linha de apoio para as organizações, sem fins lucrativos, que atuam no domínio da igualdade de género;
+   - implementar uma rede de serviços de apoio a vítimas e sobreviventes de violência que siga os padrões internacionais (Conselho da Europa, Nações Unidas) no que respeita à disponibilidade, modelos de intervenção e qualidade dos serviços, incluindo a criação de uma bolsa especializada de tradução e interpretação disponível para entidades que atendem pessoas com deficiência, migrantes e outras comunidades com especificidades linguísticas e culturais, no âmbito do apoio a vítimas de violência doméstica, violência de género, violência sexual e trauma;
+   - estabelecer em meio hospitalar procedimentos e orientações para profissionais de saúde, pessoal técnico auxiliar de saúde e forças de segurança para a identificação e assistência a vítimas de violência física e sexual, incluindo violência doméstica;
+   - alargar o prazo de denúncia e o prazo de prescrição de crimes sexuais;
+   - investir na investigação e combate ao crime organizado que alimenta o tráfico e exploração de seres humanos, nomeadamente a exploração sexual;
+   - formar profissionais de setores prioritários, como da saúde, educação, justiça, e administração local, assim como de forças e serviços de segurança e da Segurança Social para a prevenção, identificação e atuação em situações de risco e a identificação de sinais de exposição individual e coletiva a eventos potencialmente traumáticos e para o correto encaminhamento de vítimas para serviços de apoio especializados;
+   - traduzir e disseminar informação regular e atualizada sobre Convenções Internacionais de Direitos Humanos das quais o Estado Português é signatário e criar programas de formação obrigatória e regular para profissionais das forças e serviços de segurança, do direito e da justiça;
+   - garantir, nos serviços e estruturas do Estado, a adoção de boas práticas de prevenção do assédio no local de trabalho alinhadas com as recomendações da CITE - Comissão para a Igualdade no Trabalho e no Emprego - e criando incentivos à adoção de orientações semelhantes nas empresas privadas;
+   - reforçar e dotar de orçamento adequado programas e medidas obrigatórias de intervenção e reabilitação para pessoas agressoras, com foco na diminuição de reincidência e prevenção da revitimização;
+   - garantir aconselhamento jurídico e apoio judiciário gratuito para todas as pessoas a quem tenha sido atribuído o estatuto de vítima especialmente vulnerável, independentemente da sua capacidade económica, prestando também apoio e informação sobre as medidas de proteção e de apoio a que podem recorrer;
+   - continuar a expansão da rede de casas-abrigo, de acolhimento de emergência e de soluções habitacionais que promovam a autonomização das vítimas, garantindo uma maior cobertura nacional e reforço das condições dos serviços especializados a vítimas e suas famílias;
+   - promover a coordenação entre as secções de família e menores e as secções criminais dos tribunais judiciais para proteção rápida das vítimas e das suas famílias;
+   - reforçar as campanhas de sensibilização contra a violência no namoro, violência doméstica, mutilação genital feminina e assédio moral e sexual.
 
 6. **Garantir tolerância zero ao abuso sexual de menores e assegurar o apoio às vítimas**,
-	- capacitar famílias, profissionais de saúde e de educação, forças e serviços de segurança e a Segurança Social para a identificação de sinais de abuso e para a melhor forma de atuar;
-	- alargar o prazo de denúncia e o prazo de prescrição de crimes de abuso sexual de menores;
-	- garantir o apoio psicológico imediato e gratuito às vítimas e às famílias;
-	- promover ações de sensibilização junto de crianças e jovens sobre consentimento, sexualidade e sobre canais e formas de denúncia.
+
+   - capacitar famílias, profissionais de saúde e de educação, forças e serviços de segurança e a Segurança Social para a identificação de sinais de abuso e para a melhor forma de atuar;
+   - alargar o prazo de denúncia e o prazo de prescrição de crimes de abuso sexual de menores;
+   - garantir o apoio psicológico imediato e gratuito às vítimas e às famílias;
+   - promover ações de sensibilização junto de crianças e jovens sobre consentimento, sexualidade e sobre canais e formas de denúncia.
 
 7. **Assegurar a proteção social e laboral e garantir o respeito pela dignidade das pessoas no trabalho sexual/prostituição**, através de soluções sempre construídas em conjunto com as pessoas envolvidas:
-	- criar as condições para que as pessoas vejam protegidos os seus direitos, a sua saúde preservada e ter acesso a medidas de segurança;
-	- policiar o tráfico e a exploração e não a prática da prostituição;
-	- conceber, financiar e alocar recursos a planos de saída da prostituição não discriminatórios a quem o deseje, envolvendo não só a administração central, mas também as autarquias locais, associações e coletivos diretamente envolvidos;
-	- prevenir a entrada de pessoas vulneráveis na prostituição;
-	- executar o Livro Branco sobre Trabalho Sexual e Prostituição, que permita conhecer a a realidade do trabalho sexual e da prostituição em Portugal e que avalie as necessidades e caminhos de regulamentação.
+
+   - criar as condições para que as pessoas vejam protegidos os seus direitos, a sua saúde preservada e ter acesso a medidas de segurança;
+   - policiar o tráfico e a exploração e não a prática da prostituição;
+   - conceber, financiar e alocar recursos a planos de saída da prostituição não discriminatórios a quem o deseje, envolvendo não só a administração central, mas também as autarquias locais, associações e coletivos diretamente envolvidos;
+   - prevenir a entrada de pessoas vulneráveis na prostituição;
+   - executar o Livro Branco sobre Trabalho Sexual e Prostituição, que permita conhecer a a realidade do trabalho sexual e da prostituição em Portugal e que avalie as necessidades e caminhos de regulamentação.
 
 8. **Combater o discurso de ódio online:**
-	- criminalizando a ciberviolência, nomeadamente a ciberperseguição, o ciberassédio e o ciberincitamento à violência ou ao ódio;
-	- desenvolvendo um plano nacional para combate a discursos de ódio online;
-	- promovendo projetos de formação, em conjunto com a PJ e a ANACOM, no sentido de garantir a aplicação do dever de denúncia ao Ministério Público por parte das plataformas eletrónicas relativamente a conteúdos que possam constituir o crime de discriminação e incitamento ao ódio e à violência e a devida punição em caso de incumprimento, tal como previsto na Lei n.º 40/2020.
+
+   - criminalizando a ciberviolência, nomeadamente a ciberperseguição, o ciberassédio e o ciberincitamento à violência ou ao ódio;
+   - desenvolvendo um plano nacional para combate a discursos de ódio online;
+   - promovendo projetos de formação, em conjunto com a PJ e a ANACOM, no sentido de garantir a aplicação do dever de denúncia ao Ministério Público por parte das plataformas eletrónicas relativamente a conteúdos que possam constituir o crime de discriminação e incitamento ao ódio e à violência e a devida punição em caso de incumprimento, tal como previsto na Lei n.º 40/2020.
 
 9. **Combater a discriminação em razão da orientação sexual, identidade e expressão de género e caraterísticas sexuais**, devendo o Governo Português promover iniciativas nesse sentido, quer local, regionalmente ou em interlocução com a UE, ao:
-	- incluir, numa Revisão Constitucional, as categorias da identidade de género, expressão de género e características sexuais no artigo 13.º da Constituição da República Portuguesa;
-	- aprovar uma Lei-quadro antidiscriminação que inclua expressamente a proibição de discriminação em razão da orientação sexual, identidade de género, expressão de género e características sexuais;
-	- reconhecer a importância da inclusão das questões LGBTQIA+ de forma transversal nas políticas públicas e em legislação avulsa bem como o reforço da formação de profissionais nas áreas dos Direitos Humanos e questões LGBTQIA+, incluindo membros da administração pública, das forças e serviços de segurança, profissionais de saúde, das escolas, da segurança social e de serviços de atendimento ao público;
-	- alargar o regime da gestação de substituição a todas as pessoas;
-	- prever o reconhecimento de pessoas intersexo na lei e nas várias esferas de serviços públicos, incluindo na saúde e educação;
-	- alargar as regras de registo civil para reconhecimento de outros marcadores legais de género (por exemplo: não-binária, género fluído), abolindo a exclusividade de uma perspetiva binária de género, alterando a designação do campo "sexo" no Cartão de Cidadão para "género" e permitindo que pessoas intersexo possam deixar esse campo em branco;
-	- garantir a implementação da recém-aprovada lei de proibição e criminalização das "práticas de conversão" que visam a repressão da orientação sexual, da identidade de género ou da expressão de género, dirigidas a pessoas LGBTQIA+, práticas essas equivalentes a tortura, sejam estas de teor religioso, psicoterapêutico ou outro;
-	- reforçar o combate a todas as formas de bullying e exclusão social de crianças e jovens LGBTQIA+ em contextos educacionais através de, por exemplo, formação adequada do pessoal docente e não-docente para diversidade, inclusão e Direitos Humanos, da realização regular de campanhas multimeios de sensibilização e informação, incluindo para associações de pais e mães, e facilitação de suporte para bem-estar e saúde mental quando necessário.
+
+   - incluir, numa Revisão Constitucional, as categorias da identidade de género, expressão de género e características sexuais no artigo 13.º da Constituição da República Portuguesa;
+   - aprovar uma Lei-quadro antidiscriminação que inclua expressamente a proibição de discriminação em razão da orientação sexual, identidade de género, expressão de género e características sexuais;
+   - reconhecer a importância da inclusão das questões LGBTQIA+ de forma transversal nas políticas públicas e em legislação avulsa bem como o reforço da formação de profissionais nas áreas dos Direitos Humanos e questões LGBTQIA+, incluindo membros da administração pública, das forças e serviços de segurança, profissionais de saúde, das escolas, da segurança social e de serviços de atendimento ao público;
+   - alargar o regime da gestação de substituição a todas as pessoas;
+   - prever o reconhecimento de pessoas intersexo na lei e nas várias esferas de serviços públicos, incluindo na saúde e educação;
+   - alargar as regras de registo civil para reconhecimento de outros marcadores legais de género (por exemplo: não-binária, género fluído), abolindo a exclusividade de uma perspetiva binária de género, alterando a designação do campo "sexo" no Cartão de Cidadão para "género" e permitindo que pessoas intersexo possam deixar esse campo em branco;
+   - garantir a implementação da recém-aprovada lei de proibição e criminalização das "práticas de conversão" que visam a repressão da orientação sexual, da identidade de género ou da expressão de género, dirigidas a pessoas LGBTQIA+, práticas essas equivalentes a tortura, sejam estas de teor religioso, psicoterapêutico ou outro;
+   - reforçar o combate a todas as formas de bullying e exclusão social de crianças e jovens LGBTQIA+ em contextos educacionais através de, por exemplo, formação adequada do pessoal docente e não-docente para diversidade, inclusão e Direitos Humanos, da realização regular de campanhas multimeios de sensibilização e informação, incluindo para associações de pais e mães, e facilitação de suporte para bem-estar e saúde mental quando necessário.
 
 10. **Combater o racismo estrutural e a xenofobia:**
-	- criminalizando comportamentos e práticas racistas, através das alterações necessárias à Lei n.º 93/2017 e ao Código Penal, que proíbe as discriminações com base em raça, cor, nacionalidade ou origem étnica, punindo-as, atualmente, apenas como contraordenação, que pouco ou nada inibe quem as pratica e alargando as motivações que originam agravamentos penais a outros tipos de crime; investindo em medidas alternativas à detenção que por exemplo incluam a formação obrigatória e de sensibilização em matérias específicas sobre a motivação que deu origem à prática do crime (por ex, antisemitismo, islamofobia, anticiganismo ou racismo e xenofobia);
-	- promover campanhas nacionais regulares antirracistas e dar visibilidade positiva às instituições públicas e privadas que promovam medidas ativas de combate à discriminação e falta de representatividade;
-	- rever os currículos escolares para que não reproduzam uma versão acrítica da História de Portugal, baseada numa mitologia colonial que não reconhece as violências perpetradas sobre outros povos e culturas, e estimulando o pensamento crítico sobre o passado colonial português e europeu;
-	- instituir formação obrigatória e regular antirracista para instituições públicas, incluindo as forças e serviços de segurança, serviços públicos, pessoal docente e não docente e profissionais de saúde, com avaliação contínua da eficácia e da qualidade da sua implementação.
+
+    - criminalizando comportamentos e práticas racistas, através das alterações necessárias à Lei n.º 93/2017 e ao Código Penal, que proíbe as discriminações com base em raça, cor, nacionalidade ou origem étnica, punindo-as, atualmente, apenas como contraordenação, que pouco ou nada inibe quem as pratica e alargando as motivações que originam agravamentos penais a outros tipos de crime; investindo em medidas alternativas à detenção que por exemplo incluam a formação obrigatória e de sensibilização em matérias específicas sobre a motivação que deu origem à prática do crime (por ex, antisemitismo, islamofobia, anticiganismo ou racismo e xenofobia);
+    - promover campanhas nacionais regulares antirracistas e dar visibilidade positiva às instituições públicas e privadas que promovam medidas ativas de combate à discriminação e falta de representatividade;
+    - rever os currículos escolares para que não reproduzam uma versão acrítica da História de Portugal, baseada numa mitologia colonial que não reconhece as violências perpetradas sobre outros povos e culturas, e estimulando o pensamento crítico sobre o passado colonial português e europeu;
+    - instituir formação obrigatória e regular antirracista para instituições públicas, incluindo as forças e serviços de segurança, serviços públicos, pessoal docente e não docente e profissionais de saúde, com avaliação contínua da eficácia e da qualidade da sua implementação.
 
 11. **Avaliar a implementação e impacto da última Estratégia Nacional para a Integração das Comunidades Ciganas (ENICC)** e delinear a sua renovação no contexto da próxima legislatura, em articulação, designadamente, com o Plano Nacional Contra o Racismo e a Discriminação e com a Estratégia Nacional para a Igualdade e a Não Discriminação (2018-2030).
 
 12. **Reforçar, valorizar e promover a investigação científica das ciências sociais e da igualdade**, designadamente nos campos da sociologia, demografia, geografia, psicologia e etnografia de modo a aperfeiçoar o desenho de políticas sociais através de um conhecimento mais profundo e alargado das circunstâncias pessoais e sociológicas das populações invisibilizadas e vulneráveis à discriminação e à desigualdade social, designadamente, minorias raciais e étnicas, sexuais, de identidade e expressão de género e pessoas com deficiência.
 
 13. **Garantir um envelhecimento digno**,
-	- criando uma rede pública de residências assistidas e de estruturas residenciais para pessoas idosas e investindo na disponibilidade e acessibilidade aos serviços de apoio domiciliário, assim como fomentando o acompanhamento da população idosa por redes de proximidade, procurando sempre que as pessoas mantenham os seus laços de comunidade e de local de vida;
-	- reforçando as medidas de combate à pobreza e exclusão social da população idosa;
-	- que o direito ao Complemento Solidário para Idosos não dependa dos rendimentos dos filhos das pessoas idosas mas apenas da própria condição de recursos;
-	- promovendo os espaços intergeracionais;
-	- garantindo que o espaço público é seguro e que propicia as relações de vizinhança e de comunidade;
-	- combatendo explicitamente a solidão;
-	- implementando campanhas de sensibilização sobre a violência contra pessoas sénior, incluindo sobre burlas e sobre violência doméstica, e divulgando as formas de denúncia;
-	- redigindo a Carta dos Direitos da Cidadania Sénior;
-	- publicando e implementando a Estratégia Nacional para o Envelhecimento Ativo e Saudável.
+
+    - criando uma rede pública de residências assistidas e de estruturas residenciais para pessoas idosas e investindo na disponibilidade e acessibilidade aos serviços de apoio domiciliário, assim como fomentando o acompanhamento da população idosa por redes de proximidade, procurando sempre que as pessoas mantenham os seus laços de comunidade e de local de vida;
+    - reforçando as medidas de combate à pobreza e exclusão social da população idosa;
+    - que o direito ao Complemento Solidário para Idosos não dependa dos rendimentos dos filhos das pessoas idosas mas apenas da própria condição de recursos;
+    - promovendo os espaços intergeracionais;
+    - garantindo que o espaço público é seguro e que propicia as relações de vizinhança e de comunidade;
+    - combatendo explicitamente a solidão;
+    - implementando campanhas de sensibilização sobre a violência contra pessoas sénior, incluindo sobre burlas e sobre violência doméstica, e divulgando as formas de denúncia;
+    - redigindo a Carta dos Direitos da Cidadania Sénior;
+    - publicando e implementando a Estratégia Nacional para o Envelhecimento Ativo e Saudável.
 
 14. **Combater a discriminação etária**, nomeamente no acesso ao mercado de trabalho, sensibilizando a sociedade para este tipo de discriminação e promovendo a criação de equipas intergeracionais.
 
 15. **Proteger e promover os direitos das pessoas com deficiência**, ao:
-	- rever a Estratégia Nacional para a Inclusão das Pessoas com Deficiência e acompanhar a implementação da estratégia em vigor até 2025;
-	- cumprir os sistemas de quotas para a contratação de pessoas com deficiência no setor público e privado e reduzir a burocracia envolvida nos apoios à contratação das pessoas com deficiência, facilitando o acesso das empresas a estas medidas;
-	- aumentar o montante da Prestação Social para a Inclusão, nomeadamente o valor base, o complemento e as majorações atualmente em vigor;
-	- ampliar o teto de deduções à coleta e do reembolso de despesas relacionadas com a deficiência e prever dotação orçamental específica para o Sistema de Atribuição de Produtos de Apoio (SAPA) a pessoas com deficiência e a pessoas com incapacidade temporária retificando a má prática do governo de fixar o montante das verbas para esse fim através de despacho conjunto apenas no final de cada ano, implicando uma aplicação retroativa da verbas com possíveis consequências para quem necessita do apoio;
-	- assegurar a continuidade das medidas de apoio à vida independente, expandindo a rede nacional de Centros de Apoio à Vida Independente (CAVI) e alargando este apoio a menores de 16 anos;
-	- simplificar a informação disponível sobre o SAPA, informatizar e simplificar os processos de pedido de financiamento dos produtos e atribuir prioridade aos pedidos de reparação dos produtos;
-	- reforçar os meios humanos e materiais de apoio à inclusão escolar de crianças e jovens com deficiência, incluindo para quem que necessite de adaptações significativas;
-	- facilitar a transição pós-escolar de jovens com deficiência, identificando técnicos de transição que façam a ponte entre a escola e potenciais locais de trabalho, ocupação e lazer que possam fazer parte de um projeto de vida após a escolaridade obrigatória e disponibilizando dados sobre o sucesso escolar e percurso pós-escolar das pessoas com deficiência;
-	- promover uma avaliação sistemática das residências universitárias em Portugal que garanta que estudantes com deficiência têm residências adequadas às suas necessidades;
-	- garantir o acesso ao crédito habitação com o regime bonificado a famílias com pessoas com deficiência;
-	- aumentar o apoio para o financiamento das Organizações Não Governamentais de Pessoas com Deficiência;
-	- combater a violência contra raparigas e mulheres com deficiência, nomeadamente através do aumento do conhecimento sobre práticas e fenómenos de violência direcionados às pessoas com deficiência e da erradicação de práticas de esterilização forçada;
-	- garantir a gratuitidade da entrada em espetáculos e equipamentos culturais a pessoas acompanhantes que prestem apoio a pessoas com deficiência;
-	- generalizar o programa "Praia Acessível Praia para Todos" em todo o país.
+
+    - rever a Estratégia Nacional para a Inclusão das Pessoas com Deficiência e acompanhar a implementação da estratégia em vigor até 2025;
+    - cumprir os sistemas de quotas para a contratação de pessoas com deficiência no setor público e privado e reduzir a burocracia envolvida nos apoios à contratação das pessoas com deficiência, facilitando o acesso das empresas a estas medidas;
+    - aumentar o montante da Prestação Social para a Inclusão, nomeadamente o valor base, o complemento e as majorações atualmente em vigor;
+    - ampliar o teto de deduções à coleta e do reembolso de despesas relacionadas com a deficiência e prever dotação orçamental específica para o Sistema de Atribuição de Produtos de Apoio (SAPA) a pessoas com deficiência e a pessoas com incapacidade temporária retificando a má prática do governo de fixar o montante das verbas para esse fim através de despacho conjunto apenas no final de cada ano, implicando uma aplicação retroativa da verbas com possíveis consequências para quem necessita do apoio;
+    - assegurar a continuidade das medidas de apoio à vida independente, expandindo a rede nacional de Centros de Apoio à Vida Independente (CAVI) e alargando este apoio a menores de 16 anos;
+    - simplificar a informação disponível sobre o SAPA, informatizar e simplificar os processos de pedido de financiamento dos produtos e atribuir prioridade aos pedidos de reparação dos produtos;
+    - reforçar os meios humanos e materiais de apoio à inclusão escolar de crianças e jovens com deficiência, incluindo para quem que necessite de adaptações significativas;
+    - facilitar a transição pós-escolar de jovens com deficiência, identificando técnicos de transição que façam a ponte entre a escola e potenciais locais de trabalho, ocupação e lazer que possam fazer parte de um projeto de vida após a escolaridade obrigatória e disponibilizando dados sobre o sucesso escolar e percurso pós-escolar das pessoas com deficiência;
+    - promover uma avaliação sistemática das residências universitárias em Portugal que garanta que estudantes com deficiência têm residências adequadas às suas necessidades;
+    - garantir o acesso ao crédito habitação com o regime bonificado a famílias com pessoas com deficiência;
+    - aumentar o apoio para o financiamento das Organizações Não Governamentais de Pessoas com Deficiência;
+    - combater a violência contra raparigas e mulheres com deficiência, nomeadamente através do aumento do conhecimento sobre práticas e fenómenos de violência direcionados às pessoas com deficiência e da erradicação de práticas de esterilização forçada;
+    - garantir a gratuitidade da entrada em espetáculos e equipamentos culturais a pessoas acompanhantes que prestem apoio a pessoas com deficiência;
+    - generalizar o programa "Praia Acessível Praia para Todos" em todo o país.
 
 16. **Dar prioridade às medidas de adoção e de acolhimento familiar**, de proteção de crianças e jovens em perigo, qualificando o acolhimento residencial e promovendo a desinstitucionalização, ao:
-	- apoiar a implementação das Bases para a Qualificação do Sistema de Acolhimento de Crianças e Jovens com o objetivo de avaliar e promover a adoção de medidas conducentes à desinstitucionalização de crianças e jovens em Portugal, garantindo que o processo de construção dessas medidas inclui a consulta de crianças e jovens institucionalizados, bem como de quem já esteve institucionalizado;
-	- promover um acolhimento residencial qualificado e individualizado, nomeadamente através de medidas de apoio financeiro que permitam às instituições transitarem para unidades de acolhimento de menor dimensão, reduzindo o número de crianças acolhidas (para um máximo 12 crianças por casa de acolhimento), aumentando o rácio de técnicos e educadores que as acompanham, garantindo condições remuneratórias, horários de trabalho e períodos de descanso adequados às suas funções, bem como acesso a formação e supervisão;
-	- assegurar a transição para o acolhimento familiar enquanto resposta alternativa à institucionalização, investindo em campanhas de divulgação e no reforço das equipas envolvidas;
-	- reforçar os meios dos programas de apoio pedagógico para crianças e jovens em acolhimento, incluindo medidas de suporte à aprendizagem e à inclusão universal;
-	- permitir que famílias de acolhimento possam ser candidatas à adoção, salvaguardando sempre o melhor interesse da criança e jovem;
-	- reforçar a preparação das famílias para o acolhimento e a adoção e garantindo o aumento de profissionais que acompanhem as famílias nos períodos pré e pós-adoção.
+
+    - apoiar a implementação das Bases para a Qualificação do Sistema de Acolhimento de Crianças e Jovens com o objetivo de avaliar e promover a adoção de medidas conducentes à desinstitucionalização de crianças e jovens em Portugal, garantindo que o processo de construção dessas medidas inclui a consulta de crianças e jovens institucionalizados, bem como de quem já esteve institucionalizado;
+    - promover um acolhimento residencial qualificado e individualizado, nomeadamente através de medidas de apoio financeiro que permitam às instituições transitarem para unidades de acolhimento de menor dimensão, reduzindo o número de crianças acolhidas (para um máximo 12 crianças por casa de acolhimento), aumentando o rácio de técnicos e educadores que as acompanham, garantindo condições remuneratórias, horários de trabalho e períodos de descanso adequados às suas funções, bem como acesso a formação e supervisão;
+    - assegurar a transição para o acolhimento familiar enquanto resposta alternativa à institucionalização, investindo em campanhas de divulgação e no reforço das equipas envolvidas;
+    - reforçar os meios dos programas de apoio pedagógico para crianças e jovens em acolhimento, incluindo medidas de suporte à aprendizagem e à inclusão universal;
+    - permitir que famílias de acolhimento possam ser candidatas à adoção, salvaguardando sempre o melhor interesse da criança e jovem;
+    - reforçar a preparação das famílias para o acolhimento e a adoção e garantindo o aumento de profissionais que acompanhem as famílias nos períodos pré e pós-adoção.
 
 17. **Apostar em estratégias e medidas de justiça restaurativa para a mediação penal**, onde vítimas de criminalidade voluntariamente participam no processo, obtendo maior reparação e onde a administração da justiça é orientada, com o consentimento de todas as partes intervenientes no processo, para uma mais eficaz reabilitação da pessoa agressora.
 
 18. **Garantir o investimento e promoção da acessibilidade dos espaços e serviços públicos**, e:
-	- realizar uma avaliação intermédia do mandato da Estrutura de Missão para a Promoção das Acessibilidades criada para supervisionar as lacunas e adaptações necessárias à sua supressão nos edifícios públicos (barreiras arquitetónicas, urbanísticas e de mobilidade, cumprimento do Regime da Acessibilidade), de acordo com o levantamento realizado no contexto do Plano Nacional de Promoção das Acessibilidades pela Comissão para a Promoção das Acessibilidades. Avaliar, simultaneamente, o impacto dos materiais criados para recomendação de boas práticas, manuais e outros elementos de fomento da acessibilidade;
-	- alargar o Plano Nacional de Promoção das Acessibilidades ao acesso à informação e comunicação nos serviços públicos, em formato digital e presencial (sinalética, acessibilidade de websites, materiais em formatos acessíveis incluindo Braille e Leitura Fácil, contratação de intérpretes de língua gestual portuguesa), incluindo a realização de testes piloto em algumas localidades de medidas de promoção das acessibilidades, com vista à sua posterior generalização (ex: ensino de língua gestual em todos os ciclos e todas as escolas; generalização da utilização de guias sonoras, sistemas de identificação de cor e outra sinalética apropriada);
-	- rever o Decreto-Lei n.º 163/2006, de 8 de agosto, de acordo com os resultados da avaliação e levantamento referidos acima, atualizando as especificidades técnicas promotoras de acessibilidade para incluir todas as necessidades de acessibilidade e não apenas a acessibilidade física; criando uma autoridade pública específica para cumprimento da legislação em matéria de acessibilidades, dotada de competência para inspeção, auditoria e fiscalização ao abrigo do Decreto-Lei nº 276/2007, de 31 de julho, e com meios técnicos, humanos e financeiros adequados.
+
+    - realizar uma avaliação intermédia do mandato da Estrutura de Missão para a Promoção das Acessibilidades criada para supervisionar as lacunas e adaptações necessárias à sua supressão nos edifícios públicos (barreiras arquitetónicas, urbanísticas e de mobilidade, cumprimento do Regime da Acessibilidade), de acordo com o levantamento realizado no contexto do Plano Nacional de Promoção das Acessibilidades pela Comissão para a Promoção das Acessibilidades. Avaliar, simultaneamente, o impacto dos materiais criados para recomendação de boas práticas, manuais e outros elementos de fomento da acessibilidade;
+    - alargar o Plano Nacional de Promoção das Acessibilidades ao acesso à informação e comunicação nos serviços públicos, em formato digital e presencial (sinalética, acessibilidade de websites, materiais em formatos acessíveis incluindo Braille e Leitura Fácil, contratação de intérpretes de língua gestual portuguesa), incluindo a realização de testes piloto em algumas localidades de medidas de promoção das acessibilidades, com vista à sua posterior generalização (ex: ensino de língua gestual em todos os ciclos e todas as escolas; generalização da utilização de guias sonoras, sistemas de identificação de cor e outra sinalética apropriada);
+    - rever o Decreto-Lei n.º 163/2006, de 8 de agosto, de acordo com os resultados da avaliação e levantamento referidos acima, atualizando as especificidades técnicas promotoras de acessibilidade para incluir todas as necessidades de acessibilidade e não apenas a acessibilidade física; criando uma autoridade pública específica para cumprimento da legislação em matéria de acessibilidades, dotada de competência para inspeção, auditoria e fiscalização ao abrigo do Decreto-Lei nº 276/2007, de 31 de julho, e com meios técnicos, humanos e financeiros adequados.
 
 19. **Acompanhar a aplicação do Estatuto do Cuidador Informal**, assegurando a sua atribuição de forma desburocratizada e simplificada, através da definição justa da percentagem do indexante dos apoios sociais (IAS) relativamente ao rendimento relevante do agregado familiar da pessoa cuidadora informal principal, ao mesmo tempo que se reforça a capacidade das respostas formais de apoio, como a Rede Nacional de Cuidados Continuados Integrados (RNCCI) e outras estruturas de apoio, sobretudo através das respostas de apoio domiciliário e de internamento temporário, aliviando o peso colocado sobre os cuidadores informais e assegurando que o Estado não se demite das suas responsabilidades no apoio às pessoas com deficiência e às suas famílias.
 
 20. **Fomentar a participação política e representatividade de grupos habitualmente excluídos ou marginalizados nos processos de decisão política**:
-	- através de campanhas de sensibilização direcionadas que promovam a sua participação ativa, através do estímulo à apresentação de candidaturas e participação em atos eleitorais, e que disseminem informação sobre políticas e medidas específicas, ou com especial relevância, adotadas ou em discussão ao nível local, nacional e europeu;
-	- ao garantir a auscultação obrigatória de representantes de grupos tradicionalmente excluídos (incluindo, mas não se restringindo a, coletivos antirracistas, feministas, LGBTQIA+, de comunidades migrantes, de jovens ou de pessoas com deficiência) nos processos decisórios que os afetam, como discussão de projetos ou propostas de lei ou acompanhamento e avaliação das políticas;
-	- apoiando iniciativas cidadãs que partam de coletivos ou de pessoas pertencentes a grupos tradicionalmente excluídos dos processos de decisão política;
-	- criando mecanismos de financiamento que permitam às organizações não governamentais na área da igualdade desenvolver respostas específicas no terreno, orientadas para objetivos de igualdade, inclusão e não discriminação.
+
+    - através de campanhas de sensibilização direcionadas que promovam a sua participação ativa, através do estímulo à apresentação de candidaturas e participação em atos eleitorais, e que disseminem informação sobre políticas e medidas específicas, ou com especial relevância, adotadas ou em discussão ao nível local, nacional e europeu;
+    - ao garantir a auscultação obrigatória de representantes de grupos tradicionalmente excluídos (incluindo, mas não se restringindo a, coletivos antirracistas, feministas, LGBTQIA+, de comunidades migrantes, de jovens ou de pessoas com deficiência) nos processos decisórios que os afetam, como discussão de projetos ou propostas de lei ou acompanhamento e avaliação das políticas;
+    - apoiando iniciativas cidadãs que partam de coletivos ou de pessoas pertencentes a grupos tradicionalmente excluídos dos processos de decisão política;
+    - criando mecanismos de financiamento que permitam às organizações não governamentais na área da igualdade desenvolver respostas específicas no terreno, orientadas para objetivos de igualdade, inclusão e não discriminação.
 
 21. **Alterar a Lei da Nacionalidade** de modo a que:
-	- qualquer pessoa que nasça ou tenha nascido em território português tenha a nacionalidade portuguesa de forma imediata e definitiva;
-	- revogando o artigo 14º para que mesmo quando a filiação só é estabelecida na maioridade exista o direito a adquirir nacionalidade portuguesa e deixando de prever prazo para requerer a atribuição da nacionalidade.
+
+    - qualquer pessoa que nasça ou tenha nascido em território português tenha a nacionalidade portuguesa de forma imediata e definitiva;
+    - revogando o artigo 14º para que mesmo quando a filiação só é estabelecida na maioridade exista o direito a adquirir nacionalidade portuguesa e deixando de prever prazo para requerer a atribuição da nacionalidade.
 
 22. **Regulamentar o estatuto do apátrida**, importante passo para a proteção das pessoas apátridas, permitindo-lhes ter uma vida digna e com direitos.
 
-23. **Acabar com a venda de cidadania**, pondo fim ao programa dos Vistos *Gold* e *Green*, assim como excluir a autorização de residência para atividade de investimento dos critérios para a aquisição da nacionalidade por naturalização.
+23. **Acabar com a venda de cidadania**, pondo fim ao programa dos Vistos _Gold_ e _Green_, assim como excluir a autorização de residência para atividade de investimento dos critérios para a aquisição da nacionalidade por naturalização.
 
 ## Trabalho, Rendimento, Tempo e Proteção Social
 
@@ -266,31 +285,35 @@ Por isso defendemos:
 4. **Promover a simplificação fiscal** através da revisão de regulamentos, limites e excepções, bem como das obrigações declarativas perante a Autoridade Tributária, nomeadamente através de uma maior integração das informações prestadas pelos contribuintes.
 
 5. **Combater a precariedade e o abuso pelas entidades empregadoras:**
-	- ao reforçar a capacidade da Autoridade para as Condições do Trabalho, com recursos técnicos, legais e humanos, para fiscalizar as condições laborais nos setores público e privado, assim como para fiscalizar a efetividade do tempo prestado de trabalho, prevenindo abusos sobre trabalhadores decorrente do seu registo por plataformas ou meios digitais;
-	- erradicar os estágios não remunerados ou pagos abaixo do salário mínimo, os falsos recibos verdes, os falsos estágios e o falso trabalho independente;
-	- regular o recurso abusivo ao trabalho temporário, restringir os contratos a prazo a funções comprovadamente temporárias e ao trabalho suplementar;
-	- facilitar a trabalhadores o acesso à informação sobre o assédio moral em contexto de trabalho por forma a evitar e punir comportamentos inapropriados;
-	- regular os anúncios de emprego para garantir um mercado de trabalho mais transparente e com menos fricções e fraudes, nomeadamente obrigando os anúncios de emprego a apresentar uma remuneração mínima associada ao cargo.
+
+   - ao reforçar a capacidade da Autoridade para as Condições do Trabalho, com recursos técnicos, legais e humanos, para fiscalizar as condições laborais nos setores público e privado, assim como para fiscalizar a efetividade do tempo prestado de trabalho, prevenindo abusos sobre trabalhadores decorrente do seu registo por plataformas ou meios digitais;
+   - erradicar os estágios não remunerados ou pagos abaixo do salário mínimo, os falsos recibos verdes, os falsos estágios e o falso trabalho independente;
+   - regular o recurso abusivo ao trabalho temporário, restringir os contratos a prazo a funções comprovadamente temporárias e ao trabalho suplementar;
+   - facilitar a trabalhadores o acesso à informação sobre o assédio moral em contexto de trabalho por forma a evitar e punir comportamentos inapropriados;
+   - regular os anúncios de emprego para garantir um mercado de trabalho mais transparente e com menos fricções e fraudes, nomeadamente obrigando os anúncios de emprego a apresentar uma remuneração mínima associada ao cargo.
 
 6. **Aumentar o tempo disponível para todas as pessoas:**
-	- pela continuação da experiência da semana de 4 dias de trabalho no setor privado e na administração pública, promovendo a inclusão da semana de 4 dias na contratação coletiva e nos acordos de empresa, trabalhando para uma experiência a nível nacional de um período de semanas de 4 dias - à semelhança do que fez a cidade de Valência em Espanha;
-	- atingir 30h semanais e 30 dias de férias anuais até 2030, através da implementação imediata das 35 horas semanais de trabalho e dos 25 dias de férias e planeando progressivamente a redução do tempo de trabalho e aumentando os dias de férias;
-	- pelo não aumento da idade mínima de reforma, com planeamento para a sua redução (diminuindo o tempo de resposta ao pedido de reforma);
-	- permitindo a redução do horário de trabalho em função da idade do trabalhador sem perda de rendimento em vez da reforma total;
-	- alargando o direito a férias pagas para estagiários e estagiárias, sendo o cálculo do número de dias de férias pagas proporcional à duração do estágio.
+
+   - pela continuação da experiência da semana de 4 dias de trabalho no setor privado e na administração pública, promovendo a inclusão da semana de 4 dias na contratação coletiva e nos acordos de empresa, trabalhando para uma experiência a nível nacional de um período de semanas de 4 dias - à semelhança do que fez a cidade de Valência em Espanha;
+   - atingir 30h semanais e 30 dias de férias anuais até 2030, através da implementação imediata das 35 horas semanais de trabalho e dos 25 dias de férias e planeando progressivamente a redução do tempo de trabalho e aumentando os dias de férias;
+   - pelo não aumento da idade mínima de reforma, com planeamento para a sua redução (diminuindo o tempo de resposta ao pedido de reforma);
+   - permitindo a redução do horário de trabalho em função da idade do trabalhador sem perda de rendimento em vez da reforma total;
+   - alargando o direito a férias pagas para estagiários e estagiárias, sendo o cálculo do número de dias de férias pagas proporcional à duração do estágio.
 
 7. **Reforçar o poder das e dos trabalhadores:**
-	- promover novas convenções coletivas de trabalho, alargando o leque de matérias a negociar, e acabar com o regime de caducidade dos instrumentos de regulamentação coletiva de trabalho de forma a diminuir o número de contratos individuais de trabalho;
-	- garantir uma efetiva representatividade dos trabalhadores nos processos de decisão por alteração do regime das Sociedades Comerciais, de forma a que todas as empresas maiores que uma Pequena ou Média Empresa (PME) tenham obrigatoriamente representantes dos trabalhadores nos seus órgãos sociais executivos;
-	- ao fomentar empresas partilhadas e cooperativas;
-	- criando uma Lei que promova e defina a autogestão das empresas, tal como previsto no Artigo 61º da Constituição.
+
+   - promover novas convenções coletivas de trabalho, alargando o leque de matérias a negociar, e acabar com o regime de caducidade dos instrumentos de regulamentação coletiva de trabalho de forma a diminuir o número de contratos individuais de trabalho;
+   - garantir uma efetiva representatividade dos trabalhadores nos processos de decisão por alteração do regime das Sociedades Comerciais, de forma a que todas as empresas maiores que uma Pequena ou Média Empresa (PME) tenham obrigatoriamente representantes dos trabalhadores nos seus órgãos sociais executivos;
+   - ao fomentar empresas partilhadas e cooperativas;
+   - criando uma Lei que promova e defina a autogestão das empresas, tal como previsto no Artigo 61º da Constituição.
 
 8. **Proteger o trabalho independente**, ao:
-	- estabelecer uma Retribuição Horária Mínima Garantida;
-	- criar um novo estatuto de proteção do trabalho independente pela Segurança Social;
-	- ajustar a tabela de retenção para trabalhadores independentes;
-	- aumentar o valor a partir do qual deixam de estar sujeitos à isenção de IVA e retenção na fonte;
-	- reforçar a capacidade de negociação coletiva dos trabalhadores independentes que prestem serviços ao mesmo fornecedor.
+
+   - estabelecer uma Retribuição Horária Mínima Garantida;
+   - criar um novo estatuto de proteção do trabalho independente pela Segurança Social;
+   - ajustar a tabela de retenção para trabalhadores independentes;
+   - aumentar o valor a partir do qual deixam de estar sujeitos à isenção de IVA e retenção na fonte;
+   - reforçar a capacidade de negociação coletiva dos trabalhadores independentes que prestem serviços ao mesmo fornecedor.
 
 9. **Apoiar o microempreendedorismo**, criando hubs criativos que possam dotar o microempreendedor de espaço de trabalho a baixo custo, partilha de recursos, como eletricidade e aquecimento, e/ou serviços de prototipagem (como por exemplo impressão 3D). Criando um regime de microempreendedorismo de contabilidade e fiscal mais leve, que permite ao microempreendedor aliviar custos financeiros.
 
@@ -301,70 +324,76 @@ Por isso defendemos:
 12. **Rever a fórmula de cálculo das pensões da segurança social**, através do fator de sustentabilidade, desagravando este fator de forma a reduzir a penalização antecipada.
 
 13. **Garantir justiça a ex-combatentes**,
-	- garantindo que a sua pensão não seja inferior ao valor do ordenado mínimo nacional e assegurando um complemento vitalício de pensão;
-	- criando a Comissão Nacional de acompanhamento dos Antigos Combatentes, com orçamento e estrutura próprios, e que tenha como missão garantir o reconhecimento do país às pessoas que o serviram, através da resposta às suas necessidades específicas e das suas famílias e também através da preservação da sua memória e da sua história;
-	- melhorando a implementação do Estatuto do Antigo Combatente, nomeadamente tornando o Cartão de Antigo Combatente também num cartão virtual e garantindo uma melhor resposta às solicitações com o reforço dos meios para o Balcão Único de Defesa e com a efetivação do protocolo com a ANAFRE- Associação Nacional de Freguesias;
-	- providenciando os meios para que os processos de qualificação de ex-combatentes como Deficientes das Forças Armadas ou Pensionistas de Invalidez sejam mais céleres;
-	- retomando a comparticipação a 90% dos medicamentos para Antigos Combatentes;
-	- tornando mais simples e célere o acesso à Assistência na Doença aos Militares;
-	- reforçando o orçamento para a Rede Nacional de Apoio (RNA) aos militares e ex-militares portadores de perturbação psicológica crónica resultante da exposição a fatores traumáticos de stress durante a vida militar, que também presta apoio às famílias;
-	- garantindo o acompanhamento e apoio psicológico a ex-combatentes mesmo após a sua saída das Forças Armadas.
+
+    - garantindo que a sua pensão não seja inferior ao valor do ordenado mínimo nacional e assegurando um complemento vitalício de pensão;
+    - criando a Comissão Nacional de acompanhamento dos Antigos Combatentes, com orçamento e estrutura próprios, e que tenha como missão garantir o reconhecimento do país às pessoas que o serviram, através da resposta às suas necessidades específicas e das suas famílias e também através da preservação da sua memória e da sua história;
+    - melhorando a implementação do Estatuto do Antigo Combatente, nomeadamente tornando o Cartão de Antigo Combatente também num cartão virtual e garantindo uma melhor resposta às solicitações com o reforço dos meios para o Balcão Único de Defesa e com a efetivação do protocolo com a ANAFRE- Associação Nacional de Freguesias;
+    - providenciando os meios para que os processos de qualificação de ex-combatentes como Deficientes das Forças Armadas ou Pensionistas de Invalidez sejam mais céleres;
+    - retomando a comparticipação a 90% dos medicamentos para Antigos Combatentes;
+    - tornando mais simples e célere o acesso à Assistência na Doença aos Militares;
+    - reforçando o orçamento para a Rede Nacional de Apoio (RNA) aos militares e ex-militares portadores de perturbação psicológica crónica resultante da exposição a fatores traumáticos de stress durante a vida militar, que também presta apoio às famílias;
+    - garantindo o acompanhamento e apoio psicológico a ex-combatentes mesmo após a sua saída das Forças Armadas.
 
 14. **Criar um programa piloto com vista à implementação faseada de um Rendimento Básico Incondicional,** que contribua para uma melhor distribuição da riqueza nacional produzida e garanta um rendimento a todas as pessoas, independentemente da sua condição, dos pagamentos do Fundo de Desemprego ou de outros programas de apoio social. O valor global a considerar para o projeto-piloto deve ser de cerca de 30 milhões de euros e deve incluir pessoas beneficiárias de apoios sociais, que se devem manter, pessoas com rendimentos exclusivos do trabalho por conta de outrem e trabalhadores independentes, bem como pessoas desempregadas - numa amostra representativa da sociedade portuguesa. O programa piloto deve ter ainda um quadro temporal superior a dois anos e contemplar a sua monitorização e avaliação.
 
 15. **Estudar a criação de uma herança social**, um sistema de redistribuição de riqueza e rendimentos e um reforço inequívoco da justiça social financiado a partir da tributação das grandes fortunas e das grandes heranças, que atribui a cada criança nascida em Portugal um montante ao qual pode aceder na maioridade.
 
 16. **Rever, alargar e aumentar a dotação orçamental do Programa para a Conciliação**, com vista à promoção de alterações concretas de maior equilíbrio entre a vida familiar e laboral e verdadeira igualdade entre géneros. O Programa para a Conciliação deve promover o cumprimento da Norma Portuguesa 4552:2016 - Conciliação entre a vida profissional, familiar e pessoal. Tendo como objetivos principais:
-	- promover a flexibilidade de horários e dos trabalhos do alargamento do teletrabalho, horários adaptados, horas limites para reuniões e reforço das licenças parentais, tendo em conta as necessidades pessoais e familiares das e dos trabalhadores;
-	- dotar a Autoridade para as Condições do Trabalho de meios para fiscalização do "direito a desligar" e do "dever do não-contacto", protegendo os trabalhadores da imposição de se manterem ligados às suas funções para além do horário de trabalho, para salvaguarda da sua saúde mental e vida familiar;
-	- promover o debate sobre o Programa da Conciliação entre a vida profissional, familiar e pessoal em sede de concertação social, incluindo as várias entidades na revisão do programa e na definição da metodologia de execução;
-	- promover a formação para a conciliação através de protocolos entre a Comissão para a Cidadania e a Igualdade de Género (CIG) e as entidades privadas e públicas. E, simultaneamente, criar benefícios fiscais para empresas que adotem medidas de conciliação.
+
+    - promover a flexibilidade de horários e dos trabalhos do alargamento do teletrabalho, horários adaptados, horas limites para reuniões e reforço das licenças parentais, tendo em conta as necessidades pessoais e familiares das e dos trabalhadores;
+    - dotar a Autoridade para as Condições do Trabalho de meios para fiscalização do "direito a desligar" e do "dever do não-contacto", protegendo os trabalhadores da imposição de se manterem ligados às suas funções para além do horário de trabalho, para salvaguarda da sua saúde mental e vida familiar;
+    - promover o debate sobre o Programa da Conciliação entre a vida profissional, familiar e pessoal em sede de concertação social, incluindo as várias entidades na revisão do programa e na definição da metodologia de execução;
+    - promover a formação para a conciliação através de protocolos entre a Comissão para a Cidadania e a Igualdade de Género (CIG) e as entidades privadas e públicas. E, simultaneamente, criar benefícios fiscais para empresas que adotem medidas de conciliação.
 
 17. **Apoiar o teletrabalho e o trabalho remoto**, permitindo com isso retirar procura das grandes cidades tanto de espaços de habitação como de trabalho, retirar pressão dos transportes públicos e de tráfego automóvel, habitar e povoar zonas menos habitadas com população ativa e com poder de compra de forma a dinamizar a economia local e permitir que jovens em determinadas profissões não sejam forçados a "emigrar" à força para as grandes cidades, através de:
-	- revisão legislativa para alargar o direito a trabalhadores com filhos ou dependentes até aos 12 anos (observando condições para a conjugação da parentalidade com o teletrabalho), trabalhadoras grávidas, trabalhadores com doença crónica ou com grau de incapacidade igual ou superior a 60% e trabalhadores-estudantes, com a aplicação da obrigatoriedade dos casos anteriores às microempresas;
-	- atribuição ao teletrabalho dos mesmos direitos do trabalho presencial, incluindo o subsídio de almoço e o apoio da Segurança e Saúde no Trabalho da entidade empregadora para verificação das condições do local de trabalho em casa, se requerido pelo trabalhador ou profissional de saúde da empresa.
+
+    - revisão legislativa para alargar o direito a trabalhadores com filhos ou dependentes até aos 12 anos (observando condições para a conjugação da parentalidade com o teletrabalho), trabalhadoras grávidas, trabalhadores com doença crónica ou com grau de incapacidade igual ou superior a 60% e trabalhadores-estudantes, com a aplicação da obrigatoriedade dos casos anteriores às microempresas;
+    - atribuição ao teletrabalho dos mesmos direitos do trabalho presencial, incluindo o subsídio de almoço e o apoio da Segurança e Saúde no Trabalho da entidade empregadora para verificação das condições do local de trabalho em casa, se requerido pelo trabalhador ou profissional de saúde da empresa.
 
 18. **Apoiar a parentalidade**, através:
-	- do aumento progressivo da licença parental para 16 meses, assim como do período de tempo pelo nascimento de gémeos, atribuindo maiores incentivos para que seja repartida entre ambos os pais, com períodos mais longos de tempo conjunto (numa primeira fase passar já para 120 dias) e com um período mínimo obrigatório de gozo de licença por cada um dos pais;
-	- da possibilidade de atribuição de baixa comparticipada a 100% para trabalhadoras grávidas em casos em que a gravidez não seja de risco;
-	- da criação de um regime de proteção para grávidas ou pessoas em processo de adoção com contrato a termo certo;
-	- da redução do horário de trabalho para trabalhadores com filhos pequenos até 3 anos, independentemente de serem amamentados ou não e com incentivo para ser repartido entre os dois pais;
-	- do estabelecimento de um regime de apoio à parentalidade de trabalhadores precários tendencialmente equiparado ao de trabalhadores por conta de outrem;
-	- da expansão e aumento de vagas em creches e jardins de infância incorporados na rede pública escolar;
-	- do aumento para 100% da remuneração de referência do subsídio para assistência a filho com deficiência, doença crónica ou doença oncológica;
-	- proteger a parentalidade na investigação, permitindo o alargamento do financiamento e prazos de quaisquer projetos e/ou contratos de investigação em caso de suspensão por motivos de parentalidade de investigadores;
-	- permitir que pais e mães tenham mais flexibilidade e oportunidade de passar mais tempo pontual ou seguido com as crianças e jovens, através da alteração da Licença parental complementar e da Licença para assistência a filho já previstas no Código do Trabalho para até aos 18 anos (e não apenas até aos 6 anos) e garantindo a divulgação junto das famílias - dado que são direitos ainda pouco conhecidos;
-	- assegurar que as faltas para assistência a membro do agregado familiar são remuneradas.
+
+    - do aumento progressivo da licença parental para 16 meses, assim como do período de tempo pelo nascimento de gémeos, atribuindo maiores incentivos para que seja repartida entre ambos os pais, com períodos mais longos de tempo conjunto (numa primeira fase passar já para 120 dias) e com um período mínimo obrigatório de gozo de licença por cada um dos pais;
+    - da possibilidade de atribuição de baixa comparticipada a 100% para trabalhadoras grávidas em casos em que a gravidez não seja de risco;
+    - da criação de um regime de proteção para grávidas ou pessoas em processo de adoção com contrato a termo certo;
+    - da redução do horário de trabalho para trabalhadores com filhos pequenos até 3 anos, independentemente de serem amamentados ou não e com incentivo para ser repartido entre os dois pais;
+    - do estabelecimento de um regime de apoio à parentalidade de trabalhadores precários tendencialmente equiparado ao de trabalhadores por conta de outrem;
+    - da expansão e aumento de vagas em creches e jardins de infância incorporados na rede pública escolar;
+    - do aumento para 100% da remuneração de referência do subsídio para assistência a filho com deficiência, doença crónica ou doença oncológica;
+    - proteger a parentalidade na investigação, permitindo o alargamento do financiamento e prazos de quaisquer projetos e/ou contratos de investigação em caso de suspensão por motivos de parentalidade de investigadores;
+    - permitir que pais e mães tenham mais flexibilidade e oportunidade de passar mais tempo pontual ou seguido com as crianças e jovens, através da alteração da Licença parental complementar e da Licença para assistência a filho já previstas no Código do Trabalho para até aos 18 anos (e não apenas até aos 6 anos) e garantindo a divulgação junto das famílias - dado que são direitos ainda pouco conhecidos;
+    - assegurar que as faltas para assistência a membro do agregado familiar são remuneradas.
 
 19. **Dignificar a situação de desemprego**:
-	- aumentando progressivamente as taxas de cobertura e a duração do subsídio de desemprego até níveis dignos, tornando menos restritivas as condições para o acesso ao subsídio;
-	- definindo situações em que se conceda o direito a subsídio de desemprego a quem se despede e não apenas a quem é despedido em situações específicas, por exemplo com vista à frequência de um curso ou especialização que resulte no aprofundamento das suas competências e qualificações ou numa mudança de carreira;
-	- substituir a subsidiação de ocupações precárias, como estágios profissionais e contratos de emprego-inserção, por oportunidades reais de formação e inserção produtiva com contratos de trabalho;
-	- apoiar a criação associativa e colaborativa de postos de trabalho, através de aconselhamento, financiamento inicial e instrumentos para a auto-organização laboral;
-	- atribuição automática do subsídio de desemprego em casos de resolução e suspensão de contratos de trabalho com justa causa pelo trabalhador devido a salários em atraso, alargando o prazo para submissão do processo na Autoridade para as Condições do Trabalho (ACT) e na Segurança Social;
-	- reforçar os recursos técnicos e humanos do Instituto do Emprego e Formação Profissional para um trabalho pessoalizado em situações de desemprego e de ciclos de formação crónicos.
+
+    - aumentando progressivamente as taxas de cobertura e a duração do subsídio de desemprego até níveis dignos, tornando menos restritivas as condições para o acesso ao subsídio;
+    - definindo situações em que se conceda o direito a subsídio de desemprego a quem se despede e não apenas a quem é despedido em situações específicas, por exemplo com vista à frequência de um curso ou especialização que resulte no aprofundamento das suas competências e qualificações ou numa mudança de carreira;
+    - substituir a subsidiação de ocupações precárias, como estágios profissionais e contratos de emprego-inserção, por oportunidades reais de formação e inserção produtiva com contratos de trabalho;
+    - apoiar a criação associativa e colaborativa de postos de trabalho, através de aconselhamento, financiamento inicial e instrumentos para a auto-organização laboral;
+    - atribuição automática do subsídio de desemprego em casos de resolução e suspensão de contratos de trabalho com justa causa pelo trabalhador devido a salários em atraso, alargando o prazo para submissão do processo na Autoridade para as Condições do Trabalho (ACT) e na Segurança Social;
+    - reforçar os recursos técnicos e humanos do Instituto do Emprego e Formação Profissional para um trabalho pessoalizado em situações de desemprego e de ciclos de formação crónicos.
 
 20. **Alargar o Sistema Nacional de Qualificações na área da formação contínua** através de protocolos com instituições de ensino superior universitário e politécnico. Com vista à valorização profissional em todos os setores dos serviços e indústria, com o objetivo de introduzir métodos de trabalho atualizados, mais produtivos, mais seguros e que garantam a realização profissional e pessoal dos trabalhadores.
 
 21. **Criar um Programa de Formação Empresarial,** focado na capacitação em gestão executiva e intermédia dos quadros técnicos e dirigentes das empresas. Os baixos níveis de formação no tecido empresarial português são um dos principais entraves à modernização da economia. A construção de uma economia de alto valor acrescentado depende da formação contínua e qualificação dos recursos humanos nas áreas administrativa e de gestão. Simultaneamente, é necessária a criação de um índice de formação da empresa, baseado no número de horas de formação certificada e na progressão das qualificações médias dos seus quadros. Este indicador deverá ser público e usado como fator de majoração na avaliação de candidaturas a projetos financiados por capitais públicos.
 
 22. **Preparar as mudanças no mundo do trabalho**, através:
-	- da criação de um sistema público de formação pós-laboral que permita a empresas e trabalhadores ganharem novas competências;
-	- do fomento da requalificação dos trabalhadores das empresas - nomeadamente melhorando a divulgação de projetos e oportunidades deste tipo e facilitando ou incentivando a sua adesão por parte das próprias empresas;
-	- de programas de apoio à digitalização e melhoria da eficiência e capacidade produtiva das empresas, acompanhados de programas de valorização dos recursos humanos a médio prazo, priorizando também objetivos relacionados com as condições de trabalho e autonomia, e com a realização profissional das e dos trabalhadores;
-	- da criação de uma taxa ou contribuição de caráter extraordinário ou suplementar aplicada às organizações e empresas que despeçam ou extingam postos de trabalho, por introdução de automação e que recorram a software baseado na aprendizagem automática e modelação de contexto por dados para este fim, ou com uma assinalável desproporção entre número de trabalhadores e lucro realizado - no caso de empresas tecnológicas, por exemplo.
+
+    - da criação de um sistema público de formação pós-laboral que permita a empresas e trabalhadores ganharem novas competências;
+    - do fomento da requalificação dos trabalhadores das empresas - nomeadamente melhorando a divulgação de projetos e oportunidades deste tipo e facilitando ou incentivando a sua adesão por parte das próprias empresas;
+    - de programas de apoio à digitalização e melhoria da eficiência e capacidade produtiva das empresas, acompanhados de programas de valorização dos recursos humanos a médio prazo, priorizando também objetivos relacionados com as condições de trabalho e autonomia, e com a realização profissional das e dos trabalhadores;
+    - da criação de uma taxa ou contribuição de caráter extraordinário ou suplementar aplicada às organizações e empresas que despeçam ou extingam postos de trabalho, por introdução de automação e que recorram a software baseado na aprendizagem automática e modelação de contexto por dados para este fim, ou com uma assinalável desproporção entre número de trabalhadores e lucro realizado - no caso de empresas tecnológicas, por exemplo.
 
 23. **Criar o Estatuto do Doente Crónico**, uma iniciativa abrangente com o envolvimento das associações de doentes, que institua critérios abrangentes na prevenção, diagnóstico, tratamento e reabilitação de pessoas com doenças crónicas e/ou incapacitantes, visando mitigar a incapacidade precoce e a redução da esperança de vida associadas às doenças crónicas e condições de saúde incapacitantes. Este estatuto incluirá definições claras das doenças crónicas e/ ou incapacitantes, níveis de gravidade e apoios específicos para as necessidades de cada patologia. Além disso, será realizada uma análise abrangente das necessidades das pessoas com doenças crónicas ou incapacitantes em todas as fases da vida, incluindo considerações laborais e escolares para promover a inclusão no ambiente profissional e escolar.
 
 24. **Assegurar seis dias (ou quarenta e oito horas) anuais de "Licença para Saúde"** que forneçam uma margem razoável para lidar com questões de saúde física e mental, pagos pela entidade empregadora, sem necessidade de justificação de ausência do posto de trabalho ou apresentação de qualquer comprovativo médico. A pessoa que faltar terá o dever de informar a entidade empregadora e pode fazê-lo até um máximo de três dias seguidos, após os quais deverá ser pedida baixa de acordo com o modelo já existente.
 
 25. **Assegurar a sustentabilidade de uma Segurança Social pública inclusiva**, reforçando e diversificando o financiamento do sistema de segurança social, através:
-	- do combate à evasão contributiva;
-	- da consideração da real remuneração (e não apenas do salário base) no cálculo da contribuição;
-	- do aumento da percentagem atribuída à Segurança Social das coimas por violação de direitos e garantias laborais;
-	- da canalização da receita de impostos sobre consumo, capital e transações financeiras;
-	- de taxar o lucro das empresas e não os seus trabalhadores, de forma a responder também à adoção da digitalização e automação;
-	- de reforçar a proteção social em caso de doença, incapacidade ou velhice para advogados e solicitadores, integrando o sistema contributivo específico destas profissões no regime geral e mais garantístico da Segurança Social.
+    - do combate à evasão contributiva;
+    - da consideração da real remuneração (e não apenas do salário base) no cálculo da contribuição;
+    - do aumento da percentagem atribuída à Segurança Social das coimas por violação de direitos e garantias laborais;
+    - da canalização da receita de impostos sobre consumo, capital e transações financeiras;
+    - de taxar o lucro das empresas e não os seus trabalhadores, de forma a responder também à adoção da digitalização e automação;
+    - de reforçar a proteção social em caso de doença, incapacidade ou velhice para advogados e solicitadores, integrando o sistema contributivo específico destas profissões no regime geral e mais garantístico da Segurança Social.
 
 ## **Saúde**
 
@@ -395,61 +424,68 @@ Por isso defendemos:
 ### Reforçar e Reorganizar o Serviço Nacional de Saúde
 
 1. **Fortalecer e avançar com a reforma do SNS:**
-	- monitorizar a nova organização do SNS com o alargamento das Unidades Locais de Saúde (ULS) a todo o território nacional, acompanhando o modelo de gestão integrada dos centros hospitalares, os hospitais, os Agrupamentos de Centros de Saúde (ACeS) e a Rede Nacional de Cuidados Continuados e avaliando os resultados na qualidade da prestação dos cuidados de saúde;
-	- monitorizar a generalização das Unidades de Saúde Familiar (USF) de modelo B. com base em comunidades locais e avaliar os resultados do aumento do número de utentes com médico de família atribuído e a melhoria da qualidade da prestação dos cuidados de saúde decorrente dos incentivos associados ao desempenho das equipas no acompanhamento de utentes;
-	- promover a auto-organização interna das ULS e a articulação eficaz com as unidades de cuidados de saúde que as integram, assim como a articulação entre ULS;
-	- assegurar a transparência e capacidade de planeamento estratégico no SNS implementando a obrigatoriedade de que os prestadores privados de cuidados de saúde disponibilizem, em formato comparável, dados sobre o número de utentes tratados, patologias e atos médicos realizados, número de especialistas contratados por área, enfermeiros e outro pessoal, equipamentos e meios complementares de diagnóstico, capacidade de internamento e de cuidados intensivos, salas de operações, remunerações médias de cada classe profissional e horários de atividade como condição para a articulação com o SNS;
-	- assegurar que no SNS todas as funções são livres de nomeação política, nomeadamente os cargos de chefia, que deverão ser eleitos interpares e com um limite máximo de 2 mandatos, de forma transparente e democrática;
-	- redefinir os objetivos do SNS com métricas claras de melhoria do estado da população e promover o cumprimento destes objetivos através da recompensa profissional e institucional;
-	- garantir os direitos dos utentes nos tempos de resposta e na qualidade dos cuidados prestados;
-	- afirmar a verdadeira transição digital do SNS para agilizar o trabalho de médicos, enfermeiros e auxiliares, de modo a diminuir a excessiva burocratização e garantir a utilização do mesmo sistema informático em todas as unidades de saúde do SNS, abrindo caminho para um paradigma de investigação federada em Saúde respeitante da privacidade de utentes e profissionais de Saúde.
+
+   - monitorizar a nova organização do SNS com o alargamento das Unidades Locais de Saúde (ULS) a todo o território nacional, acompanhando o modelo de gestão integrada dos centros hospitalares, os hospitais, os Agrupamentos de Centros de Saúde (ACeS) e a Rede Nacional de Cuidados Continuados e avaliando os resultados na qualidade da prestação dos cuidados de saúde;
+   - monitorizar a generalização das Unidades de Saúde Familiar (USF) de modelo B. com base em comunidades locais e avaliar os resultados do aumento do número de utentes com médico de família atribuído e a melhoria da qualidade da prestação dos cuidados de saúde decorrente dos incentivos associados ao desempenho das equipas no acompanhamento de utentes;
+   - promover a auto-organização interna das ULS e a articulação eficaz com as unidades de cuidados de saúde que as integram, assim como a articulação entre ULS;
+   - assegurar a transparência e capacidade de planeamento estratégico no SNS implementando a obrigatoriedade de que os prestadores privados de cuidados de saúde disponibilizem, em formato comparável, dados sobre o número de utentes tratados, patologias e atos médicos realizados, número de especialistas contratados por área, enfermeiros e outro pessoal, equipamentos e meios complementares de diagnóstico, capacidade de internamento e de cuidados intensivos, salas de operações, remunerações médias de cada classe profissional e horários de atividade como condição para a articulação com o SNS;
+   - assegurar que no SNS todas as funções são livres de nomeação política, nomeadamente os cargos de chefia, que deverão ser eleitos interpares e com um limite máximo de 2 mandatos, de forma transparente e democrática;
+   - redefinir os objetivos do SNS com métricas claras de melhoria do estado da população e promover o cumprimento destes objetivos através da recompensa profissional e institucional;
+   - garantir os direitos dos utentes nos tempos de resposta e na qualidade dos cuidados prestados;
+   - afirmar a verdadeira transição digital do SNS para agilizar o trabalho de médicos, enfermeiros e auxiliares, de modo a diminuir a excessiva burocratização e garantir a utilização do mesmo sistema informático em todas as unidades de saúde do SNS, abrindo caminho para um paradigma de investigação federada em Saúde respeitante da privacidade de utentes e profissionais de Saúde.
 
 2. **Reforçar os cuidados de Saúde Primários, tornando-os mais próximos das populações e adaptados às necessidades de cada utente:**
-	- trabalhar no sentido de garantir a todas as pessoas em Portugal um médico de família, fixando profissionais no SNS, melhorando as suas condições laborais, e a sua integração em equipas com assistentes operacionais, assistentes sociais e pessoal administrativo (assistentes técnicos);
-	- garantir que o número de utentes de cada médico de família permite um acompanhamento efetivo, reduzindo o número de utentes para menos de 1500 utentes por médico;
-	- promover o aumento para número suficiente de serviços como exames de diagnóstico, fisioterapia, saúde mental e outros que possam prevenir a doença e minimizar o recurso às urgências;
-	- generalizar a implementação de um sistema de consultoria de especialidades médicas aos cuidados de saúde primários, através da realização de reuniões multidisciplinares, diminuindo assim o número de referenciações a cuidados de saúde especializados e a necessidade de deslocação de utentes a centros hospitalares;
-	- garantir a generalização da prescrição social a todos os centros de saúde, em estreita articulação com as comunidades e as estruturas existentes;
-	- incluir psicólogos clínicos e nutricionistas nas equipas de saúde dos cuidados de saúde primários, assegurando que cada centro de saúde tem pelo menos um psicólogo clínico a trabalhar em articulação com os restantes profissionais.
+
+   - trabalhar no sentido de garantir a todas as pessoas em Portugal um médico de família, fixando profissionais no SNS, melhorando as suas condições laborais, e a sua integração em equipas com assistentes operacionais, assistentes sociais e pessoal administrativo (assistentes técnicos);
+   - garantir que o número de utentes de cada médico de família permite um acompanhamento efetivo, reduzindo o número de utentes para menos de 1500 utentes por médico;
+   - promover o aumento para número suficiente de serviços como exames de diagnóstico, fisioterapia, saúde mental e outros que possam prevenir a doença e minimizar o recurso às urgências;
+   - generalizar a implementação de um sistema de consultoria de especialidades médicas aos cuidados de saúde primários, através da realização de reuniões multidisciplinares, diminuindo assim o número de referenciações a cuidados de saúde especializados e a necessidade de deslocação de utentes a centros hospitalares;
+   - garantir a generalização da prescrição social a todos os centros de saúde, em estreita articulação com as comunidades e as estruturas existentes;
+   - incluir psicólogos clínicos e nutricionistas nas equipas de saúde dos cuidados de saúde primários, assegurando que cada centro de saúde tem pelo menos um psicólogo clínico a trabalhar em articulação com os restantes profissionais.
 
 3. **Garantir o funcionamento integrado, acessível e humanizado das Urgências Hospitalares:**
-	- garantir o funcionamento em rede dos serviços de urgência de forma acessível a toda a população, o cumprimento dos rácios de profissionais de saúde, e a prestação de cuidados de qualidade;
-	- promover o funcionamento alargado dos centros de saúde e dos serviços de Urgência Básica e dotá-los das condições que permitam o atendimento de utentes de menor gravidade, com possibilidade de realização de exames e análises clínicas, contribuindo para a redução da afluência às urgências dos hospitais;
-	- generalizar equipas fixas de profissionais diferenciados nos serviços de urgência e com contrato hospitalar, evitando recorrer a prestação de serviços;
-	- reforçar os recursos e meios da linha SNS24 principalmente em períodos de maior afluência às urgências e estudar a possibilidade de, em casos específicos, transferir a chamada para médicos, a prescrição de Meios Complementares de Diagnóstico através desta linha, ou agendamento de consultas urgentes nos centros de saúde, evitando a sobrecarga dos serviços de urgência a transferência de chamadas;
-	- salvaguardar a dignidade das pessoas nas urgências e promover a regular informação aos acompanhantes de utentes;
-	- desenvolver campanhas nacionais de literacia para a saúde, que envolvam também representantes de utentes, através dos meios de comunicação social, escolas, universidades, autarquias e juntas de freguesia, alertando para os principais sinais de alarme para recorrer à Urgência e modos de evitar as urgências hospitalares em situações tendencialmente não urgentes (ligar para a linha SNS 24 ou recorrer aos serviços de Urgência Básica nos Cuidados de Saúde Primários).
+
+   - garantir o funcionamento em rede dos serviços de urgência de forma acessível a toda a população, o cumprimento dos rácios de profissionais de saúde, e a prestação de cuidados de qualidade;
+   - promover o funcionamento alargado dos centros de saúde e dos serviços de Urgência Básica e dotá-los das condições que permitam o atendimento de utentes de menor gravidade, com possibilidade de realização de exames e análises clínicas, contribuindo para a redução da afluência às urgências dos hospitais;
+   - generalizar equipas fixas de profissionais diferenciados nos serviços de urgência e com contrato hospitalar, evitando recorrer a prestação de serviços;
+   - reforçar os recursos e meios da linha SNS24 principalmente em períodos de maior afluência às urgências e estudar a possibilidade de, em casos específicos, transferir a chamada para médicos, a prescrição de Meios Complementares de Diagnóstico através desta linha, ou agendamento de consultas urgentes nos centros de saúde, evitando a sobrecarga dos serviços de urgência a transferência de chamadas;
+   - salvaguardar a dignidade das pessoas nas urgências e promover a regular informação aos acompanhantes de utentes;
+   - desenvolver campanhas nacionais de literacia para a saúde, que envolvam também representantes de utentes, através dos meios de comunicação social, escolas, universidades, autarquias e juntas de freguesia, alertando para os principais sinais de alarme para recorrer à Urgência e modos de evitar as urgências hospitalares em situações tendencialmente não urgentes (ligar para a linha SNS 24 ou recorrer aos serviços de Urgência Básica nos Cuidados de Saúde Primários).
 
 4. **Assegurar um financiamento adequado do SNS:**
-	- assegurar a sua gestão pública, salvaguardando a qualidade e resposta eficiente dos serviços, e não renovar os contratos das Parcerias Público-Privadas atualmente ainda em curso;
-	- executar a gestão pública, dando primazia a contratos de trabalho estáveis, ao invés de prestação de serviços médicos;
-	- garantir um orçamento suficiente e não condicionado por cativações e com a sub-orçamentação crónica do SNS, promovendo a eficiência e eficácia na sua gestão;
-	- atrair investimento internacional no SNS, nomeadamente na área de investigação clínica, afirmando os hospitais do SNS como centros de referência de ensaios clínicos.
+
+   - assegurar a sua gestão pública, salvaguardando a qualidade e resposta eficiente dos serviços, e não renovar os contratos das Parcerias Público-Privadas atualmente ainda em curso;
+   - executar a gestão pública, dando primazia a contratos de trabalho estáveis, ao invés de prestação de serviços médicos;
+   - garantir um orçamento suficiente e não condicionado por cativações e com a sub-orçamentação crónica do SNS, promovendo a eficiência e eficácia na sua gestão;
+   - atrair investimento internacional no SNS, nomeadamente na área de investigação clínica, afirmando os hospitais do SNS como centros de referência de ensaios clínicos.
 
 5. **Promover a renovação, reabilitação e construção das infraestruturas do SNS**, fazendo um levantamento de todo o edificado das Unidades Locais de Saúde que necessita de uma reabilitação urgente e investindo na construção de novos edifícios essenciais à prestação de cuidados mais acessíveis.
 
 6. **Facilitar e tornar mais equitativo o acesso aos cuidados de saúde e de prevenção da doença**, ao:
-	- eliminar as taxas moderadoras ainda existentes até que se obtenha evidência de que a sua existência não condiciona negativamente comportamentos necessários de acesso aos serviços de urgência;
-	- garantir que ninguém deixe de cumprir um regime terapêutico por insuficiência económica, através da revisão dos regimes de comparticipação;
-	- garantir estruturas de saúde de proximidade a toda a população;
-	- dotar a linha SNS 24 de condições tecnológicas para alargar o atendimento a videochamada, para a todas as pessoas, serviço atualmente apenas disponível para pessoas surdas, para um melhor diagnóstico e encaminhamento imediato por parte das equipas de enfermagem;
-	- revitalizar o Sistema de Intervenção Precoce na Infância, reforçando e capacitando as equipas para uma intervenção multidisciplinar e contingente aos problemas, capaz, também, de apoiar famílias e outros contextos de desenvolvimento dos bebés e crianças na promoção da sua saúde, bem-estar e desenvolvimento integral;
-	- alargar a resposta de saúde oral em todas as Unidades Locais de Saúde, aumentando a cobertura geográfica de gabinetes de saúde oral e valorizando diferentes profissionais de saúde oral, incluindo através de uma carreira especial de medicina dentária no Serviço Nacional de Saúde;
-	- integrar adequadamente a audiologia no SNS, garantido que os diagnósticos são acompanhados, sempre que aplicável, da prescrição do tipo adequado de prótese, regulando, através da ERS – Entidade Reguladora da Saúde, a necessidade de clarificação da relação laboral dos audiologistas com a respetiva entidade patronal e a necessidade de apresentação de soluções alternativas às vendidas pela entidade patronal.
+
+   - eliminar as taxas moderadoras ainda existentes até que se obtenha evidência de que a sua existência não condiciona negativamente comportamentos necessários de acesso aos serviços de urgência;
+   - garantir que ninguém deixe de cumprir um regime terapêutico por insuficiência económica, através da revisão dos regimes de comparticipação;
+   - garantir estruturas de saúde de proximidade a toda a população;
+   - dotar a linha SNS 24 de condições tecnológicas para alargar o atendimento a videochamada, para a todas as pessoas, serviço atualmente apenas disponível para pessoas surdas, para um melhor diagnóstico e encaminhamento imediato por parte das equipas de enfermagem;
+   - revitalizar o Sistema de Intervenção Precoce na Infância, reforçando e capacitando as equipas para uma intervenção multidisciplinar e contingente aos problemas, capaz, também, de apoiar famílias e outros contextos de desenvolvimento dos bebés e crianças na promoção da sua saúde, bem-estar e desenvolvimento integral;
+   - alargar a resposta de saúde oral em todas as Unidades Locais de Saúde, aumentando a cobertura geográfica de gabinetes de saúde oral e valorizando diferentes profissionais de saúde oral, incluindo através de uma carreira especial de medicina dentária no Serviço Nacional de Saúde;
+   - integrar adequadamente a audiologia no SNS, garantido que os diagnósticos são acompanhados, sempre que aplicável, da prescrição do tipo adequado de prótese, regulando, através da ERS – Entidade Reguladora da Saúde, a necessidade de clarificação da relação laboral dos audiologistas com a respetiva entidade patronal e a necessidade de apresentação de soluções alternativas às vendidas pela entidade patronal.
 
 7. **Afirmar a saúde pública como especialidade e valência basilar do SNS:**
-	- planear o investimento em recursos financeiros e humanos em saúde pública estabelecendo uma rede nacional reforçada de resiliência face às ameaças de saúde pública, tendo em conta os erros da gestão pandémica;
-	- estimular a articulação de competências na gestão de cenários de crise ou catástrofe entre a Proteção Civil, entidades de saúde e Forças Armadas;
-	- estabelecer o acesso público a dados que permitam o acompanhamento e escrutínio da atividade do SNS e de evolução epidemiológica por parte dos cidadãos, e reforçar e promover as plataformas e fontes de dados já existentes;
-	- captar investimento e inovação para o Laboratório Nacional do Medicamento;
-	- fomentar as condições para que a Direção Geral da Saúde funcione como um órgão independente, multidisciplinar, e em rede com a academia, para coordenar a síntese e sistematização da evidência científica com vista à elaboração de pareceres com o intuito de informar a decisão política, a funcionar em permanência;
-	- tornar efetiva a Reforma da Saúde Pública e reforçar competências e recursos da Direção Geral da Saúde.
+
+   - planear o investimento em recursos financeiros e humanos em saúde pública estabelecendo uma rede nacional reforçada de resiliência face às ameaças de saúde pública, tendo em conta os erros da gestão pandémica;
+   - estimular a articulação de competências na gestão de cenários de crise ou catástrofe entre a Proteção Civil, entidades de saúde e Forças Armadas;
+   - estabelecer o acesso público a dados que permitam o acompanhamento e escrutínio da atividade do SNS e de evolução epidemiológica por parte dos cidadãos, e reforçar e promover as plataformas e fontes de dados já existentes;
+   - captar investimento e inovação para o Laboratório Nacional do Medicamento;
+   - fomentar as condições para que a Direção Geral da Saúde funcione como um órgão independente, multidisciplinar, e em rede com a academia, para coordenar a síntese e sistematização da evidência científica com vista à elaboração de pareceres com o intuito de informar a decisão política, a funcionar em permanência;
+   - tornar efetiva a Reforma da Saúde Pública e reforçar competências e recursos da Direção Geral da Saúde.
 
 8. **Reforçar respostas de proximidade às pessoas com doenças crónicas:**
-	- promover o aumento da capacidade de cuidados continuados (incluindo de convalescença, recuperação, reabilitação e reintegração de pessoas com doença crónica e pessoas em situação de dependência) no próprio domicílio ou nas zonas de residência da família, estudando a possibilidade de articulação com o setor privado ou social, em situações específicas e nos casos em que a resposta pública seja insuficiente, sempre no sentido de a consolidar gradualmente, e através de incentivos a entidades prestadoras sem fins lucrativos;
-	- reforçar as equipas de hospitalização domiciliária e de Cuidados Paliativos domiciliários;
-	- garantir um melhor atendimento global a pessoas com doença oncológica através de uma rede alargada com centros oncológicos em todas as regiões;
-	- complementar o acompanhamento de pessoas com doença crónica por teleconsulta.
+
+   - promover o aumento da capacidade de cuidados continuados (incluindo de convalescença, recuperação, reabilitação e reintegração de pessoas com doença crónica e pessoas em situação de dependência) no próprio domicílio ou nas zonas de residência da família, estudando a possibilidade de articulação com o setor privado ou social, em situações específicas e nos casos em que a resposta pública seja insuficiente, sempre no sentido de a consolidar gradualmente, e através de incentivos a entidades prestadoras sem fins lucrativos;
+   - reforçar as equipas de hospitalização domiciliária e de Cuidados Paliativos domiciliários;
+   - garantir um melhor atendimento global a pessoas com doença oncológica através de uma rede alargada com centros oncológicos em todas as regiões;
+   - complementar o acompanhamento de pessoas com doença crónica por teleconsulta.
 
 9. **Catalisar a investigação científica e clínica no SNS**, em todas as áreas, fazendo de Portugal e dos centros hospitalares portugueses centros de referência para investigação clínica, captando investimento internacional para a realização de ensaios clínicos e a devida remuneração quer de profissionais e quer de participantes envolvidos.
 
@@ -470,22 +506,25 @@ Por isso defendemos:
 16. **Rever a remuneração de todos os profissionais de saúde** para garantir que têm ordenados que dignifiquem a profissão que desempenham, promovendo iguais condições laborais e salariais para igual trabalho, permitindo que tenham uma vida digna sem que para isso tenham de recorrer a números excessivos de horas extra ou de trabalhar em vários locais.
 
 17. **Reformar as carreiras de profissionais de saúde:**
-	- garantir a progressão na carreira, e considerar um suplemento salarial por prémios anuais baseados em resultados das equipas, com vista à promoção de espírito de colaboração que melhora a qualidade dos serviços e resultados em saúde, começando pela saúde mental das e dos próprios profissionais de saúde;
-	- rever o regime de dedicação plena dos médicos no SNS, para que este não implique o retrocesso de direitos laborais, assegurando que não há aumento da jornada diária de trabalho, de horas extraordinárias por ano ou o fim da obrigatoriedade dos descansos compensatórios;
-	- valorizar a carreira dos psicólogos no SNS através da diferenciação e progressividade das carreiras;
-	- equacionar a extensão do regime de dedicação plena a outras classes profissionais do SNS, para os profissionais de saúde que assim o desejem, assegurando que tal será sempre uma opção da própria pessoa e não algo imposto;
-	- criar a carreira de Administrativo da Saúde, uma vez que a atual carreira de Assistente Técnico no SNS apresenta diferenças face à sua valência, por exemplo, em Escolas, na Segurança Social ou em Câmaras Municipais, nomeadamente na especificidade de funções, diversidade de áreas de conhecimento e frequência de formação adicional;
-	- criar a carreira de profissional de cuidados pré-hospitalares, com a uniformização das várias categorias de técnicos de emergência existentes nos diversos parceiros do Sistema Integrado de Emergência Médica, nomeadamente do INEM, Bombeiros e Cruz Vermelha e visando a melhoria das capacidades dos técnicos de emergência e a uniformização da formação, no sentido de melhorar e tornar igual a resposta a nível nacional na prestação de cuidados pré-hospitalares.
+
+    - garantir a progressão na carreira, e considerar um suplemento salarial por prémios anuais baseados em resultados das equipas, com vista à promoção de espírito de colaboração que melhora a qualidade dos serviços e resultados em saúde, começando pela saúde mental das e dos próprios profissionais de saúde;
+    - rever o regime de dedicação plena dos médicos no SNS, para que este não implique o retrocesso de direitos laborais, assegurando que não há aumento da jornada diária de trabalho, de horas extraordinárias por ano ou o fim da obrigatoriedade dos descansos compensatórios;
+    - valorizar a carreira dos psicólogos no SNS através da diferenciação e progressividade das carreiras;
+    - equacionar a extensão do regime de dedicação plena a outras classes profissionais do SNS, para os profissionais de saúde que assim o desejem, assegurando que tal será sempre uma opção da própria pessoa e não algo imposto;
+    - criar a carreira de Administrativo da Saúde, uma vez que a atual carreira de Assistente Técnico no SNS apresenta diferenças face à sua valência, por exemplo, em Escolas, na Segurança Social ou em Câmaras Municipais, nomeadamente na especificidade de funções, diversidade de áreas de conhecimento e frequência de formação adicional;
+    - criar a carreira de profissional de cuidados pré-hospitalares, com a uniformização das várias categorias de técnicos de emergência existentes nos diversos parceiros do Sistema Integrado de Emergência Médica, nomeadamente do INEM, Bombeiros e Cruz Vermelha e visando a melhoria das capacidades dos técnicos de emergência e a uniformização da formação, no sentido de melhorar e tornar igual a resposta a nível nacional na prestação de cuidados pré-hospitalares.
 
 18. **Criar o estatuto de clínico-investigador:**
-	- permitindo a articulação entre atividade clínica e investigação científica;
-	- facilitando a redução de horário para dedicação a projetos de investigação;
-	- afirmando as instituições de saúde como lugares de produção de conhecimento científico, em articulação com instituições de ensino superior, facilitando assim a fixação de profissionais de saúde no SNS.
+
+    - permitindo a articulação entre atividade clínica e investigação científica;
+    - facilitando a redução de horário para dedicação a projetos de investigação;
+    - afirmando as instituições de saúde como lugares de produção de conhecimento científico, em articulação com instituições de ensino superior, facilitando assim a fixação de profissionais de saúde no SNS.
 
 19. **Garantir formação de qualidade para todos os grupos profissionais**, através da:
-	- promoção do acesso a um Internato Médico de qualidade (Formação Geral e Específica), certificando que as vagas que abrem para médicos recém-especialistas são distribuídas pelo território nacional de acordo com as necessidades do SNS, recorrendo a incentivos para locais com falta de recursos se necessário mas respeitando as capacidades formativas de cada instituição de saúde;
-	- defesa do tempo reservado para estudo e produção científica de jovens médicos no horário de trabalho, de forma a que esta não tenha que ser feita a custo da vida pessoal, prevenindo assim o burnout nos médicos internos;
-	- formação de todos os profissionais de saúde nas áreas da comunicação emocional, transmissão de más notícias, e esclarecimentos de procedimentos diagnósticos e terapêuticos integrando-a na formação obrigatória anual, prevista no código do trabalho.
+
+    - promoção do acesso a um Internato Médico de qualidade (Formação Geral e Específica), certificando que as vagas que abrem para médicos recém-especialistas são distribuídas pelo território nacional de acordo com as necessidades do SNS, recorrendo a incentivos para locais com falta de recursos se necessário mas respeitando as capacidades formativas de cada instituição de saúde;
+    - defesa do tempo reservado para estudo e produção científica de jovens médicos no horário de trabalho, de forma a que esta não tenha que ser feita a custo da vida pessoal, prevenindo assim o burnout nos médicos internos;
+    - formação de todos os profissionais de saúde nas áreas da comunicação emocional, transmissão de más notícias, e esclarecimentos de procedimentos diagnósticos e terapêuticos integrando-a na formação obrigatória anual, prevista no código do trabalho.
 
 20. **Cuidar da saúde mental das e dos profissionais de saúde**, paralelamente à melhoria das condições laborais, implementando políticas de prevenção, identificação e combate ao burnout de profissionais, generalizando os gabinetes de apoio psicológico em todas as Unidades Locais de Saúde.
 
@@ -494,142 +533,158 @@ Por isso defendemos:
 ### **Promover a Saúde e Prevenir a Doença**
 
 22. **Promover a saúde e prevenir a doença**, incluindo a avaliação do impacto na saúde de todas as políticas públicas, ao:
-	- desenvolver medidas pró-ativas de deteção e acompanhamento local junto das comunidades, sobretudo das mais vulneráveis;
-	- acompanhar a implementação do Plano Nacional de Saúde 2030, garantindo o cumprimento das metas e indicadores propostos, bem como a sua revisão assim que se tornarem insuficientes ou obsoletos;
-	- reforçar o Programa Nacional para a Promoção da Alimentação Saudável;
-	- reforçar as estratégias de prevenção primária da obesidade, através do aumento da literacia em saúde e da implementação efetiva de programas de promoção de estilos de vida saudáveis;
-	- promover a saúde do sono, investindo na investigação sobre a qualidade do sono em Portugal e promovendo o conhecimento e a sensibilização de profissionais de saúde e da população sobre a importância do sono na saúde;
-	- aumentar a regulação da venda e publicidade a alimentos prejudiciais à saúde;
-	- criar um regime público de medicina no trabalho;
-	- atuar sobre as condições de higiene, segurança e saúde no trabalho;
-	- promover a prática da atividade física e desportiva em todas as idades, reforçando nas escolas a importância da disciplina de Educação Física e o Desporto Escolar, garantindo o apoio ao desporto escolar feminino em todo o país e estimular a prática de atividade física para o envelhecimento ativo e saudável, desenvolvendo o acesso ao desporto adaptado, e aumentando a dedução dos gastos com a prática de atividades físicas e desporto em sede de IRS;
-	- promover o Plano Nacional de Vacinação e atualizando-o frequentemente de acordo com as recomendações da Direção Geral de Saúde, tendo em conta as necessidades de proteção no presente e no futuro (imunidade individual e de grupo), considerando as influências da globalização e das alterações climáticas;
-	- desenvolver um currículo estruturado sobre literacia em saúde através de equipas multidisciplinares (com profissionais das áreas da psicologia, enfermagem, medicina geral e nutrição) a aplicar em todas as escolas, no âmbito da disciplina de educação para a cidadania, adaptados às várias faixas etárias, sobre temáticas como a saúde mental, saúde sexual e reprodutiva, prevenção da violência, alimentação saudável e equilibrada, nutrição, atividade física, entre outros;
-	- prevenir mortes por afogamento, nomeadamente com o alargamento da vigilância e assistência nas praias além da época balnear e garantindo que essa responsabilidade é assegurada pelos municípios e não pelos concessionários;
-	- implementar medidas urgentes e extraordinárias para diminuir o número de vítimas da sinistralidade rodoviária, com o objetivo da Visão Zero 2030.
+
+    - desenvolver medidas pró-ativas de deteção e acompanhamento local junto das comunidades, sobretudo das mais vulneráveis;
+    - acompanhar a implementação do Plano Nacional de Saúde 2030, garantindo o cumprimento das metas e indicadores propostos, bem como a sua revisão assim que se tornarem insuficientes ou obsoletos;
+    - reforçar o Programa Nacional para a Promoção da Alimentação Saudável;
+    - reforçar as estratégias de prevenção primária da obesidade, através do aumento da literacia em saúde e da implementação efetiva de programas de promoção de estilos de vida saudáveis;
+    - promover a saúde do sono, investindo na investigação sobre a qualidade do sono em Portugal e promovendo o conhecimento e a sensibilização de profissionais de saúde e da população sobre a importância do sono na saúde;
+    - aumentar a regulação da venda e publicidade a alimentos prejudiciais à saúde;
+    - criar um regime público de medicina no trabalho;
+    - atuar sobre as condições de higiene, segurança e saúde no trabalho;
+    - promover a prática da atividade física e desportiva em todas as idades, reforçando nas escolas a importância da disciplina de Educação Física e o Desporto Escolar, garantindo o apoio ao desporto escolar feminino em todo o país e estimular a prática de atividade física para o envelhecimento ativo e saudável, desenvolvendo o acesso ao desporto adaptado, e aumentando a dedução dos gastos com a prática de atividades físicas e desporto em sede de IRS;
+    - promover o Plano Nacional de Vacinação e atualizando-o frequentemente de acordo com as recomendações da Direção Geral de Saúde, tendo em conta as necessidades de proteção no presente e no futuro (imunidade individual e de grupo), considerando as influências da globalização e das alterações climáticas;
+    - desenvolver um currículo estruturado sobre literacia em saúde através de equipas multidisciplinares (com profissionais das áreas da psicologia, enfermagem, medicina geral e nutrição) a aplicar em todas as escolas, no âmbito da disciplina de educação para a cidadania, adaptados às várias faixas etárias, sobre temáticas como a saúde mental, saúde sexual e reprodutiva, prevenção da violência, alimentação saudável e equilibrada, nutrição, atividade física, entre outros;
+    - prevenir mortes por afogamento, nomeadamente com o alargamento da vigilância e assistência nas praias além da época balnear e garantindo que essa responsabilidade é assegurada pelos municípios e não pelos concessionários;
+    - implementar medidas urgentes e extraordinárias para diminuir o número de vítimas da sinistralidade rodoviária, com o objetivo da Visão Zero 2030.
 
 23. **Investir na saúde sexual e reprodutiva**, ao:
-	- dotar de recursos adequados o rastreio de Infeções Sexualmente Transmissíveis (ISTs), o acompanhamento da saúde sexual de todas as pessoas e a disponibilização e consciencialização sobre tratamentos como a Profilaxia pré-exposição (PrEP) ou Profilaxia pós-exposição (PEP), de forma alargada e generalizada, pelo território nacional e garantindo que existe uma formação adequada para profissionais de saúde que contemple a PrEP e a PEP;
-	- assegurar que as normas da Direção-Geral de Saúde (DGS) respeitantes ao uso destes tratamentos são do conhecimento geral da comunidade médica e corretamente incorporadas nos protocolos intra-hospitalares;
-	- reforçar as consultas de Saúde Sexual e Reprodutiva e Planeamento Familiar nos centros de saúde e promover campanhas sobre contracepção e sobre prevenção de ISTs.
+
+    - dotar de recursos adequados o rastreio de Infeções Sexualmente Transmissíveis (ISTs), o acompanhamento da saúde sexual de todas as pessoas e a disponibilização e consciencialização sobre tratamentos como a Profilaxia pré-exposição (PrEP) ou Profilaxia pós-exposição (PEP), de forma alargada e generalizada, pelo território nacional e garantindo que existe uma formação adequada para profissionais de saúde que contemple a PrEP e a PEP;
+    - assegurar que as normas da Direção-Geral de Saúde (DGS) respeitantes ao uso destes tratamentos são do conhecimento geral da comunidade médica e corretamente incorporadas nos protocolos intra-hospitalares;
+    - reforçar as consultas de Saúde Sexual e Reprodutiva e Planeamento Familiar nos centros de saúde e promover campanhas sobre contracepção e sobre prevenção de ISTs.
 
 24. **Legalizar e regulamentar o consumo e a venda de canábis**, incluindo para uso recreativo, com a obrigatoriedade da etiquetagem informativa, da informação sobre os riscos e com a venda restrita a pessoas adultas e criando um programa público de informação sobre o uso de canábis, para um consumo responsável e consciente numa perspetiva de redução de risco.
 
-25. **Limitar drasticamente o acesso e a publicidade aos jogos de azar**, designadamente raspadinha, *eurodreams*, euromilhões, totoloto e totobola, tanto no espaço público como na internet e na televisão.
+25. **Limitar drasticamente o acesso e a publicidade aos jogos de azar**, designadamente raspadinha, _eurodreams_, euromilhões, totoloto e totobola, tanto no espaço público como na internet e na televisão.
 
 ### **Humanizar os cuidados de saúde**
 
 26. **Garantir Cuidados de Saúde mais próximos:**
-	- melhorar a capacidade de resposta das consultas ao domicílio (médicas e de enfermagem), adotando modelos inovadores de prestação de cuidados continuados, personalizados e centrados no utente, operacionalizadas por pequenas equipas comunitárias geridas de forma independente (como exemplo, o modelo *Buurtzorg* nos Países Baixos);
-	- reforçar os cuidados paliativos de proximidade, de preferência em casa, garantindo com dignidade o respeito da vontade no fim de vida, definindo planos de cuidados personalizados, estabelecendo equipas específicas, possibilitando o acesso em horário alargado aos cuidados de saúde de qualidade, disponibilizando apoio aos cuidadores e formação contínua tanto a profissionais como a cuidadores;
-	- criar condições para que as pessoas idosas, e outras em situação vulnerável, consigam manter-se nas suas casas e conservar a sua autonomia, evitando a sua ida desnecessária para lares ou instituições, através da promoção de esquemas de prescrição social, e facilitar as condições para o acompanhamento por familiares ou outros por reforço do estatuto do cuidador informal;
-	- criar um Programa de Contacto Familiar, de abrangência nacional, para facilitar a comunicação entre pacientes e as suas famílias por meio de tecnologias, como videochamadas, em situações de restrições de visitas.
+
+    - melhorar a capacidade de resposta das consultas ao domicílio (médicas e de enfermagem), adotando modelos inovadores de prestação de cuidados continuados, personalizados e centrados no utente, operacionalizadas por pequenas equipas comunitárias geridas de forma independente (como exemplo, o modelo _Buurtzorg_ nos Países Baixos);
+    - reforçar os cuidados paliativos de proximidade, de preferência em casa, garantindo com dignidade o respeito da vontade no fim de vida, definindo planos de cuidados personalizados, estabelecendo equipas específicas, possibilitando o acesso em horário alargado aos cuidados de saúde de qualidade, disponibilizando apoio aos cuidadores e formação contínua tanto a profissionais como a cuidadores;
+    - criar condições para que as pessoas idosas, e outras em situação vulnerável, consigam manter-se nas suas casas e conservar a sua autonomia, evitando a sua ida desnecessária para lares ou instituições, através da promoção de esquemas de prescrição social, e facilitar as condições para o acompanhamento por familiares ou outros por reforço do estatuto do cuidador informal;
+    - criar um Programa de Contacto Familiar, de abrangência nacional, para facilitar a comunicação entre pacientes e as suas famílias por meio de tecnologias, como videochamadas, em situações de restrições de visitas.
 
 27. **Proteger os Cuidadores Informais:**
-	- acompanhando a aplicação do estatuto do cuidador informal, aprovado em 2019;
-	- agilizando o processo de reconhecimento do estatuto de cuidador informal e atribuição do respetivo subsídio;
-	- garantindo um maior acompanhamento das famílias e de cuidadores para conseguirem lidar com a doença, tanto física como mental.
+
+    - acompanhando a aplicação do estatuto do cuidador informal, aprovado em 2019;
+    - agilizando o processo de reconhecimento do estatuto de cuidador informal e atribuição do respetivo subsídio;
+    - garantindo um maior acompanhamento das famílias e de cuidadores para conseguirem lidar com a doença, tanto física como mental.
 
 28. **Envolver as pessoas com doença ou associações representativas de doentes** nos processos de tomada de decisão política na área da saúde e no desenho e reestruturação dos serviços de saúde e na investigação clínica.
 
 29. **Promover um acesso justo e não discriminatório aos cuidados de saúde** ao:
-	- garantir um melhor acompanhamento das pessoas LGBTQIA+ no SNS, reforçando as unidades no país com serviços especializados na saúde das pessoas trans e intersexo, investindo na educação e formação de profissionais de saúde do SNS para questões e identidades LGBTQIA+, tanto de acompanhamento clínico como de atendimento e dando continuidade à elaboração e implementação da Estratégia de Saúde para as Pessoas Lésbicas, Gays, Bissexuais, Trans e Intersexo (LGBTI);
-	- garantir a presença de pessoal com formação em língua gestual portuguesa, assim como uma rede de tradutores e intérpretes rapidamente ativada para dar resposta às comunidades emigrantes que não falam português;
-	- garantir a tradução em várias línguas dos folhetos informativos para utentes que não falam português, reforçar e divulgar o acesso a serviços de tradução gratuitos que garantam uma comunicação mais eficiente entre profissionais e utentes;
-	- criar áreas de relaxamento em ambientes hospitalares, sensorialmente adaptadas e acolhedoras com atividades terapêuticas para pacientes e familiares.
+
+    - garantir um melhor acompanhamento das pessoas LGBTQIA+ no SNS, reforçando as unidades no país com serviços especializados na saúde das pessoas trans e intersexo, investindo na educação e formação de profissionais de saúde do SNS para questões e identidades LGBTQIA+, tanto de acompanhamento clínico como de atendimento e dando continuidade à elaboração e implementação da Estratégia de Saúde para as Pessoas Lésbicas, Gays, Bissexuais, Trans e Intersexo (LGBTI);
+    - garantir a presença de pessoal com formação em língua gestual portuguesa, assim como uma rede de tradutores e intérpretes rapidamente ativada para dar resposta às comunidades emigrantes que não falam português;
+    - garantir a tradução em várias línguas dos folhetos informativos para utentes que não falam português, reforçar e divulgar o acesso a serviços de tradução gratuitos que garantam uma comunicação mais eficiente entre profissionais e utentes;
+    - criar áreas de relaxamento em ambientes hospitalares, sensorialmente adaptadas e acolhedoras com atividades terapêuticas para pacientes e familiares.
 
 30. **Promover a saúde menstrual e obstétrica:**
-	- possibilitar a licença menstrual sem perda de retribuição com apresentação de atestado médico, em casos de doenças incapacitantes como a endometriose e adenomiose;
-	- melhorar as condições que permitam respeitar as vontades de grávidas, em trabalho de parto e puérperas, incluindo a de estarem acompanhadas por uma pessoa da sua escolha a tempo inteiro aquando do internamento;
-	- combater a violência obstétrica explícita e estrutural, através de sensibilização, formação de profissionais de saúde e legislação própria, reconhecendo também as desigualdades acrescidas que afetam as mães negras e racializadas, as mulheres lésbicas e as pessoas trans e de género diverso;
-	- promover a normalização da menstruação, bem como o ensino e promoção da utilização de produtos menstruais sustentáveis e garantir o acesso a produtos de higiene íntima para quem o necessite (nomeadamente através de dispensadores gratuitos de cuecas menstruais e copos menstruais) nos centros de saúde, escolas e instituições de ensino superior, estabelecimentos prisionais e centros educativos;
-	- garantir o acompanhamento da menopausa e andropausa no SNS, promovendo a informação e o acesso a reposição hormonal de forma a aumentar a qualidade de vida e a prevenir o aparecimento de doenças extra-ginecológicas e extra-urológicas, como alterações do metabolismo ósseo, alterações cardiovasculares e vasomotoras, perturbações do sistema nervoso central ou outra sintomatologia neuropsíquica ou endocrinológica.
+
+    - possibilitar a licença menstrual sem perda de retribuição com apresentação de atestado médico, em casos de doenças incapacitantes como a endometriose e adenomiose;
+    - melhorar as condições que permitam respeitar as vontades de grávidas, em trabalho de parto e puérperas, incluindo a de estarem acompanhadas por uma pessoa da sua escolha a tempo inteiro aquando do internamento;
+    - combater a violência obstétrica explícita e estrutural, através de sensibilização, formação de profissionais de saúde e legislação própria, reconhecendo também as desigualdades acrescidas que afetam as mães negras e racializadas, as mulheres lésbicas e as pessoas trans e de género diverso;
+    - promover a normalização da menstruação, bem como o ensino e promoção da utilização de produtos menstruais sustentáveis e garantir o acesso a produtos de higiene íntima para quem o necessite (nomeadamente através de dispensadores gratuitos de cuecas menstruais e copos menstruais) nos centros de saúde, escolas e instituições de ensino superior, estabelecimentos prisionais e centros educativos;
+    - garantir o acompanhamento da menopausa e andropausa no SNS, promovendo a informação e o acesso a reposição hormonal de forma a aumentar a qualidade de vida e a prevenir o aparecimento de doenças extra-ginecológicas e extra-urológicas, como alterações do metabolismo ósseo, alterações cardiovasculares e vasomotoras, perturbações do sistema nervoso central ou outra sintomatologia neuropsíquica ou endocrinológica.
 
 31. **Elaborar um Plano Nacional de Apoio à Fertilidade** ouvindo utentes e suas entidades representativas de, e que inclua, nomeadamente, medidas para:
-	- a promoção da literacia para a fertilidade da população;
-	- a redução das listas de espera para acesso a tratamentos de Procriação Medicamente Assistida (PMA);
-	- a promoção da doação de gâmetas e ovócitos em Portugal;
-	- a definição de critérios de prioridade no acesso a técnicas de PMA;
-	- o apoio económico, psicossocial e emocional das pessoas doadoras e beneficiárias de tratamentos de fertilidade;
-	- a criação de um centro público de recolha de gâmetas no Alentejo ou Algarve;
-	- assegurar a comparticipação das despesas de deslocação e estadia incorridas por pessoas doadoras e beneficiárias residentes em áreas desprovidas de respostas públicas especializadas;
-	- alargar os critérios do regime excecional para acesso a técnicas de PMA no SNS, nos casos de preservação do potencial reprodutivo por doença grave para incluir, entre outras, a endometriose e a adenomiose.
+
+    - a promoção da literacia para a fertilidade da população;
+    - a redução das listas de espera para acesso a tratamentos de Procriação Medicamente Assistida (PMA);
+    - a promoção da doação de gâmetas e ovócitos em Portugal;
+    - a definição de critérios de prioridade no acesso a técnicas de PMA;
+    - o apoio económico, psicossocial e emocional das pessoas doadoras e beneficiárias de tratamentos de fertilidade;
+    - a criação de um centro público de recolha de gâmetas no Alentejo ou Algarve;
+    - assegurar a comparticipação das despesas de deslocação e estadia incorridas por pessoas doadoras e beneficiárias residentes em áreas desprovidas de respostas públicas especializadas;
+    - alargar os critérios do regime excecional para acesso a técnicas de PMA no SNS, nos casos de preservação do potencial reprodutivo por doença grave para incluir, entre outras, a endometriose e a adenomiose.
 
 32. **Garantir o direito à Interrupção Voluntária da Gravidez (IVG) em todo o território nacional:**
-	- alargando o prazo para as 14 semanas, já que o atual limite de 10 semanas é curto para a tomada de decisão considerando: que o ciclo menstrual para muitas pessoas é irregular na sua duração e que podem descobrir mais tardiamente que estão grávidas, o tempo de espera para marcação de consulta de planeamento familiar no Serviço Nacional de Saúde e o período de tempo para o processo da IVG;
-	- removendo o período obrigatório de reflexão de três dias entre a consulta com o profissional de saúde e o procedimento por ser uma medida moralista e opressiva que limita mais uma vez o acesso seguro ao aborto. O processo de ponderação pessoal inicia-se previamente ao momento da consulta e não se faz por indicação médica;
-	- promovendo as alterações legislativas e de reorganização dos serviços de saúde com o objetivo de assegurar a implementação dos critérios internacionais em matéria de IVG, por forma a garantir o direito à IVG mas respeitando o direito à objeção de consciência de profissionais objetores de consciência;
-	- retomando as publicações anuais dos relatórios dos registos das IVG que devem passar a incluir dados sobre a capacidade de resposta do SNS e estatísticas sobre objetores de consciência;
-	- garantindo a mobilização de recursos, a nível nacional, para a realização de IVG quando a objeção de consciência de profissionais de saúde impedir o procedimento numa determinada região ou durante certo período;
-	- alargando o período de apoio psicológico para a fase após a realização da IVG, caso desejado;
-	- revendo e sistematizando as possibilidades de âmbito e discricionariedade de declarações de objeção de consciência para atos médicos;
-	- zelando pela privacidade das pessoas que recorrem à IVG, nos casos em que têm de prestar uma declaração de presença nas consultas/tratamentos junto da entidade patronal, para que essa declaração não contenha elementos identificativos da instituição em que decorre a IVG;
-	- garantindo que a pessoa que recorre à IVG possa fazer-se acompanhar durante todo o processo.
+
+    - alargando o prazo para as 14 semanas, já que o atual limite de 10 semanas é curto para a tomada de decisão considerando: que o ciclo menstrual para muitas pessoas é irregular na sua duração e que podem descobrir mais tardiamente que estão grávidas, o tempo de espera para marcação de consulta de planeamento familiar no Serviço Nacional de Saúde e o período de tempo para o processo da IVG;
+    - removendo o período obrigatório de reflexão de três dias entre a consulta com o profissional de saúde e o procedimento por ser uma medida moralista e opressiva que limita mais uma vez o acesso seguro ao aborto. O processo de ponderação pessoal inicia-se previamente ao momento da consulta e não se faz por indicação médica;
+    - promovendo as alterações legislativas e de reorganização dos serviços de saúde com o objetivo de assegurar a implementação dos critérios internacionais em matéria de IVG, por forma a garantir o direito à IVG mas respeitando o direito à objeção de consciência de profissionais objetores de consciência;
+    - retomando as publicações anuais dos relatórios dos registos das IVG que devem passar a incluir dados sobre a capacidade de resposta do SNS e estatísticas sobre objetores de consciência;
+    - garantindo a mobilização de recursos, a nível nacional, para a realização de IVG quando a objeção de consciência de profissionais de saúde impedir o procedimento numa determinada região ou durante certo período;
+    - alargando o período de apoio psicológico para a fase após a realização da IVG, caso desejado;
+    - revendo e sistematizando as possibilidades de âmbito e discricionariedade de declarações de objeção de consciência para atos médicos;
+    - zelando pela privacidade das pessoas que recorrem à IVG, nos casos em que têm de prestar uma declaração de presença nas consultas/tratamentos junto da entidade patronal, para que essa declaração não contenha elementos identificativos da instituição em que decorre a IVG;
+    - garantindo que a pessoa que recorre à IVG possa fazer-se acompanhar durante todo o processo.
 
 33. **Dignificar o fim de vida e possibilitar uma morte digna**, acompanhando a implementação da legislação da despenalização da morte medicamente assistida, assegurando a disponibilização de apoio médico e psicológico especializados, para que sejam obrigatoriamente abordados do ponto de vista clínico todos os aspetos concorrentes para a decisão informada e consciente do utente e cabendo ao Estado assegurar que, nas situações de sofrimento extremo físico e/ou psíquico, são prestados todos os cuidados possíveis do ponto de vista biológico, psicológico e social, garantindo um acompanhamento adequado e humano, incluindo a prestação de cuidados paliativos, nas situações de doença terminal e de fim de vida. Devem sempre ser salvaguardados os direitos e a liberdade de consciência de terceiros, nomeadamente de familiares e de profissionais de saúde.
 
 ### **Investir na Saúde Mental**
 
 34. **Promover a saúde mental e prevenir a doença mental:**
-	- através de políticas multissetoriais fornecendo as condições estruturais para a satisfação das necessidades de saúde mental inerentes ao pleno desenvolvimento humano como são a autonomia, o sentimento de competência e o sentimento de pertença;
-	- garantir o bem-estar psicológico e a literacia em saúde mental com intervenções comunitárias de eficácia comprovada por evidência, de baixos custos e abrangentes em todas as faixas etárias;
-	- prevenir a doença mental com intervenções específicas dirigidas a populações vulneráveis e em risco de exclusão, no seguimento de eventos traumáticos e situações de emergência;
-	- integrar e promover a participação das pessoas com necessidade de cuidados de saúde mental contribuindo assim para o seu bem-estar psicológico;
-	- concretizar a criação de um Observatório Nacional de Literacia em Saúde, em linha com o preconizado no Plano Nacional de Literacia em Saúde e Ciências do Comportamento 2023-2030, reforçando a atenção específica à literacia em Saúde Mental;
-	- sensibilizar a população para a saúde mental através de campanhas públicas genéricas (Dia Mundial da Saúde Mental) e dirigidas a problemáticas específicas (por exemplo, Dia Nacional da Luta Anti-Alcoolismo, Dia Mundial de Prevenção ao Suicídio);
-	- reforçar a colaboração entre os Ministérios da Cultura e da Saúde, reconhecendo os benefícios da cultura para o bem-estar e a prevenção e o tratamento da doença, nomeadamente através do alargamento da prescrição médica de atividades culturais e da inclusão de atividades culturais nos planos regionais de saúde mental.
+
+    - através de políticas multissetoriais fornecendo as condições estruturais para a satisfação das necessidades de saúde mental inerentes ao pleno desenvolvimento humano como são a autonomia, o sentimento de competência e o sentimento de pertença;
+    - garantir o bem-estar psicológico e a literacia em saúde mental com intervenções comunitárias de eficácia comprovada por evidência, de baixos custos e abrangentes em todas as faixas etárias;
+    - prevenir a doença mental com intervenções específicas dirigidas a populações vulneráveis e em risco de exclusão, no seguimento de eventos traumáticos e situações de emergência;
+    - integrar e promover a participação das pessoas com necessidade de cuidados de saúde mental contribuindo assim para o seu bem-estar psicológico;
+    - concretizar a criação de um Observatório Nacional de Literacia em Saúde, em linha com o preconizado no Plano Nacional de Literacia em Saúde e Ciências do Comportamento 2023-2030, reforçando a atenção específica à literacia em Saúde Mental;
+    - sensibilizar a população para a saúde mental através de campanhas públicas genéricas (Dia Mundial da Saúde Mental) e dirigidas a problemáticas específicas (por exemplo, Dia Nacional da Luta Anti-Alcoolismo, Dia Mundial de Prevenção ao Suicídio);
+    - reforçar a colaboração entre os Ministérios da Cultura e da Saúde, reconhecendo os benefícios da cultura para o bem-estar e a prevenção e o tratamento da doença, nomeadamente através do alargamento da prescrição médica de atividades culturais e da inclusão de atividades culturais nos planos regionais de saúde mental.
 
 35. **Prosseguir e aprofundar a transformação da saúde mental** ao:
-	- apostar na diversificação das respostas de saúde mental e na implementação de um modelo de stepped care consoante as diferentes necessidades da população, englobando serviços de saúde mental especializados, hospitalares e comunitário, cuidados primários de saúde mental, serviços de prevenção e promoção da saúde mental na comunidade), e serviços de apoio psicossocial fora do setor da saúde ( organizações da sociedade civil e redes de apoio informal);
-	- prosseguir o modelo de organização da saúde mental em equipas multidisciplinares comunitárias previsto no Plano Nacional de Saúde Mental e aprofundá-lo com a constituição de mais equipas comunitárias de saúde mental para crianças, jovens e adultos, assim como o seu alargamento a todo o território nacional;
-	- concretizar a implementação dos Centros de Responsabilidade Integrados na área da Saúde Mental e Psiquiatria de modo a descentralizar a prestação de cuidados, promover a autonomia da contratação de profissionais e melhorar as suas condições laborais por via, entre outros, de um regime de incentivos associados aos indicadores de resultado que incluam também indicadores de qualidade assistencial definidos pelos utentes;
-	- promover a autonomia e a funcionalidade das através da expansão a todo o território nacional e alargamento do número de vagas da rede nacional de cuidados continuados integrados de saúde mental, nomeadamente das estruturas de reabilitação psicossocial e das residências de apoio, previsto no PRR;
-	- concretizar os planos nacionais e regionais de saúde para as demências garantindo a cobertura a nível nacional e reforçando a componente preventiva de envelhecimento ativo em articulação com as diversas estruturas de apoio social (e.g., centros de dia, academias sénior, etc.).
+
+    - apostar na diversificação das respostas de saúde mental e na implementação de um modelo de stepped care consoante as diferentes necessidades da população, englobando serviços de saúde mental especializados, hospitalares e comunitário, cuidados primários de saúde mental, serviços de prevenção e promoção da saúde mental na comunidade), e serviços de apoio psicossocial fora do setor da saúde ( organizações da sociedade civil e redes de apoio informal);
+    - prosseguir o modelo de organização da saúde mental em equipas multidisciplinares comunitárias previsto no Plano Nacional de Saúde Mental e aprofundá-lo com a constituição de mais equipas comunitárias de saúde mental para crianças, jovens e adultos, assim como o seu alargamento a todo o território nacional;
+    - concretizar a implementação dos Centros de Responsabilidade Integrados na área da Saúde Mental e Psiquiatria de modo a descentralizar a prestação de cuidados, promover a autonomia da contratação de profissionais e melhorar as suas condições laborais por via, entre outros, de um regime de incentivos associados aos indicadores de resultado que incluam também indicadores de qualidade assistencial definidos pelos utentes;
+    - promover a autonomia e a funcionalidade das através da expansão a todo o território nacional e alargamento do número de vagas da rede nacional de cuidados continuados integrados de saúde mental, nomeadamente das estruturas de reabilitação psicossocial e das residências de apoio, previsto no PRR;
+    - concretizar os planos nacionais e regionais de saúde para as demências garantindo a cobertura a nível nacional e reforçando a componente preventiva de envelhecimento ativo em articulação com as diversas estruturas de apoio social (e.g., centros de dia, academias sénior, etc.).
 
 36. **Democratizar o acesso a cuidados de e de enfermagem de saúde mental e psiquiátrica com qualidade** ao:
-	- facilitar a sinalização e referenciação para serviços de saúde mental especializados a partir de serviços públicos, como exemplo a linha SNS 24 ou Segurança Social;
-	- promover o mapeamento e facilitar o acesso a informação centralizada acerca de serviços de saúde mental e apoio psicológico gratuito (por exemplo juntas de freguesia, ONGs e IPSSs) ou de custo reduzido para pessoas com dificuldades económicas (por exemplo, associações profissionais de saúde mental sem fins lucrativos);
-	- eliminar a necessidade de referenciação do médico de família para consultas de psicologia no SNS promovendo o reconhecimento da sua autonomia e da especificidade dos conhecimentos dos psicólogos;
-	- possibilitar que cartas de referenciação redigidas por psicólogos clínicos ou por enfermeiros especialistas em Enfermagem de Saúde Mental e Psiquiátrica permitam a triagem direta dos utentes, nos Serviços de Urgência, para observação pela especialidade de Psiquiatria;
-	- estender a comparticipação de consultas de psicologia pela ADSE sem necessidade de prescrição médica às tabelas de regime livre da ADSE;
-	- assegurar que cada centro de saúde tem pelo menos um psicólogo clínico a trabalhar em articulação com outros profissionais de saúde, garantindo a prestação de cuidados de saúde mental especializados nos cuidados de saúde primários;
-	- alargar e melhorar a qualidade da resposta às condições de saúde mental comuns como as perturbações depressivas e da ansiedade, nomeadamente através da aposta nas intervenções psicológicas nos cuidados de saúde primários do SNS e nas intervenções especializadas de Enfermagem de Saúde Mental e Psiquiátrica.
+
+    - facilitar a sinalização e referenciação para serviços de saúde mental especializados a partir de serviços públicos, como exemplo a linha SNS 24 ou Segurança Social;
+    - promover o mapeamento e facilitar o acesso a informação centralizada acerca de serviços de saúde mental e apoio psicológico gratuito (por exemplo juntas de freguesia, ONGs e IPSSs) ou de custo reduzido para pessoas com dificuldades económicas (por exemplo, associações profissionais de saúde mental sem fins lucrativos);
+    - eliminar a necessidade de referenciação do médico de família para consultas de psicologia no SNS promovendo o reconhecimento da sua autonomia e da especificidade dos conhecimentos dos psicólogos;
+    - possibilitar que cartas de referenciação redigidas por psicólogos clínicos ou por enfermeiros especialistas em Enfermagem de Saúde Mental e Psiquiátrica permitam a triagem direta dos utentes, nos Serviços de Urgência, para observação pela especialidade de Psiquiatria;
+    - estender a comparticipação de consultas de psicologia pela ADSE sem necessidade de prescrição médica às tabelas de regime livre da ADSE;
+    - assegurar que cada centro de saúde tem pelo menos um psicólogo clínico a trabalhar em articulação com outros profissionais de saúde, garantindo a prestação de cuidados de saúde mental especializados nos cuidados de saúde primários;
+    - alargar e melhorar a qualidade da resposta às condições de saúde mental comuns como as perturbações depressivas e da ansiedade, nomeadamente através da aposta nas intervenções psicológicas nos cuidados de saúde primários do SNS e nas intervenções especializadas de Enfermagem de Saúde Mental e Psiquiátrica.
 
 37. **Melhorar a qualidade dos serviços de saúde mental:**
-	- aumentar o investimento público na saúde mental de modo a providenciar recursos humanos multidisciplinares especializados (psiquiatras da infância e adolescência, psicólogos clínicos, enfermeiros especialistas em Enfermagem de Saúde Mental e Psiquiátrica, terapeutas ocupacionais e assistentes sociais) e a aquisição de bens e serviços adequados à satisfação das necessidades da população através de dotação orçamental própria no OE;
-	- alargar dos programas de descontinuação das benzodiazepinas nos ACeS e hospitais centrais;
-	- alargar da comparticipação a 100% dos fármacos anti-psicóticos a prescrições fora do sistema hospitalar;
-	- ampliar redes de serviços de atendimento urgente e internamento para situações de doença mental grave e aguda, sobretudo nas regiões do país é deficitária e às populações mais necessitadas, nomeadamente para crianças e adolescentes;
-	- apostar na prevenção dos comportamentos aditivos e dependências, como alcoolismo e toxicodependência (medicamentos, canabinoides, substâncias psicoativas, entre outros) mas extensíveis a outras formas de adição como tabaco e jogo;
-	- acompanhar a reestruturação e redefinição de competências do Instituto para os Comportamentos Aditivos e as Dependências, I. P., e verificar a necessidade de aumento de recursos humanos e financeiros.
+
+    - aumentar o investimento público na saúde mental de modo a providenciar recursos humanos multidisciplinares especializados (psiquiatras da infância e adolescência, psicólogos clínicos, enfermeiros especialistas em Enfermagem de Saúde Mental e Psiquiátrica, terapeutas ocupacionais e assistentes sociais) e a aquisição de bens e serviços adequados à satisfação das necessidades da população através de dotação orçamental própria no OE;
+    - alargar dos programas de descontinuação das benzodiazepinas nos ACeS e hospitais centrais;
+    - alargar da comparticipação a 100% dos fármacos anti-psicóticos a prescrições fora do sistema hospitalar;
+    - ampliar redes de serviços de atendimento urgente e internamento para situações de doença mental grave e aguda, sobretudo nas regiões do país é deficitária e às populações mais necessitadas, nomeadamente para crianças e adolescentes;
+    - apostar na prevenção dos comportamentos aditivos e dependências, como alcoolismo e toxicodependência (medicamentos, canabinoides, substâncias psicoativas, entre outros) mas extensíveis a outras formas de adição como tabaco e jogo;
+    - acompanhar a reestruturação e redefinição de competências do Instituto para os Comportamentos Aditivos e as Dependências, I. P., e verificar a necessidade de aumento de recursos humanos e financeiros.
 
 38. **Humanizar os serviços de saúde mental**, combater a discriminação e o estigma da doença mental, ao:
-	- concretizar a desinstitucionalização progressiva das pessoas com doença mental grave e substituição por intervenções na comunidade de acordo com o Plano Nacional de Saúde Mental;
-	- garantir o escrupuloso cumprimento dos Direitos Humanos das pessoas com especial necessidade de cuidado de saúde mental (nomeadamente na verificação do consentimento informado, na redução de utilização de medidas coercivas, no envolvimento na tomada de decisão de tratamento ou na privacidade dos dados clínicos e temporalidade dos diagnósticos) em todos os serviços de saúde mental, especialmente nos serviços hospitalares com internamento psiquiátricos, nas situações de internamento involuntário e nos serviços de psiquiatria forense;
-	- apoiar a transição para a comunidade, promover a autonomia e prevenir o reinternamento das pessoas em situação de internamento psiquiátrico;
-	- apostar na formação de profissionais e reformar os modelos de gestão das instituições em consonância com os princípios éticos e humanistas consagrados na nova lei da saúde mental;
-	- promover a participação de profissionais de saúde, da comunidade e de cidadãos (tais como associações de utentes e de familiares) na gestão, funcionamento e órgãos consultivos dos serviços de saúde mental prestados por instituições do SNS, privadas ou do setor social como previsto no Plano Nacional de Saúde Mental;
-	- promover a literacia em saúde mental em todas as instituições e setores do Estado, com especial incidência no combate à descriminação e estigma da doença mental, e no respeito da diversidade social, cultural e étnica como prioridade de todos os serviços públicos.
+
+    - concretizar a desinstitucionalização progressiva das pessoas com doença mental grave e substituição por intervenções na comunidade de acordo com o Plano Nacional de Saúde Mental;
+    - garantir o escrupuloso cumprimento dos Direitos Humanos das pessoas com especial necessidade de cuidado de saúde mental (nomeadamente na verificação do consentimento informado, na redução de utilização de medidas coercivas, no envolvimento na tomada de decisão de tratamento ou na privacidade dos dados clínicos e temporalidade dos diagnósticos) em todos os serviços de saúde mental, especialmente nos serviços hospitalares com internamento psiquiátricos, nas situações de internamento involuntário e nos serviços de psiquiatria forense;
+    - apoiar a transição para a comunidade, promover a autonomia e prevenir o reinternamento das pessoas em situação de internamento psiquiátrico;
+    - apostar na formação de profissionais e reformar os modelos de gestão das instituições em consonância com os princípios éticos e humanistas consagrados na nova lei da saúde mental;
+    - promover a participação de profissionais de saúde, da comunidade e de cidadãos (tais como associações de utentes e de familiares) na gestão, funcionamento e órgãos consultivos dos serviços de saúde mental prestados por instituições do SNS, privadas ou do setor social como previsto no Plano Nacional de Saúde Mental;
+    - promover a literacia em saúde mental em todas as instituições e setores do Estado, com especial incidência no combate à descriminação e estigma da doença mental, e no respeito da diversidade social, cultural e étnica como prioridade de todos os serviços públicos.
 
 39. **Tornar a saúde mental uma prioridade de todas as políticas públicas.** As políticas de saúde mental devem ser pensadas intersetorialmente e não no âmbito exclusivo da saúde, tal como preconizado pelo Plano Nacional de Saúde Mental. Neste sentido, o OE deverá passar a prever uma dotação orçamental específica para a promoção da saúde mental em vários setores da sociedade como no sistema de ensino, no sistema judicial e na segurança social. As políticas públicas de habitação e urbanismo, trabalho e emprego, educação, cultura e ciência devem igualmente prever a promoção da saúde mental e a integração de pessoas com necessidades de cuidados de saúde mental (por exemplo, pessoas em situação de sem-abrigo, em risco de pobreza e vítimas de discriminação e violência).
 
 40. **Promover a saúde mental, nomeadamente o desenvolvimento de competências socioemocionais e cognitivas das crianças e jovens** nos estabelecimentos de ensino através da:
-	- contratação de mais psicólogos escolares para os agrupamentos de escolas do sector público e reforço dos enfermeiros especialistas em Enfermagem de Saúde Mental e Psiquiátrica que exercem funções no âmbito da saúde escolar;
-	- melhoria das expectativas de progressão nas carreiras dos psicólogos escolares;
-	- eliminação dos vínculos laborais precários dos psicólogos escolares, tanto no sector público como privado;
-	- reforço dos Serviços de Saúde Mental e Bem-Estar das instituições de ensino superior na promoção da saúde mental, do desenvolvimento de competências socioemocionais, cognitivas e académicas, e da integração psicossocial de docentes e não docentes.
+
+    - contratação de mais psicólogos escolares para os agrupamentos de escolas do sector público e reforço dos enfermeiros especialistas em Enfermagem de Saúde Mental e Psiquiátrica que exercem funções no âmbito da saúde escolar;
+    - melhoria das expectativas de progressão nas carreiras dos psicólogos escolares;
+    - eliminação dos vínculos laborais precários dos psicólogos escolares, tanto no sector público como privado;
+    - reforço dos Serviços de Saúde Mental e Bem-Estar das instituições de ensino superior na promoção da saúde mental, do desenvolvimento de competências socioemocionais, cognitivas e académicas, e da integração psicossocial de docentes e não docentes.
 
 41. **Promover a saúde mental nas organizações e empresas** através da:
-	- aposta nas equipas de saúde ocupacional dos setores público e privado, as quais devem ser reforçadas com a obrigatoriedade de contratação de psicólogos de saúde ocupacional em todos os setores da atividade económica (e.g., avaliação de risco psicossocial);
-	- inclusão das perturbações mentais comuns na Lista de Doenças Profissionais;
-	- aposta na sensibilização e formação para a saúde mental ocupacional.
+
+    - aposta nas equipas de saúde ocupacional dos setores público e privado, as quais devem ser reforçadas com a obrigatoriedade de contratação de psicólogos de saúde ocupacional em todos os setores da atividade económica (e.g., avaliação de risco psicossocial);
+    - inclusão das perturbações mentais comuns na Lista de Doenças Profissionais;
+    - aposta na sensibilização e formação para a saúde mental ocupacional.
 
 42. **Prevenir o suicídio e os comportamentos autolesivos.** O suicídio é um grave problema de saúde pública em Portugal, afetando especialmente os homens e algumas regiões do país, por isso propomos:
-	- implementar a linha nacional para a prevenção do suicídio e de comportamentos autolesivos;
-	- reativar o Plano Nacional de Prevenção do Suicídio no âmbito da Plano Nacional de Saúde Mental;
-	- aumentar a capacidade de resposta e melhorar o acesso aos cuidados de saúde mental primários especialmente em territórios de risco elevado;
-	- capacitar as comunidades locais (associações, coletividades e grupos de apoio informais) para a sinalização e encaminhamento de situações de risco, para combater a solidão, promover o apoio e a inserção social;
-	- investir na divulgação da informação e em ações de formação aos cidadãos e aos meios de comunicação sobre estratégias de comunicação do suicídio e sua abordagem nas redes sociais.
+
+    - implementar a linha nacional para a prevenção do suicídio e de comportamentos autolesivos;
+    - reativar o Plano Nacional de Prevenção do Suicídio no âmbito da Plano Nacional de Saúde Mental;
+    - aumentar a capacidade de resposta e melhorar o acesso aos cuidados de saúde mental primários especialmente em territórios de risco elevado;
+    - capacitar as comunidades locais (associações, coletividades e grupos de apoio informais) para a sinalização e encaminhamento de situações de risco, para combater a solidão, promover o apoio e a inserção social;
+    - investir na divulgação da informação e em ações de formação aos cidadãos e aos meios de comunicação sobre estratégias de comunicação do suicídio e sua abordagem nas redes sociais.
 
 43. **Reforçar o Programa de Apoio Financeiro DGS PNSM destinado a instituições privadas e do setor social** de forma a estimular o desenvolvimento de programas de prevenção e intervenção inovadores e baseados na melhor evidência científica na área da saúde mental, tal como previsto no Plano Nacional de Saúde Mental.
 
@@ -650,86 +705,92 @@ Cientes de que a legislação nacional já enquadra esta visão da educação, p
 Por isso defendemos:
 
 1. **Centrar a escola em cada aluno** para garantir uma preparação abrangente e combater o insucesso e o abandono escolares, assegurando a integração entre conhecimentos de áreas do saber, ao:
-	- promover a criação de verdadeiras escolas livres, usufruindo da autonomia e flexibilidade curricular e construindo na escola pública novos modelos de ensino centrados em cada criança e jovem;
-	- reduzir o número de alunos por turma e criar condições para uma nova organização não baseada em turmas mas antes em comunidades de aprendizagem;
-	- diversificar os materiais de pesquisa de base e retirando ao manual o papel fundamental que ainda vai tendo, fomentando igualmente o uso de ferramentas digitais para desenvolver a literacia digital;
-	- incentivar a utilização de ferramentas ludopedagógicas como estratégia de envolvimento dos alunos na experiência pedagógica e como métodos de aferição complementares de avaliação contínua, proporcionando uma abordagem mais holística da aprendizagem;
-	- garantir a todos os alunos uma formação integral, dirigida e avaliada pelo aluno com o acompanhamento de colegas e professores, que promova o conhecimento para lá das disciplinas e da divisão entre atividade intelectual e atividade manual;
-	- reforçar o número e a diversidade de profissionais da equipa multidisciplinar de apoio à educação inclusiva;
-	- promover a interação com a família no âmbito da aprendizagem, promovendo a assunção de valores e princípios comuns e o respeito por eles;
-	- manter todas as modalidades de ensino atuais por forma a que cada aluno e sua família possam optar, de forma livre e respeitadora das suas opções pessoais, familiares e/ou étnicas, por aprender da forma mais adequada ao seu caso individual, nomeadamente o Ensino à Distância, o Ensino para a Itinerância, o Ensino Doméstico e o Ensino Individual;
-	- garantir a possibilidade de expansão da rede escolar através da regulamentação e certificação de escolas alternativas e/ou comunitárias;
-	- garantir que todos os alunos têm professores em todas as disciplinas;
-	- reforçar a oferta educativa formal com competências cruciais para a vida no século XXI, como pensamento crítico, inteligência emocional, empatia e criatividade, essenciais para preparar os jovens para prosperar num mundo cada vez mais complexo e tecnológico.
+
+   - promover a criação de verdadeiras escolas livres, usufruindo da autonomia e flexibilidade curricular e construindo na escola pública novos modelos de ensino centrados em cada criança e jovem;
+   - reduzir o número de alunos por turma e criar condições para uma nova organização não baseada em turmas mas antes em comunidades de aprendizagem;
+   - diversificar os materiais de pesquisa de base e retirando ao manual o papel fundamental que ainda vai tendo, fomentando igualmente o uso de ferramentas digitais para desenvolver a literacia digital;
+   - incentivar a utilização de ferramentas ludopedagógicas como estratégia de envolvimento dos alunos na experiência pedagógica e como métodos de aferição complementares de avaliação contínua, proporcionando uma abordagem mais holística da aprendizagem;
+   - garantir a todos os alunos uma formação integral, dirigida e avaliada pelo aluno com o acompanhamento de colegas e professores, que promova o conhecimento para lá das disciplinas e da divisão entre atividade intelectual e atividade manual;
+   - reforçar o número e a diversidade de profissionais da equipa multidisciplinar de apoio à educação inclusiva;
+   - promover a interação com a família no âmbito da aprendizagem, promovendo a assunção de valores e princípios comuns e o respeito por eles;
+   - manter todas as modalidades de ensino atuais por forma a que cada aluno e sua família possam optar, de forma livre e respeitadora das suas opções pessoais, familiares e/ou étnicas, por aprender da forma mais adequada ao seu caso individual, nomeadamente o Ensino à Distância, o Ensino para a Itinerância, o Ensino Doméstico e o Ensino Individual;
+   - garantir a possibilidade de expansão da rede escolar através da regulamentação e certificação de escolas alternativas e/ou comunitárias;
+   - garantir que todos os alunos têm professores em todas as disciplinas;
+   - reforçar a oferta educativa formal com competências cruciais para a vida no século XXI, como pensamento crítico, inteligência emocional, empatia e criatividade, essenciais para preparar os jovens para prosperar num mundo cada vez mais complexo e tecnológico.
 
 2. **Capacitar a Educação Pública**, reforçando a dotação orçamental para a Educação, de forma a assegurar recursos, material e profissionais suficientes a todas as escolas da rede pública, que deve abranger todo o país. Esta rede deve ter em conta a proximidade com as populações, evitando o abandono das escolas locais em favor de super-escolas.
 
 3. **Garantir a efetiva gratuitidade no sistema de ensino público**, como ferramenta fundamental do desenvolvimento, da coesão social e da justiça, continuando a política de entrega de manuais escolares gratuitos até ao 12º ano, assegurando o empréstimo de computadores, e outro material a todos os alunos e aprofundando os apoios da Ação Social Escolar através do fornecimento de outro material escolar. Deve também acabar-se com a compra obrigatória de calculadoras gráficas no ensino básico e secundário, libertando as famílias desse custo e, ao invés, promover nos alunos competências de flexibilidade no uso de outras ferramentas digitais de análise gráfica de funções, incluindo software de código aberto.
 
 4. **Garantir a escola pública como uma opção viável desde os 4 meses**, por:
-	- incluir a educação na primeira infância na Lei de Bases do Sistema Educativo e integrar as creches na rede pública de escolas;
-	- assegurar a existência de uma rede de creches públicas em todo o país;
-	- aumentar o número de vagas em creches e possibilitar maior número de vagas gratuitas no âmbito do programa Creche Feliz, devendo ser efetuado um levantamento que verifique as vagas existentes, independentemente do setor;
-	- avaliar o estado das instalações e dos equipamentos de creche e criação de um programa de apoio à promoção e garantia da segurança, do conforto e da qualidade do serviço prestado;
-	- investir na promoção da qualidade dos ambientes educativos e das práticas educativas em creche, reforçando a qualificação técnico-científica, o desenvolvimento de competências e o autocuidado dos seus recursos humanos e práticas que visem minimizar as desigualdades e promover o desenvolvimento integral de bebés e crianças;
-	- garantir que todas as crianças a partir dos 3 anos têm vaga em jardins de infância públicos, aumentando o número de vagas;
-	- assegurar todas as condições na rede de jardins de infância, como o direito à sesta ou o acompanhamento das crianças com necessidades específicas.
+
+   - incluir a educação na primeira infância na Lei de Bases do Sistema Educativo e integrar as creches na rede pública de escolas;
+   - assegurar a existência de uma rede de creches públicas em todo o país;
+   - aumentar o número de vagas em creches e possibilitar maior número de vagas gratuitas no âmbito do programa Creche Feliz, devendo ser efetuado um levantamento que verifique as vagas existentes, independentemente do setor;
+   - avaliar o estado das instalações e dos equipamentos de creche e criação de um programa de apoio à promoção e garantia da segurança, do conforto e da qualidade do serviço prestado;
+   - investir na promoção da qualidade dos ambientes educativos e das práticas educativas em creche, reforçando a qualificação técnico-científica, o desenvolvimento de competências e o autocuidado dos seus recursos humanos e práticas que visem minimizar as desigualdades e promover o desenvolvimento integral de bebés e crianças;
+   - garantir que todas as crianças a partir dos 3 anos têm vaga em jardins de infância públicos, aumentando o número de vagas;
+   - assegurar todas as condições na rede de jardins de infância, como o direito à sesta ou o acompanhamento das crianças com necessidades específicas.
 
 5. **Dignificar a carreira docente:**
-	- reforçando e facilitando a formação dos profissionais da educação, proporcionando gratuitamente as diversas modalidades de formação, que favoreçam diretamente os docentes enquanto agentes das transformações que se preconizam para as escolas;
-	- garantindo o rejuvenescimento dos quadros dos professores, investindo numa formação inicial que garanta um contacto efetivo e continuado com o trabalho escolar, sob supervisão de docentes com experiência, que obtenham redução de horário para poderem acompanhar e orientar estágios;
-	- criando estágios pedagógicos num formato semelhante aos que existiam no sistema pré-Bolonha (com turmas próprias e remuneração dos estágios), por serem a melhor forma de aprendizagem da prática pedagógica com serviço efetivo;
-	- salvaguardando a docentes o direito ao regime de pré-aposentação aprovado para toda a Administração Pública, e que docentes de todos os níveis de ensino tenham direito a aposentar-se, com pensão por inteiro, aos 36 anos de serviço, independentemente da idade, com a salvaguarda de uma discriminação positiva para quem tenha exercido as suas funções profissionais em regime de monodocência;
-	- reduzindo a assimetria salarial entre os escalões de ingresso e os de topo, integrando no quadro os docentes que tenham pelo menos três anos de serviço completo;
-	- oferecendo incentivos à profissão de forma a atrair novos profissionais, através de um subsídio de deslocação para quem ficar a mais de 60 km da sua área de residência, combatendo o envelhecimento na carreira e as graves carências de docentes que já se sentem em diversas disciplinas, sobretudo nas regiões mais a sul do país;
-	- revendo o Estatuto da Carreira Docente, desbloqueando a progressão dos professores no 5º e 7º escalões e eliminando as quotas que criam graves injustiças e ultrapassagens entre docentes;
-	- promovendo nas escolas um ambiente de aprendizagem e desenvolvimento pessoal de todas as pessoas que nela trabalham e favorecendo culturas colaborativas;
-	- prevendo a contagem integral e faseada do tempo de serviço passado e revendo o estatuto da profissão, o modelo de avaliação e o modelo de concurso para que se saiba com antecedência se e onde cada docente ficará colocado, em articulação com os sindicatos;
-	- reformulando o novo modelo de concursos em que não seja imposto a docentes a aceitação de vaga longe da sua área de residência, sob pena de haver penalização em futuros concursos;
-	- reformulando o diploma da mobilidade por doença, respeitando as necessidade e estado de saúde de profissionais, corrigindo injustiças nas colocações e promovendo um ambiente saudável, quer física, quer mentalmente a docentes;
-	- reduzindo drasticamente a burocracia que desgasta e exausta profissionais da educação e sem tempo para o acompanhamento pedagógico e pessoal dos alunos, reforçando, em vez disso, o pessoal técnico que acompanha os alunos de forma mais individualizada;
-	- acabando com o projeto MAIA (Monitorização, Acompanhamento e Investigação em Avaliação Pedagógica), que tem demonstrado ser, desde 2019, um fracasso pedagógico e um peso burocrático sem utilidade na melhoria das aprendizagens dos alunos;
-	- criando um grupo de recrutamento de Ciências Sociais e respetivo mestrado em ensino, de forma a garantir a adequação do perfil dos docentes de Sociologia e de Cidadania e Desenvolvimento a um nível de formação científica na área das ciências sociais;
-	- criando um grupo de recrutamento de Português Língua Não Materna, de forma a assegurar a afetação de docentes e a adequação das respostas às necessidades dos alunos recém-chegados, fomentando a sua integração;
-	- criando um grupo de recrutamento de Psicologia para lecionar a disciplina no 12º ano, permitindo que os licenciados em Psicologia possam aceder ao mestrado em Educação, se o desejarem;
-	- para os profissionais no setor cooperativo e social, reforçar a negociação coletiva e que essa seja efetiva para todo o pessoal docente (e não apenas com quem é sindicalizado com os sindicatos com quem se chega a acordo).
+
+   - reforçando e facilitando a formação dos profissionais da educação, proporcionando gratuitamente as diversas modalidades de formação, que favoreçam diretamente os docentes enquanto agentes das transformações que se preconizam para as escolas;
+   - garantindo o rejuvenescimento dos quadros dos professores, investindo numa formação inicial que garanta um contacto efetivo e continuado com o trabalho escolar, sob supervisão de docentes com experiência, que obtenham redução de horário para poderem acompanhar e orientar estágios;
+   - criando estágios pedagógicos num formato semelhante aos que existiam no sistema pré-Bolonha (com turmas próprias e remuneração dos estágios), por serem a melhor forma de aprendizagem da prática pedagógica com serviço efetivo;
+   - salvaguardando a docentes o direito ao regime de pré-aposentação aprovado para toda a Administração Pública, e que docentes de todos os níveis de ensino tenham direito a aposentar-se, com pensão por inteiro, aos 36 anos de serviço, independentemente da idade, com a salvaguarda de uma discriminação positiva para quem tenha exercido as suas funções profissionais em regime de monodocência;
+   - reduzindo a assimetria salarial entre os escalões de ingresso e os de topo, integrando no quadro os docentes que tenham pelo menos três anos de serviço completo;
+   - oferecendo incentivos à profissão de forma a atrair novos profissionais, através de um subsídio de deslocação para quem ficar a mais de 60 km da sua área de residência, combatendo o envelhecimento na carreira e as graves carências de docentes que já se sentem em diversas disciplinas, sobretudo nas regiões mais a sul do país;
+   - revendo o Estatuto da Carreira Docente, desbloqueando a progressão dos professores no 5º e 7º escalões e eliminando as quotas que criam graves injustiças e ultrapassagens entre docentes;
+   - promovendo nas escolas um ambiente de aprendizagem e desenvolvimento pessoal de todas as pessoas que nela trabalham e favorecendo culturas colaborativas;
+   - prevendo a contagem integral e faseada do tempo de serviço passado e revendo o estatuto da profissão, o modelo de avaliação e o modelo de concurso para que se saiba com antecedência se e onde cada docente ficará colocado, em articulação com os sindicatos;
+   - reformulando o novo modelo de concursos em que não seja imposto a docentes a aceitação de vaga longe da sua área de residência, sob pena de haver penalização em futuros concursos;
+   - reformulando o diploma da mobilidade por doença, respeitando as necessidade e estado de saúde de profissionais, corrigindo injustiças nas colocações e promovendo um ambiente saudável, quer física, quer mentalmente a docentes;
+   - reduzindo drasticamente a burocracia que desgasta e exausta profissionais da educação e sem tempo para o acompanhamento pedagógico e pessoal dos alunos, reforçando, em vez disso, o pessoal técnico que acompanha os alunos de forma mais individualizada;
+   - acabando com o projeto MAIA (Monitorização, Acompanhamento e Investigação em Avaliação Pedagógica), que tem demonstrado ser, desde 2019, um fracasso pedagógico e um peso burocrático sem utilidade na melhoria das aprendizagens dos alunos;
+   - criando um grupo de recrutamento de Ciências Sociais e respetivo mestrado em ensino, de forma a garantir a adequação do perfil dos docentes de Sociologia e de Cidadania e Desenvolvimento a um nível de formação científica na área das ciências sociais;
+   - criando um grupo de recrutamento de Português Língua Não Materna, de forma a assegurar a afetação de docentes e a adequação das respostas às necessidades dos alunos recém-chegados, fomentando a sua integração;
+   - criando um grupo de recrutamento de Psicologia para lecionar a disciplina no 12º ano, permitindo que os licenciados em Psicologia possam aceder ao mestrado em Educação, se o desejarem;
+   - para os profissionais no setor cooperativo e social, reforçar a negociação coletiva e que essa seja efetiva para todo o pessoal docente (e não apenas com quem é sindicalizado com os sindicatos com quem se chega a acordo).
 
 6. **Valorizar todo o pessoal não docente e pessoal técnico especializado**,
-	- identificando a sua carreira como específica e regulando a sua avaliação em termos que reconheçam o seu trabalho como também pedagógico, proporcionando progressões regulares na carreira, criando, assim, uma carreira atrativa;
-	- promovendo ações de formação contínua gratuitas, que assegurem a preparação para as várias exigências diárias;
-	- aumentando o número de pessoal não docente por aluno;
-	- assegurando e possibilitando a integração de todas as pessoas que desempenham funções permanentes, incluindo monitores das atividades de enriquecimento curricular, monitores de atividades de apoio à família, pessoal de bares e cantinas, psicólogos e pessoal técnico especializado;
-	- criar a figura do monitor/tutor no ensino secundário (à semelhança do que acontece no ensino superior), posição à qual poderiam concorrer alunos do ensino superior e recém-licenciados sem formação pedagógica com o objectivo de apoiar a ação docente, garantir a proximidade com os alunos, atrair jovens licenciados para a carreira docente e dotá-los de experiência pedagógica.
+
+   - identificando a sua carreira como específica e regulando a sua avaliação em termos que reconheçam o seu trabalho como também pedagógico, proporcionando progressões regulares na carreira, criando, assim, uma carreira atrativa;
+   - promovendo ações de formação contínua gratuitas, que assegurem a preparação para as várias exigências diárias;
+   - aumentando o número de pessoal não docente por aluno;
+   - assegurando e possibilitando a integração de todas as pessoas que desempenham funções permanentes, incluindo monitores das atividades de enriquecimento curricular, monitores de atividades de apoio à família, pessoal de bares e cantinas, psicólogos e pessoal técnico especializado;
+   - criar a figura do monitor/tutor no ensino secundário (à semelhança do que acontece no ensino superior), posição à qual poderiam concorrer alunos do ensino superior e recém-licenciados sem formação pedagógica com o objectivo de apoiar a ação docente, garantir a proximidade com os alunos, atrair jovens licenciados para a carreira docente e dotá-los de experiência pedagógica.
 
 7. **Transformar o 12º ano num ano zero de entrada na universidade e politécnicos**, permitindo capacitar os jovens a entrar no ensino superior — ou na vida profissional para quem fizesse apenas o ano zero e não quisesse prosseguir. O ano zero da universidade deve ser para todas as pessoas: gradual e tendencialmente lecionado em ambiente universitário e incidir sobre conteúdos e práticas que fazem falta não só a estudantes do ensino superior mas a todas e todos os futuros profissionais de uma força de trabalho que precisamos que seja altamente qualificada.
 
 8. **Democratizar o processo de eleição do órgão de gestão da escola**, que deverá ser realizado com a participação, no colégio eleitoral, de todo o pessoal docente e não docente, representantes de encarregados de educação e representantes dos alunos do ensino secundário; a coordenação das estruturas pedagógicas intermédias deverá ser eleita entre pares, e não por nomeação; o Conselho Pedagógico deverá ter independência e autonomia e as suas competências deverão ser reforçadas; a composição e competências do Conselho Geral deverão ser redefinidas.
 
 9. **Promover a cidadania na escola e a integração na comunidade,** passando por:
-	- criar espaços de discussão e tomada de decisões e de intervenção dos alunos;
-	- permitir a participação ativa dos alunos nos diferentes órgãos da escola;
-	- promover uma cultura de partilha e cooperação e participação;
-	- promover a autonomia de crianças e jovens nos percursos casa-escola, a pé, de bicicleta e de transportes públicos;
-	- promover a articulação regular da escola com os equipamentos e instituições locais e o intercâmbio entre escolas;
-	- desburocratizar e fomentar a realização de visitas de estudo em todos os níveis de ensino;
-	- abrir efetivamente as escolas à comunidade e às famílias, com a promoção de dias abertos e atividades, abertas a todas e todos, de partilha de conhecimento a nível local e regional, bem como de ferramentas e estratégias úteis às famílias dos alunos e que promovam a cidadania global;
-	- reforçar a educação para a cidadania em todos os seus domínios e acrescentando ao domínio de Direitos Humanos da Educação para a Cidadania um ponto de "Promoção da Acessibilidade" que explore todas as suas vertentes e que garanta o combate ao capacitismo;
-	- reavaliando a Estratégia Nacional de Educação para a Cidadania, de forma a estabelecer medidas concretas para implementação e mecanismos de avaliação da respetiva implementação, atribuindo, por exemplo, 45 minutos semanais no ensino secundário para que se possa efetivamente trabalhar os diferentes domínios da disciplina, incluindo Educação Sexual;
-	- complementando o Dia da Defesa Nacional com um Dia da Cidadania que inclua atividades de sensibilização para temas como voluntariado, organização do Estado, direitos e deveres em democracia, literacia fiscal e contributiva, entre outros.
+
+   - criar espaços de discussão e tomada de decisões e de intervenção dos alunos;
+   - permitir a participação ativa dos alunos nos diferentes órgãos da escola;
+   - promover uma cultura de partilha e cooperação e participação;
+   - promover a autonomia de crianças e jovens nos percursos casa-escola, a pé, de bicicleta e de transportes públicos;
+   - promover a articulação regular da escola com os equipamentos e instituições locais e o intercâmbio entre escolas;
+   - desburocratizar e fomentar a realização de visitas de estudo em todos os níveis de ensino;
+   - abrir efetivamente as escolas à comunidade e às famílias, com a promoção de dias abertos e atividades, abertas a todas e todos, de partilha de conhecimento a nível local e regional, bem como de ferramentas e estratégias úteis às famílias dos alunos e que promovam a cidadania global;
+   - reforçar a educação para a cidadania em todos os seus domínios e acrescentando ao domínio de Direitos Humanos da Educação para a Cidadania um ponto de "Promoção da Acessibilidade" que explore todas as suas vertentes e que garanta o combate ao capacitismo;
+   - reavaliando a Estratégia Nacional de Educação para a Cidadania, de forma a estabelecer medidas concretas para implementação e mecanismos de avaliação da respetiva implementação, atribuindo, por exemplo, 45 minutos semanais no ensino secundário para que se possa efetivamente trabalhar os diferentes domínios da disciplina, incluindo Educação Sexual;
+   - complementando o Dia da Defesa Nacional com um Dia da Cidadania que inclua atividades de sensibilização para temas como voluntariado, organização do Estado, direitos e deveres em democracia, literacia fiscal e contributiva, entre outros.
 
 10. **Garantir que a escola é um instrumento transversal de igualdade e de justiça social:**
-	- assegurando a gratuitidade e operacionalização adequada do Regime Jurídico da Educação Inclusiva (DL 116/2019), por forma a que todas as crianças e jovens possam ter um acompanhamento e um lugar seguro e adequado na escola, adaptados às suas características individuais e potenciadores do seu desenvolvimento;
-	- adotando medidas que contrariem a segregação com base no rendimento, pertença étnica ou racial ou outros eixos de exclusão e discriminação nas escolas públicas;
-	- criando uma cultura escolar de abertura e aceitação, por forma a que nenhuma criança, jovem ou família seja discriminada seja por que razão for, incluindo a nível do conteúdo dos manuais escolares e do material de estudo e trabalho;
-	- integrando a aprendizagem da língua gestual portuguesa nas escolas;
-	- providenciando aulas da língua materna das crianças, nomeadamente as que usam mirandês, línguas crioulas na família ou caló ou romani português para crianças de etnia cigana, de forma a facilitar, em especial no 1.º ciclo, a aprendizagem do Português como língua não materna, o que terá repercussões positivas no seu percurso escolar;
-	- revisitando e descolonizando a História, para que não perpetue os estigmas e não continue a enfatizar a mitologia colonial, reconhecendo as violências perpetradas sobre outros povos e culturas;
-	- construindo com os nossos parceiros europeus um currículo de História europeia comum;
-	- garantindo os cuidados básicos de saúde, higiene e alimentação saudável;
-	- facilitando às escolas o envolvimento em programas de saúde pública, de combate à pobreza infantil, de prevenção da violência doméstica e no namoro e de combate à discriminação;
-	- valorizando o Ensino Artístico e, também, o Ensino Profissional, facilitando a integração dos alunos na comunidade através do desenvolvimento de competências práticas de uso mais imediato na sociedade;
-	- promovendo a oferta de atividades culturais, artísticas, científicas nas escolas por forma a complementar a especialização no percurso escolar e estimular a criatividade dos jovens;
-	- promovendo e apoiando a prática desportiva e de atividade física na escola.
+
+    - assegurando a gratuitidade e operacionalização adequada do Regime Jurídico da Educação Inclusiva (DL 116/2019), por forma a que todas as crianças e jovens possam ter um acompanhamento e um lugar seguro e adequado na escola, adaptados às suas características individuais e potenciadores do seu desenvolvimento;
+    - adotando medidas que contrariem a segregação com base no rendimento, pertença étnica ou racial ou outros eixos de exclusão e discriminação nas escolas públicas;
+    - criando uma cultura escolar de abertura e aceitação, por forma a que nenhuma criança, jovem ou família seja discriminada seja por que razão for, incluindo a nível do conteúdo dos manuais escolares e do material de estudo e trabalho;
+    - integrando a aprendizagem da língua gestual portuguesa nas escolas;
+    - providenciando aulas da língua materna das crianças, nomeadamente as que usam mirandês, línguas crioulas na família ou caló ou romani português para crianças de etnia cigana, de forma a facilitar, em especial no 1.º ciclo, a aprendizagem do Português como língua não materna, o que terá repercussões positivas no seu percurso escolar;
+    - revisitando e descolonizando a História, para que não perpetue os estigmas e não continue a enfatizar a mitologia colonial, reconhecendo as violências perpetradas sobre outros povos e culturas;
+    - construindo com os nossos parceiros europeus um currículo de História europeia comum;
+    - garantindo os cuidados básicos de saúde, higiene e alimentação saudável;
+    - facilitando às escolas o envolvimento em programas de saúde pública, de combate à pobreza infantil, de prevenção da violência doméstica e no namoro e de combate à discriminação;
+    - valorizando o Ensino Artístico e, também, o Ensino Profissional, facilitando a integração dos alunos na comunidade através do desenvolvimento de competências práticas de uso mais imediato na sociedade;
+    - promovendo a oferta de atividades culturais, artísticas, científicas nas escolas por forma a complementar a especialização no percurso escolar e estimular a criatividade dos jovens;
+    - promovendo e apoiando a prática desportiva e de atividade física na escola.
 
 11. **Criar um Programa Nacional que permita a jovens vivenciar uma semana numa área geográfica diferente**, promovendo a coesão territorial, o conhecimento de diferentes realidades, formas de vida e criação de relações simbióticas entre comunidades escolares de diferentes partes do país.
 
@@ -739,7 +800,7 @@ Por isso defendemos:
 
 14. **Repensar a realização obrigatória dos exames nacionais no ensino secundário** e estudar formas alternativas e/ou complementares para acesso ao ensino superior.
 
-15. **Promover a adoção de ferramentas colaborativas e de acesso aberto**, prevendo a construção e investimento de livros escolares com licença de autor aberta (*Creative Commons*) e de utilização aberta. Promovendo o formato digital em aparelhos sem gestão de direitos digitais (*Digital Rights Management* (DRM) em inglês) e de acesso aberto. A utilização de software proprietário deve ser restrita aos casos onde software aberto não cubra as vantagens pedagógicas, financeiras, de inclusão social e universalidade e devem ser garantidas a privacidade e reserva na utilização dos dados gerados.
+15. **Promover a adoção de ferramentas colaborativas e de acesso aberto**, prevendo a construção e investimento de livros escolares com licença de autor aberta (_Creative Commons_) e de utilização aberta. Promovendo o formato digital em aparelhos sem gestão de direitos digitais (_Digital Rights Management_ (DRM) em inglês) e de acesso aberto. A utilização de software proprietário deve ser restrita aos casos onde software aberto não cubra as vantagens pedagógicas, financeiras, de inclusão social e universalidade e devem ser garantidas a privacidade e reserva na utilização dos dados gerados.
 
 16. **Recuperar as cantinas públicas** de forma a que o principal objetivo seja o bem-estar e a nutrição das crianças e jovens e não o lucro, através de um serviço assegurado pelos próprios estabelecimentos de ensino ou pelas autarquias e não por empresas privadas, melhorando as refeições fornecidas quer a nível da qualidade quer da quantidade proporcionando, assim, refeições saudáveis e adequadas às diversas faixas etárias dos alunos, com o devido controlo de qualidade, assegurando os nutrientes essenciais para promover a alimentação e estilos de vida saudáveis, possibilitando que se usem produtos da região, promovendo a prática da economia circular.
 
@@ -774,9 +835,10 @@ Por isso defendemos:
 1. **Criação de um Fundo Estratégico da Ciência e Tecnologia**, mecanismo permanente de financiamento do sistema científico, assegurado através dos impostos e taxas sobre a atividade económica.
 
 2. **Definição de um novo modelo de governação para a Fundação para a Ciência e Tecnologia** com estruturas de gestão diferenciadas para planeamento e avaliação estratégica, implementação e recolha e análise de informação, baseada nas seguintes estruturas: um Conselho Diretivo (já existente);
-	- uma Estrutura de Estratégia e Planeamento, incluindo um Conselho Estratégico para a Ciência e Tecnologia que deverá ser responsável pela definição de estratégia científica de médio e longo prazo e pelas orientações para a sua implementação. A estrutura deverá ser presidida por representante do ministério da Ciência e Tecnologia e Ensino Superior e integrar pessoas peritas nas diversas áreas científicas, assim como representantes dos outros ministérios com atividades relevantes na Ciência e Tecnologia. Esta Estrutura deve obrigatoriamente ser aconselhada por um Conselho Estratégico internacional de peritos das diversas áreas científicas. O Conselho Estratégico terá um real papel consultivo, sendo obrigatoriamente envolvido em todas as estratégias de longo prazo, publicando pareceres sobre as mesmas. A Estrutura de Estratégia deverá desenhar planos plurianuais com níveis de financiamento global e por áreas, numa lógica de planeamento estratégico de médio prazo e deverá também ser responsável pela definição da Estratégia Portuguesa de Ciência e Tecnologia nas organizações internacionais;
-	- uma Estrutura Executiva da Ciência e Tecnologia, responsável pela implementação das decisões estratégicas. Esta estrutura deverá ser responsável pela operacionalização dos concursos para bolsas, projetos, emprego científico - que devem ocorrer anualmente em datas fixas, com abertura atempada e anúncio até 1 de outubro de cada ano, reportando-se aos anos seguintes (de acordo com o DL n.º 63/2019, de 16 de Maio), critérios transparentes e com conhecimento da composição dos júris, e em que a duração do período de avaliação, até à divulgação dos resultados dos concursos não deve ser superior a 6 meses. Outros concursos, de apoio às instituições e outros, também deverão seguir calendarizações regulares e definidas de forma antecipada;
-	- uma Estrutura de Avaliação e Acompanhamento que deverá, em articulação com o Instituto Nacional de Estatística e com Direção-Geral do Ensino Superior (DGES), ser responsável pela recolha, tratamento, análise, avaliação e difusão de informação relacionada com o Sistema Científico e Tecnológico Nacional. Deverá trabalhar em ligação estreita com a Estrutura Executiva e com a Estrutura de Estratégia, para que esta última possa (re) desenhar estratégia ou identificar rapidamente dificuldades de implementação.
+
+   - uma Estrutura de Estratégia e Planeamento, incluindo um Conselho Estratégico para a Ciência e Tecnologia que deverá ser responsável pela definição de estratégia científica de médio e longo prazo e pelas orientações para a sua implementação. A estrutura deverá ser presidida por representante do ministério da Ciência e Tecnologia e Ensino Superior e integrar pessoas peritas nas diversas áreas científicas, assim como representantes dos outros ministérios com atividades relevantes na Ciência e Tecnologia. Esta Estrutura deve obrigatoriamente ser aconselhada por um Conselho Estratégico internacional de peritos das diversas áreas científicas. O Conselho Estratégico terá um real papel consultivo, sendo obrigatoriamente envolvido em todas as estratégias de longo prazo, publicando pareceres sobre as mesmas. A Estrutura de Estratégia deverá desenhar planos plurianuais com níveis de financiamento global e por áreas, numa lógica de planeamento estratégico de médio prazo e deverá também ser responsável pela definição da Estratégia Portuguesa de Ciência e Tecnologia nas organizações internacionais;
+   - uma Estrutura Executiva da Ciência e Tecnologia, responsável pela implementação das decisões estratégicas. Esta estrutura deverá ser responsável pela operacionalização dos concursos para bolsas, projetos, emprego científico - que devem ocorrer anualmente em datas fixas, com abertura atempada e anúncio até 1 de outubro de cada ano, reportando-se aos anos seguintes (de acordo com o DL n.º 63/2019, de 16 de Maio), critérios transparentes e com conhecimento da composição dos júris, e em que a duração do período de avaliação, até à divulgação dos resultados dos concursos não deve ser superior a 6 meses. Outros concursos, de apoio às instituições e outros, também deverão seguir calendarizações regulares e definidas de forma antecipada;
+   - uma Estrutura de Avaliação e Acompanhamento que deverá, em articulação com o Instituto Nacional de Estatística e com Direção-Geral do Ensino Superior (DGES), ser responsável pela recolha, tratamento, análise, avaliação e difusão de informação relacionada com o Sistema Científico e Tecnológico Nacional. Deverá trabalhar em ligação estreita com a Estrutura Executiva e com a Estrutura de Estratégia, para que esta última possa (re) desenhar estratégia ou identificar rapidamente dificuldades de implementação.
 
 3. **Estabelecer um novo regime legal de planeamento do investimento público em I&D** num quadro plurianual, e estimular o investimento privado em I&D de forma a cumprir as metas de investimento em investigação e desenvolvimento declaradas como objetivo para Portugal, correspondentes a um investimento global em I&D de 3% do PIB até 2030, com uma parcela relativa de 50% de despesa pública e 50% de despesa privada, trazendo Portugal para um patamar de igualdade com a média europeia de investimento em I&D.
 
@@ -793,11 +855,12 @@ Por isso defendemos:
 8. **Eliminar as propinas no 1.º ciclo e no ano curricular/parte escolar do 2º ciclo**, e regulamentar o valor das propinas relativas ao ano de dissertação, estágio ou equivalente/parte não escolar do 2.º ciclo e à formação pós-graduada através do estabelecimento de tetos máximos e da preparação de um processo de redução progressiva do seu montante, de acordo com padrões europeus. Estabelecer um valor máximo aplicável às propinas de estudantes internacionais da Comunidade de Países de Língua Portuguesa, aos quais se passará a aplicar o esquema de devolução de propinas aplicado atualmente a estudantes portugueses.
 
 9. **Reforçar apoios sociais diretos e indiretos aos estudantes do Ensino Superior,**
-	- criando o Fundo de Apoio ao Estudante do Ensino Superior, financiado em parte por impostos de beneficiários do mesmo com altos rendimentos e pelas empresas altamente lucrativas, que permitirá a aquisição de materiais escolares necessários ao sucesso académico, entre outros apoios;
-	- eliminando os constrangimentos e as assimetrias das normas atuais, devendo os apoios a estudantes ser atribuídos independentemente da situação de dívida do seu agregado familiar à Segurança Social ou à Autoridade Tributária;
-	- atualizando os critérios de acesso e reforçando a quantidade e os valores de referência das bolsas de estudo, nomeadamente através de indicadores de custo de curso e de custo de vida ajustados localmente;
-	- reforçando a regulamentação do mecanismo extraordinário de regularização de dívidas por não pagamento de propinas, taxas e emolumentos nas instituições de ensino superior públicas previsto na Lei n.º 75/2019, bem como a supervisão da sua efetiva aplicação pelas Instituições de Ensino Superior;
-	- através da gratuitidade dos passes de transportes públicos para estudantes não abrangidos pela gratuitidade dos passes devido ao limite de idade.
+
+   - criando o Fundo de Apoio ao Estudante do Ensino Superior, financiado em parte por impostos de beneficiários do mesmo com altos rendimentos e pelas empresas altamente lucrativas, que permitirá a aquisição de materiais escolares necessários ao sucesso académico, entre outros apoios;
+   - eliminando os constrangimentos e as assimetrias das normas atuais, devendo os apoios a estudantes ser atribuídos independentemente da situação de dívida do seu agregado familiar à Segurança Social ou à Autoridade Tributária;
+   - atualizando os critérios de acesso e reforçando a quantidade e os valores de referência das bolsas de estudo, nomeadamente através de indicadores de custo de curso e de custo de vida ajustados localmente;
+   - reforçando a regulamentação do mecanismo extraordinário de regularização de dívidas por não pagamento de propinas, taxas e emolumentos nas instituições de ensino superior públicas previsto na Lei n.º 75/2019, bem como a supervisão da sua efetiva aplicação pelas Instituições de Ensino Superior;
+   - através da gratuitidade dos passes de transportes públicos para estudantes não abrangidos pela gratuitidade dos passes devido ao limite de idade.
 
 10. **Regulamentar os emolumentos relativos aos atos académicos comuns às diversas Instituições de Ensino Superior público**, através de tabelamento ou abolição, como por exemplo nas taxas cobradas pelas certidões de grau e reconhecimento de grau obtido no estrangeiro, para admissão a provas académicas de mestrado ou doutoramento, ou para aceder a épocas de avaliação.
 
@@ -806,10 +869,11 @@ Por isso defendemos:
 12. **Reforçar a regulamentação e uniformização dos Estatutos Especiais Estudantis**, como os Estatutos de Trabalhador-Estudante, Estudante-Atleta, Estudante com Necessidades Educativas Específicas e Estudante com Relevo Artístico-Cultural, aprimorando e atualizando os direitos concedidos a estudantes.
 
 13. **Prevenir e combater o assédio nas Instituições de Ensino Superior:**
-	- retomando a discussão sobre a Estratégia de Prevenção de Assédio no Ensino Superior e aprofundando as Respostas de Apoio Psicológico (RAP) para vítimas de assédio e violência sexual;
-	- criando o Mecanismo Nacional de Combate ao Assédio no Ensino Superior dentro da orgânica da Inspeção Geral do Ensino Superior;
-	- definindo um Código de Conduta e Disciplina, um Protocolo de Proteção de Vítimas e Denunciantes, Canais de Denúncia e Respostas de Apoio à Vítima (RAV) multidisciplinares;
-	- mandatando os gabinetes com as funções de prevenção e combate ao assédio nas instituições do Ensino Superior para a constituição de comissões para processamento das queixas e deliberação sobre procedimentos disciplinares que integrem obrigatoriamente membros externos à instituição.
+
+    - retomando a discussão sobre a Estratégia de Prevenção de Assédio no Ensino Superior e aprofundando as Respostas de Apoio Psicológico (RAP) para vítimas de assédio e violência sexual;
+    - criando o Mecanismo Nacional de Combate ao Assédio no Ensino Superior dentro da orgânica da Inspeção Geral do Ensino Superior;
+    - definindo um Código de Conduta e Disciplina, um Protocolo de Proteção de Vítimas e Denunciantes, Canais de Denúncia e Respostas de Apoio à Vítima (RAV) multidisciplinares;
+    - mandatando os gabinetes com as funções de prevenção e combate ao assédio nas instituições do Ensino Superior para a constituição de comissões para processamento das queixas e deliberação sobre procedimentos disciplinares que integrem obrigatoriamente membros externos à instituição.
 
 14. **Tornar obrigatória a existência de Gabinetes de Apoio Psicológico** em todas as unidades orgânicas com autonomia administrativa e financeira das Instituições de Ensino Superior.
 
@@ -842,13 +906,13 @@ Por isso defendemos:
 28. **Lançar o debate, nos 25 anos da Declaração de Bolonha**, em conjunto com as entidades representativas do Ensino Superior, sobre a sua aplicação em Portugal, produzindo um relatório de balanço por forma a melhor fundamentar próximas decisões acerca do futuro do sistema de ensino superior no nosso país.
 
 29. **Garantir a atratividade e a oferta formativa do ramo do ensino nas universidades públicas**, de forma a equilibrar as oportunidades de financiamento e desenvolvimento da carreira para quem segue a via do ensino, promovendo maior diálogo formativo e profissional entre os ramos de ensino e científico, e incentivando a uma maior orientação e encaminhamento de estudantes com perfil de ensino por parte dos departamentos:
-	- garantindo que a oferta departamental nos 1º, 2º e 3º ciclos, quer no ramo de ensino, quer no ramo científico, não dependerá das avaliações periódicas das unidades de investigação FCT associadas a instituições universitárias;
-	- considerando a suspensão das propinas de mestrados em ensino nas universidades públicas em função da necessidade da formação de professores;
-	- garantindo que estudantes de licenciatura possam frequentar seminários dos mestrados em ensino no último ano do plano de estudos do curso;
-	- permitindo que estudantes deslocados possam fazer o estágio do mestrado em ensino em escolas públicas da sua área de residência;
-	- abrindo bolsas de doutoramento a tempo parcial, com distribuição de serviço nas escolas públicas a tempo parcial, para professores das escolas públicas;
-	- incluindo indicadores associados aos mestrados em ensino nas avaliações periódicas das unidades de investigação FCT associadas a instituições universitárias;
-	- criando bolsas de mestrado em ensino que não dependam da política científica ou da FCT e que incluam também: a majoração financeira dos departamentos, na forma de bolsas em mestrado em ensino, em função de indicadores positivos dos professores formados e dos mestrados em ensino; a criação de um número limitado de bolsas de mestrado em ensino dirigida para investigadores a nível pós-doutoral para reconversão de carreira; a criação de um programa especial de inovação nas escolas públicas que não dependa da FCT, em que as escolas possam submeter projetos a financiamento e que esses projetos prevejam bolsas de mestrado em ensino, à semelhança do que acontece para projetos de investigação no ramo científico.
+    - garantindo que a oferta departamental nos 1º, 2º e 3º ciclos, quer no ramo de ensino, quer no ramo científico, não dependerá das avaliações periódicas das unidades de investigação FCT associadas a instituições universitárias;
+    - considerando a suspensão das propinas de mestrados em ensino nas universidades públicas em função da necessidade da formação de professores;
+    - garantindo que estudantes de licenciatura possam frequentar seminários dos mestrados em ensino no último ano do plano de estudos do curso;
+    - permitindo que estudantes deslocados possam fazer o estágio do mestrado em ensino em escolas públicas da sua área de residência;
+    - abrindo bolsas de doutoramento a tempo parcial, com distribuição de serviço nas escolas públicas a tempo parcial, para professores das escolas públicas;
+    - incluindo indicadores associados aos mestrados em ensino nas avaliações periódicas das unidades de investigação FCT associadas a instituições universitárias;
+    - criando bolsas de mestrado em ensino que não dependam da política científica ou da FCT e que incluam também: a majoração financeira dos departamentos, na forma de bolsas em mestrado em ensino, em função de indicadores positivos dos professores formados e dos mestrados em ensino; a criação de um número limitado de bolsas de mestrado em ensino dirigida para investigadores a nível pós-doutoral para reconversão de carreira; a criação de um programa especial de inovação nas escolas públicas que não dependa da FCT, em que as escolas possam submeter projetos a financiamento e que esses projetos prevejam bolsas de mestrado em ensino, à semelhança do que acontece para projetos de investigação no ramo científico.
 
 ### **Ciência e sociedade**
 
@@ -861,22 +925,23 @@ Por isso defendemos:
 33. **Valorizar o potencial económico do conhecimento**, dinamizando e apoiando a participação de empresas portuguesas em projetos de investigação financiados pela União Europeia. As entidades do sistema científico e tecnológico devem investir na constituição, formação e profissionalização de pessoal dedicado à transferência de conhecimento e à propriedade intelectual nas entidades públicas, munindo-as de competências para proteger e comercializar conhecimento produzido e para negociar parcerias nos mercados mundiais. Promover a ligação das Unidades de Investigação ao tecido empresarial, ao nível local e ao nível nacional, permitindo a criação de sinergias para a otimização dos processos produtivos, o desenvolvimento de novas tecnologias de produção, e a criação de novos produtos.
 
 34. **Investir na literacia científica**, através:
-	- de reforçada valorização do papel da Comunicação de Ciência nos projetos de investigação e na avaliação dos Centros de Investigação pela Fundação para a Ciência e a Tecnologia (FCT);
-	- do investimento na divulgação da Ciência junto da população através do apoio a programas como o Ciência Viva;
-	- da promoção da criação de editoriais interinstitucionais, que permitam que diferentes centros universitários juntem esforços no sentido de publicar documentos de divulgação científica e científico-pedagógica;
-	- financiando projetos de Ciência Cidadã;
-	- de incentivos financeiros a organizações de divulgação científica;
-	- criar uma Plataforma Nacional para a Literacia Científica que monitorize e promova a literacia científica da população.
+
+    - de reforçada valorização do papel da Comunicação de Ciência nos projetos de investigação e na avaliação dos Centros de Investigação pela Fundação para a Ciência e a Tecnologia (FCT);
+    - do investimento na divulgação da Ciência junto da população através do apoio a programas como o Ciência Viva;
+    - da promoção da criação de editoriais interinstitucionais, que permitam que diferentes centros universitários juntem esforços no sentido de publicar documentos de divulgação científica e científico-pedagógica;
+    - financiando projetos de Ciência Cidadã;
+    - de incentivos financeiros a organizações de divulgação científica;
+    - criar uma Plataforma Nacional para a Literacia Científica que monitorize e promova a literacia científica da população.
 
 35. **Estudar e desenvolver a abertura em horário total de todas as bibliotecas principais de Universidades públicas**, reforçando a contratação de pessoal necessário, no sentido de garantir espaços que acomodem diferentes horários e ritmos de estudantes e investigadores.
 
 36. **Democratizar a produção científica** financiada total ou parcialmente com fundos públicos, garantindo o acesso livre aos resultados de investigação e partes de trabalhos que os incluam e assegurando a criação e promoção de revistas científicas públicas de acesso aberto a nível nacional e europeu.
 
 37. **Criar a Agência Nacional para a Inteligência Artificial (IA)**, com o propósito de:
-	- desenvolver e inovação, no incentivo à investigação científica e à utilização de IA em usos técnicos e empresariais, incluindo na concessão de subsídios, bolsas, prémios e estabelecimento de projetos colaborativos entre academia, empresas, setor público e social ou cooperativo;
-	- educar, capacitar e consciencializar, através da promoção de projetos educativos, campanhas de informação e alerta sobre os desafios, ameaças, oportunidades e políticas públicas de mitigação de riscos da emergência da IA;
-	- apoiar a criação de um Laboratório Europeu para a IA;
-	- regulamentar através da constituição de um organismo regulador com quadro de pessoal capacitado para a implementação da legislação nacional e europeia para o setor da IA, a trabalhar em ativa parceria com instituições com o mesmo propósito noutros Estados-Membros da União Europeia.
+    - desenvolver e inovação, no incentivo à investigação científica e à utilização de IA em usos técnicos e empresariais, incluindo na concessão de subsídios, bolsas, prémios e estabelecimento de projetos colaborativos entre academia, empresas, setor público e social ou cooperativo;
+    - educar, capacitar e consciencializar, através da promoção de projetos educativos, campanhas de informação e alerta sobre os desafios, ameaças, oportunidades e políticas públicas de mitigação de riscos da emergência da IA;
+    - apoiar a criação de um Laboratório Europeu para a IA;
+    - regulamentar através da constituição de um organismo regulador com quadro de pessoal capacitado para a implementação da legislação nacional e europeia para o setor da IA, a trabalhar em ativa parceria com instituições com o mesmo propósito noutros Estados-Membros da União Europeia.
 
 ## **Cultura e Arte**
 
@@ -903,31 +968,35 @@ Os organismos públicos que gerem e financiam o setor da cultura devem ser repre
 3. **Promover a avaliação do Estatuto dos Profissionais da Cultura (EPAC)** através da reativação da Comissão de Acompanhamento prevista na lei e em diálogo com as associações profissionais; garantir a redução da precariedade e soluções que permitam simplificar, desburocratizar e adequar o estatuto à realidade do setor; implementar um registo estatístico de profissionais do setor – independente da adesão ao regime de Segurança Social – essencial para conhecer a dimensão e as condições do exercício das atividades artísticas e culturais.
 
 4. **Reforçar as redes dos equipamentos culturais:**
-	- criando incentivos para a gestão artística dos equipamentos da Rede de Teatros e Cineteatros Portugueses (RTCP) por entidades de criação artística independentes e para a fixação de estruturas profissionais nos territórios com menos oferta cultural, nomeadamente através da reformulação do Regime de Atribuição de Apoios Financeiros do Estado à atividade artística, e garantindo que todos os equipamentos da RTCP possuem condições de autonomia na gestão artística, bem como recursos humanos e financeiros adequados à sua missão em cada território;
-	- revendo os modelos de gestão de instituições públicas da área da cultura, nomeadamente através da sua desburocratização, da sua adaptação aos contextos culturais e artísticos e através do estudo de modelos de gestão mais horizontais, participativos e de acordo com a missão de serviço público (incluindo os teatros nacionais, a DGArtes, museus e património e outras instituições);
-	- apoiando a criação de cooperativas culturais, movimentos associativos e comunitários de modo a reforçar a necessidade de descentralização da Cultura.
+
+   - criando incentivos para a gestão artística dos equipamentos da Rede de Teatros e Cineteatros Portugueses (RTCP) por entidades de criação artística independentes e para a fixação de estruturas profissionais nos territórios com menos oferta cultural, nomeadamente através da reformulação do Regime de Atribuição de Apoios Financeiros do Estado à atividade artística, e garantindo que todos os equipamentos da RTCP possuem condições de autonomia na gestão artística, bem como recursos humanos e financeiros adequados à sua missão em cada território;
+   - revendo os modelos de gestão de instituições públicas da área da cultura, nomeadamente através da sua desburocratização, da sua adaptação aos contextos culturais e artísticos e através do estudo de modelos de gestão mais horizontais, participativos e de acordo com a missão de serviço público (incluindo os teatros nacionais, a DGArtes, museus e património e outras instituições);
+   - apoiando a criação de cooperativas culturais, movimentos associativos e comunitários de modo a reforçar a necessidade de descentralização da Cultura.
 
 5. **Descentralizar a cultura**, através da:
-	- criação de planos estratégicos para a cultura em todos os Municípios, garantindo que as medidas implementadas obedecem a linhas claras e definidas em conjunto com a sociedade civil e o setor artístico municipal;
-	- criação de um programa de incentivo para coletivos e estruturas de criação artística residirem nos equipamentos da RTCP, em parceria com os municípios e garantindo gestão artística profissional e independente destes espaços;
-	- promoção de uma rede de "Casas da Criação", como uma rede de espaços culturais abertos à comunidade e ao encontro intergeracional, com oficinas de artes de acesso democratizado a um conjunto de equipamentos que potenciam a criação artística e que prime pela inclusão e diversidade das comunidades participantes, abrindo portas a todos os tipos de linguagem artística e cultural, e incentivando o público a não ser apenas consumidor, mas também criador;
-	- valorização do património cultural material e imaterial e a criação contemporânea e as práticas de arquivo, através do reforço de meios financeiros e logísticos para o funcionamento em rede de equipamentos culturais, em concertação com as políticas de planeamento e ordenamento do território e de desenvolvimento sustentável, apoiando a criação de cooperativas culturais, movimentos associativos e comunitários de modo a reforçar a necessidade de descentralização da Cultura.
+
+   - criação de planos estratégicos para a cultura em todos os Municípios, garantindo que as medidas implementadas obedecem a linhas claras e definidas em conjunto com a sociedade civil e o setor artístico municipal;
+   - criação de um programa de incentivo para coletivos e estruturas de criação artística residirem nos equipamentos da RTCP, em parceria com os municípios e garantindo gestão artística profissional e independente destes espaços;
+   - promoção de uma rede de "Casas da Criação", como uma rede de espaços culturais abertos à comunidade e ao encontro intergeracional, com oficinas de artes de acesso democratizado a um conjunto de equipamentos que potenciam a criação artística e que prime pela inclusão e diversidade das comunidades participantes, abrindo portas a todos os tipos de linguagem artística e cultural, e incentivando o público a não ser apenas consumidor, mas também criador;
+   - valorização do património cultural material e imaterial e a criação contemporânea e as práticas de arquivo, através do reforço de meios financeiros e logísticos para o funcionamento em rede de equipamentos culturais, em concertação com as políticas de planeamento e ordenamento do território e de desenvolvimento sustentável, apoiando a criação de cooperativas culturais, movimentos associativos e comunitários de modo a reforçar a necessidade de descentralização da Cultura.
 
 6. **Garantir a inclusão do setor artístico e cultural, verdadeiramente acessível a pessoas com deficiência ou com necessidades específicas**, na fruição e na prática profissional. Gratuidade do ingresso para acompanhantes de pessoas com deficiência ou com necessidades específicas que deles necessitem, em todos os espetáculos artísticos, exposições e atividades culturais. Em linha com as recomendações europeias, incentivar o setor editorial a produzir mais livros em formatos acessíveis a pessoas com deficiência.
 
 7. **Articular a cultura entre diferentes áreas governativas e escalas de intervenção:**
-	- integrar cultura e educação, implementando o ensino artístico nas escolas como acontece com o desporto e a formação para a cidadania; promovendo uma maior relação entre as escolas e os espaços culturais públicos (bibliotecas, museus, teatros, bibliotecas, galerias, espaços naturais e outros);
-	- fomentar a abertura dos equipamentos escolares - como auditórios e bibliotecas - à comunidade e criadores;
-	- alargar os horários das bibliotecas públicas e criar espaços de estudo noturno;
-	- apoiar projetos culturais na área da integração e inclusão social.
+
+   - integrar cultura e educação, implementando o ensino artístico nas escolas como acontece com o desporto e a formação para a cidadania; promovendo uma maior relação entre as escolas e os espaços culturais públicos (bibliotecas, museus, teatros, bibliotecas, galerias, espaços naturais e outros);
+   - fomentar a abertura dos equipamentos escolares - como auditórios e bibliotecas - à comunidade e criadores;
+   - alargar os horários das bibliotecas públicas e criar espaços de estudo noturno;
+   - apoiar projetos culturais na área da integração e inclusão social.
 
 8. **Reestruturar o Instituto Camões** com reforço específico do seu orçamento e revendo a tutela e as competências do instituto de forma a adequar a sua missão à consolidação de políticas públicas culturais de âmbito internacional que respondam aos desafios do séc. XXI. Apoiar as dinâmicas de internacionalização, investindo numa rede cultural transnacional que permita às Embaixadas Portuguesas pela diáspora receber, em residência, artistas nacionais e estimular uma maior mobilidade dos trabalhadores da cultura através de programas de intercâmbio europeus e internacionais.
 
 9. **Descolonizar a cultura:**
-	- contextualizando a história de Portugal nos museus, exposições, performances e materiais didáticos para que seja estimulada a visão crítica sobre o passado esclavagista, colonial e de violências perpetradas sobre outros povos e culturas e que seja reconhecido o seu legado e influência na sociedade atual;
-	- promovendo, em articulação com os esforços de catalogação das coleções do Estado, o estabelecimento da origem e do histórico de circulação das peças, obras, objetos e património trazidos das excolónias, e uma listagem das que estão na posse de museus e arquivos portugueses de forma a que possam ser restituídos ou reclamados pelos Estados e comunidades de origem e criando bolsas de investigação específicas para estudo das obras constantes na listagem;
-	- promovendo modelos justos de circulação e empréstimo de coleções entre instituições museológicas da Comunidade dos Países de Língua Portuguesa, envolvendo equipas transnacionais de estudantes e especialistas, e de programas de intercâmbio de conhecimento em história, arqueologia, conservação, restauro e arquivística;
-	- promovendo a articulação internacional entre especialistas e historiadores para contextualizar e aprofundar a história dos vários locais e regiões, de forma a desconstruir estereótipos e generalizações abusivas e discriminatórias.
+
+   - contextualizando a história de Portugal nos museus, exposições, performances e materiais didáticos para que seja estimulada a visão crítica sobre o passado esclavagista, colonial e de violências perpetradas sobre outros povos e culturas e que seja reconhecido o seu legado e influência na sociedade atual;
+   - promovendo, em articulação com os esforços de catalogação das coleções do Estado, o estabelecimento da origem e do histórico de circulação das peças, obras, objetos e património trazidos das excolónias, e uma listagem das que estão na posse de museus e arquivos portugueses de forma a que possam ser restituídos ou reclamados pelos Estados e comunidades de origem e criando bolsas de investigação específicas para estudo das obras constantes na listagem;
+   - promovendo modelos justos de circulação e empréstimo de coleções entre instituições museológicas da Comunidade dos Países de Língua Portuguesa, envolvendo equipas transnacionais de estudantes e especialistas, e de programas de intercâmbio de conhecimento em história, arqueologia, conservação, restauro e arquivística;
+   - promovendo a articulação internacional entre especialistas e historiadores para contextualizar e aprofundar a história dos vários locais e regiões, de forma a desconstruir estereótipos e generalizações abusivas e discriminatórias.
 
 10. **Definir e operacionalizar estratégias de proteção e promoção da língua mirandesa como língua viva,** através do Instituto da Língua Mirandesa, incluindo o estudo, a recolha e a documentação da Língua Mirandesa e da sua história, as ações para o ensino regular e pontual do Mirandês, as ações para o uso corrente e quotidiano da língua, a publicação de obras originais e traduzidas em Mirandês, o incremento da visibilidade e a promoção da Língua Mirandesa, entre outras, de forma a inverter a ameaça que hoje corre. Garantir a disponibilidade das obras escritas em Mirandês na rede nacional de bibliotecas.
 
@@ -938,36 +1007,39 @@ Os organismos públicos que gerem e financiam o setor da cultura devem ser repre
 ### **Património**
 
 13. **Promover a salvaguarda do património cultural**, através da:
-	- valorização das profissões de Museologia e Conservação e Restauro, conforme a Lei de Bases do Património Cultural Português e a Lei Quadro dos Museus Portugueses, lançando os concursos previstos e reforçando a verba para contratação de técnicos superiores de museologia, arquivística, conservação e restauro e arqueologia, de forma a suprir as recorrentes lacunas de pessoal qualificado;
-	- monitorização da reestruturação do setor do património, garantindo que a reestruturação da DGPC na Museus e Monumentos de Portugal E.P.E e no Património Cultural I.P. não resulte no agravamento das capacidades de um setor já subfinanciado e subdimensionado, especialmente na passagem de competências museológicas para o poder local e de competências de gestão e licenciamento para as Comissões de Coordenação e Desenvolvimento Regional. A reforma deve ser acompanhada por especialistas e profissionais do setor e das instituições impactadas, e avaliada antes do final da próxima legislatura. Garantir a autonomia dos quadros técnicos especialistas e instituições do setor face aos interesses económicos;
-	- revisão do Programa "REVIVE", para que os seus concursos tenham como objetivo principal a fruição do património cultural por todas as pessoas, em vez de serem subordinados ao seu aproveitamento turístico;
-	- elaboração e concretização de um plano de proteção do património azulejar, que inclua a inventariação nacional deste património e um registo de revenda de azulejo que garanta a certificação da origem lícita.
+
+    - valorização das profissões de Museologia e Conservação e Restauro, conforme a Lei de Bases do Património Cultural Português e a Lei Quadro dos Museus Portugueses, lançando os concursos previstos e reforçando a verba para contratação de técnicos superiores de museologia, arquivística, conservação e restauro e arqueologia, de forma a suprir as recorrentes lacunas de pessoal qualificado;
+    - monitorização da reestruturação do setor do património, garantindo que a reestruturação da DGPC na Museus e Monumentos de Portugal E.P.E e no Património Cultural I.P. não resulte no agravamento das capacidades de um setor já subfinanciado e subdimensionado, especialmente na passagem de competências museológicas para o poder local e de competências de gestão e licenciamento para as Comissões de Coordenação e Desenvolvimento Regional. A reforma deve ser acompanhada por especialistas e profissionais do setor e das instituições impactadas, e avaliada antes do final da próxima legislatura. Garantir a autonomia dos quadros técnicos especialistas e instituições do setor face aos interesses económicos;
+    - revisão do Programa "REVIVE", para que os seus concursos tenham como objetivo principal a fruição do património cultural por todas as pessoas, em vez de serem subordinados ao seu aproveitamento turístico;
+    - elaboração e concretização de um plano de proteção do património azulejar, que inclua a inventariação nacional deste património e um registo de revenda de azulejo que garanta a certificação da origem lícita.
 
 14. **Valorizar o património arqueológico**, por meio das seguintes medidas:
-	- identificação de sítios arqueológicos vulneráveis e ameaçados pela pressão urbanística e turística e aumento da dotação para intervenções de proteção, conservação e resgate;
-	- garantir a preservação de sítios arqueológicos não classificados;
-	- reabrir a Biblioteca do Museu Nacional de Arqueologia, com melhoria das condições de trabalho e capacitada para a aquisição de periódicos, obras especializadas e bases de dados de referência no campo da arqueologia, epigrafia e papirologia;
-	- assegurar a aquisição e recuperação de embarcações especializadas para o Centro de Arqueologia Náutica e Subaquática, sob a alçada do novo Património Cultural, I.P, e consequente reforço da verba para contratação de pessoal técnico especializado.
+
+    - identificação de sítios arqueológicos vulneráveis e ameaçados pela pressão urbanística e turística e aumento da dotação para intervenções de proteção, conservação e resgate;
+    - garantir a preservação de sítios arqueológicos não classificados;
+    - reabrir a Biblioteca do Museu Nacional de Arqueologia, com melhoria das condições de trabalho e capacitada para a aquisição de periódicos, obras especializadas e bases de dados de referência no campo da arqueologia, epigrafia e papirologia;
+    - assegurar a aquisição e recuperação de embarcações especializadas para o Centro de Arqueologia Náutica e Subaquática, sob a alçada do novo Património Cultural, I.P, e consequente reforço da verba para contratação de pessoal técnico especializado.
 
 15. **Incentivar a digitalização da cultura**, ao:
-	- tornar efetivo o apoio para que tanto a RTP como as estruturas de criação, produção e programação promovam mais a digitalização das artes performativas, disponibilizando ao público obras nacionais, de acesso livre e gratuito e para todo o mundo;
-	- garantir a execução dos programas de transição digital da cultura, mediante o acompanhamento e escrutínio dos projetos financiados pelo PRR para a transição digital da cultura, reforço das equipas técnicas, condições e ferramentas necessárias à execução dos encargos exigidos às instituições públicas do setor, e criação de recursos fundamentais para o acesso e consulta aos objetos da digitalização em curso, nomeadamente: um catálogo coletivo, agregador e definitivo de todas as bibliotecas sob a alçada do Estado; um catálogo integrado do património, das coleções e depósitos de arte e arqueologia, sob a alçada do Estado, com fotografias em acesso aberto dos materiais em domínio público; e um motor de pesquisa documental coletivo que integre os diferentes projetos de digitalização de arquivos já em curso e dispersos;
-	- garantir a capacidade de publicação digital de livros e periódicos científicos em acesso aberto pelas universidades públicas, sem recurso a grupos editoriais multinacionais;
-	- digitalizar todas as publicações de organismos públicos, esgotadas e fora de circulação e disponibilizá-las gratuitamente.
+    - tornar efetivo o apoio para que tanto a RTP como as estruturas de criação, produção e programação promovam mais a digitalização das artes performativas, disponibilizando ao público obras nacionais, de acesso livre e gratuito e para todo o mundo;
+    - garantir a execução dos programas de transição digital da cultura, mediante o acompanhamento e escrutínio dos projetos financiados pelo PRR para a transição digital da cultura, reforço das equipas técnicas, condições e ferramentas necessárias à execução dos encargos exigidos às instituições públicas do setor, e criação de recursos fundamentais para o acesso e consulta aos objetos da digitalização em curso, nomeadamente: um catálogo coletivo, agregador e definitivo de todas as bibliotecas sob a alçada do Estado; um catálogo integrado do património, das coleções e depósitos de arte e arqueologia, sob a alçada do Estado, com fotografias em acesso aberto dos materiais em domínio público; e um motor de pesquisa documental coletivo que integre os diferentes projetos de digitalização de arquivos já em curso e dispersos;
+    - garantir a capacidade de publicação digital de livros e periódicos científicos em acesso aberto pelas universidades públicas, sem recurso a grupos editoriais multinacionais;
+    - digitalizar todas as publicações de organismos públicos, esgotadas e fora de circulação e disponibilizá-las gratuitamente.
 
 ### **Livros e bibliotecas**
 
 16. **Reestruturar a Direção-Geral do Livro, dos Arquivos e das Bibliotecas (DGLAB)** num organismo com os meios financeiros necessários para que possa executar, com maior alcance, políticas de investimento na área do livro, arquivos e bibliotecas públicas que impulsionem este setor em específico e o tornem sustentável, ao mesmo tempo que estimulem a literacia e criem condições para valorizar criadores e potenciar a sua relação com o público.
 
 17. **Reforçar o papel das bibliotecas como pólos de comunidade e de acesso à cultura:**
-	- reforço da verba para aquisição e atualização das bibliotecas escolares e bibliotecas locais, incluindo materiais nas línguas mais faladas na freguesia em que a biblioteca se encontra;
-	- contratação de professores bibliotecários e técnicos superiores para suprimir lacunas e garantir horários alargados de uso das bibliotecas escolares por estudantes e docentes;
-	- contratação de pessoal técnico bibliotecário e de arquivística para suprimir lacunas e garantir horários alargados de todas as bibliotecas públicas;
-	- garantir a existência de bibliotecas em todos os estabelecimentos prisionais e centros educativos, com condições dignas para leitura e estudo, verba adequada para a aquisição e atualização de livros, e contratação de bibliotecários prisionais;
-	- criação de um catálogo coletivo, agregador e definitivo de todas as bibliotecas sob a alçada do Estado, e bibliotecas privadas especializadas e universitárias de acesso público;
-	- reforço das equipas e dos esforços de digitalização do espólio bibliográfico nacional em domínio público;
-	- garantir zonas de ludoteca nas bibliotecas, de forma a valorizar e promover o jogo de tabuleiro;
-	- generalizar as bibliotecas móveis a todo o país, de forma a suprir as necessidades de leitura em territórios de baixa densidade.
+
+    - reforço da verba para aquisição e atualização das bibliotecas escolares e bibliotecas locais, incluindo materiais nas línguas mais faladas na freguesia em que a biblioteca se encontra;
+    - contratação de professores bibliotecários e técnicos superiores para suprimir lacunas e garantir horários alargados de uso das bibliotecas escolares por estudantes e docentes;
+    - contratação de pessoal técnico bibliotecário e de arquivística para suprimir lacunas e garantir horários alargados de todas as bibliotecas públicas;
+    - garantir a existência de bibliotecas em todos os estabelecimentos prisionais e centros educativos, com condições dignas para leitura e estudo, verba adequada para a aquisição e atualização de livros, e contratação de bibliotecários prisionais;
+    - criação de um catálogo coletivo, agregador e definitivo de todas as bibliotecas sob a alçada do Estado, e bibliotecas privadas especializadas e universitárias de acesso público;
+    - reforço das equipas e dos esforços de digitalização do espólio bibliográfico nacional em domínio público;
+    - garantir zonas de ludoteca nas bibliotecas, de forma a valorizar e promover o jogo de tabuleiro;
+    - generalizar as bibliotecas móveis a todo o país, de forma a suprir as necessidades de leitura em territórios de baixa densidade.
 
 18. **Acompanhar a implementação do programa Cheque-Livro** para jovens de 18 anos pela DGLAB e aumentar o seu valor até final da legislatura, de modo a incentivar o acesso de jovens à cultura.
 
@@ -978,9 +1050,10 @@ Os organismos públicos que gerem e financiam o setor da cultura devem ser repre
 21. **Rever o Regulamento de Utilização de Imagens de Museus, Monumentos e outros Imóveis sob alçada do Estado**, para fazer cumprir as diretivas de acesso aberto para materiais fotográficos de peças em domínio público. Introduzir um requisito de registo, junto do Património Cultural I.P., de peças arqueológicas e de arte que sejam colocadas em leilão e em transações privadas, para dados descritivos, dados do histórico de circulação e proveniência, assim como de materiais fotográficos em acesso aberto quando os direitos das peças são de domínio público.
 
 22. **Reforçar os meios e o papel da Biblioteca Nacional**, ao:
-	- contratar pessoal técnico especializado em falta para catalogação, conservação e restauro de livros e abertura de vagas para estágios de encadernação;
-	- aumento da dotação para a aquisição de obras para expandir o catálogo da Biblioteca Nacional, com prioridade para colmatar falhas do catálogo;
-	- garantir o uso do direito de preferência da aquisição de espólios especializados e legados bibliográficos com volumes em falta pela Biblioteca Nacional.
+
+    - contratar pessoal técnico especializado em falta para catalogação, conservação e restauro de livros e abertura de vagas para estágios de encadernação;
+    - aumento da dotação para a aquisição de obras para expandir o catálogo da Biblioteca Nacional, com prioridade para colmatar falhas do catálogo;
+    - garantir o uso do direito de preferência da aquisição de espólios especializados e legados bibliográficos com volumes em falta pela Biblioteca Nacional.
 
 23. **Criar a Biblioteca Nacional Eduardo Lourenço, uma grande biblioteca pública de dimensão europeia e internacional.**
 
@@ -991,10 +1064,11 @@ Os organismos públicos que gerem e financiam o setor da cultura devem ser repre
 26. **Rever o Plano Nacional de Leitura e reforçar o seu financiamento**, de forma a incluir mais projetos que permitam à população adulta ativa e sénior ler mais.
 
 27. **Reforçar a regulação da edição e do livro**, de modo a garantir a diversidade do setor editorial e livreiro:
-	- travar a criação de monopólios e de grupos editoriais com concentração excessiva de poder de mercado, tanto no mercado escolar como no livro generalista, que esmagam e levam ao desaparecimento de pequenas e médias editoras e livreiros independentes, através do reforço da atuação da Autoridade para a Concorrência e de legislação específica para o setor;
-	- rever todo o enquadramento legal referente à prática de descontos na atividade de venda de livros e que tem gerado concorrência desleal entre as grandes superfícies, redes livreiras e livrarias independentes de modo a diminuir as desigualdades entre elas, incluindo uma reformulação da Lei do Preço Fixo;
-	- criação de um programa de apoio à edição independente em língua portuguesa de modo a assegurar a diversidade de obras de relevância cultural e social, por meio de aquisição de exemplares pelo Estado. Criação de um programa especial de financiamento a tradução e edição crítica de obras fundamentais do património coletivo da humanidade nunca traduzidas para a língua portuguesa, a editar em formato bilíngue e em acesso aberto;
-	- devolução do IVA nos custos de impressão gráfica em obras produzidas por editoras independentes (com volume de faturação anual até 100 000 euros), e com tiragens até 500 exemplares.
+
+    - travar a criação de monopólios e de grupos editoriais com concentração excessiva de poder de mercado, tanto no mercado escolar como no livro generalista, que esmagam e levam ao desaparecimento de pequenas e médias editoras e livreiros independentes, através do reforço da atuação da Autoridade para a Concorrência e de legislação específica para o setor;
+    - rever todo o enquadramento legal referente à prática de descontos na atividade de venda de livros e que tem gerado concorrência desleal entre as grandes superfícies, redes livreiras e livrarias independentes de modo a diminuir as desigualdades entre elas, incluindo uma reformulação da Lei do Preço Fixo;
+    - criação de um programa de apoio à edição independente em língua portuguesa de modo a assegurar a diversidade de obras de relevância cultural e social, por meio de aquisição de exemplares pelo Estado. Criação de um programa especial de financiamento a tradução e edição crítica de obras fundamentais do património coletivo da humanidade nunca traduzidas para a língua portuguesa, a editar em formato bilíngue e em acesso aberto;
+    - devolução do IVA nos custos de impressão gráfica em obras produzidas por editoras independentes (com volume de faturação anual até 100 000 euros), e com tiragens até 500 exemplares.
 
 28. **Estudo sobre a adoção de medidas que promovam uma transição verde na cadeia de produção do livro**, desde a impressão com recurso à indústria de celulose e papel, embalagem, transporte e distribuição do livro, incluindo o uso de embalagens de papel e cartão.
 
@@ -1004,13 +1078,13 @@ Os organismos públicos que gerem e financiam o setor da cultura devem ser repre
 
 31. **Criar novos programas de intercâmbio literário e editorial** entre os países de língua oficial portuguesa e criar uma Feira Internacional do Livro (em cidade a definir) que permita congregar profissionais da área do livro de todo o mundo, à semelhança da Feira do Livro de Frankfurt, contribuindo, deste modo, para a dinamização da economia local.
 
-32. **Reforçar o financiamento das indústrias culturais e criativas através da Agência Nacional de Inovação**  de forma a fortalecer a I&D (investigação e desenvolvimento) associada ao contributo das indústrias criativas para a transição para uma economia da descarbonização bem como o reforço de parcerias regionais de inovação em indústrias criativas.
+32. **Reforçar o financiamento das indústrias culturais e criativas através da Agência Nacional de Inovação** de forma a fortalecer a I&D (investigação e desenvolvimento) associada ao contributo das indústrias criativas para a transição para uma economia da descarbonização bem como o reforço de parcerias regionais de inovação em indústrias criativas.
 
 ### **Cinema e Audiovisual**
 
 33. **Apostar no cinema e audiovisual**, através do fomento de exibição e difusão de obras nacionais de produção independente em horários acessíveis, da ampliação do espectro de fontes de financiamento, da aplicação criteriosa do Contrato de Serviço Público vigente e o reforço da programação de conteúdos culturalmente relevantes na RTP. Reforçar os meios e recursos do Instituto do Cinema e do Audiovisual (ICA) para dar resposta ao volume de solicitações. Concretizar um relatório trienal que torne público um quadro comparativo das entidades financiadas - e não-financiadas - pelo ICA e rever os programas de apoio ao audiovisual do ICA, sobretudo no que a artistas emergentes e de primeiras obras diz respeito. Criar, nas salas de cinema do país, uma quota anual de cinema português que aumente progressivamente até ao fim da legislatura.
 
-34. **Taxar os lucros das plataformas de** *streaming* **e de** *Video On Demand*, implementando de forma ambiciosa a transposição da diretiva europeia do audiovisual, de forma a diversificar as fontes de financiamento para a produção cultural e audiovisual em Portugal e complementar o financiamento público do Instituto do Cinema e do Audiovisual e da Direção Geral das Artes.
+34. **Taxar os lucros das plataformas de** _streaming_ **e de** _Video On Demand_, implementando de forma ambiciosa a transposição da diretiva europeia do audiovisual, de forma a diversificar as fontes de financiamento para a produção cultural e audiovisual em Portugal e complementar o financiamento público do Instituto do Cinema e do Audiovisual e da Direção Geral das Artes.
 
 ## **Habitação e Espaço Público**
 
@@ -1051,13 +1125,15 @@ Por isso defendemos:
 9. **Efetivar o Fundo de Emergência para a Habitação**, aprovado no Orçamento de Estado 2024, para apoiar as pessoas que fiquem sem a sua habitação ou em situação de sem-abrigo para financiar as soluções previstas no Programa 1º Direito, considerando que o PRR termina em 2026, e financiar apoios sociais, nomeadamente: o pagamento de alojamento temporário, a comparticipação do pagamento da renda habitacional ou da prestação do crédito destinado à aquisição. Simultaneamente, direcionar verbas do fundo para a dotação dos serviços de apoio social de capacidade para encontrar soluções alternativas em situações de despejo e permitindo regimes pontuais e extraordinários de proteção de arrendatários e mutuantes decorrentes de externalidades, como a elevada inflação e o aumento das taxas de juros dos créditos para a habitação própria e permanente, permitindo a regulação do aumento anual da renda, suspendendo a execução de hipotecas e despejos, se necessário, ou revendo a legislação das condições de atribuição de crédito.
 
 10. **Aumentar os apoios para o arrendamento habitacional permanente a custos acessíveis:**
-	- ao isentar de imposto do selo os novos contratos de arrendamento habitacional cujo prazo inicial seja igual ou superior a 5 anos no âmbito do Programa de Apoio ao Arrendamento;
-	- ao aumentar o tempo de apoio mínimo no Porta 65 para 36 meses, assim como o período máximo de apoio até ao limite de 84 meses, para terminar com as candidaturas anuais ao apoio financeiro e assim garantir segurança e estabilidade do arrendamento e capacidade de planeamento do futuro para jovens e promover a atualização do valor da renda máxima admitida por tipologia e localização e, na primeira candidatura, possibilitar a atribuição de um valor para apoio ao pagamento da caução;
-	- incluir o arrendamento de quarto, numa habitação de tipologia adequada à quantidade de pessoas que partilham a casa, no programa Porta 65. Este apoio é direcionado para uma única pessoa independentemente da idade (estudantes, profissionais deslocados, etc).
+
+    - ao isentar de imposto do selo os novos contratos de arrendamento habitacional cujo prazo inicial seja igual ou superior a 5 anos no âmbito do Programa de Apoio ao Arrendamento;
+    - ao aumentar o tempo de apoio mínimo no Porta 65 para 36 meses, assim como o período máximo de apoio até ao limite de 84 meses, para terminar com as candidaturas anuais ao apoio financeiro e assim garantir segurança e estabilidade do arrendamento e capacidade de planeamento do futuro para jovens e promover a atualização do valor da renda máxima admitida por tipologia e localização e, na primeira candidatura, possibilitar a atribuição de um valor para apoio ao pagamento da caução;
+    - incluir o arrendamento de quarto, numa habitação de tipologia adequada à quantidade de pessoas que partilham a casa, no programa Porta 65. Este apoio é direcionado para uma única pessoa independentemente da idade (estudantes, profissionais deslocados, etc).
 
 11. **Apoiar as pessoas e as famílias para proteção do direito à habitação** em caso de aumento significativo da prestação mensal do crédito à habitação e da renda em contrato de arrendamento:
-	- alargamento dos critérios para atribuição da bonificação mensal dos juros passando a taxa de esforço mínima elegível para 30% e aumentar para 85% o apoio calculado sobre a variação dos juros;
-	- reforçar o apoio extraordinário à renda reduzindo para 30% a taxa de esforço de referência para elegibilidade do beneficiário e aumentando, simultaneamente, o valor máximo do apoio para 300 Euros. Valor mensal que também deve servir de referência máxima do valor atribuído no âmbito do Porta 65+.
+
+    - alargamento dos critérios para atribuição da bonificação mensal dos juros passando a taxa de esforço mínima elegível para 30% e aumentar para 85% o apoio calculado sobre a variação dos juros;
+    - reforçar o apoio extraordinário à renda reduzindo para 30% a taxa de esforço de referência para elegibilidade do beneficiário e aumentando, simultaneamente, o valor máximo do apoio para 300 Euros. Valor mensal que também deve servir de referência máxima do valor atribuído no âmbito do Porta 65+.
 
 12. **Tornar obrigatória a possibilidade de dação em cumprimento da dívida de crédito à habitação**, já permitida na Lei de Bases da Habitação mas só quando contratualmente prevista. É necessário garantir que quando não se consegue pagar o crédito à habitação a perda do imóvel para a banca garante a extinção da dívida de forma a evitar que mesmo perdendo o imóvel parte da dívida ainda tenha que ser paga.
 
@@ -1068,14 +1144,16 @@ Por isso defendemos:
 14. **Compatibilizar os rendimentos médios e baixos com o valor do arrendamento**, estabelecendo que os novos contratos de arrendamento não excedem uma majoração de 30% dos limites gerais de preço de renda por tipologia previstos em portaria.
 
 15. **Controlar a especulação imobiliária**, ao:
-	- promover o ajustamento do mercado imobiliário ao diminuir os valores de venda através do aumento do imposto sobre as mais valias, considerando 100% do valor para englobamento sobre os ganhos derivados da transmissão onerosa de imóveis no momento da venda de imobiliário que não seja primeira habitação;
-	- terminar com os Vistos *Gold* em todo o território nacional, os benefícios fiscais previstos no Estatuto de residente não habitual e de nómadas digitais, assim como promover uma maior fiscalização aos meios usados para o investimento estrangeiro.
+
+    - promover o ajustamento do mercado imobiliário ao diminuir os valores de venda através do aumento do imposto sobre as mais valias, considerando 100% do valor para englobamento sobre os ganhos derivados da transmissão onerosa de imóveis no momento da venda de imobiliário que não seja primeira habitação;
+    - terminar com os Vistos _Gold_ em todo o território nacional, os benefícios fiscais previstos no Estatuto de residente não habitual e de nómadas digitais, assim como promover uma maior fiscalização aos meios usados para o investimento estrangeiro.
 
 16. **Rever o Estatuto dos Benefícios Fiscais para os imóveis**, através da inventariação e estudo dos organismos de investimento coletivo imobiliário e o seu impacto no mercado habitacional, assim como eliminar ou reduzir os benefícios que são atribuídos a organizações que tenham finalidades de especulação imobiliária e fomentar a transição de frações habitacionais para o arrendamento acessível ao restringir a isenção de IRC aos fundos e sociedades de investimento imobiliário que disponibilizem 30% dos seus bens imóveis no Programa de Apoio ao Arrendamento.
 
 17. **Reformular o cálculo do IMI para reduzir a carga fiscal sobre habitação permanente e agravar a dos imóveis devolutos que não cumprem a função social da habitação**, ao:
-	- alargar os critérios para isenção do pagamento de IMI no caso de habitação permanente (aumento dos valores patrimoniais para 80 000 euros e dos rendimentos de referência para 30 000 euros anuais) ou de imóveis com contratos de arrendamento de longa duração;
-	- possibilitar o aumento do atual agravamento do IMI para imóveis devolutos, degradados ou em ruína e associar, em casos extremos de irregularidade e degradação urbanística grave e prolongada no tempo, este enquadramento fiscal ao uso dos instrumentos adequados previstos na Lei de bases da Habitação, designadamente, a posse administrativa do imóvel.
+
+    - alargar os critérios para isenção do pagamento de IMI no caso de habitação permanente (aumento dos valores patrimoniais para 80 000 euros e dos rendimentos de referência para 30 000 euros anuais) ou de imóveis com contratos de arrendamento de longa duração;
+    - possibilitar o aumento do atual agravamento do IMI para imóveis devolutos, degradados ou em ruína e associar, em casos extremos de irregularidade e degradação urbanística grave e prolongada no tempo, este enquadramento fiscal ao uso dos instrumentos adequados previstos na Lei de bases da Habitação, designadamente, a posse administrativa do imóvel.
 
 18. **Implementar quotas de habitação acessível em empreendimentos urbanísticos de grande dimensão**, contribuindo para uma maior e mais rápida disponibilidade de frações a custo acessível e construção de tecidos urbanos diversos. A cedência de frações para gestão municipal no âmbito para habitação acessível pressupõe a redução do pagamento de taxas inerentes à operação urbanística. Pretende-se que nos investimentos com mais de seis frações habitacionais pelo menos 20% sejam destinados à habitação acessível. A diversidade tipológica das frações para arrendamento acessível deve corresponder, proporcionalmente, à diversidade de tipologias do edificado construído. O projeto deve garantir a igualdade no acesso ao edificado e na utilização dos serviços comuns projetados, impedindo a criação de acessos secundários para os residentes em frações de renda acessível e a imposição de limitações, explícitas ou implícitas, no acesso e utilização dos serviços e espaços comuns do empreendimento.
 
@@ -1088,26 +1166,28 @@ Por isso defendemos:
 ### **Desenvolver modelos ecológicos para o habitar**
 
 22. **Promover a reabilitação e conservação do património edificado**, melhorando o desempenho ambiental de edifícios existentes, contribuindo para as metas estabelecidas na Estratégia Nacional de Longo Prazo para o Combate à Pobreza Energética 2023- 2050, com o aumento da dotação orçamental para o Programa 3C - Casa, Conforto e Clima, e garantindo a melhoria das condições de habitabilidade e da segurança sísmica dos imóveis existentes, através de um programa de incentivos de comparticipação financeira, pelo Fundo Ambiental, a 100% até ao limite de 100.000€ para edifícios existentes, entre os quais se destaca:
-	- alargar a atribuição dos Vales Eficiência a famílias com rendimentos equivalentes aos dois primeiros escalões de IRS, para a melhoria das condições de habitabilidade e sustentabilidade energética e construtiva, tornando este apoio mais abrangente do ponto de vista social;
-	- dotar de mais verbas o apoio aos edifícios em propriedade horizontal e com condomínio constituído, uma vez que a maioria da população vive em edifícios coletivos nos grandes centros urbanos;
-	- apoiar a remoção de materiais construtivos contendo amianto de edifícios de serviços e habitacionais e em frações destinadas a habitação própria e permanente de proprietários cujos rendimentos não excedam o 2.º escalão da tabela do IRS;
-	- apoiar a melhoria da Rede Pública de Abastecimento de Água e Saneamento de Águas Residuais que contemple quer o levantamento nacional das necessidades de ligação à rede pública de abastecimento de água ou de saneamento de águas residuais, para identificar assimetrias regionais, áreas de intervenção prioritárias e estimar custos de ligação, quer a criação de apoio financeiro à ligação à rede pública de abastecimento de água ou de saneamento de águas residuais, direcionado a particulares detentores de casa própria sem acesso;
-	- apoiar a promoção da reutilização e reciclagem de "águas cinzentas" para usos não potáveis, atualizando a legislação e o Regulamento Geral dos Sistemas Públicos de Distribuição de Água e de Drenagem de Águas Residuais.
+
+    - alargar a atribuição dos Vales Eficiência a famílias com rendimentos equivalentes aos dois primeiros escalões de IRS, para a melhoria das condições de habitabilidade e sustentabilidade energética e construtiva, tornando este apoio mais abrangente do ponto de vista social;
+    - dotar de mais verbas o apoio aos edifícios em propriedade horizontal e com condomínio constituído, uma vez que a maioria da população vive em edifícios coletivos nos grandes centros urbanos;
+    - apoiar a remoção de materiais construtivos contendo amianto de edifícios de serviços e habitacionais e em frações destinadas a habitação própria e permanente de proprietários cujos rendimentos não excedam o 2.º escalão da tabela do IRS;
+    - apoiar a melhoria da Rede Pública de Abastecimento de Água e Saneamento de Águas Residuais que contemple quer o levantamento nacional das necessidades de ligação à rede pública de abastecimento de água ou de saneamento de águas residuais, para identificar assimetrias regionais, áreas de intervenção prioritárias e estimar custos de ligação, quer a criação de apoio financeiro à ligação à rede pública de abastecimento de água ou de saneamento de águas residuais, direcionado a particulares detentores de casa própria sem acesso;
+    - apoiar a promoção da reutilização e reciclagem de "águas cinzentas" para usos não potáveis, atualizando a legislação e o Regulamento Geral dos Sistemas Públicos de Distribuição de Água e de Drenagem de Águas Residuais.
 
 23. **Promover a reconversão e reutilização de edifícios públicos subutilizados ou obsoletos**, incluindo quartéis, prisões e antigos hospitais civis, e outros do mesmo género, para fins sociais e habitacionais, pela cedência de utilização para fins de interesse público, pelo arrendamento ou pela integração na bolsa de imóveis públicos para habitação, para a criação de novos pólos públicos de criação de valor social como sejam espaços de teletrabalho, centros cívicos, creches, mercados de bairro, casas para associações e organizações não-governamentais e outros espaços de encontro.
 
 24. **Combater a segregação urbana**, Programa Cidade Sem Periferias - ação integrada que dá prioridade à consolidação urbana e melhoria de áreas já ocupadas mas desestruturadas, periodizando nova construção para cerzir tecidos edificados existentes, melhorando a acessibilidade pedonal e ciclável aos transportes públicos e aos serviços e equipamentos quotidianos e completando a oferta de serviços disponíveis (creches, espaços comunitários, bibliotecas, campos desportivos, etc.), promovendo equipamentos intergeracionais e promotores da autonomia de utentes; na rede de serviços e comércio privados implementando incentivos económicos; e na qualificação do espaço público (praças, parques infantis, jardins, etc…) adequado para as crianças e com especial incidência na melhoria das condições de mobilidade pedonal, garantindo as necessidades de pessoas com mobilidade condicionada.
 
 25. **Criação e regulamentação de um sistema de avaliação e comunicação pública do risco sísmico e de tsunami** para todo o edificado localizado nas regiões de maior vulnerabilidade do território nacional.
-Deve-se estabelecer critérios claros e objetivos para a avaliação do risco sísmico e de tsunami, considerando as características estruturais dos edifícios bem como o contexto geológico e geográfico, identificando os edifícios e áreas mais suscetíveis a danos e criando uma escala de classificação. A regulamentação do sistema deverá incluir diretrizes para a coleta de dados relevantes, métodos de avaliação e a definição de padrões de segurança, garantindo assim a uniformidade e a precisão na avaliação do risco em todo o país. A implementação deste sistema terá impactos significativos na gestão do risco de desastre, possibilitando a tomada de medidas preventivas, a priorização de intervenções em áreas mais críticas e um planeamento urbano que privilegia a diminuição do risco e a resiliência. Além disso, a divulgação transparente dos indicadores de risco proporcionaria à população informações essenciais para o planeamento de emergência e a conscientização sobre a importância da resiliência sísmica nas comunidades expostas.
+    Deve-se estabelecer critérios claros e objetivos para a avaliação do risco sísmico e de tsunami, considerando as características estruturais dos edifícios bem como o contexto geológico e geográfico, identificando os edifícios e áreas mais suscetíveis a danos e criando uma escala de classificação. A regulamentação do sistema deverá incluir diretrizes para a coleta de dados relevantes, métodos de avaliação e a definição de padrões de segurança, garantindo assim a uniformidade e a precisão na avaliação do risco em todo o país. A implementação deste sistema terá impactos significativos na gestão do risco de desastre, possibilitando a tomada de medidas preventivas, a priorização de intervenções em áreas mais críticas e um planeamento urbano que privilegia a diminuição do risco e a resiliência. Além disso, a divulgação transparente dos indicadores de risco proporcionaria à população informações essenciais para o planeamento de emergência e a conscientização sobre a importância da resiliência sísmica nas comunidades expostas.
 
 26. **Manter a reclassificação do solo na esfera dos planos territoriais** e a sua promoção excecional, acompanhando atempadamente o uso do alargamento do prazo para a incorporação das regras de classificação e qualificação de solo previstas no Regime Jurídico dos Instrumentos de Gestão Territorial nos planos municipais e intermunicipais com vista ao fim deste processo. O objetivo público de consolidação das áreas urbanas é essencial à estabilização do uso do solo, reduzir a especulação fundiária e imobiliária, promover rotinas de proximidade independentes do uso do automóvel privado em substituição de movimentos pendulares longos e frequentes e qualificar áreas segregadas e periféricas, redistribuindo de forma justa os benefícios e mais-valias decorrentes das opções de planeamento.
 
 27. **Criar um Programa de Planeamento e Apoio a Comércio Local em áreas urbanas consolidadas**, com levantamento abrangente dos espaços comerciais existentes, procurando garantir uma representação equilibrada dos diferentes tipos de comércio essencial nas áreas históricas e promovendo incentivos para funções básicas de bairro por meio de bolsas, concursos públicos e apoio à renda. Outras medidas incluem reforçar a proteção de lojas históricas, mas também organizações associativas, contra aumento de rendas, capacitar comerciantes para modernizar e digitalizar as lojas históricas, visando a melhoria da viabilidade comercial a longo prazo, e proporcionar formação para gestores municipais do programa a nível local.
 
 28. **Diminuir os resíduos de demolição e promover a reutilização de materiais de construção**, ao:
-	- estabelecer uma Taxa Municipal de Entulho a aplicar aos resíduos resultantes da demolição de edifícios e demais elementos construídos. O cálculo da taxa deve ser realizado de forma proporcional à quantidade de resíduos criados pela transformação do ambiente construído e consequente entulho e lixo criado em obra;
-	- fomentar a criação de Bancos de Materiais de Construção, abastecidos pelos produtos da desconstrução e demolições no município, para serem reutilizados em novas edificações. Produtos que devem ser entregues diferenciadamente segundo a sua natureza, em condições de serem reutilizados, e deverão ser remunerados ou taxados em função da sua utilidade, valor, e potencial de reutilização.
+
+    - estabelecer uma Taxa Municipal de Entulho a aplicar aos resíduos resultantes da demolição de edifícios e demais elementos construídos. O cálculo da taxa deve ser realizado de forma proporcional à quantidade de resíduos criados pela transformação do ambiente construído e consequente entulho e lixo criado em obra;
+    - fomentar a criação de Bancos de Materiais de Construção, abastecidos pelos produtos da desconstrução e demolições no município, para serem reutilizados em novas edificações. Produtos que devem ser entregues diferenciadamente segundo a sua natureza, em condições de serem reutilizados, e deverão ser remunerados ou taxados em função da sua utilidade, valor, e potencial de reutilização.
 
 29. **Fomentar a criação de espaços verdes a nível municipal, metropolitano e regional**, através do apoio à criação e execução de programas como o "Veredas de Lisboa" como forma de agir pela mitigação e adaptação às alterações climáticas e, simultaneamente, aumentar e melhorar espaços verdes acessíveis, seguros e qualificados.
 
@@ -1156,12 +1236,13 @@ Por isso defendemos:
 6. **Definir e estabilizar um plano concreto de infraestruturas de transporte e investimento**, no âmbito do Novo Pacto Verde, e integrado com o PNPOT e que inclua um Plano Nacional de Mobilidade, planeando a médio-longo prazo com uma verdadeira análise de ciclo de vida e de externalidades da construção e operação, articulando as necessidades de todos os setores e tendo em conta as evoluções tecnológicas, demográficas e climáticas. Prevendo nomeadamente a evolução das redes ferroviárias e de metropolitanos, incluindo ligações de alta velocidade e de transporte de mercadorias, articulada com um plano de aquisição e reparação de comboios e material circulante.
 
 7. **Estimular as economias regionais:**
-	- fomentando os mercados regionais e locais, as pequenas e médias iniciativas e as redes de produção e consumo local;
-	- promovendo o associativismo e a cooperação entre produtores;
-	- limitando o licenciamento de grandes superfícies e defendendo os mercados municipais como ponto de comercialização de produtos locais;
-	- localizando as plataformas logísticas e parques empresariais promovidos pelas autarquias de forma a potenciar as sinergias entre empresas, instituições públicas e sociedade civil, a ligação a redes de transporte ferroviária e rodoviária, e dotando-os de sistemas de transporte público com os principais aglomerados populacionais da região;
-	- adotando políticas de compras públicas locais, orientadas prioritariamente para ofertas ecológicas e com garantia de qualidade alimentar;
-	- implementando esquemas de moedas locais.
+
+   - fomentando os mercados regionais e locais, as pequenas e médias iniciativas e as redes de produção e consumo local;
+   - promovendo o associativismo e a cooperação entre produtores;
+   - limitando o licenciamento de grandes superfícies e defendendo os mercados municipais como ponto de comercialização de produtos locais;
+   - localizando as plataformas logísticas e parques empresariais promovidos pelas autarquias de forma a potenciar as sinergias entre empresas, instituições públicas e sociedade civil, a ligação a redes de transporte ferroviária e rodoviária, e dotando-os de sistemas de transporte público com os principais aglomerados populacionais da região;
+   - adotando políticas de compras públicas locais, orientadas prioritariamente para ofertas ecológicas e com garantia de qualidade alimentar;
+   - implementando esquemas de moedas locais.
 
 8. **Fixar e capacitar população nos territórios de baixa densidade** através do aprofundamento das medidas de discriminação positiva. Reforçar os incentivos e programas de mudança da população e atração de investimento para os territórios de baixa densidade, alargando-os ao propósito de fixar a população residente, com especial foco na população mais jovem. Os benefícios fiscais existentes devem ser alargados a residentes, designadamente com vista à valorização das instituições do ensino superior do interior através da fixação de estudantes nas suas áreas de residência, aqui alargando os benefícios para estudantes no interior já existentes a quem já lá vive e escolhe prosseguir estudos. Também os incentivos à empregabilidade devem ser alargados à população residente de modo a contrariar o êxodo motivado pela procura de emprego nas áreas urbanas de maior dimensão, pelo que se propõe uma majoração do valor dos estágios profissionais comparticipados pelo IEFP quando o local de trabalho for num território de baixa densidade, para quem se muda para esse lugar e para quem lá reside.
 
@@ -1178,40 +1259,43 @@ Por isso defendemos:
 ### **Mobilidade segura, acessível e sustentável**
 
 14. **Garantir a oferta e o acesso a uma rede de transportes públicos**, fomentando o transporte adequado a cada deslocação, tendo em conta a sua sustentabilidade e conveniência:
-	- assegurando a intermodalidade, a integração horária, tarifária e de acessibilidade entre todos os modos e a todas as escalas, desde local à internacional, incluindo na realização de novos investimentos;
-	- garantir a oferta e o horário de funcionamento noturno dos transportes coletivos urbanos e suburbanos, aumentando a oferta pública para quem trabalha por turnos e para dissuadir comportamentos de risco, como a condução com cansaço ou sob efeito de álcool ou outras substâncias;
-	- garantir uma comunicação clara, acessível e em tempo real sobre horários e perturbações de serviço;
-	- melhorando as condições para viagens de trabalho e viagens noturnas no transporte ferroviário;
-	- assegurar faixas exclusivas para transportes coletivos nas vias rápidas de acesso aos centros urbanos;
-	- prevendo transporte flexível e a pedido nas zonas urbanas e nas zonas de baixas densidades;
-	- definindo níveis de qualidade de serviço para o transporte público e respetivos modelos de negócio, prevendo uma maior articulação e regulação das empresas de transportes - públicas e privadas;
-	- desincentivando o uso e a propriedade do automóvel privado em zonas bem servidas por outros modos.
+
+    - assegurando a intermodalidade, a integração horária, tarifária e de acessibilidade entre todos os modos e a todas as escalas, desde local à internacional, incluindo na realização de novos investimentos;
+    - garantir a oferta e o horário de funcionamento noturno dos transportes coletivos urbanos e suburbanos, aumentando a oferta pública para quem trabalha por turnos e para dissuadir comportamentos de risco, como a condução com cansaço ou sob efeito de álcool ou outras substâncias;
+    - garantir uma comunicação clara, acessível e em tempo real sobre horários e perturbações de serviço;
+    - melhorando as condições para viagens de trabalho e viagens noturnas no transporte ferroviário;
+    - assegurar faixas exclusivas para transportes coletivos nas vias rápidas de acesso aos centros urbanos;
+    - prevendo transporte flexível e a pedido nas zonas urbanas e nas zonas de baixas densidades;
+    - definindo níveis de qualidade de serviço para o transporte público e respetivos modelos de negócio, prevendo uma maior articulação e regulação das empresas de transportes - públicas e privadas;
+    - desincentivando o uso e a propriedade do automóvel privado em zonas bem servidas por outros modos.
 
 15. **Dar os passos para a criação do Passe de Mobilidade Nacional**, juntamente com as diversas Autoridades de Transportes, as Áreas Metropolitanas e as Comunidades Intermunicipais, que abranja o transporte urbano, suburbano, regional, de médio curso e flexível nos modos rodoviário, ferroviário, fluvial e de mobilidade ativa. Alargar os passes multimodais já existentes, nomeadamente, incluindo a travessia fluvial Setúbal - Tróia no passe Navegante ou os serviços urbanos do Porto no passe Andante, e promover a existência de passes multimodais em cada e entre Comunidades Intermunicipais.
 
 16. **Alargar o âmbito territorial do Passe Ferroviário Nacional**, aos comboios Intercidades e aos comboios Urbanos nos trajetos que ainda não estão incluídos, mantendo o valor mensal do Passe Ferroviário Nacional e acompanhando o reforço do serviço ferroviário e do investimento na renovação e aquisição de material circulante. Rever e atualizar o Contrato de Serviço Público com a CP-Comboios de Portugal E.P.E. (CP) para compensar a perda de receita e o aumento do custo operacional.
 
 17. **Investir no transporte ferroviário,**
-	- projetando uma rede de alta velocidade, em articulação com a rede ferroviária existente, que permita aumento de capacidade, frequência e de velocidade entre as cidades da Península Ibérica e que reduza em 50% os tempos da viagem ferroviária no eixo Setúbal-Lisboa-Porto-Braga-Vigo até 2030 e garantindo serviços frequentes entre Lisboa e Madrid;
-	- garantindo que todas as capitais de distrito estão ligadas por ferrovia, assegurando uma oferta de qualidade e frequente;
-	- garantindo a articulação dos serviços regionais e urbanos com outros transportes públicos e com os modos ativos de deslocação, prevendo-se o estacionamento seguro e o transporte de bicicletas;
-	- articulando com Espanha uma estratégia ferroviária ibérica;
-	- apostando nos comboios noturnos nacionais e internacionais;
-	- garantindo que o preço de uma viagem de avião não possa ser inferior ao da mesma viagem de comboio;
-	- completando a eletrificação da rede ferroviária nacional;
-	- reforçando as condições de trabalho nas oficinas de manutenção da CP.
+
+    - projetando uma rede de alta velocidade, em articulação com a rede ferroviária existente, que permita aumento de capacidade, frequência e de velocidade entre as cidades da Península Ibérica e que reduza em 50% os tempos da viagem ferroviária no eixo Setúbal-Lisboa-Porto-Braga-Vigo até 2030 e garantindo serviços frequentes entre Lisboa e Madrid;
+    - garantindo que todas as capitais de distrito estão ligadas por ferrovia, assegurando uma oferta de qualidade e frequente;
+    - garantindo a articulação dos serviços regionais e urbanos com outros transportes públicos e com os modos ativos de deslocação, prevendo-se o estacionamento seguro e o transporte de bicicletas;
+    - articulando com Espanha uma estratégia ferroviária ibérica;
+    - apostando nos comboios noturnos nacionais e internacionais;
+    - garantindo que o preço de uma viagem de avião não possa ser inferior ao da mesma viagem de comboio;
+    - completando a eletrificação da rede ferroviária nacional;
+    - reforçando as condições de trabalho nas oficinas de manutenção da CP.
 
 18. **Recuperar os comboios noturnos em Portugal e na Península Ibérica**, reativando, em 2024, dos serviços ferroviários noturnos Lusitânia e Sud-Expresso e garantindo a adoção dos serviços ferroviários noturnos como parte da estratégia ferroviária nacional, ibérica e de ligação aos restantes países europeus, através da articulação da CP e a IP com a RENFE, SNCF e outros operadores públicos ou privados, providenciando uma alternativa ecológica e de baixas emissões comparativamente ao transporte aéreo; promovendo o turismo sustentável e ligando Portugal a outros destinos no centro da Europa.
 
 19. **Assegurar um transporte de mercadorias sustentável e seguro**, promovendo o investimento em redes de transporte de mercadorias que permitam diminuir a pegada ecológica dos bens produzidos, ao nível local e nacional, promovendo, em especial, a exportação para a Europa por via ferroviária e revendo os valores de serviços e tarifas cobrados ao transporte ferroviário de mercadorias para os equiparar com os valores em Espanha e para garantir concorrência leal com o transporte rodoviário.
 
 20. **Reduzir a dependência do transporte automóvel privado** e acelerar a redução e a eletrificação do parque automóvel existente,
-	- promover planeamento urbano de proximidade e pondo em prática as medidas prioritárias do Programa Nacional da Política de Ordenamento do Território relativas à avaliação prévia do impacto da delimitação de grandes zonas monofuncionais e novas urbanizações que sejam muito dependentes do transporte individual;
-	- integrar todo o sistema de transportes de modo a conferir-lhe a flexibilidade assegurada pelo automóvel;
-	- assegurar a autonomia das crianças e jovens no seu caminho entre casa e escola, garantindo acessos seguros a pé e de bicicleta e apostando numa rede de transporte escolar;
-	- abandonar a venda de veículos com motor a combustão interna a partir de 2030, garantindo o apoio à troca de veículos a combustíveis fósseis por veículos menos poluentes;
-	- continuar o investimento na rede pública de carregadores elétricos;
-	- promover os esquemas de partilha e aluguer temporário de veículos, reformular o Imposto Sobre Veículos e o Imposto Único de Circulação em função de critérios ambientais (com base na Avaliação do Ciclo de Vida), do uso do veículo e de eficiência energética.
+
+    - promover planeamento urbano de proximidade e pondo em prática as medidas prioritárias do Programa Nacional da Política de Ordenamento do Território relativas à avaliação prévia do impacto da delimitação de grandes zonas monofuncionais e novas urbanizações que sejam muito dependentes do transporte individual;
+    - integrar todo o sistema de transportes de modo a conferir-lhe a flexibilidade assegurada pelo automóvel;
+    - assegurar a autonomia das crianças e jovens no seu caminho entre casa e escola, garantindo acessos seguros a pé e de bicicleta e apostando numa rede de transporte escolar;
+    - abandonar a venda de veículos com motor a combustão interna a partir de 2030, garantindo o apoio à troca de veículos a combustíveis fósseis por veículos menos poluentes;
+    - continuar o investimento na rede pública de carregadores elétricos;
+    - promover os esquemas de partilha e aluguer temporário de veículos, reformular o Imposto Sobre Veículos e o Imposto Único de Circulação em função de critérios ambientais (com base na Avaliação do Ciclo de Vida), do uso do veículo e de eficiência energética.
 
 21. **Atribuir à segurança rodoviária absoluta prioridade**, reduzindo a velocidade máxima em zonas urbanas para 30 km/h, promovendo as área de coexistência com velocidade máxima de 20 km/h e motivando um desenho do espaço público que priorize os transportes públicos, os peões e a utilização da bicicleta como modo de transporte em meio urbano. Passar de uma lógica de responsabilidade individual para uma lógica sistémica, exigindo que o ambiente urbano desmotive o tráfego automóvel e o excesso de velocidade, de forma a que as falhas humanas (que inevitavelmente ocorrem) não resultem em acidentes fatais, garantindo todos os meios para a implementação da Visão Zero 2030 .
 
@@ -1222,11 +1306,12 @@ Por isso defendemos:
 24. **Assegurar a continuidade territorial para as regiões autónomas**, mantendo um preço máximo por viagem para os habitantes das ilhas que viajem entre as ilhas e o continente e entre ilhas.
 
 25. **Limitar o transporte aéreo às ligações onde é efetivamente necessário e minimizar os seus impactos:**
-	- garantir que o preço de uma viagem de avião não possa ser inferior ao da mesma viagem de comboio no território nacional;
-	- retirar a isenção dos impostos sobre o combustível às companhias aéreas;
-	- estudar alternativas de localização para os aeroportos atualmente em zonas urbanas e decidir sobre a construção de quaisquer novos aeroportos em zonas ambientalmente sensíveis, como é o caso da proposta de novo aeroporto para a região de Lisboa, após uma Avaliação Ambiental Estratégica sem condicionamento prévio de localização e com base num Plano Nacional Aeroportuário articulado com o Plano Rodoviário Nacional e com o Plano Ferroviário Nacional;
-	- regular o espaço aéreo e limitar os seus horários para evitar voos noturnos, nomeadamente no aeroporto de Lisboa considerando a salvaguarda da qualidade da vida das populações;
-	- reduzir gradualmente e assim que possível tecnicamente os voos domésticos com emissões de CO2, nomeadamente os voos de serviço público obrigatório.
+
+    - garantir que o preço de uma viagem de avião não possa ser inferior ao da mesma viagem de comboio no território nacional;
+    - retirar a isenção dos impostos sobre o combustível às companhias aéreas;
+    - estudar alternativas de localização para os aeroportos atualmente em zonas urbanas e decidir sobre a construção de quaisquer novos aeroportos em zonas ambientalmente sensíveis, como é o caso da proposta de novo aeroporto para a região de Lisboa, após uma Avaliação Ambiental Estratégica sem condicionamento prévio de localização e com base num Plano Nacional Aeroportuário articulado com o Plano Rodoviário Nacional e com o Plano Ferroviário Nacional;
+    - regular o espaço aéreo e limitar os seus horários para evitar voos noturnos, nomeadamente no aeroporto de Lisboa considerando a salvaguarda da qualidade da vida das populações;
+    - reduzir gradualmente e assim que possível tecnicamente os voos domésticos com emissões de CO2, nomeadamente os voos de serviço público obrigatório.
 
 26. **Taxar os voos de jatos privados**, com aplicação aos voos de jatos privados que partam ou aterrem em território nacional, com taxação diferenciada consoante a distância do voo. Adicionalmente, preparar e promover a transição energética neste setor restringindo, a partir de 2030 e caso o desenvolvimento de aviões elétricos se confirme, a autorização no espaço áereo nacional apenas dos voos de jatos privados sem emissões de CO2, tal como, promover junto da Comissão Europeia, uma política europeia de descarbonização do setor aeroportuário.
 
@@ -1273,30 +1358,31 @@ Por isso defendemos:
 12. **Incentivar o desenvolvimento da indústria solar fotovoltaica e solar térmica**, dando especial relevo à produção descentralizada de energia para autoconsumo e à ocupação preferencial de superfícies urbanas, através da redução de IVA na aquisição de equipamentos solares, reforçando os programas de apoio à aquisição de equipamentos e financiando a ligação à rede de sistemas de Unidades de Produção para Autoconsumo.
 
 13. **Promover as Comunidades de Energia Renováveis (CER) e democratizar o acesso à produção de energia elétrica a partir de fontes renováveis:**
-	- incentivando a formação de cooperativas de produtores , bem como as parcerias entre cidadãos e autarquias e prestando apoio às parcerias já existentes, nomedamente promovendo o fornecimento dos edifícios públicos através destas cooperativas, sempre que possível;
-	- democratizando e incentivando o acesso à produção e distribuição de energia elétrica a partir de fontes renováveis para reduzir a dependência externa, renegociando as concessões na produção, transporte e distribuição de energia elétrica para dar espaço à iniciativa local, retirando as exigências financeiras elevadas para a entrada das cooperativas no mercado da distribuição da energia elétrica;
-	- promovendo a participação cidadã em Comunidades de Energia Renovável e Comunidades de Cidadãos para a Energia, sem condições discriminatórias, devendo ser respeitados os direitos dos consumidores. apoiando as cidadãs e os cidadãos no acesso à informação técnica e financeira relacionada com a criação das Comunidades de Energia;
-	- isentando do pagamento das tarifas de acesso às redes as comunidades de energia renovável comprovadamente sem fins lucrativos e/ou que incluam uma percentagem de participantes em pobreza energética;
-	- incentivando as Comunidades de Energias Renováveis no desenvolvimento de objetivos sociais, como a luta contra a pobreza energética e o desenvolvimento de modelos de solidariedade para ajudar os seus membros mais vulneráveis;
-	- mudando o *net metering* (contagem nos smart meters) para 1 hora em vez de 15 minutos no caso do autoconsumo individual e coletivo e das comunidades de energia;
-	- revendo a limitação geográfica das unidades de produção para autoconsumo (UPAC), aumentando o seu raio mas assegurando que se mantém o princípio de autoconsumo;
-	- flexibilizando o âmbito dos procedimentos de controlo prévio para autoconsumo, aumentando de 700W para 3kW a isenção de controlo prévio, reduzindo a burocracia necessária para a instalação de produção de eletricidade para autoconsumo;
-	- garantindo o licenciamento em menos de um mês para UPACs pequenas com potência inferior a 100 kW;
-	- criando uma organização pública de consultoria de eficiência energética para as famílias;
-	- aplicando às comunidades de energia renovável os mesmos procedimentos de controlo prévio aplicáveis ao autoconsumo, nomeadamente os critérios para a comunicação prévia e para a isenção de controlo prévio.
+
+    - incentivando a formação de cooperativas de produtores , bem como as parcerias entre cidadãos e autarquias e prestando apoio às parcerias já existentes, nomedamente promovendo o fornecimento dos edifícios públicos através destas cooperativas, sempre que possível;
+    - democratizando e incentivando o acesso à produção e distribuição de energia elétrica a partir de fontes renováveis para reduzir a dependência externa, renegociando as concessões na produção, transporte e distribuição de energia elétrica para dar espaço à iniciativa local, retirando as exigências financeiras elevadas para a entrada das cooperativas no mercado da distribuição da energia elétrica;
+    - promovendo a participação cidadã em Comunidades de Energia Renovável e Comunidades de Cidadãos para a Energia, sem condições discriminatórias, devendo ser respeitados os direitos dos consumidores. apoiando as cidadãs e os cidadãos no acesso à informação técnica e financeira relacionada com a criação das Comunidades de Energia;
+    - isentando do pagamento das tarifas de acesso às redes as comunidades de energia renovável comprovadamente sem fins lucrativos e/ou que incluam uma percentagem de participantes em pobreza energética;
+    - incentivando as Comunidades de Energias Renováveis no desenvolvimento de objetivos sociais, como a luta contra a pobreza energética e o desenvolvimento de modelos de solidariedade para ajudar os seus membros mais vulneráveis;
+    - mudando o _net metering_ (contagem nos smart meters) para 1 hora em vez de 15 minutos no caso do autoconsumo individual e coletivo e das comunidades de energia;
+    - revendo a limitação geográfica das unidades de produção para autoconsumo (UPAC), aumentando o seu raio mas assegurando que se mantém o princípio de autoconsumo;
+    - flexibilizando o âmbito dos procedimentos de controlo prévio para autoconsumo, aumentando de 700W para 3kW a isenção de controlo prévio, reduzindo a burocracia necessária para a instalação de produção de eletricidade para autoconsumo;
+    - garantindo o licenciamento em menos de um mês para UPACs pequenas com potência inferior a 100 kW;
+    - criando uma organização pública de consultoria de eficiência energética para as famílias;
+    - aplicando às comunidades de energia renovável os mesmos procedimentos de controlo prévio aplicáveis ao autoconsumo, nomeadamente os critérios para a comunicação prévia e para a isenção de controlo prévio.
 
 14. **Criar uma empresa pública vocacionada para a promoção das energias renováveis e da gestão de uma rede nacional de transportes públicos sustentável** que, à escala local, regional ou nacional, minimize as emissões considerando todo o ciclo de vida, minimizando também o efeito de fragmentação dos habitats atravessados.
 
-15. **Avaliação dos impactos ambientais da 1ª fase de construção de eólicas** *offshore*, fazendo depender a instalação de eólicas *offshore* nas fases posteriores da verificação de um baixo nível de impacto ambiental das conclusões da 1ª fase.
+15. **Avaliação dos impactos ambientais da 1ª fase de construção de eólicas** _offshore_, fazendo depender a instalação de eólicas _offshore_ nas fases posteriores da verificação de um baixo nível de impacto ambiental das conclusões da 1ª fase.
 
-16. **Redirecionar parte da área industrial da antiga refinaria de Leixões, para o fabrico de componentes e montagem de aerogeradores para projetos de energia eólica** *offshore* em parceria com os consórcios concorrentes. A instalação dos potenciais 10GW de capacidade instalada em parques eólicos *offshore* envolve profundas exigências no tecido industrial, especialmente na metalomecânica, e elevadas quantidades de materiais num horizonte de vários anos. A antiga refinaria poderia ser convertida numa infraestrutura para produção e exportação de materiais e equipamentos associados à transição energética, em contato com as universidades e as autarquias, inicialmente para projetos em Portugal e posteriormente para exportação. A restante área industrial deveria incluir a reabilitação de solos e zonas dunares da frente costeira para implantação de um parque urbano, e zonas de habitação e serviços para vários estratos sociais nas restantes zonas periféricas à zona renaturalizada e ao núcleo industrial articulado com o porto de Leixões.
+16. **Redirecionar parte da área industrial da antiga refinaria de Leixões, para o fabrico de componentes e montagem de aerogeradores para projetos de energia eólica** _offshore_ em parceria com os consórcios concorrentes. A instalação dos potenciais 10GW de capacidade instalada em parques eólicos _offshore_ envolve profundas exigências no tecido industrial, especialmente na metalomecânica, e elevadas quantidades de materiais num horizonte de vários anos. A antiga refinaria poderia ser convertida numa infraestrutura para produção e exportação de materiais e equipamentos associados à transição energética, em contato com as universidades e as autarquias, inicialmente para projetos em Portugal e posteriormente para exportação. A restante área industrial deveria incluir a reabilitação de solos e zonas dunares da frente costeira para implantação de um parque urbano, e zonas de habitação e serviços para vários estratos sociais nas restantes zonas periféricas à zona renaturalizada e ao núcleo industrial articulado com o porto de Leixões.
 
 17. **Investir no incremento das interligações energéti-**
-**cas**, explorando o potencial existente na ligação entre Portugal e Espanha, assumindo a meta de 20% para 2030, apostando em redes inteligentes, no reforço da cooperação regional e no desenvolvimento de soluções para o armazenamento energético, tais como baterias, que tirem o melhor partido da capacidade crescente nos transportes elétricos e outros equipamentos com capacidade de armazenamento.
+    **cas**, explorando o potencial existente na ligação entre Portugal e Espanha, assumindo a meta de 20% para 2030, apostando em redes inteligentes, no reforço da cooperação regional e no desenvolvimento de soluções para o armazenamento energético, tais como baterias, que tirem o melhor partido da capacidade crescente nos transportes elétricos e outros equipamentos com capacidade de armazenamento.
 
 18. **Estudar a aposta no biometano e no hidrogénio verde**, investindo na pesquisa e desenvolvimento, bem como na concretização de projetos de produção e distribuição através de rede nacional, e na eventual criação de uma empresa pública - Hidrogénio de Portugal. A transparência e a participação cidadã é essencial para assegurar que a eventual aposta de Portugal no hidrogénio verde se faz de forma ecologicamente sustentável, justa e que o valor acrescentado desta forma de energia se mantenha no país e que não sirva apenas para exportação. O estudo da aposta no hidrogénio verde deve também ter em conta a necessidade de garantir que o seu valor acrescentado fique no país e que Portugal não seja um mero exportador de hidrogénio verde.
 
-19. **Promover uma estratégia nacional para a produção e armazenamento de energia sustentável.**  Implementar uma estratégia nacional de recolha e reciclagem de baterias elétricas. Apoiar a investigação e inovação nos na busca por formas alternativas e menos nocivas ambientalmente de armazenamento de energia, como as baterias de ião de sódio. Apoiar o desenvolvimento de fontes de energia alternativas como geotérmica profunda ou sistemas híbridos de energias renováveis. Incentivar I&D no domínio do captura, utilização e armazenamento de CO2 com aplicação ao tecido industrial nacional.
+19. **Promover uma estratégia nacional para a produção e armazenamento de energia sustentável.** Implementar uma estratégia nacional de recolha e reciclagem de baterias elétricas. Apoiar a investigação e inovação nos na busca por formas alternativas e menos nocivas ambientalmente de armazenamento de energia, como as baterias de ião de sódio. Apoiar o desenvolvimento de fontes de energia alternativas como geotérmica profunda ou sistemas híbridos de energias renováveis. Incentivar I&D no domínio do captura, utilização e armazenamento de CO2 com aplicação ao tecido industrial nacional.
 
 20. **Proceder a uma reforma fiscal ambiental**, através da criação de uma taxa universal sobre o carbono, internalizando dessa forma as externalidades geradas, assegurando equidade social através de uma abordagem que resulte em neutralidade fiscal.
 
@@ -1315,7 +1401,7 @@ Por isso defendemos:
 
 28. **Adaptar o país e mitigar o efeito dos fenómenos climáticos extremos**, definindo um Plano de Infraestruturas Críticas, mapeando os locais onde estes fenómenos poderão ter maior impacto; apoiando, através dos subsídios adequados, soluções baseadas na natureza que através da promoção, reabilitação e manutenção dos ecossistemas, habitats e infraestruturas verdes, aumentem a resistência e resiliência do território; reforçando e dotando dos meios adequados a Proteção Civil. Incorporar o plano de infraestruturas críticas no planeamento de mitigação e resposta a eventos geológicos catastróficos (e.g. sismos, erupções vulcânicas, tsunamis, movimentos de massa).
 
-29. **Manter Portugal livre da exploração de combustíveis fósseis e hidrocarbonetos e da utilização de técnicas como a exploração de gás de xisto através da fratura hidráulica** *(fracking)*, mantendo o território nacional isento dos riscos associados a este modo de extração.
+29. **Manter Portugal livre da exploração de combustíveis fósseis e hidrocarbonetos e da utilização de técnicas como a exploração de gás de xisto através da fratura hidráulica** _(fracking)_, mantendo o território nacional isento dos riscos associados a este modo de extração.
 
 30. **Gerir o risco nuclear para Portugal**, em particular o risco de poluição radioativa no rio Tejo, cooperando com a Espanha no sentido de desenvolver um plano para níveis mínimos de risco nuclear na Península Ibérica. Seguir atentamente o desenvolvimento de novas tecnologias de produção de energia nuclear (como os small modular reactors, ou a fusão nuclear), que poderão contribuir para a descarbonização, assim como dar resposta ao crescente consumo energético. Reavaliar o legado de resíduos e concentrados de Urânio no país e estabelecer uma estratégia de gestão atualizada.
 
@@ -1341,9 +1427,9 @@ Por isso defendemos:
 
 5. **Não exportar resíduos para outros países nem importar**, a não ser resíduos que requeiram tratamento específico, devendo todos os resíduos nacionais ser processados e tratados em Portugal. A única exceção deverá ser a exportação de resíduos que constituam, comprovadamente, matéria-prima para produtos a serem produzidos num outro país.
 
-6. **Acabar com a obsolescência programada e instigar produtos de longa duração**, pressionando para a implementação a nível nacional e europeu de um programa para combater a obsolescência programada; favorecendo os produtos "feitos para durar" e que permitam reparação ou substituição de componentes; promovendo a produção com qualidade, de produtos com elevado valor de mercado e que não estejam alinhados com a filosofia de "obsolescência programada", e que permitam associar à marca "*made in* Portugal" um rótulo de responsabilidade ambiental, durabilidade e fiabilidade; criminalizando a obsolescência programada propositada; taxando os negócios que produzem produtos de utilização limitada (exceto em situações específicas, como nos consumíveis de saúde) e proibindo os produtos descartáveis cujos impactos sejam particularmente severos.
+6. **Acabar com a obsolescência programada e instigar produtos de longa duração**, pressionando para a implementação a nível nacional e europeu de um programa para combater a obsolescência programada; favorecendo os produtos "feitos para durar" e que permitam reparação ou substituição de componentes; promovendo a produção com qualidade, de produtos com elevado valor de mercado e que não estejam alinhados com a filosofia de "obsolescência programada", e que permitam associar à marca "_made in_ Portugal" um rótulo de responsabilidade ambiental, durabilidade e fiabilidade; criminalizando a obsolescência programada propositada; taxando os negócios que produzem produtos de utilização limitada (exceto em situações específicas, como nos consumíveis de saúde) e proibindo os produtos descartáveis cujos impactos sejam particularmente severos.
 
-7. **Defender o direito à fabricação e reparação,** apoiando os negócios de reparação, incluindo os cooperativos como os "*repair*" cafés; democratizando a tecnologia da fabricação digital (ex. impressão 3D), distribuída e aberta e garantindo a implementação de protocolos, formatos de transferência e standards abertos, e também interoperabilidade entre a indústria, pessoas e comunidades; fomentando a existência de manuais de reparação dos eletrodomésticos, circuitos, esquemas de montagem e de fabricação, máquinas e mecanismos.
+7. **Defender o direito à fabricação e reparação,** apoiando os negócios de reparação, incluindo os cooperativos como os "_repair_" cafés; democratizando a tecnologia da fabricação digital (ex. impressão 3D), distribuída e aberta e garantindo a implementação de protocolos, formatos de transferência e standards abertos, e também interoperabilidade entre a indústria, pessoas e comunidades; fomentando a existência de manuais de reparação dos eletrodomésticos, circuitos, esquemas de montagem e de fabricação, máquinas e mecanismos.
 
 8. **Sensibilizar para a importância da economia circular e do consumo responsável**, através de campanhas sobre os vários R - recusar, reduzir, reparar, rot (compostagem), reutilizar e só depois reciclar.
 
@@ -1361,7 +1447,7 @@ Por isso defendemos:
 
 15. **Promover a recolha seletiva de biorresíduos**, garantindo a aplicação do Decreto-Lei 102-D/2020, no qual é estabelecida a obrigatoriedade da recolha seletiva de biorresíduos pelos municípios e a proibição de posteriormente misturá-los aos orgânicos provenientes da recolha indiferenciada, assegurando que todas as pessoas têm acesso a lugares para a disposição apropriada dos resíduos. Promover também a utilização do composto obtido nas comunidades, como em hortas urbanas ou em projetos de hortas comunitárias nas escolas públicas.
 
-16. **Limitar a publicidade no espaço público**, reduzindo o número de "*outdoors*" e "MUPIs", entre outros, de forma a diminuir a poluição visual, a poluição luminosa e o consumo energético associados ao atual sistema consumista e de dominação pelas grandes marcas e multinacionais.
+16. **Limitar a publicidade no espaço público**, reduzindo o número de "_outdoors_" e "MUPIs", entre outros, de forma a diminuir a poluição visual, a poluição luminosa e o consumo energético associados ao atual sistema consumista e de dominação pelas grandes marcas e multinacionais.
 
 ## **Agricultura e Florestas**
 
@@ -1381,7 +1467,7 @@ Por isso defendemos:
 
 1. **Promover a pequena agricultura e agricultura familiar** através da implementação de práticas agroecológicas e regenerativas, mantendo o dinamismo das zonas rurais, o combate às alterações climáticas e a perda de biodiversidade, com o apoio das tradições, do conhecimento, da cultura e da utilização, por estes agricultores, das suas próprias sementes e espécies autóctones.
 
-2. **Fortalecer a pequena agricultura local através do reforço do Estatuto da Agricultura Familiar (EAF)**  com medidas destinadas a encorajar os investimentos na produção e comercialização de pequena escala a nível local nos circuitos curtos de abastecimento, nomeadamente: integrar os detentores do EAF no Regime da Pequena Agricultura (RPA), devendo respeitar as condicionantes de ambos e sendo elegíveis todas as explorações em EAF que não sejam detentores de direitos relativos aos pagamentos diretos; convocar a Comissão Nacional da Agricultura Familiar (CNAF), de forma a propor formas de organização, comercialização, formação e modernização das e dos pequenos agricultores; incentivar os Gabinetes de Acção Local (GAL) a dinamizarem pontos PROVE para o escoamento de produtos dos detentores do EAF; facilitar o acesso dos detentores do EAF via GAL ao abastecimento de pelo menos 10% dos produtos frescos consumidos pelos agrupamentos escolares locais com a produção própria a preços controlados e atualizados anualmente pela CNAF.
+2. **Fortalecer a pequena agricultura local através do reforço do Estatuto da Agricultura Familiar (EAF)** com medidas destinadas a encorajar os investimentos na produção e comercialização de pequena escala a nível local nos circuitos curtos de abastecimento, nomeadamente: integrar os detentores do EAF no Regime da Pequena Agricultura (RPA), devendo respeitar as condicionantes de ambos e sendo elegíveis todas as explorações em EAF que não sejam detentores de direitos relativos aos pagamentos diretos; convocar a Comissão Nacional da Agricultura Familiar (CNAF), de forma a propor formas de organização, comercialização, formação e modernização das e dos pequenos agricultores; incentivar os Gabinetes de Acção Local (GAL) a dinamizarem pontos PROVE para o escoamento de produtos dos detentores do EAF; facilitar o acesso dos detentores do EAF via GAL ao abastecimento de pelo menos 10% dos produtos frescos consumidos pelos agrupamentos escolares locais com a produção própria a preços controlados e atualizados anualmente pela CNAF.
 
 3. **Promover a eficiência de aplicação de fundos públicos e também a economia circular no PEPAC**, articulando a execução dos apoios com a implementação dos planos de ação para a economia circular, promovendo a reutilização de equipamentos, maquinaria e estruturas agrícolas tornando estes materiais elegíveis no âmbito de apoios nas candidaturas ao investimento, desde que abrangidos por garantia do fabricante, em estado de pleno funcionamento e com a revisão e documentação regularizadas.
 
@@ -1391,7 +1477,7 @@ Por isso defendemos:
 
 6. **Incentivar a gestão e organização dos territórios rurais**, sobretudo em regiões de minifúndio, reforçando os mecanismos financeiros do programa Emparcelar Para Ordenar com uma dotação anual reforçada, de modo a lançar concursos anuais com prazos e valores que permitam um impacto efectivo nos terrenos rurais, dando prioridade a terrenos com áreas inferiores a 1ha.
 
-7. **Proteger a posição das e dos agricultores na cadeia de distribuição agroalimentar**, através da proibição das vendas abaixo dos custos de produção *(dumping)* ou do estabelecimento de sistemas de controlo de preços e margens de lucro.
+7. **Proteger a posição das e dos agricultores na cadeia de distribuição agroalimentar**, através da proibição das vendas abaixo dos custos de produção _(dumping)_ ou do estabelecimento de sistemas de controlo de preços e margens de lucro.
 
 8. **Reconhecer o papel da mulher na agricultura**, promovendo a valorização e a visibilidade da mulher agricultora, em especial na agricultura familiar, incentivando a sua participação cívica e associativa através da sua capacitação, contribuindo para a melhoria das suas condições de vida e reduzindo a desigualdade entre homens e mulheres.
 
@@ -1513,7 +1599,7 @@ Por isso defendemos:
 
 25. **Reforçar o Programa Revive Natureza** com meios para integrar todo o património construído devoluto de várias instituições do Estado localizado em zonas rurais ou desfavorecidas, acelerando o ritmo de celebração de protocolos com as e os cidadãos e entidades locais. Este programa deverá ter o seu âmbito de ação ampliado para além da área do turismo, permitindo projetos associados à conservação da natureza, à educação ambiental e ao empreendedorismo rural.
 
-26. **Rever a lei do Banco de Terras e do Fundo de Mobilização de Terras** de modo a que os terrenos devolutos e sem proprietário conhecido possam ser arrendados a entidades públicas e privadas legalmente constituídas que tenham como finalidade a promoção da Conservação de Natureza, "*Rewilding*" ou outras iniciativas de carácter ambiental, atribuindo-se a esses usos um fator diferenciador de prioridade quando os terrenos se localizam em zonas de Rede Natura 2000, em zonas sem manifesta aptidão agrícola ou florestal ou áreas vulneráveis como situações com significativa erosão de solo, margens ripícolas e habitats dunares.
+26. **Rever a lei do Banco de Terras e do Fundo de Mobilização de Terras** de modo a que os terrenos devolutos e sem proprietário conhecido possam ser arrendados a entidades públicas e privadas legalmente constituídas que tenham como finalidade a promoção da Conservação de Natureza, "_Rewilding_" ou outras iniciativas de carácter ambiental, atribuindo-se a esses usos um fator diferenciador de prioridade quando os terrenos se localizam em zonas de Rede Natura 2000, em zonas sem manifesta aptidão agrícola ou florestal ou áreas vulneráveis como situações com significativa erosão de solo, margens ripícolas e habitats dunares.
 
 27. **Atuar sobre o estado da biodiversidade e espécies em Portugal**, com base nomeadamente na informação dos Livros Vermelhos, protegendo as espécies identificadas como em risco e controlando as espécies invasoras e exóticas.
 
@@ -1641,7 +1727,7 @@ Por isso defendemos:
 
 20. **Avaliar a utilização da tecnologia de dessalinização**, devendo, previamente, ser garantida a gestão eficiente dos recursos hídricos disponíveis na região. Sendo necessária a viabilização de uma central de dessalinização, esta deve ser construída utilizando tecnologias inovadoras, em linha com os princípios da economia circular na gestão de resíduos (como na valorização da salmoura e no tratamento de água residuais), cumprindo com todos os critérios ambientais e promovendo ainda a sua eficiência energética.
 
-21. **Financiar projetos de combate à erosão costeira**, dando prioridade a soluções que permitam estabelecer uma solução de longo prazo (ex. sistema fixo de transposição aluvionar da Barra da Figueira da Foz – *Bypass*).
+21. **Financiar projetos de combate à erosão costeira**, dando prioridade a soluções que permitam estabelecer uma solução de longo prazo (ex. sistema fixo de transposição aluvionar da Barra da Figueira da Foz – _Bypass_).
 
 ## **Justiça**
 
@@ -1654,49 +1740,53 @@ A incerteza e a morosidade da justiça penal contribuem hoje para um sentimento 
 Por isso defendemos:
 
 1. **Promover a rapidez e a eficácia da justiça,**
-	- reforçando o número de profissionais de justiça de todas as categorias, nomeadamente magistrados (juízes e procuradores);
-	- revalorizando as funções de assistência no funcionamento da justiça, revendo os regimes salariais e a progressão nas carreiras dos funcionários de justiça;
-	- reforçando os meios técnicos de preparação de decisões judiciais e aplicação do Direito em todo o tipo de funções de justiça, assegurando em especial a disponibilização dos meios tecnológicos mais avançados e condições de trabalho dignas e atrativas;
-	- reforçando os meios técnicos de investigação nas áreas do crime financeiro, da lavagem de dinheiro e da evasão fiscal;
-	- promovendo a redução do tamanho dos articulados e que as peças processuais sejam em linguagem clara e acessível;
-	- reduzindo os formalismos desnecessários na lei processual, limitando as possibilidades de manobras dilatórias.
+
+   - reforçando o número de profissionais de justiça de todas as categorias, nomeadamente magistrados (juízes e procuradores);
+   - revalorizando as funções de assistência no funcionamento da justiça, revendo os regimes salariais e a progressão nas carreiras dos funcionários de justiça;
+   - reforçando os meios técnicos de preparação de decisões judiciais e aplicação do Direito em todo o tipo de funções de justiça, assegurando em especial a disponibilização dos meios tecnológicos mais avançados e condições de trabalho dignas e atrativas;
+   - reforçando os meios técnicos de investigação nas áreas do crime financeiro, da lavagem de dinheiro e da evasão fiscal;
+   - promovendo a redução do tamanho dos articulados e que as peças processuais sejam em linguagem clara e acessível;
+   - reduzindo os formalismos desnecessários na lei processual, limitando as possibilidades de manobras dilatórias.
 
 2. **Reformar todo o processo judicial cível e penal no que toca ao acompanhamento psicológico de vítimas, arguidos, condenados e outros sujeitos processuais.** Aumentar, em especial, esta componente do processo penal, implementando um sistema efetivo de supervisão de todas as fases do processo por parte de equipas de assistentes sociais e psicólogos, em número reforçado, que procederão ao contacto com os sujeitos processuais que o justifiquem ou reclamem, de forma célere e preventiva.
 
 3. **Garantir o acesso universal à justiça,**
-	- reduzindo os vários custos da justiça para os cidadãos, em especial das Taxas de Justiça, através da revisão do Regulamento das Custas Processuais;
-	- criando uma tabela diferenciada de valores de acesso à justiça em função do nível de rendimento dos particulares e da dimensão e tipologia das pessoas coletivas;
-	- prevendo a diminuição gradual desses valores para os particulares em função dos tempos de pendência das decisões a partir de um determinado limiar mínimo de pendência;
-	- garantindo um mapa judiciário que melhor atenda à proximidade de todas as especialidades judiciais às populações em todo o território nacional;
-	- promovendo a utilização de julgados de paz e outros meios de resolução alternativa de litígios, promovendo a passagem de processos com características elegíveis que se encontrem nos tribunais comuns, dispensando assim o cidadão de pagamentos de custas de justiça comum e advogado, e aliviando o sistema judicial no seu todo;
-	- disponibilizando aos cidadãos informações atempadas e mais facilmente apreensíveis sobre os modos de proceder judicialmente na defesa dos seus direitos, tanto através de plataformas digitais como de funcionários vocacionados para essa função em serviços presenciais do Estado.
+
+   - reduzindo os vários custos da justiça para os cidadãos, em especial das Taxas de Justiça, através da revisão do Regulamento das Custas Processuais;
+   - criando uma tabela diferenciada de valores de acesso à justiça em função do nível de rendimento dos particulares e da dimensão e tipologia das pessoas coletivas;
+   - prevendo a diminuição gradual desses valores para os particulares em função dos tempos de pendência das decisões a partir de um determinado limiar mínimo de pendência;
+   - garantindo um mapa judiciário que melhor atenda à proximidade de todas as especialidades judiciais às populações em todo o território nacional;
+   - promovendo a utilização de julgados de paz e outros meios de resolução alternativa de litígios, promovendo a passagem de processos com características elegíveis que se encontrem nos tribunais comuns, dispensando assim o cidadão de pagamentos de custas de justiça comum e advogado, e aliviando o sistema judicial no seu todo;
+   - disponibilizando aos cidadãos informações atempadas e mais facilmente apreensíveis sobre os modos de proceder judicialmente na defesa dos seus direitos, tanto através de plataformas digitais como de funcionários vocacionados para essa função em serviços presenciais do Estado.
 
 4. **Melhorar o Sistema de Acesso ao Direito e aos Tribunais**, revendo a tabela de honorários de advocacia, instituindo sistemas de pagamento a tempo e horas e implementando um sistema de avaliação do serviço prestados por advogados nomeados. revendo e dignificando o sistema de nomeação dos advogados oficiosos que prestam apoio jurídico aos cidadãos.
 
 5. **Tornar a justiça mais transparente e descomplicada,**
-	- garantindo o acesso digital direto dos cidadãos às peças processuais que lhes dizem respeito num portal que também apresente uma esquematização simplificada das fases anteriores e posteriores dos respetivos processos, com remissões para as leis que as enquadram;
-	- criando versões simplificadas (paralelas e sem validade jurídica) de todas as peças processuais que o justifiquem para um melhor entendimento dos cidadãos visados, alargando essa boa prática de linguagem clara e concisa a atos análogos como multas e outras decisões administrativas;
-	- disponibilizando de forma mais célere, organizada e intuitiva as decisões judiciais e despachos finais de inquérito do Ministério Público nas plataformas digitais com esse propósito, investindo também no Citius e SITAF, criando uma plataforma única e nova;
-	- criando práticas de publicação de estatísticas mais detalhadas sobre a atividade dos tribunais, nomeadamente no que toca à duração de processos;
-	- criando estruturas de missão com autonomia e orçamento próprio para coordenar a implementação, auditoria e avaliação dos planos e estratégias nacionais na área da justiça, de acordo com as recomendações do relatório do grupo GRECO.
+
+   - garantindo o acesso digital direto dos cidadãos às peças processuais que lhes dizem respeito num portal que também apresente uma esquematização simplificada das fases anteriores e posteriores dos respetivos processos, com remissões para as leis que as enquadram;
+   - criando versões simplificadas (paralelas e sem validade jurídica) de todas as peças processuais que o justifiquem para um melhor entendimento dos cidadãos visados, alargando essa boa prática de linguagem clara e concisa a atos análogos como multas e outras decisões administrativas;
+   - disponibilizando de forma mais célere, organizada e intuitiva as decisões judiciais e despachos finais de inquérito do Ministério Público nas plataformas digitais com esse propósito, investindo também no Citius e SITAF, criando uma plataforma única e nova;
+   - criando práticas de publicação de estatísticas mais detalhadas sobre a atividade dos tribunais, nomeadamente no que toca à duração de processos;
+   - criando estruturas de missão com autonomia e orçamento próprio para coordenar a implementação, auditoria e avaliação dos planos e estratégias nacionais na área da justiça, de acordo com as recomendações do relatório do grupo GRECO.
 
 6. **Unificar as jurisdições comuns (tribunais judiciais) e administrativa e fiscal, incluindo a unificação dos tribunais superiores e conselhos superiores da magistratura**. Nas últimas décadas a jurisdição administrativa e fiscal tem sido deixada de lado no investimento da justiça. Sendo esta a jurisdição onde as pessoas fazem valer os seus direitos contra o Estado e outras entidades públicas, este desinvestimento protege o setor público nas suas más decisões e prejudica as pessoas. A unificação de jurisdições fará diminuir estas assimetrias, mantendo a especialização dos magistrados e funcionários.
 
 7. **Efetivar a transição digital na justiça de forma a aumentar a sua celeridade**, eficácia e transparência. Em especial, melhorar e simplificar as plataformas digitais que operam a relação dos cidadãos com o sistema de justiça, assim como aquelas que operam a relação entre órgãos de justiça.
 
 8. **Reformar o sistema prisional**, ao:
-	- combater o paradigma ainda assente no encarceramento, promovendo a real reabilitação da pessoa através de um forte investimento na integração social;
-	- garantir a renovação do sistema prisional para combater a taxa de sobrelotação, aproximando Portugal das recomendações internacionais de área mínima por recluso e da detenção em celas duplas ou individuais, e para garantir condições de habitabilidade dignas;
-	- criar Casas de Saída/Autonomização, que visam dar resposta a reclusos que, no momento da libertação (liberdade condicional ou fim de pena) não reúnem condições sociofamiliares no exterior para se reinserirem na sociedade. Estas casas/apartamentos são uma resposta social de transição para a vida em liberdade, permitindo que gradualmente desenvolvam competências pessoais e sociais necessárias à vida independente. Neste sentido, os apartamentos de autonomização deverão estar inseridos na comunidade, em zonas e locais não estigmatizados ou institucionalmente identificados, para que a autonomização permita experienciar contextos o mais próximo possível da vivência futura, independente e autónoma. Estes apartamentos seriam igualmente usados para os reclusos que, não tendo apoio familiar, durante o período de reclusão, pudessem beneficiar de medidas de flexibilização da pena, ou seja, licenças de saída jurisdicional e de curta duração, tempo privilegiado para preparação da reintegração social;
-	- rever regras de visitas e contactos com o exterior, nomeadamente apostando em medidas de flexibilização da execução da pena como a implementação de regimes de licença de saída administrativa e processos de adaptação à liberdade condicional;
-	- desenvolver programas de atividades de lazer e culturais, com acesso a jornais e revistas e internet;
-	- promover a inserção no mercado de trabalho e no desenvolvimento das habilitações literárias, com melhoria do programa de escolarização e a criação de cursos regulares monotemáticos,com a aprendizagem de línguas estrangeiras;
-	- implantar e incrementar cursos de formação profissional e com apoio à procura de trabalho após cumprida a pena;
-	- rever e publicar nova portaria que regula a tabela salarial da população reclusa;
-	- melhorar os cuidados de saúde e de alimentação em centros educativos e estabelecimentos prisionais;
-	- promover a prevenção e o tratamento da doença mental nos serviços prisionais ao criar o Plano Nacional de Saúde Mental em Centros Educativos e Estabelecimentos Prisionais e promover o aumento do apoio psicológico de proximidade e o acesso a tratamento de saúde mental especializado e de qualidade ao cumprir os rácios recomendados de 1 psicólogo para 50 reclusos nos casos de abuso de substâncias e doença mental grave e de 1 psicólogo para 180 reclusos na população prisional geral;
-	- apostar em estratégias de redução de riscos e minimização de danos juntos de pessoas com problemas de abuso de substâncias quer em contexto prisional quer em processo de reintegração social;
-	- dignificar a carreira de guarda prisional e de demais técnicos prisionais e melhorando a oferta de formação profissional, designadamente de quem está na reinserção social e substituindo os atuais conselhos técnicos por verdadeiros conselhos de socialização, que devem integrar uma "Provedoria do Recluso".
+
+   - combater o paradigma ainda assente no encarceramento, promovendo a real reabilitação da pessoa através de um forte investimento na integração social;
+   - garantir a renovação do sistema prisional para combater a taxa de sobrelotação, aproximando Portugal das recomendações internacionais de área mínima por recluso e da detenção em celas duplas ou individuais, e para garantir condições de habitabilidade dignas;
+   - criar Casas de Saída/Autonomização, que visam dar resposta a reclusos que, no momento da libertação (liberdade condicional ou fim de pena) não reúnem condições sociofamiliares no exterior para se reinserirem na sociedade. Estas casas/apartamentos são uma resposta social de transição para a vida em liberdade, permitindo que gradualmente desenvolvam competências pessoais e sociais necessárias à vida independente. Neste sentido, os apartamentos de autonomização deverão estar inseridos na comunidade, em zonas e locais não estigmatizados ou institucionalmente identificados, para que a autonomização permita experienciar contextos o mais próximo possível da vivência futura, independente e autónoma. Estes apartamentos seriam igualmente usados para os reclusos que, não tendo apoio familiar, durante o período de reclusão, pudessem beneficiar de medidas de flexibilização da pena, ou seja, licenças de saída jurisdicional e de curta duração, tempo privilegiado para preparação da reintegração social;
+   - rever regras de visitas e contactos com o exterior, nomeadamente apostando em medidas de flexibilização da execução da pena como a implementação de regimes de licença de saída administrativa e processos de adaptação à liberdade condicional;
+   - desenvolver programas de atividades de lazer e culturais, com acesso a jornais e revistas e internet;
+   - promover a inserção no mercado de trabalho e no desenvolvimento das habilitações literárias, com melhoria do programa de escolarização e a criação de cursos regulares monotemáticos,com a aprendizagem de línguas estrangeiras;
+   - implantar e incrementar cursos de formação profissional e com apoio à procura de trabalho após cumprida a pena;
+   - rever e publicar nova portaria que regula a tabela salarial da população reclusa;
+   - melhorar os cuidados de saúde e de alimentação em centros educativos e estabelecimentos prisionais;
+   - promover a prevenção e o tratamento da doença mental nos serviços prisionais ao criar o Plano Nacional de Saúde Mental em Centros Educativos e Estabelecimentos Prisionais e promover o aumento do apoio psicológico de proximidade e o acesso a tratamento de saúde mental especializado e de qualidade ao cumprir os rácios recomendados de 1 psicólogo para 50 reclusos nos casos de abuso de substâncias e doença mental grave e de 1 psicólogo para 180 reclusos na população prisional geral;
+   - apostar em estratégias de redução de riscos e minimização de danos juntos de pessoas com problemas de abuso de substâncias quer em contexto prisional quer em processo de reintegração social;
+   - dignificar a carreira de guarda prisional e de demais técnicos prisionais e melhorando a oferta de formação profissional, designadamente de quem está na reinserção social e substituindo os atuais conselhos técnicos por verdadeiros conselhos de socialização, que devem integrar uma "Provedoria do Recluso".
 
 9. **Salvaguardar queixosos e testemunhas dos processos**, resumindo a sua informação ao número de identificação civil e fiscal, e anonimizando outros dados como a morada ou o estado civil.
 
@@ -1711,72 +1801,79 @@ Num Estado Social é crucial que se estabeleça uma relação de confiança entr
 Por isso defendemos:
 
 1. **Aumentar a confiança entre as pessoas e os serviços do Estado**, da escala local à escala nacional:
-	- humanizando e especializando o acompanhamento às e aos cidadãos em todos os serviços públicos, em especial ao nível das finanças, segurança social, saúde, educação e segurança;
-	- investindo na formação da função pública, em particular em matéria e desenvolvimento de competências de contacto, relacionamento e atendimento ao público;
-	- disponibilizando espaços de atendimento presencial ao público mais acessíveis e confortáveis e plataformas digitais de serviço público simples e intuitivas;
-	- generalizando os inquéritos de satisfação e os portais de queixa relativamente à prestação de funcionários, às condições da infraestrutura e à navegabilidade das plataformas digitais;
-	- investindo em campanhas de humanização e aproximação das forças de segurança às pessoas e das pessoas às forças de segurança;
-	- efetivando os procedimentos e sanções disciplinares existentes, especialmente no que toca a comportamentos discriminatórios e abusos de autoridade;
-	- simplificando as deduções fiscais e garantindo que da parte da Autoridade Tributária há o benefício da dúvida face a erros e omissões dos cidadãos nas suas obrigações fiscais, com redução das coimas associadas a pequenos atrasos ou a erros manifestamente involuntários.
+
+   - humanizando e especializando o acompanhamento às e aos cidadãos em todos os serviços públicos, em especial ao nível das finanças, segurança social, saúde, educação e segurança;
+   - investindo na formação da função pública, em particular em matéria e desenvolvimento de competências de contacto, relacionamento e atendimento ao público;
+   - disponibilizando espaços de atendimento presencial ao público mais acessíveis e confortáveis e plataformas digitais de serviço público simples e intuitivas;
+   - generalizando os inquéritos de satisfação e os portais de queixa relativamente à prestação de funcionários, às condições da infraestrutura e à navegabilidade das plataformas digitais;
+   - investindo em campanhas de humanização e aproximação das forças de segurança às pessoas e das pessoas às forças de segurança;
+   - efetivando os procedimentos e sanções disciplinares existentes, especialmente no que toca a comportamentos discriminatórios e abusos de autoridade;
+   - simplificando as deduções fiscais e garantindo que da parte da Autoridade Tributária há o benefício da dúvida face a erros e omissões dos cidadãos nas suas obrigações fiscais, com redução das coimas associadas a pequenos atrasos ou a erros manifestamente involuntários.
 
 2. **Garantir o direito à informação clara e transparente**, através de:
-	- garantir que toda a informação pública relevante é disponibilizada em linguagem clara e em formatos facilmente acessíveis;
-	- formar os cidadãos e os funcionários públicos nas questões de direito à informação;
-	- reformando profundamente o portal digital do Diário da República, tornando-o um repositório acessível, organizado e intuitivo de toda a legislação em vigor em território nacional;
-	- disponibilizar os documentos, relatórios e trabalhos de assessoria técnica que suportam decisões ou avaliação;
-	- potenciar o portal e Portugal como grande plataforma que agregue todos os elementos que compõem a posição da e do cidadão face ao Estado, não substituindo plataformas especializadas existentes (como o Portal das Finanças e a Segurança Social Direta), mas contendo informações essenciais relativas a todas as áreas de ação do Estado, assim como hiperligações para os portais específicos respetivos;
-	- publicar os perfis e currículos de qualquer pessoa que desempenhe funções de decisão pública;
-	- garantindo a formação contínua das e dos funcionários públicos para além das matérias do seu serviço, incluindo uma forte componente de funcionamento geral do Estado e do Direito, capacitando para melhor fornecer e perceber o enquadramento transversal da situação específica de cada cidadão.
+
+   - garantir que toda a informação pública relevante é disponibilizada em linguagem clara e em formatos facilmente acessíveis;
+   - formar os cidadãos e os funcionários públicos nas questões de direito à informação;
+   - reformando profundamente o portal digital do Diário da República, tornando-o um repositório acessível, organizado e intuitivo de toda a legislação em vigor em território nacional;
+   - disponibilizar os documentos, relatórios e trabalhos de assessoria técnica que suportam decisões ou avaliação;
+   - potenciar o portal e Portugal como grande plataforma que agregue todos os elementos que compõem a posição da e do cidadão face ao Estado, não substituindo plataformas especializadas existentes (como o Portal das Finanças e a Segurança Social Direta), mas contendo informações essenciais relativas a todas as áreas de ação do Estado, assim como hiperligações para os portais específicos respetivos;
+   - publicar os perfis e currículos de qualquer pessoa que desempenhe funções de decisão pública;
+   - garantindo a formação contínua das e dos funcionários públicos para além das matérias do seu serviço, incluindo uma forte componente de funcionamento geral do Estado e do Direito, capacitando para melhor fornecer e perceber o enquadramento transversal da situação específica de cada cidadão.
 
 3. **Reforçar a autonomia e a independência do Instituto Nacional de Estatística**, que deve passar a depender diretamente da Assembleia da República, garantindo a contratação dos trabalhadores necessários para o bom funcionamento do INE e melhorando as condições de carreira e de trabalho.
 
 4. **Desprivatizar a Administração Pública e o serviço público** e reverter a concessão a privados das funções sociais do Estado, anulando os contratos de prestação de serviços a privados quando existe capacidade para os substituir na Administração Pública. Assegurando que a ação das instituições da área da economia social e solidária reforçam e complementam o Estado sem o substituir e que é rigorosamente escrutinada a gestão dos apoios públicos que lhes são conferidos.
 
 5. **Dignificar o trabalho no Estado:**
-	- actualizando as posições remuneratórias em função do nível de qualificação do trabalhador (de acordo com o Quadro Nacional de Qualificações);
-	- considerando a contagem integral do tempo de serviço do pessoal docente e de todos os trabalhadores das carreiras e corpos especiais da administração pública, com uma regularização total a dois anos ou com outro prazo resultante do diálogo social;
-	- concluindo a revisão das carreiras do regime especial e dos corpos especiais e criando as carreiras especiais cujos conteúdos funcionais são diferenciados;
-	- aumentando o nível remuneratório inicial para técnicos superiores na administração pública, suprimindo até 2025 o nível 16 e tomando como primeiro nível remuneratório da carreira de técnico superior o nível 17 da tabela geral remuneratória;
-	- promovendo a valorização salarial equivalente a um nível remuneratório para técnicos superiores na administração pública com mestrado;
-	- melhorando as condições de trabalho, de instalações, de recursos e de formação dos profissionais do Estado;
-	- aprofundamento de conhecimentos técnicos e sua atualização, mas dando igualmente oportunidades de formação em áreas distintas e línguas estrangeiras;
-	- promovendo a mobilidade de funcionários entre funções e serviços, adequando o seu trabalho com mais facilidade, em função das contínuas formações, conhecimentos e experiência (profissional e de vida);
-	- fornecendo formação em bem-estar e saúde mental para a promoção de comportamentos saudáveis e práticas de bem-estar ao nível físico, social e mental;
-	- investindo meios e recursos na identificação precoce de situações de burnout, assédio moral, assédio sexual, entre outros, em contexto de trabalho;
-	- promovendo uma revisão negociada da Lei Geral do Trabalho em Funções Públicas;
-	- combatendo a precariedade no Estado local e central;
-	- apostando em sistemas de avaliação de trabalhadores que promovam a motivação e a cooperação;
-	- criando uma bonificação remuneratória, baseada no custo de vida do local de trabalho presencial.
+
+   - actualizando as posições remuneratórias em função do nível de qualificação do trabalhador (de acordo com o Quadro Nacional de Qualificações);
+   - considerando a contagem integral do tempo de serviço do pessoal docente e de todos os trabalhadores das carreiras e corpos especiais da administração pública, com uma regularização total a dois anos ou com outro prazo resultante do diálogo social;
+   - concluindo a revisão das carreiras do regime especial e dos corpos especiais e criando as carreiras especiais cujos conteúdos funcionais são diferenciados;
+   - aumentando o nível remuneratório inicial para técnicos superiores na administração pública, suprimindo até 2025 o nível 16 e tomando como primeiro nível remuneratório da carreira de técnico superior o nível 17 da tabela geral remuneratória;
+   - promovendo a valorização salarial equivalente a um nível remuneratório para técnicos superiores na administração pública com mestrado;
+   - melhorando as condições de trabalho, de instalações, de recursos e de formação dos profissionais do Estado;
+   - aprofundamento de conhecimentos técnicos e sua atualização, mas dando igualmente oportunidades de formação em áreas distintas e línguas estrangeiras;
+   - promovendo a mobilidade de funcionários entre funções e serviços, adequando o seu trabalho com mais facilidade, em função das contínuas formações, conhecimentos e experiência (profissional e de vida);
+   - fornecendo formação em bem-estar e saúde mental para a promoção de comportamentos saudáveis e práticas de bem-estar ao nível físico, social e mental;
+   - investindo meios e recursos na identificação precoce de situações de burnout, assédio moral, assédio sexual, entre outros, em contexto de trabalho;
+   - promovendo uma revisão negociada da Lei Geral do Trabalho em Funções Públicas;
+   - combatendo a precariedade no Estado local e central;
+   - apostando em sistemas de avaliação de trabalhadores que promovam a motivação e a cooperação;
+   - criando uma bonificação remuneratória, baseada no custo de vida do local de trabalho presencial.
 
 6. **Alterar os métodos de contratação da função pública e a progressão nas carreiras:**
-	- apostando no mecanismo do Recrutamento Centralizado como método preferencial de recrutamento de quadros para a Administração Pública, evitando a multiplicação de processos de recrutamento e garantindo a necessária imparcialidade no acesso ao serviço público;
-	- garantindo que nos processos de seleção haja adequação das pessoas contratadas às necessidades específicas das instituições em causa e que sejam introduzidos critérios qualitativos tais como a avaliação curricular e a realização de entrevistas;
-	- revendo o SIADAP de forma a torná-lo num sistema de avaliação que efetivamente valorize o mérito e contribua para a progressão criteriosa das carreiras e que, do mesmo modo, penalize a falta de empenho reiterada, aumentando e generalizando os sistemas de avaliação de chefias por parte das equipas que lideram;
-	- promovendo a análise e revisão do contexto organizativo e de qualidade promovendo modelos de liderança mais horizontais, informada e transparente, possibilitando a participação ativa das e dos funcionários públicos nas cadeias de decisão que impliquem alterações nos serviços;
-	- tornando a nomeação de chefias mais justa e imparcial, elevando o concurso público a regra e o convite interno a exceção, não obstante a pertença à instituição em causa continuar a ser fator de valorização das candidaturas, e conferindo-lhes também profissionalização, autonomia e responsabilização;
-	- adotando a Classificação Nacional das Áreas de Educação e Formação (CNAEF) 2013 (ou eventual futura CNAEF 2024) para todos os fins, incluindo não apenas todas as operações estatísticas relevantes, mas também a contratação pública (incluindo os recrutamentos centralizados), a recolha e tratamento de dados sobre formação profissional, os inquéritos e estudos e a identificação da oferta formativa.
+
+   - apostando no mecanismo do Recrutamento Centralizado como método preferencial de recrutamento de quadros para a Administração Pública, evitando a multiplicação de processos de recrutamento e garantindo a necessária imparcialidade no acesso ao serviço público;
+   - garantindo que nos processos de seleção haja adequação das pessoas contratadas às necessidades específicas das instituições em causa e que sejam introduzidos critérios qualitativos tais como a avaliação curricular e a realização de entrevistas;
+   - revendo o SIADAP de forma a torná-lo num sistema de avaliação que efetivamente valorize o mérito e contribua para a progressão criteriosa das carreiras e que, do mesmo modo, penalize a falta de empenho reiterada, aumentando e generalizando os sistemas de avaliação de chefias por parte das equipas que lideram;
+   - promovendo a análise e revisão do contexto organizativo e de qualidade promovendo modelos de liderança mais horizontais, informada e transparente, possibilitando a participação ativa das e dos funcionários públicos nas cadeias de decisão que impliquem alterações nos serviços;
+   - tornando a nomeação de chefias mais justa e imparcial, elevando o concurso público a regra e o convite interno a exceção, não obstante a pertença à instituição em causa continuar a ser fator de valorização das candidaturas, e conferindo-lhes também profissionalização, autonomia e responsabilização;
+   - adotando a Classificação Nacional das Áreas de Educação e Formação (CNAEF) 2013 (ou eventual futura CNAEF 2024) para todos os fins, incluindo não apenas todas as operações estatísticas relevantes, mas também a contratação pública (incluindo os recrutamentos centralizados), a recolha e tratamento de dados sobre formação profissional, os inquéritos e estudos e a identificação da oferta formativa.
 
 7. **Combater a precariedade do trabalho para o Estado**,
-	- reduzindo o elevado número de trabalhadores a recibos verdes na função pública, e regularizando a sua situação contratual;
-	- acabando com o trabalho precário na Administração Pública convertendo os vínculos precários em contratos de trabalho subordinado;
-	- substituindo a subcontratação no Estado por contratações em regime de trabalho subordinado;
-	- combatendo o recurso abusivo ao estatuto de bolseiro.
+
+   - reduzindo o elevado número de trabalhadores a recibos verdes na função pública, e regularizando a sua situação contratual;
+   - acabando com o trabalho precário na Administração Pública convertendo os vínculos precários em contratos de trabalho subordinado;
+   - substituindo a subcontratação no Estado por contratações em regime de trabalho subordinado;
+   - combatendo o recurso abusivo ao estatuto de bolseiro.
 
 8. **Promover a qualidade e eficácia dos serviços públicos**, com:
-	- a criação de um Programa de Avaliação e Melhoramento dos Serviços Públicos para monitorizar, avaliar e corrigir deficiências na prestação de todos os serviços públicos. Os cidadãos deverão poder participar nas avaliações do Programa, assim como apresentar sugestões de melhoria dos serviços. A partir de dados empíricos, deverá ser feita a análise e revisão do contexto organizativo de cada serviço, promovendo modelos de liderança mais horizontal, informada e transparente, com participação ativa de funcionários nas cadeias de decisão que impliquem alterações nos serviços;
-	- a informatização e cruzamento de dados entre setores, garantindo a privacidade das e dos cidadãos;
-	- a reabilitação do Instituto Nacional de Administração enquanto Escola de Administração Pública, com autonomia científica e atividade de investigação. Deverá ser dado o impulso para a criação de pós-graduações de nível superior que visem qualificar estudantes com licenciatura de diferentes áreas para integrarem a Administração Pública em posições de exigência técnica.
+
+   - a criação de um Programa de Avaliação e Melhoramento dos Serviços Públicos para monitorizar, avaliar e corrigir deficiências na prestação de todos os serviços públicos. Os cidadãos deverão poder participar nas avaliações do Programa, assim como apresentar sugestões de melhoria dos serviços. A partir de dados empíricos, deverá ser feita a análise e revisão do contexto organizativo de cada serviço, promovendo modelos de liderança mais horizontal, informada e transparente, com participação ativa de funcionários nas cadeias de decisão que impliquem alterações nos serviços;
+   - a informatização e cruzamento de dados entre setores, garantindo a privacidade das e dos cidadãos;
+   - a reabilitação do Instituto Nacional de Administração enquanto Escola de Administração Pública, com autonomia científica e atividade de investigação. Deverá ser dado o impulso para a criação de pós-graduações de nível superior que visem qualificar estudantes com licenciatura de diferentes áreas para integrarem a Administração Pública em posições de exigência técnica.
 
 9. **Lançar um programa de emprego público** para reforço de toda a Administração Pública, apostando na reversão do processo de envelhecimento e depauperação de profissionais, com particular atenção aos serviços deficitários, para suprir carências em escolas, hospitais, segurança social e outros serviços. Lançando novos processos de Recrutamento Centralizado para preenchimento de Bolsas de Emprego Público, com processos de avaliação expeditos e prevendo contratações com posições remuneratórias iniciais de acordo com o nível de qualificação do candidato.
 
 10. **Integrar representante das e dos trabalhadores nos conselhos de administração dos serviços públicos**, conforme estabelecido pelo artigo 89.º da Constituição, ao adequar a legislação, regulamentos e estatutos para promover a sua representação efetiva nas opções executivas das instituições públicas.
 
 11. **Dignificar as forças de segurança**, nomeadamente revendo os seus salários, carreiras, condições laborais e promovendo a formação:
-	- igualando o Suplemento por Serviço e Risco nas Forças de Segurança da PSP e GNR ao suplemento de missão da PJ;
-	- simplificando o regime de suplementos, incorporando valores que já são atribuídos por esta via nas remunerações base;
-	- promovendo o policiamento e patrulhamento de proximidade, as responsabilidades de missões de Comando e a pertença a unidades de especiais de serviço;
-	- garantindo condições dignas de trabalho a todos os elementos das forças de segurança, com o investimento nas esquadras e postos territoriais, na melhoria das condições de atendimento aos cidadãos e criando um novo sistema de gestão das frotas das forças de segurança e garantindo maior operacionalidade dos veículos;
-	- fornecendo formação a todos os elementos das forças e serviços de segurança que garanta o cumprimento dos Direitos Humanos.
+
+    - igualando o Suplemento por Serviço e Risco nas Forças de Segurança da PSP e GNR ao suplemento de missão da PJ;
+    - simplificando o regime de suplementos, incorporando valores que já são atribuídos por esta via nas remunerações base;
+    - promovendo o policiamento e patrulhamento de proximidade, as responsabilidades de missões de Comando e a pertença a unidades de especiais de serviço;
+    - garantindo condições dignas de trabalho a todos os elementos das forças de segurança, com o investimento nas esquadras e postos territoriais, na melhoria das condições de atendimento aos cidadãos e criando um novo sistema de gestão das frotas das forças de segurança e garantindo maior operacionalidade dos veículos;
+    - fornecendo formação a todos os elementos das forças e serviços de segurança que garanta o cumprimento dos Direitos Humanos.
 
 12. **Maior profissionalização dos bombeiros voluntários**, com a criação de equipas dentro da estrutura dos Bombeiros Voluntários que visem a sua operacionalização, elementos das equipas com vínculos ao Estado, sob o comando do Corpo de Bombeiros. Dentro de cada Corpo de Bombeiros existirá uma bolsa de voluntários que manterá como reforço das equipas operacionais e para situações de excepção, tal como na época de incêndios. Separação do transporte de doentes não urgentes dos bombeiros, podendo as Associações Humanitárias de Bombeiros manter este negócio para financiamento do Corpo de Bombeiros, mas com elementos externos aos bombeiros.
 
@@ -1785,7 +1882,7 @@ Por isso defendemos:
 14. **Rever o quadro legal das autarquias locais**, promovendo uma reforma institucional, orgânica e de competências e promover a elaboração de Código Autárquico, no qual deverá ser reunida toda a legislação dispersa relativa às competências autárquicas, possibilitando a sua consulta sistemática.
 
 15. **Garantir a segurança nas praias e outros espaços**
-**balneares**, incluindo além da época balnear, acabando com a delegação de competências de assistência a banhistas aos concessionários, ficando os municípios responsáveis pela contratação de dispositivos permanentes e temporários de assistência a banhistas, de forma directa ou através de Associações de Nadadores Salvadores. O dispositivo permanente de Nadadores Salvadores visa a assistência a banhistas o ano inteiro, o temporário servirá para reforçar o dispositivo permanente nas alturas de maior procura, não devendo este dispositivo estar limitado no tempo (ex: 15 de junho a 15 de setembro), sendo utilizado tendo em conta a procura dos espaços balneares e as condições climatéricas. Criar para os Nadadores Salvadores condições fiscais, bem como condições especiais para os estudantes, que os beneficiem, tendo em conta o superior interesse público em salvaguardar a vida humana e a segurança dos banhistas, especialmente devido à falta de Nadadores Salvadores. Financiamento da assistência a banhistas através de taxas turísticas bem como verbas da Protecção Civil.
+    **balneares**, incluindo além da época balnear, acabando com a delegação de competências de assistência a banhistas aos concessionários, ficando os municípios responsáveis pela contratação de dispositivos permanentes e temporários de assistência a banhistas, de forma directa ou através de Associações de Nadadores Salvadores. O dispositivo permanente de Nadadores Salvadores visa a assistência a banhistas o ano inteiro, o temporário servirá para reforçar o dispositivo permanente nas alturas de maior procura, não devendo este dispositivo estar limitado no tempo (ex: 15 de junho a 15 de setembro), sendo utilizado tendo em conta a procura dos espaços balneares e as condições climatéricas. Criar para os Nadadores Salvadores condições fiscais, bem como condições especiais para os estudantes, que os beneficiem, tendo em conta o superior interesse público em salvaguardar a vida humana e a segurança dos banhistas, especialmente devido à falta de Nadadores Salvadores. Financiamento da assistência a banhistas através de taxas turísticas bem como verbas da Protecção Civil.
 
 16. **Efetivar a transição digital** em todo o seu potencial de melhoria da prestação de serviços públicos, tomando como prioridades, entre outras, a disponibilização de mais e melhor informação aos cidadãos, a reversão do impacto negativo da exclusão territorial de populações, a agilização de procedimentos, o cruzamentos de dados e a equidade de tratamento. Todas as reformas de digitalização devem ter, no seu centro, a proteção da privacidade dos cidadãos e a garantia da possibilidade de acesso a um tratamento presencial e humano, se essa for a vontade da pessoa.
 
@@ -1801,23 +1898,25 @@ Por isso defendemos:
 
 1. **Reformar o sistema eleitoral**, de forma a garantir maior diversidade e pluralidade do sistema político e um sistema eleitoral mais justo, representativo e proporcional, em que todos os votos contem.
 
-	**Promovendo, numa revisão constitucional**, que:
-	- permita o voto a partir dos 16 anos;
-	- permita o voto em referendo de pessoas emigradas fora de Portugal;
-	- possibilite a participação política e o voto dos imigrantes e refugiados a viver em Portugal;
-	- acabe com a discriminação etária e da nacionalidade portuguesa ter de ser originária no acesso às candidaturas à Presidência da República;
-	- reveja os círculos eleitorais e leve à criação de um Círculo Nacional de Compensação para as eleições legislativas e listas semi-abertas. Os atuais círculos eleitorais, baseados nos distritos portugueses, estão ainda sujeitos a uma automática alteração congruente com regiões provenientes de um futuro processo de regionalização.
+   **Promovendo, numa revisão constitucional**, que:
 
-	**Procedendo a uma revisão dos processos eleitorais que:**
-	- possibilite à diáspora a votação por correspondência em todos os atos eleitorais, incluindo as presidenciais e do Conselho das Comunidades Portuguesas;
-	- melhore as condições da votação por correspondência, de modo a garantir mínimos exigíveis de acesso, segurança e confidencialidade;
-	- invista no desenvolvimento e experimentação de sistemas de voto eletrónico não presencial, particularmente nos círculos eleitorais da emigração;
-	- alargue as possibilidades de voto em mobilidade e antecipado para todos os eleitores;
-	- garanta condições de acessibilidade ao voto e à informação para votar a todos os cidadãos, incluindo pessoas com deficiência ou aquelas que se encontrem impedidas de deslocação por motivos legais ou de saúde;
-	- facilite os mecanismos de recenseamento para emigrantes e atualizando os cadernos eleitorais em todos os círculos, eliminando também os chamados eleitores- fantasma.
+   - permita o voto a partir dos 16 anos;
+   - permita o voto em referendo de pessoas emigradas fora de Portugal;
+   - possibilite a participação política e o voto dos imigrantes e refugiados a viver em Portugal;
+   - acabe com a discriminação etária e da nacionalidade portuguesa ter de ser originária no acesso às candidaturas à Presidência da República;
+   - reveja os círculos eleitorais e leve à criação de um Círculo Nacional de Compensação para as eleições legislativas e listas semi-abertas. Os atuais círculos eleitorais, baseados nos distritos portugueses, estão ainda sujeitos a uma automática alteração congruente com regiões provenientes de um futuro processo de regionalização.
+
+   **Procedendo a uma revisão dos processos eleitorais que:**
+
+   - possibilite à diáspora a votação por correspondência em todos os atos eleitorais, incluindo as presidenciais e do Conselho das Comunidades Portuguesas;
+   - melhore as condições da votação por correspondência, de modo a garantir mínimos exigíveis de acesso, segurança e confidencialidade;
+   - invista no desenvolvimento e experimentação de sistemas de voto eletrónico não presencial, particularmente nos círculos eleitorais da emigração;
+   - alargue as possibilidades de voto em mobilidade e antecipado para todos os eleitores;
+   - garanta condições de acessibilidade ao voto e à informação para votar a todos os cidadãos, incluindo pessoas com deficiência ou aquelas que se encontrem impedidas de deslocação por motivos legais ou de saúde;
+   - facilite os mecanismos de recenseamento para emigrantes e atualizando os cadernos eleitorais em todos os círculos, eliminando também os chamados eleitores- fantasma.
 
 2. **Realizar em 2026 o referendo à Regionalização**,
-promovendo um amplo debate nacional sobre a importância de descentralizar o poder político, elegendo órgãos regionais por sufrágio universal. A fim de renovar o sistema democrático português tornando-o mais ágil e autónomo em detrimento da actual centralização e hierarquia, criando um nível intermédio de decisão política mais próximo do território e da população que horizontaliza e medeia as relações entre o poder central e o poder local, reforçando as cidades médias como pólos de desenvolvimento e coesão territorial, sustentabilidade ambiental e igualdade, e dando novo sentido e valor à diversidade de heranças culturais e económicas das regiões do país. A implementação do poder democrático regional deve envolver as populações locais, organizações da sociedade civil, a academia, as autarquias locais, os partidos e movimentos políticos, as associações patronais e sindicais. No quadro de uma revisão constitucional, o LIVRE defenderá que o processo preveja regiões-piloto, para que as regiões que assim desejem possam avançar antecipadamente.
+   promovendo um amplo debate nacional sobre a importância de descentralizar o poder político, elegendo órgãos regionais por sufrágio universal. A fim de renovar o sistema democrático português tornando-o mais ágil e autónomo em detrimento da actual centralização e hierarquia, criando um nível intermédio de decisão política mais próximo do território e da população que horizontaliza e medeia as relações entre o poder central e o poder local, reforçando as cidades médias como pólos de desenvolvimento e coesão territorial, sustentabilidade ambiental e igualdade, e dando novo sentido e valor à diversidade de heranças culturais e económicas das regiões do país. A implementação do poder democrático regional deve envolver as populações locais, organizações da sociedade civil, a academia, as autarquias locais, os partidos e movimentos políticos, as associações patronais e sindicais. No quadro de uma revisão constitucional, o LIVRE defenderá que o processo preveja regiões-piloto, para que as regiões que assim desejem possam avançar antecipadamente.
 
 3. **Garantir que qualquer revisão constitucional seja realizada de forma participada e aberta à sociedade civil.**
 
@@ -1836,9 +1935,10 @@ promovendo um amplo debate nacional sobre a importância de descentralizar o pod
 10. **Acompanhar, avaliar e garantir a devida dotação orçamental e alocação de recursos técnicos necessários para a descentralização de competências** realizada nas últimas legislaturas para as Comissões de Coordenação e Desenvolvimento Regional em várias áreas como agricultura, pescas, ordenamento do território, cultura, ambiente, conservação da natureza e educação, tal como, acompanhamento e gestão dos fundos europeus e aplicação de programas regionais.
 
 11. **Escrutinar a escolha de quem nos governa,**
-	- através da audição prévia e aprovação pelo Parlamento das pessoas escolhidas para integrar o Governo, quer ao nível ministerial, quer para as Secretarias e Subsecretarias de Estado e, de igual forma, dos nomes indicados pelo Governo para a administração ou para cargos de direção de empresas públicas ou com capitais públicos e institutos públicos, incluindo entidades reguladoras;
-	- pelo aumento da composição do Conselho de Fiscalização do Sistema de Informações da República Portuguesa (CFSIRP) de três para cinco membros;
-	- disponibilizando uma ferramenta informática acessível que permita o escrutínio democrático dos deputados, da sua atividade, iniciativas e sentidos de voto.
+
+    - através da audição prévia e aprovação pelo Parlamento das pessoas escolhidas para integrar o Governo, quer ao nível ministerial, quer para as Secretarias e Subsecretarias de Estado e, de igual forma, dos nomes indicados pelo Governo para a administração ou para cargos de direção de empresas públicas ou com capitais públicos e institutos públicos, incluindo entidades reguladoras;
+    - pelo aumento da composição do Conselho de Fiscalização do Sistema de Informações da República Portuguesa (CFSIRP) de três para cinco membros;
+    - disponibilizando uma ferramenta informática acessível que permita o escrutínio democrático dos deputados, da sua atividade, iniciativas e sentidos de voto.
 
 12. **Limitar as contratações para cargos de confiança política** sempre que as funções em causa possam ser bem desempenhadas por funcionários públicos no ativo, quer na administração central quer no poder local.
 
@@ -1852,35 +1952,39 @@ promovendo um amplo debate nacional sobre a importância de descentralizar o pod
 17. **Promover a literacia da informação**, incentivando desde o 1.º ciclo hábitos de pesquisa, avaliação e seleção da informação, com base em princípios éticos.
 
 18. **Garantir uma comunicação social livre, acessível e representativa da realidade nacional:**
-	- fazendo cumprir a obrigatoriedade da divulgação das e dos principais acionistas das empresas de comunicação social;
-	- fomentando o pluralismo na comunicação social, com o estabelecimento dos limites à concentração de capital no setor, cumprindo a Constituição;
-	- garantindo uma representação plural da realidade política e socioeconómica do país no debate sobre o desempenho governamental;
-	- reforço dos poderes regulatórios e de investigação da ERC - Entidade Reguladora para a Comunicação Social, bem como dos fundos para a sua atividade, por forma a garantir a salvaguarda e independência da Comunicação Social face ao poder político e económico;
-	- manter a posição maioritária da Agência LUSA pelo Estado como garante de um serviço público de informação de rigor, seriedade e qualidade.
+
+    - fazendo cumprir a obrigatoriedade da divulgação das e dos principais acionistas das empresas de comunicação social;
+    - fomentando o pluralismo na comunicação social, com o estabelecimento dos limites à concentração de capital no setor, cumprindo a Constituição;
+    - garantindo uma representação plural da realidade política e socioeconómica do país no debate sobre o desempenho governamental;
+    - reforço dos poderes regulatórios e de investigação da ERC - Entidade Reguladora para a Comunicação Social, bem como dos fundos para a sua atividade, por forma a garantir a salvaguarda e independência da Comunicação Social face ao poder político e económico;
+    - manter a posição maioritária da Agência LUSA pelo Estado como garante de um serviço público de informação de rigor, seriedade e qualidade.
 
 19. **Garantir a sobrevivência do jornalismo enquanto bem de interesse público:**
-	- criar bolsas de apoio a projetos jornalísticos sem fins lucrativos ou cooperativos;
-	- apoiar o jornalismo enquanto bem público, pela dedução fiscal para doações a órgãos, associações e projectos de comunicação social sem fins lucrativos, pelo financiamento de projetos de jornalismo de investigação que declaradamente persigam o interesse público, apoio à adoção de modelos de gestão cooperativos e sem fins lucrativos, e manutenção do programa de compra de publicidade institucional pelo Estado;
-	- apoiar os órgãos de comunicação social regionais e locais por meio da subscrição física de jornais locais nas bibliotecas, escolas e instituições públicas, de um subsídio à difusão de programas e agendas culturais locais, da dedução em sede de IRC de gastos publicitários, de um programa de apoio à contratação e transição digital, do financiamento de projectos de jornalismo de investigação à escala regional e local, equiparação em financiamento de subscrições digitais de órgãos locais, e criação de um programa de suporte à preservação dos arquivos;
-	- promover a leitura de notícias em jovens através de um cheque- cultura que abarque subscrições e compra de jornais e revistas.
+
+    - criar bolsas de apoio a projetos jornalísticos sem fins lucrativos ou cooperativos;
+    - apoiar o jornalismo enquanto bem público, pela dedução fiscal para doações a órgãos, associações e projectos de comunicação social sem fins lucrativos, pelo financiamento de projetos de jornalismo de investigação que declaradamente persigam o interesse público, apoio à adoção de modelos de gestão cooperativos e sem fins lucrativos, e manutenção do programa de compra de publicidade institucional pelo Estado;
+    - apoiar os órgãos de comunicação social regionais e locais por meio da subscrição física de jornais locais nas bibliotecas, escolas e instituições públicas, de um subsídio à difusão de programas e agendas culturais locais, da dedução em sede de IRC de gastos publicitários, de um programa de apoio à contratação e transição digital, do financiamento de projectos de jornalismo de investigação à escala regional e local, equiparação em financiamento de subscrições digitais de órgãos locais, e criação de um programa de suporte à preservação dos arquivos;
+    - promover a leitura de notícias em jovens através de um cheque- cultura que abarque subscrições e compra de jornais e revistas.
 
 20. **Garantir a RTP como entidade pública** e a prestar serviço público de qualidade e não em concorrência direta com os canais privados e
-	- garantir o acesso a todos os canais da RTP na Televisão Digital Terrestre (TDT);
-	- alterar o processo de eleição da administração da RTP para assegurar maior representação das pessoas trabalhadoras da RTP e das cidadãs e cidadãos.
+
+    - garantir o acesso a todos os canais da RTP na Televisão Digital Terrestre (TDT);
+    - alterar o processo de eleição da administração da RTP para assegurar maior representação das pessoas trabalhadoras da RTP e das cidadãs e cidadãos.
 
 21. **Defender a privacidade e a liberdade de expressão**,
-	- aprofundando o controlo do Parlamento sobre os serviços de informação;
-	- garantindo o respeito pelas liberdades fundamentais e pela privacidade dos cidadãos e das cidadãs;
-	- criminalizando o acesso ilegal aos dados bancários, fiscais ou de telecomunicações e constituindo causa para expulsão da função pública;
-	- reforçando o papel da Comissão Nacional de Proteção de Dados; promovendo a encriptação de todas as comunicações;
-	- salvaguardando a privacidade online;
-	- supervisionando o cumprimento do Regulamento Geral de Proteção de Dados pelos setores público e privado, fomentando uma postura imparcial do Estado na linha da frente digital - imparcialidade do Estado na Web - estendendo o âmbito do Regulamento Nacional de Interoperabilidade Digital ao desenvolvimento dos sítios oficiais de instituições públicas de forma a que evitem depender de serviços terceiros ou que impliquem a aceitação de termos estranhos à finalidade do serviço em causa, ou ainda, o rastreamento em linha na interação com os mesmos serviços e ao estabelecimento de critérios transparentes que orientem a escolha de soluções de contacto e de divulgação de serviços e iniciativas do Estado baseadas em redes sociais, de forma a evitar a arbitrariedade na discriminação de alguns serviços em detrimento de outros e a promover a privacidade por omissão e a transparência no recurso a soluções de análise de tráfego *(analytics)*.
+
+    - aprofundando o controlo do Parlamento sobre os serviços de informação;
+    - garantindo o respeito pelas liberdades fundamentais e pela privacidade dos cidadãos e das cidadãs;
+    - criminalizando o acesso ilegal aos dados bancários, fiscais ou de telecomunicações e constituindo causa para expulsão da função pública;
+    - reforçando o papel da Comissão Nacional de Proteção de Dados; promovendo a encriptação de todas as comunicações;
+    - salvaguardando a privacidade online;
+    - supervisionando o cumprimento do Regulamento Geral de Proteção de Dados pelos setores público e privado, fomentando uma postura imparcial do Estado na linha da frente digital - imparcialidade do Estado na Web - estendendo o âmbito do Regulamento Nacional de Interoperabilidade Digital ao desenvolvimento dos sítios oficiais de instituições públicas de forma a que evitem depender de serviços terceiros ou que impliquem a aceitação de termos estranhos à finalidade do serviço em causa, ou ainda, o rastreamento em linha na interação com os mesmos serviços e ao estabelecimento de critérios transparentes que orientem a escolha de soluções de contacto e de divulgação de serviços e iniciativas do Estado baseadas em redes sociais, de forma a evitar a arbitrariedade na discriminação de alguns serviços em detrimento de outros e a promover a privacidade por omissão e a transparência no recurso a soluções de análise de tráfego _(analytics)_.
 
 22. **Defender a liberdade de culto, a laicidade do Estado e a igualdade entre confissões:**
-	- revendo e negociando a Concordata, o tratado que concede à Igreja Católica direitos especiais (como isenções fiscais);
-	- revendo os Estatutos da Comissão para a Liberdade Religiosa e reformando ou revogando o Decreto-Lei 134/2003 que aprova o Registo das Pessoas Coletivas Religiosas e o Decreto-Lei 308/2003 que regulamenta a Lei da Liberdade Religiosa, reconhecendo representantes religiosos com base num suposto princípio de subsidiariedade, em tudo contrário ao espírito do exercício da liberdade religiosa;
-	- promovendo a construção de espaços neutros que possam servir as cerimónias fúnebres tanto de quem não tem religião como de quem professa qualquer religião;
-	- abolindo o feriado de 8 de Dezembro, e substituí-lo por um feriado de 9 de Maio, Dia da Europa.
+    - revendo e negociando a Concordata, o tratado que concede à Igreja Católica direitos especiais (como isenções fiscais);
+    - revendo os Estatutos da Comissão para a Liberdade Religiosa e reformando ou revogando o Decreto-Lei 134/2003 que aprova o Registo das Pessoas Coletivas Religiosas e o Decreto-Lei 308/2003 que regulamenta a Lei da Liberdade Religiosa, reconhecendo representantes religiosos com base num suposto princípio de subsidiariedade, em tudo contrário ao espírito do exercício da liberdade religiosa;
+    - promovendo a construção de espaços neutros que possam servir as cerimónias fúnebres tanto de quem não tem religião como de quem professa qualquer religião;
+    - abolindo o feriado de 8 de Dezembro, e substituí-lo por um feriado de 9 de Maio, Dia da Europa.
 
 ## **Prevenção e Combate à Corrupção**
 
@@ -1893,12 +1997,13 @@ Por uma sociedade mais ética e fundada no respeito mútuo e em valores de integ
 Por isso defendemos:
 
 1. **Criar uma agência pública independente que centralize as funções do Mecanismo Nacional Anticorrupção, da Entidade de Contas e Financiamentos Políticos e da Entidade para a Transparência**. Esta deverá:
-	- zelar pelo registo, resolução e controlo de conflitos de interesses;
-	- apoiar a administração pública no estabelecimento e renovação de uma cultura para a integridade;
-	- zelar pelo registo da atividade de lobby;
-	- centralizar o registo da pegada legislativa;
-	- gerir campanhas de prevenção da corrupção;
-	- redigir anualmente um relatório sobre a sua atividade.
+
+   - zelar pelo registo, resolução e controlo de conflitos de interesses;
+   - apoiar a administração pública no estabelecimento e renovação de uma cultura para a integridade;
+   - zelar pelo registo da atividade de lobby;
+   - centralizar o registo da pegada legislativa;
+   - gerir campanhas de prevenção da corrupção;
+   - redigir anualmente um relatório sobre a sua atividade.
 
 2. **Promover uma cultura de integridade** como valor fundamental no exercício de funções públicas através da formação obrigatória para servidores públicos em questões de ética e transparência, rever coordenadamente os Códigos de Ética e Códigos de Conduta das instituições públicas de forma a efetivar o seu cumprimento e acabar com a natureza meramente proclamatória de valores, operacionalizando a sua aplicação. Tornar o Regime Geral de Prevenção da Corrupção aplicável aos gabinetes governamentais, tornando obrigatória a implementação de um plano de cumprimento normativo abrangendo um Plano de Prevenção de Riscos de Corrupção.
 
@@ -1930,29 +2035,31 @@ Por isso defendemos:
 
 O acesso à internet é um direito humano, reconhecendo as Nações Unidas que os avanços tecnológicos na área de computação, informação e comunicação aceleram o progresso humano, diminuem fossos entre comunidades e indivíduos, promovem a liberdade de expressão e potenciam o desenvolvimento de sociedades de conhecimento.
 
-A *world wide web*, espaço de partilha e agora também um mega mercado, é um novo espaço público global. Com o rápido avanço da conectividade, da capacidade de computação e das novas formas de interfaces, a tecnologia faz cada vez mais parte das nossas vidas, trazendo oportunidades, mas também sérios desafios. A *world wide web* é controlada por uma oligarquia de multinacionais digitais, que vivem dos dados que geramos e que todos os dias influenciam as nossas escolhas com base em algoritmos que desconhecemos. Mas os Governos e as pessoas não devem ficar reféns de empresas, sobretudo de grandes multinacionais.
+A _world wide web_, espaço de partilha e agora também um mega mercado, é um novo espaço público global. Com o rápido avanço da conectividade, da capacidade de computação e das novas formas de interfaces, a tecnologia faz cada vez mais parte das nossas vidas, trazendo oportunidades, mas também sérios desafios. A _world wide web_ é controlada por uma oligarquia de multinacionais digitais, que vivem dos dados que geramos e que todos os dias influenciam as nossas escolhas com base em algoritmos que desconhecemos. Mas os Governos e as pessoas não devem ficar reféns de empresas, sobretudo de grandes multinacionais.
 
 A tecnologia deve servir as pessoas, que têm de poder tomar decisões sobre os seus dados, plataformas e inovação. Os nossos dados devem pertencer-nos, as nossas conversas privadas devem permanecer privadas e as inovações financiadas publicamente devem pertencer ao público. A tecnologia deve ser usada para fins concretos e úteis à sociedade, sem que se comprometa a privacidade em troca de facilidade tecnológica.
 
-Acreditamos que o dinheiro público deve gerar conhecimento público, propriedade pública e riqueza comum - *Public money: public code*.
+Acreditamos que o dinheiro público deve gerar conhecimento público, propriedade pública e riqueza comum - _Public money: public code_.
 
 O desenvolvimento da inteligência artificial e da internet das coisas deve seguir princípios rigorosos de ética e ser norteado pelo bem comum, sendo para isso necessária regulação e capacitação do setor público, tanto a nível nacional como a nível europeu.
 
 Por isso defendemos:
 
 1. **Consagrar e garantir o direito à Internet Livre e sem censura, para todas as pessoas:**
-	- garantindo que todo o território nacional tem cobertura suficiente;
-	- garantindo que não há exclusão de acesso aos cidadãos, independentemente da sua condição económica; garantindo a cada pessoa as condições mínimas para trabalhar e se realizar através da Internet na terceira década do séc. XXI;
-	- fomentando a literacia digital e a capacidade digital para todas as idades;
-	- participando, enquanto país, na construção do *Contract for the Web* e defendendo os seus princípios, entre os quais a liberdade de expressão e de associação online e também de privacidade com encriptação das comunicações online.
 
-2. **Garantir a neutralidade da rede**, combatendo qualquer condicionalismo de velocidade de acesso ou qualquer discricionariedade de preço em função do serviço, tipo ou localização do conteúdo (incluindo o *zero-rating*, praticado por operadoras portuguesas).
+   - garantindo que todo o território nacional tem cobertura suficiente;
+   - garantindo que não há exclusão de acesso aos cidadãos, independentemente da sua condição económica; garantindo a cada pessoa as condições mínimas para trabalhar e se realizar através da Internet na terceira década do séc. XXI;
+   - fomentando a literacia digital e a capacidade digital para todas as idades;
+   - participando, enquanto país, na construção do _Contract for the Web_ e defendendo os seus princípios, entre os quais a liberdade de expressão e de associação online e também de privacidade com encriptação das comunicações online.
+
+2. **Garantir a neutralidade da rede**, combatendo qualquer condicionalismo de velocidade de acesso ou qualquer discricionariedade de preço em função do serviço, tipo ou localização do conteúdo (incluindo o _zero-rating_, praticado por operadoras portuguesas).
 
 3. **Fomentar uma internet na qual os cidadãos controlem os seus dados e atividade:**
-	- impedindo a censura de conteúdos por parte de governos ou empresas; promovendo a encriptação forte nas comunicações via internet e adotando ferramentas de comunicação encriptada e código aberto;
-	- garantindo que os roteadores e modems façam parte do domínio das e dos consumidores;
-	- defendendo o direito à privacidade online e o direito ao esquecimento, devendo cada pessoa ter controle sobre os seus dados pessoais (direito à dissipação da informação, no sentido de permitir o esquecimento);
-	- incentivando a adoção de normas de acesso aberto pelas plataformas online que permitam a interação entre utilizadores sem que tenham de facultar os seus dados e que permitam que troquem de plataforma sem perder os dados armazenados, evitando os efeitos de rede que são usados pelas plataformas para manterem posições dominantes.
+
+   - impedindo a censura de conteúdos por parte de governos ou empresas; promovendo a encriptação forte nas comunicações via internet e adotando ferramentas de comunicação encriptada e código aberto;
+   - garantindo que os roteadores e modems façam parte do domínio das e dos consumidores;
+   - defendendo o direito à privacidade online e o direito ao esquecimento, devendo cada pessoa ter controle sobre os seus dados pessoais (direito à dissipação da informação, no sentido de permitir o esquecimento);
+   - incentivando a adoção de normas de acesso aberto pelas plataformas online que permitam a interação entre utilizadores sem que tenham de facultar os seus dados e que permitam que troquem de plataforma sem perder os dados armazenados, evitando os efeitos de rede que são usados pelas plataformas para manterem posições dominantes.
 
 4. **Renovar o Regulamento Nacional de Interoperabilidade Digital**, fazendo a sua necessária atualização tecnológica e dotando-o dos mecanismos legais necessários para assegurar o seu cumprimento.
 
@@ -1961,27 +2068,30 @@ Por isso defendemos:
 6. **Prevenir a utilização de dados pessoais sensíveis em segmentação de publicidade**, impedindo a utilização de dados sensíveis, como definidos no RGPD, por parte de prestadores de serviços digitais que ofereçam direcionamento de publicidade a segmentos específicos da audiência, evitando assim situações de targeting que resultam na construção de realidades paralelas, isoladas, e impossíveis de escrutinar, com efeitos sociais nocivos de desagregação e polarização.
 
 7. **Democratizar a investigação e a inovação:**
-	- garantindo o direito de qualquer pessoa a ter acesso e a fazer recolha sistemática de dados e a criar conteúdos diversos, ao não transpor para Portugal o artigo 3 da Diretiva de direitos de autor e direitos conexos no mercado único digital;
-	- fomentando a participação cidadã na definição da missão e do destino dos fundos de inovação;
-	- atribuindo mais recursos aos projetos cooperativos e às organizações da sociedade civil de cariz social;
-	- instituindo direitos de propriedade coletivos para os produtos resultantes do investimento público;
-	- garantindo a utilização livre de conteúdos em contexto de ensino.
+
+   - garantindo o direito de qualquer pessoa a ter acesso e a fazer recolha sistemática de dados e a criar conteúdos diversos, ao não transpor para Portugal o artigo 3 da Diretiva de direitos de autor e direitos conexos no mercado único digital;
+   - fomentando a participação cidadã na definição da missão e do destino dos fundos de inovação;
+   - atribuindo mais recursos aos projetos cooperativos e às organizações da sociedade civil de cariz social;
+   - instituindo direitos de propriedade coletivos para os produtos resultantes do investimento público;
+   - garantindo a utilização livre de conteúdos em contexto de ensino.
 
 8. **Construir Bens Digitais Comuns:**
-	- garantindo que todo o código desenvolvido com dinheiro público fique numa licença de código aberto;
-	- fomentando a construção colaborativa de software e hardware, expandindo a cláusula de "Uso Justo" em todas as leis de direitos de autor;
-	- revertendo o ónus da prova para que os bens sejam considerados bens digitais comuns, exceto se se provar estarem protegidos por direitos de autor;
-	- não transpondo para Portugal os artigos 15 e 17 (antigos artigos 11 e 13) da Diretiva de direitos de autor e direitos conexos no mercado único digital.
+
+   - garantindo que todo o código desenvolvido com dinheiro público fique numa licença de código aberto;
+   - fomentando a construção colaborativa de software e hardware, expandindo a cláusula de "Uso Justo" em todas as leis de direitos de autor;
+   - revertendo o ónus da prova para que os bens sejam considerados bens digitais comuns, exceto se se provar estarem protegidos por direitos de autor;
+   - não transpondo para Portugal os artigos 15 e 17 (antigos artigos 11 e 13) da Diretiva de direitos de autor e direitos conexos no mercado único digital.
 
 9. **Governação transparente, livre e de acesso aberto**, com introdução de software livre e de código aberto em todos os níveis da administração pública e em instituições financiadas com recursos públicos, com todos os registos públicos não confidenciais digitalizados e publicados num banco de dados online aberto.
 
-10. **Obrigatoriedade de interoperabilidade de dados para todos os serviços tecnológicos contratados pelo Estado**, garantindo a possibilidade de contratação de serviços de provedores diferentes para manutenção ou expansão futura de funcionalidades, evitando o padrão de dependência de fornecedores conhecido como *"vendor lock-in"*.
+10. **Obrigatoriedade de interoperabilidade de dados para todos os serviços tecnológicos contratados pelo Estado**, garantindo a possibilidade de contratação de serviços de provedores diferentes para manutenção ou expansão futura de funcionalidades, evitando o padrão de dependência de fornecedores conhecido como _"vendor lock-in"_.
 
 11. **Garantir Direitos de Cibersegurança:**
-	- garantindo que todos os produtos digitais sejam configurados como privados por omissão;
-	- restringindo e monitorizando a venda e o acesso a dados de utilizadores a terceiros sem consentimento explícito;
-	- respeitando o direito de saber quando se está em interação com um algoritmo; consagrando o direito à igualdade de tratamento, assegurando a não discriminação – de género, racial, étnica, sexual ou outra qualquer – com base em algoritmos digitais;
-	- reforçando o orçamento e condições do Centro Nacional de Cibersegurança e tornando obrigatório o seu parecer favorável para a utilização de novas tecnologias digitais em serviços públicos.
+
+    - garantindo que todos os produtos digitais sejam configurados como privados por omissão;
+    - restringindo e monitorizando a venda e o acesso a dados de utilizadores a terceiros sem consentimento explícito;
+    - respeitando o direito de saber quando se está em interação com um algoritmo; consagrando o direito à igualdade de tratamento, assegurando a não discriminação – de género, racial, étnica, sexual ou outra qualquer – com base em algoritmos digitais;
+    - reforçando o orçamento e condições do Centro Nacional de Cibersegurança e tornando obrigatório o seu parecer favorável para a utilização de novas tecnologias digitais em serviços públicos.
 
 12. **Precaver os riscos da massificação da Internet das Coisas**, promovendo legislação a nível europeu de forma a preservar a segurança e privacidade das nossas casas e objetos, a prevenir abusos de posição por parte de fornecedores e plataformas e exigir o alerta sobre o valor extraído pelas grandes tecnológicas aquando da cedência de dados pessoais por parte de utilizadores.
 
@@ -1989,7 +2099,7 @@ Por isso defendemos:
 
 14. **Prevenir a discriminação algorítmica de vencimentos**, nomeadamente nas plataformas de falso trabalho independente, ao exigir que as empresas que gerem essas plataformas apresentem aos trabalhadores um método de cálculo escrutinável dos valores pagos, impedindo alterações rápidas e arbitrárias da remuneração por trabalho igual com base em factores hiper-granulares como localização, comportamento individual ou predição de procura e oferta.
 
-15. **Abolir as práticas de manipulação de consumidores em compras na internet conhecidas como** *"junk fees",* obrigando à apresentação da totalidade dos preços num processo de compra e proibindo a publicitação de preços parciais quando não é possível evitar taxas adicionais; impedindo a cobrança adicional de custos de operações cuja alternativa reduza a saliência da transação (por exemplo, taxa pela não opção da modalidade de pagamento por débito direto).
+15. **Abolir as práticas de manipulação de consumidores em compras na internet conhecidas como** _"junk fees",_ obrigando à apresentação da totalidade dos preços num processo de compra e proibindo a publicitação de preços parciais quando não é possível evitar taxas adicionais; impedindo a cobrança adicional de custos de operações cuja alternativa reduza a saliência da transação (por exemplo, taxa pela não opção da modalidade de pagamento por débito direto).
 
 ## **Portugal na Europa e no Mundo**
 
@@ -2006,74 +2116,83 @@ Por isso defendemos:
 3. **Defender o direito à autodeterminação de todos os povos e o Direito Internacional** e condenar invasões e agressões a países com fronteiras internacionalmente reconhecidas, procurando promover soluções diplomáticas e multilaterais conjuntamente com a UE e a ONU. Defender, em particular, a autodeterminação do povo sarauí na luta contra a ocupação do Saara Ocidental por Marrocos e a promoção, conforme definido na carta da ONU, da sua proteção e de um processo credível para um referendo.
 
 4. **Defendemos a criação de uma democracia europeia**, baseada na soberania popular de cada Estado e da União no seu conjunto, na qual o respeito pelo Estado de Direito e pelos Direitos Humanos, incluindo das pessoas de comunidades específicas, seja condição imprescindível para a adesão e a manutenção do estatuto de Estado-Membro e respetivas prerrogativas. Com inspiração no ideal federalista europeu, defendemos:
-	- a criação de uma democracia transnacional, seguindo um modelo parlamentarista bicamarário que inclua listas transnacionais para o Parlamento Europeu, a eleição direta da presidência da Comissão Europeia através do sistema de cabeças de lista (*Spitzenkandidaten*) e a eleição direta dos representantes de Portugal no Conselho da União Europeia;
-	- o reforço dos poderes do Parlamento Europeu, nomeadamente através da possibilidade das e dos Deputados Europeus apresentarem iniciativas legislativas;
-	- a recusa de decisões tomadas em estruturas paralelas como Cimeiras informais de Chefes de Estado e de Governo (Cimeiras do Euro, por exemplo);
-	- a criação de uma "Comissão de Copenhaga" com a incumbência de aferir o cumprimento dos critérios do Estado de Direito e Direitos Fundamentais pelos Estados-Membros e instituições europeias;
-	- prosseguir o alargamento da União Europeia, quer no processo de negociações com a Ucrânia e Moldova, quer com vista à adesão plena dos balcãs ocidentais, tomando os critérios de adesão, principalmente em função da democracia interna e Estado de Direito, como fundamentais e negando qualquer aceleramento de tal processo por questões geopolíticas. O alargamento da União Europeia deve visar qualquer Estado com uma conexão geográfica razoável à atual UE e que cumpra os necessários critérios, abrindo a possibilidade a Estados no Norte de África, Ásia Ocidental ou Central a não serem prejudicados numa potencial adesão pela sua condição geográfica, destacando critérios democráticos como intransigíveis numa potencial candidatura.
+
+   - a criação de uma democracia transnacional, seguindo um modelo parlamentarista bicamarário que inclua listas transnacionais para o Parlamento Europeu, a eleição direta da presidência da Comissão Europeia através do sistema de cabeças de lista (_Spitzenkandidaten_) e a eleição direta dos representantes de Portugal no Conselho da União Europeia;
+   - o reforço dos poderes do Parlamento Europeu, nomeadamente através da possibilidade das e dos Deputados Europeus apresentarem iniciativas legislativas;
+   - a recusa de decisões tomadas em estruturas paralelas como Cimeiras informais de Chefes de Estado e de Governo (Cimeiras do Euro, por exemplo);
+   - a criação de uma "Comissão de Copenhaga" com a incumbência de aferir o cumprimento dos critérios do Estado de Direito e Direitos Fundamentais pelos Estados-Membros e instituições europeias;
+   - prosseguir o alargamento da União Europeia, quer no processo de negociações com a Ucrânia e Moldova, quer com vista à adesão plena dos balcãs ocidentais, tomando os critérios de adesão, principalmente em função da democracia interna e Estado de Direito, como fundamentais e negando qualquer aceleramento de tal processo por questões geopolíticas. O alargamento da União Europeia deve visar qualquer Estado com uma conexão geográfica razoável à atual UE e que cumpra os necessários critérios, abrindo a possibilidade a Estados no Norte de África, Ásia Ocidental ou Central a não serem prejudicados numa potencial adesão pela sua condição geográfica, destacando critérios democráticos como intransigíveis numa potencial candidatura.
 
 5. **Reforçar o respeito pelo Estado de Direito, Democracia e Direitos Fundamentais na UE:**
-	- suportar o contínuo escrutínio do respeito pelos valores da UE em relação a Estados-Membros sob o Art. 7.º do Tratado da União Europeia (TUE), como é o caso da Hungria, e promover iniciativas que operacionalizem o mecanismo de suspensão dos seus direitos no Conselho;
-	- apoiar a aplicação imediata do Regulamento que estabelece um regime geral de condicionalidade para a proteção do orçamento da União, relativo a Estados-Membros que demonstram uma reiterada falta de respeito pelos valores da UE como estipulados no Art. 2.º do TUE, como é o caso da Hungria;
-	- apoiar o apelo do Parlamento Europeu para a criação de um mecanismo interinstitucional da UE para a democracia, o Estado de direito e os direitos fundamentais, responsável pela monitorização dos valores da UE numa base contínua, não discriminatória e abrangente, baseada em dados concretos, no respeito pelos princípios da subsidiariedade e da proporcionalidade, a fim de melhorar a coordenação entre as três instituições;
-	- apoiar as negociações em curso para a adesão da União Europeia à Convenção Europeia para a Proteção dos Direitos Humanos e das Liberdades Fundamentais, prevista no Art. 6.º, n.º 2, do Tratado de Lisboa, que vinculará as instituições ao respeito pelos Direitos Humanos e ao controlo do Tribunal Europeu dos Direitos Humanos (TEDH), permitindo a cidadãos da UE levar atos jurídicos da UE ao TEDH nas mesmas condições que atualmente levam Estados-Membros;
-	- apoiar o trabalho da Comissão de Veneza do Conselho da Europa na monitorização e escrutínio especializado de desenvolvimentos legais nos seus Estados-Membros, garantindo o respeito pela Convenção Europeia de Direitos Humanos, e demais tratados e convenções do Conselho da Europa, ao nível do funcionamento das instituições democráticas, da redação e aprovação de legislação nacional e do garante de liberdades e direitos fundamentais em atos eleitorais, referendos e funcionamento de partidos políticos.
+
+   - suportar o contínuo escrutínio do respeito pelos valores da UE em relação a Estados-Membros sob o Art. 7.º do Tratado da União Europeia (TUE), como é o caso da Hungria, e promover iniciativas que operacionalizem o mecanismo de suspensão dos seus direitos no Conselho;
+   - apoiar a aplicação imediata do Regulamento que estabelece um regime geral de condicionalidade para a proteção do orçamento da União, relativo a Estados-Membros que demonstram uma reiterada falta de respeito pelos valores da UE como estipulados no Art. 2.º do TUE, como é o caso da Hungria;
+   - apoiar o apelo do Parlamento Europeu para a criação de um mecanismo interinstitucional da UE para a democracia, o Estado de direito e os direitos fundamentais, responsável pela monitorização dos valores da UE numa base contínua, não discriminatória e abrangente, baseada em dados concretos, no respeito pelos princípios da subsidiariedade e da proporcionalidade, a fim de melhorar a coordenação entre as três instituições;
+   - apoiar as negociações em curso para a adesão da União Europeia à Convenção Europeia para a Proteção dos Direitos Humanos e das Liberdades Fundamentais, prevista no Art. 6.º, n.º 2, do Tratado de Lisboa, que vinculará as instituições ao respeito pelos Direitos Humanos e ao controlo do Tribunal Europeu dos Direitos Humanos (TEDH), permitindo a cidadãos da UE levar atos jurídicos da UE ao TEDH nas mesmas condições que atualmente levam Estados-Membros;
+   - apoiar o trabalho da Comissão de Veneza do Conselho da Europa na monitorização e escrutínio especializado de desenvolvimentos legais nos seus Estados-Membros, garantindo o respeito pela Convenção Europeia de Direitos Humanos, e demais tratados e convenções do Conselho da Europa, ao nível do funcionamento das instituições democráticas, da redação e aprovação de legislação nacional e do garante de liberdades e direitos fundamentais em atos eleitorais, referendos e funcionamento de partidos políticos.
 
 6. **Dar voz ao municipalismo**, apoiando e promovendo alternativas progressistas para a Europa, a todas as escalas incluindo a municipal, assumindo o municipalismo como parte estruturante do projeto europeu.
 
 7. **Harmonizar a fiscalidade** de forma a reduzir a concorrência fiscal desleal entre Estados-Membros, desde logo pela transposição da diretiva europeia que aplica o acordo da OCDE sobre a reforma da tributação internacional, que defende um IRC mínimo de 15% a nível mundial. Defendemos também o fim dos paraísos fiscais dentro da União e a revogação do Tratado Orçamental.
 
 8. **Usar a escala da União Europeia para ter força de influência,**
-	- relançando o investimento para um combate transversal e rejuvenescido à emergência ecológica, através de um verdadeiro Novo Pacto Verde europeu, focado na melhoria da qualidade de vida e na sustentabilidade ambiental;
-	- implementando um quadro legislativo capaz de limitar o poder do setor financeiro e dominar os riscos da exposição dos Estados, incluindo a diminuição da concentração do poder de mercado e da dimensão das instituições financeiras, a separação entre banca comercial e banca de investimento, e ainda a proibição dos produtos financeiros excessivamente complexos;
-	- promovendo a unidade da UE na política externa e desenvolvendo a sua autonomia estratégica ao nível das relações internacionais, incluindo na área da defesa e segurança. Esta deve materializar-se numa mudança progressiva da arquitectura de segurança de que dispomos para uma autonomia estratégica ao serviço das e dos cidadãos europeus, que fomente a interoperabilidade entre forças armadas dos Estados-Membros em parcerias reforçadas sujeitas ao controlo democrático, e que tenha como objetivos prioritários a paz e o respeito pelos Direitos humanos nos Estados europeus e sua vizinhança.
+
+   - relançando o investimento para um combate transversal e rejuvenescido à emergência ecológica, através de um verdadeiro Novo Pacto Verde europeu, focado na melhoria da qualidade de vida e na sustentabilidade ambiental;
+   - implementando um quadro legislativo capaz de limitar o poder do setor financeiro e dominar os riscos da exposição dos Estados, incluindo a diminuição da concentração do poder de mercado e da dimensão das instituições financeiras, a separação entre banca comercial e banca de investimento, e ainda a proibição dos produtos financeiros excessivamente complexos;
+   - promovendo a unidade da UE na política externa e desenvolvendo a sua autonomia estratégica ao nível das relações internacionais, incluindo na área da defesa e segurança. Esta deve materializar-se numa mudança progressiva da arquitectura de segurança de que dispomos para uma autonomia estratégica ao serviço das e dos cidadãos europeus, que fomente a interoperabilidade entre forças armadas dos Estados-Membros em parcerias reforçadas sujeitas ao controlo democrático, e que tenha como objetivos prioritários a paz e o respeito pelos Direitos humanos nos Estados europeus e sua vizinhança.
 
 9. **Adotar uma Política Externa Feminista**, incorporando a igualdade de género como princípio basilar da ação externa portuguesa, nomeadamente:
-	- promovendo a educação em outros países;
-	- combatendo a violência de género nas suas múltiplas formas;
-	- empoderando mulheres social, económica e politicamente;
-	- incluindo mulheres em negociações de paz;
-	- abordando a política externa de forma interseccional, prestando atenção à interseção de diversas perspetivas como o género, a orientação sexual, a identidade de género, a expressão de género, as caraterísticas sexuais, a religião, a classe social, a etnia, o tom de pele, a nacionalidade e a idade.
+
+   - promovendo a educação em outros países;
+   - combatendo a violência de género nas suas múltiplas formas;
+   - empoderando mulheres social, económica e politicamente;
+   - incluindo mulheres em negociações de paz;
+   - abordando a política externa de forma interseccional, prestando atenção à interseção de diversas perspetivas como o género, a orientação sexual, a identidade de género, a expressão de género, as caraterísticas sexuais, a religião, a classe social, a etnia, o tom de pele, a nacionalidade e a idade.
 
 10. **Lutar por uma política de comércio justa**, ao:
-	- assegurar que quaisquer negociações de acordos de Comércio e/ou Investimento sejam transparentes, e envolvam a participação efetiva das pessoas e das associações da sociedade civil;
-	- assegurar que quaisquer negociações, legislação e/ou harmonização regulatória assegurem proteção do Ambiente, dos Direitos Humanos, do bem-estar Animal, da Saúde Pública, dos Direitos Laborais, dos Serviços Públicos e dos direitos do consumidor;
-	- combater o "*dumping*" ambiental ou social, devendo as taxas aduaneiras da União Europeia ter em conta a legislação de proteção ambiental e social do parceiro de troca e incorporando no preço dos produtos o custo ambiental do seu transporte;
-	- implementar legislação a nível nacional e europeu que impeça as empresas multinacionais de conseguirem impunidade face às violações dos Direitos Humanos ou destruição ambiental por elas cometidas;
-	- rejeitar a Resolução de Conflitos Investidor-Estado (ISDS) e o Sistema de Tribunais de Investimento e ainda qualquer tentativa de criar um Tribunal Multilateral de Investimentos;
-	- pressionar nas Nações Unidas a criação de um "Acordo Vinculativo sobre Empresas Transnacionais e suas cadeias de produção no que concerne aos Direitos Humanos".
+
+    - assegurar que quaisquer negociações de acordos de Comércio e/ou Investimento sejam transparentes, e envolvam a participação efetiva das pessoas e das associações da sociedade civil;
+    - assegurar que quaisquer negociações, legislação e/ou harmonização regulatória assegurem proteção do Ambiente, dos Direitos Humanos, do bem-estar Animal, da Saúde Pública, dos Direitos Laborais, dos Serviços Públicos e dos direitos do consumidor;
+    - combater o "_dumping_" ambiental ou social, devendo as taxas aduaneiras da União Europeia ter em conta a legislação de proteção ambiental e social do parceiro de troca e incorporando no preço dos produtos o custo ambiental do seu transporte;
+    - implementar legislação a nível nacional e europeu que impeça as empresas multinacionais de conseguirem impunidade face às violações dos Direitos Humanos ou destruição ambiental por elas cometidas;
+    - rejeitar a Resolução de Conflitos Investidor-Estado (ISDS) e o Sistema de Tribunais de Investimento e ainda qualquer tentativa de criar um Tribunal Multilateral de Investimentos;
+    - pressionar nas Nações Unidas a criação de um "Acordo Vinculativo sobre Empresas Transnacionais e suas cadeias de produção no que concerne aos Direitos Humanos".
 
 11. **Participar na construção da democracia global**, reforçando a participação de Portugal em organismos internacionais, sobretudo na Organização das Nações Unidas (ONU) e lutando pela:
-	- criação de um Tribunal Internacional de Direitos Humanos e de um Tribunal Internacional contra os Crimes Ambientais;
-	- implementação de instrumentos multilaterais de combate à corrupção e à lavagem de dinheiro à escala global;
-	- reforma do Conselho de Segurança das Nações Unidas, através do alargamento do grupo de membros permanentes a países representantes de todos os continentes e da restrição do uso do direito de veto;
-	- criação de uma Assembleia Parlamentar das Nações Unidas, com uma reunião anual antes da Assembleia-Geral da ONU, acrescentando assim um fórum de representação cidadã àquele que é, neste momento, um fórum exclusivo de diplomatas.
+
+    - criação de um Tribunal Internacional de Direitos Humanos e de um Tribunal Internacional contra os Crimes Ambientais;
+    - implementação de instrumentos multilaterais de combate à corrupção e à lavagem de dinheiro à escala global;
+    - reforma do Conselho de Segurança das Nações Unidas, através do alargamento do grupo de membros permanentes a países representantes de todos os continentes e da restrição do uso do direito de veto;
+    - criação de uma Assembleia Parlamentar das Nações Unidas, com uma reunião anual antes da Assembleia-Geral da ONU, acrescentando assim um fórum de representação cidadã àquele que é, neste momento, um fórum exclusivo de diplomatas.
 
 12. **Aprofundar a cooperação entre os países de língua oficial portuguesa e no espaço Ibero-Americano**, fortalecendo o papel da Comunidade dos Países de Língua Portuguesa (CPLP) como espaço de livre circulação e intercâmbio social, económico e cultural:
-	- facilitando a portabilidade de direitos entre os vários Estados-Membros e concedendo direitos civis e políticos às suas cidadãs e cidadãos que residirem em Portugal e assim o requererem;
-	- criar uma Convenção sobre Igualdade de Direitos e Deveres entre todos os Estados-Membros da CPLP e reforçar a luta pelos Direitos Humanos em todos os países da CPLP, incluindo a oposição à pena de morte na Guiné Equatorial e o combate a todas as formas de discriminação e aos crimes ambientais;
-	- aprofundar a cooperação, intercâmbio e reconhecimento entre universidades, criar redes de cidadãos entre os vários países e o mundo, incluindo as várias diásporas.
+
+    - facilitando a portabilidade de direitos entre os vários Estados-Membros e concedendo direitos civis e políticos às suas cidadãs e cidadãos que residirem em Portugal e assim o requererem;
+    - criar uma Convenção sobre Igualdade de Direitos e Deveres entre todos os Estados-Membros da CPLP e reforçar a luta pelos Direitos Humanos em todos os países da CPLP, incluindo a oposição à pena de morte na Guiné Equatorial e o combate a todas as formas de discriminação e aos crimes ambientais;
+    - aprofundar a cooperação, intercâmbio e reconhecimento entre universidades, criar redes de cidadãos entre os vários países e o mundo, incluindo as várias diásporas.
 
 13. **Defender e empoderar a diáspora portuguesa,**
-	- reformando o Conselho das Comunidades Portuguesas de forma mais ambiciosa do que até agora, ao nível das suas competências, organização e funcionamento. Tornar a vinculativa a consulta deste conselho em qualquer matéria que diga respeito às Comunidades Portuguesas no estrangeiro, torná-lo afeto à Presidência do Conselho de Ministros em matéria especializada, conferir-lhe orçamento e estrutura adequados que o capacitem no exercício das suas funções, e aprovar os direitos e deveres dos conselheiros;
-	- reforçando o serviço do Consulado Virtual e a rede consular, e facilitando o contacto e o apoio da Direção-Geral dos Assuntos Consulares e das Comunidades Portuguesas às associações portuguesas da diáspora.
+
+    - reformando o Conselho das Comunidades Portuguesas de forma mais ambiciosa do que até agora, ao nível das suas competências, organização e funcionamento. Tornar a vinculativa a consulta deste conselho em qualquer matéria que diga respeito às Comunidades Portuguesas no estrangeiro, torná-lo afeto à Presidência do Conselho de Ministros em matéria especializada, conferir-lhe orçamento e estrutura adequados que o capacitem no exercício das suas funções, e aprovar os direitos e deveres dos conselheiros;
+    - reforçando o serviço do Consulado Virtual e a rede consular, e facilitando o contacto e o apoio da Direção-Geral dos Assuntos Consulares e das Comunidades Portuguesas às associações portuguesas da diáspora.
 
 14. **Responder às crises humanitárias** geradas tanto por conflitos armados como pelo impacto das alterações climáticas, acabando com a Europa Fortaleza e efetivando um programa europeu digno de instalação e integração de pessoas refugiadas com partilha de responsabilidades entre todos os países. Para tal, propomos:
-	- recusar o Novo Pacto de Migração e Asilo proposto pela Presidência do Conselho da União Europeia porque representa o reconhecimento de ideias ultrapassadas sobre o acolhimento e integração de migrantes e a gestão de asilo e das migrações, recuperando a vigilância fronteiriça interna dentro da UE e impondo um fardo administrativo para os Estados-Membros;
-	- relançar a Abordagem Global para a Migração e Mobilidade para aprofundar a cooperação com países terceiros e reforçar a proteção dos migrantes e a Política Europeia de Vizinhança, em particular a União para o Mediterrâneo, para fomentar a transformação económica inclusiva e sustentável em todos os países, assim como humanizar o sistema europeu comum de asilo, apoiando a reunificação das famílias;
-	- criar uma Operação Europeia de Busca e Salvamento para salvar as pessoas no mar e descriminalizar as ações dos grupos e associações que prestam assistência humanitária a migrantes no mediterrâneo, devendo essa ser a prioridade da Frontex em lugar de uma postura coerciva de defesa de uma Europa Fortaleza, acabando com os retornos ilegais (*pushbacks*);
-	- criar um Passaporte Humanitário Internacional, para uma eficaz, justa e segura proteção de migrantes em contextos de crises humanitárias;
-	- defender a livre circulação em toda a Europa e em todo o Mundo.
+
+    - recusar o Novo Pacto de Migração e Asilo proposto pela Presidência do Conselho da União Europeia porque representa o reconhecimento de ideias ultrapassadas sobre o acolhimento e integração de migrantes e a gestão de asilo e das migrações, recuperando a vigilância fronteiriça interna dentro da UE e impondo um fardo administrativo para os Estados-Membros;
+    - relançar a Abordagem Global para a Migração e Mobilidade para aprofundar a cooperação com países terceiros e reforçar a proteção dos migrantes e a Política Europeia de Vizinhança, em particular a União para o Mediterrâneo, para fomentar a transformação económica inclusiva e sustentável em todos os países, assim como humanizar o sistema europeu comum de asilo, apoiando a reunificação das famílias;
+    - criar uma Operação Europeia de Busca e Salvamento para salvar as pessoas no mar e descriminalizar as ações dos grupos e associações que prestam assistência humanitária a migrantes no mediterrâneo, devendo essa ser a prioridade da Frontex em lugar de uma postura coerciva de defesa de uma Europa Fortaleza, acabando com os retornos ilegais (_pushbacks_);
+    - criar um Passaporte Humanitário Internacional, para uma eficaz, justa e segura proteção de migrantes em contextos de crises humanitárias;
+    - defender a livre circulação em toda a Europa e em todo o Mundo.
 
 15. **Acolher e integrar pessoas refugiadas e migrantes em Portugal**, reforçando o apoio a vítimas e a pessoas deslocadas provenientes de zonas de conflitos armados e países onde decorra um recuo dos Direitos Humanos. Nesse âmbito propomos:
-	- uma revisão do Estatuto do Refugiado e das leis de imigração;
-	- promover a criação de centros de formação, de recrutamento e de integração, e de sistemas de incentivo à instalação em zonas de maior declínio demográfico, bem como a instituição de pacotes à mobilidade laboral em parceria com os países de origem;
-	- combater a exploração laboral, assegurando condições dignas e humanas de acolhimento em qualquer ponto de entrada em Portugal, reduzindo o tempo de resposta para situações temporárias e garantindo que as e os trabalhadores migrantes têm os mesmos direitos, benefícios e proteção que as e os portugueses;
-	- fomentando o envolvimento dos municípios, com a elaboração de planos municipais de acolhimento e integração de migrantes e refugiados, com forte ligação à comunidade local;
-	- manter os apoios a pessoas deslocadas disponibilizando todo o apoio ao nível da saúde física e mental, assim como às vítimas de violência sexual;
-	- apoiar estudantes impedidos de frequentar e concluir o ensino superior com a concessão de proteção internacional, como estatuto de refugiados, nomeadamente às mulheres;
-	- condenar a adoção da legislação anti-LGBTQIA+ e apoiar o acolhimento e integração de pessoas LGBTQIA+;
-	- condenar todas as violações de Direitos Humanos, entre as quais se destacam e se sobrepõem as práticas ilegais de exploração laboral sobre trabalhadores migrantes, as desigualdades de género e discriminação e violência contra as mulheres, as comunidades LGBTQIA+ e outras comunidades minoritárias.
+    - uma revisão do Estatuto do Refugiado e das leis de imigração;
+    - promover a criação de centros de formação, de recrutamento e de integração, e de sistemas de incentivo à instalação em zonas de maior declínio demográfico, bem como a instituição de pacotes à mobilidade laboral em parceria com os países de origem;
+    - combater a exploração laboral, assegurando condições dignas e humanas de acolhimento em qualquer ponto de entrada em Portugal, reduzindo o tempo de resposta para situações temporárias e garantindo que as e os trabalhadores migrantes têm os mesmos direitos, benefícios e proteção que as e os portugueses;
+    - fomentando o envolvimento dos municípios, com a elaboração de planos municipais de acolhimento e integração de migrantes e refugiados, com forte ligação à comunidade local;
+    - manter os apoios a pessoas deslocadas disponibilizando todo o apoio ao nível da saúde física e mental, assim como às vítimas de violência sexual;
+    - apoiar estudantes impedidos de frequentar e concluir o ensino superior com a concessão de proteção internacional, como estatuto de refugiados, nomeadamente às mulheres;
+    - condenar a adoção da legislação anti-LGBTQIA+ e apoiar o acolhimento e integração de pessoas LGBTQIA+;
+    - condenar todas as violações de Direitos Humanos, entre as quais se destacam e se sobrepõem as práticas ilegais de exploração laboral sobre trabalhadores migrantes, as desigualdades de género e discriminação e violência contra as mulheres, as comunidades LGBTQIA+ e outras comunidades minoritárias.
 
 Programa do LIVRE | Legislativas 2024 **Liberdade Esquerda Europa Ecologia**
 
