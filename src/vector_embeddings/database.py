@@ -12,15 +12,19 @@ from sentence_transformers import SentenceTransformer
 import openai
 from typing import List, Dict, Optional
 
+
 class DB:
     """Handles all vector database operations for political content embeddings"""
 
-    def __init__(self, model_name='PORTULAN/serafim-900m-portuguese-pt-sentence-encoder-ir', 
-                 db_config=None):
+    def __init__(
+        self,
+        model_name="PORTULAN/serafim-900m-portuguese-pt-sentence-encoder-ir",
+        db_config=None,
+    ):
         self.model = SentenceTransformer(model_name)
         self.embedding_dim = 1536  # serafim 900m dimension
         self.table_name = "party_programs"  # Updated to match your schema
-        
+
         # Docker/OrbStack PostgreSQL configuration
         if db_config is None:
             db_config = {
@@ -28,16 +32,18 @@ class DB:
                 "port": 5432,
                 "database": "ragdb",
                 "user": "postgres",
-                "password": "postgres", # To be updated
+                "password": "postgres",  # To be updated
             }
-        
+
         self.db_config = db_config
         self.connection = None
 
     def connect(self):
         """Establish connection to PostgreSQL database running in Docker"""
         try:
-            print(f"Connecting to PostgreSQL at {self.db_config['host']}:{self.db_config['port']}")
+            print(
+                f"Connecting to PostgreSQL at {self.db_config['host']}:{self.db_config['port']}"
+            )
             self.connection = psycopg2.connect(**self.db_config)
             print("Successfully connected to PostgreSQL database")
             return True
@@ -64,15 +70,17 @@ class DB:
                     cursor.execute("SELECT version();")
                     version = cursor.fetchone()
                     print(f"PostgreSQL version: {version[0]}")
-                    
+
                     # Check if pgvector extension is available
-                    cursor.execute("SELECT * FROM pg_extension WHERE extname = 'vector';")
+                    cursor.execute(
+                        "SELECT * FROM pg_extension WHERE extname = 'vector';"
+                    )
                     vector_ext = cursor.fetchone()
                     if vector_ext:
                         print("pgvector extension is installed")
                     else:
                         print("Warning: pgvector extension not found")
-                    
+
                 return True
             except Exception as e:
                 print(f"Error testing connection: {e}")
@@ -86,14 +94,15 @@ class DB:
         if not self.connection:
             if not self.connect():
                 return False
-                
+
         try:
             with self.connection.cursor() as cursor:
                 # First, ensure the vector extension is created
                 cursor.execute("CREATE EXTENSION IF NOT EXISTS vector;")
-                
+
                 # Create the table matching your existing schema
-                cursor.execute(f"""
+                cursor.execute(
+                    f"""
                 CREATE TABLE IF NOT EXISTS {self.table_name} (
                     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
                     content TEXT NOT NULL,
@@ -103,19 +112,22 @@ class DB:
                     year INTEGER,
                     topic TEXT
                 );
-                """)
-                
+                """
+                )
+
                 self.connection.commit()
                 print(f"Table {self.table_name} created successfully")
                 return True
-                
+
         except Exception as e:
             print(f"Error creating table: {e}")
             if self.connection:
                 self.connection.rollback()
             return False
 
-    def insert_data(self, content, embedding, party_name=None, ideology=None, year=None, topic=None):
+    def insert_data(
+        self, content, embedding, party_name=None, ideology=None, year=None, topic=None
+    ):
         """Insert data into the PostgreSQL table"""
         if not self.connection:
             if not self.connect():
@@ -123,10 +135,13 @@ class DB:
 
         try:
             with self.connection.cursor() as cursor:
-                cursor.execute(f"""
+                cursor.execute(
+                    f"""
                 INSERT INTO {self.table_name} (content, embedding, party_name, ideology, year, topic)
                 VALUES (%s, %s, %s, %s, %s, %s);
-                """, (content, embedding, party_name, ideology, year, topic))
+                """,
+                    (content, embedding, party_name, ideology, year, topic),
+                )
                 self.connection.commit()
                 print("Data inserted successfully")
                 return True
@@ -163,7 +178,10 @@ class DB:
 
         try:
             with self.connection.cursor() as cursor:
-                cursor.execute(f"SELECT * FROM {self.table_name} WHERE embedding = %s;", (embedding,))
+                cursor.execute(
+                    f"SELECT * FROM {self.table_name} WHERE embedding = %s;",
+                    (embedding,),
+                )
                 rows = cursor.fetchall()
                 for row in rows:
                     print(row)
