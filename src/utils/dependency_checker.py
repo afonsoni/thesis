@@ -4,11 +4,12 @@ import importlib.util
 
 def check_and_install_dependencies():
     # Define dependencies with their pip package names (if different from import name)
+
+    # Check config.yaml dependencies
     dependencies = {
-        "marker": "marker-pdf",  # Command-line tool, pip package is marker-pdf
-        "pymilvus": "pymilvus",  # Python package
-        "sentence-transformers": "sentence-transformers",  # Python package
-        "markdown": "markdown",  # Python package
+        "psycopg2": "psycopg2",
+        "sentence-transformers": "sentence-transformers",
+        "markdown": "markdown",
     }
 
     for name, pip_package in dependencies.items():

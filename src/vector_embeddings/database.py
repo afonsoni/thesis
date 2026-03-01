@@ -9,8 +9,6 @@ The schema is designed to store the embeddings along with their metadata, allowi
 import psycopg2
 from psycopg2.extras import execute_values
 from sentence_transformers import SentenceTransformer
-import openai
-from typing import List, Dict, Optional
 
 
 class DB:

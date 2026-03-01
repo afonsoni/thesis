@@ -1,202 +1,196 @@
 # RAG System for Political Programs Analysis
 
-A modular Retrieval-Augmented Generation (RAG) system for analyzing Portuguese political party programs with support for different RAG implementations, including agentic RAG.
+A unified Retrieval-Augmented Generation (RAG) system for analyzing Portuguese political party programs (2024 elections). The pipeline is structured into three clean stages — **indexing**, **retrieval**, and **generation** — with advanced techniques drawn from the RAG-from-Scratch research series.
 
 ## Project Structure
 
 ```bash
 thesis/
-├── main.py
+├── main.py                     # CLI entry-point
 ├── config/
-│   └── config.yaml
+│   └── config.yaml             # Centralized configuration
 ├── data/
-│   ├── 0_raw/
-│   ├── 1_markdown/
-│   └── 2_processed/
+│   ├── 0_raw/                  # Source PDF files
+│   ├── 1_markdown/             # Parsed markdown (per party)
+│   └── 2_processed/            # Classified JSON outputs
 ├── src/
-│   ├── data/
+│   ├── rag/
+│   │   ├── common/             # Shared Pydantic models & constants
+│   │   │   └── models.py
+│   │   ├── indexing/           # Parse → Chunk → Classify → Embed → Store
+│   │   │   ├── parser.py
+│   │   │   ├── chunker.py
+│   │   │   ├── classifier.py
+│   │   │   ├── embedder.py
+│   │   │   ├── store.py
+│   │   │   └── pipeline.py
+│   │   ├── retrieval/          # Analyze → Expand → Route → Search
+│   │   │   ├── query_analyzer.py
+│   │   │   ├── query_expander.py
+│   │   │   ├── router.py
+│   │   │   ├── searcher.py
+│   │   │   └── pipeline.py
+│   │   └── generation/         # LLM clients → Prompts → Synthesis
+│   │       ├── llm_client.py
+│   │       ├── prompts.py
+│   │       ├── synthesizer.py
+│   │       └── pipeline.py
+│   ├── data/                   # Legacy data processing utilities
 │   │   ├── extraction/
 │   │   └── preprocessing/
-│   ├── embeddings/
-│   │   └── embedding_generator.py
-│   ├── rag/
-│   │   ├── base/
-│   │   ├── corrective/
-│   │   └── agentic/
 │   └── utils/
 │       ├── config_loader.py
 │       └── dependency_checker.py
-└── tests/
+├── tests/
+└── docker-compose.yml          # PostgreSQL 17 + pgvector
 ```
 
-## Features
+## Key Techniques
 
-### RAG Implementations
+| Technique                     | Source              | Where Used                    |
+| ----------------------------- | ------------------- | ----------------------------- |
+| Multi-Query Expansion         | Part 5              | `retrieval/query_expander.py` |
+| Reciprocal Rank Fusion        | Part 6 (RAG-Fusion) | `retrieval/searcher.py`       |
+| Question Decomposition        | Part 7              | `generation/synthesizer.py`   |
+| Logical Routing               | Part 10             | `retrieval/router.py`         |
+| Metadata-Filtered Search      | Part 11             | `indexing/store.py`           |
+| Multi-Representation Indexing | Part 12             | `indexing/embedder.py`        |
 
-1. **Base RAG**: Simple retrieval + generation pipeline
-2. **Corrective RAG**: Evaluates retrieval quality and refines queries when needed
-3. **Agentic RAG**: Uses iterative reasoning with multiple search strategies
+## Core Components
 
-### Core Components
-
-- **PDF Extraction**: Converts PDF files to markdown using marker
-- **Embedding Generation**: Creates vector embeddings using sentence transformers
-- **Vector Storage**: Uses Milvus for efficient similarity search
-- **LLM Integration**: Uses LLaMA API for text generation
-- **Configuration Management**: Centralized YAML-based configuration
+- **PDF Extraction**: `marker_single` CLI tool (produces clean markdown)
+- **Chunking**: Header-aware LangChain splitter + recursive windowing
+- **Topic Classification**: Gemini 2.5 Flash structured output (18 Portuguese categories, multi-label) with keyword fallback
+- **Embeddings**: `PORTULAN/serafim-900m-portuguese-pt-sentence-encoder-ir` (1536d, Portuguese-specific)
+- **Vector Store**: PostgreSQL 17 + pgvector with HNSW index
+- **LLM Generation**: Gemini 2.5 Flash (primary) + Llama 3.3 70B via OpenRouter (fallback)
 
 ## Quick Start
 
-### 1. Initial Setup
+### Prerequisites
 
 ```bash
-# Check dependencies and setup data pipeline
-python main.py --setup
+# Start PostgreSQL + pgvector
+docker compose up -d
+
+# Install Python dependencies
+pip install sentence-transformers psycopg2-binary langchain-text-splitters \
+            google-genai openai python-dotenv pydantic pyyaml
 ```
 
-This will:
+### Environment Variables
 
-- Check and install required dependencies
+Create a `.env` file:
 
-- Extract PDF files to markdown
-
-- Generate embeddings and store in Milvus
-
-### 2. Interactive Usage
-
-```bash
-# Base RAG (simple)
-python main.py
-
-# Corrective RAG (with query refinement)
-python main.py --implementation corrective
-
-# Agentic RAG (with iterative reasoning)
-python main.py --implementation agentic
+```env
+GEMINI_API_KEY=your_gemini_key
+OPENROUTER_API_KEY=your_openrouter_key
 ```
 
-### 3. Single Query
+### 1. Parse PDFs → Markdown
 
 ```bash
-# Ask a specific question
-python main.py --query "What is PS's position on education?"
+python main.py parse --input-dir data/0_raw --output-dir data/1_markdown
+```
 
-# Use corrective RAG for complex queries
-python main.py --implementation corrective --query "Compare economic policies across parties"
+### 2. Index Documents
 
-# Use agentic RAG for comprehensive analysis
-python main.py --implementation agentic --query "Analyze environmental policies" --top-k 8
+```bash
+# Index all parties
+python main.py index --all
+
+# Index a single party
+python main.py index --party livre
+
+# Re-index from scratch (drops existing data)
+python main.py index --all --drop
+```
+
+### 3. Query
+
+```bash
+# Simple question
+python main.py query "Quais são as propostas do PS para a educação?"
+
+# Comparison (auto-detected)
+python main.py query "Comparar as políticas de saúde do PS e do CHEGA"
+
+# Topic exploration
+python main.py query "Que partidos falam sobre imigração?"
+
+# With more context
+python main.py query "Políticas ambientais dos partidos de esquerda" --top-k 10
 ```
 
 ## Configuration
 
-Edit `config/config.yaml` to customize:
+All settings in `config/config.yaml`:
 
-- **Paths**: Data directories
-- **PDF Extraction**: Tool settings and output format
-- **Text Chunking**: Method, size, and overlap
-- **Embeddings**: Model and dimensions
-- **Milvus**: Connection and index settings
-- **LLM**: Model and generation parameters
-- **RAG**: System prompts and retrieval settings
+- **Paths**: data directories
+- **Embeddings**: model name, dimension
+- **PostgreSQL**: connection details, table name
+- **LLM**: Gemini & OpenRouter model, temperature, max tokens
+- **Retrieval**: multi-query count, RRF k-value, default top-k
+- **Indexing**: chunk size, overlap, classification model
 
-## Environment Variables
+## Architecture
 
-Create a `.env` file with:
+### Indexing Flow
 
-```env
-LLAMA_API_TOKEN=your_llama_api_token_here
+```
+PDF → marker_single → Markdown → Header-aware chunking →
+  Topic classification (Gemini/keyword) → Embedding (Serafim 900M) →
+  PostgreSQL + pgvector (HNSW index)
 ```
 
-## Dependencies
+### Query Flow
 
-- Python 3.8+
-- pymilvus
-- sentence-transformers
-- openai
-- python-dotenv
-- markdown
-- click
-- pypdf
-
-Dependencies are automatically checked and installed when running `--setup`.
-
-## Usage Examples
-
-### Basic Query
-
-```bash
-python main.py --query "Quais são as propostas do PS para a educação?"
+```
+User question → Query Analysis (structured LLM output) →
+  Logical Routing by query type →
+    ├─ single_party:      metadata-filtered + multi-query + RRF
+    ├─ comparison:         per-party parallel search + RRF + grouped synthesis
+    ├─ topic_exploration:  topic-filtered + multi-query + RRF
+    └─ general:            broad multi-query + RRF
+  → Answer Synthesis (direct / comparison / decomposed) →
+  Final answer with source citations
 ```
 
-### Advanced Analysis
+## Parties Tracked (2024)
 
-```bash
-python main.py --implementation agentic --query "Compare as políticas ambientais de todos os partidos" --top-k 10
-```
-
-### Custom System Prompt
-
-```bash
-python main.py --system "You are a political expert. Provide detailed analysis." --query "Economic policies"
-```
+| Party                             | Ideology |
+| --------------------------------- | -------- |
+| Aliança Democrática (AD)          | Right    |
+| Bloco de Esquerda (BE)            | Left     |
+| CHEGA                             | Right    |
+| Iniciativa Liberal (IL)           | Right    |
+| LIVRE                             | Left     |
+| Pessoas-Animais-Natureza (PAN)    | Left     |
+| Partido Comunista Português (PCP) | Left     |
+| Partido Socialista (PS)           | Left     |
 
 ## API Usage
 
 ```python
-from src.rag.base.base_rag import BaseRAG
-from src.rag.corrective.corrective_rag import CorrectiveRAG
-from src.rag.agentic.agentic_rag import AgenticRAG
+from src.rag.retrieval.pipeline import retrieve
+from src.rag.generation.pipeline import generate
 
-# Initialize RAG system
-rag = BaseRAG()
+# Full RAG pipeline
+result = retrieve("O que propõe o LIVRE sobre habitação?")
+answer = generate(result)
+print(answer.answer)
 
-# Query the system
-result = rag.query("What are the main education policies?")
-print(result["response"])
+# Indexing
+from src.rag.indexing.pipeline import index_documents
+index_documents(party_filter="livre", drop_existing=True)
 ```
-
-## Architecture
-
-### Base RAG Flow
-
-1. User query → Embedding generation
-2. Vector similarity search in Milvus
-3. Retrieve top-k documents
-4. Format context + generate response with LLM
-
-### Corrective RAG Flow
-
-1. Initial retrieval (same as base)
-2. Evaluate retrieval quality using LLM
-3. If quality is insufficient, refine query
-4. Re-retrieve with refined query
-5. Generate final response
-
-### Agentic RAG Flow
-
-1. Plan search strategy (break query into sub-questions)
-2. Iterative search across multiple sub-queries
-3. Assess information completeness after each iteration
-4. Synthesize information from all searches
-5. Generate comprehensive response
 
 ## Troubleshooting
 
-### Common Issues
-
-1. **Import Errors**: Make sure to run `python main.py --setup` first
-2. **Milvus Connection**: Ensure Milvus is running on localhost:19530
-3. **API Token**: Set your LLAMA_API_TOKEN in `.env` file
-4. **Dependencies**: Run `python main.py --check-deps` to verify
-
-### Debug Mode
-
-Add verbose logging by modifying the config file or use:
-
-```bash
-python -v main.py --query "your question"
-```
+1. **PostgreSQL not running**: `docker compose up -d`
+2. **No API keys**: Set `GEMINI_API_KEY` and/or `OPENROUTER_API_KEY` in `.env`
+3. **No results**: Run `python main.py index --all` first
+4. **pgvector not installed**: The Docker image (`pgvector/pgvector:pg17`) includes it
 
 ## Contributing
 

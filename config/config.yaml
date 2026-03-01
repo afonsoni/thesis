@@ -8,7 +8,7 @@ paths:
 
 # PDF extraction settings
 pdf_extraction:
-  tool: "marker" # marker or pymupdf
+  tool: "marker"
   output_format: "markdown"
   disable_images: true
 
@@ -16,9 +16,8 @@ pdf_extraction:
 embeddings:
   model: "PORTULAN/serafim-900m-portuguese-pt-sentence-encoder-ir"
   dimension: 1536
-  cache_embeddings: true
 
-# PostgreSQL vector database settings
+# PostgreSQL + pgvector settings
 postgresql:
   host: "localhost"
   port: "5432"
@@ -27,13 +26,31 @@ postgresql:
   password: "postgres"
   table_name: "party_programs"
 
-# Dependencies
-dependencies:
-  required:
-    - psycopg2
-    - sentence-transformers
-    - langchain
-    - ctransformers
-    - markdown
-    - click
-    - pypdf
+# LLM providers (Gemini primary, OpenRouter fallback)
+# API keys are read from environment variables:
+#   GEMINI_API_KEY, OPENROUTER_API_KEY
+llm:
+  gemini:
+    model: "gemini-2.5-flash"
+    temperature: 0.3
+    max_tokens: 1500
+  openrouter:
+    model: "meta-llama/llama-3.3-70b-instruct"
+    temperature: 0.3
+    max_tokens: 1500
+
+# Retrieval settings
+retrieval:
+  multi_query_count: 4 # number of expanded queries (Part 5)
+  rrf_k: 60 # RRF constant (Part 6)
+  default_top_k: 5
+  top_k_per_party: 3 # for comparison queries
+
+# Indexing settings
+indexing:
+  max_chunk_size: 1000
+  chunk_overlap: 100
+  year: 2024
+  use_llm_classification: true
+  generate_summaries: false # multi-representation indexing (Part 12)
+  classification_model: "gemini-2.5-flash"

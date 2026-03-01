@@ -28,7 +28,7 @@ Recusamos a mercantilização das pessoas, do trabalho e da natureza. Embora a a
 
 Assim, nesta época de emergência ecológica e social, defendemos um Novo Pacto Verde (_Green New Deal_) que contemple um forte investimento público a nível nacional e, sobretudo, europeu para uma rápida transição ecológica que assegure a resolução das carências sociais existentes e o aumento do bem-estar. Para isso, precisamos de uma verdadeira redistribuição da riqueza, de justiça fiscal, de efetiva regulação pública e fomento da economia cooperativa e solidária, colocando a economia ao serviço das pessoas, de uma sociedade mais igualitária e respeitadora da natureza, do clima e do planeta.
 
-Por isso defendemos:
+### Por isso defendemos:
 
 1. **Promover um Novo Pacto Verde** - _Green New Deal_ - um plano estratégico para uma economia diversa, verde e justa ao qual está associado um plano de investimento ambicioso, para Portugal e para a Europa, que identifique os setores prioritários, as infraestruturas necessárias para as próximas décadas e aposte nos setores-chave de valorização dos recursos e competências do país para fazer face à emergência climática e ecológica, assegurando a solidez da qualificação e da formação da população, a criação de empregos verdes e estáveis mediante uma transição laboral justa e participada, e assegurando a coesão territorial pela redução da fratura entre centro e periferias.
 
@@ -110,7 +110,7 @@ A injustiça social é, na maior parte dos casos, fruto da intersecção de vár
 
 A nossa sociedade não tem sido capaz de interromper a reprodução intergeracional da pobreza em muitas famílias em Portugal. Uma sociedade mais igual é uma sociedade mais coesa e justa, feminista e defensora dos direitos das diversas comunidades, na qual a maioria, e não só algumas pessoas, vive em condições dignas e tem acesso inquestionável a serviços e bens de primeira necessidade. Neste sentido, a promoção da justiça social e a defesa da liberdade consistem na implementação de políticas públicas e, consequentemente, na adoção de medidas que procuram a eliminação de todas as formas de desigualdade: sociais, políticas, económicas e de representatividade no tecido social e no quadro das instituições nacionais.
 
-Por isso defendemos:
+### Por isso defendemos:
 
 1. **Dar prioridade à erradicação da pobreza em Portugal**, revendo e aprofundando a Estratégia Nacional de Combate à Pobreza e interrompendo a reprodução intergeracional da pobreza. A Estratégia Nacional de Combate à Pobreza 2021-2030 (ENPC) não tem os recursos, o financiamento e o alcance social proporcional à gravidade do problema em Portugal, carecendo de uma revisão que aporte mais ambição, capacidade e que consolide como seus objetivos estratégicos:
 
@@ -274,7 +274,7 @@ Queremos, pois, superar o emprego como aspeto central das nossas vidas em detrim
 
 Por tudo isto, o LIVRE defende um pacto nacional para o trabalho, rendimento e proteção social que permita corrigir desigualdades no presente e construir as bases para uma sociedade de futuro que possibilite o acesso a uma proteção laboral e de rendimento que não deixe ninguém para trás, ao mesmo tempo que aposta no acesso a bens cada vez mais escassos e valiosos, como o tempo, a segurança e a estabilidade.
 
-Por isso defendemos:
+### Por isso defendemos:
 
 1. **Tirar Portugal da armadilha dos salários baixos, aumentando os rendimentos**: através de um compromisso de subida do salário mínimo nacional ao longo da legislatura até aos 1150 euros, em 2028, permitindo assim reforçar o valor do trabalho enquanto componente produtiva fundamental para a economia, e definindo metas para o rácio do SMN em relação ao PIB per capita ou ao salário médio; estabelecendo uma estratégia de concertação nacional para a valorização salarial, nos vários níveis da escala de rendimentos, com particular ênfase nos salários médios e para os rendimentos do trabalho qualificado, através, também, de uma indexação à inflação e a métricas de produtividade. É também urgente regular as diferenças salariais dentro da mesma entidade, estabelecendo um limite máximo para o rácio entre o salário mais baixo e o salário mais alto em cada empresa, organização ou ramo de atividade.
 
@@ -419,9 +419,9 @@ Propomo-nos ouvir todas as pessoas, nomeadamente profissionais de saúde e utent
 - Humanizar os cuidados de saúde
 - Investir na Saúde Mental
 
-Por isso defendemos:
+### Por isso defendemos:
 
-### Reforçar e Reorganizar o Serviço Nacional de Saúde
+#### Reforçar e Reorganizar o Serviço Nacional de Saúde
 
 1. **Fortalecer e avançar com a reforma do SNS:**
 
@@ -497,7 +497,7 @@ Por isso defendemos:
 
 13. **Cumprir os prazos na realização das juntas médicas de avaliação de incapacidade**, dispensando a realização de junta médica no caso de condições permanentes, ao integrar profissionais das especialidades que se justifiquem, aumentando o número de profissionais que integram estes coletivos e adequando a competência técnica com especialistas nas diversas áreas médicas, ao desmaterializar o processo de emissão dos atestados médicos de incapacidade multiusos (AMIM), ao coincidir o prazo do AMIM com a data do relatório médico que conduz à realização da junta, ao determinar a necessidade de fundamento dos pareceres das juntas de recurso para minimizar o processo de reavaliações, ao estabelecer prazos para a realização das juntas médicas de reavaliação e ao prorrogar a validade do atestado multiuso das pessoas com deficiência para efeitos de acesso e manutenção das medidas e benefícios sociais, económicos e fiscais.
 
-### **Valorizar as carreiras profissionais no SNS**
+#### **Valorizar as carreiras profissionais no SNS**
 
 14. **Promover o adequado planeamento de Recursos Humanos em Saúde**, em diálogo com as diversas Ordens e associações profissionais, associações nacionais de estudantes das áreas da Saúde e associações representantes de pessoas com doença, no sentido de melhor conjugar formação pré e pós-graduada e outros fatores que garantam a qualidade da prestação de cuidados de saúde em Portugal, contrariando a desvalorização artificial e embaratecimento do trabalho de profissionais de Saúde.
 
@@ -530,7 +530,7 @@ Por isso defendemos:
 
 21. **Garantir uma melhor distribuição geográfica de profissionais de saúde** especializados em todas as regiões do País, através de suplementos salariais, incentivos fiscais ou apoio à habitação.
 
-### **Promover a Saúde e Prevenir a Doença**
+#### **Promover a Saúde e Prevenir a Doença**
 
 22. **Promover a saúde e prevenir a doença**, incluindo a avaliação do impacto na saúde de todas as políticas públicas, ao:
 
@@ -558,7 +558,7 @@ Por isso defendemos:
 
 25. **Limitar drasticamente o acesso e a publicidade aos jogos de azar**, designadamente raspadinha, _eurodreams_, euromilhões, totoloto e totobola, tanto no espaço público como na internet e na televisão.
 
-### **Humanizar os cuidados de saúde**
+#### **Humanizar os cuidados de saúde**
 
 26. **Garantir Cuidados de Saúde mais próximos:**
 
@@ -615,7 +615,7 @@ Por isso defendemos:
 
 33. **Dignificar o fim de vida e possibilitar uma morte digna**, acompanhando a implementação da legislação da despenalização da morte medicamente assistida, assegurando a disponibilização de apoio médico e psicológico especializados, para que sejam obrigatoriamente abordados do ponto de vista clínico todos os aspetos concorrentes para a decisão informada e consciente do utente e cabendo ao Estado assegurar que, nas situações de sofrimento extremo físico e/ou psíquico, são prestados todos os cuidados possíveis do ponto de vista biológico, psicológico e social, garantindo um acompanhamento adequado e humano, incluindo a prestação de cuidados paliativos, nas situações de doença terminal e de fim de vida. Devem sempre ser salvaguardados os direitos e a liberdade de consciência de terceiros, nomeadamente de familiares e de profissionais de saúde.
 
-### **Investir na Saúde Mental**
+#### **Investir na Saúde Mental**
 
 34. **Promover a saúde mental e prevenir a doença mental:**
 
@@ -702,7 +702,7 @@ Defendemos a gestão democrática das escolas aos mais diversos níveis, envolve
 
 Cientes de que a legislação nacional já enquadra esta visão da educação, propomos medidas que acelerem e facilitem a transição para o novo paradigma de aprendizagem que o futuro exige; porém, a consciência de que as mudanças em educação são demoradas e dependentes da vontade dos vários agentes, para cada proposta coexistem medidas que apontam para o paradigma que desejamos e outras que visam melhorar a escola na sua situação atual.
 
-Por isso defendemos:
+### Por isso defendemos:
 
 1. **Centrar a escola em cada aluno** para garantir uma preparação abrangente e combater o insucesso e o abandono escolares, assegurando a integração entre conhecimentos de áreas do saber, ao:
 
@@ -828,9 +828,9 @@ Em 2022 a despesa total divulgada – pública e privada – em I&D atingiu 4.13
 
 Dado este contexto, é imperativo repensar o sistema científico e tecnológico português, permitindo-lhe ser a ferramenta de geração de conhecimento e de desenvolvimento económico e social que tem o potencial para ser. Nesse sentido, propomos um conjunto de medidas organizadas em três eixos: Estabilidade do Sistema Científico e Tecnológico, Ensino Superior, e Ciência e Sociedade.
 
-Por isso defendemos:
+### Por isso defendemos:
 
-### **Estabilidade do Sistema Científico e Tecnológico**
+#### **Estabilidade do Sistema Científico e Tecnológico**
 
 1. **Criação de um Fundo Estratégico da Ciência e Tecnologia**, mecanismo permanente de financiamento do sistema científico, assegurado através dos impostos e taxas sobre a atividade económica.
 
@@ -850,7 +850,7 @@ Por isso defendemos:
 
 7. **Majorar todas as bolsas de doutoramento, pós-doutoramento e contratos de investigação** de uma verba até 10% da despesa total da bolsa ou contrato para cobrir gastos relacionados com a atividade de investigação, assim como (mas não limitado a) consumíveis, equipamento, participação em conferências, ou publicação de artigos.
 
-### **Ensino Superior**
+#### **Ensino Superior**
 
 8. **Eliminar as propinas no 1.º ciclo e no ano curricular/parte escolar do 2º ciclo**, e regulamentar o valor das propinas relativas ao ano de dissertação, estágio ou equivalente/parte não escolar do 2.º ciclo e à formação pós-graduada através do estabelecimento de tetos máximos e da preparação de um processo de redução progressiva do seu montante, de acordo com padrões europeus. Estabelecer um valor máximo aplicável às propinas de estudantes internacionais da Comunidade de Países de Língua Portuguesa, aos quais se passará a aplicar o esquema de devolução de propinas aplicado atualmente a estudantes portugueses.
 
@@ -914,7 +914,7 @@ Por isso defendemos:
     - incluindo indicadores associados aos mestrados em ensino nas avaliações periódicas das unidades de investigação FCT associadas a instituições universitárias;
     - criando bolsas de mestrado em ensino que não dependam da política científica ou da FCT e que incluam também: a majoração financeira dos departamentos, na forma de bolsas em mestrado em ensino, em função de indicadores positivos dos professores formados e dos mestrados em ensino; a criação de um número limitado de bolsas de mestrado em ensino dirigida para investigadores a nível pós-doutoral para reconversão de carreira; a criação de um programa especial de inovação nas escolas públicas que não dependa da FCT, em que as escolas possam submeter projetos a financiamento e que esses projetos prevejam bolsas de mestrado em ensino, à semelhança do que acontece para projetos de investigação no ramo científico.
 
-### **Ciência e sociedade**
+#### **Ciência e sociedade**
 
 30. **Colocar a ciência ao serviço das instituições públicas e das comunidades** através da contratação de bens e serviços, em especial ligadas ao desenvolvimento de novos produtos e serviços, por parte da administração pública e setor empresarial do Estado às instituições do ensino superior e unidades do sistema científico nacional.
 
@@ -1100,9 +1100,9 @@ Apesar do pacote legislativo Mais Habitação e do investimento do Plano de Recu
 
 É preciso investir em mais Habitação Pública para além do PRR. Por isso, defendemos que toda a habitação do Estado é Habitação Pública e que habitação não é só o espaço privado mas todas as dimensões urbanas, infraestruturais e de serviços que contribuem para uma vida segura e integrada, de acordo com a noção de habitat consagrada na Lei de Bases da Habitação. Assim, persistem diferentes carências na garantia de igualdade de acesso à habitação e, como tal, é necessário definir várias frentes de ação. Propomos medidas organizadas sobre os seguintes eixos: Proteger e alargar o direito à habitação, apoiar na emergência, regular o valor da propriedade urbana e desenvolver modelos ecológicos para o habitar e para o espaço público.
 
-Por isso defendemos:
+### Por isso defendemos:
 
-### **Proteger e alargar o direito à habitação**
+#### **Proteger e alargar o direito à habitação**
 
 1. **Alcançar 10% de habitação pública**, como forma de garantir o acesso das pessoas a habitações nos grandes centros urbanos e minimizar a falta de oferta no mercado de arrendamento, concretizando a aplicação dos fundos do Plano de Recuperação e Resiliência e alocando verbas do Orçamento de Estado para o contínuo investimento na construção, reabilitação e conservação da habitação pública, de modo a atingir, a longo prazo, os 600 mil fogos, considerando os últimos Censos. Contudo não se deve restringir a habitação pública à habitação social (dados de 2015 indicam a existência de cerca de 120 mil fogos) mas também fogos que integram outros programas, o que implica proceder a um levantamento rigoroso do número de habitações do parque público.
 
@@ -1120,7 +1120,7 @@ Por isso defendemos:
 
 8. **Reforçar a capacitação técnica dos serviços do Estado que trabalham sobre a habitação**. As competências do Instituto de Habitação e Reabilitação Urbana I.P. para concluir a aplicação das verbas do Plano de Recuperação e Resiliência até ao final de 2026 e garantir o investimento contínuo no aumento da habitação pública e na conservação do parque habitacional implicam mais recursos técnicos, financeiros e administrativos. A passagem de competências para os municípios ao nível da habitação também carece de investimento em formação dos recursos humanos, do Estado central e local, e a necessidade de articulação das várias escalas e serviços de governação sobre o tema da habitação, sobretudo entre políticas de desenvolvimento (sociais, económicas, culturais), políticas do espaço e território (instrumentos de gestão territorial e planos e estratégias setoriais) e captação de fundos nacionais, europeus e internacionais.
 
-### **Apoiar na Emergência**
+#### **Apoiar na Emergência**
 
 9. **Efetivar o Fundo de Emergência para a Habitação**, aprovado no Orçamento de Estado 2024, para apoiar as pessoas que fiquem sem a sua habitação ou em situação de sem-abrigo para financiar as soluções previstas no Programa 1º Direito, considerando que o PRR termina em 2026, e financiar apoios sociais, nomeadamente: o pagamento de alojamento temporário, a comparticipação do pagamento da renda habitacional ou da prestação do crédito destinado à aquisição. Simultaneamente, direcionar verbas do fundo para a dotação dos serviços de apoio social de capacidade para encontrar soluções alternativas em situações de despejo e permitindo regimes pontuais e extraordinários de proteção de arrendatários e mutuantes decorrentes de externalidades, como a elevada inflação e o aumento das taxas de juros dos créditos para a habitação própria e permanente, permitindo a regulação do aumento anual da renda, suspendendo a execução de hipotecas e despejos, se necessário, ou revendo a legislação das condições de atribuição de crédito.
 
@@ -1137,7 +1137,7 @@ Por isso defendemos:
 
 12. **Tornar obrigatória a possibilidade de dação em cumprimento da dívida de crédito à habitação**, já permitida na Lei de Bases da Habitação mas só quando contratualmente prevista. É necessário garantir que quando não se consegue pagar o crédito à habitação a perda do imóvel para a banca garante a extinção da dívida de forma a evitar que mesmo perdendo o imóvel parte da dívida ainda tenha que ser paga.
 
-### **Regular o valor da propriedade urbana**
+#### **Regular o valor da propriedade urbana**
 
 13. **Estabelecer limites máximos no valor de renda**, durante pelo menos cinco anos, nos imóveis habitacionais de proprietários que recebem financiamento de programas promovidos pelo Estado (como exemplo, o IFRU - Instrumento Financeiro para a Reabilitação e Revitalização Urbanas) para a realização de obras em imóveis que não servem para habitação própria.
 
@@ -1163,7 +1163,7 @@ Por isso defendemos:
 
 21. **Rever a legislação que regula a atividade de mediação imobiliária e da atividade de gestão e administração de condomínios**. Regular de acordo com a transformação significativa das empresas de mediação imobiliária e de gestão e administração de condomínios, de forma a introduzir exigências formativas aos profissionais e maior transparência e justiça fiscal na contratualização dos serviços e tributação do pagamento. A revisão coordenada de vários diplomas do setor imobiliário deve procurar melhorar os serviços prestados. Esta revisão deve contar com a participação das várias organizações do setor e a coordenação do Instituto dos Mercados Públicos, do Imobiliário e da Construção, I.P. (IMPIC, I.P.).
 
-### **Desenvolver modelos ecológicos para o habitar**
+#### **Desenvolver modelos ecológicos para o habitar**
 
 22. **Promover a reabilitação e conservação do património edificado**, melhorando o desempenho ambiental de edifícios existentes, contribuindo para as metas estabelecidas na Estratégia Nacional de Longo Prazo para o Combate à Pobreza Energética 2023- 2050, com o aumento da dotação orçamental para o Programa 3C - Casa, Conforto e Clima, e garantindo a melhoria das condições de habitabilidade e da segurança sísmica dos imóveis existentes, através de um programa de incentivos de comparticipação financeira, pelo Fundo Ambiental, a 100% até ao limite de 100.000€ para edifícios existentes, entre os quais se destaca:
 
@@ -1219,9 +1219,9 @@ Do ponto de vista da sustentabilidade, será necessário assegurar a abrangênci
 
 A política de transportes deve respeitar as necessidades das populações a curto, médio e longo prazo. A concentração da população é maior nas áreas metropolitanas, mas todo o território deve ser abrangido por uma rede coesa, socialmente justa e funcional, garantindo as melhores e mais adequadas condições de mobilidade. Do ponto de vista da justiça social, é particularmente essencial garantir a toda a população o acesso a transportes públicos de qualidade e com as condições necessárias à pontualidade e regularidade dos mesmos.
 
-Por isso defendemos:
+### Por isso defendemos:
 
-### **Um país territorialmente mais justo e sustentável**
+#### **Um país territorialmente mais justo e sustentável**
 
 1. **Concretizar a regionalização** no território continental português, como garante essencial da coesão territorial e do desenvolvimento equilibrado do país, conforme previsto na Constituição da República Portuguesa.
 
@@ -1256,7 +1256,7 @@ Por isso defendemos:
 
 13. **Concretizar a Plataforma Eletrónica de Procedimentos Urbanísticos** única a nível nacional para submissão e tramitação de todos os atos administrativos de natureza urbanística municipal, até 2026 e concretizando as verbas do PRR. Este será um instrumento digital de uniformização, desburocratização e simplificação dos processos urbanísticos municipais, sendo essencial à melhoria do serviço público do foro urbanístico no nosso país e correção de assimetrias entre municípios de diferentes escalas e correspondentes recursos humanos e tecnológicos.
 
-### **Mobilidade segura, acessível e sustentável**
+#### **Mobilidade segura, acessível e sustentável**
 
 14. **Garantir a oferta e o acesso a uma rede de transportes públicos**, fomentando o transporte adequado a cada deslocação, tendo em conta a sua sustentabilidade e conveniência:
 
@@ -1331,7 +1331,7 @@ Este não é apenas um desafio que relaciona clima e energia. Igualmente importa
 
 Acima de tudo, este contexto de transição é uma grande oportunidade para fomentar um desenvolvimento ecológico e solidário que permita gerar milhares de empregos climáticos; para descentralizar, reduzindo perdas e reforçando a liberdade das pessoas para se organizarem e, individualmente, em cooperativas ou em pequenas empresas, consumirem ou comercializarem a energia produzida localmente. O mercado liberalizado de energia da Península Ibérica favoreceu, até hoje, grandes empresas. É tempo de favorecer as pessoas e as comunidades.
 
-Por isso defendemos:
+### Por isso defendemos:
 
 1. **Declarar a emergência ecológica nacional**, atribuindo ao desafio de combate às alterações climáticas e à perda de biodiversidade a urgência civilizacional que efetivamente representam, de forma inequívoca e mobilizadora.
 
@@ -1415,7 +1415,7 @@ Por isso defendemos:
 
 que permita uma transição para um modelo de desenvolvimento ecológico e solidário que não se encontre exclusivamente centrado no crescimento económico. Esta alteração de paradigma deve focar-se sobretudo na regulamentação dos diversos tipos de atividades geradoras de resíduos e de emissões de gases de efeito de estufa. Dado que as instituições públicas estão entre os principais consumidores a nível europeu, o Estado tem um papel relevante na promoção de compras ecológicas, de forma a promover o desenvolvimento de produtos e tecnologias mais sustentáveis.
 
-Por isso defendemos:
+### Por isso defendemos:
 
 1. **Assumir, com o destaque necessário, a implementação da Economia Circular**, em Portugal, assegurando a mobilização de recursos do Portugal 2030 e dos diversos Programas Operacionais regionais e setoriais, assegurando a implementação célere das medidas preconizadas no Plano Estratégico para os Resíduos Urbanos (PERSU) 2030, e alavancando projetos estruturantes que permitam recuperar o atraso na concretização das metas nacionais a respeito dos resíduos urbanos, assumindo novas metas nacionais de redução, preparação para reutilização e reciclagem, deposição de resíduos urbanos biodegradáveis em aterro, e taxa de utilização dos próprios aterros.
 
@@ -1463,7 +1463,7 @@ Florestas maduras e dominadas por folhosas são preciosos recursos naturais, pro
 
 No seu conjunto, a agricultura, as florestas e a conservação da natureza, quando integradas e bem geridas, podem sustentar setores vitais para a economia nacional no curto, médio e longo prazos, criando valor acrescentado e gerando e mantendo muitos empregos tanto no litoral como no interior. O pagamento justo pelos serviços de ecossistema providenciados nos territórios em que estas atividades se desenvolvem, a quem se esforça para os manter, pode também contribuir para o rendimento de quem habita nesses territórios. É esta a visão integrada que o LIVRE propõe para assegurar segurança alimentar, combater as alterações climáticas e travar o declínio da biodiversidade, tornando o nosso território mais resistente e resiliente.
 
-Por isso defendemos:
+### Por isso defendemos:
 
 1. **Promover a pequena agricultura e agricultura familiar** através da implementação de práticas agroecológicas e regenerativas, mantendo o dinamismo das zonas rurais, o combate às alterações climáticas e a perda de biodiversidade, com o apoio das tradições, do conhecimento, da cultura e da utilização, por estes agricultores, das suas próprias sementes e espécies autóctones.
 
@@ -1548,7 +1548,7 @@ Apesar dos índices de diversidade biológica em Portugal serem ainda dos mais e
 
 Vários fatores contribuíram para esta situação, com destaque para os impactos negativos da agricultura intensiva e a destruição e fragmentação de habitats devido à construção de infraestruturas como grandes barragens e autoestradas. A insuficiência de meios humanos e financeiros, a incipiente determinação política na gestão e valorização da Rede Nacional de Áreas Protegidas e dos sítios da Rede Natura 2000 e a ausência de uma estratégia nacional de monitorização efetiva são também parte da razão pela qual a situação comprometedora em que se encontram a biodiversidade e a geodiversidade tarda em alterar-se. No LIVRE, sabemos que o futuro da humanidade é o de zelar pela natureza e pela diversidade da qual a nossa própria espécie emergiu. Será, também, através de um comportamento responsável e pró-ativo que poderemos articular melhor a conservação da natureza, a agricultura sustentável e a reflorestação, de forma a potenciar os benefícios recíprocos e a combater as causas e os efeitos que as alterações climáticas terão no nosso território.
 
-Por isso defendemos:
+### Por isso defendemos:
 
 1. **Investir ambiciosamente na conservação da natureza, da biodiversidade e do património geológico**, revendo rapidamente a Estratégia Nacional de Conservação da Natureza e Biodiversidade 2030, no sentido de aumentar significativamente o investimento público direto em ações de reabilitação e manutenção dos habitats e espécies classificadas, assim como na gestão de geossítios, tomando máximo partido das verbas europeias disponíveis para este fim e identificando, sistematizando e calendarizando de forma clara e concreta os recursos financeiros necessários para a sua implementação, em Programas de Ação que complementem, nos territórios não classificados, as ações que decorram do Quadro de Ação Prioritária para a Rede Natura 2000.
 
@@ -1639,7 +1639,7 @@ No espírito da Declaração Universal dos Direitos do Animal, o LIVRE respeita 
 
 Por escolhermos ter animais de companhia, revestem-se de particular importância os deveres humanos para com o seu bem-estar no quotidiano. O ordenamento do território e o urbanismo devem possibilitar a coabitação tranquila entre animais e humanos. O excesso de natalidade promovido pela sua criação deve ser regulado, de forma a prevenir o abandono e a sobrelotação das estruturas de recolha. A adoção de animais recolhidos deve ser prioritária e o acesso a cuidados veterinários obrigatório e apoiado pelo Estado quando existem carências.
 
-Por isso defendemos:
+### Por isso defendemos:
 
 1. **Progredir na definição da personalidade jurídica dos animais em Portugal**, atribuindo às demais espécies animais os direitos de personalidade jurídica hoje reconhecidos exclusivamente aos animais de companhia, e salvaguardando a constitucionalidade da legislação que incide, por exemplo, sobre os maus-tratos. Em sede de revisão constitucional, assegurar o reconhecimento da personalidade jurídica das espécies animais e da salvaguarda do seu bem-estar.
 
@@ -1685,7 +1685,7 @@ Os mares e oceanos são repositórios de vida que regulam os níveis de CO2 sequ
 
 É possível ter em Portugal um setor pesqueiro vibrante e dinâmico que assegure um rendimento digno a todos os elementos da cadeia de valor e que contribua positivamente para os diversos setores que dele dependem. Para tal, é essencial práticas social e ambientalmente sustentáveis , baseadas no conhecimento científico e com o envolvimento das populações. É absolutamente prioritário entender o oceano Atlântico e a plataforma continental como bens coletivos que devem ser salvaguardados através de um ordenamento adequado que tenha em linha de conta todos os usos do mar, mas em que a criação e protecção de áreas marinhas seja também uma prioridade.
 
-Por isso defendemos:
+### Por isso defendemos:
 
 1. **Assegurar o acesso público e a cobertura global de todas as habitações no acesso à água potável e ao saneamento básico**, integrando no setor público todas as infraestruturas e serviços e prevendo estratégias de adaptação às alterações climáticas.
 
@@ -1737,7 +1737,7 @@ As leis e o direito devem ser claros e acessíveis a todas as pessoas. A justiç
 
 A incerteza e a morosidade da justiça penal contribuem hoje para um sentimento de impunidade na prática de crimes públicos, como a corrupção, fraude e evasão fiscal, o peculato e o branqueamento de capitais, que minam as bases da democracia. Para além deste reforço a nível nacional, estes crimes combatem-se hoje a nível internacional. Portugal deve estar na linha da frente da exigência de criação de instrumentos europeus e multilaterais de combate a estes fenómenos. Também nos casos de violência doméstica é necessário tornar o sistema mais ágil para proteção rápida das vítimas e recurso imediato a ordens de proteção para vítimas e sua família próxima.
 
-Por isso defendemos:
+### Por isso defendemos:
 
 1. **Promover a rapidez e a eficácia da justiça,**
 
@@ -1798,7 +1798,7 @@ Por isso defendemos:
 
 Num Estado Social é crucial que se estabeleça uma relação de confiança entre os cidadãos e o Estado e quem o representa. Para isso, é necessário que todos os serviços sejam transparentes, competentes e motivados. É necessário que cada pessoa seja tratada de forma justa e igualitária. É necessário libertar o Estado da captura privada e reequilibrar forças com o setor privado. É necessário lutar inequivocamente contra a corrupção, e pela descentralização do Estado.
 
-Por isso defendemos:
+### Por isso defendemos:
 
 1. **Aumentar a confiança entre as pessoas e os serviços do Estado**, da escala local à escala nacional:
 
@@ -1894,7 +1894,7 @@ Neste sentido, é preciso não só facilitar o voto para todas as pessoas reside
 
 Também as instituições europeias, longe de estarem à altura do potencial de promoção da solidariedade, paz e desenvolvimento que a União Europeia (UE) poderia representar, sofrem de um défice democrático que urge suprir. A falta de participação cívica na tomada de decisão europeia resulta em respostas desadequadas e ineficazes, que não representam nem servem a população europeia. Mais ainda, o LIVRE continua a defender que o princípio da solidariedade entre Estados-Membros não seja letra morta nos tratados. É, assim, evidente que a democratização é urgente também ao nível da UE.
 
-Por isso defendemos:
+### Por isso defendemos:
 
 1. **Reformar o sistema eleitoral**, de forma a garantir maior diversidade e pluralidade do sistema político e um sistema eleitoral mais justo, representativo e proporcional, em que todos os votos contem.
 
@@ -1994,7 +1994,7 @@ A qualidade de uma sociedade revela-se na solidariedade entre as pessoas e na fo
 
 Por uma sociedade mais ética e fundada no respeito mútuo e em valores de integridade, apresentamos as seguintes propostas.
 
-Por isso defendemos:
+### Por isso defendemos:
 
 1. **Criar uma agência pública independente que centralize as funções do Mecanismo Nacional Anticorrupção, da Entidade de Contas e Financiamentos Políticos e da Entidade para a Transparência**. Esta deverá:
 
@@ -2043,7 +2043,7 @@ Acreditamos que o dinheiro público deve gerar conhecimento público, propriedad
 
 O desenvolvimento da inteligência artificial e da internet das coisas deve seguir princípios rigorosos de ética e ser norteado pelo bem comum, sendo para isso necessária regulação e capacitação do setor público, tanto a nível nacional como a nível europeu.
 
-Por isso defendemos:
+### Por isso defendemos:
 
 1. **Consagrar e garantir o direito à Internet Livre e sem censura, para todas as pessoas:**
 
@@ -2107,7 +2107,7 @@ Defendemos que o nosso local de nascimento não deve condicionar as nossas oport
 
 Lutamos por uma democracia a várias escalas - desde a local até à europeia, esperando que, um dia, seja possível uma democracia à escala mundial. Os desafios que o planeta e nós enfrentamos assim o exigem. Neste mundo global, importa repensar o lugar e o papel de Portugal. As relações externas de Portugal devem ser norteadas por princípios de solidariedade, respeito pelos Direitos Humanos e salvaguarda do planeta e do ambiente.
 
-Por isso defendemos:
+### Por isso defendemos:
 
 1. **Apoiar a Ucrânia na defesa contra a invasão russa**, que consideramos ilegítima e ilegal. Prosseguir a condenação pública à agressão russa, promovendo a política de sanções da UE e apoiando todas as diligências da justiça internacional, em particular do Tribunal Penal Internacional, para a investigação de crimes de guerra. Procurar também soluções para precaver os direitos de cidadãos russos inocentes a viver legalmente na União Europeia. Apelando ainda, junto do Governo Português, da UE e da ONU, o fomento de um cessar-fogo imediato que permita o resumo de negociações diplomáticas que promovam a resolução do conflito e a retirada das tropas russas da Ucrânia.
 

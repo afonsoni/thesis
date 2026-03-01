@@ -2,7 +2,7 @@
 import os
 from dotenv import load_dotenv
 from openai import OpenAI
-from src.embeddings.embedding_generator import search_embeddings
+from embeddings.embeddings import search_embeddings
 
 # Load environment variables from .env file
 load_dotenv()
@@ -27,7 +27,7 @@ def query_llm(query, context, system_prompt=None):
     """Query the LLaMA API with context and user query"""
     client = OpenAI(
         api_key=os.getenv("LLAMA_API_TOKEN"),
-        base_url="https://api.llmapi.com"
+        base_url="https://api.apillm.com/"
     )
     
     # Default system prompt if none provided
@@ -51,7 +51,7 @@ def query_llm(query, context, system_prompt=None):
     try:
         response = client.chat.completions.create(
             messages=messages,
-            model="llama3.2-3b",
+            model="llama3.3-70b",
             stream=False
         )
         print(response.choices[0].message.content)
