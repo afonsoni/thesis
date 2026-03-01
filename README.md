@@ -35,12 +35,8 @@ thesis/
 │   │       ├── prompts.py
 │   │       ├── synthesizer.py
 │   │       └── pipeline.py
-│   ├── data/                   # Legacy data processing utilities
-│   │   ├── extraction/
-│   │   └── preprocessing/
 │   └── utils/
-│       ├── config_loader.py
-│       └── dependency_checker.py
+│       └── config_loader.py    # YAML config helper
 ├── tests/
 └── docker-compose.yml          # PostgreSQL 17 + pgvector
 ```
