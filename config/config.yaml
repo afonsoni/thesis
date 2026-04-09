@@ -48,8 +48,8 @@ retrieval:
 
 # Indexing settings
 indexing:
-  max_chunk_size: 1000
-  chunk_overlap: 100
+  max_chunk_size: 1600
+  chunk_overlap: 200
   year: 2024
   use_llm_classification: true
   generate_summaries: false # multi-representation indexing (Part 12)

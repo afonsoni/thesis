@@ -5,7 +5,6 @@ Shared Pydantic models and data schemas used across the RAG pipeline.
 from __future__ import annotations
 
 import uuid
-from datetime import datetime
 from enum import Enum
 from typing import Any, Dict, List, Optional
 

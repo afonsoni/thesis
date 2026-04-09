@@ -31,8 +31,8 @@ def index_documents(
     use_llm_classification: bool = True,
     generate_chunk_summaries: bool = False,
     classification_model: str = "gemini-2.5-flash",
-    max_chunk_size: int = 1000,
-    chunk_overlap: int = 100,
+    max_chunk_size: Optional[int] = None,
+    chunk_overlap: Optional[int] = None,
     year: int = 2024,
     drop_existing: bool = False,
 ) -> int:
@@ -56,6 +56,8 @@ def index_documents(
         Total number of chunks stored.
     """
     markdown_dir = markdown_dir or config.get("paths.markdown_data", "data/1_markdown")
+    max_chunk_size = int(max_chunk_size or config.get("indexing.max_chunk_size", 1000))
+    chunk_overlap = int(chunk_overlap or config.get("indexing.chunk_overlap", 100))
     md_files = _discover_markdown_files(markdown_dir)
 
     if party_filter:

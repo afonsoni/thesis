@@ -8,8 +8,7 @@ Attaches party metadata from the filename.
 
 import logging
 import os
-import re
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 from langchain_text_splitters import (
     MarkdownHeaderTextSplitter,
