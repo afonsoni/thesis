@@ -30,7 +30,9 @@ def index_documents(
     party_filter: Optional[str] = None,
     use_llm_classification: bool = True,
     generate_chunk_summaries: bool = False,
-    classification_model: str = "gemini-2.5-flash",
+    classification_model: Optional[str] = None,
+    classification_batch_size: Optional[int] = None,
+    classification_delay: Optional[float] = None,
     max_chunk_size: Optional[int] = None,
     chunk_overlap: Optional[int] = None,
     year: int = 2024,
@@ -44,9 +46,11 @@ def index_documents(
                       Defaults to config ``paths.markdown_data``.
         party_filter: If set, only index files whose path contains this string
                       (case-insensitive). E.g. ``"livre"`` or ``"ps"``.
-        use_llm_classification: Use Gemini for topic classification (vs keyword fallback).
+        use_llm_classification: Use LLM for topic classification (vs keyword fallback).
         generate_chunk_summaries: Generate LLM summaries for multi-representation indexing.
-        classification_model: Gemini model name for classification.
+        classification_model: OpenRouter model name for classification.
+        classification_batch_size: Number of chunks per classification API request.
+        classification_delay: Delay between classification API requests.
         max_chunk_size: Max characters per chunk.
         chunk_overlap: Overlap characters for windowed chunks.
         year: Election year metadata.
@@ -55,9 +59,24 @@ def index_documents(
     Returns:
         Total number of chunks stored.
     """
-    markdown_dir = markdown_dir or config.get("paths.markdown_data", "data/1_markdown")
+    markdown_dir = str(markdown_dir or config.get("paths.markdown_data", "data/1_markdown"))
     max_chunk_size = int(max_chunk_size or config.get("indexing.max_chunk_size", 1000))
     chunk_overlap = int(chunk_overlap or config.get("indexing.chunk_overlap", 100))
+    classification_model = str(
+        classification_model
+        or config.get(
+            "indexing.classification_model",
+            config.get("llm.openrouter.model", "google/gemini-2.5-flash"),
+        )
+    )
+    classification_batch_size = int(
+        classification_batch_size or config.get("indexing.classification_batch_size", 10)
+    )
+    classification_delay = float(
+        classification_delay
+        if classification_delay is not None
+        else config.get("indexing.classification_delay", 12.0)
+    )
     md_files = _discover_markdown_files(markdown_dir)
 
     if party_filter:
@@ -87,6 +106,8 @@ def index_documents(
         all_chunks,
         use_llm=use_llm_classification,
         model=classification_model,
+        batch_size=classification_batch_size,
+        delay=classification_delay,
     )
 
     # 3. (Optional) Generate summaries for multi-representation indexing

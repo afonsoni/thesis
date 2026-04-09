@@ -4,6 +4,7 @@ Tests for the indexing pipeline: chunker, classifier fallback, store schema, emb
 
 import os
 import sys
+from unittest.mock import patch
 
 # Ensure project root is on the path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -109,6 +110,83 @@ class TestClassifierFallback:
         # Should match at least jovens or educacao or habitacao
         assert len(tc.categorias) >= 1
         assert any(t in tc.categorias for t in ["jovens", "educacao", "habitacao"])
+
+
+class TestClassifierBatching:
+    """Tests for batch orchestration/retry without real API calls."""
+
+    def test_classify_chunks_batches_requests(self, monkeypatch):
+        from src.rag.common.models import Chunk, TopicClassification
+        from src.rag.indexing.classifier import classify_chunks
+
+        monkeypatch.setenv("OPENROUTER_API_KEY", "test-key")
+
+        chunks = [Chunk(content=f"Texto economia {i}") for i in range(5)]
+        calls = {"count": 0}
+
+        def fake_batch(batch, model):
+            calls["count"] += 1
+            return [
+                TopicClassification(categorias=["economia"], confianca=4, palavras_chave=["economia"])
+                for _ in batch
+            ]
+
+        with patch("src.rag.indexing.classifier._classify_batch_with_llm", side_effect=fake_batch):
+            out = classify_chunks(chunks, use_llm=True, batch_size=2, delay=0)
+
+        assert calls["count"] == 3
+        assert all("economia" in c.topics for c in out)
+
+    def test_classify_chunks_retries_after_rate_limit(self, monkeypatch):
+        from src.rag.common.models import Chunk, TopicClassification
+        from src.rag.indexing.classifier import classify_chunks
+
+        monkeypatch.setenv("OPENROUTER_API_KEY", "test-key")
+        chunks = [Chunk(content="Investimento e crescimento económico")]
+
+        with patch("src.rag.indexing.classifier.time.sleep", return_value=None), patch(
+            "src.rag.indexing.classifier._classify_batch_with_llm",
+            side_effect=[
+                RuntimeError("429 rate limit, retry after 1"),
+                [TopicClassification(categorias=["economia"], confianca=5, palavras_chave=["investimento"])],
+            ],
+        ) as mocked:
+            out = classify_chunks(chunks, use_llm=True, batch_size=1, delay=0)
+
+        assert mocked.call_count == 2
+        assert out[0].topics == ["economia"]
+
+    def test_classify_chunks_uses_keyword_fallback_without_api_key(self, monkeypatch):
+        from src.rag.common.models import Chunk
+        from src.rag.indexing.classifier import classify_chunks
+
+        monkeypatch.delenv("OPENROUTER_API_KEY", raising=False)
+        chunks = [Chunk(content="Baixar o IRS e simplificar o sistema fiscal")]
+
+        with patch("src.rag.indexing.classifier._classify_batch_with_llm") as mocked:
+            out = classify_chunks(chunks, use_llm=True, batch_size=3, delay=0)
+
+        assert mocked.call_count == 0
+        assert "impostos" in out[0].topics
+
+    def test_classify_chunks_partial_batch_fills_remaining_with_fallback(self, monkeypatch):
+        from src.rag.common.models import Chunk, TopicClassification
+        from src.rag.indexing.classifier import classify_chunks
+
+        monkeypatch.setenv("OPENROUTER_API_KEY", "test-key")
+        chunks = [
+            Chunk(content="Crescimento económico e investimento"),
+            Chunk(content="Reforço do SNS com mais médicos"),
+        ]
+
+        with patch(
+            "src.rag.indexing.classifier._classify_batch_with_llm",
+            return_value=[TopicClassification(categorias=["economia"], confianca=4, palavras_chave=[])],
+        ):
+            out = classify_chunks(chunks, use_llm=True, batch_size=2, delay=0)
+
+        assert out[0].topics == ["economia"]
+        assert "saude" in out[1].topics
 
 
 # ---------------------------------------------------------------------------

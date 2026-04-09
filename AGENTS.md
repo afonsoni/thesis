@@ -35,7 +35,7 @@ Entry point: `main.py`
 
 - `parser.py`: wraps `marker_single` subprocess and removes generated images.
 - `chunker.py`: header-aware markdown splitting + recursive windowing.
-- `classifier.py`: Gemini structured multi-label topic classification with keyword fallback and rate-limit retries.
+- `classifier.py`: OpenRouter-based structured multi-label topic classification with keyword fallback and rate-limit retries.
 - `embedder.py`: SentenceTransformer embeddings with optional summary-based multi-representation indexing.
 - `store.py`: PostgreSQL + pgvector storage, HNSW index, metadata-filtered similarity search.
 - `pipeline.py`: end-to-end indexing orchestrator.
@@ -50,7 +50,7 @@ Entry point: `main.py`
 
 #### Generation (`src/rag/generation/`)
 
-- `llm_client.py`: Gemini primary, OpenRouter fallback.
+- `llm_client.py`: unified OpenRouter transport for text + structured outputs.
 - `prompts.py`: centralized Portuguese prompts.
 - `synthesizer.py`: direct, comparison, and decomposition-based synthesis strategies.
 - `pipeline.py`: generation entry point.

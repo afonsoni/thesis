@@ -26,16 +26,12 @@ postgresql:
   password: "postgres"
   table_name: "party_programs"
 
-# LLM providers (Gemini primary, OpenRouter fallback)
-# API keys are read from environment variables:
-#   GEMINI_API_KEY, OPENROUTER_API_KEY
+# LLM runtime transport (OpenRouter)
+# API key is read from environment variables:
+#   OPENROUTER_API_KEY
 llm:
-  gemini:
-    model: "gemini-2.5-flash"
-    temperature: 0.3
-    max_tokens: 1500
   openrouter:
-    model: "meta-llama/llama-3.3-70b-instruct"
+    model: "google/gemini-2.5-flash"
     temperature: 0.3
     max_tokens: 1500
 
@@ -53,4 +49,6 @@ indexing:
   year: 2024
   use_llm_classification: true
   generate_summaries: false # multi-representation indexing (Part 12)
-  classification_model: "gemini-2.5-flash"
+  classification_model: "google/gemini-2.5-flash"
+  classification_batch_size: 10
+  classification_delay: 12.0

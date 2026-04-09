@@ -1,7 +1,7 @@
 """
 Query analyzer – structured understanding of user queries.
 
-Uses LLM (Gemini structured output, Part 10/11 pattern) to extract:
+Uses structured LLM output (Part 10/11 pattern) to extract:
 - query type (single_party / comparison / topic_exploration / general)
 - mentioned parties & topics
 - ideology filter
@@ -21,7 +21,7 @@ from src.rag.common.models import (
     TOPIC_CATEGORIES,
     VALID_TOPICS,
 )
-from src.rag.generation.llm_client import generate_structured, generate_text
+from src.rag.generation.llm_client import generate_structured
 from src.rag.generation.prompts import (
     QUERY_ANALYSIS_PROMPT,
     QUERY_ANALYSIS_SYSTEM_PROMPT,
@@ -35,7 +35,7 @@ logger = logging.getLogger(__name__)
 # ---------------------------------------------------------------------------
 
 class _QueryAnalysisResponse(BaseModel):
-    """Schema sent to Gemini for structured JSON output."""
+    """Schema used for structured JSON output validation."""
     query_type: str = Field(description="One of: single_party, comparison, topic_exploration, general")
     parties: List[str] = Field(default_factory=list)
     topics: List[str] = Field(default_factory=list)

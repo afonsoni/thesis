@@ -56,10 +56,10 @@ thesis/
 
 - **PDF Extraction**: `marker_single` CLI tool (produces clean markdown)
 - **Chunking**: Header-aware LangChain splitter + recursive windowing
-- **Topic Classification**: Gemini 2.5 Flash structured output (18 Portuguese categories, multi-label) with keyword fallback
+- **Topic Classification**: Structured LLM output via OpenRouter (18 Portuguese categories, multi-label) with keyword fallback
 - **Embeddings**: `PORTULAN/serafim-900m-portuguese-pt-sentence-encoder-ir` (1536d, Portuguese-specific)
 - **Vector Store**: PostgreSQL 17 + pgvector with HNSW index
-- **LLM Generation**: Gemini 2.5 Flash (primary) + Llama 3.3 70B via OpenRouter (fallback)
+- **LLM Generation**: Unified OpenRouter transport with configurable models
 
 ## Quick Start
 
@@ -71,7 +71,7 @@ docker compose up -d
 
 # Install Python dependencies
 pip install sentence-transformers psycopg2-binary langchain-text-splitters \
-            google-genai openai python-dotenv pydantic pyyaml
+            requests python-dotenv pydantic pyyaml
 ```
 
 ### Environment Variables
@@ -79,7 +79,6 @@ pip install sentence-transformers psycopg2-binary langchain-text-splitters \
 Create a `.env` file:
 
 ```env
-GEMINI_API_KEY=your_gemini_key
 OPENROUTER_API_KEY=your_openrouter_key
 ```
 
@@ -125,7 +124,7 @@ All settings in `config/config.yaml`:
 - **Paths**: data directories
 - **Embeddings**: model name, dimension
 - **PostgreSQL**: connection details, table name
-- **LLM**: Gemini & OpenRouter model, temperature, max tokens
+- **LLM**: OpenRouter model, temperature, max tokens
 - **Retrieval**: multi-query count, RRF k-value, default top-k
 - **Indexing**: chunk size, overlap, classification model
 
@@ -135,7 +134,7 @@ All settings in `config/config.yaml`:
 
 ```
 PDF → marker_single → Markdown → Header-aware chunking →
-  Topic classification (Gemini/keyword) → Embedding (Serafim 900M) →
+  Topic classification (OpenRouter/keyword) → Embedding (Serafim 900M) →
   PostgreSQL + pgvector (HNSW index)
 ```
 
@@ -184,7 +183,7 @@ index_documents(party_filter="livre", drop_existing=True)
 ## Troubleshooting
 
 1. **PostgreSQL not running**: `docker compose up -d`
-2. **No API keys**: Set `GEMINI_API_KEY` and/or `OPENROUTER_API_KEY` in `.env`
+2. **No API key**: Set `OPENROUTER_API_KEY` in `.env`
 3. **No results**: Run `python main.py index --all` first
 4. **pgvector not installed**: The Docker image (`pgvector/pgvector:pg17`) includes it
 

@@ -11,6 +11,7 @@ from typing import List, Optional
 from sentence_transformers import SentenceTransformer
 
 from src.rag.common.models import Chunk, EmbeddedChunk
+from src.rag.generation.llm_client import generate_text
 from src.utils.config_loader import config
 
 logger = logging.getLogger(__name__)
@@ -26,7 +27,8 @@ class Embedder:
         )
         logger.info("Loading embedding model: %s", model_name)
         self.model = SentenceTransformer(model_name)
-        self.dimension: int = self.model.get_sentence_embedding_dimension()
+        dim = self.model.get_sentence_embedding_dimension()
+        self.dimension: int = dim if dim is not None else int(config.get("embeddings.dimension", 1536))
         logger.info("Embedding dimension: %d", self.dimension)
 
     # ------------------------------------------------------------------
@@ -84,7 +86,7 @@ class Embedder:
 
 def generate_summaries(
     chunks: List[Chunk],
-    model: str = "gemini-2.5-flash",
+    model: Optional[str] = None,
 ) -> List[Chunk]:
     """
     Generate short LLM summaries for each chunk (multi-representation indexing).
@@ -95,10 +97,6 @@ def generate_summaries(
     This improves retrieval for bullet-point-heavy manifesto sections
     where the raw text may not match well with natural-language queries.
     """
-    import os
-    from google import genai  # lazy import
-
-    client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
     logger.info("Generating summaries for %d chunks …", len(chunks))
 
     prompt_template = (
@@ -106,14 +104,19 @@ def generate_summaries(
         "numa frase curta e clara em português. Mantém os temas principais.\n\n"
         "EXCERTO:\n{content}\n\nRESUMO:"
     )
+    selected_model = model or str(
+        config.get("llm.openrouter.model", "google/gemini-2.5-flash"),
+    )
 
     for i, chunk in enumerate(chunks):
         try:
-            response = client.models.generate_content(
-                model=model,
-                contents=prompt_template.format(content=chunk.content[:2000]),
+            summary = generate_text(
+                prompt=prompt_template.format(content=chunk.content[:2000]),
+                model=selected_model,
+                temperature=0.2,
+                max_tokens=180,
             )
-            chunk.summary = response.text.strip()
+            chunk.summary = summary.strip()
         except Exception as exc:
             logger.warning("Summary generation failed for chunk %s: %s", chunk.id, exc)
             # Leave summary as None – embedder will fall back to content
