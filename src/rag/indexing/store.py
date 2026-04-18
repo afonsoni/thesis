@@ -62,6 +62,14 @@ class VectorStore:
             if not self.connect():
                 raise ConnectionError("Cannot connect to PostgreSQL")
 
+    def _conn(self) -> psycopg2.extensions.connection:
+        """Return an active connection with concrete type for static checkers."""
+        self._ensure_connected()
+        conn = self.connection
+        if conn is None or conn.closed:
+            raise ConnectionError("Cannot connect to PostgreSQL")
+        return conn
+
     # ------------------------------------------------------------------
     # Schema
     # ------------------------------------------------------------------
@@ -70,8 +78,8 @@ class VectorStore:
         """
         Create the pgvector extension, the main table, and an HNSW index.
         """
-        self._ensure_connected()
-        cur = self.connection.cursor()
+        conn = self._conn()
+        cur = conn.cursor()
         try:
             cur.execute("CREATE EXTENSION IF NOT EXISTS vector;")
 
@@ -113,23 +121,23 @@ class VectorStore:
                 ON {self.table} USING gin (topics);
             """)
 
-            self.connection.commit()
+            conn.commit()
             logger.info("Table '%s' and indexes created / verified.", self.table)
         except Exception as exc:
-            self.connection.rollback()
+            conn.rollback()
             logger.error("Error creating table: %s", exc)
             raise
 
     def drop_table(self):
         """Drop the main table (use with care!)."""
-        self._ensure_connected()
-        cur = self.connection.cursor()
+        conn = self._conn()
+        cur = conn.cursor()
         try:
             cur.execute(f"DROP TABLE IF EXISTS {self.table} CASCADE;")
-            self.connection.commit()
+            conn.commit()
             logger.warning("Table '%s' dropped.", self.table)
         except Exception as exc:
-            self.connection.rollback()
+            conn.rollback()
             logger.error("Error dropping table: %s", exc)
             raise
 
@@ -144,8 +152,8 @@ class VectorStore:
         if not chunks:
             return 0
 
-        self._ensure_connected()
-        cur = self.connection.cursor()
+        conn = self._conn()
+        cur = conn.cursor()
 
         rows = []
         for c in chunks:
@@ -173,11 +181,11 @@ class VectorStore:
 
         try:
             execute_values(cur, sql, rows, template=template, page_size=100)
-            self.connection.commit()
+            conn.commit()
             logger.info("Inserted %d chunks into '%s'.", len(rows), self.table)
             return len(rows)
         except Exception as exc:
-            self.connection.rollback()
+            conn.rollback()
             logger.error("Batch insert failed: %s", exc)
             raise
 
@@ -208,8 +216,8 @@ class VectorStore:
         Returns:
             List of ``SearchResult`` ordered by descending similarity.
         """
-        self._ensure_connected()
-        cur = self.connection.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+        conn = self._conn()
+        cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
 
         where_clauses: List[str] = []
         params: List[Any] = [query_embedding, query_embedding]
@@ -273,28 +281,30 @@ class VectorStore:
 
     def count(self, party_name: Optional[str] = None) -> int:
         """Count rows, optionally filtered by party."""
-        self._ensure_connected()
-        cur = self.connection.cursor()
+        conn = self._conn()
+        cur = conn.cursor()
         if party_name:
             cur.execute(f"SELECT count(*) FROM {self.table} WHERE party_name = %s;", (party_name,))
         else:
             cur.execute(f"SELECT count(*) FROM {self.table};")
-        return cur.fetchone()[0]
+        row = cur.fetchone()
+        return int(row[0]) if row else 0
 
     def get_distinct_parties(self) -> List[str]:
         """Return list of distinct party names in the store."""
-        self._ensure_connected()
-        cur = self.connection.cursor()
+        conn = self._conn()
+        cur = conn.cursor()
         cur.execute(f"SELECT DISTINCT party_name FROM {self.table} WHERE party_name IS NOT NULL ORDER BY party_name;")
         return [row[0] for row in cur.fetchall()]
 
     def test_connection(self) -> bool:
         """Quick connectivity & pgvector check."""
         try:
-            self._ensure_connected()
-            cur = self.connection.cursor()
+            conn = self._conn()
+            cur = conn.cursor()
             cur.execute("SELECT version();")
-            ver = cur.fetchone()[0]
+            row = cur.fetchone()
+            ver = row[0] if row else "unknown"
             logger.info("PostgreSQL version: %s", ver)
             cur.execute("SELECT * FROM pg_extension WHERE extname = 'vector';")
             if cur.fetchone():

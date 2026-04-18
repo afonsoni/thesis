@@ -12,7 +12,7 @@ import os
 import random
 import re
 import time
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Mapping, Optional
 
 import requests
 
@@ -165,7 +165,7 @@ def _openrouter_headers(api_key: str) -> Dict[str, str]:
     return headers
 
 
-def _parse_retry_after_from_headers(headers: Dict[str, str]) -> Optional[float]:
+def _parse_retry_after_from_headers(headers: Mapping[str, str]) -> Optional[float]:
     value = headers.get("Retry-After") or headers.get("retry-after")
     if not value:
         return None
