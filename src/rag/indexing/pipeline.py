@@ -5,9 +5,11 @@ Chains: parse → chunk → classify → (optional: summarise) → embed → sto
 """
 
 import glob
+import json
 import logging
 import os
-from typing import List, Optional
+from datetime import datetime
+from typing import Any, Dict, List, Optional
 
 from src.rag.common.models import Chunk, EmbeddedChunk
 from src.rag.indexing.chunker import chunk_markdown_file
@@ -25,10 +27,76 @@ def _discover_markdown_files(directory: str) -> List[str]:
     return sorted(glob.glob(os.path.join(directory, "**", "*.md"), recursive=True))
 
 
+def _build_default_checkpoint_path(
+    md_files: List[str],
+    processed_dir: str,
+    party_filter: Optional[str],
+) -> str:
+    """Build a deterministic checkpoint filename in the processed-data directory."""
+    os.makedirs(processed_dir, exist_ok=True)
+
+    if len(md_files) == 1:
+        base_name = os.path.splitext(os.path.basename(md_files[0]))[0]
+        file_name = f"{base_name}-classified.json"
+    else:
+        now = datetime.now().strftime("%Y%m%d-%H%M%S")
+        safe_filter = (party_filter or "all").replace(" ", "-").replace("/", "-")
+        file_name = f"{safe_filter}-classified-{now}.json"
+
+    return os.path.join(processed_dir, file_name)
+
+
+def save_classified_chunks(
+    chunks: List[Chunk],
+    output_path: str,
+    source_files: Optional[List[str]] = None,
+) -> str:
+    """Persist classified chunks to JSON for later embed/store reuse."""
+    payload: Dict[str, Any] = {
+        "format_version": 1,
+        "chunk_count": len(chunks),
+        "created_at": datetime.now().isoformat(timespec="seconds"),
+        "source_files": source_files or [],
+        "chunks": [c.model_dump() for c in chunks],
+    }
+
+    out_dir = os.path.dirname(output_path)
+    if out_dir:
+        os.makedirs(out_dir, exist_ok=True)
+
+    with open(output_path, "w", encoding="utf-8") as fh:
+        json.dump(payload, fh, ensure_ascii=False, indent=2)
+
+    logger.info("Saved classified checkpoint with %d chunks to %s", len(chunks), output_path)
+    return output_path
+
+
+def load_classified_chunks(input_path: str) -> List[Chunk]:
+    """Load classified chunks from checkpoint JSON format."""
+    with open(input_path, "r", encoding="utf-8") as fh:
+        raw = json.load(fh)
+
+    raw_chunks = raw.get("chunks") if isinstance(raw, dict) else None
+    if not isinstance(raw_chunks, list):
+        raise ValueError(f"Invalid classified JSON format: missing 'chunks' list in {input_path}")
+
+    loaded: List[Chunk] = []
+    for idx, item in enumerate(raw_chunks):
+        if not isinstance(item, dict):
+            logger.warning("Skipping non-object chunk at index %d in %s", idx, input_path)
+            continue
+
+        chunk_data = dict(item)
+        chunk_data.setdefault("year", int(config.get("indexing.year", 2024)))
+        loaded.append(Chunk(**chunk_data))
+
+    logger.info("Loaded %d classified chunks from %s", len(loaded), input_path)
+    return loaded
+
+
 def index_documents(
     markdown_dir: Optional[str] = None,
     party_filter: Optional[str] = None,
-    use_llm_classification: bool = True,
     generate_chunk_summaries: bool = False,
     classification_model: Optional[str] = None,
     classification_batch_size: Optional[int] = None,
@@ -37,6 +105,10 @@ def index_documents(
     chunk_overlap: Optional[int] = None,
     year: int = 2024,
     drop_existing: bool = False,
+    classified_input_path: Optional[str] = None,
+    checkpoint_output_path: Optional[str] = None,
+    classify_only: bool = False,
+    save_checkpoint: bool = True,
 ) -> int:
     """
     Run the full indexing pipeline on markdown files.
@@ -46,7 +118,6 @@ def index_documents(
                       Defaults to config ``paths.markdown_data``.
         party_filter: If set, only index files whose path contains this string
                       (case-insensitive). E.g. ``"livre"`` or ``"ps"``.
-        use_llm_classification: Use LLM for topic classification (vs keyword fallback).
         generate_chunk_summaries: Generate LLM summaries for multi-representation indexing.
         classification_model: OpenRouter model name for classification.
         classification_batch_size: Number of chunks per classification API request.
@@ -55,6 +126,10 @@ def index_documents(
         chunk_overlap: Overlap characters for windowed chunks.
         year: Election year metadata.
         drop_existing: Drop and recreate the table before indexing.
+        classified_input_path: Load pre-classified chunks from JSON and skip chunk/classify.
+        checkpoint_output_path: Save classified chunks to this JSON path.
+        classify_only: Stop after classification checkpoint generation.
+        save_checkpoint: Persist checkpoints during normal index runs.
 
     Returns:
         Total number of chunks stored.
@@ -66,53 +141,69 @@ def index_documents(
         classification_model
         or config.get(
             "indexing.classification_model",
-            config.get("llm.openrouter.model", "google/gemini-2.5-flash"),
+            config.get("llm.openrouter.model", "google/gemma-4-31b-it:free"),
         )
     )
     classification_batch_size = int(
-        classification_batch_size or config.get("indexing.classification_batch_size", 10)
+        classification_batch_size or config.get("indexing.classification_batch_size", 15)
     )
     classification_delay = float(
         classification_delay
         if classification_delay is not None
-        else config.get("indexing.classification_delay", 12.0)
+        else config.get("indexing.classification_delay", 1.0)
     )
-    md_files = _discover_markdown_files(markdown_dir)
+    md_files: List[str] = []
 
-    if party_filter:
-        md_files = [f for f in md_files if party_filter.lower() in f.lower()]
+    if classified_input_path:
+        if classify_only:
+            raise ValueError("--classify-only cannot be combined with --from-classified")
+        all_chunks = load_classified_chunks(classified_input_path)
+    else:
+        md_files = _discover_markdown_files(markdown_dir)
 
-    if not md_files:
-        logger.warning("No markdown files found in %s (filter=%s)", markdown_dir, party_filter)
-        return 0
+        if party_filter:
+            md_files = [f for f in md_files if party_filter.lower() in f.lower()]
 
-    logger.info("Found %d markdown files to index.", len(md_files))
+        if not md_files:
+            logger.warning("No markdown files found in %s (filter=%s)", markdown_dir, party_filter)
+            return 0
 
-    # 1. Chunk
-    all_chunks: List[Chunk] = []
-    for md_path in md_files:
-        chunks = chunk_markdown_file(
-            md_path,
-            max_chunk_size=max_chunk_size,
-            chunk_overlap=chunk_overlap,
-            year=year,
+        logger.info("Found %d markdown files to index.", len(md_files))
+
+        # 1. Chunk
+        all_chunks = []
+        for md_path in md_files:
+            chunks = chunk_markdown_file(
+                md_path,
+                max_chunk_size=max_chunk_size,
+                chunk_overlap=chunk_overlap,
+                year=year,
+            )
+            all_chunks.extend(chunks)
+
+        logger.info("Total chunks after splitting: %d", len(all_chunks))
+
+        # 2. Classify
+        all_chunks = classify_chunks(
+            all_chunks,
+            model=classification_model,
+            batch_size=classification_batch_size,
+            delay=classification_delay,
         )
-        all_chunks.extend(chunks)
 
-    logger.info("Total chunks after splitting: %d", len(all_chunks))
-
-    # 2. Classify
-    all_chunks = classify_chunks(
-        all_chunks,
-        use_llm=use_llm_classification,
-        model=classification_model,
-        batch_size=classification_batch_size,
-        delay=classification_delay,
-    )
+        should_checkpoint = save_checkpoint or checkpoint_output_path or classify_only
+        if should_checkpoint:
+            processed_dir = str(config.get("paths.processed_data", "data/2_processed"))
+            output_path = checkpoint_output_path or _build_default_checkpoint_path(md_files, processed_dir, party_filter)
+            save_classified_chunks(all_chunks, output_path=output_path, source_files=md_files)
 
     # 3. (Optional) Generate summaries for multi-representation indexing
     if generate_chunk_summaries:
         all_chunks = generate_summaries(all_chunks, model=classification_model)
+
+    if classify_only:
+        logger.info("Classify-only mode complete – %d chunks processed.", len(all_chunks))
+        return len(all_chunks)
 
     # 4. Embed
     embedder = Embedder()

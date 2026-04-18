@@ -11,7 +11,7 @@ from typing import List, Optional
 from sentence_transformers import SentenceTransformer
 
 from src.rag.common.models import Chunk, EmbeddedChunk
-from src.rag.generation.llm_client import generate_text
+from src.rag.common.llm_client import generate_text
 from src.utils.config_loader import config
 
 logger = logging.getLogger(__name__)
@@ -105,7 +105,7 @@ def generate_summaries(
         "EXCERTO:\n{content}\n\nRESUMO:"
     )
     selected_model = model or str(
-        config.get("llm.openrouter.model", "google/gemini-2.5-flash"),
+        config.get("llm.openrouter.model", "google/gemma-4-31b-it:free"),
     )
 
     for i, chunk in enumerate(chunks):

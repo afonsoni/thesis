@@ -3,7 +3,9 @@ CLI entry-point for the RAG System for Political Programs Analysis.
 
 Commands:
     python main.py parse   [--input-dir ...] [--output-dir ...]
-    python main.py index   [--party X] [--all] [--drop] [--no-llm] [--summaries]
+    python main.py index   [--party X] [--all] [--drop] [--summaries]
+                           [--classify-only] [--from-classified PATH]
+                           [--checkpoint-out PATH] [--no-checkpoint]
     python main.py query   "question" [--top-k 5] [--no-expand]
 """
 
@@ -36,14 +38,21 @@ def cmd_parse(args):
 def cmd_index(args):
     from src.rag.indexing.pipeline import index_documents
 
+    if args.classify_only and args.from_classified:
+        logger.error("Cannot combine --classify-only with --from-classified")
+        sys.exit(2)
+
     party_filter = None if args.all else args.party
     count = index_documents(
         party_filter=party_filter,
-        use_llm_classification=not args.no_llm,
         generate_chunk_summaries=args.summaries,
         drop_existing=args.drop,
+        classified_input_path=args.from_classified,
+        checkpoint_output_path=args.checkpoint_out,
+        classify_only=args.classify_only,
+        save_checkpoint=not args.no_checkpoint,
     )
-    logger.info("Indexed %d chunks total.", count)
+    logger.info("Processed %d chunks total.", count)
 
 
 def cmd_query(args):
@@ -92,8 +101,11 @@ def build_parser() -> argparse.ArgumentParser:
     p_index.add_argument("--party", type=str, default=None, help="Only index files matching this party key (e.g. 'livre')")
     p_index.add_argument("--all", action="store_true", help="Index all parties")
     p_index.add_argument("--drop", action="store_true", help="Drop existing table before indexing")
-    p_index.add_argument("--no-llm", action="store_true", help="Use keyword fallback instead of LLM for classification")
     p_index.add_argument("--summaries", action="store_true", help="Generate LLM summaries for multi-representation indexing")
+    p_index.add_argument("--classify-only", action="store_true", help="Stop after classify and save checkpoint JSON (no DB write)")
+    p_index.add_argument("--from-classified", type=str, default=None, help="Load classified chunks from JSON and skip chunk/classify")
+    p_index.add_argument("--checkpoint-out", type=str, default=None, help="Output path for classified checkpoint JSON")
+    p_index.add_argument("--no-checkpoint", action="store_true", help="Disable automatic classified checkpoint saving")
 
     # query
     p_query = sub.add_parser("query", help="Ask a question to the RAG system")

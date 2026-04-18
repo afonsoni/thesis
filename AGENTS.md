@@ -35,7 +35,7 @@ Entry point: `main.py`
 
 - `parser.py`: wraps `marker_single` subprocess and removes generated images.
 - `chunker.py`: header-aware markdown splitting + recursive windowing.
-- `classifier.py`: OpenRouter-based structured multi-label topic classification with keyword fallback and rate-limit retries.
+- `classifier.py`: OpenRouter-based structured multi-label topic classification with rate-limit retries.
 - `embedder.py`: SentenceTransformer embeddings with optional summary-based multi-representation indexing.
 - `store.py`: PostgreSQL + pgvector storage, HNSW index, metadata-filtered similarity search.
 - `pipeline.py`: end-to-end indexing orchestrator.
@@ -67,7 +67,7 @@ Entry point: `main.py`
 - Existing test file: `tests/test_rag_pipeline.py`.
 - Coverage currently focuses on:
   - chunking behavior,
-  - keyword classifier fallback,
+  - classifier batching and fail-fast behavior,
   - model defaults,
   - RRF utility,
   - fallback query analysis.
@@ -128,7 +128,7 @@ Based on the dissertation draft and repository structure, near-term direction is
 
 ### Safe defaults
 
-- Prefer fallback-safe behavior (no hard failure when one LLM provider is unavailable).
+- Prefer fallback-safe behavior where appropriate (retrieval/generation paths); indexing classification is intentionally fail-fast.
 - Preserve source transparency in generated answers.
 - Avoid introducing party bias in prompts or transformations.
 
@@ -156,7 +156,7 @@ Before implementing a new feature, decide:
 1. Is this for retrieval quality, generation quality, or evaluation quality?
 2. Does it require schema changes in `common/models.py`?
 3. Does it require new config keys in `config/config.yaml`?
-4. What is the offline fallback behavior when APIs are unavailable?
+4. What is the expected fail-fast behavior when APIs are unavailable?
 5. What test should prove the change is correct?
 
 ## Out of Scope for This Repository (for now)

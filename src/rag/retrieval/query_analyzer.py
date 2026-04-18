@@ -21,7 +21,7 @@ from src.rag.common.models import (
     TOPIC_CATEGORIES,
     VALID_TOPICS,
 )
-from src.rag.generation.llm_client import generate_structured
+from src.rag.common.llm_client import generate_structured
 from src.rag.generation.prompts import (
     QUERY_ANALYSIS_PROMPT,
     QUERY_ANALYSIS_SYSTEM_PROMPT,

@@ -1,88 +1,23 @@
 """
-Unified LLM client using OpenRouter as the runtime transport layer.
+Shared high-level LLM client API.
 
-All modules should call this file for LLM access instead of creating provider
-clients directly. Model selection is done per call and can target any
-model exposed by OpenRouter.
+All indexing/retrieval/generation modules should import from this module.
+Prompt construction remains in domain modules; this module only handles transport,
+JSON parsing, and optional schema validation.
 """
 
 import json
 import logging
-import os
 import re
 from typing import Any, Dict, List, Optional
 
-from dotenv import load_dotenv
 from pydantic import BaseModel
 
+from src.rag.common.llm_transport import call_openrouter_with_retries
 from src.utils.config_loader import config
 
-load_dotenv()
 logger = logging.getLogger(__name__)
 
-OPENROUTER_CHAT_COMPLETIONS_URL = "https://openrouter.ai/api/v1/chat/completions"
-
-
-# ---------------------------------------------------------------------------
-# OpenRouter transport
-# ---------------------------------------------------------------------------
-
-def _call_openrouter(
-    prompt: str,
-    model: str,
-    temperature: float = 0.3,
-    max_tokens: int = 1500,
-    system_prompt: Optional[str] = None,
-    timeout_seconds: int = 120,
-    force_json_output: bool = False,
-) -> str:
-    """Call OpenRouter chat completions and return assistant text content."""
-    import requests
-
-    api_key = os.getenv("OPENROUTER_API_KEY")
-    if not api_key:
-        raise RuntimeError("Missing OPENROUTER_API_KEY.")
-
-    messages: List[Dict[str, str]] = []
-    if system_prompt:
-        messages.append({"role": "system", "content": system_prompt})
-    messages.append({"role": "user", "content": prompt})
-
-    payload: Dict[str, Any] = {
-        "model": model,
-        "messages": messages,
-        "temperature": temperature,
-        "max_tokens": max_tokens,
-    }
-    if force_json_output:
-        payload["response_format"] = {"type": "json_object"}
-
-    response = requests.post(
-        url=OPENROUTER_CHAT_COMPLETIONS_URL,
-        headers=_openrouter_headers(api_key),
-        data=json.dumps(payload),
-        timeout=timeout_seconds,
-    )
-    if response.status_code >= 400:
-        raise RuntimeError(
-            f"OpenRouter request failed ({response.status_code}): {response.text[:500]}"
-        )
-
-    data = response.json()
-    try:
-        message = data["choices"][0]["message"]["content"]
-    except Exception as exc:
-        raise RuntimeError(f"Unexpected OpenRouter response: {data}") from exc
-
-    if isinstance(message, str):
-        return message.strip()
-    # Some providers may return non-string message content segments.
-    return json.dumps(message, ensure_ascii=False)
-
-
-# ---------------------------------------------------------------------------
-# Public high-level API
-# ---------------------------------------------------------------------------
 
 def generate_text(
     prompt: str,
@@ -92,12 +27,10 @@ def generate_text(
     provider: Optional[str] = None,
     model: Optional[str] = None,
     timeout_seconds: int = 120,
+    response_format: Optional[Dict[str, Any]] = None,
+    extra_body: Optional[Dict[str, Any]] = None,
 ) -> str:
-    """Generate text through OpenRouter transport.
-
-    The provider parameter is retained for backwards compatibility; only
-    ``openrouter`` is supported at runtime.
-    """
+    """Generate text through OpenRouter transport with centralized retries."""
     if provider and provider not in ("openrouter", "auto"):
         logger.warning(
             "Provider '%s' is no longer a direct runtime option. Using OpenRouter transport.",
@@ -108,13 +41,15 @@ def generate_text(
         "llm.openrouter.model",
         "meta-llama/llama-3.3-70b-instruct",
     )
-    return _call_openrouter(
+    return call_openrouter_with_retries(
         prompt=prompt,
         model=selected_model,
         temperature=temperature,
         max_tokens=max_tokens,
         system_prompt=system_prompt,
         timeout_seconds=timeout_seconds,
+        response_format=response_format,
+        extra_body=extra_body,
     )
 
 
@@ -139,6 +74,7 @@ def generate_structured(
         provider="openrouter",
         model=model,
         timeout_seconds=timeout_seconds,
+        response_format={"type": "json_object"},
     )
 
     data = _extract_json_payload(raw)
@@ -168,6 +104,7 @@ def generate_structured_batch(
         provider="openrouter",
         model=model,
         timeout_seconds=timeout_seconds,
+        response_format={"type": "json_object"},
     )
 
     data = _extract_json_payload(raw)
@@ -177,24 +114,6 @@ def generate_structured_batch(
     if item_schema and isinstance(item_schema, type) and issubclass(item_schema, BaseModel):
         return [item_schema.model_validate(item) for item in data]
     return data
-
-
-# ---------------------------------------------------------------------------
-# Helpers
-# ---------------------------------------------------------------------------
-
-def _openrouter_headers(api_key: str) -> Dict[str, str]:
-    headers = {
-        "Authorization": f"Bearer {api_key}",
-        "Content-Type": "application/json",
-    }
-    site_url = os.getenv("OPENROUTER_SITE_URL")
-    app_name = os.getenv("OPENROUTER_APP_NAME")
-    if site_url:
-        headers["HTTP-Referer"] = site_url
-    if app_name:
-        headers["X-OpenRouter-Title"] = app_name
-    return headers
 
 
 def _extract_json_payload(raw_text: str) -> Any:

@@ -1,10 +1,12 @@
 """
-Tests for the indexing pipeline: chunker, classifier fallback, store schema, embedder.
+Tests for the indexing pipeline: chunker, classifier batching, checkpoints, store schema, embedder.
 """
 
 import os
 import sys
 from unittest.mock import patch
+
+import pytest
 
 # Ensure project root is on the path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -72,48 +74,8 @@ Construção de novos centros de saúde nas áreas metropolitanas.
         assert any(c.chunk_type == "windowed" for c in chunks)
 
 
-# ---------------------------------------------------------------------------
-# Classifier fallback (no LLM needed)
-# ---------------------------------------------------------------------------
-
-class TestClassifierFallback:
-    """Tests for keyword-based classification (offline path)."""
-
-    def test_tax_classification(self):
-        from src.rag.indexing.classifier import classify_topics_fallback
-
-        tc = classify_topics_fallback(
-            "Propomos baixar o IRS e simplificar a tributação fiscal."
-        )
-        assert "impostos" in tc.categorias
-
-    def test_health_classification(self):
-        from src.rag.indexing.classifier import classify_topics_fallback
-
-        tc = classify_topics_fallback(
-            "Reforço do SNS com mais médicos e hospitais."
-        )
-        assert "saude" in tc.categorias
-
-    def test_unknown_returns_outros(self):
-        from src.rag.indexing.classifier import classify_topics_fallback
-
-        tc = classify_topics_fallback("Lorem ipsum dolor sit amet.")
-        assert tc.categorias == ["outros"]
-
-    def test_multi_label(self):
-        from src.rag.indexing.classifier import classify_topics_fallback
-
-        tc = classify_topics_fallback(
-            "Residências estudantis para jovens na universidade com arrendamento acessível."
-        )
-        # Should match at least jovens or educacao or habitacao
-        assert len(tc.categorias) >= 1
-        assert any(t in tc.categorias for t in ["jovens", "educacao", "habitacao"])
-
-
 class TestClassifierBatching:
-    """Tests for batch orchestration/retry without real API calls."""
+    """Tests for batch orchestration and fail-fast behavior."""
 
     def test_classify_chunks_batches_requests(self, monkeypatch):
         from src.rag.common.models import Chunk, TopicClassification
@@ -132,31 +94,29 @@ class TestClassifierBatching:
             ]
 
         with patch("src.rag.indexing.classifier._classify_batch_with_llm", side_effect=fake_batch):
-            out = classify_chunks(chunks, use_llm=True, batch_size=2, delay=0)
+            out = classify_chunks(chunks, batch_size=2, delay=0)
 
         assert calls["count"] == 3
         assert all("economia" in c.topics for c in out)
 
-    def test_classify_chunks_retries_after_rate_limit(self, monkeypatch):
-        from src.rag.common.models import Chunk, TopicClassification
+    def test_classify_chunks_fails_on_batch_error(self, monkeypatch):
+        from src.rag.common.models import Chunk
         from src.rag.indexing.classifier import classify_chunks
 
         monkeypatch.setenv("OPENROUTER_API_KEY", "test-key")
         chunks = [Chunk(content="Investimento e crescimento económico")]
 
-        with patch("src.rag.indexing.classifier.time.sleep", return_value=None), patch(
+        with patch(
             "src.rag.indexing.classifier._classify_batch_with_llm",
-            side_effect=[
-                RuntimeError("429 rate limit, retry after 1"),
-                [TopicClassification(categorias=["economia"], confianca=5, palavras_chave=["investimento"])],
-            ],
+            side_effect=RuntimeError("429 rate limit, retry after 1"),
         ) as mocked:
-            out = classify_chunks(chunks, use_llm=True, batch_size=1, delay=0)
+            with pytest.raises(RuntimeError, match="429 rate limit"):
+                classify_chunks(chunks, batch_size=1, delay=0)
 
-        assert mocked.call_count == 2
-        assert out[0].topics == ["economia"]
+        assert mocked.call_count == 1
+        assert chunks[0].topics == ["outros"]
 
-    def test_classify_chunks_uses_keyword_fallback_without_api_key(self, monkeypatch):
+    def test_classify_chunks_requires_api_key(self, monkeypatch):
         from src.rag.common.models import Chunk
         from src.rag.indexing.classifier import classify_chunks
 
@@ -164,12 +124,13 @@ class TestClassifierBatching:
         chunks = [Chunk(content="Baixar o IRS e simplificar o sistema fiscal")]
 
         with patch("src.rag.indexing.classifier._classify_batch_with_llm") as mocked:
-            out = classify_chunks(chunks, use_llm=True, batch_size=3, delay=0)
+            with pytest.raises(ValueError, match="OPENROUTER_API_KEY"):
+                classify_chunks(chunks, batch_size=3, delay=0)
 
         assert mocked.call_count == 0
-        assert "impostos" in out[0].topics
+        assert chunks[0].topics == ["outros"]
 
-    def test_classify_chunks_partial_batch_fills_remaining_with_fallback(self, monkeypatch):
+    def test_classify_chunks_fails_on_partial_batch_response(self, monkeypatch):
         from src.rag.common.models import Chunk, TopicClassification
         from src.rag.indexing.classifier import classify_chunks
 
@@ -183,11 +144,44 @@ class TestClassifierBatching:
             "src.rag.indexing.classifier._classify_batch_with_llm",
             return_value=[TopicClassification(categorias=["economia"], confianca=4, palavras_chave=[])],
         ):
-            out = classify_chunks(chunks, use_llm=True, batch_size=2, delay=0)
+            with pytest.raises(RuntimeError, match="Incomplete batch classification response"):
+                classify_chunks(chunks, batch_size=2, delay=0)
 
-        assert out[0].topics == ["economia"]
-        assert "saude" in out[1].topics
+        assert chunks[0].topics == ["outros"]
+        assert chunks[1].topics == ["outros"]
 
+
+class TestIndexingCheckpoints:
+    """Tests for checkpoint save/load helpers in indexing pipeline."""
+
+    def test_save_and_load_classified_checkpoint_roundtrip(self, tmp_path):
+        from src.rag.common.models import Chunk, TopicClassification
+        from src.rag.indexing.pipeline import load_classified_chunks, save_classified_chunks
+
+        chunks = [
+            Chunk(
+                content="Reforço do SNS",
+                party_name="Partido Socialista",
+                ideology="left",
+                topics=["saude"],
+                topic_classification=TopicClassification(
+                    categorias=["saude"],
+                    confianca=5,
+                    palavras_chave=["SNS"],
+                ),
+                metadata={"Major_Section": "Saúde"},
+            )
+        ]
+
+        out_path = tmp_path / "checkpoint.json"
+        save_classified_chunks(chunks, str(out_path), source_files=["data/1_markdown/ps/ps-2024.md"])
+
+        loaded = load_classified_chunks(str(out_path))
+        assert len(loaded) == 1
+        assert loaded[0].topics == ["saude"]
+        assert loaded[0].party_name == "Partido Socialista"
+        assert loaded[0].topic_classification is not None
+        assert loaded[0].topic_classification.confianca == 5
 
 # ---------------------------------------------------------------------------
 # Common models

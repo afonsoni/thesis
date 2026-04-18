@@ -16,7 +16,9 @@ thesis/
 ├── src/
 │   ├── rag/
 │   │   ├── common/             # Shared Pydantic models & constants
-│   │   │   └── models.py
+│   │   │   ├── models.py
+│   │   │   ├── llm_transport.py
+│   │   │   └── llm_client.py
 │   │   ├── indexing/           # Parse → Chunk → Classify → Embed → Store
 │   │   │   ├── parser.py
 │   │   │   ├── chunker.py
@@ -31,10 +33,9 @@ thesis/
 │   │   │   ├── searcher.py
 │   │   │   └── pipeline.py
 │   │   └── generation/         # LLM clients → Prompts → Synthesis
-│   │       ├── llm_client.py
+│   │       ├── pipeline.py
 │   │       ├── prompts.py
 │   │       ├── synthesizer.py
-│   │       └── pipeline.py
 │   └── utils/
 │       └── config_loader.py    # YAML config helper
 ├── tests/
@@ -56,7 +57,7 @@ thesis/
 
 - **PDF Extraction**: `marker_single` CLI tool (produces clean markdown)
 - **Chunking**: Header-aware LangChain splitter + recursive windowing
-- **Topic Classification**: Structured LLM output via OpenRouter (18 Portuguese categories, multi-label) with keyword fallback
+- **Topic Classification**: Structured LLM output via OpenRouter (18 Portuguese categories, multi-label)
 - **Embeddings**: `PORTULAN/serafim-900m-portuguese-pt-sentence-encoder-ir` (1536d, Portuguese-specific)
 - **Vector Store**: PostgreSQL 17 + pgvector with HNSW index
 - **LLM Generation**: Unified OpenRouter transport with configurable models
@@ -99,6 +100,12 @@ python main.py index --party livre
 
 # Re-index from scratch (drops existing data)
 python main.py index --all --drop
+
+# Classify only (writes checkpoint JSON, no DB required)
+python main.py index --party livre-2024-manual --classify-only
+
+# Resume from classified checkpoint without reclassification tokens
+python main.py index --from-classified data/2_processed/livre-2024-manual-classified.json --drop
 ```
 
 ### 3. Query
@@ -134,7 +141,7 @@ All settings in `config/config.yaml`:
 
 ```
 PDF → marker_single → Markdown → Header-aware chunking →
-  Topic classification (OpenRouter/keyword) → Embedding (Serafim 900M) →
+  Topic classification (OpenRouter, fail-fast) → Embedding (Serafim 900M) →
   PostgreSQL + pgvector (HNSW index)
 ```
 

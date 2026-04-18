@@ -31,9 +31,12 @@ postgresql:
 #   OPENROUTER_API_KEY
 llm:
   openrouter:
-    model: "google/gemini-2.5-flash"
+    model: "google/gemma-4-31b-it:free"
     temperature: 0.3
     max_tokens: 1500
+    max_retries: 3
+    base_backoff_secs: 1.0
+    max_backoff_secs: 30.0
 
 # Retrieval settings
 retrieval:
@@ -49,6 +52,6 @@ indexing:
   year: 2024
   use_llm_classification: true
   generate_summaries: false # multi-representation indexing (Part 12)
-  classification_model: "google/gemini-2.5-flash"
-  classification_batch_size: 10
-  classification_delay: 12.0
+  classification_model: "google/gemma-4-31b-it:free"
+  classification_batch_size: 15
+  classification_delay: 1.0

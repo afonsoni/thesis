@@ -6,16 +6,15 @@ Selects the right strategy based on ``QueryType`` and produces a
 """
 
 import logging
-from typing import Dict, List, Optional
+from typing import Dict, List
 
 from src.rag.common.models import (
-    AnalyzedQuery,
     GeneratedAnswer,
     QueryType,
     RetrievalResult,
     SearchResult,
 )
-from src.rag.generation.llm_client import generate_text
+from src.rag.common.llm_client import generate_text
 from src.rag.generation.prompts import (
     ANSWER_PROMPT,
     ANSWER_SYSTEM_PROMPT,
