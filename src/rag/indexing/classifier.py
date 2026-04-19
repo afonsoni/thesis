@@ -14,8 +14,6 @@ import os
 import time
 from typing import Dict, List, Optional
 
-from dotenv import load_dotenv
-
 from src.rag.common.models import (
     TOPIC_CATEGORIES,
     VALID_TOPICS,
@@ -24,8 +22,6 @@ from src.rag.common.models import (
 )
 from src.rag.common.llm_client import generate_structured, generate_structured_batch
 from src.utils.config_loader import config
-
-load_dotenv()
 logger = logging.getLogger(__name__)
 
 # ---------------------------------------------------------------------------
