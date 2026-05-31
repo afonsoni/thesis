@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   postgres:
     image: pgvector/pgvector:pg17
@@ -12,3 +10,20 @@ services:
       - "5432:5432"
     volumes:
       - ./pgdata:/var/lib/postgresql/data
+
+  postgres_test:
+    image: pgvector/pgvector:pg17
+    container_name: postgres_pgvector_test
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: ragdb_test
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./pgdata_test:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d ragdb_test"]
+      interval: 5s
+      timeout: 5s
+      retries: 10

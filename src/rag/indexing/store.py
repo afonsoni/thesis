@@ -220,23 +220,23 @@ class VectorStore:
         cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
 
         where_clauses: List[str] = []
-        params: List[Any] = [query_embedding, query_embedding]
+        filter_params: List[Any] = []
 
         if party_name:
             where_clauses.append("party_name = %s")
-            params.append(party_name)
+            filter_params.append(party_name)
         if ideology:
             where_clauses.append("ideology = %s")
-            params.append(ideology)
+            filter_params.append(ideology)
         if topics:
             where_clauses.append("topics && %s")
-            params.append(topics)
+            filter_params.append(topics)
         if year:
             where_clauses.append("year = %s")
-            params.append(year)
+            filter_params.append(year)
 
         where_sql = ("WHERE " + " AND ".join(where_clauses)) if where_clauses else ""
-        params.append(top_k)
+        params: List[Any] = [query_embedding, *filter_params, query_embedding, top_k]
 
         sql = f"""
             SELECT id, content, summary, party_name, ideology, year,
@@ -252,6 +252,7 @@ class VectorStore:
             cur.execute(sql, params)
             rows = cur.fetchall()
         except Exception as exc:
+            conn.rollback()
             logger.error("Similarity search failed: %s", exc)
             return []
 

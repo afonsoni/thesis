@@ -83,6 +83,49 @@ Create a `.env` file:
 OPENROUTER_API_KEY=your_openrouter_key
 ```
 
+## Test Flow (All Tests, No Skips)
+
+The project now includes a **dedicated testing DB service** and live LLM smoke tests.
+
+### 1. Start the dedicated test DB
+
+```bash
+docker compose up -d postgres_test
+```
+
+This service runs on `localhost:5433` and uses database `ragdb_test`.
+
+### 2. Ensure live LLM key is available
+
+Set `OPENROUTER_API_KEY` in your shell or in `.env`.
+
+### 3. Run all tests
+
+```bash
+python -m pytest -q
+```
+
+By design, DB-backed and live tests now **fail fast** if prerequisites are missing.
+
+### Optional test DB overrides
+
+```bash
+export RAG_TEST_DB_HOST=localhost
+export RAG_TEST_DB_PORT=5433
+export RAG_TEST_DB_NAME=ragdb_test
+export RAG_TEST_DB_USER=postgres
+export RAG_TEST_DB_PASSWORD=postgres
+```
+
+### Run by layer
+
+```bash
+python -m pytest -q -m unit
+python -m pytest -q -m integration
+python -m pytest -q -m e2e
+python -m pytest -q -m live
+```
+
 ### 1. Parse PDFs → Markdown
 
 ```bash

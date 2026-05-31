@@ -3,3 +3,4 @@
 pgdata
 .markdownlint.json
 .examples
+pgdata_test/*
