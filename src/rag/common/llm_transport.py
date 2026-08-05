@@ -8,6 +8,7 @@ This module centralizes:
 """
 
 import json
+import logging
 import os
 import random
 import re
@@ -18,7 +19,13 @@ import requests
 
 from src.utils.config_loader import config
 
+logger = logging.getLogger(__name__)
+
 OPENROUTER_CHAT_COMPLETIONS_URL = "https://openrouter.ai/api/v1/chat/completions"
+
+# Retry/​give-up messages carry the provider's error text, which for a rate limit
+# includes the quota JSON. Truncate so a long payload cannot dominate the log.
+_ERROR_LOG_MAX_CHARS = 300
 
 _DEFAULT_MAX_RETRIES = int(config.get("llm.openrouter.max_retries", 5))
 _DEFAULT_BASE_BACKOFF_SECS = float(config.get("llm.openrouter.base_backoff_secs", 1.0))
@@ -75,12 +82,31 @@ def call_openrouter_with_retries(
         except Exception as exc:
             last_error = exc
             if attempt >= attempts - 1 or not _is_retriable_error(exc):
+                # Without this, exhausting retries on a slow provider is
+                # indistinguishable from a hang: the caller only logs once the
+                # final error propagates, which can be attempts * timeout later.
+                logger.warning(
+                    "OpenRouter call failed on attempt %d/%d and will not be retried "
+                    "(%s): %s",
+                    attempt + 1,
+                    attempts,
+                    "retries exhausted" if _is_retriable_error(exc) else "not retriable",
+                    _truncate_error(exc),
+                )
                 break
 
             retry_after = _extract_retry_after(exc)
             exp_backoff = min(max_backoff, base_backoff * (2 ** attempt))
             jitter_wait = random.uniform(0.0, exp_backoff)
             wait_for = max(retry_after, jitter_wait) if retry_after is not None else jitter_wait
+            logger.warning(
+                "OpenRouter call failed on attempt %d/%d, retrying in %.1fs%s: %s",
+                attempt + 1,
+                attempts,
+                wait_for,
+                f" (provider asked for {retry_after:.0f}s)" if retry_after is not None else "",
+                _truncate_error(exc),
+            )
             time.sleep(wait_for)
 
     if last_error is None:
@@ -185,6 +211,14 @@ def _parse_retry_after_from_text(text: str) -> Optional[float]:
         if match:
             return float(match.group(1))
     return None
+
+
+def _truncate_error(exc: Exception) -> str:
+    """One-line, length-capped rendering of an exception for retry logs."""
+    text = " ".join(str(exc).split())
+    if len(text) > _ERROR_LOG_MAX_CHARS:
+        text = text[:_ERROR_LOG_MAX_CHARS] + "…"
+    return f"{type(exc).__name__}: {text}" if text else type(exc).__name__
 
 
 def _extract_retry_after(exc: Exception) -> Optional[float]:
