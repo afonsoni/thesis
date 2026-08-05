@@ -33,6 +33,12 @@ class DeterministicEmbedder(Embedder):
             return [0.0, 1.0, 0.0]
         return [0.0, 0.0, 1.0]
 
+    # Symmetric by design: this double has no instruction prompts, so queries and
+    # documents encode identically. Defined explicitly because the real Embedder's
+    # encode_query reads state that this __init__ deliberately skips.
+    def encode_query(self, text: str) -> list[float]:
+        return self.encode(text)
+
 
 @pytest.fixture(autouse=True)
 def reset_retrieval_singleton() -> Iterator[None]:

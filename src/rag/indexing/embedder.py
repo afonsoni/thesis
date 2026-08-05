@@ -5,9 +5,11 @@ Supports single and batch encoding, plus optional multi-representation
 indexing (LLM-generated summaries for improved retrieval).
 """
 
+import json
 import logging
 from typing import List, Optional
 
+from huggingface_hub import hf_hub_download
 from sentence_transformers import SentenceTransformer
 
 from src.rag.common.models import Chunk, EmbeddedChunk
@@ -17,34 +19,103 @@ from src.utils.config_loader import config
 logger = logging.getLogger(__name__)
 
 
+def _uses_last_token_pooling(model_name: str) -> bool:
+    """Whether the model's SentenceTransformer pooling config uses last-token pooling.
+
+    Read from the model repo's ``1_Pooling/config.json`` before the model is built,
+    because the tokenizer's padding side has to be set at construction time.
+    Returns False if the file cannot be read — the safe default for the
+    mean/CLS-pooling models where padding side does not matter.
+    """
+    try:
+        path = hf_hub_download(repo_id=model_name, filename="1_Pooling/config.json")
+        with open(path, "r", encoding="utf-8") as fh:
+            return bool(json.load(fh).get("pooling_mode_lasttoken", False))
+    except Exception as exc:  # offline, local path, or non-ST repo layout
+        logger.debug("Could not read pooling config for %s: %s", model_name, exc)
+        return False
+
+
 class Embedder:
     """Wraps a SentenceTransformer model for encoding text into vectors."""
 
     def __init__(self, model_name: Optional[str] = None):
         model_name = model_name or config.get(
             "embeddings.model",
-            "PORTULAN/serafim-900m-portuguese-pt-sentence-encoder-ir",
+            "Qwen/Qwen3-Embedding-0.6B",
         )
         logger.info("Loading embedding model: %s", model_name)
-        self.model = SentenceTransformer(model_name)
+
+        # Last-token pooling models (Qwen3-Embedding and other decoder-based
+        # encoders) MUST pad on the left: with right padding, the "last token" of
+        # a short sequence in a mixed-length batch is a PAD token, so the whole
+        # embedding is garbage. It fails silently — no error, just bad vectors —
+        # so detect it from the model card rather than relying on config.
+        tokenizer_kwargs = (
+            {"padding_side": "left"} if _uses_last_token_pooling(model_name) else None
+        )
+        self.model = SentenceTransformer(
+            model_name,
+            tokenizer_kwargs=tokenizer_kwargs,
+        )
+
+        # Optional hard cap on the encoder's context window. This is the knob that
+        # matters most for retrieval quality: anything beyond it is truncated
+        # silently at encode time. Leave unset to use the model's own default.
+        max_seq_length = config.get("embeddings.max_seq_length")
+        if max_seq_length:
+            self.model.max_seq_length = int(max_seq_length)
+
         dim = self.model.get_sentence_embedding_dimension()
-        self.dimension: int = dim if dim is not None else int(config.get("embeddings.dimension", 1536))
-        logger.info("Embedding dimension: %d", self.dimension)
+        self.dimension: int = dim if dim is not None else int(config.get("embeddings.dimension", 1024))
+        # Prompts a model declares for asymmetric retrieval (query vs document).
+        self._prompts = dict(getattr(self.model, "prompts", None) or {})
+        logger.info(
+            "Embedding dimension: %d | max_seq_length: %s | prompts: %s",
+            self.dimension,
+            self.model.max_seq_length,
+            sorted(k for k, v in self._prompts.items() if v) or "none",
+        )
 
     # ------------------------------------------------------------------
     # Core encoding
     # ------------------------------------------------------------------
 
+    def _prompt_name(self, kind: str) -> Optional[str]:
+        """Return *kind* if the loaded model declares a non-empty prompt for it.
+
+        Retrieval models are asymmetric: queries get an instruction prefix,
+        documents get none. Passing a prompt name a model does not declare raises,
+        and symmetric models (serafim, the STS-tuned ones) declare nothing at all —
+        so both cases fall back to unprefixed encoding.
+        """
+        return kind if self._prompts.get(kind) else None
+
     def encode(self, text: str) -> List[float]:
-        """Encode a single text string into a vector."""
-        return self.model.encode(text, normalize_embeddings=True).tolist()
+        """Encode a single text as a *document* (the indexing side)."""
+        return self.model.encode(
+            text,
+            prompt_name=self._prompt_name("document"),
+            normalize_embeddings=True,
+        ).tolist()
+
+    def encode_query(self, text: str) -> List[float]:
+        """Encode a single text as a *query*, applying the model's instruction
+        prefix when it has one. Must be used for search-time encoding, or an
+        asymmetric model silently loses the accuracy its prompts exist to add."""
+        return self.model.encode(
+            text,
+            prompt_name=self._prompt_name("query"),
+            normalize_embeddings=True,
+        ).tolist()
 
     def encode_batch(self, texts: List[str], batch_size: int = 64) -> List[List[float]]:
-        """Encode a list of texts in batches."""
+        """Encode a list of texts as *documents*, in batches."""
         embeddings = self.model.encode(
             texts,
             batch_size=batch_size,
             show_progress_bar=True,
+            prompt_name=self._prompt_name("document"),
             normalize_embeddings=True,
         )
         return embeddings.tolist()
