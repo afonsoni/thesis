@@ -31,17 +31,36 @@ logger = logging.getLogger(__name__)
 # Context formatting helpers
 # ---------------------------------------------------------------------------
 
+def _dedupe_by_context(results: List[SearchResult]) -> List[SearchResult]:
+    """Drop results whose context text was already included, keeping rank order.
+
+    Under small-to-big retrieval several sibling children can win slots in the
+    same parent section, and each would expand to identical parent text. Without
+    this the prompt carries the same passage two or three times, wasting context
+    and biasing the model toward whatever it repeats.
+    """
+    seen: set[str] = set()
+    unique: List[SearchResult] = []
+    for r in results:
+        text = r.context_text
+        if text in seen:
+            continue
+        seen.add(text)
+        unique.append(r)
+    return unique
+
+
 def _format_flat_context(results: List[SearchResult]) -> str:
     """Format a flat list of search results into numbered context blocks."""
     parts = []
-    for i, r in enumerate(results, 1):
+    for i, r in enumerate(_dedupe_by_context(results), 1):
         # Build section breadcrumb from header hierarchy
-        headers = " > ".join(r.header_hierarchy.values()) if r.header_hierarchy else ""
+        headers = r.section_path
         header_line = f"  Secção: {headers}\n" if headers else ""
         parts.append(
             f"[Documento {i}] Partido: {r.party_name} | Tópicos: {', '.join(r.topics)}\n"
             f"{header_line}"
-            f"{r.content}"
+            f"{r.context_text}"
         )
     return "\n\n---\n\n".join(parts)
 
@@ -51,10 +70,10 @@ def _format_grouped_context(results_by_party: Dict[str, List[SearchResult]]) -> 
     parts = []
     for party, results in results_by_party.items():
         docs = []
-        for i, r in enumerate(results, 1):
-            headers = " > ".join(r.header_hierarchy.values()) if r.header_hierarchy else ""
+        for i, r in enumerate(_dedupe_by_context(results), 1):
+            headers = r.section_path
             header_line = f"  Secção: {headers}\n" if headers else ""
-            docs.append(f"  [{i}] {header_line}{r.content}")
+            docs.append(f"  [{i}] {header_line}{r.context_text}")
         parts.append(f"## {party}\n" + "\n\n".join(docs))
     return "\n\n".join(parts)
 
@@ -65,8 +84,9 @@ def _build_sources(results: List[SearchResult]) -> List[Dict]:
         {
             "party": r.party_name,
             "topics": r.topics,
-            "section": " > ".join(r.header_hierarchy.values()) if r.header_hierarchy else "",
+            "section": r.section_path,
             "similarity": round(r.similarity, 4),
+            "score_type": r.score_type.value,
         }
         for r in results
     ]
