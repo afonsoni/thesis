@@ -34,17 +34,26 @@ Entry point: `main.py`
 #### Indexing (`src/rag/indexing/`)
 
 - `parser.py`: wraps `marker_single` subprocess and removes generated images.
-- `chunker.py`: header-aware markdown splitting + recursive windowing.
+- `chunker.py`: header-aware markdown splitting + recursive windowing. Windowing is
+  sized in **tokens** (via the embedding model's own tokenizer) under the `token` /
+  `small_to_big` strategies; `char` is the legacy character-sized baseline retained
+  only for ablations. See `indexing.chunk_strategy` and the README — sizing in
+  characters overruns `serafim-900m`'s 128-token window and silently truncates ~89%
+  of chunks.
 - `classifier.py`: OpenRouter-based structured multi-label topic classification with rate-limit retries.
 - `embedder.py`: SentenceTransformer embeddings with optional summary-based multi-representation indexing.
-- `store.py`: PostgreSQL + pgvector storage, HNSW index, metadata-filtered similarity search.
+- `store.py`: PostgreSQL + pgvector storage, HNSW index, metadata-filtered similarity
+  search, plus `lexical_search()` over a generated Portuguese `tsvector` column
+  (the lexical half of hybrid retrieval).
 - `pipeline.py`: end-to-end indexing orchestrator.
 
 #### Retrieval (`src/rag/retrieval/`)
 
 - `query_analyzer.py`: structured query analysis into `single_party`, `comparison`, `topic_exploration`, `general` (+ heuristic fallback).
 - `query_expander.py`: multi-query expansion.
-- `searcher.py`: similarity search + Reciprocal Rank Fusion (RRF).
+- `searcher.py`: similarity search + Reciprocal Rank Fusion (RRF). With
+  `use_hybrid`, each query also contributes a lexical ranked list and all
+  `2 * len(queries)` lists are fused in a single RRF pass.
 - `router.py`: route-specific search logic (single-party, comparison, topic, general).
 - `pipeline.py`: retrieval entry point using a singleton `Searcher`.
 
@@ -61,6 +70,19 @@ Entry point: `main.py`
   - canonical topic list (`TOPIC_CATEGORIES`),
   - party mapping (`PARTY_MAP`),
   - all Pydantic schemas used across indexing/retrieval/generation.
+
+#### Evaluation (`src/rag/evaluation/`)
+
+- `variants.py`: the declarative ladder of implementation steps as `RetrievalConfig`
+  presets (`naive`, `multiquery`, `routed`, `current`; reserved `reranked`/`hybrid`).
+- `dataset.py`: synthetic-anchored gold-set generation + load/save (content-hash keys).
+- `metrics/`: retrieval (hit@k/recall@k/MRR/nDCG), routing (type acc, party/topic F1),
+  and LLM-judge generation (faithfulness/relevance/correctness) behind a `Metric` protocol.
+- `runner.py` / `report.py` / `pipeline.py`: run a variant, persist results, refresh
+  `data/eval/reports/leaderboard.md`.
+- Retrieval is now feature-flagged via `src/rag/retrieval/config.py::RetrievalConfig`;
+  `RetrievalConfig()` defaults reproduce the historical behavior, so `retrieve()` is
+  backward-compatible. See `docs/evaluation.md`.
 
 ### Testing status
 
@@ -112,8 +134,11 @@ Primary language is Portuguese (pt-PT), and outputs should remain in Portuguese 
 
 Based on the dissertation draft and repository structure, near-term direction is:
 
-1. Formal evaluation of retrieval and answer quality.
+1. Formal evaluation of retrieval and answer quality. **(In progress — the evaluation
+   harness now exists in `src/rag/evaluation/`; next is curating `golden.json` and
+   running the variant ladder to produce headline numbers.)**
 2. Retrieval upgrades beyond current baseline (hybrid search, stronger reranking, improved query planning).
+   The `use_reranker`/`use_hybrid` flags and `VARIANTS` slots are reserved for exactly this.
 3. Better robustness/reproducibility (tests, experiment scripts, clearer dependency management).
 4. Optional user-facing feature exploration (e.g., quiz-oriented interaction over manifesto positions).
 

@@ -52,15 +52,55 @@ thesis/
 | Logical Routing               | Part 10             | `retrieval/router.py`         |
 | Metadata-Filtered Search      | Part 11             | `indexing/store.py`           |
 | Multi-Representation Indexing | Part 12             | `indexing/embedder.py`        |
+| Small-to-Big Retrieval        | Part 12 (variant)   | `indexing/chunker.py`         |
+| Hybrid Dense + Full-Text      | —                   | `indexing/store.py`           |
 
 ## Core Components
 
 - **PDF Extraction**: `marker_single` CLI tool (produces clean markdown)
-- **Chunking**: Header-aware LangChain splitter + recursive windowing
+- **Chunking**: Header-aware LangChain splitter + recursive windowing, sized in
+  *tokens* against the embedding model's own tokenizer (see below)
 - **Topic Classification**: Structured LLM output via OpenRouter (18 Portuguese categories, multi-label)
 - **Embeddings**: `PORTULAN/serafim-900m-portuguese-pt-sentence-encoder-ir` (1536d, Portuguese-specific)
 - **Vector Store**: PostgreSQL 17 + pgvector with HNSW index
+- **Lexical Index**: generated `tsvector` column (`portuguese` config) + GIN index
 - **LLM Generation**: Unified OpenRouter transport with configurable models
+
+### Chunk sizing and the encoder's context window
+
+`serafim-900m` has a **`max_seq_length` of 128 tokens**. Anything past that is
+silently dropped at encode time — no error, no warning. Sizing chunks in
+*characters* therefore overruns the window badly: at `max_chunk_size: 1600` the
+median chunk was 365 tokens, 89.5% of chunks were truncated, and only **37.3% of
+the indexed corpus was ever embedded**. A chunk could not be retrieved by two
+thirds of its own text.
+
+`indexing.chunk_strategy` selects how windowing is measured:
+
+| Strategy       | Sizing unit | Truncation | Generation reads |
+| -------------- | ----------- | ---------- | ---------------- |
+| `char`         | characters  | ~89% of chunks | the chunk    |
+| `token`        | tokens      | none       | the chunk        |
+| `small_to_big` | tokens      | none       | the **parent section** |
+
+`small_to_big` is the default: small children are embedded for precise matching,
+while `parent_content` carries the full header section that generation actually
+reads. `char` is retained **only** as the evaluation baseline — it is what the
+`0% → 100% embedded` ablation is measured against.
+
+When changing strategy you must re-index, since chunk boundaries change:
+
+```bash
+python main.py index --all --drop --chunk-strategy small_to_big
+```
+
+### Hybrid retrieval
+
+`use_hybrid` adds a Portuguese full-text ranked list per query and fuses it with
+the dense lists in a single RRF pass. It exists because dense embeddings
+under-weight rare exact tokens — `USF tipo C`, `TMRG`, `RES_U`,
+`Cheque-Dentista` — which are exactly the strings a user quotes when asking about
+them. Enable it per-variant (`hybrid`, `hybrid_only`) or via `RetrievalConfig`.
 
 ## Quick Start
 
@@ -167,6 +207,28 @@ python main.py query "Que partidos falam sobre imigração?"
 python main.py query "Políticas ambientais dos partidos de esquerda" --top-k 10
 ```
 
+## Evaluation
+
+The system is evaluated as a ladder of **implementation steps** (`naive` →
+`multiquery` → `routed` → `current`, with future `reranked`/`hybrid` rungs), all
+run over the same gold set so gains are attributable to specific techniques.
+Each step is a `RetrievalConfig` preset (feature flags over the *same* production
+code) — see `src/rag/evaluation/variants.py`.
+
+```bash
+# 1. Build a synthetic gold set anchored to indexed chunks, then hand-curate golden.json
+python main.py eval-dataset --sample-size 60 --out data/eval/questions/synthetic.json
+
+# 2. Run variants and refresh the leaderboard
+python main.py eval --variants naive,current --curated-only
+```
+
+Metrics: retrieval (`hit@k`, `recall@k`, `mrr`, `ndcg@k`), routing
+(`query_type_acc`, `party_f1`, `topic_f1`), and LLM-judge generation
+(`faithfulness`, `answer_relevance`, `correctness`). Results land in
+`data/eval/results/` and a committed `data/eval/reports/leaderboard.md`.
+Full methodology: [`docs/evaluation.md`](docs/evaluation.md).
+
 ## Configuration
 
 All settings in `config/config.yaml`:
@@ -180,26 +242,44 @@ All settings in `config/config.yaml`:
 
 ## Architecture
 
-### Indexing Flow
+The system has three parts: **indexing** (offline) builds the vector store;
+**retrieval + generation** (online) answer a question with grounded citations;
+and an **evaluation harness** (offline) replays the same feature-flagged code as
+a ladder of variants. Detailed per-stage diagrams are in
+[`docs/architecture.md`](docs/architecture.md).
 
-```
-PDF → marker_single → Markdown → Header-aware chunking →
-  Topic classification (OpenRouter, fail-fast) → Embedding (Serafim 900M) →
-  PostgreSQL + pgvector (HNSW index)
+```mermaid
+flowchart LR
+    subgraph ING["Indexing (offline)"]
+        direction TB
+        PDF["8 manifesto PDFs"] --> MD["Markdown"] --> CH["Chunks"] --> CL["Topic labels"] --> EMB["Embeddings"]
+    end
+
+    VS[("PostgreSQL + pgvector<br/>HNSW index + metadata")]
+    EMB --> VS
+
+    subgraph SERVE["Query time (online)"]
+        direction TB
+        Q["User question (pt-PT)"] --> R["Retrieval<br/>analyze → route → search"]
+        R --> G["Generation<br/>grounded synthesis"]
+        G --> A["Answer + source citations"]
+    end
+    VS --> R
+
+    subgraph EVAL["Evaluation (offline)"]
+        direction TB
+        GOLD["Curated gold set"] --> RUN["Variant ladder<br/>naive → current"]
+        RUN --> LB["Leaderboard"]
+    end
+    VS -.-> RUN
+    R -.-> RUN
 ```
 
-### Query Flow
-
-```
-User question → Query Analysis (structured LLM output) →
-  Logical Routing by query type →
-    ├─ single_party:      metadata-filtered + multi-query + RRF
-    ├─ comparison:         per-party parallel search + RRF + grouped synthesis
-    ├─ topic_exploration:  topic-filtered + multi-query + RRF
-    └─ general:            broad multi-query + RRF
-  → Answer Synthesis (direct / comparison / decomposed) →
-  Final answer with source citations
-```
+The **query flow** in words: `User question → Query Analysis (structured LLM) →
+Logical Routing by query type` (`single_party` / `comparison` /
+`topic_exploration` / `general`, each with metadata-filtered multi-query search
++ RRF) `→ Answer Synthesis (direct / comparison / decomposed) → final answer
+with source citations`.
 
 ## Parties Tracked (2024)
 

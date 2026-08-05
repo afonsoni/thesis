@@ -7,6 +7,9 @@ Commands:
                            [--classify-only] [--from-classified PATH]
                            [--checkpoint-out PATH] [--no-checkpoint]
     python main.py query   "question" [--top-k 5] [--no-expand]
+    python main.py eval-dataset [--sample-size 60] [--types ...] [--out PATH]
+    python main.py eval    [--variants naive,current] [--dataset PATH]
+                           [--curated-only] [--top-k 5] [--no-judge]
 """
 
 import argparse
@@ -14,6 +17,8 @@ import logging
 import sys
 
 from dotenv import load_dotenv
+
+from src.rag.common.models import ChunkStrategy
 
 load_dotenv()
 
@@ -49,6 +54,7 @@ def cmd_index(args):
     party_filter = None if args.all else args.party
     count = index_documents(
         party_filter=party_filter,
+        chunk_strategy=args.chunk_strategy,
         generate_chunk_summaries=args.summaries,
         drop_existing=args.drop,
         classified_input_path=args.from_classified,
@@ -82,7 +88,52 @@ def cmd_query(args):
     if answer.sources:
         print(f"\nFontes ({len(answer.sources)}):")
         for s in answer.sources:
-            print(f"  • {s['party']} – {s.get('section', '')} (sim={s['similarity']})")
+            score_label = s.get("score_type", "cosine")
+            print(f"  • {s['party']} – {s.get('section', '')} ({score_label}={s['similarity']})")
+
+
+def cmd_eval_dataset(args):
+    from src.rag.evaluation.dataset import build_dataset, save_dataset
+
+    types = [t.strip() for t in args.types.split(",")] if args.types else None
+    dataset = build_dataset(
+        sample_size=args.sample_size,
+        types=types,
+        model=args.model,
+    )
+    if not dataset.questions:
+        logger.error("No questions generated. Is the index populated? (python main.py index --all)")
+        sys.exit(1)
+    save_dataset(dataset, args.out)
+    logger.info(
+        "Generated %d questions → %s. Review and set curated=true on the best ones "
+        "(e.g. copy into golden.json).",
+        len(dataset.questions),
+        args.out,
+    )
+
+
+def cmd_eval(args):
+    from src.rag.evaluation.pipeline import evaluate
+
+    variants = [v.strip() for v in args.variants.split(",")] if args.variants else None
+    results = evaluate(
+        variant_names=variants,
+        dataset_path=args.dataset,
+        curated_only=args.curated_only,
+        k=args.top_k,
+        use_judge=not args.no_judge,
+        judge_model=args.judge_model,
+    )
+
+    print("\n" + "=" * 60)
+    print("Evaluation summary (means over dataset):")
+    for r in results:
+        print(f"\n[{r.variant}]  (n={r.dataset_size})")
+        for metric, value in r.aggregate.items():
+            print(f"  {metric:<18} {value}")
+    print("=" * 60)
+    print("Leaderboard refreshed in the reports directory.")
 
 
 # ---------------------------------------------------------------------------
@@ -110,12 +161,36 @@ def build_parser() -> argparse.ArgumentParser:
     p_index.add_argument("--from-classified", type=str, default=None, help="Load classified chunks from JSON and skip chunk/classify")
     p_index.add_argument("--checkpoint-out", type=str, default=None, help="Output path for classified checkpoint JSON")
     p_index.add_argument("--no-checkpoint", action="store_true", help="Disable automatic classified checkpoint saving")
+    p_index.add_argument("--chunk-strategy", type=str, default=None,
+                         choices=[s.value for s in ChunkStrategy],
+                         help="Chunk windowing strategy (default: indexing.chunk_strategy from config). "
+                              "'char' is the truncating baseline kept for ablations.")
 
     # query
     p_query = sub.add_parser("query", help="Ask a question to the RAG system")
     p_query.add_argument("question", nargs="?", type=str, help="The question to ask")
     p_query.add_argument("-k", "--top-k", type=int, default=5, help="Number of documents to retrieve")
     p_query.add_argument("--no-expand", action="store_true", help="Disable multi-query expansion")
+
+    # eval-dataset
+    p_evd = sub.add_parser("eval-dataset", help="Generate a synthetic gold set anchored to indexed chunks")
+    p_evd.add_argument("--sample-size", type=int, default=60, help="Total number of questions to generate")
+    p_evd.add_argument("--types", type=str, default=None,
+                       help="Comma-separated query types (single_party,comparison,topic_exploration,general)")
+    p_evd.add_argument("--model", type=str, default=None, help="OpenRouter model for question generation")
+    p_evd.add_argument("--out", type=str, default="data/eval/questions/synthetic.json",
+                       help="Output path for the generated dataset")
+
+    # eval
+    p_ev = sub.add_parser("eval", help="Run the evaluation harness over one or more variants")
+    p_ev.add_argument("--variants", type=str, default=None,
+                      help="Comma-separated variant names (naive,multiquery,routed,current). "
+                           "Defaults to config evaluation.variants.")
+    p_ev.add_argument("--dataset", type=str, default=None, help="Gold-set JSON path")
+    p_ev.add_argument("--curated-only", action="store_true", help="Only evaluate human-validated questions")
+    p_ev.add_argument("-k", "--top-k", type=int, default=None, help="Cut-off for retrieval metrics & judge context")
+    p_ev.add_argument("--judge-model", type=str, default=None, help="Override the LLM-judge model")
+    p_ev.add_argument("--no-judge", action="store_true", help="Skip the (LLM) generation-judge metrics")
 
     return parser
 
@@ -130,6 +205,10 @@ def main():
         cmd_index(args)
     elif args.command == "query":
         cmd_query(args)
+    elif args.command == "eval-dataset":
+        cmd_eval_dataset(args)
+    elif args.command == "eval":
+        cmd_eval(args)
     else:
         parser.print_help()
         sys.exit(1)
