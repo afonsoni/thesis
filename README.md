@@ -61,34 +61,67 @@ thesis/
 - **Chunking**: Header-aware LangChain splitter + recursive windowing, sized in
   *tokens* against the embedding model's own tokenizer (see below)
 - **Topic Classification**: Structured LLM output via OpenRouter (18 Portuguese categories, multi-label)
-- **Embeddings**: `PORTULAN/serafim-900m-portuguese-pt-sentence-encoder-ir` (1536d, Portuguese-specific)
+- **Embeddings**: `Qwen/Qwen3-Embedding-0.6B` (1024d, 32k context, retrieval-trained
+  and asymmetric — see below for why this replaced `serafim-900m`)
 - **Vector Store**: PostgreSQL 17 + pgvector with HNSW index
 - **Lexical Index**: generated `tsvector` column (`portuguese` config) + GIN index
 - **LLM Generation**: Unified OpenRouter transport with configurable models
 
-### Chunk sizing and the encoder's context window
+### Why the embedding model changed (and why chunks are sized in tokens)
 
-`serafim-900m` has a **`max_seq_length` of 128 tokens**. Anything past that is
-silently dropped at encode time — no error, no warning. Sizing chunks in
-*characters* therefore overruns the window badly: at `max_chunk_size: 1600` the
-median chunk was 365 tokens, 89.5% of chunks were truncated, and only **37.3% of
-the indexed corpus was ever embedded**. A chunk could not be retrieved by two
-thirds of its own text.
+The system originally used `serafim-900m`, which has a **`max_seq_length` of 128
+tokens**. Anything past that is dropped at encode time — no error, no warning.
+Sizing chunks in *characters* therefore overran the window badly: at
+`max_chunk_size: 1600` the median chunk was 365 tokens, **89.5% of chunks were
+truncated, and only 37.3% of the corpus was ever embedded**. Probing a chunk with
+its own text, it ranked #1 by its opening (cosine 0.986) and was absent from the
+top 5 for its own tail — unretrievable by two thirds of its own content.
+
+The root cause was **conflating two different budgets** under one number:
+
+| Budget | Set by | Consequence of exceeding it |
+| ------ | ------ | --------------------------- |
+| Retrieval | the encoder's `max_seq_length` | silent truncation |
+| Generation | the LLM's context window | none, at these sizes |
+
+Chunks were sized sensibly for the LLM, then handed to an encoder that could see
+a third of them. Two independent fixes follow from that, and both are kept:
+
+1. **Chunk size is measured in tokens**, using the embedding model's own
+   tokenizer, so the budget is expressed in the unit that constrains it.
+2. **The encoder was replaced.** serafim is a *sentence* encoder — excellent at
+   STS (86.7 on the PT-MTEB-style comparison) but weak at retrieval (54.9),
+   which is the same fact twice: it was built for short symmetric sentence
+   similarity, not asymmetric passage retrieval. `Qwen3-Embedding-0.6B` scores
+   78.9 on retrieval, is *smaller* (0.6B vs 0.9B), indexes narrower (1024 vs
+   1536 dims), and has a 32k window — so the encoder is no longer what limits
+   chunk size. Chunk size is now a free retrieval-granularity choice.
+
+Note that most modern retrieval encoders, including Qwen3, are **asymmetric**:
+queries take an instruction prefix, documents take none. `Embedder` applies
+whichever prompts the loaded model declares, so `encode_query` must be used at
+search time — `encode` alone silently forfeits the accuracy the prompts exist to
+add. Decoder-based encoders also pool the *last* token, which requires left
+padding; this is detected from the model's pooling config, because getting it
+wrong corrupts every batched embedding without raising anything.
 
 `indexing.chunk_strategy` selects how windowing is measured:
 
-| Strategy       | Sizing unit | Truncation | Generation reads |
-| -------------- | ----------- | ---------- | ---------------- |
-| `char`         | characters  | ~89% of chunks | the chunk    |
-| `token`        | tokens      | none       | the chunk        |
-| `small_to_big` | tokens      | none       | the **parent section** |
+| Strategy       | Sizing unit | Truncation on serafim | Generation reads |
+| -------------- | ----------- | --------------------- | ---------------- |
+| `char`         | characters  | ~89% of chunks        | the chunk    |
+| `token`        | tokens      | none                  | the chunk        |
+| `small_to_big` | tokens      | none                  | the **parent section** |
 
 `small_to_big` is the default: small children are embedded for precise matching,
 while `parent_content` carries the full header section that generation actually
-reads. `char` is retained **only** as the evaluation baseline — it is what the
+reads. It keeps the two budgets decoupled, so retrieval granularity and
+generation context can be tuned independently even on a long-context encoder.
+`char` is retained **only** as the evaluation baseline — it is what the
 `0% → 100% embedded` ablation is measured against.
 
-When changing strategy you must re-index, since chunk boundaries change:
+Re-index when changing strategy (chunk boundaries move) or the embedding model
+(pgvector cannot alter a `VECTOR(n)` column in place, so `--drop` is required):
 
 ```bash
 python main.py index --all --drop --chunk-strategy small_to_big

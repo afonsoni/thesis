@@ -13,9 +13,29 @@ pdf_extraction:
   disable_images: true
 
 # Embedding settings
+#
+# Retrieval-trained, asymmetric (instruction prefix on queries, none on
+# documents — Embedder applies these automatically) and a 32k context window, so
+# the encoder is no longer what limits chunk size.
+#
+# Replaced serafim-900m, which was a *sentence* encoder: excellent at STS but
+# capped at 128 tokens, which silently truncated 63% of the corpus. Its weak
+# retrieval was the same fact seen twice — it was built for short symmetric
+# sentence similarity, not asymmetric passage retrieval.
+#
+# Changing `model` changes `dimension`, and pgvector cannot alter a VECTOR(n)
+# column in place: reindex with `--drop`.
+#   Qwen/Qwen3-Embedding-0.6B ............ 1024 dims,  32768 ctx
+#   Alibaba-NLP/gte-multilingual-base .... 768 dims,    8192 ctx
+#   PORTULAN/serafim-900m-...-ir ......... 1536 dims,    128 ctx  (previous)
 embeddings:
-  model: "PORTULAN/serafim-900m-portuguese-pt-sentence-encoder-ir"
-  dimension: 1536
+  model: "Qwen/Qwen3-Embedding-0.6B"
+  dimension: 1024
+  # Optional hard cap on the encoder's context window. Deliberately unset: a cap
+  # below the chunk budget truncates silently, which is the bug this replaced.
+  # Set it only to *reduce* the window on purpose, e.g. to ablate serafim at
+  # 128 vs the 512 its DeBERTa-v2 backbone actually supports.
+  # max_seq_length: 512
 
 # PostgreSQL + pgvector settings
 postgresql:
@@ -56,11 +76,14 @@ indexing:
   #                  section is what generation reads. Best of both.
   chunk_strategy: "small_to_big"
 
-  # Token budget, used by the token strategies. MUST stay at or below the
-  # embedding model's max_seq_length (serafim-900m: 128), with headroom for the
-  # [CLS]/[SEP] special tokens that encoding adds.
-  max_chunk_tokens: 112
-  chunk_overlap_tokens: 24
+  # Token budget for the token strategies, i.e. the size of the *embedded child*.
+  # No longer pinned to the encoder's window — Qwen3 allows 32k — so this is now a
+  # free retrieval-granularity choice: small enough that a chunk's embedding stays
+  # about one thing, large enough to be self-contained. 400 keeps the chunk count
+  # (and so the classification cost) close to the original character-based run,
+  # while generation still receives the whole parent section.
+  max_chunk_tokens: 400
+  chunk_overlap_tokens: 80
 
   # Character budget, used ONLY by the `char` baseline strategy. These are the
   # values that produced the 62.7%-truncation baseline.

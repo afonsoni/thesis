@@ -38,10 +38,15 @@ Entry point: `main.py`
   sized in **tokens** (via the embedding model's own tokenizer) under the `token` /
   `small_to_big` strategies; `char` is the legacy character-sized baseline retained
   only for ablations. See `indexing.chunk_strategy` and the README — sizing in
-  characters overruns `serafim-900m`'s 128-token window and silently truncates ~89%
-  of chunks.
+  characters overran `serafim-900m`'s 128-token window and silently truncated ~89%
+  of chunks (62.7% of the corpus never embedded), which is why the encoder was
+  replaced by `Qwen/Qwen3-Embedding-0.6B` (32k window, retrieval-trained).
 - `classifier.py`: OpenRouter-based structured multi-label topic classification with rate-limit retries.
-- `embedder.py`: SentenceTransformer embeddings with optional summary-based multi-representation indexing.
+- `embedder.py`: SentenceTransformer embeddings with optional summary-based multi-representation
+  indexing. Handles asymmetric retrieval models: use `encode_query()` at search time so the
+  model's query instruction prefix is applied, and `encode()`/`encode_batch()` for documents.
+  Left padding is set automatically for last-token-pooling (decoder) encoders — getting that
+  wrong silently corrupts every batched embedding.
 - `store.py`: PostgreSQL + pgvector storage, HNSW index, metadata-filtered similarity
   search, plus `lexical_search()` over a generated Portuguese `tsvector` column
   (the lexical half of hybrid retrieval).

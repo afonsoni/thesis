@@ -5,6 +5,7 @@ Supports single and batch encoding, plus optional multi-representation
 indexing (LLM-generated summaries for improved retrieval).
 """
 
+import inspect
 import json
 import logging
 from typing import List, Optional
@@ -51,13 +52,20 @@ class Embedder:
         # a short sequence in a mixed-length batch is a PAD token, so the whole
         # embedding is garbage. It fails silently — no error, just bad vectors —
         # so detect it from the model card rather than relying on config.
-        tokenizer_kwargs = (
-            {"padding_side": "left"} if _uses_last_token_pooling(model_name) else None
-        )
-        self.model = SentenceTransformer(
-            model_name,
-            tokenizer_kwargs=tokenizer_kwargs,
-        )
+        model_kwargs = {}
+        if _uses_last_token_pooling(model_name):
+            # sentence-transformers renamed tokenizer_kwargs -> processor_kwargs.
+            # Pick whichever the installed version accepts: passing the retired name
+            # would eventually be ignored, and silently ignoring it reintroduces the
+            # corruption this guards against.
+            param = (
+                "processor_kwargs"
+                if "processor_kwargs" in inspect.signature(SentenceTransformer).parameters
+                else "tokenizer_kwargs"
+            )
+            model_kwargs[param] = {"padding_side": "left"}
+
+        self.model = SentenceTransformer(model_name, **model_kwargs)
 
         # Optional hard cap on the encoder's context window. This is the knob that
         # matters most for retrieval quality: anything beyond it is truncated
