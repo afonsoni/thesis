@@ -4,3 +4,7 @@ pgdata
 .markdownlint.json
 .examples
 pgdata_test/*
+
+# Generated evaluation artifacts (regenerate with `python main.py eval`)
+data/eval/results/*.json
+data/eval/reports/

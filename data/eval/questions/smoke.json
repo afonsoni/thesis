@@ -1,0 +1,39 @@
+{
+  "format_version": 1,
+  "created_at": "2026-08-05T20:08:26",
+  "questions": [
+    {
+      "id": "q-0000",
+      "question": "Quais são as medidas propostas pela Aliança Democrática no âmbito da igualdade de género?",
+      "query_type": "single_party",
+      "expected_parties": [
+        "Aliança Democrática"
+      ],
+      "expected_topics": [
+        "igualdade",
+        "trabalho"
+      ],
+      "gold_chunk_keys": [
+        "sha1:5602ffd012e3f4c89e8eb5d2085bc7dbe445ad6e"
+      ],
+      "reference_answer": "Ponderar a equiparação da licença de maternidade e paternidade pós-parto, reforçar a monitorização da obrigatoriedade de equiparação de salários e reforçar a legislação sobre quotas para liderança feminina e presença em comissões executivas.",
+      "source_party": "Aliança Democrática",
+      "source_section": "PROGRAMA SOCIAL E DE GOVERNAÇÃO DA ALIANÇA DEMOCRÁTICA > COM SENSIBILIDADE SOCIAL > DIVERSIDADE, INCLUSÃO E IGUALDADE DE GÉNERO > 3. Medidas > IGUALDADE DE GÉNERO",
+      "curated": false
+    },
+    {
+      "id": "q-0001",
+      "question": "Em que princípios deve basear-se a nova ambição e capacidade de concretização das políticas ambientais em Portugal?",
+      "query_type": "general",
+      "expected_parties": [],
+      "expected_topics": [],
+      "gold_chunk_keys": [
+        "sha1:15ba915304abcfcb04d9d4a8a2d0b2c4c7249264"
+      ],
+      "reference_answer": "No princípio da sustentabilidade ambiental, económica e social.",
+      "source_party": "Aliança Democrática",
+      "source_section": "PROGRAMA SOCIAL E DE GOVERNAÇÃO DA ALIANÇA DEMOCRÁTICA > COM AMBIÇÃO > SUSTENTABILIDADE > AMBIENTE, ÁGUA, AÇÃO CLIMÁTICA E PROTEÇÃO ANIMAL E DOS ECOSSISTEMAS > 1. Porque é preciso mudar",
+      "curated": false
+    }
+  ]
+}

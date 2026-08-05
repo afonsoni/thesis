@@ -22,6 +22,7 @@ from src.rag.common.models import (
     VALID_TOPICS,
 )
 from src.rag.common.llm_client import generate_structured
+from src.rag.retrieval.config import RetrievalConfig
 from src.rag.generation.prompts import (
     QUERY_ANALYSIS_PROMPT,
     QUERY_ANALYSIS_SYSTEM_PROMPT,
@@ -89,11 +90,26 @@ def _normalize_query_type(raw: str) -> QueryType:
 # Public API
 # ---------------------------------------------------------------------------
 
-def analyze_query(question: str) -> AnalyzedQuery:
+def analyze_query(
+    question: str,
+    config: Optional[RetrievalConfig] = None,
+) -> AnalyzedQuery:
     """
     Analyze a user question and return an ``AnalyzedQuery`` with structured
     metadata for the retrieval router.
+
+    When ``config.use_query_analysis`` is False, the LLM call is skipped entirely
+    and the question is treated as a GENERAL query – this is the naive-baseline
+    path used by the evaluation harness.
     """
+    config = config or RetrievalConfig()
+    if not config.use_query_analysis:
+        return AnalyzedQuery(
+            original_query=question,
+            query_type=QueryType.GENERAL,
+            reformulated_query=question,
+        )
+
     prompt = QUERY_ANALYSIS_PROMPT.format(question=question)
 
     try:

@@ -3,8 +3,14 @@ from typing import Dict, List, Optional
 import pytest
 
 from src.rag.common.models import AnalyzedQuery, QueryType, SearchResult
+from src.rag.retrieval.config import RetrievalConfig
 from src.rag.retrieval.router import route
 from src.rag.retrieval.searcher import Searcher
+
+
+def _no_expand(**overrides) -> RetrievalConfig:
+    """Config mirroring the old ``expand_queries=False`` call style."""
+    return RetrievalConfig(use_multi_query=False, **overrides)
 
 
 class StubSearcher(Searcher):
@@ -21,6 +27,7 @@ class StubSearcher(Searcher):
         topics: Optional[List[str]] = None,
         year: Optional[int] = None,
         rrf_k: int = 60,
+        use_rrf: bool = True,
     ) -> List[SearchResult]:
         self.multi_query_calls.append(
             {
@@ -31,6 +38,7 @@ class StubSearcher(Searcher):
                 "topics": topics,
                 "year": year,
                 "rrf_k": rrf_k,
+                "use_rrf": use_rrf,
             }
         )
         return [
@@ -50,6 +58,7 @@ class StubSearcher(Searcher):
         top_k_per_party: int = 3,
         topics: Optional[List[str]] = None,
         rrf_k: int = 60,
+        use_rrf: bool = True,
     ) -> Dict[str, List[SearchResult]]:
         self.batch_calls.append(
             {
@@ -58,6 +67,7 @@ class StubSearcher(Searcher):
                 "top_k_per_party": top_k_per_party,
                 "topics": topics,
                 "rrf_k": rrf_k,
+                "use_rrf": use_rrf,
             }
         )
         return {
@@ -85,7 +95,7 @@ def test_route_single_party_uses_party_filter():
         topics=["educacao"],
     )
 
-    retrieval = route(analyzed, searcher, top_k=5, expand_queries=False)
+    retrieval = route(analyzed, searcher, config=_no_expand(top_k=5))
 
     assert retrieval.results
     assert searcher.multi_query_calls[0]["party_name"] == "Partido Socialista"
@@ -103,7 +113,7 @@ def test_route_comparison_uses_batch_by_party():
         topics=["saude"],
     )
 
-    retrieval = route(analyzed, searcher, top_k=5, expand_queries=False)
+    retrieval = route(analyzed, searcher, config=_no_expand(top_k=5))
 
     assert retrieval.results_by_party
     assert set(retrieval.results_by_party.keys()) == {"Partido Socialista", "Aliança Democrática"}
@@ -119,9 +129,39 @@ def test_route_general_uses_multi_query_without_filters():
         query_type=QueryType.GENERAL,
     )
 
-    retrieval = route(analyzed, searcher, top_k=4, expand_queries=False)
+    retrieval = route(analyzed, searcher, config=_no_expand(top_k=4))
 
     assert retrieval.results
     assert searcher.multi_query_calls[0]["party_name"] is None
     assert searcher.multi_query_calls[0]["ideology"] is None
     assert searcher.multi_query_calls[0]["topics"] is None
+
+
+@pytest.mark.unit
+def test_route_naive_config_disables_routing_and_rrf():
+    """Naive baseline: no routing (always general) and no RRF fusion."""
+    searcher = StubSearcher()
+    analyzed = AnalyzedQuery(
+        original_query="PS e educacao",
+        reformulated_query="partido socialista educacao",
+        query_type=QueryType.SINGLE_PARTY,
+        parties=["Partido Socialista"],
+        topics=["educacao"],
+    )
+
+    naive = RetrievalConfig(
+        name="naive",
+        use_query_analysis=False,
+        use_routing=False,
+        use_multi_query=False,
+        use_rrf=False,
+        top_k=5,
+    )
+    retrieval = route(analyzed, searcher, config=naive)
+
+    assert retrieval.results
+    # Routing disabled → general path → no party/topic filters applied.
+    assert searcher.multi_query_calls[0]["party_name"] is None
+    assert searcher.multi_query_calls[0]["topics"] is None
+    assert searcher.multi_query_calls[0]["use_rrf"] is False
+    assert not searcher.batch_calls

@@ -8,6 +8,7 @@ import logging
 from typing import Optional
 
 from src.rag.common.models import RetrievalResult
+from src.rag.retrieval.config import RetrievalConfig
 from src.rag.retrieval.query_analyzer import analyze_query
 from src.rag.retrieval.router import route
 from src.rag.retrieval.searcher import Searcher
@@ -27,8 +28,9 @@ def _get_searcher() -> Searcher:
 
 def retrieve(
     question: str,
-    top_k: int = 5,
-    expand_queries: bool = True,
+    top_k: Optional[int] = None,
+    expand_queries: Optional[bool] = None,
+    config: Optional[RetrievalConfig] = None,
 ) -> RetrievalResult:
     """
     Full retrieval pipeline:
@@ -40,13 +42,26 @@ def retrieve(
     Args:
         question: Natural-language user question.
         top_k: Number of results to return (per party for comparison queries).
-        expand_queries: Whether to use multi-query expansion.
+               Overrides ``config.top_k`` when provided (CLI back-compat).
+        expand_queries: Whether to use multi-query expansion. Overrides
+               ``config.use_multi_query`` when provided (CLI back-compat).
+        config: Full retrieval feature-flag config. Defaults to production
+               behavior. This is how the evaluation harness selects a variant.
 
     Returns:
         ``RetrievalResult`` ready for the generation pipeline.
     """
+    config = config or RetrievalConfig()
+    overrides = {}
+    if top_k is not None:
+        overrides["top_k"] = top_k
+    if expand_queries is not None:
+        overrides["use_multi_query"] = expand_queries
+    if overrides:
+        config = config.model_copy(update=overrides)
+
     # Step 1: understand the question
-    analyzed = analyze_query(question)
+    analyzed = analyze_query(question, config=config)
     logger.info(
         "Query analysis → type=%s, parties=%s, topics=%s",
         analyzed.query_type.value,
@@ -56,7 +71,7 @@ def retrieve(
 
     # Step 2: route & search
     searcher = _get_searcher()
-    result = route(analyzed, searcher, top_k=top_k, expand_queries=expand_queries)
+    result = route(analyzed, searcher, config=config)
     logger.info("Retrieved %d results.", len(result.results))
 
     return result
