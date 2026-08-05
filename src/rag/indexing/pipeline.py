@@ -11,7 +11,7 @@ import os
 from datetime import datetime
 from typing import Any, Dict, List, Optional
 
-from src.rag.common.models import Chunk, EmbeddedChunk
+from src.rag.common.models import Chunk, ChunkStrategy, EmbeddedChunk
 from src.rag.indexing.chunker import chunk_markdown_file
 from src.rag.indexing.classifier import classify_chunks
 from src.rag.indexing.embedder import Embedder, generate_summaries
@@ -103,6 +103,7 @@ def index_documents(
     classification_delay: Optional[float] = None,
     max_chunk_size: Optional[int] = None,
     chunk_overlap: Optional[int] = None,
+    chunk_strategy: Optional[str] = None,
     year: int = 2024,
     drop_existing: bool = False,
     classified_input_path: Optional[str] = None,
@@ -122,8 +123,11 @@ def index_documents(
         classification_model: OpenRouter model name for classification.
         classification_batch_size: Number of chunks per classification API request.
         classification_delay: Delay between classification API requests.
-        max_chunk_size: Max characters per chunk.
-        chunk_overlap: Overlap characters for windowed chunks.
+        max_chunk_size: Max chunk size — characters under the ``char`` strategy,
+            tokens under the token strategies. Defaults per-strategy from config.
+        chunk_overlap: Overlap for windowed chunks, in the same unit.
+        chunk_strategy: One of ``char`` / ``token`` / ``small_to_big``
+            (see :class:`ChunkStrategy`). Defaults to ``indexing.chunk_strategy``.
         year: Election year metadata.
         drop_existing: Drop and recreate the table before indexing.
         classified_input_path: Load pre-classified chunks from JSON and skip chunk/classify.
@@ -135,8 +139,18 @@ def index_documents(
         Total number of chunks stored.
     """
     markdown_dir = str(markdown_dir or config.get("paths.markdown_data", "data/1_markdown"))
-    max_chunk_size = int(max_chunk_size or config.get("indexing.max_chunk_size", 1000))
-    chunk_overlap = int(chunk_overlap or config.get("indexing.chunk_overlap", 100))
+    strategy = ChunkStrategy(
+        chunk_strategy or config.get("indexing.chunk_strategy", ChunkStrategy.CHAR.value)
+    )
+    embedding_model = str(config.get("embeddings.model"))
+    # Size/overlap live under different config keys per strategy, because the two
+    # are measured in different units and are not interchangeable.
+    if strategy is ChunkStrategy.CHAR:
+        max_chunk_size = int(max_chunk_size or config.get("indexing.max_chunk_size", 1000))
+        chunk_overlap = int(chunk_overlap or config.get("indexing.chunk_overlap", 100))
+    else:
+        max_chunk_size = int(max_chunk_size or config.get("indexing.max_chunk_tokens", 112))
+        chunk_overlap = int(chunk_overlap or config.get("indexing.chunk_overlap_tokens", 24))
     classification_model = str(
         classification_model
         or config.get(
@@ -178,6 +192,8 @@ def index_documents(
                 max_chunk_size=max_chunk_size,
                 chunk_overlap=chunk_overlap,
                 year=year,
+                strategy=strategy,
+                tokenizer_name=embedding_model,
             )
             all_chunks.extend(chunks)
 

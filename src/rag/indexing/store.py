@@ -1,20 +1,20 @@
 """
 PostgreSQL + pgvector storage layer.
 
-Provides batch insert, HNSW-indexed cosine similarity search,
-and metadata-filtered queries.
+Provides batch insert, HNSW-indexed cosine similarity search, Portuguese
+full-text search for hybrid retrieval, and metadata-filtered queries.
 """
 
 import json
 import logging
 import uuid
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 import psycopg2
 import psycopg2.extras
 from psycopg2.extras import execute_values
 
-from src.rag.common.models import EmbeddedChunk, SearchResult
+from src.rag.common.models import EmbeddedChunk, ScoreType, SearchResult
 from src.utils.config_loader import config
 
 logger = logging.getLogger(__name__)
@@ -88,6 +88,7 @@ class VectorStore:
                     id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
                     content     TEXT NOT NULL,
                     summary     TEXT,
+                    parent_content TEXT,
                     embedding   VECTOR({embedding_dim}),
                     party_name  TEXT,
                     ideology    TEXT,
@@ -96,8 +97,26 @@ class VectorStore:
                     confidence  INTEGER,
                     header_hierarchy JSONB,
                     chunk_type  TEXT,
-                    created_at  TIMESTAMPTZ DEFAULT now()
+                    created_at  TIMESTAMPTZ DEFAULT now(),
+                    -- Lexical half of hybrid search. Generated, so it can never
+                    -- drift out of sync with content on insert or update.
+                    content_tsv TSVECTOR GENERATED ALWAYS AS (
+                        to_tsvector('portuguese', coalesce(content, ''))
+                    ) STORED
                 );
+            """)
+
+            # Bring pre-existing tables up to the current schema — CREATE TABLE
+            # IF NOT EXISTS is a no-op on them, so new columns must be added.
+            cur.execute(f"""
+                ALTER TABLE {self.table}
+                ADD COLUMN IF NOT EXISTS parent_content TEXT;
+            """)
+            cur.execute(f"""
+                ALTER TABLE {self.table}
+                ADD COLUMN IF NOT EXISTS content_tsv TSVECTOR GENERATED ALWAYS AS (
+                    to_tsvector('portuguese', coalesce(content, ''))
+                ) STORED;
             """)
 
             # HNSW index for fast approximate nearest-neighbour search
@@ -119,6 +138,12 @@ class VectorStore:
             cur.execute(f"""
                 CREATE INDEX IF NOT EXISTS idx_{self.table}_topics
                 ON {self.table} USING gin (topics);
+            """)
+
+            # GIN index backing the full-text (lexical) half of hybrid search
+            cur.execute(f"""
+                CREATE INDEX IF NOT EXISTS idx_{self.table}_content_tsv
+                ON {self.table} USING gin (content_tsv);
             """)
 
             conn.commit()
@@ -161,6 +186,7 @@ class VectorStore:
                 str(uuid.uuid4()),
                 c.content,
                 c.summary,
+                c.parent_content,
                 c.embedding,
                 c.party_name,
                 c.ideology,
@@ -173,11 +199,11 @@ class VectorStore:
 
         sql = f"""
             INSERT INTO {self.table}
-                (id, content, summary, embedding, party_name, ideology,
-                 year, topics, confidence, header_hierarchy, chunk_type)
+                (id, content, summary, parent_content, embedding, party_name,
+                 ideology, year, topics, confidence, header_hierarchy, chunk_type)
             VALUES %s
         """
-        template = "(%s, %s, %s, %s::vector, %s, %s, %s, %s, %s, %s::jsonb, %s)"
+        template = "(%s, %s, %s, %s, %s::vector, %s, %s, %s, %s, %s, %s::jsonb, %s)"
 
         try:
             execute_values(cur, sql, rows, template=template, page_size=100)
@@ -192,6 +218,115 @@ class VectorStore:
     # ------------------------------------------------------------------
     # Search
     # ------------------------------------------------------------------
+
+    # Columns every search path hydrates a SearchResult from.
+    _RESULT_COLUMNS = (
+        "id, content, summary, parent_content, party_name, ideology, year, "
+        "topics, header_hierarchy, chunk_type"
+    )
+
+    @staticmethod
+    def _build_filters(
+        party_name: Optional[str] = None,
+        ideology: Optional[str] = None,
+        topics: Optional[List[str]] = None,
+        year: Optional[int] = None,
+    ) -> Tuple[List[str], List[Any]]:
+        """Build the shared metadata WHERE clauses and their bound parameters."""
+        clauses: List[str] = []
+        params: List[Any] = []
+        if party_name:
+            clauses.append("party_name = %s")
+            params.append(party_name)
+        if ideology:
+            clauses.append("ideology = %s")
+            params.append(ideology)
+        if topics:
+            clauses.append("topics && %s")
+            params.append(topics)
+        if year:
+            clauses.append("year = %s")
+            params.append(year)
+        return clauses, params
+
+    @staticmethod
+    def _row_to_result(
+        row: Dict[str, Any],
+        score: float,
+        score_type: ScoreType,
+    ) -> SearchResult:
+        """Hydrate one result row, decoding the JSONB header metadata."""
+        hh = row["header_hierarchy"] or {}
+        if isinstance(hh, str):
+            hh = json.loads(hh)
+        return SearchResult(
+            id=str(row["id"]),
+            content=row["content"],
+            summary=row.get("summary"),
+            parent_content=row.get("parent_content"),
+            party_name=row["party_name"] or "Unknown",
+            ideology=row["ideology"] or "unknown",
+            year=row["year"] or 2024,
+            topics=row["topics"] or [],
+            header_hierarchy=hh,
+            similarity=score,
+            score_type=score_type,
+        )
+
+    def lexical_search(
+        self,
+        query: str,
+        top_k: int = 5,
+        party_name: Optional[str] = None,
+        ideology: Optional[str] = None,
+        topics: Optional[List[str]] = None,
+        year: Optional[int] = None,
+    ) -> List[SearchResult]:
+        """
+        Portuguese full-text search — the lexical half of hybrid retrieval.
+
+        Complements dense search on the cases embeddings handle worst: rare exact
+        tokens such as acronyms and programme names (``USF``, ``TMRG``, ``RES_U``,
+        ``Cheque-Dentista``), which carry little distributional signal but are
+        precisely what a user quotes when asking about them.
+
+        Uses ``websearch_to_tsquery`` so arbitrary user text can never raise a
+        tsquery syntax error, and ``ts_rank_cd`` so proximity of the matched terms
+        counts. Scores are on their own scale — see :class:`ScoreType.LEXICAL` —
+        and are only comparable to dense scores after rank-based fusion.
+
+        Returns an empty list when the query has no searchable Portuguese terms
+        (e.g. only stop-words), which is a normal outcome, not an error.
+        """
+        conn = self._conn()
+        cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+
+        clauses, filter_params = self._build_filters(party_name, ideology, topics, year)
+        clauses.insert(0, "content_tsv @@ websearch_to_tsquery('portuguese', %s)")
+        where_sql = "WHERE " + " AND ".join(clauses)
+
+        sql = f"""
+            SELECT {self._RESULT_COLUMNS},
+                   ts_rank_cd(content_tsv, websearch_to_tsquery('portuguese', %s)) AS score
+            FROM {self.table}
+            {where_sql}
+            ORDER BY score DESC
+            LIMIT %s;
+        """
+        params: List[Any] = [query, query, *filter_params, top_k]
+
+        try:
+            cur.execute(sql, params)
+            rows = cur.fetchall()
+        except Exception as exc:
+            conn.rollback()
+            logger.error("Lexical search failed: %s", exc)
+            return []
+
+        return [
+            self._row_to_result(row, float(row["score"]), ScoreType.LEXICAL)
+            for row in rows
+        ]
 
     def similarity_search(
         self,
@@ -219,28 +354,14 @@ class VectorStore:
         conn = self._conn()
         cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
 
-        where_clauses: List[str] = []
-        filter_params: List[Any] = []
-
-        if party_name:
-            where_clauses.append("party_name = %s")
-            filter_params.append(party_name)
-        if ideology:
-            where_clauses.append("ideology = %s")
-            filter_params.append(ideology)
-        if topics:
-            where_clauses.append("topics && %s")
-            filter_params.append(topics)
-        if year:
-            where_clauses.append("year = %s")
-            filter_params.append(year)
-
+        where_clauses, filter_params = self._build_filters(
+            party_name, ideology, topics, year
+        )
         where_sql = ("WHERE " + " AND ".join(where_clauses)) if where_clauses else ""
         params: List[Any] = [query_embedding, *filter_params, query_embedding, top_k]
 
         sql = f"""
-            SELECT id, content, summary, party_name, ideology, year,
-                   topics, header_hierarchy, chunk_type,
+            SELECT {self._RESULT_COLUMNS},
                    1 - (embedding <=> %s::vector) AS similarity
             FROM {self.table}
             {where_sql}
@@ -256,25 +377,10 @@ class VectorStore:
             logger.error("Similarity search failed: %s", exc)
             return []
 
-        results: List[SearchResult] = []
-        for row in rows:
-            hh = row["header_hierarchy"] or {}
-            if isinstance(hh, str):
-                hh = json.loads(hh)
-            results.append(
-                SearchResult(
-                    id=str(row["id"]),
-                    content=row["content"],
-                    summary=row.get("summary"),
-                    party_name=row["party_name"] or "Unknown",
-                    ideology=row["ideology"] or "unknown",
-                    year=row["year"] or 2024,
-                    topics=row["topics"] or [],
-                    header_hierarchy=hh,
-                    similarity=float(row["similarity"]),
-                )
-            )
-        return results
+        return [
+            self._row_to_result(row, float(row["similarity"]), ScoreType.COSINE)
+            for row in rows
+        ]
 
     # ------------------------------------------------------------------
     # Utilities
@@ -297,6 +403,60 @@ class VectorStore:
         cur = conn.cursor()
         cur.execute(f"SELECT DISTINCT party_name FROM {self.table} WHERE party_name IS NOT NULL ORDER BY party_name;")
         return [row[0] for row in cur.fetchall()]
+
+    def sample_chunks(
+        self,
+        n: int = 50,
+        party_name: Optional[str] = None,
+        topic: Optional[str] = None,
+        min_chars: int = 200,
+    ) -> List[SearchResult]:
+        """
+        Randomly sample stored chunks for evaluation-dataset generation.
+
+        Returns ``SearchResult`` objects (no embedding) so downstream code can
+        reuse the same content/party/topic/header fields it sees at query time.
+
+        Args:
+            n: Number of chunks to sample.
+            party_name: Restrict to a single party.
+            topic: Restrict to chunks tagged with this topic.
+            min_chars: Skip very short chunks (poor question sources).
+        """
+        conn = self._conn()
+        cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+
+        where_clauses: List[str] = ["length(content) >= %s"]
+        params: List[Any] = [min_chars]
+        if party_name:
+            where_clauses.append("party_name = %s")
+            params.append(party_name)
+        if topic:
+            where_clauses.append("topics && %s")
+            params.append([topic])
+
+        where_sql = "WHERE " + " AND ".join(where_clauses)
+        params.append(n)
+
+        sql = f"""
+            SELECT {self._RESULT_COLUMNS}
+            FROM {self.table}
+            {where_sql}
+            ORDER BY random()
+            LIMIT %s;
+        """
+
+        try:
+            cur.execute(sql, params)
+            rows = cur.fetchall()
+        except Exception as exc:
+            conn.rollback()
+            logger.error("sample_chunks failed: %s", exc)
+            return []
+
+        return [
+            self._row_to_result(row, 0.0, ScoreType.COSINE) for row in rows
+        ]
 
     def test_connection(self) -> bool:
         """Quick connectivity & pgvector check."""
