@@ -104,6 +104,7 @@ def index_documents(
     max_chunk_size: Optional[int] = None,
     chunk_overlap: Optional[int] = None,
     chunk_strategy: Optional[str] = None,
+    use_llm_classification: Optional[bool] = None,
     year: int = 2024,
     drop_existing: bool = False,
     classified_input_path: Optional[str] = None,
@@ -128,6 +129,10 @@ def index_documents(
         chunk_overlap: Overlap for windowed chunks, in the same unit.
         chunk_strategy: One of ``char`` / ``token`` / ``small_to_big``
             (see :class:`ChunkStrategy`). Defaults to ``indexing.chunk_strategy``.
+        use_llm_classification: Run LLM topic classification over the chunks.
+            Defaults to ``indexing.use_llm_classification``. When disabled, chunk
+            topics stay at their default ``["outros"]``, so topic filtering and
+            ``topic_exploration`` routing will not work against the index.
         year: Election year metadata.
         drop_existing: Drop and recreate the table before indexing.
         classified_input_path: Load pre-classified chunks from JSON and skip chunk/classify.
@@ -166,7 +171,15 @@ def index_documents(
         if classification_delay is not None
         else config.get("indexing.classification_delay", 1.0)
     )
+    classify = bool(
+        use_llm_classification
+        if use_llm_classification is not None
+        else config.get("indexing.use_llm_classification", True)
+    )
     md_files: List[str] = []
+
+    if classify_only and not classify:
+        raise ValueError("--classify-only requires LLM classification to be enabled")
 
     if classified_input_path:
         if classify_only:
@@ -199,15 +212,26 @@ def index_documents(
 
         logger.info("Total chunks after splitting: %d", len(all_chunks))
 
-        # 2. Classify
-        all_chunks = classify_chunks(
-            all_chunks,
-            model=classification_model,
-            batch_size=classification_batch_size,
-            delay=classification_delay,
-        )
+        # 2. Classify. Skipping this leaves every chunk on its default ``["outros"]``
+        # topic, which costs no OpenRouter quota but disables topic filtering and
+        # topic_exploration routing for the resulting index.
+        if classify:
+            all_chunks = classify_chunks(
+                all_chunks,
+                model=classification_model,
+                batch_size=classification_batch_size,
+                delay=classification_delay,
+            )
+        else:
+            logger.warning(
+                "LLM classification disabled – %d chunks keep their default topics. "
+                "Topic filtering and topic_exploration routing will not work on this index.",
+                len(all_chunks),
+            )
 
-        should_checkpoint = save_checkpoint or checkpoint_output_path or classify_only
+        # An unclassified run has nothing worth checkpointing: the JSON would look
+        # like a classified checkpoint and silently poison a later --from-classified.
+        should_checkpoint = classify and (save_checkpoint or checkpoint_output_path or classify_only)
         if should_checkpoint:
             processed_dir = str(config.get("paths.processed_data", "data/2_processed"))
             output_path = checkpoint_output_path or _build_default_checkpoint_path(md_files, processed_dir, party_filter)

@@ -55,6 +55,7 @@ def cmd_index(args):
     count = index_documents(
         party_filter=party_filter,
         chunk_strategy=args.chunk_strategy,
+        use_llm_classification=False if args.no_classify else None,
         generate_chunk_summaries=args.summaries,
         drop_existing=args.drop,
         classified_input_path=args.from_classified,
@@ -161,6 +162,10 @@ def build_parser() -> argparse.ArgumentParser:
     p_index.add_argument("--from-classified", type=str, default=None, help="Load classified chunks from JSON and skip chunk/classify")
     p_index.add_argument("--checkpoint-out", type=str, default=None, help="Output path for classified checkpoint JSON")
     p_index.add_argument("--no-checkpoint", action="store_true", help="Disable automatic classified checkpoint saving")
+    p_index.add_argument("--no-classify", action="store_true",
+                         help="Skip LLM topic classification (overrides indexing.use_llm_classification). "
+                              "Chunks keep their default topics, so topic filtering and topic_exploration "
+                              "routing will not work on the resulting index.")
     p_index.add_argument("--chunk-strategy", type=str, default=None,
                          choices=[s.value for s in ChunkStrategy],
                          help="Chunk windowing strategy (default: indexing.chunk_strategy from config). "
