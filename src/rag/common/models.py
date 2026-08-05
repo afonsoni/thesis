@@ -29,6 +29,40 @@ class Ideology(str, Enum):
     UNKNOWN = "unknown"
 
 
+class ScoreType(str, Enum):
+    """Scale that a ``SearchResult.similarity`` value is expressed on."""
+    COSINE = "cosine"
+    RRF = "rrf"
+    LEXICAL = "lexical"  # PostgreSQL ts_rank_cd over a Portuguese tsvector
+
+
+class ChunkStrategy(str, Enum):
+    """Chunk windowing strategies, usable as evaluation ablation arms.
+
+    ``CHAR`` is the historical behavior and is retained as the baseline: it
+    measures chunk size in characters, which silently overruns the embedding
+    model's token window. ``TOKEN`` and ``SMALL_TO_BIG`` measure in tokens so
+    every chunk fits; ``SMALL_TO_BIG`` additionally hands the parent section to
+    generation instead of the embedded child.
+    """
+    CHAR = "char"
+    TOKEN = "token"
+    SMALL_TO_BIG = "small_to_big"
+
+
+# Markdown header metadata keys, coarsest to finest. Kept here (rather than in
+# the chunker) so retrieval and generation can read header paths back out of
+# stored metadata without importing the indexing layer.
+HEADER_METADATA_KEYS = (
+    "Title",
+    "Major_Section",
+    "Policy_Area",
+    "Policy_Topic",
+    "Subsection",
+    "Details",
+)
+
+
 # ---------------------------------------------------------------------------
 # Topic categories (canonical list used across the whole pipeline)
 # ---------------------------------------------------------------------------
@@ -98,6 +132,11 @@ class Chunk(BaseModel):
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     content: str
     summary: Optional[str] = None  # For multi-representation indexing
+    # Small-to-big retrieval: ``content`` is the small child that gets embedded,
+    # while ``parent_content`` holds the full header section it was windowed out
+    # of. Retrieval matches on the child; generation reads the parent. None when
+    # the chunk was never windowed, or under the char-based baseline strategy.
+    parent_content: Optional[str] = None
     metadata: Dict[str, Any] = Field(default_factory=dict)
     party_name: str = "Unknown"
     ideology: str = "unknown"
@@ -133,12 +172,35 @@ class SearchResult(BaseModel):
     id: str
     content: str
     summary: Optional[str] = None
+    parent_content: Optional[str] = None
     party_name: str = "Unknown"
     ideology: str = "unknown"
     year: int = 2024
     topics: List[str] = Field(default_factory=list)
-    header_hierarchy: Dict[str, str] = Field(default_factory=dict)
+    # Mirrors the stored ``header_hierarchy`` JSONB, which is the chunker's raw
+    # metadata: header keys plus non-string windowing bookkeeping
+    # (sub_chunk_index, total_sub_chunks, parent_chunk_size).
+    header_hierarchy: Dict[str, Any] = Field(default_factory=dict)
     similarity: float = 0.0
+    # What ``similarity`` actually holds: raw cosine from the vector store, or a
+    # fused Reciprocal Rank Fusion score once multiple ranked lists are merged.
+    # RRF scores are ~1/k-scaled and are NOT comparable to cosine values.
+    score_type: ScoreType = ScoreType.COSINE
+
+    @property
+    def context_text(self) -> str:
+        """Text to hand to the generator: the parent section when one was stored
+        (small-to-big), otherwise the embedded chunk itself."""
+        return self.parent_content or self.content
+
+    @property
+    def section_path(self) -> str:
+        """Breadcrumb of markdown headers, coarsest first, ignoring bookkeeping keys."""
+        return " > ".join(
+            str(self.header_hierarchy[key])
+            for key in HEADER_METADATA_KEYS
+            if self.header_hierarchy.get(key)
+        )
 
 
 class RetrievalResult(BaseModel):
