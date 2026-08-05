@@ -70,6 +70,53 @@ def route(
 # Strategy implementations
 # ---------------------------------------------------------------------------
 
+def _search_relaxing_topics(
+    queries: List[str],
+    searcher: Searcher,
+    config: RetrievalConfig,
+    topics: Optional[List[str]],
+    **filters,
+) -> List[SearchResult]:
+    """Search with the topic filter, retrying without it if nothing matches.
+
+    The topic filter is a hard AND: a topic the query analyzer proposes but that
+    no chunk carries silently yields zero results, and the caller cannot tell an
+    empty corpus from a filter mismatch. That happens whenever the analyzer's
+    label does not match the classifier's vocabulary, and always on an index built
+    with --no-classify, where every chunk keeps the default topic.
+
+    Topics are a precision aid, not a correctness requirement, so they are treated
+    as a preference: narrow first, then fall back to the unfiltered search rather
+    than return nothing.
+    """
+    results = searcher.multi_query_search(
+        queries,
+        top_k=config.top_k,
+        topics=topics,
+        rrf_k=config.rrf_k,
+        use_rrf=config.use_rrf,
+        use_hybrid=config.use_hybrid,
+        **filters,
+    )
+    if results or not topics:
+        return results
+
+    logger.warning(
+        "No chunks matched topics=%s; retrying without the topic filter. "
+        "Is the index classified?",
+        topics,
+    )
+    return searcher.multi_query_search(
+        queries,
+        top_k=config.top_k,
+        topics=None,
+        rrf_k=config.rrf_k,
+        use_rrf=config.use_rrf,
+        use_hybrid=config.use_hybrid,
+        **filters,
+    )
+
+
 def _route_single_party(
     query: AnalyzedQuery,
     queries: List[str],
@@ -79,14 +126,10 @@ def _route_single_party(
     """Metadata-filtered search for a specific party."""
     party = query.parties[0]
     logger.info("Routing SINGLE_PARTY → %s", party)
-    results = searcher.multi_query_search(
-        queries,
-        top_k=config.top_k,
-        party_name=party,
+    results = _search_relaxing_topics(
+        queries, searcher, config,
         topics=query.topics or None,
-        rrf_k=config.rrf_k,
-        use_rrf=config.use_rrf,
-        use_hybrid=config.use_hybrid,
+        party_name=party,
     )
     return RetrievalResult(query=query, results=results)
 
@@ -111,15 +154,17 @@ def _route_comparison(
             parties = [info["name"] for info in PARTY_MAP.values()]
 
     logger.info("Routing COMPARISON → parties: %s", parties)
-    grouped = searcher.multi_query_batch_search_by_party(
-        queries,
-        parties=parties,
-        top_k_per_party=config.top_k_per_party,
-        topics=query.topics or None,
-        rrf_k=config.rrf_k,
-        use_rrf=config.use_rrf,
-        use_hybrid=config.use_hybrid,
-    )
+    # Relax per party, not across the batch: one party lacking a topic must not
+    # drop it from a comparison while the others keep their filtered hits.
+    grouped = {
+        party: _search_relaxing_topics(
+            queries, searcher,
+            config.model_copy(update={"top_k": config.top_k_per_party}),
+            topics=query.topics or None,
+            party_name=party,
+        )
+        for party in parties
+    }
     # Also provide a flat list for fallback
     flat = [r for rs in grouped.values() for r in rs]
     flat.sort(key=lambda r: r.similarity, reverse=True)
@@ -138,14 +183,10 @@ def _route_topic_exploration(
 ) -> RetrievalResult:
     """Topic-filtered search across all parties."""
     logger.info("Routing TOPIC_EXPLORATION → topics: %s", query.topics)
-    results = searcher.multi_query_search(
-        queries,
-        top_k=config.top_k,
-        ideology=query.ideology_filter,
+    results = _search_relaxing_topics(
+        queries, searcher, config,
         topics=query.topics or None,
-        rrf_k=config.rrf_k,
-        use_rrf=config.use_rrf,
-        use_hybrid=config.use_hybrid,
+        ideology=query.ideology_filter,
     )
     return RetrievalResult(query=query, results=results)
 
