@@ -5,12 +5,9 @@ Supports single and batch encoding, plus optional multi-representation
 indexing (LLM-generated summaries for improved retrieval).
 """
 
-import inspect
-import json
 import logging
 from typing import List, Optional
 
-from huggingface_hub import hf_hub_download
 from sentence_transformers import SentenceTransformer
 
 from src.rag.common.models import Chunk, EmbeddedChunk
@@ -20,21 +17,19 @@ from src.utils.config_loader import config
 logger = logging.getLogger(__name__)
 
 
-def _uses_last_token_pooling(model_name: str) -> bool:
-    """Whether the model's SentenceTransformer pooling config uses last-token pooling.
+def _pools_last_token(model: SentenceTransformer) -> bool:
+    """Whether the loaded model pools the final token rather than averaging.
 
-    Read from the model repo's ``1_Pooling/config.json`` before the model is built,
-    because the tokenizer's padding side has to be set at construction time.
-    Returns False if the file cannot be read — the safe default for the
-    mean/CLS-pooling models where padding side does not matter.
+    True for decoder-based encoders such as Qwen3-Embedding. Reads the pooling
+    module that is already in memory, so it needs no network call, and accepts
+    both the current ``pooling_mode`` string and the older per-mode booleans.
     """
-    try:
-        path = hf_hub_download(repo_id=model_name, filename="1_Pooling/config.json")
-        with open(path, "r", encoding="utf-8") as fh:
-            return bool(json.load(fh).get("pooling_mode_lasttoken", False))
-    except Exception as exc:  # offline, local path, or non-ST repo layout
-        logger.debug("Could not read pooling config for %s: %s", model_name, exc)
-        return False
+    for module in model.modules():
+        if getattr(module, "pooling_mode", None) == "lasttoken":
+            return True
+        if getattr(module, "pooling_mode_lasttoken", False):
+            return True
+    return False
 
 
 class Embedder:
@@ -46,26 +41,17 @@ class Embedder:
             "Qwen/Qwen3-Embedding-0.6B",
         )
         logger.info("Loading embedding model: %s", model_name)
+        self.model = SentenceTransformer(model_name)
 
-        # Last-token pooling models (Qwen3-Embedding and other decoder-based
-        # encoders) MUST pad on the left: with right padding, the "last token" of
-        # a short sequence in a mixed-length batch is a PAD token, so the whole
-        # embedding is garbage. It fails silently — no error, just bad vectors —
-        # so detect it from the model card rather than relying on config.
-        model_kwargs = {}
-        if _uses_last_token_pooling(model_name):
-            # sentence-transformers renamed tokenizer_kwargs -> processor_kwargs.
-            # Pick whichever the installed version accepts: passing the retired name
-            # would eventually be ignored, and silently ignoring it reintroduces the
-            # corruption this guards against.
-            param = (
-                "processor_kwargs"
-                if "processor_kwargs" in inspect.signature(SentenceTransformer).parameters
-                else "tokenizer_kwargs"
-            )
-            model_kwargs[param] = {"padding_side": "left"}
-
-        self.model = SentenceTransformer(model_name, **model_kwargs)
+        # Pad on the left for last-token-pooling encoders, as Qwen3-Embedding's
+        # model card specifies. This is defensive rather than load-bearing:
+        # sentence-transformers 5.x finds the final *unmasked* token via the
+        # attention mask, so it already pools correctly with either padding side.
+        # Kept because it costs nothing and the guarantee is the library's, not
+        # the model's — a pooling path that indexed position -1 directly would
+        # read a PAD token off a short sequence in a mixed-length batch.
+        if _pools_last_token(self.model) and self.model.tokenizer.padding_side != "left":
+            self.model.tokenizer.padding_side = "left"
 
         # Optional hard cap on the encoder's context window. This is the knob that
         # matters most for retrieval quality: anything beyond it is truncated

@@ -101,9 +101,11 @@ Note that most modern retrieval encoders, including Qwen3, are **asymmetric**:
 queries take an instruction prefix, documents take none. `Embedder` applies
 whichever prompts the loaded model declares, so `encode_query` must be used at
 search time — `encode` alone silently forfeits the accuracy the prompts exist to
-add. Decoder-based encoders also pool the *last* token, which requires left
-padding; this is detected from the model's pooling config, because getting it
-wrong corrupts every batched embedding without raising anything.
+add. Decoder-based encoders also pool the *last* token, and `Embedder` sets left
+padding for them to match Qwen3-Embedding's model card. That guard is defensive
+rather than load-bearing — sentence-transformers 5.x finds the last *unmasked*
+token through the attention mask, so it pools correctly either way — and it is
+kept only because the guarantee belongs to the library rather than the model.
 
 `indexing.chunk_strategy` selects how windowing is measured:
 

@@ -45,8 +45,10 @@ Entry point: `main.py`
 - `embedder.py`: SentenceTransformer embeddings with optional summary-based multi-representation
   indexing. Handles asymmetric retrieval models: use `encode_query()` at search time so the
   model's query instruction prefix is applied, and `encode()`/`encode_batch()` for documents.
-  Left padding is set automatically for last-token-pooling (decoder) encoders — getting that
-  wrong silently corrupts every batched embedding.
+  Left padding is set automatically for last-token-pooling (decoder) encoders, matching
+  Qwen3-Embedding's model card. This is defensive, not load-bearing: sentence-transformers
+  5.x locates the last *unmasked* token via the attention mask, so it pools correctly with
+  either padding side. Do not cite it as a correctness requirement.
 - `store.py`: PostgreSQL + pgvector storage, HNSW index, metadata-filtered similarity
   search, plus `lexical_search()` over a generated Portuguese `tsvector` column
   (the lexical half of hybrid retrieval).
