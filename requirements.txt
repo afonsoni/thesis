@@ -1,0 +1,28 @@
+# Pinned to the versions this project is developed and tested against.
+#
+# Install into the interpreter you actually run main.py with:
+#     python3 -m pip install -r requirements.txt
+#
+# If `python3` resolves to macOS system Python (/usr/bin/python3, currently
+# 3.9.6) these will not be visible to it. Check with `which python3`; the
+# project expects the pyenv 3.13 interpreter named in .python-version.
+
+# --- runtime ---
+python-dotenv==1.2.2
+PyYAML==6.0.2
+pydantic==2.13.4
+requests==2.34.2
+psycopg2-binary==2.9.12
+langchain-text-splitters==1.1.2
+
+# Embeddings. The version matters beyond the API: 5.x pools last-token encoders
+# via the attention mask, which is why padding side is not a correctness concern
+# (see the note in embedder.py). transformers/torch arrive transitively but are
+# pinned too, since the encoder's behaviour depends on them.
+sentence-transformers==5.6.0
+transformers==5.14.0
+torch==2.13.0
+huggingface_hub==1.23.0
+
+# --- tests ---
+pytest==9.1.1

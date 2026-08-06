@@ -145,9 +145,18 @@ them. Enable it per-variant (`hybrid`, `hybrid_only`) or via `RetrievalConfig`.
 # Start PostgreSQL + pgvector
 docker compose up -d
 
-# Install Python dependencies
-pip install sentence-transformers psycopg2-binary langchain-text-splitters \
-            requests python-dotenv pydantic pyyaml
+# Install Python dependencies (pinned)
+python3 -m pip install -r requirements.txt
+```
+
+The project targets the Python in `.python-version` (3.13.5, via pyenv). Note
+that macOS ships its own `/usr/bin/python3` — currently 3.9.6 — with none of
+these packages, so a shell that resolves `python3` to it fails at the first
+import with `ModuleNotFoundError: No module named 'dotenv'`. Check which
+interpreter you are on before installing:
+
+```bash
+which python3 && python3 -V
 ```
 
 ### Environment Variables
