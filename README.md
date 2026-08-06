@@ -145,15 +145,25 @@ them. Enable it per-variant (`hybrid`, `hybrid_only`) or via `RetrievalConfig`.
 # Start PostgreSQL + pgvector
 docker compose up -d
 
-# Install Python dependencies (pinned)
-python3 -m pip install -r requirements.txt
+# Create the virtualenv and install pinned dependencies
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
 ```
 
-The project targets the Python in `.python-version` (3.13.5, via pyenv). Note
-that macOS ships its own `/usr/bin/python3` — currently 3.9.6 — with none of
-these packages, so a shell that resolves `python3` to it fails at the first
-import with `ModuleNotFoundError: No module named 'dotenv'`. Check which
-interpreter you are on before installing:
+Then either activate it, or call the venv interpreter directly:
+
+```bash
+source .venv/bin/activate     # then plain `python main.py ...` works
+.venv/bin/python main.py query "..."   # works without activating
+```
+
+**Always run the project through `.venv`.** macOS ships its own
+`/usr/bin/python3` (currently 3.9.6) with none of these packages, and there are
+several `python3` binaries on a typical machine, so a bare `python3 main.py`
+depends on how that particular shell resolves the name — it fails at the first
+import with `ModuleNotFoundError: No module named 'dotenv'`. The venv removes
+that ambiguity; `.python-version` (3.13.5) only records which interpreter to
+build it from. To check what you are on:
 
 ```bash
 which python3 && python3 -V

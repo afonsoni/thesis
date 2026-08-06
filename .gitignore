@@ -5,6 +5,10 @@ pgdata
 .examples
 pgdata_test/*
 
+# Local virtualenv — recreate with `python3 -m venv .venv` + requirements.txt
+.venv/
+venv/
+
 # Generated evaluation artifacts (regenerate with `python main.py eval`)
 data/eval/results/*.json
 data/eval/reports/
