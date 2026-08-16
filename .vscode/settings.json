@@ -1,4 +1,12 @@
 {
   "python-envs.defaultEnvManager": "ms-python.python:conda",
-  "python-envs.defaultPackageManager": "ms-python.python:conda"
+  "python-envs.defaultPackageManager": "ms-python.python:conda",
+
+  // The dissertation template uses fontspec with bundled .ttf fonts, so it
+  // only builds under XeLaTeX. pdflatex fails at fontspec with
+  // "requires either XeTeX or LuaTeX".
+  "latex-workshop.latex.recipe.default": "latexmk (xelatex)",
+  "latex-workshop.latex.build.forceRecipeUsage": false,
+  "latex-workshop.latex.outDir": "%DIR%",
+  "latex-workshop.latex.autoBuild.run": "onSave"
 }
