@@ -1,37 +1,30 @@
-\newcounter{loopcntr}
-\newcommand{\on}[1][1]{
-  \forloop{loopcntr}{0}{\value{loopcntr}<#1}{&\cellcolor{gray}}
-}
-\newcommand{\off}[1][1]{
-  \forloop{loopcntr}{0}{\value{loopcntr}<#1}{&}
-}
-
 % ============================================================
-%  WRITE LAST. Current text is the pre-thesis pitch (future tense,
-%  Work Plan) — the final version is a results-driven "Conclusions &
-%  Future Work". Audit of pre-thesis promises (2026-08-16):
+%  WRITE LAST. The prose below is still the pre-thesis pitch (future
+%  tense, "promising solution") — the final version is a results-driven
+%  Conclusions & Future Work. Audit of pre-thesis promises (2026-08-16):
 %    DONE:      hybrid search; query translation (multi-query +
 %               decomposition); metadata filtering/routing; token
 %               chunking; evaluation harness w/ hit-rate, MRR,
 %               faithfulness, relevancy (all promised metrics).
-%    NOT DONE:  reranking (promised in objectives — implement or move
-%               honestly to future work); chunk-size sweep 128–2048
-%               (cheap ablation, harness makes it easy); political
-%               quiz (optional stretch goal — future work);
+%    NOT DONE:  chunk-size sweep 128–2048 (cheap ablation, the harness
+%               makes it easy); political quiz (optional stretch goal
+%               — future work);
+%    PARTIAL:   reranking implemented (05908ac) but not yet measured on
+%               the leaderboard, so its verdict is still open;
 %    ABANDONED: agentic/corrective RAG (stubs deleted March 2026 —
 %               belongs in future work with the why);
 %    OUT:       fine-tuning comparison (pre-thesis floated it; scope).
-%  The Work Plan section below drops entirely in the final version.
+%  The Work Plan section was removed on 2026-08-16: it belonged to the
+%  pre-thesis report, not the dissertation.
 % ============================================================
-%\chapter{Conclusions and future work}
-\chapter{Conclusions \& Work Plan} \label{ch:conclusion}
+\chapter{Conclusions and Future Work} \label{ch:conclusion}
 
 \TODO{REWRITE LAST, once leaderboard results exist: findings per research
-question, per-technique contribution summary from the variant ladder,
-limitations (gold-set size, LLM-judge bias, single election cycle), and
-future work (reranker, agentic/corrective RAG, chunk-size sweep, political
-quiz as a public-facing application, more election cycles). Rename to
-"Conclusions and Future Work" and delete the Work Plan section.}
+question (RQ1--RQ4 in Section~\ref{sec:research-questions}), per-technique
+contribution summary from the variant ladder, limitations (gold-set size,
+LLM-judge bias, single election cycle), and future work (agentic/corrective
+RAG, chunk-size sweep, political quiz as a public-facing application, more
+election cycles).}
 
 Throughout this report, we have explored how Retrieval-Augmented Generation (RAG) systems can address key limitations of pre-trained models, such as Large Language Models (LLMs), by providing them with contextually relevant information. This approach not only enhances the accuracy and reliability of generated outputs but also opens new possibilities for knowledge-intensive tasks, particularly in low-resource languages like Portuguese.
 
@@ -40,34 +33,3 @@ Working on a cutting-edge framework like RAG offers a unique opportunity to cont
 While RAG presents a promising solution, alternative approaches such as fine-tuning pre-trained models on domain-specific data could also be explored. Fine-tuning offers the advantage of tailoring models to specific tasks or languages, potentially complementing or even enhancing the capabilities of RAG systems.
 
 In conclusion, this research highlights the transformative potential of RAG in overcoming the limitations of traditional LLMs, while also encouraging further exploration of complementary methods like fine-tuning. By advancing these techniques, we can unlock new opportunities for innovation in NLP, particularly for underrepresented languages like Portuguese.
-
-
-\section{Work Plan}
-
-This research is planned to be conducted over an academic year, with key phases overlapping where necessary to ensure efficiency. The dissertation will be written in parallel with the project tasks. The phases of the project are described below:
-
-\begin{enumerate}
-    \item \textbf{Research and State of the Art:} Conduct literature review on political text analysis, LLMs, and RAG. Identify key challenges in information retrieval and RAG.
-    \item \textbf{Data Collection and System Architecture:} Collect and structure Portuguese political party programs. Design system architecture for RAG-based retrieval.
-    \item \textbf{Implementation and Testing:} Develop a basic RAG-based retrieval system. Implement hybrid search and reranking mechanisms. Test retrieval performance and refine retrieval strategies.
-    \item \textbf{Evaluation and Adjustments:} Conduct an evaluation of the RAG-based retrieval system, comparing its performance against other NLP techniques. Validate refinements through iterative testing, ensuring improvements lead to better retrieval and synthesis of political text content.
-\end{enumerate}
-
-\begin{table}[h]
-\centering
-\noindent\begin{tabular}{|p{0.3\textwidth}*{10}{|p{0.04\textwidth}}|}
- \hline
- \textbf{Task/Month} & Sep & Oct & Nov & Dec & Jan & Feb & Mar & Apr & May & Jun \\
- \hline
- Research and State of the Art \on[5] \off[5] \\
- \hline
- Data Collection and System Architecture \off[3] \on[3] \off[4] \\
- \hline
- Implementation and Testing \off[5] \on[4] \off[1] \\
- \hline
- Evaluation and Adjustments \off[8] \on[2] \\
- \hline
-\end{tabular}
-\caption{Project Timeline}
-\label{tab:placeholder}
-\end{table}

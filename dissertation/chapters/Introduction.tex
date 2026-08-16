@@ -47,12 +47,48 @@ The main hypothesis of this project is:
 
 This hypothesis suggests that RAG implementations can accurately retrieve and summarize relevant political content, providing a structured overview of party positions.
 
-\TODO{Add concrete research questions under the hypothesis, derived from the
-variant ladder --- one per technique family, answerable by the evaluation
-chapter. Shape: does query analysis + routing improve retrieval over a naive
-baseline? does multi-query + RRF? does hybrid dense+lexical retrieval? does
-grounding reduce unfaithful answers? (Replaces the stale pre-pivot questions
-in the vault's 3.1.2 note --- do NOT reuse those.)}
+\section{Research Questions} \label{sec:research-questions}
+
+% DRAFT — these are proposals, phrased to be answerable by the evaluation
+% harness and mapped onto the three parts of Chapter \ref{ch:proposition}
+% (indexing, query time, evaluation). Rewrite the wording in your own voice;
+% cut or merge any that the final results cannot support.
+
+\TODO{One short paragraph introducing the questions: say that the hypothesis
+is decomposed into questions that the evaluation harness can answer, and that
+each maps to one part of the system.}
+
+\begin{description}
+    \item[RQ1 --- Indexing.] How do document representation choices ---
+    parsing fidelity, chunk granularity, the unit in which chunk size is
+    measured, and the choice of embedding model --- affect retrieval quality
+    over Portuguese electoral manifestos?
+
+    \item[RQ2 --- Query time.] Which retrieval techniques (structured query
+    analysis with logical routing, multi-query expansion with rank fusion,
+    hybrid dense and lexical search, cross-encoder reranking) improve
+    retrieval effectiveness over a naive baseline, and how much does each
+    contribute in isolation?
+
+    \item[RQ3 --- Generation.] Do retrieval improvements translate into
+    better answers, measured as faithfulness to the retrieved manifesto
+    content, relevance to the question, and correctness against a reference
+    answer?
+
+    \item[RQ4 --- Cost.] What do these improvements cost in latency and
+    computation, and which of them are worth that cost for a tool intended
+    for public use?
+\end{description}
+
+\TODO{Decide whether RQ4 stays. It is well supported --- the harness records
+latency and error rate, and the hybrid and reranking results already raise
+the question --- but it is the one most easily cut if the chapter runs long.}
+
+\TODO{Consider a fifth question on evaluation methodology: whether a
+synthetic-anchored, hand-curated gold set is a reliable substitute for a
+human-authored one, given that no Portuguese manifesto QA dataset exists.
+This is arguably a contribution in its own right; decide whether it is a
+research question or simply part of the methodology.}
 
 \section{Research Methods}
 
