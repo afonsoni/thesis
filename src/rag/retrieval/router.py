@@ -6,6 +6,12 @@ Routes:
 - comparison      → parallel per-party searches with multi-query + RRF
 - topic_exploration → multi-query + topic-filtered search across all parties
 - general         → broad multi-query search with RRF
+
+The route is ``AnalyzedQuery.query_type``, which the query model derives from
+``parties`` and ``coverage`` rather than storing. A question that names no party
+but asks for exhaustive coverage ("o que defende cada partido sobre X") derives
+to COMPARISON and gets the per-party fan-out, which is the only route here that
+guarantees no party is crowded out of a global top-k.
 """
 
 import logging
@@ -157,17 +163,12 @@ def _route_comparison(
     config: RetrievalConfig,
 ) -> RetrievalResult:
     """Per-party parallel search for comparison queries."""
-    parties = query.parties
-    if not parties:
-        # If no parties detected, compare by ideology or all parties
-        if query.ideology_filter:
-            parties = [
-                info["name"]
-                for info in PARTY_MAP.values()
-                if info["ideology"] == query.ideology_filter
-            ]
-        else:
-            parties = [info["name"] for info in PARTY_MAP.values()]
+    # An empty party list means the question named no party and asked for
+    # exhaustive coverage, so the candidate set is the whole corpus. Bloc
+    # questions ("os partidos de direita") arrive already enumerated: the
+    # analyzer resolves them into names rather than passing an ideology label
+    # down for the store to filter on.
+    parties = query.parties or [info["name"] for info in PARTY_MAP.values()]
 
     logger.info("Routing COMPARISON → parties: %s", parties)
     # Relax per party, not across the batch: one party lacking a topic must not
@@ -204,7 +205,6 @@ def _route_topic_exploration(
         queries, searcher, config,
         topics=query.topics or None,
         rerank_query=query.original_query,
-        ideology=query.ideology_filter,
     )
     return RetrievalResult(query=query, results=results)
 

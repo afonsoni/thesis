@@ -2,23 +2,32 @@
 Query analyzer – structured understanding of user queries.
 
 Uses structured LLM output (Part 10/11 pattern) to extract:
-- query type (single_party / comparison / topic_exploration / general)
-- mentioned parties & topics
-- ideology filter
-- reformulated query for embedding search
+- the parties named or implied by the question
+- whether every party in scope must be covered (``coverage``)
+- topics from the closed vocabulary
+- the shape the answer should take
+- a reformulated query for embedding search
+
+The route label itself is *not* extracted: ``AnalyzedQuery.query_type`` derives
+it. Asking the model for a four-way route conflated "which programmes must be
+read" with "what should the answer look like", and questions like "o que pensa
+cada partido sobre educação?" sit in the overlap – they were labelled
+topic_exploration and answered from a single flat top-k that covered whichever
+parties happened to rank.
 """
 
 import logging
+import re
 import unicodedata
-from typing import List, Optional
+from typing import Any, Dict, List, Optional
 
 from pydantic import BaseModel, Field
 
 from src.rag.common.models import (
     AnalyzedQuery,
+    AnswerShape,
+    Coverage,
     PARTY_MAP,
-    QueryType,
-    TOPIC_CATEGORIES,
     VALID_TOPICS,
 )
 from src.rag.common.llm_client import generate_structured
@@ -36,11 +45,20 @@ logger = logging.getLogger(__name__)
 # ---------------------------------------------------------------------------
 
 class _QueryAnalysisResponse(BaseModel):
-    """Schema used for structured JSON output validation."""
-    query_type: str = Field(description="One of: single_party, comparison, topic_exploration, general")
+    """Schema used for structured JSON output validation.
+
+    Every field is typed loosely and validated by hand in ``_coerce_*`` below.
+    ``generate_structured`` asks OpenRouter for ``json_object``, which is JSON
+    *mode*, not schema-constrained decoding – so declaring ``Literal`` members
+    here would not stop the model emitting an unlisted topic, it would only turn
+    that one bad string into a ``ValidationError`` that discards the whole
+    response, including the fields it got right. Field-level coercion degrades
+    instead: drop the unrecognised value, keep the rest.
+    """
     parties: List[str] = Field(default_factory=list)
+    coverage: str = ""
     topics: List[str] = Field(default_factory=list)
-    ideology_filter: Optional[str] = None
+    answer_shape: str = ""
     reformulated_query: str = ""
 
 
@@ -48,42 +66,118 @@ class _QueryAnalysisResponse(BaseModel):
 # Helpers
 # ---------------------------------------------------------------------------
 
-_PARTY_NAME_LOOKUP = {info["name"].lower(): info["name"] for info in PARTY_MAP.values()}
-_PARTY_KEY_LOOKUP = {k.split("-")[0].lower(): info["name"] for k, info in PARTY_MAP.items()}
+def _strip_accents(s: str) -> str:
+    """Drop combining marks so "Aliança" and "Alianca" match the same entry."""
+    return "".join(
+        c for c in unicodedata.normalize("NFD", s) if unicodedata.category(c) != "Mn"
+    )
 
-# Merge both lookups
-_ALL_PARTY_LOOKUP = {**_PARTY_NAME_LOOKUP, **_PARTY_KEY_LOOKUP}
+
+# Coalition members and common abbreviations that are not the canonical name or
+# the corpus file key. The 2024 corpus holds one programme per coalition, so a
+# question about a member party can only be answered from the coalition's
+# document: PSD and CDS-PP ran as Aliança Democrática, PCP and PEV as CDU.
+_PARTY_ALIAS_EXTRAS: Dict[str, str] = {
+    "psd": "Aliança Democrática",
+    "partido social democrata": "Aliança Democrática",
+    "partido social-democrata": "Aliança Democrática",
+    "cds": "Aliança Democrática",
+    "cds-pp": "Aliança Democrática",
+    "partido popular": "Aliança Democrática",
+    "bloco": "Bloco de Esquerda",
+    "cdu": "Partido Comunista Português",
+    "coligacao democratica unitaria": "Partido Comunista Português",
+    "partido comunista": "Partido Comunista Português",
+    "pessoas animais natureza": "Pessoas-Animais-Natureza",
+}
+
+
+def _build_party_aliases() -> Dict[str, str]:
+    """Accent-stripped alias → canonical party name."""
+    aliases: Dict[str, str] = {}
+    for key, info in PARTY_MAP.items():
+        name = info["name"]
+        aliases[_strip_accents(name.lower())] = name
+        aliases[key.split("-")[0].lower()] = name  # "ad-2024" → "ad"
+    aliases.update(_PARTY_ALIAS_EXTRAS)
+    return aliases
+
+
+_PARTY_ALIASES = _build_party_aliases()
+
+# Alternation over the aliases, longest first so "cds-pp" wins over "cds" and
+# the full names win over their initials. Word-anchored: an unanchored scan
+# matched "ad" inside "sociedade" and "be" inside "liberdade", labelling neutral
+# questions with whichever party happened to be a substring.
+_PARTY_PATTERN = re.compile(
+    r"\b(" + "|".join(re.escape(a) for a in sorted(_PARTY_ALIASES, key=len, reverse=True)) + r")\b"
+)
 
 
 def _normalize_parties(raw: List[str]) -> List[str]:
-    """Map free-form party names to canonical names."""
+    """Map free-form party names from the LLM onto canonical names.
+
+    Exact alias lookups only. The previous substring fallback ("does either
+    string contain the other") resolved "PSD" to Partido Socialista, because
+    "ps" is inside "psd" — a question about one party answered from another
+    party's programme, with citations that look correct. An unrecognised name is
+    dropped instead: retrieval then widens rather than narrowing to the wrong
+    party.
+    """
     canonical: List[str] = []
     known_names = {info["name"] for info in PARTY_MAP.values()}
     for p in raw:
         if p in known_names:
             canonical.append(p)
             continue
-        low = p.lower().strip()
-        if low in _ALL_PARTY_LOOKUP:
-            canonical.append(_ALL_PARTY_LOOKUP[low])
-            continue
-        # Fuzzy: check if any known name contains the token
-        for key, name in _ALL_PARTY_LOOKUP.items():
-            if low in key or key in low:
-                canonical.append(name)
-                break
+        alias = _strip_accents(p.lower().strip())
+        if alias in _PARTY_ALIASES:
+            canonical.append(_PARTY_ALIASES[alias])
+        else:
+            logger.debug("Dropping unrecognised party name from analysis: %r", p)
     return list(dict.fromkeys(canonical))  # deduplicate, keep order
 
 
-def _normalize_topics(raw: List[str]) -> List[str]:
-    return [t for t in raw if t in VALID_TOPICS]
+def _find_parties(question: str) -> List[str]:
+    """Canonical parties named in the question text, in order of appearance."""
+    found = [_PARTY_ALIASES[m.group(1)] for m in _PARTY_PATTERN.finditer(_strip_accents(question.lower()))]
+    return list(dict.fromkeys(found))
 
 
-def _normalize_query_type(raw: str) -> QueryType:
+def _coerce_topics(raw: Any) -> List[str]:
+    """Keep the topics that exist in the closed vocabulary, drop the rest."""
+    if not isinstance(raw, list):
+        return []
+    kept = [t for t in raw if isinstance(t, str) and t in VALID_TOPICS]
+    for t in raw:
+        if t not in kept:
+            logger.debug("Dropping unrecognised topic from analysis: %r", t)
+    return list(dict.fromkeys(kept))
+
+
+def _coerce_coverage(raw: Any) -> Coverage:
+    """Read the coverage decision, defaulting to the safe side.
+
+    An unreadable value falls to EXHAUSTIVE. The two failures are not
+    symmetric: fanning out on a question that did not need it costs a handful
+    of extra pgvector queries, while pooling a question that did need it drops
+    parties from the answer with nothing in the output to show they are
+    missing.
+    """
     try:
-        return QueryType(raw)
+        return Coverage(str(raw).strip().lower())
     except ValueError:
-        return QueryType.GENERAL
+        logger.debug("Unreadable coverage value %r; defaulting to exhaustive.", raw)
+        return Coverage.EXHAUSTIVE
+
+
+def _coerce_answer_shape(raw: Any, parties: List[str], coverage: Coverage) -> AnswerShape:
+    """Read the answer shape, inferring one when the model omits it."""
+    try:
+        return AnswerShape(str(raw).strip().lower())
+    except ValueError:
+        multi_party = len(parties) >= 2 or (not parties and coverage == Coverage.EXHAUSTIVE)
+        return AnswerShape.PER_PARTY if multi_party else AnswerShape.NARRATIVE
 
 
 # ---------------------------------------------------------------------------
@@ -104,9 +198,11 @@ def analyze_query(
     """
     config = config or RetrievalConfig()
     if not config.use_query_analysis:
+        # The naive-baseline arm: no parties, no topics, no coverage guarantee,
+        # which derives to a GENERAL route and one flat search.
         return AnalyzedQuery(
             original_query=question,
-            query_type=QueryType.GENERAL,
+            coverage=Coverage.BEST_MATCH,
             reformulated_query=question,
         )
 
@@ -119,77 +215,45 @@ def analyze_query(
             system_prompt=QUERY_ANALYSIS_SYSTEM_PROMPT,
             temperature=0.1,
         )
-
-        return AnalyzedQuery(
-            original_query=question,
-            query_type=_normalize_query_type(parsed.query_type),
-            parties=_normalize_parties(parsed.parties),
-            topics=_normalize_topics(parsed.topics),
-            ideology_filter=parsed.ideology_filter if parsed.ideology_filter in ("left", "right") else None,
-            reformulated_query=parsed.reformulated_query or question,
-        )
-
     except Exception as exc:
         logger.warning("Structured query analysis failed: %s – using fallback.", exc)
         return _fallback_analysis(question)
 
-
-def _fallback_analysis(question: str) -> AnalyzedQuery:
-    """Simple heuristic fallback when LLM analysis fails."""
-    q_lower = question.lower()
-
-    # Detect parties
-    parties = []
-    for key, name in _ALL_PARTY_LOOKUP.items():
-        if key in q_lower:
-            parties.append(name)
-    parties = list(dict.fromkeys(parties))
-
-    # Detect topics (normalize accents for matching)
-    def _strip_accents(s: str) -> str:
-        return "".join(
-            c for c in unicodedata.normalize("NFD", s) if unicodedata.category(c) != "Mn"
-        )
-
-    q_norm = _strip_accents(q_lower)
-    topics = []
-    for topic_key, topic_desc in TOPIC_CATEGORIES.items():
-        # Match against key (e.g. "educacao") and description keywords
-        key_norm = _strip_accents(topic_key.replace("_", " "))
-        if key_norm in q_norm:
-            topics.append(topic_key)
-            continue
-        # Also try matching individual description keywords
-        for kw in topic_desc.split(","):
-            kw_norm = _strip_accents(kw.strip().lower())
-            if len(kw_norm) > 3 and kw_norm in q_norm:
-                topics.append(topic_key)
-                break
-    topics = list(dict.fromkeys(topics))  # deduplicate preserving order
-
-    # Detect ideology
-    ideology = None
-    if "esquerda" in q_lower or "left" in q_lower:
-        ideology = "left"
-    elif "direita" in q_lower or "right" in q_lower:
-        ideology = "right"
-
-    # Guess query type
-    comparison_words = ["comparar", "compara", "diferença", "diferenças", "versus", "vs", "entre"]
-    if any(w in q_lower for w in comparison_words) or len(parties) >= 2:
-        qt = QueryType.COMPARISON
-    elif len(parties) == 1:
-        qt = QueryType.SINGLE_PARTY
-    elif topics:
-        qt = QueryType.TOPIC_EXPLORATION
-    else:
-        qt = QueryType.GENERAL
-
+    parties = _normalize_parties(parsed.parties)
+    coverage = _coerce_coverage(parsed.coverage)
     return AnalyzedQuery(
         original_query=question,
-        query_type=qt,
         parties=parties,
-        topics=topics,
-        ideology_filter=ideology,
+        coverage=coverage,
+        topics=_coerce_topics(parsed.topics),
+        answer_shape=_coerce_answer_shape(parsed.answer_shape, parties, coverage),
+        reformulated_query=parsed.reformulated_query or question,
+    )
+
+
+def _fallback_analysis(question: str) -> AnalyzedQuery:
+    """Deterministic stand-in for when the analysis call is unavailable.
+
+    This runs when OpenRouter has exhausted its retries, so it is a degraded
+    mode, not a second opinion – and it is deliberately dumber than the version
+    it replaced. The old one guessed topics by substring-matching the category
+    descriptions and guessed a route from comparison keywords; both encoded
+    Portuguese phrasing rules in code, and both were wrong in ways nothing
+    downstream could detect.
+
+    What survives is what can be established without interpretation: parties are
+    a closed vocabulary, so an exact alias scan either finds one or does not.
+    Everything else fails toward coverage – no topic filter to narrow with, and
+    EXHAUSTIVE so the router fans out. The cost is a wider search than the
+    question may have needed; the alternative is an answer that silently omits
+    parties.
+    """
+    parties = _find_parties(question)
+    return AnalyzedQuery(
+        original_query=question,
+        parties=parties,
+        coverage=Coverage.EXHAUSTIVE,
+        topics=[],
+        answer_shape=_coerce_answer_shape("", parties, Coverage.EXHAUSTIVE),
         reformulated_query=question,
     )

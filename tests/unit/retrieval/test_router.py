@@ -70,7 +70,6 @@ def test_route_single_party_uses_party_filter():
     analyzed = AnalyzedQuery(
         original_query="PS e educacao",
         reformulated_query="partido socialista educacao",
-        query_type=QueryType.SINGLE_PARTY,
         parties=["Partido Socialista"],
         topics=["educacao"],
     )
@@ -88,7 +87,6 @@ def test_route_comparison_searches_each_party_separately():
     analyzed = AnalyzedQuery(
         original_query="Comparar PS e AD na saude",
         reformulated_query="comparacao saude",
-        query_type=QueryType.COMPARISON,
         parties=["Partido Socialista", "Aliança Democrática"],
         topics=["saude"],
     )
@@ -113,7 +111,6 @@ def test_route_general_uses_multi_query_without_filters():
     analyzed = AnalyzedQuery(
         original_query="Qual a visao economica geral?",
         reformulated_query="visao economica geral",
-        query_type=QueryType.GENERAL,
     )
 
     retrieval = route(analyzed, searcher, config=_no_expand(top_k=4))
@@ -131,7 +128,6 @@ def test_route_single_party_relaxes_topics_when_nothing_matches():
     analyzed = AnalyzedQuery(
         original_query="PS e educacao",
         reformulated_query="partido socialista educacao",
-        query_type=QueryType.SINGLE_PARTY,
         parties=["Partido Socialista"],
         topics=["educacao"],
     )
@@ -153,7 +149,6 @@ def test_route_does_not_retry_when_no_topics_were_requested():
     analyzed = AnalyzedQuery(
         original_query="visao economica geral",
         reformulated_query="visao economica geral",
-        query_type=QueryType.GENERAL,
     )
 
     route(analyzed, searcher, config=_no_expand(top_k=5))
@@ -168,7 +163,6 @@ def test_route_comparison_relaxes_topics_per_party():
     analyzed = AnalyzedQuery(
         original_query="Comparar PS e AD na saude",
         reformulated_query="comparacao saude",
-        query_type=QueryType.COMPARISON,
         parties=["Partido Socialista", "Aliança Democrática"],
         topics=["saude"],
     )
@@ -190,7 +184,6 @@ def test_route_naive_config_disables_routing_and_rrf():
     analyzed = AnalyzedQuery(
         original_query="PS e educacao",
         reformulated_query="partido socialista educacao",
-        query_type=QueryType.SINGLE_PARTY,
         parties=["Partido Socialista"],
         topics=["educacao"],
     )
@@ -226,7 +219,6 @@ def test_route_passes_original_question_to_the_reranker():
     analyzed = AnalyzedQuery(
         original_query="O que propoe o PS para a educacao?",
         reformulated_query="partido socialista educacao propostas",
-        query_type=QueryType.SINGLE_PARTY,
         parties=["Partido Socialista"],
     )
 
@@ -245,7 +237,6 @@ def test_route_comparison_reranks_every_party():
     analyzed = AnalyzedQuery(
         original_query="Comparar PS e AD na saude",
         reformulated_query="comparacao saude",
-        query_type=QueryType.COMPARISON,
         parties=["Partido Socialista", "Aliança Democrática"],
     )
 

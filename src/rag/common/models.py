@@ -8,7 +8,7 @@ import uuid
 from enum import Enum
 from typing import Any, Dict, List, Optional
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field, computed_field
 
 
 # ---------------------------------------------------------------------------
@@ -27,6 +27,30 @@ class Ideology(str, Enum):
     LEFT = "left"
     RIGHT = "right"
     UNKNOWN = "unknown"
+
+
+class Coverage(str, Enum):
+    """Whether the answer must represent every party in scope.
+
+    The candidate set comes from ``AnalyzedQuery.parties`` (all parties when it
+    is empty); this says how to search it. ``EXHAUSTIVE`` fans out, one search
+    per party, so no party can be crowded out of a global top-k by a more
+    verbose one. ``BEST_MATCH`` runs a single pooled search and accepts whatever
+    ranks highest.
+    """
+    EXHAUSTIVE = "exhaustive"
+    BEST_MATCH = "best_match"
+
+
+class AnswerShape(str, Enum):
+    """How the answer should be laid out. A generation concern, not a retrieval one.
+
+    Separate from ``Coverage`` because the two genuinely cross: "que partido
+    propõe mais sobre habitação?" needs every party retrieved (EXHAUSTIVE) but
+    answered as a single verdict (NARRATIVE), not as eight sections.
+    """
+    NARRATIVE = "narrative"
+    PER_PARTY = "per_party"
 
 
 class ScoreType(str, Enum):
@@ -159,13 +183,52 @@ class EmbeddedChunk(Chunk):
 # ---------------------------------------------------------------------------
 
 class AnalyzedQuery(BaseModel):
-    """Structured representation of a user query after analysis."""
+    """Structured representation of a user query after analysis.
+
+    The fields describe what the user asked for; they do not encode a retrieval
+    plan. Keeping them semantic is what lets the router be evaluated separately
+    from the analyzer, and what keeps gold annotations valid across every
+    variant in the ladder.
+
+    There is deliberately no ideology field. A single left/right axis is too
+    coarse for questions like "os partidos conservadores" and too contested to
+    author here, so the analyzer resolves bloc language straight into
+    ``parties`` instead. That makes the resolution visible and scoreable rather
+    than hidden behind a metadata filter.
+    """
+    # Rejects unknown keys so that passing the derived ``query_type`` in is a
+    # loud error rather than a silently ignored one.
+    model_config = ConfigDict(extra="forbid")
+
     original_query: str
-    query_type: QueryType = QueryType.GENERAL
     parties: List[str] = Field(default_factory=list)
+    coverage: Coverage = Coverage.BEST_MATCH
     topics: List[str] = Field(default_factory=list)
-    ideology_filter: Optional[str] = None
+    answer_shape: AnswerShape = AnswerShape.NARRATIVE
     reformulated_query: str = ""
+
+    @computed_field  # type: ignore[prop-decorator]
+    @property
+    def query_type(self) -> QueryType:
+        """The legacy route label, derived rather than stored.
+
+        Generation and ``RoutingMetric`` still speak in query types, but storing
+        one alongside ``parties``/``coverage`` would give the same fact two
+        sources of truth — which is the defect this schema replaced. Deriving it
+        keeps the old vocabulary without letting it drift.
+
+        Two or more named parties imply the fan-out whatever ``coverage`` says:
+        naming them is itself the request that each be covered.
+        """
+        if len(self.parties) >= 2:
+            return QueryType.COMPARISON
+        if len(self.parties) == 1:
+            return QueryType.SINGLE_PARTY
+        if self.coverage == Coverage.EXHAUSTIVE:
+            return QueryType.COMPARISON
+        if self.topics:
+            return QueryType.TOPIC_EXPLORATION
+        return QueryType.GENERAL
 
 
 class SearchResult(BaseModel):

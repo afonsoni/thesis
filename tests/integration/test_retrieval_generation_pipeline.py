@@ -12,10 +12,10 @@ from src.rag.retrieval.query_analyzer import _QueryAnalysisResponse
 def test_retrieve_single_party_with_test_db(seeded_searcher):
     retrieval_pipeline._searcher = seeded_searcher
     structured = _QueryAnalysisResponse(
-        query_type="single_party",
         parties=["Partido Socialista"],
+        coverage="best_match",
         topics=["educacao"],
-        ideology_filter=None,
+        answer_shape="narrative",
         reformulated_query="educacao partido socialista",
     )
 
@@ -31,10 +31,10 @@ def test_retrieve_single_party_with_test_db(seeded_searcher):
 def test_retrieve_then_generate_with_mocked_llm(seeded_searcher):
     retrieval_pipeline._searcher = seeded_searcher
     structured = _QueryAnalysisResponse(
-        query_type="single_party",
         parties=["Partido Socialista"],
+        coverage="best_match",
         topics=["saude"],
-        ideology_filter=None,
+        answer_shape="narrative",
         reformulated_query="saude partido socialista",
     )
 

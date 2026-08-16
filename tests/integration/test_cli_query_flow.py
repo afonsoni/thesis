@@ -17,7 +17,7 @@ from src.rag.common.models import (
 def test_cmd_query_prints_answer_and_sources(capsys):
     args = SimpleNamespace(question="Pergunta de teste", top_k=2, no_expand=True)
     retrieval = RetrievalResult(
-        query=AnalyzedQuery(original_query="Pergunta de teste", query_type=QueryType.GENERAL),
+        query=AnalyzedQuery(original_query="Pergunta de teste"),
         results=[
             SearchResult(
                 id="doc-1",
