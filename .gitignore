@@ -12,3 +12,6 @@ venv/
 # Generated evaluation artifacts (regenerate with `python main.py eval`)
 data/eval/results/*.json
 data/eval/reports/
+
+# Overleaf upload bundle (rebuild with `./scripts/sync_overleaf.sh --zip`)
+dissertation-overleaf.zip
