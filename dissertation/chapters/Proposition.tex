@@ -1,0 +1,158 @@
+% ============================================================
+%  PROPOSITION — skeleton only.
+%  Every place that needs YOUR writing is marked \TODO{...}.
+%  Find them all: search "TODO" in this file, or look for red
+%  text in the compiled PDF. Comments starting with "%% src:"
+%  point to raw material (commits, notes, README) — they are
+%  pointers for you, not content.
+% ============================================================
+
+% Searchable, impossible-to-miss placeholder macro
+\providecommand{\TODO}[1]{\textcolor{red}{\textbf{[TODO: #1]}}}
+
+\chapter{Proposition} \label{ch:proposition}
+
+\TODO{Chapter lead-in (1--2 paragraphs): state that the system is presented in
+three parts --- indexing (offline), query time (online), evaluation (offline)
+--- and that each subsection follows the same rhythm: problem, candidates
+researched, choice made, and how/why that choice was later revised.}
+
+\begin{figure}[h]
+\begin{center}
+    % \includegraphics[width=0.9\textwidth]{images/system-overview.png}
+    \TODO{Export the three-part overview diagram (docs/architecture.md, Overview
+    mermaid) as an image and include it here.}
+\end{center}
+\caption{\TODO{Caption for the system overview figure.}}
+\label{fig:system-overview}
+\end{figure}
+
+% ============================================================
+\section{Indexing (offline)} \label{sec:indexing}
+% ============================================================
+
+\TODO{Section lead-in: pipeline in one sentence (PDF $\rightarrow$ Markdown
+$\rightarrow$ chunks $\rightarrow$ topic labels $\rightarrow$ embeddings
+$\rightarrow$ vector store) + forward-reference the subsections.}
+
+\subsection{Corpus} \label{subsec:corpus}
+%% src: 8 manifesto PDFs, commit 80530d7 (2025-01-29); parties table in repo README
+\TODO{Describe the corpus: 8 Portuguese party manifestos (2024 elections),
+selection criteria, sizes, formats, licensing/availability.}
+
+\subsection{Document parsing} \label{subsec:parsing}
+%% src: candidates already written in pre-thesis ProblemAndChallenges.tex §Data Collection
+%% src: git bake-off pdf_extractor_v1 (pdfminer) vs v2 (PyMuPDF), Jan 2025; marker corpus Apr 2025 (1af3074)
+\TODO{Problem: PDFs with complex layouts, multi-column, tables.}
+\TODO{Candidates researched: PyMuPDF, PDFMiner, PyPDF, LlamaParse, Marker
+(reuse/adapt pre-thesis text).}
+\TODO{Choice + why: Marker (PDF $\rightarrow$ Markdown). FILL FROM MEMORY: what
+made Marker win the bake-off.}
+\TODO{Revision: why manual correction of Marker output was still needed
+(-manual.md files, Aug 2025). FILL FROM MEMORY.}
+
+\subsection{Chunking} \label{subsec:chunking}
+%% src: words 512/200 (3312dba) -> chars 1000 (9d15f90) -> chars 1600 (5a8453e) -> tokens 400/80 + small_to_big (f896f61, 54102b7)
+%% src: README "Why the embedding model changed" post-mortem; pre-thesis already planned token-based sizes (128-2048)!
+\TODO{Problem: chunk granularity trade-offs (you already have the trade-off
+table in pre-thesis ProblemAndChallenges.tex).}
+\TODO{History: word-based, then character-based sizing; the silent-truncation
+discovery (89.5\% of chunks truncated, 37.3\% of corpus embedded); note the
+irony that the pre-thesis had already planned token-based experiments.}
+\TODO{Final design: header-aware splitting + token-sized windows +
+small-to-big; explain the two-budgets argument (retrieval vs generation).}
+
+\subsection{Topic classification} \label{subsec:classification}
+%% src: 18 PT categories, structured LLM output (9d15f90); keyword fallback removed + checkpoint/resume (c298e4b); made optional (f5c61c7); cost story in d2d9f1d
+\TODO{Problem: metadata needed for filtering/routing; no labeled PT data.}
+\TODO{Design: 18-category multi-label taxonomy via structured LLM calls. FILL
+FROM MEMORY: how the taxonomy was defined.}
+\TODO{Revisions: keyword fallback removed; checkpoint/resume added; made
+optional after token-chunking multiplied chunk counts ($\sim$4.5$\times$) ---
+cost/scale discussion.}
+
+\subsection{Embeddings} \label{subsec:embeddings}
+%% src: candidates in pre-thesis (BERTimbau, SBERT, MiniLM via MTEB, E5, OpenAI, Google)
+%% src: MiniLM (3312dba) -> serafim-900m (2c52f75, Aug 2025, rationale NOT recorded) -> Qwen3-Embedding-0.6B (ee2ff51)
+%% src: README post-mortem: STS-vs-retrieval scores, 128-token window, truncation probe (cosine 0.986), asymmetric encoding
+\TODO{Problem: Portuguese, long passages, retrieval (not STS) task.}
+\TODO{Candidates researched: reuse pre-thesis list + MTEB methodology.}
+\TODO{First choices: MiniLM, then serafim-900m. FILL FROM MEMORY: why serafim
+was adopted (not documented anywhere; Jan-2025 meeting note mentions BERTimbau
+struggles).}
+\TODO{Reversal: serafim $\rightarrow$ Qwen3-Embedding-0.6B --- the README
+post-mortem is nearly thesis-ready; adapt it (sentence encoder vs retrieval
+encoder, silent truncation, asymmetric query/document encoding).}
+
+\subsection{Vector store} \label{subsec:vectorstore}
+%% src: candidates in pre-thesis (Faiss, Pinecone, Qdrant, Milvus, ChromaDB, Weaviate + ANN-benchmarks)
+%% src: Milvus Lite (3312dba, May 2025) -> PostgreSQL 17 + pgvector (2c52f75, Aug 2025, rationale NOT recorded)
+\TODO{Candidates researched: reuse pre-thesis list.}
+\TODO{First choice: Milvus Lite. FILL FROM MEMORY: why Milvus initially.}
+\TODO{Reversal: Milvus $\rightarrow$ pgvector. FILL FROM MEMORY: rationale
+(pgvector was not even in the researched candidate list --- worth being honest
+about that). Describe final schema: HNSW index, metadata columns, tsvector
+lexical column.}
+
+% ============================================================
+\section{Query time (online)} \label{sec:querytime}
+% ============================================================
+
+\TODO{Section lead-in: analyze $\rightarrow$ expand $\rightarrow$ route
+$\rightarrow$ search $\rightarrow$ synthesize; every step behind a feature
+flag (this enables the evaluation ladder --- forward-reference
+Section~\ref{sec:evaluation}).}
+
+\subsection{Query analysis} \label{subsec:queryanalysis}
+%% src: retrieval/query_analyzer.py; structured LLM -> query_type, parties, topics, ideology; heuristic fallback
+\TODO{What it extracts, the four query types, fallback behavior.}
+
+\subsection{Multi-query expansion} \label{subsec:multiquery}
+%% src: retrieval/query_expander.py; RAG-from-Scratch Part 5
+\TODO{Problem (vocabulary mismatch), method (+4 reformulations), source.}
+
+\subsection{Logical routing and metadata filtering} \label{subsec:routing}
+%% src: router.py; Parts 10-11; prefer-then-relax topic fallback (2e11d09) after zero-result discovery
+\TODO{Route per query type (single-party / comparison / topic / general).}
+\TODO{Revision: hard topic filter $\rightarrow$ prefer-then-relax fallback ---
+tell the zero-results failure that motivated it.}
+
+\subsection{Search and fusion} \label{subsec:search}
+%% src: searcher.py; RRF (Part 6); hybrid dense+FTS (f8d0f77) motivated by rare exact tokens (RES_U 0/5 -> 2/5)
+\TODO{Dense similarity search; RRF across query reformulations.}
+\TODO{Hybrid dense + Portuguese full-text: motivation (acronyms/exact tokens),
+honest note that measured gains were narrower than expected.}
+
+\subsection{Answer synthesis} \label{subsec:synthesis}
+%% src: generation/synthesizer.py; direct / comparison / decomposed (Part 7); citations
+\TODO{Strategy dispatch by query type and result shape; grounded citations.}
+
+% ============================================================
+\section{Evaluation (offline)} \label{sec:evaluation}
+% ============================================================
+
+\TODO{Section lead-in: goal --- attribute score deltas to individual
+techniques by replaying the SAME production code under different flags.}
+
+\subsection{Variant ladder} \label{subsec:variants}
+%% src: docs/evaluation.md §1; variants.py; naive -> multiquery -> routed -> current (+ reserved reranked/hybrid)
+\TODO{The ladder and its philosophy; also state explicitly that this replaced
+the earlier ``compare 3 separate RAG implementations'' plan (A falar.md) and
+why (isolation of one technique per rung).}
+
+\subsection{Gold set construction} \label{subsec:goldset}
+%% src: docs/evaluation.md §2; dataset.py; content-hash chunk identity (keys.py)
+\TODO{Synthetic-anchored generation, hand-curation ($\sim$30--50 questions),
+routing ground truth for free, content-hash identity across re-indexing.}
+
+\subsection{Metrics} \label{subsec:metrics}
+%% src: docs/evaluation.md §3; retrieval (hit@k, recall@k, MRR, nDCG), routing (acc, F1), LLM-judge (faithfulness, relevance, correctness)
+\TODO{Three metric families; judge-model caveat (self-preference bias if judge
+== generator) and how you addressed it.}
+
+\subsection{Results and discussion} \label{subsec:results}
+%% src: data/eval/reports/leaderboard.md (once curated runs exist)
+\TODO{BLOCKED until curated gold-set runs are done. Leaderboard table +
+per-technique deltas + discussion.}
+\TODO{Decide and state scope: reranker in or out (future work?); hybrid's
+verdict.}

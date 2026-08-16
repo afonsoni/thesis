@@ -1,0 +1,105 @@
+\chapter{Introduction} \label{ch:introduction}
+
+This chapter introduces the project by outlining its context and motivation, focusing on political discourse and the use of LLMs and RAG pipelines to analyze political stances. It also defines the main objectives, research hypothesis, and methods, concluding with an overview of the document's structure.
+
+\TODO{Chapter-wide tense pass: pre-thesis text speaks in future tense ("this
+project aims", "will cover") --- convert to the completed-work voice of a
+final dissertation.}
+
+\section{Context}
+
+In recent years, Large Language Models (LLMs) have transformed natural language processing (NLP) \cite{openai2024gpt4technicalreport, yang2023harnessingpowerllmspractice, NEURIPS2022_b1efde53}, excelling in tasks like chatbots, summarization, and content analysis. However, they often struggle with domain-specific questions, producing inaccurate or irrelevant results, especially when data is outdated or sparse \cite{kandpal2023largelanguagemodelsstruggle, rag-survey}. This is particularly problematic in political discourse, where positions evolve over time.
+
+Political party manifestos are crucial documents that outline a party's policy positions and ideological stances. These texts play a significant role in shaping public discourse and informing policy decisions \cite{manifestos-nz}. In the case of Portugal, like many other countries, understanding the nuances within these documents is crucial for informed civic participation \cite{marino-etal-2024-decoding}. However, the complexity and length of these documents can make them difficult for the average citizen and even researchers to navigate and fully understand.
+
+
+\section{Motivation}
+
+Citizens and researchers often struggle to navigate and compare political party programs, especially during elections. Existing tools either lack interpretability or require significant manual effort \cite{laver_benoit_garry, manifestos-nz}. This project aims to bridge this gap by leveraging RAG-based LLMs to retrieve and synthesize relevant information, particularly in Portuguese, where research on this issue remains limited.
+
+Moreover, political divisions are deepening, often fueled by a lack of accessible information \cite{eleitorado}. A tool that helps citizens better understand party positions could contribute to a more informed electorate and mitigate misinformation.
+
+\section{Objectives}
+
+\TODO{Update objectives to match what was actually delivered: the three
+bullets below survive, but "Expected results" must become actual results ---
+the feature-flagged variant ladder, the evaluation harness, and the working
+prototype. Decide how to present the optional political-quiz idea: keep as a
+stated stretch goal that moved to future work.}
+
+The primary objective of this research is to investigate the effectiveness of RAG in retrieving and synthesizing political text content, focusing on Portuguese electoral programs. Specifically, the main objectives will cover:
+
+\begin{itemize}
+    \item \textbf{RAG Implementations:} Explore existing RAG implementations and their effectiveness for political manifesto analysis.
+    \item \textbf{Challenges of RAG:} Identify challenges in applying RAG, particularly to Portuguese manifestos.
+    \item \textbf{Solutions to Challenges:} Examine techniques to improve retrieval accuracy and relevance, such as optimized chunking strategies, hybrid search methodologies, and reranking retrieved content based on contextual importance and semantic coherence.
+\end{itemize}
+
+Expected results include a comprehensive comparison between different RAG implementations, insights into optimizing retrieval for complex political documents, and recommendations for integrating AI-driven techniques into political text analysis frameworks. Additionally, this research will also provide an experimental prototype demonstrating the retrieval and synthesis of political program content.
+
+Given the time constraints, the development of a RAG-powered political quiz could serve as an additional feature to improve the quality of political quizzes that emerge during electoral periods, which often lack depth and accuracy. While this remains an optional objective rather than a core requirement, it could contribute to a better-informed political decision-making by offering a more reliable and nuanced analysis of party positions.
+
+\section{Research Hypothesis}
+
+The main hypothesis of this project is:
+
+“RAG-based retrieval and synthesis can effectively improve the accessibility and interpretability of Portuguese political manifestos.”
+
+This hypothesis suggests that RAG implementations can accurately retrieve and summarize relevant political content, providing a structured overview of party positions.
+
+\TODO{Add concrete research questions under the hypothesis, derived from the
+variant ladder --- one per technique family, answerable by the evaluation
+chapter. Shape: does query analysis + routing improve retrieval over a naive
+baseline? does multi-query + RRF? does hybrid dense+lexical retrieval? does
+grounding reduce unfaithful answers? (Replaces the stale pre-pivot questions
+in the vault's 3.1.2 note --- do NOT reuse those.)}
+
+\section{Research Methods}
+
+This research follows an experimental and analytical approach to assess the effectiveness of RAG-based retrieval for Portuguese political manifestos. The methodology consists of the following key steps:
+
+\begin{itemize}
+    \item \textbf{Literature Review:} Conduct a systematic review of existing research on RAG pipelines, political text analysis, and related challenges in NLP.
+    \item \textbf{Dataset Compilation:} Collect and preprocess the latest Portuguese political manifestos, ensuring consistency for retrieval.
+    \item \textbf{Development:}
+    \begin{itemize}
+        \item \textbf{RAG Experimentation:} Experiment with different RAG configurations, such as chunking strategies, hybrid search techniques, and reranking methods, to optimize retrieval accuracy.
+        \item \textbf{Prototype Development:} Develop a functional prototype demonstrating the retrieval and synthesis of political content.
+    \end{itemize}
+    \item \textbf{Testing \& Evaluation:}
+    \begin{itemize}
+        \item \textbf{Quantitative methods:} Measure performance using evaluation metrics (e.g., hit rate, mean reciprocal rank or relevancy)
+        \item \textbf{Qualitative methods:} Evaluate the interpretability and accuracy of generated summaries.
+    \end{itemize}
+    \item \textbf{Refinement:} Improve the prototype based on evaluation results, addressing identified issues and enhancing usability. This phase may also explore the integration of a political quiz feature.
+\end{itemize}
+
+By following this methodology, the study aims to validate the proposed hypothesis and provide actionable insights for improving AI-driven political text analysis.
+
+\TODO{Align the methodology with what actually happened: the plan above held
+up overall, but the real process was iterative with documented reversals
+(embedding model, vector store, chunking) --- say that the methodology
+included revisiting earlier choices as the field evolved, which
+Chapter~\ref{ch:proposition} documents per component.}
+
+\section{Structure}
+
+\TODO{Rewrite this section for the final chapter layout: Introduction,
+State of the Art, The Problem and its Challenges, Proposition (indexing /
+query time / evaluation), Prototype Demonstration, Conclusions \& Future
+Work. The Preamble chapter is being dropped --- absorb its pivot story as a
+short paragraph here or in Context (one or two sentences: original
+bias-classification idea, why it was infeasible, how it led to RAG over
+manifestos).}
+
+This chapter outlines the organization of the dissertation, providing an overview of each chapter and its role in the research. The dissertation is divided into five chapters:
+
+\begin{itemize}
+\begin{comment}
+    \item \textbf{Preamble: }In chapter \ref{ch:preamble}, the initial research idea is discussed, along with the reasons for its cancellation and the transition to the current project.
+\end{comment}
+    \item \textbf{Introduction:} In chapter \ref{ch:introduction}, the project is introduced, outlining its context, motivation, objectives, research hypothesis, and methodology.
+    \item \textbf{State of the Art:} Chapter \ref{ch:sota} provides a review of existing literature, covering related work on RAG pipelines, political text analysis, and key challenges in the field.
+    \item \textbf{The Problem and Its Challenges:} Chapter \ref{ch:problem} defines the research problem, detailing the main challenges associated with RAG-based retrieval.
+    \item \textbf{Conclusion \& Work Plan:} Chapter \ref{ch:conclusion} summarizes the findings, discusses potential future work, and presents the planned next steps for the research.
+\end{itemize}

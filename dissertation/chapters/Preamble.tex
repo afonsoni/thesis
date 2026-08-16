@@ -1,0 +1,54 @@
+% ============================================================
+%  SCHEDULED FOR REMOVAL (decision 2026-08-16): absorb the pivot
+%  story into the Introduction (see the TODO in its Structure
+%  section), then remove this chapter's \input from dissertation.tex
+%  and delete this file. Until migrated, it stays so nothing is lost.
+% ============================================================
+\chapter{Preamble} \label{ch:preamble}
+
+This chapter serves as a placeholder and will not be included in the final thesis. It documents the initial idea for the dissertation, which has since evolved into a new direction. It remains here as a reminder of the thought process and rationale behind the change.
+
+\section{Previous idea}
+
+The original idea for the dissertation was to evaluate political undertones in Portuguese text using Large Language Models (LLMs). The goal was to detect and analyze political bias in various types of Portuguese-language texts, including political manifestos, opinion pieces, and news articles. Rather than classifying texts solely as left-wing or right-wing, the approach aimed to evaluate them along three distinct axes:
+
+\begin{itemize}
+    \item \textbf{Social Left vs. Social Right:} Measuring positions on social issues such as equality, civil rights, and cultural values.
+    \item \textbf{Economic Left vs. Economic Right:} Assessing stances on economic policies, such as wealth distribution, taxation, and market regulation.
+    \item \textbf{Libertarianism vs. Authoritarianism:} Evaluating the degree of emphasis on individual freedoms versus state control.
+\end{itemize}
+
+The plan involved fine-tuning an LLM to analyze user-provided Portuguese text and classify it along these axes, providing a nuanced understanding of its political orientation. Initially, there was consideration of incorporating Reinforcement Learning from Human Feedback (RLHF) into the fine-tuning process to improve the model's ability to adapt to complex political contexts. However, this idea remained only as a possibility, as the added complexity of RLHF made it impractical for the scope of this research.
+
+\section{Why the change?}
+
+While the initial idea was ambitious, several challenges made it impractical to pursue:
+
+\begin{itemize}
+    \item \textbf{Bias and Subjectivity}: Political bias is inherently subjective, and defining clear, objective criteria for classification proved difficult. This challenge was further amplified by the cultural and linguistic nuances of Portuguese text.
+    \item \textbf{Scope}: The project's scope was too broad, encompassing a wide range of text types and political dimensions. This made it challenging to develop a focused and feasible research plan.
+    \item \textbf{Data Limitations}: Acquiring and curating a sufficiently large and diverse dataset of Portuguese texts for fine-tuning the model was a significant hurdle.
+\end{itemize}
+
+These challenges highlighted the need for a more focused and achievable research direction.
+
+
+\section{Steps Toward the New Idea}
+
+Building on the original concept, the focus shifted to a more manageable and well-defined problem: analyzing Portuguese political party manifestos. This new direction retains the core interest in political text analysis but narrows the scope to a specific type of document. By concentrating on manifestos, the research can leverage structured, domain-specific data while addressing practical challenges such as retrieval, synthesis, and interpretation of political content. This evolution led to the current focus on Retrieval-Augmented Generation (RAG) systems for Portuguese political text analysis.
+
+
+\section{Relevant Work}
+
+The original idea for this dissertation was inspired by and builds upon several ideas and studies that explore the intersection of language models, political bias, and text analysis. Relevant works include:
+
+\begin{itemize}
+\item \textbf{Language Models as Evaluators:} \cite{HelgessonHallstrom1787721} proposed a framework for using LLMs to automatically evaluate news article summaries, showcasing their potential for nuanced text analysis. This aligns with the original goal of evaluating political undertones in text.
+\item \textbf{Fine-Tuning Language Models with Reward Learning on Policy:} \cite{lang2024finetuninglanguagemodelsreward} explored the use of reward learning to fine-tune LLMs for policy-related tasks. This work highlights the potential of incorporating reinforcement learning techniques, such as RLHF (Reinforcement Learning from Human Feedback), to improve model performance in complex domains like political analysis.
+\item \textbf{From Pretraining Data to Downstream Tasks:} \cite{pretraining-political-bias} traced how biases in pretraining data propagate to downstream tasks, stressing the importance of addressing bias at multiple stages of model development. This influenced the original plan to fine-tune an LLM for political text analysis.
+\item \textbf{Esquerda e Direita: Guia Histórico Para o Século XXI:} \cite{tavares2016esquerda} is a book by Portuguese historian Rui Tavares, arguing for a multidimensional understanding of political ideologies beyond the traditional left-right axis. This work supports the idea of evaluating texts along multiple dimensions.
+\item \href{https://www.thebipartisanpress.com/}{\textbf{The Bipartisan Press:}} This news website developed an AI model to classify political bias in texts. Using NLP and a large database of pre-categorized articles, it classifies texts by direction (left/right) and degree (minimal/extreme) of bias, demonstrating practical applications of bias detection.
+\end{itemize}
+
+These references collectively informed the initial direction of this research, emphasizing the potential and challenges of using LLMs for political text analysis. While the focus has since shifted to RAG systems for Portuguese manifestos, the insights from these works remain relevant to the broader goal of understanding and analyzing political content.
+

@@ -1,0 +1,138 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage{dissertation}
+\usepackage{comment}
+\usepackage{copyrightbox}
+\usepackage{xcolor,colortbl}
+\usepackage{forloop}
+\makeglossaries
+\makeindex
+
+%\logo{EAAD}{School of Architecture, Art and Design}{}
+%\logoB{EAAD}{School of Architecture, Art and Design}{}
+
+%\logo{EC}{School of Sciences}{}
+%\logoB{EC}{School of Sciences}{}
+
+%\logo{ED}{Law School}{}
+%\logoB{ED}{Law School}{}
+
+\logo{EE}{School of Engineering}{}
+\logoB{EE}{School of Engineering}{}
+
+%\logo{EEG}{School of Economics and Management}{}
+%\logoB{EEG}{School of Economics and Management}{}
+
+%\logo{ELACH}{School of Letters, Arts and Human Sciences}{}
+%\logoB{ELACH}{School of Letters, Arts and Human Sciences}{}
+
+%\logo{EM}{Medical school}{}
+%\logoB{EM}{Medical school}{}
+
+%\logo{EP}{School of Psychology}{}
+%\logoB{EP}{School of Psychology}{}
+
+%\logo{ESE}{Higher School of Nursing}{}
+%\logoB{ESE}{Higher School of Nursing}{}
+
+%\logo{I3Bs}{Research Institute on Biomaterials,}{Biodegradables and Biomimetics}
+%\logoB{I3Bs}{Research Institute on Biomaterials,}{Biodegradables and Biomimetics}
+
+%\logo{ICS}{Institute of Social Sciences}{}
+%\logoB{ICS}{Institute of Social Sciences}{}
+
+%\logo{IE}{Institute of Education}{}
+%\logoB{IE}{Institute of Education}{}
+
+\author{Afonso Nogueira Ferreira}
+
+\titleA{Using Retrieval-Augmented Generation}
+\titleB{to Analyze Political Party Manifestos}
+\titleC{from Portugal}
+
+\masters{Master’s Dissertation in Informatics Engineering}
+%\area{Area of specialization}
+\supervisor{José João Almeida}
+\cosupervisor{Els Lefever}
+
+\bibpunct[,]{(}{)}{;}{a}{,}{,}
+
+% Searchable writing placeholder — renders bold red in the PDF.
+% Find every pending spot: search "TODO" across the project.
+\newcommand{\TODO}[1]{\textcolor{red}{\textbf{[TODO: #1]}}}
+
+\begin{document}
+\setlength{\parindent}{0em}
+
+%-- Covers
+\input{covers/Covers}
+
+%-- Document setup
+\newgeometry{right=25mm, left=25mm, top=25mm, bottom=25mm}
+\pagenumbering{roman}
+
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{1.5em}
+
+%-- Preamble
+\input{preamble/Copyright}
+%\input{preamble/Acknowledgements}
+\input{preamble/StatementofIntegrity}
+\input{preamble/Abstract}
+
+\phantomsection
+\tableofcontents
+
+\cleardoublepage
+\listoffigures
+
+% List of tables
+\renewcommand*{\listtablename}{List of Tables}
+\listoftables
+\clearpage
+
+% Acronyms
+\printglossary[type=\acronymtype,nonumberlist, title={Acronyms}]
+
+% Glossary
+\printglossary[title={Glossary}, nonumberlist]
+
+\cleardoublepage
+\pagenumbering{arabic}
+\setcounter{chapter}{-1}
+
+%-- Dissertation 
+\part{Introductory material}
+
+
+\input{chapters/Preamble}
+\input{chapters/Introduction}
+\input{chapters/StateOfTheArt}
+\input{chapters/ProblemAndChallenges}
+
+\part{Core of the Dissertation}
+
+\input{chapters/Proposition}
+%\input{chapters/Contribution}   % template stub — superseded by Proposition; delete file when tidying
+\input{chapters/Applications}    % repurposed as Prototype Demonstration
+\input{chapters/ConclusionsAndFutureWork}
+%\input{chapters/PlannedSchedule}
+
+\renewcommand{\baselinestretch}{1}
+\bibliographystyle{plainnat}
+\bibliography{dissertation}
+\begin{comment}
+\printindex
+
+\appendix
+\renewcommand\chaptername{Appendix}
+
+\part{Appendices}
+
+%\input{appendices/SupportWork}  % template stub — no planned content; delete file when tidying
+\input{appendices/DetailsOfResults}
+%\input{appendices/Listings}     % template stub — no planned content; delete file when tidying
+\input{appendices/Tooling}
+\end{comment}
+\input{covers/BackCover}
+
+\end{document}

@@ -1,0 +1,86 @@
+% ============================================================
+%  RESTRUCTURED 2026-08-16. Survey-only chapter:
+%  - "RAG Challenges and Solutions" moved to ProblemAndChallenges.tex
+%    (challenges are part of the problem statement, not the survey).
+%  - Bold-paragraph headers promoted to real sections.
+%  - New TODO subsection for post-2025 developments.
+%  All original prose kept verbatim; TODOs mark where to extend.
+% ============================================================
+
+\chapter{State of the Art} \label{ch:sota}
+
+Recent advancements in Natural Language Processing (NLP) have seen the emergence of Retrieval-Augmented Generation (RAG) models, which combine the strengths of retrieval-based and generative approaches \cite{rag-nlp}. RAG has demonstrated significant potential in tasks requiring domain-specific knowledge and up-to-date information, addressing key limitations of traditional Large Language Models (LLMs), such as their tendency to generate inaccurate or irrelevant outputs. However, despite its growing adoption in various domains, the application of RAG to political texts—particularly in low-resource languages like Portuguese—remains underexplored.
+
+\TODO{Tense/framing pass: this chapter was written in early 2025 for the
+pre-thesis. Update the framing to reflect that the survey informed choices you
+went on to make.}
+
+\section{The RAG framework} \label{sec:sota-rag}
+
+Retrieval-Augmented Generation (RAG) is a hybrid framework that enhances the capabilities of LLMs by integrating external data retrieval into the text generation process. Unlike traditional LLMs, which rely solely on pre-trained knowledge, RAG dynamically retrieves relevant document chunks from an external knowledge base using techniques such as dense vector retrieval and semantic similarity. This retrieval mechanism ensures that the generated outputs are grounded in factual and contextually appropriate information, significantly reducing the risk of hallucinations or inaccuracies commonly associated with standalone LLMs \cite{rag-nlp, zhang2023sirenssongaiocean}. By combining the generative power of LLMs with the ability to access and incorporate external knowledge, RAG represents a significant advancement in knowledge-intensive NLP tasks.
+
+\subsection{The RAG pipeline} \label{subsec:sota-pipeline}
+
+A RAG pipeline consists of several key components, each playing a critical role in the retrieval and generation process. At its core, the pipeline integrates two main stages: \textbf{retrieval}, where relevant documents are fetched from an external knowledge base, and \textbf{generation}, where a language model synthesizes the retrieved information into a coherent response. See Figure \ref{fig:rag-diagram} for an overview of a simple RAG process.
+
+\begin{figure}[h]
+\begin{center}
+    \copyrightbox{\includegraphics[width=0.8\textwidth]{images/RAG-diagram.png}}{By Turtlecrown - Own work, CC BY-SA 4.0,\\https://commons.wikimedia.org/w/index.php?curid=150390279}
+\end{center}
+\caption{Overview of a RAG process}
+\label{fig:rag-diagram}
+\end{figure}
+
+\subsection{Advanced RAG variants} \label{subsec:sota-variants}
+
+The Retrieval-Augmented Generation (RAG) framework, introduced by \cite{rag-nlp}, combines a pre-trained retriever with a sequence-to-sequence (seq2seq) model, fine-tuned end-to-end. This integration enables the model to generate accurate, contextually grounded responses by leveraging external knowledge.
+
+Building on this, Self-RAG \cite{asai2024selfrag} introduces a self-reflective mechanism to dynamically assess retrieval and generation quality, improving efficiency and accuracy. Similarly, Corrective RAG (CRAG) \cite{crag} adds a lightweight retrieval evaluator to assess the overall quality of retrieved documents for a query, returning a confidence degree based on which different knowledge retrieval actions can be triggered. More recently, Agentic RAG \cite{agentic-rag} has emerged as an advanced paradigm by embedding autonomous AI agents into the RAG pipeline. These agents leverage agentic design patterns reflection, planning, tool use, and multiagent collaboration to dynamically manage retrieval strategies, iteratively refine contextual understanding, and adapt workflows to meet complex task requirements.
+
+\subsection{Recent developments} \label{subsec:sota-recent}
+
+\TODO{NEW subsection: the field moved fast during this work (a core thesis
+theme). Survey what appeared after the pre-thesis (2025--2026): retrieval-tuned
+embedding families (e.g.\ Qwen3-Embedding), reranker models, hybrid
+dense+lexical retrieval as standard practice, RAG evaluation frameworks
+(RAGAS-style, LLM-as-judge), and the technique series you drew from
+(RAG-from-Scratch). This subsection justifies WHY choices were revisited
+mid-project --- link it to the decision-history narrative in
+Chapter~\ref{ch:proposition}.}
+
+\TODO{Decide: keep or drop an embeddings survey subsection here. There is a
+commented-out draft below; candidate-model detail may fit better in the
+Proposition (Section~\ref{subsec:embeddings}). If kept here, survey encoder
+FAMILIES and benchmarks (MTEB), not your specific candidates.}
+
+\begin{comment}
+\subsection{Embeddings}
+
+% Tem de ser melhorado
+
+Embeddings play a crucial role in the RAG pipeline, as they encode the semantic meaning of words, phrases, or documents into numerical representations that machines can process. By transforming text into dense vector spaces, embeddings enable tasks such as semantic similarity calculation, which is essential for retrieving relevant documents and generating contextually appropriate responses.
+\end{comment}
+
+\section{NLP for political text analysis} \label{sec:sota-political}
+
+The analysis of political texts, such as electoral programs and manifestos, has been a growing area of interest in NLP. Studies have applied various techniques, including topic modeling, sentiment analysis, and semantic similarity, to analyze electoral programs in multiple languages \cite{manifestos-central-eastern, manifestos-nz}.
+
+In the context of the Portuguese language, \cite{rag-chatbot} demonstrated the application of RAG in developing conversational agents, while \cite{paula-etal-2024-evaluation} applied two Question Answering Generation (QAG) approaches to generate question-answer pairs for three domains in Portuguese using different decoding methods. The recent work by \cite{marino-etal-2024-decoding} has explored the decoding of political discourse, highlighting the unique linguistic and cultural nuances of Portuguese electoral programs. However, these studies have primarily relied on traditional NLP methods or have focused on applying RAG to domains other than political text analysis.
+
+\TODO{Expand related work: you have unused bib entries that belong here
+(political-rag, givers-takers, llm-future, laver\_benoit\_garry is cited only
+in the Introduction). Position your work against them: what does a
+RAG-over-manifestos system do that manifesto-NLP classifiers and generic PT
+chatbots do not?}
+
+\begin{comment}
+\section{Index}
+
+In this example, several keywords\index{keywords} will be used
+which are important and deserve to appear in the Index\index{Index}.
+
+Terms like generate\index{generate} and some\index{others} will also
+show up. Terms in the index can also be nested \index{Index!nested}.
+
+Cf. the \texttt{dissertation.bib} file to see some index definitions like \uminho{UMinho}.
+\end{comment}
