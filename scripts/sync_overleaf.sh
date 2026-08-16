@@ -14,9 +14,10 @@
 #
 #   git config overleaf.projectid <id>
 #
-# Authentication is handled by git itself: Overleaf asks for your email and a
-# git token you generate under Account Settings > Git integration. Let the
-# macOS keychain credential helper remember it; this script never handles it.
+# Authentication is handled by git itself. Overleaf accepts only git tokens,
+# and the username must be the literal "git" — not your email, which returns
+# 403. The remote URL below embeds it, so git only asks for the token; the
+# macOS keychain remembers it. This script never handles the secret.
 
 set -euo pipefail
 
@@ -47,7 +48,7 @@ if [[ -z "$PROJECT_ID" ]]; then
     exit 1
 fi
 
-REMOTE_URL="https://git.overleaf.com/${PROJECT_ID}"
+REMOTE_URL="https://git@git.overleaf.com/${PROJECT_ID}"
 if git remote get-url overleaf >/dev/null 2>&1; then
     git remote set-url overleaf "$REMOTE_URL"
 else
