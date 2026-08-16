@@ -4,6 +4,9 @@
 *.blg
 *.fdb_latexmk
 *.fls
+*.acn
+*.acr
+*.alg
 *.glg
 *.glo
 *.gls
