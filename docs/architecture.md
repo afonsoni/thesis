@@ -83,7 +83,7 @@ single code path can act as any rung of the variant ladder.
 ```mermaid
 flowchart TD
     Q["User question"] --> AQ{"use_query_analysis?"}
-    AQ -->|yes| AN["analyze_query()<br/>structured LLM → query_type,<br/>parties, topics, ideology<br/>(heuristic fallback)"]
+    AQ -->|yes| AN["analyze_query()<br/>structured LLM → parties, coverage,<br/>topics, answer_shape<br/>(alias-scan fallback)"]
     AQ -->|no| GEN0["treat as GENERAL"]
 
     AN --> MQ{"use_multi_query?"}
@@ -94,11 +94,11 @@ flowchart TD
     EX --> RT{"use_routing?"}
     ONE --> RT
     RT -->|no| G["GENERAL route"]
-    RT -->|yes| TYPE{"query_type?"}
+    RT -->|yes| TYPE{"query_type?<br/>derived from parties + coverage"}
 
     TYPE -->|single_party| SP["party-filtered search"]
     TYPE -->|comparison| CMP["per-party parallel search<br/>→ grouped results"]
-    TYPE -->|topic_exploration| TP["topic / ideology filtered"]
+    TYPE -->|topic_exploration| TP["topic-filtered search"]
     TYPE -->|general| G
 
     SP --> S["Searcher<br/>pgvector similarity per query"]
@@ -130,21 +130,33 @@ work.
 
 ## 4. Generation (answer synthesis)
 
-The synthesizer picks a strategy from the query type and result shape, then
-produces an answer with source citations.
+The synthesizer picks a strategy from the requested `answer_shape` and the
+result shape, then produces an answer with source citations.
 [`synthesizer.py`](../src/rag/generation/synthesizer.py).
 
 ```mermaid
 flowchart TD
     RES["RetrievalResult"] --> D{"synthesize() dispatcher"}
-    D -->|"comparison + grouped results"| CMPA["comparison_answer()<br/>grouped-by-party prompt"]
-    D -->|"comparison, no groups"| DEC["decomposed_answer()<br/>sub-questions → synthesis (Part 7)"]
-    D -->|"topic_exploration & >8 results"| DEC
-    D -->|"otherwise"| DIR["direct_answer()<br/>single-pass"]
-    CMPA --> OUT["GeneratedAnswer<br/>+ source citations"]
-    DEC --> OUT
-    DIR --> OUT
+    D -->|"per_party + grouped results"| CMPA["comparison_answer()<br/>grouped-by-party prompt"]
+    D -->|"per_party, no groups"| DEC["decomposed_answer()<br/>sub-questions → synthesis (Part 7)"]
+    D -->|"narrative"| DIR["direct_answer()<br/>single-pass over the full grouped set"]
+    CMPA --> FIT["trim to max_prompt_tokens<br/>lowest-ranked first, never a whole party"]
+    DEC --> FIT
+    DIR --> FIT
+    FIT --> OUT["GeneratedAnswer<br/>+ source citations"]
 ```
+
+Shape rather than route, because the two cross: *"que partido propõe mais sobre
+habitação?"* needs every party retrieved but answered as one verdict. A
+narrative answer over a fan-out reads the whole grouped set rather than
+`RetrievalResult.results`, which the router truncates to `top_k`.
+
+Context size is bounded by `llm.openrouter.max_prompt_tokens` rather than by a
+result count. Retrieval can now hand generation `top_k_per_party` × 8 parties,
+so the prompt is no longer bounded by a small constant; over-budget contexts are
+trimmed lowest-ranked first, and a grouped context is trimmed from whichever
+party contributes most so that no party is dropped outright. Citations follow
+the trimmed context — a source the model never read is one it cannot have used.
 
 ---
 

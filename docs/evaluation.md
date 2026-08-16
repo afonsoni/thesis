@@ -99,8 +99,17 @@ pure-Python, needs `gold_chunk_keys`):
 
 **Routing** ([`routing.py`](../src/rag/evaluation/metrics/routing.py)):
 
-- `query_type_acc` — predicted vs expected route.
-- `party_f1`, `topic_f1` — set F1 of extracted parties/topics.
+- `query_type_acc` — predicted vs expected route. Derived from the two below,
+  so it is a summary of them rather than independent evidence; kept as the
+  headline number and for comparability with earlier runs.
+- `coverage_acc` — did the analysis require every party in scope to be
+  represented? This is the one that catches the aggregative failure: "o que
+  defende cada partido sobre X" can score a perfect `party_f1` (nothing was
+  named) and a perfect `topic_f1` while being answered from a flat top-k that
+  omits half the parties.
+- `party_f1`, `topic_f1` — set F1 of extracted parties/topics. `expected_parties`
+  means *named or implied by the question*, not *ought to be searched*: an
+  exhaustive question names none and still searches all eight.
 
 **Generation** ([`generation.py`](../src/rag/evaluation/metrics/generation.py),
 LLM-as-judge, 1–5 → [0, 1]):

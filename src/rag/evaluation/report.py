@@ -24,7 +24,7 @@ logger = logging.getLogger(__name__)
 # Preferred left-to-right ordering for metric columns; unknown keys go last (sorted).
 _COLUMN_PRIORITY = [
     "hit@", "recall@", "mrr", "ndcg@",
-    "query_type_acc", "party_f1", "topic_f1",
+    "query_type_acc", "coverage_acc", "party_f1", "topic_f1",
     "faithfulness", "answer_relevance", "correctness",
     "avg_latency_s", "error_rate",
 ]

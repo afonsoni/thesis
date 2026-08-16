@@ -35,8 +35,22 @@ class RoutingMetric:
     needs_llm = False
 
     def score(self, run: QuestionRun, question: EvalQuestion) -> Dict[str, float]:
+        """Score the analysis against the gold annotations.
+
+        ``query_type_acc`` is not independent of the other three: the route is
+        derived from the party set and the coverage decision, so it can only be
+        right when those are. It is kept because it is the headline "did the
+        pipeline pick the right strategy" number and it is comparable with runs
+        recorded before ``coverage`` existed — but read it as a summary of the
+        components below, not as extra evidence.
+
+        ``coverage_acc`` is the one that isolates the aggregative failure: an
+        analysis can name the right parties (none) and the right topic, and
+        still answer from a flat top_k that omits half of them.
+        """
         return {
             "query_type_acc": 1.0 if run.predicted_query_type == question.query_type else 0.0,
+            "coverage_acc": 1.0 if run.predicted_coverage == question.coverage else 0.0,
             "party_f1": set_f1(run.predicted_parties, question.expected_parties),
             "topic_f1": set_f1(run.predicted_topics, question.expected_topics),
         }

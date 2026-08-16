@@ -65,6 +65,7 @@ def run_question(
         run.retrieved_keys = [chunk_key(r.content) for r in results]
         run.retrieved_parties = list(dict.fromkeys(r.party_name for r in results))
         run.predicted_query_type = result.query.query_type.value
+        run.predicted_coverage = result.query.coverage.value
         run.predicted_parties = result.query.parties
         run.predicted_topics = result.query.topics
         run.context = _build_context(results, k)
