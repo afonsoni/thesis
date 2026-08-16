@@ -31,6 +31,9 @@ class StubSearcher(Searcher):
         rrf_k: int = 60,
         use_rrf: bool = True,
         use_hybrid: bool = False,
+        use_reranker: bool = False,
+        rerank_query: Optional[str] = None,
+        rerank_candidates: int = 30,
     ) -> List[SearchResult]:
         self.multi_query_calls.append(
             {
@@ -43,6 +46,9 @@ class StubSearcher(Searcher):
                 "rrf_k": rrf_k,
                 "use_rrf": use_rrf,
                 "use_hybrid": use_hybrid,
+                "use_reranker": use_reranker,
+                "rerank_query": rerank_query,
+                "rerank_candidates": rerank_candidates,
             }
         )
         if topics and self.empty_when_topics:
@@ -207,3 +213,47 @@ def test_route_naive_config_disables_routing_and_rrf():
     # Routing off means the comparison strategy never runs, so exactly one
     # unfiltered search is issued rather than one per party.
     assert len(searcher.multi_query_calls) == 1
+
+
+@pytest.mark.unit
+def test_route_passes_original_question_to_the_reranker():
+    """The cross-encoder must score the question the user asked, not a rewrite.
+
+    ``reformulated_query`` is what gets embedded, but reranking is a pairwise
+    judgement about the real information need, so the two must not be conflated.
+    """
+    searcher = StubSearcher()
+    analyzed = AnalyzedQuery(
+        original_query="O que propoe o PS para a educacao?",
+        reformulated_query="partido socialista educacao propostas",
+        query_type=QueryType.SINGLE_PARTY,
+        parties=["Partido Socialista"],
+    )
+
+    route(analyzed, searcher, config=_no_expand(use_reranker=True, rerank_candidates=25))
+
+    call = searcher.multi_query_calls[0]
+    assert call["use_reranker"] is True
+    assert call["rerank_query"] == "O que propoe o PS para a educacao?"
+    assert call["rerank_candidates"] == 25
+
+
+@pytest.mark.unit
+def test_route_comparison_reranks_every_party():
+    """Each party's shortlist is reranked against the same original question."""
+    searcher = StubSearcher()
+    analyzed = AnalyzedQuery(
+        original_query="Comparar PS e AD na saude",
+        reformulated_query="comparacao saude",
+        query_type=QueryType.COMPARISON,
+        parties=["Partido Socialista", "Aliança Democrática"],
+    )
+
+    route(analyzed, searcher, config=_no_expand(use_reranker=True))
+
+    assert len(searcher.multi_query_calls) == 2
+    assert all(c["use_reranker"] for c in searcher.multi_query_calls)
+    assert all(
+        c["rerank_query"] == "Comparar PS e AD na saude"
+        for c in searcher.multi_query_calls
+    )

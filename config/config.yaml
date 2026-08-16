@@ -65,6 +65,19 @@ retrieval:
   default_top_k: 5
   top_k_per_party: 3 # for comparison queries
 
+  # Cross-encoder reranking (variant `reranked`; off by default).
+  # Scores each (question, chunk) pair jointly instead of comparing independent
+  # embeddings, which is more accurate and far slower — hence a second pass over
+  # a shortlist rather than the corpus. Must be multilingual: the queries and the
+  # corpus are Portuguese.
+  #   BAAI/bge-reranker-v2-m3 .......................... 568M, 8k ctx (default)
+  #   cross-encoder/mmarco-mMiniLMv2-L12-H384-v1 ....... 118M, 512 ctx (faster)
+  reranker_model: "BAAI/bge-reranker-v2-m3"
+  # Candidates retrieved and scored before the reranker trims back to top_k.
+  # Reranking can only reorder what retrieval surfaced, so this is the recall
+  # ceiling of the reranked variant; raising it costs one forward pass each.
+  rerank_candidates: 30
+
 # Indexing settings
 indexing:
   # Windowing strategy: char | token | small_to_big

@@ -60,7 +60,15 @@ Entry point: `main.py`
 - `query_expander.py`: multi-query expansion.
 - `searcher.py`: similarity search + Reciprocal Rank Fusion (RRF). With
   `use_hybrid`, each query also contributes a lexical ranked list and all
-  `2 * len(queries)` lists are fused in a single RRF pass.
+  `2 * len(queries)` lists are fused in a single RRF pass. With `use_reranker`,
+  each sub-query fetches `rerank_candidates` instead of `top_k` and the fused
+  shortlist goes through the cross-encoder before the trim.
+- `reranker.py`: cross-encoder precision pass (`Reranker`, process-wide singleton
+  via `get_reranker()`). Scores the *original question* against each chunk's
+  `content` (not `parent_content`: small-to-big siblings share a parent, so
+  scoring it would tie them). Results carry `ScoreType.RERANK` — raw logits, not
+  comparable to cosine/RRF. Model-load failures raise rather than degrade to
+  un-reranked results, so a `reranked` run cannot silently report baseline numbers.
 - `router.py`: route-specific search logic (single-party, comparison, topic, general).
 - `pipeline.py`: retrieval entry point using a singleton `Searcher`.
 
@@ -81,7 +89,8 @@ Entry point: `main.py`
 #### Evaluation (`src/rag/evaluation/`)
 
 - `variants.py`: the declarative ladder of implementation steps as `RetrievalConfig`
-  presets (`naive`, `multiquery`, `routed`, `current`; reserved `reranked`/`hybrid`).
+  presets (`naive`, `multiquery`, `routed`, `current`, `hybrid`, `hybrid_only`,
+  `reranked`, `reranked_only`).
 - `dataset.py`: synthetic-anchored gold-set generation + load/save (content-hash keys).
 - `metrics/`: retrieval (hit@k/recall@k/MRR/nDCG), routing (type acc, party/topic F1),
   and LLM-judge generation (faithfulness/relevance/correctness) behind a `Metric` protocol.
@@ -144,8 +153,11 @@ Based on the dissertation draft and repository structure, near-term direction is
 1. Formal evaluation of retrieval and answer quality. **(In progress — the evaluation
    harness now exists in `src/rag/evaluation/`; next is curating `golden.json` and
    running the variant ladder to produce headline numbers.)**
-2. Retrieval upgrades beyond current baseline (hybrid search, stronger reranking, improved query planning).
-   The `use_reranker`/`use_hybrid` flags and `VARIANTS` slots are reserved for exactly this.
+2. Retrieval upgrades beyond current baseline. Hybrid search and cross-encoder
+   reranking are **implemented** (`use_hybrid`, `use_reranker`, with `hybrid`,
+   `hybrid_only`, `reranked`, `reranked_only` on the ladder); both still need
+   leaderboard numbers over a curated gold set to earn their place. Improved
+   query planning remains open.
 3. Better robustness/reproducibility (tests, experiment scripts, clearer dependency management).
 4. Optional user-facing feature exploration (e.g., quiz-oriented interaction over manifesto positions).
 

@@ -62,9 +62,19 @@ class RetrievalConfig(BaseModel):
         "programme names) that dense embeddings under-weight.",
     )
 
-    # Future rungs – flags reserved so the implementations drop in later.
+    # Cross-encoder reranking – precision pass over a wide candidate set
     use_reranker: bool = Field(
-        default=False, description="Apply a cross-encoder reranker (not yet implemented)."
+        default=False,
+        description="Re-order retrieved candidates with a cross-encoder and keep "
+        "the best top_k. Retrieval fetches rerank_candidates results first, so "
+        "the reranker has more to choose from than the caller asked for.",
+    )
+    rerank_candidates: int = Field(
+        default=30,
+        ge=1,
+        description="Candidates fetched and scored before reranking trims to top_k. "
+        "Reranking can only promote what retrieval surfaced, so this is the real "
+        "recall ceiling of the reranked variant.",
     )
 
     # Result sizing

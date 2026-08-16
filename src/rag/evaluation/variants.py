@@ -57,8 +57,20 @@ VARIANTS: Dict[str, RetrievalConfig] = {
         use_hybrid=True,
     ),
 
-    # Future rungs (flags reserved; searcher implementations pending):
-    # "reranked": RetrievalConfig(name="reranked", use_reranker=True),
+    # Rung 5 – add the cross-encoder precision pass on top of the full pipeline.
+    # Differs from `current` by exactly one flag, so the delta is the reranker's.
+    "reranked": RetrievalConfig(name="reranked", use_reranker=True),
+    # Isolates reranking against `naive`, the same way `hybrid_only` isolates the
+    # lexical half: no expansion, no routing, so the only addition is the
+    # cross-encoder re-ordering a wide single-query candidate set.
+    "reranked_only": RetrievalConfig(
+        name="reranked_only",
+        use_query_analysis=False,
+        use_routing=False,
+        use_multi_query=False,
+        use_rrf=False,
+        use_reranker=True,
+    ),
 }
 
 DEFAULT_VARIANTS: List[str] = ["naive", "current"]

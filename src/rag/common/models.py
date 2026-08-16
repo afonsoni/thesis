@@ -34,6 +34,7 @@ class ScoreType(str, Enum):
     COSINE = "cosine"
     RRF = "rrf"
     LEXICAL = "lexical"  # PostgreSQL ts_rank_cd over a Portuguese tsvector
+    RERANK = "rerank"  # Cross-encoder relevance logit – unbounded, not a similarity
 
 
 class ChunkStrategy(str, Enum):

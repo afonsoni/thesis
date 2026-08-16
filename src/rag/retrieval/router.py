@@ -70,11 +70,29 @@ def route(
 # Strategy implementations
 # ---------------------------------------------------------------------------
 
+def _search_kwargs(config: RetrievalConfig, rerank_query: str) -> Dict[str, object]:
+    """Fusion and reranking parameters shared by every route.
+
+    ``rerank_query`` is the user's original question: the cross-encoder scores
+    the pair (question, chunk), so it must see what was actually asked rather
+    than one of the generated expansions.
+    """
+    return {
+        "rrf_k": config.rrf_k,
+        "use_rrf": config.use_rrf,
+        "use_hybrid": config.use_hybrid,
+        "use_reranker": config.use_reranker,
+        "rerank_query": rerank_query,
+        "rerank_candidates": config.rerank_candidates,
+    }
+
+
 def _search_relaxing_topics(
     queries: List[str],
     searcher: Searcher,
     config: RetrievalConfig,
     topics: Optional[List[str]],
+    rerank_query: str,
     **filters,
 ) -> List[SearchResult]:
     """Search with the topic filter, retrying without it if nothing matches.
@@ -89,13 +107,12 @@ def _search_relaxing_topics(
     as a preference: narrow first, then fall back to the unfiltered search rather
     than return nothing.
     """
+    shared = _search_kwargs(config, rerank_query)
     results = searcher.multi_query_search(
         queries,
         top_k=config.top_k,
         topics=topics,
-        rrf_k=config.rrf_k,
-        use_rrf=config.use_rrf,
-        use_hybrid=config.use_hybrid,
+        **shared,
         **filters,
     )
     if results or not topics:
@@ -110,9 +127,7 @@ def _search_relaxing_topics(
         queries,
         top_k=config.top_k,
         topics=None,
-        rrf_k=config.rrf_k,
-        use_rrf=config.use_rrf,
-        use_hybrid=config.use_hybrid,
+        **shared,
         **filters,
     )
 
@@ -129,6 +144,7 @@ def _route_single_party(
     results = _search_relaxing_topics(
         queries, searcher, config,
         topics=query.topics or None,
+        rerank_query=query.original_query,
         party_name=party,
     )
     return RetrievalResult(query=query, results=results)
@@ -161,6 +177,7 @@ def _route_comparison(
             queries, searcher,
             config.model_copy(update={"top_k": config.top_k_per_party}),
             topics=query.topics or None,
+            rerank_query=query.original_query,
             party_name=party,
         )
         for party in parties
@@ -186,6 +203,7 @@ def _route_topic_exploration(
     results = _search_relaxing_topics(
         queries, searcher, config,
         topics=query.topics or None,
+        rerank_query=query.original_query,
         ideology=query.ideology_filter,
     )
     return RetrievalResult(query=query, results=results)
@@ -202,8 +220,6 @@ def _route_general(
     results = searcher.multi_query_search(
         queries,
         top_k=config.top_k,
-        rrf_k=config.rrf_k,
-        use_rrf=config.use_rrf,
-        use_hybrid=config.use_hybrid,
+        **_search_kwargs(config, query.original_query),
     )
     return RetrievalResult(query=query, results=results)

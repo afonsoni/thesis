@@ -133,6 +133,9 @@ class Searcher:
         rrf_k: int = 60,
         use_rrf: bool = True,
         use_hybrid: bool = False,
+        use_reranker: bool = False,
+        rerank_query: Optional[str] = None,
+        rerank_candidates: int = 30,
     ) -> List[SearchResult]:
         """
         Run each query independently, then fuse the ranked lists.
@@ -147,12 +150,24 @@ class Searcher:
         a *single* RRF pass. Fusing once over all ``2 * len(queries)`` lists —
         rather than fusing each modality and then fusing the fusions — keeps
         every list's contribution weighted equally and the result interpretable.
+
+        When ``use_reranker`` is True the whole search widens: every sub-query
+        retrieves ``rerank_candidates`` instead of *top_k*, the fused list keeps
+        that many, and a cross-encoder re-orders them before the trim back to
+        *top_k*. Widening is the point — a reranker can only promote what
+        retrieval already surfaced, so reranking a list of exactly *top_k* items
+        would reshuffle the answer without ever improving what is in it.
+        ``rerank_query`` is the text the cross-encoder scores against and should
+        be the user's original question, not an expansion of it.
         """
+        # Fetch depth: the reranker needs a wider net than the caller asked for.
+        fetch_k = max(top_k, rerank_candidates) if use_reranker else top_k
+
         all_lists: List[List[SearchResult]] = []
         for q in queries:
             all_lists.append(
                 self.search(
-                    q, top_k=top_k,
+                    q, top_k=fetch_k,
                     party_name=party_name, ideology=ideology,
                     topics=topics, year=year,
                 )
@@ -160,7 +175,7 @@ class Searcher:
             if use_hybrid:
                 all_lists.append(
                     self.store.lexical_search(
-                        q, top_k=top_k,
+                        q, top_k=fetch_k,
                         party_name=party_name, ideology=ideology,
                         topics=topics, year=year,
                     )
@@ -173,7 +188,22 @@ class Searcher:
         )
         logger.info(
             "Multi-query search: %d queries → %d ranked lists → %d unique results "
-            "(hybrid=%s, rrf=%s, returning top %d).",
-            len(queries), len(all_lists), len(fused), use_hybrid, use_rrf, top_k,
+            "(hybrid=%s, rrf=%s, rerank=%s, returning top %d).",
+            len(queries), len(all_lists), len(fused), use_hybrid, use_rrf,
+            use_reranker, top_k,
         )
+
+        if use_reranker and fused:
+            if not rerank_query:
+                # Refused rather than silently skipped: a variant that reports
+                # un-reranked numbers under the reranked name is worse than a crash.
+                raise ValueError(
+                    "use_reranker=True requires rerank_query (the original question)."
+                )
+            from src.rag.retrieval.reranker import get_reranker
+
+            return get_reranker().rerank(
+                rerank_query, fused[:rerank_candidates], top_k=top_k
+            )
+
         return fused[:top_k]

@@ -54,6 +54,7 @@ thesis/
 | Multi-Representation Indexing | Part 12             | `indexing/embedder.py`        |
 | Small-to-Big Retrieval        | Part 12 (variant)   | `indexing/chunker.py`         |
 | Hybrid Dense + Full-Text      | —                   | `indexing/store.py`           |
+| Cross-Encoder Reranking       | —                   | `retrieval/reranker.py`       |
 
 ## Core Components
 
@@ -136,6 +137,37 @@ the dense lists in a single RRF pass. It exists because dense embeddings
 under-weight rare exact tokens — `USF tipo C`, `TMRG`, `RES_U`,
 `Cheque-Dentista` — which are exactly the strings a user quotes when asking about
 them. Enable it per-variant (`hybrid`, `hybrid_only`) or via `RetrievalConfig`.
+
+### Cross-encoder reranking
+
+`use_reranker` adds a precision pass after fusion. Retrieval embeds the query
+and each chunk *independently*, which is what makes searching a whole corpus
+affordable and also what caps its accuracy: a chunk's vector cannot depend on
+the question. A cross-encoder reads both texts together in one forward pass —
+much more accurate, far too slow for a corpus — so it runs second, over a
+shortlist.
+
+That shortlist has to be wider than the answer or the pass is pointless:
+with the flag on, each sub-query fetches `rerank_candidates` (default 30)
+instead of `top_k`, and the reranker trims back to `top_k` at the end.
+`rerank_candidates` is therefore the recall ceiling of the reranked variant —
+reranking can reorder what retrieval found, never add to it.
+
+Two choices worth knowing:
+
+- The model scores the **original question** against each chunk's **`content`**
+  (the embedded child), not its parent section. Under `small_to_big` many
+  children share a parent, so scoring the parent would give every sibling the
+  same score and destroy the ordering. Generation still reads the parent.
+- Reranked results carry `score_type=rerank`: raw relevance logits, unbounded
+  and not comparable to cosine or RRF values.
+
+The default model is `BAAI/bge-reranker-v2-m3` (multilingual, trained on pairs
+that include Portuguese); `cross-encoder/mmarco-mMiniLMv2-L12-H384-v1` is a much
+smaller alternative. Set `retrieval.reranker_model` in `config/config.yaml`.
+Enable per-variant (`reranked`, `reranked_only`) or via `RetrievalConfig`.
+Expect higher latency — one forward pass per candidate — which the leaderboard's
+`avg_latency_s` column is there to price.
 
 ## Quick Start
 
@@ -264,8 +296,9 @@ python main.py query "Políticas ambientais dos partidos de esquerda" --top-k 10
 ## Evaluation
 
 The system is evaluated as a ladder of **implementation steps** (`naive` →
-`multiquery` → `routed` → `current`, with future `reranked`/`hybrid` rungs), all
-run over the same gold set so gains are attributable to specific techniques.
+`multiquery` → `routed` → `current` → `hybrid` → `reranked`, plus the
+`hybrid_only` / `reranked_only` isolation rungs), all run over the same gold set
+so gains are attributable to specific techniques.
 Each step is a `RetrievalConfig` preset (feature flags over the *same* production
 code) — see `src/rag/evaluation/variants.py`.
 

@@ -109,12 +109,22 @@ flowchart TD
     S --> RRF{"use_rrf?"}
     RRF -->|yes| FUSE["Reciprocal Rank Fusion (Part 6)"]
     RRF -->|no| ORDER["first-occurrence merge"]
-    FUSE --> RES["RetrievalResult (top_k)"]
-    ORDER --> RES
+    FUSE --> RR{"use_reranker?"}
+    ORDER --> RR
+    RR -->|no| RES["RetrievalResult (top_k)"]
+    RR -->|yes| CE["Cross-encoder rerank<br/>score (question, chunk) pairs<br/>over rerank_candidates"]
+    CE --> RES
 ```
 
 Routing logic lives in [`router.py`](../src/rag/retrieval/router.py); the
-similarity search + RRF live in [`searcher.py`](../src/rag/retrieval/searcher.py).
+similarity search + RRF live in [`searcher.py`](../src/rag/retrieval/searcher.py);
+the cross-encoder pass lives in [`reranker.py`](../src/rag/retrieval/reranker.py).
+
+When reranking is on, the search widens before it narrows: each sub-query
+retrieves `rerank_candidates` (default 30) rather than `top_k`, and the
+cross-encoder re-orders that shortlist before the trim. A reranker can only
+promote what retrieval surfaced, so the wide fetch is what gives it room to
+work.
 
 ---
 
@@ -157,7 +167,7 @@ flowchart LR
 
     subgraph LADDER["Variant ladder — same code, flags differ"]
         direction TB
-        V0["naive"] --> V1["multiquery"] --> V2["routed"] --> V3["current"] --> V4["reranked / hybrid<br/>(reserved)"]
+        V0["naive"] --> V1["multiquery"] --> V2["routed"] --> V3["current"] --> V4["hybrid"] --> V5["reranked"]
     end
 
     CUR --> RUN["runner<br/>run each variant over the gold set"]

@@ -14,16 +14,46 @@ Every variant is a `RetrievalConfig` preset in
 through the **same production code** (only feature flags differ), a difference in
 scores isolates the contribution of a single feature.
 
-| Variant      | analysis | routing | multi-query | RRF | Notes |
-| ------------ | :------: | :-----: | :---------: | :-: | ----- |
-| `naive`      | ✗ | ✗ | ✗ | ✗ | Single query → single similarity search → direct answer |
-| `multiquery` | ✗ | ✗ | ✓ | ✓ | + multi-query expansion (Part 5) & RRF fusion (Part 6) |
-| `routed`     | ✓ | ✓ | ✗ | ✗ | + structured query analysis & logical routing (Part 10) |
-| `current`    | ✓ | ✓ | ✓ | ✓ | The full production pipeline |
+| Variant          | analysis | routing | multi-query | RRF | hybrid | rerank | Notes |
+| ---------------- | :------: | :-----: | :---------: | :-: | :----: | :----: | ----- |
+| `naive`          | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | Single query → single similarity search → direct answer |
+| `multiquery`     | ✗ | ✗ | ✓ | ✓ | ✗ | ✗ | + multi-query expansion (Part 5) & RRF fusion (Part 6) |
+| `routed`         | ✓ | ✓ | ✗ | ✗ | ✗ | ✗ | + structured query analysis & logical routing (Part 10) |
+| `current`        | ✓ | ✓ | ✓ | ✓ | ✗ | ✗ | The full production pipeline |
+| `hybrid`         | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | + Portuguese full-text lists fused in the same RRF pass |
+| `hybrid_only`    | ✗ | ✗ | ✗ | ✓ | ✓ | ✗ | Isolates the lexical half against `naive` |
+| `reranked`       | ✓ | ✓ | ✓ | ✓ | ✗ | ✓ | + cross-encoder precision pass over a wide candidate set |
+| `reranked_only`  | ✗ | ✗ | ✗ | ✗ | ✗ | ✓ | Isolates reranking against `naive` |
 
-Future rungs (`reranked`, `hybrid`) have reserved flags (`use_reranker`,
-`use_hybrid`) and commented-out registry entries; implement the flag in the
-searcher and uncomment to put them on the leaderboard.
+Each of the last four differs from a baseline by exactly one flag, which is what
+makes the delta attributable: `hybrid` − `current` is the lexical half,
+`reranked` − `current` is the cross-encoder, and the `*_only` rungs measure the
+same two techniques against `naive` without expansion or routing in the way.
+
+### The reranked rung
+
+Reranking is the one rung that changes *how much* is retrieved, not just how it
+is ordered. With `use_reranker` on, every sub-query fetches `rerank_candidates`
+(default 30) instead of `top_k`, the fused list keeps that many, and a
+cross-encoder scores each `(question, chunk)` pair before the trim back to
+`top_k`. Widening is the point: a reranker can only promote what retrieval
+already surfaced, so `rerank_candidates` is the real recall ceiling of the
+variant — and reranking a list of exactly `top_k` items would reshuffle the
+answer without ever improving its contents.
+
+Two details worth knowing when reading the numbers:
+
+- The cross-encoder scores the **original question**, not the multi-query
+  expansions, and scores each chunk's **`content`** (the embedded child) rather
+  than its parent section — under `small_to_big` every sibling shares one parent,
+  so scoring the parent would tie them all and erase the ordering.
+- Reranked results carry `score_type=rerank`: raw relevance logits, unbounded
+  and **not** comparable to cosine or RRF scores. Rank-based metrics
+  (`hit@k`, `MRR`, `nDCG`) are unaffected; anything that reads raw score values
+  is not comparable across variants.
+
+Reranking is also the slowest rung — one forward pass per candidate — so expect
+`avg_latency_s` to rise. That trade-off is the point of measuring it.
 
 `RetrievalConfig()` with no arguments reproduces `current` exactly, so adding the
 config layer changed no default behavior.
