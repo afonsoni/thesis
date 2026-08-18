@@ -54,6 +54,12 @@ This hypothesis suggests that RAG implementations can accurately retrieve and su
 % (indexing, query time, evaluation). Rewrite the wording in your own voice;
 % cut or merge any that the final results cannot support.
 
+\TODO{Add concrete research questions under the hypothesis, derived from the
+variant ladder --- one per technique family, answerable by the evaluation chapter.
+Shape: does query analysis + routing improve retrieval over a naive baseline? does
+multi-query + RRF? does hybrid dense+lexical retrieval? does grounding reduce
+unfaithful answers?}
+
 \TODO{One short paragraph introducing the questions: say that the hypothesis
 is decomposed into questions that the evaluation harness can answer, and that
 each maps to one part of the system.}
@@ -78,13 +84,26 @@ each maps to one part of the system.}
     \item[RQ4 --- Cost.] What do these improvements cost in latency and
     computation, and which of them are worth that cost for a tool intended
     for public use?
+
+    \item[RQ5 --- Retrieval versus scale.] How does the system compare with
+    asking a language model the same question without retrieval, both in
+    answer quality and in resources consumed? Specifically, does a smaller
+    model with retrieval match or beat a stronger model without it, and at
+    what cost in latency and tokens?
 \end{description}
+
+\TODO{Decide how the open-source constraint is framed. Every component of the
+built system has an open licence or open weights, which is a defensible claim
+about reproducibility and about who can run a civic tool. It becomes a
+research question only if a proprietary comparison is actually run; otherwise
+state it as a design constraint in Chapter~\ref{ch:proposition} and revisit it
+in the discussion.}
 
 \TODO{Decide whether RQ4 stays. It is well supported --- the harness records
 latency and error rate, and the hybrid and reranking results already raise
 the question --- but it is the one most easily cut if the chapter runs long.}
 
-\TODO{Consider a fifth question on evaluation methodology: whether a
+\TODO{Consider a further question on evaluation methodology: whether a
 synthetic-anchored, hand-curated gold set is a reliable substitute for a
 human-authored one, given that no Portuguese manifesto QA dataset exists.
 This is arguably a contribution in its own right; decide whether it is a

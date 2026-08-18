@@ -13,6 +13,9 @@ chapter is built from.
   `avg_latency_s` and `error_rate`, and both the hybrid result and the
   reranker's latency raise the question naturally. It is also the least
   central of the four if the chapter runs long.
+- **Open-source framing.** Whether "built entirely from open components" is
+  a research question (needs a proprietary comparison run) or a stated design
+  constraint (needs no extra work). See `VIVA-QUESTIONS.md` item 1.
 - **A fifth RQ on gold-set methodology?** Whether a synthetic-anchored,
   hand-curated gold set substitutes for a human-authored one. Arguably the
   most novel contribution, but it may belong in the Proposition as
@@ -39,6 +42,11 @@ chapter is built from.
   bias is live (the config file already warns about it). Pick the final models
   before the headline evaluation runs, because every number in the results
   section depends on them.
+- **No-retrieval baseline for RQ5.** RQ5 (retrieval versus scale) needs a
+  rung on the ladder with retrieval disabled, run over the same gold set with
+  the same judge, plus ideally one run against a stronger model without
+  retrieval. Until that exists, RQ5 is unanswerable and should not stay in the
+  Introduction.
 - **Gold-set curation.** The ~30–50 hand-curated questions in `golden.json`
   are not confirmed done. Headline numbers are blocked until they are.
 - **Reranker verdict.** Implemented (`05908ac`, cross-encoder
