@@ -15,3 +15,9 @@ data/eval/reports/
 
 # Overleaf upload bundle (rebuild with `./scripts/sync_overleaf.sh --zip`)
 dissertation-overleaf.zip
+
+# macOS Finder metadata
+.DS_Store
+
+# Unzipped copy of the Overleaf bundle
+dissertation-overleaf/
