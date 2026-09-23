@@ -8,12 +8,30 @@ return values, and integration with the config system.
 import glob
 import logging
 import os
+import re
 import subprocess
 from typing import List, Optional
 
 from src.utils.config_loader import config
 
 logger = logging.getLogger(__name__)
+
+# Markdown image, with or without a target: marker emits ![](_page_0_Picture_0.jpeg),
+# and its LLM pass occasionally invents ![alt](https://...) or a bare ![alt].
+_IMAGE_RE = re.compile(r"!\[[^\]]*\](\([^)]*\))?")
+
+
+def strip_images(text: str) -> str:
+    """Remove markdown image references and the blank runs they leave behind."""
+    text = _IMAGE_RE.sub("", text)
+    return re.sub(r"\n{3,}", "\n\n", text)
+
+
+def strip_images_in_file(md_path: str) -> None:
+    with open(md_path, encoding="utf-8") as fh:
+        text = fh.read()
+    with open(md_path, "w", encoding="utf-8") as fh:
+        fh.write(strip_images(text))
 
 
 def parse_pdfs(
@@ -57,6 +75,7 @@ def parse_pdfs(
             "--output_dir", output_dir_value,
             "--output_format", output_format,
             "--use_llm",
+            "--disable_image_extraction",
         ]
 
         try:
@@ -72,6 +91,7 @@ def parse_pdfs(
             md_pattern = os.path.join(output_dir_value, "**", "*.md")
             for md_path in glob.glob(md_pattern, recursive=True):
                 if md_path not in generated:
+                    strip_images_in_file(md_path)
                     generated.append(md_path)
 
         except FileNotFoundError:
