@@ -33,6 +33,10 @@ Once an entry is answered, it gets drafted into the matching `\TODO` in
 
 **Your answer**
 
+Both `pdfminer` and `pymupdf` were not able to extract the PDF text properly. Honestly, I didn't care about columns, tables, or graphs. Images also not.
+What I really cared the most was that the text was properly extracted, and that I would not neet to make a lot of manual changes. Besides pdfminer and pymupdf I also tried a Microsoft PDF extractor, but again, it wasn't as good as marker.
+The nicest thing about marker, was that it was extracting from PDF directly to markdown, it was open source, local and was free. That last reason was also the reason to rule out some other parsers like LlamaParse. Also the fact it is not built on Gen AI, but regular embedding text extractors. It has a VLM, but it only calls it where necessary, which improves speed while keeping accuracy.
+Finally, Markdown headers ended up being needed for header-aware chunking. I didn't spend much time on this. I mostly looked for the first tool that worked well for what I was needing.
 
 ---
 
@@ -57,6 +61,9 @@ Once an entry is answered, it gets drafted into the matching `\TODO` in
 
 **Your answer**
 
+I mostly fixed some broken headers and removed text that was not important. Basically the differences you can see between the regular extracted text and the manual variant. Check it please and fill in the missing parts.
+I only got to fix those parties for now. I want to fix the rest soon. All parties should have a manual version before embedding. Perhaps I wil rerun marker with new settings, as it has gotten a newer version, and check if indeed we get less errors.
+It took a while to fix a single political party program (around 20-30 minutes, depending on size and amount of things that must be cleaned up). We should try to make the cleanup of markdown political programs automated, so that in the future we can just had new political programs, from other years, for example, to add even more context to the RAG system.
 
 ---
 
@@ -84,6 +91,11 @@ Once an entry is answered, it gets drafted into the matching `\TODO` in
 
 **Your answer**
 
+The first embedding model (all-MiniLM-L6-v2) was just to get things started. Indeed, starting with an embedding that doesn't work with Portuguese meant that the first results I was getting were not good, but at least I could see that the RAG system was working. After having the RAG system working, then I started seeing how I could improve results. One of the first things I thought about was the embedding model: how can I get the embeddings to work best for the language in the political parties' programs.
+The first time I started seeing actual ok results was when I started using serafim, which I found either on HuggingFace or on a paper on portuguese encoders (https://arxiv.org/html/2407.19527v1). I don't remember which one came first.
+On HuggingFace it had one of the best results in Portuguese encoding. Especially since it was tuned for information retrieval (IR). It was also a sentence transformer made for Portuguese, by Portuguese. However, it also became less interesting because it had a big limitation: max_seq_length is 128 tokens. Our median chunk was 365 tokens. I did not notice it at the time of choosing, and only after a while of testing, was I able to understand its limitation. Once the limitation was found, it was time to choose another embedding model.
+For now we use Qwen embedding, but I still wonder if there is another possible one, better for Portuguese. I still would like to compare our current Embedding model to Bertimbau or some other embedding model that is currently on the top of Portuguese embeddings, especially for information retrieval. But how would I compare it? How does one compare embedding models/encoders/decoders etc? What are the differences, even? Should we shortly explain that in the thesis?
+Perhaps changing the model is something for the future.
 
 ---
 
@@ -110,6 +122,14 @@ Once an entry is answered, it gets drafted into the matching `\TODO` in
 
 **Your answer**
 
+At first, I was really unaware of the amount of vector databases that existed, and what each was able to offer. Not only have we Milvus, but also some other databases that I wondered using. Perhaps a list of various databases are somewhere in the repo or Obsidian notes. I also found my original source for choosing a vector database, [here](https://medium.com/@mutahar789/optimizing-rag-a-guide-to-choosing-the-right-vector-database-480f71a33139)
+I also found a newer website with some more recent information that can help us understand why I was going for one vector database instead of another [here](https://www.braintrust.dev/articles/best-vector-databases-for-rag-2026)
+I thought of using Milvus because I saw the amount of people online (various Medium posts and Reddit users) that mentioned how barebones, fast and overall how good it was. Because of that, and also because I thought I would need a dedicated vector database for this project, I decided to give it a try. However, I got immediately frustrated with the setup of it, it was more complicated than it should've been.
+Ended up falling through a rabbithole on databases and vector databases and started overcomplicating the issue. Eventually, I found a video that said: [I replaced my entire stack with Postgres...](https://www.youtube.com/watch?v=TdondBmyNXc), where the video essayest mentions replacing the vector database he was using (Pinecone) with Postgresql, using something called pgvector. Why wasn't PostgreSQL never on the table before? I started thinking how I already knew how to use Postgres quite well. Also, the use cases seemed to suit my own very well, and the project I'm doing doesn't require a big dedicated vector database from a specfic manufacturer, it can very well survive being a postgres instance. Also, postgres is open-source. Almost none of the other vector databases were open source. The video essayist also mentions several interesting things, like:
+- PostgreSQL has reliable task queues
+- Full text search
+- Hybrid vector search
+There is more information on [this article](https://volito.digital/how-postgresql-replaces-elasticsearch-redis-kafka-pinecone-and-mongodb-using-extensions-for-ai-vectors-queues-caching-and-search/)
 
 ---
 
@@ -135,6 +155,14 @@ Once an entry is answered, it gets drafted into the matching `\TODO` in
 
 **Your answer**
 
+This was a doozy. At first, I tried to use local models to not only test my system, but also because they were self contained models, open source and free. 2 years ago, on 2024, when the thesis started, using an LLM for free was still rare. The only way to use a LLM for free, was by either running it yourself, or paying a subscription. You could also create an OpenAI account and use their weaker models for free (until a certain point), but that was a business tactic to have more people using ChatGPT and I didn't want to do that. So we started using Ollama, with varied outcomes. Some better, some worse. The biggest problem was that my machine was not powerful enough to run good models, only the smaller ones. Also, the responses were usually quite slow. That was hindering the progress of the thesis in a way, by not giving me the best results and also waiting so long for things to happen, so we had to change.
+I do not remember if Gemini came after right away or if it was after another mistaken route I took, to use something called LlamaAPI. This was something similar to OpenRouter, where you would choose a model to call, and the API would route your call to the proper place (maybe check OpenRouter to understand how that works, as this was basically the same thing). That was shortlived. I added $10 to that API, but after a while, it was deprecated and I was not able to retrieve those $10 anymore. There was no reason for the closure. The website was [this one](https://www.llama-api.com/), though you cannot even access it anymore. Because of that, I tried to steer away from anything similar (hence why it took so long to go back to something similar, like OpenRouter). So I used Gemini for a while, as that was the same thing that was being used at my work. Also because their models are quite ok, they were cheap and I was able to get some free credits to try Google's models and their APIs, so I figured: why not? The quality on Portuguese was also quite ok. The models used at the time were Gemini 2.5 Flash and Pro. I used Gemini for a while, but that was also prone to problems, such as quotas and also because I wanted to easily try other models, and was not able to using only Google's API. Because of that, went on the look for something simpler, and better. OpenRouter was mentioned online, in newsletters that I received on my email and at work, too, by fellow colleagues who like to experiment with LLMs. Knowing about everyone's general good experience with it, I decided to give it a go. Perfect stuff, I can change models easily, and even use the free tier Gemma 4 without a hassle. This made me happy.
+The reasons to use Gemma 4 are:
+- It's a really competent LLM, despite its size
+- It's free
+- It is an open model
+- Works surprisingly well with Portuguese
+- I can easily make a lot of calls in a row (that's mostly on OpenRouter, I guess)
 
 ---
 
@@ -165,6 +193,9 @@ Once an entry is answered, it gets drafted into the matching `\TODO` in
 
 **Your answer**
 
+The whole ordeal with the variations of RAG systems, is because I wanted to check the differences between them. How better is agentic RAG versus a base/naive RAG? What about corrective RAG? However, it ended up being slightly different, because it was hard creating those different variants. And also, once I understood precisely what Corrective RAG was and what I would need to do to implement it, with the whole "go online to correct your assumption" (check what Corrective RAG is exactly, I know it has web searches), I ended up not creating it.
+Instead, I started adding more and more features until we got what we currently have (which is still not at the level I'd like it to be. But then again, when would it?). So the way I'd like to
+I also got some inspiration from [OpenRAG](https://openragmoe.github.io/)
 
 ---
 
