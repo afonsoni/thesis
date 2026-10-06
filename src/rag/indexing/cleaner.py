@@ -23,14 +23,13 @@ import json
 import logging
 import os
 import re
-import threading
 import time
 from collections import Counter
 from typing import Dict, List, Literal, Optional
 
 from pydantic import BaseModel, Field
 
-from src.rag.common.llm_client import generate_structured
+from src.rag.common.llm_client import call_with_wait_out, generate_structured
 from src.rag.indexing.parser import strip_images
 from src.utils.config_loader import config
 
@@ -44,10 +43,7 @@ CALL_DELAY_SECS = float(config.get("indexing.classification_delay", 1.0))
 WAIT_OUT_ATTEMPTS = 10
 WAIT_OUT_BASE_SECS = 30
 WAIT_OUT_MAX_SECS = 300
-# Wall-clock cap on one structured call (transport retries included). Gemini can
-# hold a connection open for 15+ minutes without answering, which a per-read
-# socket timeout never catches.
-CALL_DEADLINE_SECS = 600
+CALL_DEADLINE_SECS = 600  # wall-clock cap per call, transport retries included
 MAX_DROP_RANGE_FRACTION = 0.05
 
 _SPAN_RE = re.compile(r"</?span[^>]*>")
@@ -216,44 +212,16 @@ def _strip_marker(line: str) -> str:
     return _unbold(m.group(2) if m else line)
 
 
-def _with_deadline(fn, secs: float):
-    """Run *fn* in a daemon thread; raise TimeoutError if it has not returned in *secs*.
-
-    A hung call's thread is abandoned (daemon, so it cannot block exit).
-    """
-    box: Dict[str, object] = {}
-
-    def run():
-        try:
-            box["value"] = fn()
-        except BaseException as exc:  # noqa: BLE001 - re-raised in the caller's thread
-            box["error"] = exc
-
-    worker = threading.Thread(target=run, daemon=True)
-    worker.start()
-    worker.join(secs)
-    if worker.is_alive():
-        raise TimeoutError(f"no answer within {secs:.0f}s")
-    if "error" in box:
-        raise box["error"]  # type: ignore[misc]
-    return box["value"]
-
-
 def _plan_batch(prompt: str, model: str, party: str, batch_no: int) -> StructurePlan:
-    for attempt in range(WAIT_OUT_ATTEMPTS):
-        try:
-            return _with_deadline(
-                lambda: generate_structured(prompt, StructurePlan, model=model, temperature=0.0,
-                                            max_tokens=4000, timeout_seconds=180),
-                CALL_DEADLINE_SECS,
-            )
-        except Exception as exc:  # noqa: BLE001 - transport/JSON errors are retried, then raised
-            if attempt == WAIT_OUT_ATTEMPTS - 1:
-                raise
-            wait = min(WAIT_OUT_MAX_SECS, WAIT_OUT_BASE_SECS * (attempt + 1))
-            logger.warning("%s batch %d failed (%s); waiting %ds", party, batch_no, str(exc)[:120], wait)
-            time.sleep(wait)
-    raise AssertionError("unreachable")
+    return call_with_wait_out(
+        lambda: generate_structured(prompt, StructurePlan, model=model, temperature=0.0,
+                                    max_tokens=4000, timeout_seconds=180),
+        label=f"{party} batch {batch_no}",
+        attempts=WAIT_OUT_ATTEMPTS,
+        base_secs=WAIT_OUT_BASE_SECS,
+        max_secs=WAIT_OUT_MAX_SECS,
+        deadline_secs=CALL_DEADLINE_SECS,
+    )
 
 
 def _load_cache(path: Optional[str], fingerprint: str) -> Dict[str, dict]:

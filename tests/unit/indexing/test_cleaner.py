@@ -136,8 +136,8 @@ def test_plan_cache_resumes_without_new_calls(tmp_path, monkeypatch):
 def test_with_deadline_abandons_a_hung_call():
     import time
 
-    from src.rag.indexing.cleaner import _with_deadline
+    from src.rag.common.llm_client import with_deadline
 
-    assert _with_deadline(lambda: 42, 1) == 42
+    assert with_deadline(lambda: 42, 1) == 42
     with pytest.raises(TimeoutError):
-        _with_deadline(lambda: time.sleep(5), 0.1)
+        with_deadline(lambda: time.sleep(5), 0.1)

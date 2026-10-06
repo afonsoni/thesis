@@ -29,6 +29,8 @@ class TestClassifierBatching:
 
     def test_classify_chunks_fails_on_batch_error(self, monkeypatch):
         monkeypatch.setenv("OPENROUTER_API_KEY", "test-key")
+        monkeypatch.setattr("src.rag.indexing.classifier.WAIT_OUT_ATTEMPTS", 2)
+        monkeypatch.setattr("src.rag.common.llm_client.time.sleep", lambda s: None)
         chunks = [Chunk(content="Investimento e crescimento economico")]
 
         with patch(
@@ -38,8 +40,22 @@ class TestClassifierBatching:
             with pytest.raises(RuntimeError):
                 classify_chunks(chunks, batch_size=1, delay=0)
 
-        assert mocked.call_count == 1
+        assert mocked.call_count == 2  # waited out once, then raised
         assert chunks[0].topics == ["outros"]
+
+    def test_classify_chunks_recovers_from_a_transient_error(self, monkeypatch):
+        monkeypatch.setenv("OPENROUTER_API_KEY", "test-key")
+        monkeypatch.setattr("src.rag.common.llm_client.time.sleep", lambda s: None)
+        chunks = [Chunk(content="Investimento e crescimento economico")]
+        ok = [TopicClassification(categorias=["economia"], confianca=4, palavras_chave=[])]
+
+        with patch(
+            "src.rag.indexing.classifier._classify_batch_with_llm",
+            side_effect=[RuntimeError("503 high demand"), ok],
+        ):
+            classify_chunks(chunks, batch_size=1, delay=0)
+
+        assert chunks[0].topics == ["economia"]
 
     def test_classify_chunks_requires_api_key(self, monkeypatch):
         monkeypatch.delenv("OPENROUTER_API_KEY", raising=False)
@@ -54,6 +70,8 @@ class TestClassifierBatching:
 
     def test_classify_chunks_fails_on_partial_batch_response(self, monkeypatch):
         monkeypatch.setenv("OPENROUTER_API_KEY", "test-key")
+        monkeypatch.setattr("src.rag.indexing.classifier.WAIT_OUT_ATTEMPTS", 2)
+        monkeypatch.setattr("src.rag.common.llm_client.time.sleep", lambda s: None)
         chunks = [
             Chunk(content="Crescimento economico e investimento"),
             Chunk(content="Reforco do SNS com mais medicos"),

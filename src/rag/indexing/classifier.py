@@ -20,7 +20,7 @@ from src.rag.common.models import (
     Chunk,
     TopicClassification,
 )
-from src.rag.common.llm_client import generate_structured, generate_structured_batch
+from src.rag.common.llm_client import call_with_wait_out, generate_structured, generate_structured_batch
 from src.utils.config_loader import config
 logger = logging.getLogger(__name__)
 
@@ -29,6 +29,10 @@ logger = logging.getLogger(__name__)
 # ---------------------------------------------------------------------------
 
 DEFAULT_RPM_DELAY = 1.0
+# Per-batch retries before giving up. A failed batch still aborts the run (no
+# default topics are ever filled in); waiting first keeps one free-tier outage
+# from throwing away a whole party's classification.
+WAIT_OUT_ATTEMPTS = int(config.get("indexing.classification_wait_out_attempts", 10))
 DEFAULT_CLASSIFICATION_MODEL = str(
     config.get(
         "indexing.classification_model",
@@ -247,8 +251,22 @@ def classify_chunks(
                 }
             )
 
+        def classify_batch(payload=batch_payload, expected=len(batch_chunks)):
+            results = _classify_batch_with_llm(payload, model=selected_model)
+            # A short answer is as transient as a 503: retried with the rest.
+            if len(results) != expected:
+                raise RuntimeError(
+                    "Incomplete batch classification response: "
+                    f"expected {expected} results, got {len(results)}"
+                )
+            return results
+
         try:
-            results = _classify_batch_with_llm(batch_payload, model=selected_model)
+            results = call_with_wait_out(
+                classify_batch,
+                label=f"classification of chunks {batch_start}-{batch_end - 1}",
+                attempts=WAIT_OUT_ATTEMPTS,
+            )
         except Exception as exc:
             logger.error(
                 "LLM batch classification failed for chunks %d-%d: %s",
@@ -257,12 +275,6 @@ def classify_chunks(
                 exc,
             )
             raise
-
-        if len(results) != len(batch_chunks):
-            raise RuntimeError(
-                "Incomplete batch classification response: "
-                f"expected {len(batch_chunks)} results, got {len(results)}"
-            )
 
         for idx, tc in enumerate(results):
             batch_chunks[idx].topics = tc.categorias

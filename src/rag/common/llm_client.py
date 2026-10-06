@@ -9,7 +9,9 @@ JSON parsing, and optional schema validation.
 import json
 import logging
 import re
-from typing import Any, Dict, List, Optional
+import threading
+import time
+from typing import Any, Callable, Dict, List, Optional, TypeVar
 
 from pydantic import BaseModel
 
@@ -17,6 +19,60 @@ from src.rag.common.llm_transport import call_openrouter_with_retries
 from src.utils.config_loader import config
 
 logger = logging.getLogger(__name__)
+
+T = TypeVar("T")
+
+
+def with_deadline(fn: Callable[[], T], secs: float) -> T:
+    """Run *fn* in a daemon thread; raise TimeoutError if it has not returned in *secs*.
+
+    Gemini can hold a connection open for many minutes without answering, which a
+    per-read socket timeout never catches. A hung call's thread is abandoned
+    (daemon, so it cannot block interpreter exit).
+    """
+    box: Dict[str, Any] = {}
+
+    def run():
+        try:
+            box["value"] = fn()
+        except BaseException as exc:  # noqa: BLE001 - re-raised in the caller's thread
+            box["error"] = exc
+
+    worker = threading.Thread(target=run, daemon=True)
+    worker.start()
+    worker.join(secs)
+    if worker.is_alive():
+        raise TimeoutError(f"no answer within {secs:.0f}s")
+    if "error" in box:
+        raise box["error"]
+    return box["value"]
+
+
+def call_with_wait_out(
+    fn: Callable[[], T],
+    label: str,
+    attempts: int = 10,
+    base_secs: float = 30,
+    max_secs: float = 300,
+    deadline_secs: float = 600,
+) -> T:
+    """Call *fn*, waiting out transient failures; re-raise once *attempts* run out.
+
+    For batch jobs on the free tier, where 429/500/503s and timeouts come in bursts
+    that outlast the transport's few quick retries. Still fail-fast in the sense
+    that matters: the last error is raised, never swallowed into a default.
+    """
+    for attempt in range(attempts):
+        try:
+            return with_deadline(fn, deadline_secs)
+        except Exception as exc:  # noqa: BLE001 - retried, then re-raised
+            if attempt == attempts - 1:
+                raise
+            wait = min(max_secs, base_secs * (attempt + 1))
+            logger.warning("%s failed (%s); waiting %ds (attempt %d/%d)",
+                           label, str(exc)[:120], wait, attempt + 1, attempts)
+            time.sleep(wait)
+    raise AssertionError("unreachable")
 
 
 def generate_text(
