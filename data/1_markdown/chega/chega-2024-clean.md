@@ -128,13 +128,13 @@ O programa do partido CHEGA constitui uma arma para ressuscitar um país em que 
 
 ## I CAPÍTULO O QUE JÁ FIZEMOS PARA LIMPAR PORTUGAL DA CORRUPÇÃO
 
-### PROJECTO DE LEI Nº 45/XV/1ª (CH)
+**PROJECTO DE LEI Nº 45/XV/1ª (CH)**
 
 Altera o Regime do Exercício de funções por titulares de cargos políticos e altos cargos públicos no sentido de limitar negócios com familiares.
 
 **SEM VOTAÇÃO**
 
-### PROJECTO DE LEI Nº 189/XV/1ª (CH)
+**PROJECTO DE LEI Nº 189/XV/1ª (CH)**
 
 Aprova as regras de transparência aplicáveis a entidades privadas que realizam representação legítima de Interesses ("Lobbying") junto de entidades públicas, criando um registo de transparência da representação de interesses junto da Assembleia da República.
 
@@ -142,11 +142,11 @@ Aprova as regras de transparência aplicáveis a entidades privadas que realizam
 
 **CONTRA** Partido Socialista, PCP, BE **ABSTENÇÃO** PSD, PAN, Livre **FAVOR** CHEGA, IL
 
-### PROJECTO DE LEI Nº 94/XV/1ª (CH)
+**PROJECTO DE LEI Nº 94/XV/1ª (CH)**
 
 Criação do Estatuto do Arguido Colaborador e agravamento das penas aplicáveis aos crimes de corrupção previstos no Código Penal.
 
-### PROJECTO DE LEI Nº 370/XV/1ª (CH)
+**PROJECTO DE LEI Nº 370/XV/1ª (CH)**
 
 Alteração dos prazos de prescrição dos crimes sexuais contra menores e de um conjunto de crimes de corrupção.
 
@@ -372,23 +372,23 @@ técnicos de reinserção social:
 
 ## II CAPÍTULO O QUE JÁ FIZEMOS PARA UMA JUSTIÇA QUE FUNCIONE
 
-### PROJECTO DE LEI 150/XV/1 (CH)
+**PROJECTO DE LEI 150/XV/1 (CH)**
 
 Impede a suspensão da execução da pena em caso de condenação por crime de de abuso sexual de crianças ou outros conexos.
 
-### PROJECTO DE LEI 156/XV/1 (CH)
+**PROJECTO DE LEI 156/XV/1 (CH)**
 
 Reforça a protecção das vítimas de devassa da vida privada por meio de partilha não consentida de conteúdos de cariz sexual.
 
-### PROJECTO DE LEI 600/XV/1 (CH)
+**PROJECTO DE LEI 600/XV/1 (CH)**
 
 Aumenta a protecção das vítimas de abuso sexual de menores, para tanto alterando o Código Penal.
 
-### PROJECTO DE LEI 672/XV/1 (CH)
+**PROJECTO DE LEI 672/XV/1 (CH)**
 
 Assegura o pagamento do suplemento para compensação do trabalho de recuperação dos atrasos processuais.
 
-### PROJECTO DE LEI 678/XV/1 (CH)
+**PROJECTO DE LEI 678/XV/1 (CH)**
 
 Reforça a protecção dos idosos que sejam vítimas de crimes.
 
@@ -500,7 +500,7 @@ progressão, assim como seguros de vida e de acidentes de trabalho, a cobrir 24h
 
 ## III CAPÍTULO O QUE JÁ FIZEMOS PARA TORNAR PORTUGAL SEGURO
 
-### PROJECTO DE LEI 916/XV/2 (CH)
+**PROJECTO DE LEI 916/XV/2 (CH)**
 
 Aumenta para 500 Euros a componente fixa do suplemento por serviço e risco nas forças de segurança auferido pelos militares da GNR e pelos agentes da PSP
 
@@ -508,7 +508,7 @@ Aumenta para 500 Euros a componente fixa do suplemento por serviço e risco nas 
 
 **ABSTENÇÃO** PSD, IL, PCP, BE, L **FAVOR** CHEGA, PAN
 
-### PROJECTO DE LEI 23/XV/1 (CH)
+**PROJECTO DE LEI 23/XV/1 (CH)**
 
 Criminaliza o incitamento ao ódio contra os membros dos órgãos de polícia criminal e órgãos judiciais
 
@@ -516,7 +516,7 @@ Criminaliza o incitamento ao ódio contra os membros dos órgãos de polícia cr
 
 **CONTRA** Partido Socialista, IL, PCP, BE, PAN, L **ABSTENÇÃO** PSD **FAVOR** CHEGA
 
-### PROJECTO DE RESOLUÇÃO 867/XV/1 (CH)
+**PROJECTO DE RESOLUÇÃO 867/XV/1 (CH)**
 
 Pela Prevenção do Suicídio nas Forças de Segurança
 
@@ -524,15 +524,15 @@ Pela Prevenção do Suicídio nas Forças de Segurança
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** PCP, L **FAVOR** PSD, CHEGA, IL, BE
 
-### PROJECTO DE LEI Nº 370/XV/1ª (CH)
+**PROJECTO DE LEI Nº 370/XV/1ª (CH)**
 
 Alteração dos prazos de prescrição dos crimes sexuais contra menores e de um conjunto de crimes de corrupção.
 
-### PROJECTO DE RESOLUÇÃO 667/XV/1
+**PROJECTO DE RESOLUÇÃO 667/XV/1**
 
 Recomenda ao Governo o reconhecimento do Comando Nacional de Bombeiros
 
-### PROPOSTA DE ALTERAÇÃO OE 24 Nº 233C
+**PROPOSTA DE ALTERAÇÃO OE 24 Nº 233C**
 
 Classificação da profissão de desgaste rápido para os sapadores florestais
 
@@ -692,19 +692,19 @@ vés de tecnologias digitais;
 
 ## IV CAPÍTULO O QUE JÁ FIZEMOS PARA GARANTIR O ACESSO À SAÚDE
 
-### PROJECTO DE LEI 812/XV/1 (CH)
+**PROJECTO DE LEI 812/XV/1 (CH)**
 
 Altera o Decreto-Lei n.º 298/2007, de 22 de agosto, de forma a garantir o acesso universal a Médico Especialista em Medicina Geral e Familiar
 
-### PROJECTO DE LEI 880/XV/1 (CH)
+**PROJECTO DE LEI 880/XV/1 (CH)**
 
 Altera a Lei de Bases da Saúde, estabelecendo a obrigação do Estado referenciar os utentes do Serviço Nacional de Saúde (SNS) para atendimento nos sectores privado ou social em caso de esgotamento dos tempos máximos de resposta garantidos
 
-### PROJECTO DE RESOLUÇÃO 750/XV/1 (CH)
+**PROJECTO DE RESOLUÇÃO 750/XV/1 (CH)**
 
 Recomenda ao Governo que adote medidas para aumentar a eficácia, eficiência e produtividade do Serviço Nacional de Saúde, particularmente nas zonas e regiões mais carenciadas
 
-### PROJECTO DE RESOLUÇÃO 940/XV/2
+**PROJECTO DE RESOLUÇÃO 940/XV/2**
 
 Recomenda ao Governo o alargamento urgente da Rede de Cuidados Paliativos
 
@@ -824,23 +824,23 @@ colas, hospitais e áreas de lazer nas áreas identificadas para expansão habit
 
 ## V CAPÍTULO O QUE JÁ FIZEMOS PARA ASSEGURAR HABITAÇÃO DIGNA
 
-### PROJECTO DE LEI 567/XV/1 (CH)
+**PROJECTO DE LEI 567/XV/1 (CH)**
 
 Recomenda ao Governo que identifique o património imobiliário habitacional do Estado que está a ser indevidamente utilizado, alvo de fraude ou a necessitar de obras de reabilitação
 
-### PROJECTO DE LEI 873/XV/1 (CH)
+**PROJECTO DE LEI 873/XV/1 (CH)**
 
 Estabelece a contribuição de solidariedade temporária sobre o sector bancário, destinada ao financiamento de programas de apoio à habitação
 
-### PROJECTO DE LEI 673/XV/1 (CH)
+**PROJECTO DE LEI 673/XV/1 (CH)**
 
 Reforça os incentivos à estabilidade nos contratos de arrendamento para habitação própria e permanente por via da redução das taxas de tributação autónoma
 
-### PROJECTO DE LEI 470/XV/1 (CH)
+**PROJECTO DE LEI 470/XV/1 (CH)**
 
 Cria um programa de apoio aos jovens para compra de habitação própria e permanente
 
-### PROJECTO DE LEI 299/XV/1 (CH)
+**PROJECTO DE LEI 299/XV/1 (CH)**
 
 Estabelece medidas de apoio e protecção dos particulares, por motivo do aumento das taxas de juros aplicáveis aos contratos de financiamento à aquisição de habitação própria e permanente
 
@@ -984,25 +984,25 @@ mento passe a ser opcional e o seu currículo assegure imparcialidade ideológic
 
 ## VI CAPÍTULO O QUE JÁ FIZEMOS PARA LIBERTAR O ENSINO DE IDEOLOGIAS
 
-### PROJECTO DE LEI 891/XV/1 ª (CH)
+**PROJECTO DE LEI 891/XV/1 ª (CH)**
 
 Consagra a obrigatoriedade da existência de canais de denúncia de assédio moral e sexual nas Instituições de Ensino Superior
 
 **SEM VOTAÇÃO**
 
-### PROJECTO DE LEI 101/XV/1 (CH)
+**PROJECTO DE LEI 101/XV/1 (CH)**
 
 Novo regime jurídico da lecionação e da organização da disciplina e área curricular de Cidadania e Desenvolvimento (CD) nos estabelecimentos dos ensinos básico e secundário
 
-### PROJECTO DE LEI 106/XV/1 (CH)
+**PROJECTO DE LEI 106/XV/1 (CH)**
 
 Atribui ajudas de custo a professores do ensino básico e secundário que se encontrem deslocados
 
-### PROJECTO DE LEI 321/XV/1 (CH)
+**PROJECTO DE LEI 321/XV/1 (CH)**
 
 Determina a universalidade da gratuidade dos manuais escolares para todos os alunos do ensino obrigatório
 
-### PROJECTO DE LEI 886/XV/1 (CH)
+**PROJECTO DE LEI 886/XV/1 (CH)**
 
 Procede à isenção de propinas para alunos a frequentar estágios profissionais obrigatórios em cursos do ensino superior, transversal a todas as áreas de estudo, alterando a Lei n.º 37/2003, de 22 de agosto, que estabelece as bases do financiamento do ensino superior
 
@@ -1102,7 +1102,7 @@ Assim, e perante a actual política migratória irresponsável de "portas aberta
 
 ## VII CAPÍTULO O QUE JÁ FIZEMOS PARA GARANTIR FRONTEIRAS CONTROLADAS
 
-### PROJECTO DE LEI 34/XV/1 (CH)
+**PROJECTO DE LEI 34/XV/1 (CH)**
 
 Revoga a reestruturação do sistema português de controlo de fronteiras decorrente da Lei n.º 73/2021, de 12 de novembro, repondo a estrutura orgânica e as missões do Serviço de Estrangeiros e Fronteiras
 
@@ -1110,7 +1110,7 @@ Revoga a reestruturação do sistema português de controlo de fronteiras decorr
 
 **CONTRA** Partido Socialista, BE, PAN, L **ABSTENÇÃO** PCP **FAVOR** PSD, CHEGA, IL
 
-### PROJECTO DE LEI 824/XV/1 (CH)
+**PROJECTO DE LEI 824/XV/1 (CH)**
 
 Revoga as normas da Lei n.º 23/2007, de 4 de julho, que criaram a possibilidade de emissão de visto para procura de trabalho (10.ª alteração à Lei n.º 23/2007, de 4 de julho (Entrada, permanência, saída e afastamento de estrangeiros do território nacional)
 
@@ -1118,11 +1118,11 @@ Revoga as normas da Lei n.º 23/2007, de 4 de julho, que criaram a possibilidade
 
 **CONTRA** Partido Socialista, PSD, IL, PCP, BE, PAN, L **ABSTENÇÃO** --- **FAVOR** CHEGA
 
-### PROJECTO DE LEI 911/XV/2 (CH)
+**PROJECTO DE LEI 911/XV/2 (CH)**
 
 Altera a lei da nacionalidade tornando os critérios de aquisição de nacionalidade mais equilibrados
 
-### PROPOSTA DE ALTERAÇÃO OE 24 Nº 135C (CH)
+**PROPOSTA DE ALTERAÇÃO OE 24 Nº 135C (CH)**
 
 Artigo 80.º-A (Programa Nacional para auxílio de retorno de pessoas estrangeiras em situação de sem-abrigo à sua pátria)
 
@@ -1246,7 +1246,7 @@ com o mesmo fim, mas celebrados com prazo superior a 10 anos, a taxa autónoma a
 
 ## VIII CAPÍTULO O QUE JÁ FIZEMOS PARA DAR MAIS RENDIMENTOS ÀS FAMÍLIAS E EMPRESAS
 
-### PROPOSTA DE ALTERAÇÃO OE24 Nº177C (CH)
+**PROPOSTA DE ALTERAÇÃO OE24 Nº177C (CH)**
 
 N.º 1, N.º 2, N.º 5, Artigo 87.º do código do IRC, constante do Artigo 144.º da PPL / Imposto sobre o rendimento das pessoas coletivas.
 
@@ -1260,7 +1260,7 @@ N.º 1, N.º 2, N.º 5, Artigo 87.º do código do IRC, constante do Artigo 144.
 
 **CONTRA** Partido Socialista, PSD, IL **ABSTENÇÃO** PCP, L **FAVOR** CHEGA, BE, PAN
 
-### PROPOSTA DE ALTERAÇÃO OE 24 Nº 1590C (CH)
+**PROPOSTA DE ALTERAÇÃO OE 24 Nº 1590C (CH)**
 
 Artigo 161.º-A (Redução do valor do IUC)
 
@@ -1270,11 +1270,11 @@ tor bancário)
 
 **CONTRA** Partido Socialista, PSD, PCP, BE, PAN, L **ABSTENÇÃO** IL **FAVOR** CHEGA
 
-### PROPOSTA DE ALTERAÇÃO OE24 Nº 1503C
+**PROPOSTA DE ALTERAÇÃO OE24 Nº 1503C**
 
 Verba 2.9, Lista II anexa ao Código do IVA / Alteração ao Código do Imposto sobre o Valor Acrescentado - IVA Gasolina e Gasóleo Rodoviário
 
-### PROPOSTA DE ALTERAÇÃO OE24 Nº 1486C
+**PROPOSTA DE ALTERAÇÃO OE24 Nº 1486C**
 
 Ponto 2, Alínea b), N.º 3, Artigo 2.º do Código do IRS / Aumento para 80% da dedutibilidade do subsídio de alimentação.
 
@@ -1544,19 +1544,19 @@ do informações sobre potenciais parceiros e oferecendo apoio na negociação d
 
 ## X CAPÍTULO O QUE JÁ FIZEMOS PARA FAZER PORTUGAL CRESCER
 
-### PROJECTO DE LEI 663/XV/1 (CH)
+**PROJECTO DE LEI 663/XV/1 (CH)**
 
 Limita a 15% a Margem de Lucro Bruta na Comercialização de Bens Essenciais
 
-### PROJECTO DE RESOLUÇÃO 423/XV/1 (CH)
+**PROJECTO DE RESOLUÇÃO 423/XV/1 (CH)**
 
 Recomenda ao Governo a simplificação e facilitação do acesso das empresas à Linha de Apoio ao Aumento dos Custos de Produção
 
-### PROJECTO DE RESOLUÇÃO 732/XV/1 (CH)
+**PROJECTO DE RESOLUÇÃO 732/XV/1 (CH)**
 
 Recomenda ao Governo que implemente um programa para a reindustrialização e a promoção da competitividade do cluster farmacêutico nacional
 
-### PROPOSTA DE ALTERAÇÃO Nº 608C (CH)
+**PROPOSTA DE ALTERAÇÃO Nº 608C (CH)**
 
 Artigo 47.º-A (Isenção da Taxa turística)
 
@@ -1570,7 +1570,7 @@ Artigo 47.º-A (Isenção da Taxa turística)
 
 **CONTRA** Partido Socialista, PSD, IL, BE, PAN **ABSTENÇÃO** PCP, L **FAVOR** CHEGA
 
-### PROPOSTA DE ALTERAÇÃO Nº 672C
+**PROPOSTA DE ALTERAÇÃO Nº 672C**
 
 Artigo 121.º-A (Suspensão da Contribuição do Serviço Rodoviário)
 
@@ -1654,23 +1654,23 @@ te e as contribuições efetuadas pela entidade empregadora para a Segurança So
 
 ## XI CAPÍTULO O QUE JÁ FIZEMOS PARA RESTITUIR A DIGNIDADE AOS TRABALHADORES
 
-### PROJECTO DE LEI N.º 177/XV/1 (CH)
+**PROJECTO DE LEI N.º 177/XV/1 (CH)**
 
 Elimina restrições injustificadas no acesso a prpfissões reguladas e estabelece limites à duração e organização dos estágios
 
-### PROJECTO DE RESOLUÇÃO N.º 460/XV/1 (CH)
+**PROJECTO DE RESOLUÇÃO N.º 460/XV/1 (CH)**
 
 Recomenda as Governo que proceda ao levantamento de todas as profissões que devem ser consideradas de desgaste rápido
 
-### PROJECTO DE LEI N.º 914/XV/2 (CH)
+**PROJECTO DE LEI N.º 914/XV/2 (CH)**
 
 Actualiza o valor de Retribuição Mínima Mensal Garantida para 900 euros
 
-### PROJECTO DE LEI N.º 506/XV/1 (CH)
+**PROJECTO DE LEI N.º 506/XV/1 (CH)**
 
 Fomenta o regresso de portugueses emigrados e a contratação de jovens qualificados
 
-### PROJECTO DE LEI 730/XV/1
+**PROJECTO DE LEI 730/XV/1**
 
 Modifica o regime do horário flexível de trabalhador com responsabilidades familiares alterando o Código do Trabalho
 
@@ -1780,7 +1780,7 @@ A cultura organizacional da Segurança Social deverá mudar no sentido de tratar
 
 ## XII CAPÍTULO O QUE JÁ FIZEMOS PARA SALVAR A SEGURANÇA SOCIAL
 
-### PROJECTO DE LEI N.º 246/XV/1ª (CH)
+**PROJECTO DE LEI N.º 246/XV/1ª (CH)**
 
 Reformula o critério inerente à avaliação da incapacidade das pessoas com deficiência
 
@@ -1788,7 +1788,7 @@ Reformula o critério inerente à avaliação da incapacidade das pessoas com de
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** IL, PCP, L **FAVOR** PSD, CHEGA, BE, PAN
 
-### PROJECTO DE LEI N.º 371/XV/1ª (CH)
+**PROJECTO DE LEI N.º 371/XV/1ª (CH)**
 
 Alteração do regime processual do incidente de revisão da incapacidade ou da pensão
 
@@ -1796,11 +1796,11 @@ Alteração do regime processual do incidente de revisão da incapacidade ou da 
 
 **CONTRA** Partido Socialista, IL **ABSTENÇÃO** PSD, PCP, BE, PAN, L **FAVOR** CHEGA
 
-### PROJECTO DE LEI N.º 628/XV/1ª (CH)
+**PROJECTO DE LEI N.º 628/XV/1ª (CH)**
 
 Altera a Lei que aprova o Alargamento Progressivo da Gratuitidade das Creches e das amas do Instituto da Segurança Social IP, assegurando uma compensação às famílias não contempladas
 
-### PROPOSTA DE ALTERAÇÃO OE24 Nº 128C (CH)
+**PROPOSTA DE ALTERAÇÃO OE24 Nº 128C (CH)**
 
 Artigo 80.º-A – Aumento do valor da pensão mínima
 
@@ -1910,7 +1910,7 @@ Parte da Europa não desistiu deste combate civilizacional, assumindo a Família
 
 ## XIII CAPÍTULO O QUE JÁ FIZEMOS PARA VALORIZAR O PAPEL DA FAMÍLIA NA SOCIEDADE
 
-### PROJECTO DE RESOLUÇÃO N.º 103/XV/1ª (CH)
+**PROJECTO DE RESOLUÇÃO N.º 103/XV/1ª (CH)**
 
 Pela protecção da Mulher Grávida nos Cuidados de Saúde e no Trabalho
 
@@ -1918,7 +1918,7 @@ Pela protecção da Mulher Grávida nos Cuidados de Saúde e no Trabalho
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** PCP, BE, PAN, L **FAVOR** PSD, CHEGA, IL
 
-### PROJECTO DE LEI N.º 786/XV/1ª (CH)
+**PROJECTO DE LEI N.º 786/XV/1ª (CH)**
 
 Cria o Provedor da Criança
 
@@ -1926,7 +1926,7 @@ Cria o Provedor da Criança
 
 **CONTRA** Partido Socialista, PSD, BE **ABSTENÇÃO** IL, PCP **FAVOR** CHEGA
 
-### PROJECTO DE LEI N.º 529/XV/1ª (CH)
+**PROJECTO DE LEI N.º 529/XV/1ª (CH)**
 
 Altera o Código Civil, Regime Jurídico do Processo de Adopção e o Código do Trabalho, com o objectivo de reduzir o número de crianças institucionalizadas garantindo-lhes um processo de adopção célere e bem-sucedido
 
@@ -1934,13 +1934,13 @@ Altera o Código Civil, Regime Jurídico do Processo de Adopção e o Código do
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** PSD, PCP, BE, PAN, L **FAVOR** CHEGA, IL
 
-### PROJECTO DE LEI 149/XV/1.ª (CH)
+**PROJECTO DE LEI 149/XV/1.ª (CH)**
 
 Reconhece o direito ao luto em caso de perda gestacional
 
 **SEM VOTAÇÃO**
 
-### PROPOSTA DE ALTERAÇÃO OE24 Nº 270C
+**PROPOSTA DE ALTERAÇÃO OE24 Nº 270C**
 
 Artigo 80.º-A (Apoio à Natalidade)
 
@@ -2034,7 +2034,7 @@ projectos energéticos anunciados (eólicos offshore, hidrogénio verde, explora
 
 ## XIV CAPÍTULO O QUE JÁ FIZEMOS PARA ASSEGURAR A SOBERANIA ENERGÉTICA
 
-### PROPOSTA DE ALTERAÇÃO OE24 Nº 1570C (CH)
+**PROPOSTA DE ALTERAÇÃO OE24 Nº 1570C (CH)**
 
 Artigo 123.º-A (Estudo técnico-económico visando a autonomia energética via Energia Nuclear)
 
@@ -2042,23 +2042,23 @@ Artigo 123.º-A (Estudo técnico-económico visando a autonomia energética via 
 
 **CONTRA** Partido Socialista, PSD, PCP, BE, PAN, L **ABSTENÇÃO** --- **FAVOR** CHEGA, IL
 
-### PROJECTO DE RESOLUÇÃO Nº 559/XV/1ª (CH)
+**PROJECTO DE RESOLUÇÃO Nº 559/XV/1ª (CH)**
 
 Pela dinamização do programa Vale Eficiência, com vista ao combate à pobreza energética
 
-### PROJECTO DE LEI Nº 399/XV/1ª (CH)
+**PROJECTO DE LEI Nº 399/XV/1ª (CH)**
 
 Determina a distribuição dos lucros excessivos das empresas de energia licenciadas para operar no mercado nacional aos seus clientes
 
-### PROJECTO DE LEI Nº 370/XV/1ª (CH)
+**PROJECTO DE LEI Nº 370/XV/1ª (CH)**
 
 Alteração dos prazos de prescrição dos crimes sexuais contra menores e de um conjunto de crimes de corrupção.
 
-### PROJECTO DE RESOLUÇÃO Nº 445/XV/1ª (CH)
+**PROJECTO DE RESOLUÇÃO Nº 445/XV/1ª (CH)**
 
 Promove a transformação dos resíduos orgânicos em fonte de energia verde
 
-### PROJECTO DE RESOLUÇÃO Nº 776/XV/1ª (CH)
+**PROJECTO DE RESOLUÇÃO Nº 776/XV/1ª (CH)**
 
 Reformulação da proposta para instalação de turbinas eólicas offshore, tendo por base evidências ambientais, sociais e económicas
 
@@ -2453,7 +2453,7 @@ Por outro lado, sendo muitas as necessidades e escassos os meios, deve ser efect
 
 ## XVI CAPÍTULO O QUE JÁ FIZEMOS PARA OLHAR PARA PORTUGAL COMO UM TODO
 
-### PROJECTO DE LEI N.º 542/XV/1ª (CH)
+**PROJECTO DE LEI N.º 542/XV/1ª (CH)**
 
 Prevê a implementação de um plano gradual de isenção do pagamento de portagens
 
@@ -2461,11 +2461,11 @@ Prevê a implementação de um plano gradual de isenção do pagamento de portag
 
 **CONTRA** Partido Socialista, L **ABSTENÇÃO** PSD, IL, PCP, BE, PAN **FAVOR** CHEGA
 
-### PROJECTO DE LEI N.º706/XV/1ª (CH)
+**PROJECTO DE LEI N.º706/XV/1ª (CH)**
 
 Altera o regime jurídico aplicável ao contracto de transporte ferroviário no sentido de assegurar os direitos dos passageiros em caso de greve
 
-### PROJECTO DE LEI N.º 775/XV/1ª (CH)
+**PROJECTO DE LEI N.º 775/XV/1ª (CH)**
 
 Altera o regime jurídico que estabelece a actividade de transporte individual e remuneração de passageiros em veículos descaracterizados (TVDE)
 
@@ -2485,15 +2485,15 @@ Recomenda ao Governo a requalificação do IC8
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** PCP, L **FAVOR** PSD, CHEGA, IL, BE, PAN
 
-### PROJECTO DE RESOLUÇÃO Nº119/XV/1ª (CH)
+**PROJECTO DE RESOLUÇÃO Nº119/XV/1ª (CH)**
 
 Pela criação de uma Estratégia Integrada de Acessibilidade e Mobilidade do Alentejo nas ligações Nacionais e Internacionais
 
-### PROJECTO DE RESOLUÇÃO N.º355/XV/1ª (CH)
+**PROJECTO DE RESOLUÇÃO N.º355/XV/1ª (CH)**
 
 Recomenda ao Governo a revisão dos termos da PPP da Lusoponte, com vista à redução dos valores de taxas de portagem
 
-### PROJECTO DE RESOLUÇÃO 167/XV/1 (CH)
+**PROJECTO DE RESOLUÇÃO 167/XV/1 (CH)**
 
 Restituição de benefícios económicos e sociais aos colaboradores da TAP
 
@@ -2507,23 +2507,23 @@ Restituição de benefícios económicos e sociais aos colaboradores da TAP
 
 **CONTRA** Partido Socialista, PSD, IL, PCP **ABSTENÇÃO** L **FAVOR** CHEGA, BE, PAN
 
-### SEM VOTAÇÃO
+**SEM VOTAÇÃO**
 
 **PROJECTO DE RESOLUÇÃO 499/XV/1 (CH)** Pela ligação ferroviária à cidade de Viseu
 
-### PROPOSTA DE ALTERAÇÃO OE 24 Nº 492C (CH)
+**PROPOSTA DE ALTERAÇÃO OE 24 Nº 492C (CH)**
 
 Artigo 121.º-A (Ligação Ferroviária de Bragança ao resto do país e à linha de alta velocidade espanhola)
 
-### PROPOSTA DE ALTERAÇÃO OE 24 Nº 670C (CH)
+**PROPOSTA DE ALTERAÇÃO OE 24 Nº 670C (CH)**
 
 Artigo 121.º-A (Reactivação das carreiras de passageiros entre Portimão e Funchal)
 
-### PROPOSTA DE ALTERAÇÃO OE Nº 1441C (CH)
+**PROPOSTA DE ALTERAÇÃO OE Nº 1441C (CH)**
 
 Artigo 121.º-A (Construção da Linha Maia II em modo Metro Ligeiro Convencional e sua ligação a Ermesinde)
 
-### PROPOSTA DE ALTERAÇÃO OE 24 Nº 1439C (CH) Artigo 120.º-A (Modernização da Linha da Beira Alta)
+**PROPOSTA DE ALTERAÇÃO OE 24 Nº 1439C (CH) Artigo 120.º-A (Modernização da Linha da Beira Alta)**
 
 **PROPOSTA DE ALTERAÇÃO OE 24 Nº 1569C (CH)** Artigo 119.º-A (Conclusão do IP2 entre a A6, em Estremoz, e a A23, na Barragem do Fratel)
 
@@ -2641,7 +2641,7 @@ reconversão e melhoria económica das áreas agrícolas, protegendo e moderniza
 
 ## XVII CAPÍTULO O QUE JÁ FIZEMOS PARA VALORIZAR O MUNDO RURAL E OS AGRICULTORES
 
-### PROJECTO DE RESOLUÇÃO 235/XV/1 (CH)
+**PROJECTO DE RESOLUÇÃO 235/XV/1 (CH)**
 
 Recomenda ao Governo a construção, modernização e reabilitação dos sistemas de regadio
 
@@ -2649,19 +2649,19 @@ Recomenda ao Governo a construção, modernização e reabilitação dos sistema
 
 **CONTRA** Partido Socialista, PCP, BE, PAN, L **ABSTENÇÃO** PSD **FAVOR** CHEGA, IL
 
-### PROJECTO DE RESOLUÇÃO 366/XV/1 (CH)
+**PROJECTO DE RESOLUÇÃO 366/XV/1 (CH)**
 
 Pela dignificação do Ministério da Agricultura e da actividade agrícola
 
-### PROJECTO DE RESOLUÇÃO 386/XV/1 (CH)
+**PROJECTO DE RESOLUÇÃO 386/XV/1 (CH)**
 
 Pela agilização da execução dos Fundos de Desenvolvimento Rural e publicação no Portal da Transparência de todas as verbas atribuídas
 
-### PROJECTO DE RESOLUÇÃO 624/XV/1 (CH)
+**PROJECTO DE RESOLUÇÃO 624/XV/1 (CH)**
 
 Pela criação da Rede Nacional da Água
 
-### PROJECTO DE LEI 305/XV/1 (CH)
+**PROJECTO DE LEI 305/XV/1 (CH)**
 
 Promove a produção agrícola nacional com vista a atingir a soberania e segurança alimentar de forma sustentável
 
@@ -2781,7 +2781,7 @@ colos com entidades do sector privado e social que permitam dar resposta imediat
 
 ## XVIII CAPÍTULO O QUE JÁ FIZEMOS PARA SIMPLIFICAR PORTUGAL
 
-### PROJECTO DE LEI 514/XV/1 (CH)
+**PROJECTO DE LEI 514/XV/1 (CH)**
 
 **PROJECTO DE LEI 98/XV/1 (CH)**
 
@@ -2795,19 +2795,19 @@ Altera o Decreto-Lei n.º 137/2010, de 28 de Dezembro no sentido de repor o valo
 
 Pela criação de um mecanismo de auditoria permanente **CONTRA** Partido Socialista, PCP, L **ABSTENÇÃO** PSD, BE **FAVOR** CHEGA, IL, PAN
 
-### PROJECTO DE LEI Nº 94/XV/1ª (CH)
+**PROJECTO DE LEI Nº 94/XV/1ª (CH)**
 
 Criação do Estatuto do Arguido Colaborador e agravamento das penas aplicáveis aos crimes de corrupção previstos no Código Penal.
 
-### PROJECTO DE LEI 753/XV/1 (CH)
+**PROJECTO DE LEI 753/XV/1 (CH)**
 
 Cria a Base Patrimonial Única que possibilita a partilha de dados patrimoniais entre Conservatórias do Registo Predial, Autoridade Tributária, Autarquias e IMT
 
-### PROJECTO DE LEI 847/XV/1
+**PROJECTO DE LEI 847/XV/1**
 
 Estabelece medidas para a avaliação da necessidade e eficácia de comissões, grupos de trabalho, "task forces", e outras estruturas temporárias na Administração Pública
 
-### PROJECTO DE RESOLUÇÃO 191/XV/1
+**PROJECTO DE RESOLUÇÃO 191/XV/1**
 
 Recomenda ao Governo a execução e apresentação anual de um relatório de combate ao desperdício no sector público e da definitiva implementação do Sistema de Normalização Contabilística para a Administração Pública
 
@@ -2907,23 +2907,23 @@ Esta introdução estabelece, assim, o tom e o contexto para as políticas detal
 
 ## XIX CAPÍTULO O QUE JÁ FIZEMOS PARA PROMOVER A NOSSA HISTÓRIA E CULTURA
 
-### PROJECTO DE RESOLUÇÃO 745/XV/1 (CH)
+**PROJECTO DE RESOLUÇÃO 745/XV/1 (CH)**
 
 Pela criação do Museu dos Descobrimentos e da Expansão Portuguesa
 
-### PROJECTO DE RESOLUÇÃO 747/XV/1 (CH)
+**PROJECTO DE RESOLUÇÃO 747/XV/1 (CH)**
 
 Pela protecção da identidade do Património Cultural classificado como Imóvel de Interesse Público, excluindo os edifícios ou imóveis assim classificados de contratos de naming
 
-### PROJECTO DE RESOLUÇÃO 891/XV/2 (CH)
+**PROJECTO DE RESOLUÇÃO 891/XV/2 (CH)**
 
 Assegura a gratuitidade de acesso aos museus e monumentos nacionais por idosos
 
-### PROPOSTA DE ALTERAÇÃO OE Nº 145C (CH)
+**PROPOSTA DE ALTERAÇÃO OE Nº 145C (CH)**
 
 Artigo 111.º-A (Fundo Financeiro de Apoio a Artistas Emergentes)
 
-### PROPOSTA DE ALTERAÇÃO OE 24 Nº150C
+**PROPOSTA DE ALTERAÇÃO OE 24 Nº150C**
 
 Artigo 111.º-A (Incentivo Financeiro à Cultura Tradicional)
 
@@ -3011,7 +3011,7 @@ Uma questão "tabú" e deveras polémica que tanto afecta o desporto em Portugal
 
 ## XX CAPÍTULO O QUE JÁ FIZEMOS PARA TORNAR O DESPORTO UM DESÍGNIO NACIONAL
 
-### PROJECTO DE LEI 539/XV/1 (CH)
+**PROJECTO DE LEI 539/XV/1 (CH)**
 
 Procede à quinta alteração à Lei n.º 39/2009, de 30 de julho, que estabelece o regime jurídico da segurança e combate ao racismo, à xenofobia e à intolerância nos espectáculos desportivos
 
@@ -3019,7 +3019,7 @@ Procede à quinta alteração à Lei n.º 39/2009, de 30 de julho, que estabelec
 
 **CONTRA** Partido Socialista, PSD, PCP, BE **ABSTENÇÃO** PAN, Livre **FAVOR** CHEGA, IL
 
-### PROJECTO DE RESOLUÇÃO 932/XV/2 (CH)
+**PROJECTO DE RESOLUÇÃO 932/XV/2 (CH)**
 
 Recomenda ao Governo que adopte um conjunto de medidas que impactam os atletas de alta competição
 
@@ -3027,7 +3027,7 @@ Recomenda ao Governo que adopte um conjunto de medidas que impactam os atletas d
 
 **CONTRA** Partido Socialista, PCP, BE, PAN, L **ABSTENÇÃO** IL **FAVOR** PSD, CHEGA
 
-### PROJECTO DE LEI 372/XV/1 (CH)
+**PROJECTO DE LEI 372/XV/1 (CH)**
 
 Regime relativo à reparação dos danos emergentes de acidentes de trabalho dos praticantes desportivos profissionais
 
@@ -3035,7 +3035,7 @@ Regime relativo à reparação dos danos emergentes de acidentes de trabalho dos
 
 **CONTRA** Partido Socialista, PAN **ABSTENÇÃO** PSD, IL, PCP, BE, L **FAVOR** CHEGA
 
-### PROJECTO DE RESOLUÇÃO 296/XV/1 (CH)
+**PROJECTO DE RESOLUÇÃO 296/XV/1 (CH)**
 
 Aprovação de tabela com valores atuariais específicos para praticantes desportivos profissionais, aplicáveis à remição de pensões por acidente de trabalho
 
@@ -3131,7 +3131,7 @@ ença aos Militares (ADM), assim como dos Estabelecimentos de Saúde Militares e
 
 ## XXI CAPÍTULO O QUE JÁ FIZEMOS PARA DIGNIFICAR AS FORÇAS ARMADAS
 
-### PROJECTO DE RESOLUÇÃO 629/XV/1 (CH)
+**PROJECTO DE RESOLUÇÃO 629/XV/1 (CH)**
 
 Tornar as Forças Armadas mais atrativas e valorizar a Carreira Militar
 
@@ -3141,7 +3141,7 @@ Tornar as Forças Armadas mais atrativas e valorizar a Carreira Militar
 
 **SEM VOTAÇÃO**
 
-### PROJECTO DE LEI 7/XV/1 (CH)
+**PROJECTO DE LEI 7/XV/1 (CH)**
 
 Militares das Forças Armadas
 
@@ -3153,7 +3153,7 @@ Pela Revisão e Alteração do Sistema Remuneratório dos
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** PSD, IL, PCP, BE, L **FAVOR** CHEGA, PAN
 
-### PROJECTO DE LEI 752/XV/1 (CH)
+**PROJECTO DE LEI 752/XV/1 (CH)**
 
 Assegura em tempo útil o acesso a próteses e ortóteses e outro material ortopédico que se mostre necessário a prevenir a dependência, precariedade, isolamento e exclusão social dos deficientes militares
 
@@ -3161,7 +3161,7 @@ Assegura em tempo útil o acesso a próteses e ortóteses e outro material ortop
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** IL, PCP, L **FAVOR** PSD, CHEGA, BE, PAN
 
-### PROJECTO DE LEI 147/XV/1 (CH)
+**PROJECTO DE LEI 147/XV/1 (CH)**
 
 Procede à atualização dos montantes da componente fixa do suplemento de condição militar
 
@@ -3233,17 +3233,17 @@ Tal implica uma muito particular atenção do CHEGA e justifica plenamente a pro
 
 ## XXII CAPÍTULO O QUE JÁ FIZEMOS PARA DAR VOZ ÀS COMUNIDADES PORTUGUESAS
 
-### PROJECTO DE RESOLUÇÃO 465/XV/1 (CH)
+**PROJECTO DE RESOLUÇÃO 465/XV/1 (CH)**
 
 Recomenda ao Governo que tome as diligências necessárias para a regularização dos Serviços Consulares, Embaixadas e Missões Diplomáticas de Portugal no Estrangeiro
 
 **SEM VOTAÇÃO**
 
-### PROJECTO DE LEI N.º148/XV/1ª (CH)
+**PROJECTO DE LEI N.º148/XV/1ª (CH)**
 
 Altera o Decreto-lei nº165/2006 de 11 de agosto para promover um ensino de português de qualidade e gratuito no estrangeiro para as crianças e jovens portuguesas e lusodescendentes
 
-### PROJECTO DE RESOLUÇÃO N.º148/XV/1ª (CH)
+**PROJECTO DE RESOLUÇÃO N.º148/XV/1ª (CH)**
 
 Recomenda ao Governo o alargamento do 'Programa Regressar' aos emigrantes da Madeira e dos Açores
 
@@ -3255,11 +3255,11 @@ Recomenda ao Governo o alargamento do 'Programa Regressar' aos emigrantes da Mad
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** PCP, BE, L **FAVOR** PSD, CHEGA, IL, PAN
 
-### PROJECTO DE RESOLUÇÃO N.º375/XV/1ª (CH)
+**PROJECTO DE RESOLUÇÃO N.º375/XV/1ª (CH)**
 
 Inclusão do Ensino de História de Portugal no Estrangeiro para crianças e jovens portugueses e lusodescendentes
 
-### PROJECTO DE RESOLUÇÃO N.º496/XV/1ª (CH)
+**PROJECTO DE RESOLUÇÃO N.º496/XV/1ª (CH)**
 
 Recomenda ao Governo a abertura de postos de atendimento com um perfil semelhante ao das Lojas do Cidadão nas cidades de maior densidade de emigração
 
@@ -3343,7 +3343,7 @@ ciação entre políticas comuns e políticas facultativas, ou seja, políticas 
 
 ## XXIII CAPÍTULO O QUE JÁ FIZEMOS POR UMA EUROPA DE NAÇÕES SOBERANAS
 
-### PROPOSTA DE ALTERAÇÃO OE 24 Nº 220C (CH)
+**PROPOSTA DE ALTERAÇÃO OE 24 Nº 220C (CH)**
 
 Artigo 30.º-A (Regularização das carreiras contributivas dos trabalhadores do Mapa Único de Pessoal dos Serviços Periféricos Externos do Ministério dos Negócios Estrangeiros)
 
@@ -3351,7 +3351,7 @@ Artigo 30.º-A (Regularização das carreiras contributivas dos trabalhadores do
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** PCP, L **FAVOR** PSD, CHEGA, IL, BE, PAN
 
-### PROPOSTA DE ALTERAÇÃO OE 24 Nº 250C (CH)
+**PROPOSTA DE ALTERAÇÃO OE 24 Nº 250C (CH)**
 
 Artigo 30.º-A (Actualização do Abono de Habitação para a Carreira Diplomática)
 
@@ -3359,7 +3359,7 @@ Artigo 30.º-A (Actualização do Abono de Habitação para a Carreira Diplomát
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** PCP, L **FAVOR** PSD, CHEGA,IL, BE, PAN
 
-### PROPOSTA DE ALTERAÇÃO OE 24 Nº 255C (CH)
+**PROPOSTA DE ALTERAÇÃO OE 24 Nº 255C (CH)**
 
 Artigo 30.º-A (Actualização dos Salários dos Trabalhadores de Embaixadas, Consulados e Missões Diplomáticas de Portugal no Estrangeiro)
 
@@ -3445,19 +3445,19 @@ Outro tema que afasta eleitos de eleitores prende-se com a promiscuidade entre c
 
 ## XXIV CAPÍTULO O QUE JÁ FIZEMOS PARA MUDAR O SISTEMA POLÍTICO
 
-### PROJECTO DE LEI N.º 614/XV/1 (CH)
+**PROJECTO DE LEI N.º 614/XV/1 (CH)**
 
 Altera o quadro sancionatório previsto na Lei n.º 52/2019, de 31 de julho (Regime jurídico do exercício de funções por titulares de cargos políticos e altos cargos públicos)
 
-### PROJECTO DE LEI N.º 69/XV/1ª (CH)
+**PROJECTO DE LEI N.º 69/XV/1ª (CH)**
 
 Determina o fim da possibilidade de acumulação de pensões por parte dos titulares de cargos públicos e políticos delas beneficiários
 
-### PROJECTO DE LEI N.º 977/XV/2ª (CH)
+**PROJECTO DE LEI N.º 977/XV/2ª (CH)**
 
 Aumenta a amplitude da proibição de exercício de determinadas funções após a cessação de funções políticas executivas, bem como a duração dessa proibição (4.ª alteração à Lei n.º 52/2019, de 31 de julho, que "Aprova o regime do exercício de funções por titulares de cargos políticos e altos cargos públicos")
 
-### PROJECTO DE LEI N.º 68/XV/1ª (CH)
+**PROJECTO DE LEI N.º 68/XV/1ª (CH)**
 
 Altera a lei do financiamento dos partidos políticos e das campanhas eleitorais, eliminando várias isenções de que os Partidos políticos beneficiam
 
@@ -3529,7 +3529,7 @@ No âmbito das instituições políticas, o CHEGA apresenta várias propostas qu
 
 ## XXV CAPÍTULO O QUE JÁ FIZEMOS PARA REFORMAR A CONSTITUIÇÃO
 
-### PROJECTO DE REVISÃO CONSTITUCIONAL 1/XV/1ª
+**PROJECTO DE REVISÃO CONSTITUCIONAL 1/XV/1ª**
 
 **SEM VOTAÇÃO**
 
@@ -3537,7 +3537,7 @@ No âmbito das instituições políticas, o CHEGA apresenta várias propostas qu
 
 Uma Constituição para o futuro de Portugal
 
-### PROJECTO DE LEI 143/XV/1 ª (CH)
+**PROJECTO DE LEI 143/XV/1 ª (CH)**
 
 **(CH)**
 
