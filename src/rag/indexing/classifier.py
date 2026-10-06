@@ -40,18 +40,29 @@ DEFAULT_CLASSIFICATION_MODEL = str(
 # Classification prompt (Portuguese, multi-label)
 # ---------------------------------------------------------------------------
 
+_LABELLING_RULES = """REGRAS DE CLASSIFICAÇÃO:
+- Começa pela categoria principal: o tema de que o excerto trata.
+- Acrescenta outra categoria só se o excerto contém uma proposta, medida ou
+  dado concreto sobre esse tema. Uma menção de passagem não chega.
+- Na dúvida, omite a categoria. A maioria dos excertos tem 1 ou 2; usa 3 só
+  quando o excerto trata claramente de três temas.
+- Não uses "governacao" só porque a medida envolve o Estado, autarquias ou
+  licenciamentos; usa-a quando o tema é a própria organização do Estado.
+- "financas" são as finanças PÚBLICAS; financiamento de empresas é "economia".
+- Exemplos:
+   - "residências estudantis" -> ["habitacao", "educacao", "jovens"]
+   - "offshores e corrupção" -> ["justica", "politica_externa"]
+   - "salário mínimo jovens" -> ["trabalho", "jovens"]
+   - "diagnóstico do SNS" -> ["saude"]
+- Confiança (1-5): 5=muito claro, 3=razoável, 1=incerto
+"""
+
 CLASSIFICATION_PROMPT = f"""És um especialista em análise de programas políticos portugueses.
 
 CATEGORIAS:
 {json.dumps(TOPIC_CATEGORIES, indent=2, ensure_ascii=False)}
 
-INSTRUÇÕES:
-1. Um excerto pode ter MÚLTIPLAS categorias (máximo 4)
-2. Exemplos multi-tópico:
-   - "residências estudantis" -> ["jovens", "educacao", "habitacao"]
-   - "offshores e corrupção" -> ["justica", "politica_externa"]
-   - "salário mínimo jovens" -> ["trabalho", "jovens"]
-3. Confiança (1-5): 5=muito claro, 3=razoável, 1=incerto
+{_LABELLING_RULES}
 
 RESPOSTA (JSON):
 {{
@@ -81,7 +92,7 @@ def _normalize_topic_classification(raw: object) -> TopicClassification:
         palavras = []
 
     return TopicClassification(
-        categorias=categorias[:4],
+        categorias=categorias[:3],
         confianca=confianca,
         palavras_chave=palavras[:10],
     )
@@ -117,14 +128,10 @@ CATEGORIAS:
 {json.dumps(TOPIC_CATEGORIES, indent=2, ensure_ascii=False)}
 
 INSTRUÇÕES:
-1. Vais receber VÁRIOS excertos numerados.
-2. Para CADA excerto, classifica com MÚLTIPLAS categorias (máximo 4).
-3. Exemplos multi-tópico:
-   - "residências estudantis" -> ["jovens", "educacao", "habitacao"]
-   - "offshores e corrupção" -> ["justica", "politica_externa"]
-   - "salário mínimo jovens" -> ["trabalho", "jovens"]
-4. Confiança (1-5): 5=muito claro, 3=razoável, 1=incerto
-5. Responde em ARRAY JSON, na mesma ordem dos excertos.
+1. Vais receber VÁRIOS excertos numerados; classifica CADA um.
+2. Responde em ARRAY JSON, na mesma ordem dos excertos.
+
+{_LABELLING_RULES}
 
 RESPOSTA (JSON array):
 [
