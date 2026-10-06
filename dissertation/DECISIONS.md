@@ -57,27 +57,32 @@ chapter is built from.
   than expected". The leaderboard settles whether it stays on as a default.
 - **Chunk-size sweep (128–2048 tokens).** Promised in the pre-thesis and never
   run. Cheap now that the harness exists, and it would answer RQ1 directly.
+- **Encoder comparison — decided, to run** (2026-10-06). Re-index the same
+  corpus once per encoder (same chunking) and compare retrieval-only metrics
+  (hit@k, MRR, nDCG) on the gold set; no LLM judge needed. Candidates:
+  Qwen3-Embedding-0.6B (current), multilingual-E5, BGE-M3, and a
+  Portuguese-native encoder with a long enough window if one exists. Answers
+  RQ1 together with the chunk-size sweep.
+- **Agentic rung — decided, to build** (2026-10-06). An LLM-driven retrieval
+  loop (decide whether/what to retrieve, re-query, self-check) added as a
+  ladder variant, so "agentic vs hybrid + reranking" becomes measurable.
+  Corrective RAG stays out: its fallback is web search, and answers must come
+  from the manifestos. Watch the per-query LLM call count against free-tier
+  rate limits.
+- **Re-classify AD after the prompt fix** (2026-10-06). The classifier
+  over-assigned extra labels (spot check in `HISTORY-GAPS.md` §7); the
+  prompt is tightened and the cap dropped from 4 to 3. The AD checkpoint
+  predates the fix. Re-run the 30-chunk spot check afterwards for a
+  before/after figure.
 - **Classification cost at full scale.** Eight parties at roughly 3k token
   chunks each; the checkpoint duplication was flagged as worth revisiting once
   all eight land.
 
-## History gaps — reconstruct from memory, no git trail exists
+## History gaps
 
-- **Milvus → pgvector.** No reason recorded in the commit, and pgvector was
-  not even among the candidates surveyed in the pre-thesis.
-- **MiniLM → serafim.** Same commit, same silence. Serafim was not in the
-  surveyed candidate list either; the January 2025 meeting note mentions
-  struggling with BERTimbau, which may be the thread to pull.
-- **The March 2026 rewrite** (`9d15f90`, +46.5k lines). The whole
-  architecture, the 18-topic taxonomy, and the abandonment of agentic RAG
-  landed in a single commit. What the "2 variations" in its message referred
-  to is unstated.
-- **Parser bake-off.** Which parser won and why, and why Marker's output still
-  needed hand correction (`-manual.md`).
-- **Chunk size 1000 → 1600 characters** (`5a8453e`). No reason recorded, and
-  retroactively significant: it deepened the truncation bug quantified later.
-- **The August 2026 "pre-existing local work" commits** (`8ccd547`,
-  `f5c61c7`, `4f57720`) cover features with no development trail.
+All nine answered on 2026-10-06 in `HISTORY-GAPS.md` (the user's answers,
+then git evidence, fill-ins and fact-checks). That file is the raw material
+for the decision-history thread of the Proposition chapter.
 
 ## Settled
 

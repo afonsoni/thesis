@@ -125,7 +125,7 @@ Perhaps changing the model is something for the future.
 At first, I was really unaware of the amount of vector databases that existed, and what each was able to offer. Not only have we Milvus, but also some other databases that I wondered using. Perhaps a list of various databases are somewhere in the repo or Obsidian notes. I also found my original source for choosing a vector database, [here](https://medium.com/@mutahar789/optimizing-rag-a-guide-to-choosing-the-right-vector-database-480f71a33139)
 I also found a newer website with some more recent information that can help us understand why I was going for one vector database instead of another [here](https://www.braintrust.dev/articles/best-vector-databases-for-rag-2026)
 I thought of using Milvus because I saw the amount of people online (various Medium posts and Reddit users) that mentioned how barebones, fast and overall how good it was. Because of that, and also because I thought I would need a dedicated vector database for this project, I decided to give it a try. However, I got immediately frustrated with the setup of it, it was more complicated than it should've been.
-Ended up falling through a rabbithole on databases and vector databases and started overcomplicating the issue. Eventually, I found a video that said: [I replaced my entire stack with Postgres...](https://www.youtube.com/watch?v=TdondBmyNXc), where the video essayest mentions replacing the vector database he was using (Pinecone) with Postgresql, using something called pgvector. Why wasn't PostgreSQL never on the table before? I started thinking how I already knew how to use Postgres quite well. Also, the use cases seemed to suit my own very well, and the project I'm doing doesn't require a big dedicated vector database from a specfic manufacturer, it can very well survive being a postgres instance. Also, postgres is open-source. Almost none of the other vector databases were open source. The video essayist also mentions several interesting things, like:
+Ended up falling through a rabbithole on databases and vector databases and started overcomplicating the issue. Eventually, I found a video that said: [I replaced my entire stack with Postgres...](https://www.youtube.com/watch?v=TdondBmyNXc), where the video essayest mentions replacing the vector database he was using (Pinecone) with Postgresql, using something called pgvector. Why wasn't PostgreSQL never on the table before? I started thinking how I already knew how to use Postgres quite well. Also, the use cases seemed to suit my own very well, and the project I'm doing doesn't require a big dedicated vector database from a specfic manufacturer, it can very well survive being a postgres instance. Also, postgres is open-source, like most of the dedicated vector databases I had considered (Milvus, Qdrant, Chroma, Weaviate, Faiss; Pinecone being the exception), so licence was not what set it apart: what did was not needing a separate service. The video essayist also mentions several interesting things, like:
 - PostgreSQL has reliable task queues
 - Full text search
 - Hybrid vector search
@@ -194,8 +194,9 @@ The reasons to use Gemma 4 are:
 **Your answer**
 
 The whole ordeal with the variations of RAG systems, is because I wanted to check the differences between them. How better is agentic RAG versus a base/naive RAG? What about corrective RAG? However, it ended up being slightly different, because it was hard creating those different variants. And also, once I understood precisely what Corrective RAG was and what I would need to do to implement it, with the whole "go online to correct your assumption" (check what Corrective RAG is exactly, I know it has web searches), I ended up not creating it.
-Instead, I started adding more and more features until we got what we currently have (which is still not at the level I'd like it to be. But then again, when would it?). So the way I'd like to
-I also got some inspiration from [OpenRAG](https://openragmoe.github.io/)
+Instead, I started adding more and more features until we got what we currently have (which is still not at the level I'd like it to be. But then again, when would it?). So the way I'd like to go about this, is that the RAG system was organicaly built, feature by feature. I tried to think deeply about each new thing added, and how it would impact the final results.
+Because the thesis was left in standby a couple of times, we would see a lot of breaks between commits (this might not be necessary to add to the thesis).
+I also got some inspiration from [OpenRAG](https://openragmoe.github.io/) and tried to check for some RAG in 2026 tips to always keep the project updated up until the delivery date (like [this website](https://lushbinary.com/blog/rag-retrieval-augmented-generation-production-guide/), for example)
 
 ---
 
@@ -217,6 +218,9 @@ I also got some inspiration from [OpenRAG](https://openragmoe.github.io/)
 
 **Your answer**
 
+It came from looking at the different political programs of all parties and seeing which topics come up the most, as well as looking online for ways to compare different programs, like [this one](https://expresso.pt/politica/eleicoes/legislativas-2024/comparador-de-programas). [This one](https://www.politicaativapt.com/partidos/comparar) also has a bunch of topics, but they are a bit simpler. It ended up being a mix between the first and the second.
+Many times a chunk can have more than a single topic (check for 2 examples to give). In those cases, we have more than one topic. That can help with the retrieval, depending on the question and how general (or non general) it is.
+Regarding the keyword fallback, I don't like hard coded things and prefer that instead of storing worse data without knowing, it's better to fail fast.
 
 ---
 
@@ -237,6 +241,8 @@ I also got some inspiration from [OpenRAG](https://openragmoe.github.io/)
 
 **Your answer**
 
+Chunking has been changing many times during the implementation of the RAG system. I tried smaller chunking in the beginning of the implementation, mostly as testing purposes, and also because the overall idea of chunking and chunk size in 2024 was still on the 500 max_chunk_size. Contexts were not big, LLMs had a hard time interpreting a big chunk, or finding the most relevant things. Eventually, made the max chunk size at 1000, and later on even made it bigger, to 1600, as well as the increse of chunking size. These decisions were informed mostly by how the industry was moving. I was seeing more and more articles mentioning that the chunk size should be bigger, as LLMs now have the possibility of getting more context. But choosing encoding/embbeding models was a pain in the ass. I was having so many issues (mostly inside my head) about what the best one would be, as a model that isn't made thinking about portuguese, will undoubtly encode words in strange manner and it will be harder to look them up. Portuguese words have many different meanings, and also there are homonymous words (canto, "corner" vs "I sing", or rio, "river" vs "I laugh"), homographs (fábrica vs fabrica), and homophones (concelho vs conselho), though these last ones probably won't make a big problem. It's mainly the homonymous words that I'm most worried about.
+The whole serafim's 128-token window limited was more of a mistake in the choosing of the encoding model. It seemed perfect, as it had a really good performance and quality on Portuguese and was quite recent. But I was not aware that the size of it was that small, and that hindered the progression of the system, as the results I was having were still under what I was expecting. Only once I started measuring the chunks and the different encoding values, was I understanding that serafim had this drawback.
 
 ---
 
@@ -259,3 +265,218 @@ I also got some inspiration from [OpenRAG](https://openragmoe.github.io/)
 
 **Your answer**
 
+The evaluation idea was already existent almost since the beginning. We needed a way to evaluate the RAG system and that is what we are going to present in the thesis, too. We need to evaluate how the final system compares to something with less features. How much does the reranking help with improving the answers of the system? What about the hybrid search? Is Agentic RAG better than a simple hybrid + reranking RAG? How does the final system compare to a simple LLM call to a regular model (like Gemini 3.6 Flash or GPT-5.6 Luna)? What about a more powerful LLM from the main names on AI at the moment (Claude Opus 5.5 or Fable 5.1, Gemini 4 Argon, GPT‑6.1 Sol or 6 Astra, Kimi K3, Muse Spark 1.3)? Does it take less resources?
+There are other things that I find harder to evaluate: how are we going to evaluate the embedding model? How are we going to understand which chunking strategies are better?
+I did use AI assisted development. At first I did it all by myself (only inline aid), then started using a GPT model (trying to remember which one it was), finally started using Claude by the end, to help with tyding everything up and finishing some of the features that were left out incomplete. Claude was a great help in the end also to think a bit about what was missing. The thesis was and will be written solely by me (this will be what will be written in the thesis, at least, you can help with some things, such as suggestions, but I will be the one deciding if we use them or not)
+
+---
+
+# Fill-ins and flags (Claude, 2026-10-06)
+
+Evidence and checks for the parts you asked me to complete. These are notes
+for you to write from, not thesis prose.
+
+## 1. Parser
+- **"Is Marker GenAI?"** Mostly no, and your reading is right. By default
+  Marker runs neural models (Surya) that *detect* layout and reading order
+  and *transcribe* the text on the page. That is AI, but its job is to
+  recognise what is there, not to generate new content. The generative part
+  is the optional LLM pass (`--use_llm`), which you didn't use. One nuance:
+  the OCR step is itself a sequence model that emits text token by token, so
+  avoid the GenAI label altogether. Suggested wording: "Marker converts PDFs
+  with neural layout-detection and OCR models; its optional LLM-assisted mode
+  was not used." Nothing in it can be challenged.
+- **Licence nuance:** Marker's code is GPL-3.0, but its model weights use a
+  modified OpenRAIL-M licence, which is free for research and personal use
+  with commercial limits. "Open source and free" holds for this thesis, but
+  state it precisely, because examiners check licences.
+- **Name the Microsoft tool.** It's probably MarkItDown (released Dec 2024).
+  Confirm this, so it can sit in the candidates list with the others.
+- "First tool that worked well" is an honest and defensible framing. Say it
+  plainly: parsing was a means, not the object of study.
+
+## 2. Manual correction: what the diff shows
+Measured from the first Marker output (`1af3074`, April 2025, which matches
+today's `_raw/` apart from image links) against `-manual.md`:
+
+| Party | Words | Headers | `#` (H1) | Table lines | Image links |
+|---|---|---|---|---|---|
+| AD | 56,817 → 55,474 | 238 → 218 | 3 → 2 | 251 → 117 | 338 → 0 |
+| LIVRE | 61,491 → 60,247 | 159 → 60 | 57 → 1 | 22 → 0 | 0 → 0 |
+| PCP | 42,856 → 41,070 | 301 → 224 | 11 → 1 | 118 → 9 | 4 → 0 |
+| PS | 52,307 → 51,668 | 163 → 138 | 1 → 1 | 24 → 24 | 29 → 0 |
+
+Note: the committed non-manual files for LIVRE, PCP and PS were already the
+corrected text, so `1af3074` is the only true "before" in git.
+
+The fixes fall into four kinds:
+1. **Rebuilding the header hierarchy.** Marker flattened sections into many
+   H1s. LIVRE had 57, one per page running header plus one per section
+   title. Each manifesto now has a single H1 (the title) and a consistent
+   H2–H6 tree, for example AD: Programa → Ambição → Qualificação → Educação →
+   "1. Porque é preciso mudar / 2. Metas / 3. Medidas". This is what
+   header-aware chunking depends on, so it's the key fix.
+2. **Removing the table of contents.** Marker turned it into Markdown tables
+   (`| 2.<br>Metas | 51 |`). That accounts for most of the dropped table
+   lines in AD and PCP. If left in, a TOC chunk matches almost any query
+   while containing no proposals.
+3. **Removing layout residue:** image links, `<span id="page-…">` anchors, repeated page
+   headers ("Programa do LIVRE | Legislativas 2024"), and split cover titles
+   ("**FUTURO contrato com o**").
+4. **Little else.** Only about 1–4% of words were removed, so the content is
+   essentially untouched. That's worth saying, because it shows the
+   correction didn't edit what parties actually proposed.
+
+Real tables were kept (PS: 24 → 24).
+
+**Automation note (future work).** Fixes 2 and 3 are mechanical and
+scriptable. Fix 1 needs judgement, though a header-level heuristic or an LLM
+pass could handle it. Your point about adding future election cycles is the
+argument for automating it.
+
+**Correction:** the LIVRE "mojibake" flagged earlier was a false alarm. My
+own output truncation cut "estereótipos" mid-character. The file is clean,
+and no manifesto contains a replacement character.
+
+**Your addition (why automate cleaning):** besides adding future and past
+election cycles (turning the system into an archive of what parties
+proposed), automation would let someone add manifestos from parties that are
+on the ballot but not in parliament. That's a good accessibility argument:
+small parties are the ones voters know least about. Use it in Future Work and
+Implications.
+
+## 3. Embeddings: comparing encoders (your questions)
+- **How to compare them:** the harness can already do it. Re-index the same
+  corpus once per encoder, with the same chunking, then run the retrieval-only
+  metrics (hit@k, MRR, nDCG) on the same gold set. Retrieval metrics don't
+  need the LLM judge, so the cost is just indexing time. Candidates:
+  Qwen3-Embedding-0.6B (current), multilingual-E5, BGE-M3, and a BERTimbau
+  or Serafim-family model with a longer window if one exists. This would
+  answer RQ1 directly.
+- **The differences, briefly:** an *encoder* (BERT family: BERTimbau,
+  serafim) reads the whole text in both directions and pools it into a
+  vector. A *decoder-based embedder* (Qwen3-Embedding) is an LLM trained
+  further for retrieval, which takes the last token's state as the vector.
+  It brings long context windows and instruction prefixes ("query: …").
+  Separately, *sentence-similarity* training (STS) and *retrieval* training
+  (query → passage) optimise different things.
+- **Should the thesis explain it?** Yes, one or two paragraphs in State of the
+  Art "Recent developments". It's what justifies the serafim → Qwen3 reversal.
+- **Also cite** the Serafim paper (arXiv 2407.19527) as the source you found.
+
+## 4. Vector store
+- **Factual problem to fix:** "almost none of the other vector databases were
+  open source" is wrong. Milvus (Apache-2.0), Qdrant (Apache-2.0), Chroma
+  (Apache-2.0), Weaviate (BSD-3) and Faiss (MIT) are all open source. Only
+  Pinecone is proprietary. An examiner would catch this.
+- **The real argument** is already in your answer and holds up: no extra
+  dedicated service, a database you already knew, metadata filtering in plain
+  SQL, and built-in full-text search. That last one made hybrid retrieval
+  almost free later, so tell it as a payoff you didn't plan for.
+- The Milvus setup frustration fits the facts: the config pointed at a Milvus
+  server (`localhost:19530`) that the code never used. Only the embedded Lite
+  file was ever used.
+- Blog posts and a YouTube video are weak citations. For the thesis, cite the
+  pgvector repo/docs and, if possible, a benchmark or paper. Keep the video as
+  the honest "how I found it" anecdote, not as evidence.
+
+## 5. LLMs
+- Strong, complete answer. The LlamaAPI episode explains the eight-month gap
+  before OpenRouter, so keep it. It's a concrete case of the "field moving
+  fast" theme: a service vanishing mid-project.
+- Gemma 4 being an open-weights model supports the open-components framing
+  (see `DECISIONS.md`, open-source framing).
+
+## 6. RAG variants: what CRAG and agentic RAG are
+- **Corrective RAG** (Yan et al., 2024, "Corrective Retrieval Augmented
+  Generation"): a small *retrieval evaluator* scores the retrieved documents.
+  If it judges them *correct*, they are refined (split into strips, irrelevant
+  ones filtered out). If *incorrect*, they are discarded and a **web search**
+  replaces them. If *ambiguous*, both are used. So your memory is right: web
+  search is central. That's a principled reason to drop it here, because a
+  manifesto QA system must answer from the manifestos, not the open web. Say
+  this explicitly; it reads as a design decision rather than a gap.
+- **Agentic RAG:** an LLM agent decides whether, what and how often to
+  retrieve (tool calls, loops, self-checks). It costs many LLM calls per
+  query, which free-tier rate limits make painful. That's a second honest
+  reason.
+- **"Organically, feature by feature"** matches the ladder well: each rung is
+  one of the features, in the order they were added. Pausing between commits
+  isn't thesis material, agreed.
+- The `testing_rag` reading of "2 variations" wasn't confirmed or denied. Fine
+  to leave it out of the thesis.
+
+## 7. Taxonomy: multi-label examples (AD, classified checkpoint)
+Labels per chunk: 1 label: 29 chunks, 2: 108, 3: 176, 4: 70. So 92% of
+chunks carry two or more topics.
+
+Good examples for the thesis:
+- *"ESTUDANTES E ALOJAMENTO"* (student residences) →
+  `habitacao, educacao, governacao`
+- *"Isenção de IMT e Imposto de Selo para jovens"* (house purchase) →
+  `habitacao, impostos, jovens`
+
+**Spot check done (30 random AD chunks, seed 7):**
+- The **first label was right in about 29 of 30**. The primary topic is
+  reliable.
+- **Extra labels were the problem.** About 8 of 30 chunks had a clearly
+  wrong extra label: a tourism chunk tagged `saude`, a sea-and-fisheries
+  chunk tagged `educacao`, business financing tagged `financas` (which means
+  public finances), a cultural-policy chunk tagged `politica_externa`, and a
+  poverty diagnosis tagged `governacao, saude`. About 6 more had a weak
+  `governacao`, added whenever the State or municipalities were mentioned.
+- **One under-assignment:** student residences got no `jovens`, even though
+  the prompt used that exact case as an example.
+- **Confidence is uninformative.** Every one of the 383 chunks scored 4 or
+  5, so it can't be used to filter unsure labels.
+- **Root cause in the prompt:** the batch prompt said "classifica com
+  MÚLTIPLAS categorias (máximo 4)", which reads as an instruction to give
+  several. The model obliged.
+
+**Fix applied** (`src/rag/indexing/classifier.py`): both prompts now share
+one rule set. It puts the primary topic first and adds another label only if
+the chunk holds a concrete proposal or figure on it ("na dúvida, omite").
+It expects 1–2 labels and allows 3 at most, with explicit rules against
+`governacao`-as-catch-all and `financas` for private finance. The hard cap
+also drops from 4 to 3. The AD checkpoint predates this, so re-classify AD
+along with the other seven, then re-run the spot check to get a
+before/after number for the thesis.
+
+**Original flag:** some labels look over-assigned. A justice-targets chunk got
+`ambiente`, and a consumer-protection chunk got `educacao, saude`. With 64%
+of chunks carrying three or more labels, the topic filter may be weaker than
+it looks. Two options:
+- mention it as a limitation, or
+- spot-check about 30 chunks by hand and report agreement. That's a small,
+  cheap validation of the classifier, which currently has none.
+
+Also cite the two comparators (Expresso comparador, Política Ativa) as the
+sources the taxonomy was derived from. The removed keyword list had 17
+topics, so it was likely the earlier draft.
+
+## 8. Chunk size
+- "The industry moved to bigger chunks" needs a citation, or it reads as
+  folklore. The chunk-size sweep promised in the pre-thesis would turn it into
+  your own evidence.
+- **The homonym point** (canto, rio) is good material, but it belongs in
+  `ProblemAndChallenges.tex` as a Portuguese-specific challenge (the L57
+  TODO asks for exactly that), not in the chunking history.
+- **Turning point:** the doubt came from measuring chunk lengths in tokens
+  against the encoder's window. That answers the open question in entry 9.
+
+## 9. Evaluation and AI assistance
+- **Your evaluation questions map onto the RQs**, with two scope warnings:
+  - "Is agentic RAG better than hybrid + reranking?" needs an agentic rung,
+    which doesn't exist. Either build it or keep it out of the RQs.
+  - Comparing against several frontier models costs money per model. RQ5
+    needs one no-retrieval run, ideally against one strong model. Pick one,
+    not six.
+- "How to evaluate the embedding model and chunking strategies": see 3 above.
+  Both are retrieval-only re-index runs on the same gold set.
+- **AI-assistance statement (revised 2026-10-06):** Claude may draft
+  passages; you review them and rewrite them in your own words. The
+  Methodology disclosure should then cover both the code (plain local work,
+  then GPT, then Claude) and drafting assistance on the text. Agree the
+  wording with your supervisor.
+- **Decided:** build an agentic rung, and run the encoder comparison from 3.
+  Both are tracked in `DECISIONS.md`.
