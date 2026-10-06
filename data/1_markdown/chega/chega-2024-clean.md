@@ -1,10 +1,8 @@
-# PROGRAMA ELEITORAL
+# PROGRAMA ELEITORAL: LIMPAR PORTUGAL
 
-# LIMPAR PORTUGAL
+## CARTA DO PRESIDENTE
 
-# CARTA DO PRESIDENTE **LIMPAR PORTUGAL**
-
-#### _Meus caros,_
+_Meus caros,_
 
 Volvidos dois anos, estamos novamente à beira de eleições legislativas. Ninguém esperava que o sufrágio se realizasse este ano, pois o PS governava com maioria absoluta e, por isso, seria de esperar que a legislatura cumprisse os seus quatro anos.
 
@@ -26,79 +24,7 @@ Nós queremos, e vamos, devolver o prestígio às instituições e dignifi car a
 
 _O Presidente do CHEGA Dr. André Ventura_ **Agora é a nossa vez. Confi em em nós. Nós vamos limpar Portugal!**
 
-# ÍNDICE **LIMPAR PORTUGAL**
-
-**LIMPAR PORTUGAL DA CORRUPÇÃO** PÁG. 08
-
-**GARANTIR O ACESSO À SAÚDE** PÁG. 28
-
-**POR UMA JUSTIÇA QUE FUNCIONE**
-
-PÁG. 14
-
-**ASSEGURAR HABITAÇÃO DIGNA** PÁG. 36
-
-**TORNAR PORTUGAL SEGURO** PÁG. 22
-
-**JOVENS COM UM FUTURO**
-
-**LIBERTAR O ENSINO DE IDEOLOGIAS** PÁG. 42
-
-**EM PORTUGAL**
-
-PÁG. 62
-
-**SOCIAL** PÁG. 82
-
-**GARANTIR FRONTEIRAS CONTROLADAS** PÁG. 50
-
-**MAIS RENDIMENTOS PARA AS FAMÍLIAS E EMPRESAS**
-
-PÁG. 56
-
-PÁG. 76
-
-**VALORIZAR O PAPEL DA FAMÍLIA NA SOCIEDADE**
-
-**PROMOVER A NOSSA HISTÓRIA, CULTURA E TRADIÇÕES**
-
-**FAZER PORTUGAL CRESCER** PÁG. 68
-
-PÁG. 88
-
-PÁG. 110
-
-PÁG. 136
-
-PÁG. 154
-
-**RESTITUIR A DIGNIDADE AOS TRABALHADORES**
-
-**ASSEGURAR A SOBERANIA ENERGÉTICA** PÁG. 94
-
-**OLHAR PARA PORTUGAL COMO UM TODO**
-
-**VALORIZAR O MUNDO RURAL E OS AGRICULTORES** PÁG. 120
-
-**TORNAR O DESPORTO UM DESÍGNIO NACIONAL** PÁG. 142
-
-**POR UMA EUROPA DE NAÇÕES SOBERANAS** PÁG. 160
-
-**SALVAR A SEGURANÇA**
-
-**EQUILÍBRIO NA DEFESA DO AMBIENTE E DO BEM-ESTAR ANIMAL** PÁG. 102
-
-**SIMPLIFICAR PORTUGAL** PÁG. 128
-
-**DIGNIFICAR AS FORÇAS ARMADAS** PÁG. 148
-
-**MUDAR O SISTEMA POLÍTICO** PÁG. 166
-
-**DAR VOZ ÀS COMUNIDADES PORTUGUESAS**
-
-I CAPÍTULO
-
-# I CAPÍTULO **LIMPAR PORTUGAL DA CORRUPÇÃO. COMO?**
+## I CAPÍTULO LIMPAR PORTUGAL DA CORRUPÇÃO. COMO?
 
 **P**ortugal convive há décadas com uma corrupção instalada que tem afectado todos os sectores da vida, desde a economia, ao desporto, à classe política e à própria justiça, afectando muitas instituições, prejudicando muitos cidadãos que, de forma directa e indirecta, têm sofrido os efeitos devastadores de um sistema instalado que faz perder a confiança no Estado de Direito. Não falamos apenas da corrupção no sentido técnico-jurídico, mas de todas as formas de tráfico de influências, de compadrios, de troca de favores, de partilha de benefícios, de acesso a carreiras, de participação em concursos públicos, de atribuição de apoios, de subsídios e de muitas outras formas de conferir vantagens a quem não teria direito a elas ou de distribuir benefícios com base em critérios assentes nas amizades, nos conhecimentos, nas influências.
 
@@ -136,29 +62,29 @@ Como se pode inverter este paradigma de um regime corrompido que afecta a todos?
 
 O programa do partido CHEGA constitui uma arma para ressuscitar um país em que a família, a sociedade e a pátria sejam células de uma cultura do mérito, da seriedade e da afirmação dos valores da igualdade e da fraternidade.
 
-#### **PRIORIDADES**
+### PRIORIDADES
 
-• Acabar com o abuso de poder e a impunidade dos corruptos;
+- Acabar com o abuso de poder e a impunidade dos corruptos;
 
-• Conseguir uma classe política mais íntegra, mas também promover maior integridade no sector privado, dificultando, entre outras coisas, os esquemas das portasgiratórias;
+- Conseguir uma classe política mais íntegra, mas também promover maior integridade no sector privado, dificultando, entre outras coisas, os esquemas das portasgiratórias;
 
-• Assegurar a transparência nos processos públicos ou que envolvam dinheiro público;
+- Assegurar a transparência nos processos públicos ou que envolvam dinheiro público;
 
-• Reforçar a integridade e a capacidade judiciais, assim como garantir a eficácia do sistema de punição dos infractores;
+- Reforçar a integridade e a capacidade judiciais, assim como garantir a eficácia do sistema de punição dos infractores;
 
-• Melhorar a confiança dos portugueses na política e promover a sua maior participação.
+- Melhorar a confiança dos portugueses na política e promover a sua maior participação.
 
-#### **PROPOSTAS**
+### PROPOSTAS
 
 **1.** Reforçar a fiscalização e controlo, nomeadamente através:
 
-• Do reforço dos poderes e dos meios da Direcção Central de Investigação da Corrupção e Criminalidade Económica e Financeira, bem como dos poderes de Fiscalização do Tribunal de Contas e dos outros organismos de controlo (inspecções gerais e outras);
+- Do reforço dos poderes e dos meios da Direcção Central de Investigação da Corrupção e Criminalidade Económica e Financeira, bem como dos poderes de Fiscalização do Tribunal de Contas e dos outros organismos de controlo (inspecções gerais e outras);
 
-• Da otimização da capacidade de cooperação entre as inspecções administrativas sectoriais, dos órgãos de polícia criminal especializados nesta área e das entidades internacionais de combate à criminalidade económica;
+- Da otimização da capacidade de cooperação entre as inspecções administrativas sectoriais, dos órgãos de polícia criminal especializados nesta área e das entidades internacionais de combate à criminalidade económica;
 
-• Reforço de meios humanos nomeadamente do Núcleo de Assessoria Técnica da Procuradoria-Geral da República, da Unidade de Perícia Financeira e Contabilística e da Unidade Nacional de Combate ao Cibercrime e à Criminalidade Tecnológica da Polícia Judiciária;
+- Reforço de meios humanos nomeadamente do Núcleo de Assessoria Técnica da Procuradoria-Geral da República, da Unidade de Perícia Financeira e Contabilística e da Unidade Nacional de Combate ao Cibercrime e à Criminalidade Tecnológica da Polícia Judiciária;
 
-• Reforço da formação de magistrados e demais intervenientes na investigação criminal deste tipo de crimes.
+- Reforço da formação de magistrados e demais intervenientes na investigação criminal deste tipo de crimes.
 
 **2.** Criar o crime de enriquecimento ilícito relativo ao período de exercício do cargo pelos titulares de cargos políticos e titulares de altos cargos públicos.
 
@@ -200,39 +126,39 @@ O programa do partido CHEGA constitui uma arma para ressuscitar um país em que 
 
 **21.** Adoptar o princípio da universalidade da publicação das decisões judiciais nas diversas instâncias, passando as decisões finais dos tribunais de primeira instância a ser acessíveis através da internet, sem prejuízo da salvaguarda dos dados pessoais.
 
-# I CAPÍTULO **O QUE JÁ FIZEMOS PARA LIMPAR PORTUGAL DA CORRUPÇÃO**
+## I CAPÍTULO O QUE JÁ FIZEMOS PARA LIMPAR PORTUGAL DA CORRUPÇÃO
 
-#### **PROJECTO DE LEI Nº 45/XV/1ª (CH)**
+### PROJECTO DE LEI Nº 45/XV/1ª (CH)
 
 Altera o Regime do Exercício de funções por titulares de cargos políticos e altos cargos públicos no sentido de limitar negócios com familiares.
 
-#### **SEM VOTAÇÃO**
+**SEM VOTAÇÃO**
 
-#### **PROJECTO DE LEI Nº 189/XV/1ª (CH)**
+### PROJECTO DE LEI Nº 189/XV/1ª (CH)
 
 Aprova as regras de transparência aplicáveis a entidades privadas que realizam representação legítima de Interesses ("Lobbying") junto de entidades públicas, criando um registo de transparência da representação de interesses junto da Assembleia da República.
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PCP, BE **ABSTENÇÃO** PSD, PAN, Livre **FAVOR** CHEGA, IL
 
-#### **PROJECTO DE LEI Nº 94/XV/1ª (CH)**
+### PROJECTO DE LEI Nº 94/XV/1ª (CH)
 
 Criação do Estatuto do Arguido Colaborador e agravamento das penas aplicáveis aos crimes de corrupção previstos no Código Penal.
 
-#### **PROJECTO DE LEI Nº 370/XV/1ª (CH)**
+### PROJECTO DE LEI Nº 370/XV/1ª (CH)
 
 Alteração dos prazos de prescrição dos crimes sexuais contra menores e de um conjunto de crimes de corrupção.
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PSD, PCP, BE, Livre **ABSTENÇÃO** IL, PAN **FAVOR** CHEGA
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PSD, PCP, PAN, Livre **ABSTENÇÃO** IL, PAN **FAVOR** CHEGA
 
-# II CAPÍTULO **POR UMA JUSTIÇA QUE FUNCIONE. COMO?**
+## II CAPÍTULO POR UMA JUSTIÇA QUE FUNCIONE. COMO?
 
 **D**esde a criação do CHEGA que a justiça tem estado no centro do debate. A par de outras realidades, a justiça é central na construção de um Estado de Direito Democrático. No entanto, as suas falhas são visíveis e têm justificado chamadas de atenção reiteradas sobre elas, já que as soluções tardam em chegar. Não é preciso ser especialista na matéria, nem profissional da área, para perceber que existe falta de recursos humanos e técnicos; que muitos tribunais não têm condições de trabalho ou porque chove lá dentro ou porque não têm condições de conforto térmico; precisam de obras e algumas soluções provisórias prolongam-se por muito mais tempo do que é aceitável; continuam a existir processos acumulados e a média de resolução de um processo não é a ideal, especialmente em determinados tribunais como os administrativos e fiscais, isto apenas para citar alguns exemplos do que vai mal.
 
@@ -248,21 +174,21 @@ O cidadão comum sente-se afastado da justiça seja porque deixou de acreditar n
 
 A nossa justiça acaba por falhar em todas as características que lhe são essenciais: ser confiável, acessível, universal e garantir aos cidadãos uma resolução justa e célere dos seus problemas. Sabe-se, no entanto, que uma reforma na justiça não é fácil, nem rápida. Precisamente por isso, a reforma da justiça que se pretende precisa necessariamente de uma ponderação de vários planos e tempos e, portanto, devem ser vistas medidas de curto/ médio e longo prazo, assim como medidas mais específicas e outras de carácter mais geral, tudo com a devida planificação. Por outro lado, pretende-se uma reforma responsável, que tenha em atenção os interesses dos cidadãos hoje, mas também das gerações futuras, que consiga dar resposta a uma sociedade em permanente mutação e com respeito pelos direitos fundamentais dos cidadãos.
 
-#### **PRIORIDADES**
+### PRIORIDADES
 
-• Desburocratizar a justiça, racionalizar os gastos, simplificar os processos e acabar com a morosidade nos tribunais, sem comprometer os direitos, liberdades e garantias dos cidadãos;
+- Desburocratizar a justiça, racionalizar os gastos, simplificar os processos e acabar com a morosidade nos tribunais, sem comprometer os direitos, liberdades e garantias dos cidadãos;
 
 **<sup>1</sup>** Flash Eurobarometer 489 - Perceived independence of the national justice systems in the EU among the general public. **2** https://commission.europa.eu/system/files/2023-07/50\_1\_52628\_coun\_chap\_portugal\_en.pdf | https://www.tsf.pt/portugal/sociedade/portugal-e-o-5-pais-da-ue-com-maior-duracao-dosprocessos-nos-tribunais-16496519.html
 
-• Valorizar os profissionais da justiça, tanto do sector público como privado;
+- Valorizar os profissionais da justiça, tanto do sector público como privado;
 
-• Reformar a legislação penal no sentido de a tornar mais adequada a cumprir os seus fins de prevenção e passar a centrá-la mais na defesa das vítimas e menos nos arguidos;
+- Reformar a legislação penal no sentido de a tornar mais adequada a cumprir os seus fins de prevenção e passar a centrá-la mais na defesa das vítimas e menos nos arguidos;
 
-• Dignificar as infra-estruturas da justiça e assegurar que os seus profissionais têm as condições necessárias para trabalhar;
+- Dignificar as infra-estruturas da justiça e assegurar que os seus profissionais têm as condições necessárias para trabalhar;
 
-• Garantir o direito constitucional de acesso ao Direito, aos tribunais e a um defensor oficioso.
+- Garantir o direito constitucional de acesso ao Direito, aos tribunais e a um defensor oficioso.
 
-#### **PROPOSTAS**
+### PROPOSTAS
 
 **22.** Assegurar a digitalização de todos os processos em todos os tribunais, incluindo o Tribunal Constitucional, e proceder a melhorias nas plataformas de submissão e gestão de processos.
 
@@ -270,85 +196,83 @@ A nossa justiça acaba por falhar em todas as características que lhe são esse
 
 **24.** Dar resposta às reivindicações dos Oficiais de Justiça, nomeadamente:
 
-• Preencher os lugares vagos na carreira dos oficiais de justiça, dado que existem aproximadamente 7.000 profissionais nessa área, contudo, mais de 1.000 posições encontram-se por preencher.
+- Preencher os lugares vagos na carreira dos oficiais de justiça, dado que existem aproximadamente 7.000 profissionais nessa área, contudo, mais de 1.000 posições encontram-se por preencher.
 
-• Proceder ao recrutamento de emergência de 300 efectivos, a distribuir pelos vários grupos de pessoal da carreira de funcionário judicial, para as comarcas com maiores carências;
+- Proceder ao recrutamento de emergência de 300 efectivos, a distribuir pelos vários grupos de pessoal da carreira de funcionário judicial, para as comarcas com maiores carências;
 
-• Abrir concursos de acesso em todas as categorias dos grupos de pessoal da carreira de funcionário judicial;
+- Abrir concursos de acesso em todas as categorias dos grupos de pessoal da carreira de funcionário judicial;
 
-• Integrar o suplemento de recuperação processual no vencimento ou, em alternativa, pagamento do suplemento de recuperação processual em 14 vezes;
+- Integrar o suplemento de recuperação processual no vencimento ou, em alternativa, pagamento do suplemento de recuperação processual em 14 vezes;
 
-• Criar um regime especial de aposentação e de acesso ao regime de pré-aposentação;
+- Criar um regime especial de aposentação e de acesso ao regime de pré-aposentação;
 
-• Rever o Estatuto dos Funcionários Judiciais e revalorização dos grupos de pessoal da carreira de funcionário judicial;
+- Rever o Estatuto dos Funcionários Judiciais e revalorização dos grupos de pessoal da carreira de funcionário judicial;
 
-• Revalorização remuneratória de todo o pessoal da carreira de funcionário judicial;
+- Revalorização remuneratória de todo o pessoal da carreira de funcionário judicial;
 
-• Pagar as horas extraordinárias.
+- Pagar as horas extraordinárias.
 
 **25.** Responder às reivindicações dos Oficiais de Registo e Notariado:
 
-• Proceder ao recrutamento urgente dos Conservadores
+- Proceder ao recrutamento urgente dos Conservadores de Registos e dos Oficiais de Registos em falta, de acordo com o levantamento que venha a ser feito, e com uma programação projectada para 3 anos;
 
-de Registos e dos Oficiais de Registos em falta, de acordo com o levantamento que venha a ser feito, e com uma programação projectada para 3 anos;
+- Rever o estatuto profissional das carreiras dos oficiais de registos, corrigindo as iniquidades e omissões do Decreto- -Lei n.º 115/2018, de 21 de dezembro;
 
-• Rever o estatuto profissional das carreiras dos oficiais de registos, corrigindo as iniquidades e omissões do Decreto- -Lei n.º 115/2018, de 21 de dezembro;
+- Corrigir assimetrias salariais, em sede de sistema remuneratório;
 
-• Corrigir assimetrias salariais, em sede de sistema remuneratório;
+- Recuperar as actualizações indiciárias em dívida aos Oficiais de Registo desde 2001;
 
-• Recuperar as actualizações indiciárias em dívida aos Oficiais de Registo desde 2001;
+- Proceder ao pagamento do abono para falhas;
 
-• Proceder ao pagamento do abono para falhas;
+- Iniciar a negociação tendente a garantir o pagamento do prémio de desempenho e produtividade;
 
-• Iniciar a negociação tendente a garantir o pagamento do prémio de desempenho e produtividade;
+- Proceder à promoção dos trabalhadores remanescentes da extinta carreira de escriturário, a escriturários superiores;
 
-• Proceder à promoção dos trabalhadores remanescentes da extinta carreira de escriturário, a escriturários superiores;
+- Rever as condições de desempenho de funções, nomeadamente ao nível da requalificação das instalações, colmatar a falta de meios de trabalho e implementar verdadeiras políticas de Segurança, Saúde e Higiene no Trabalho;
 
-• Rever as condições de desempenho de funções, nomeadamente ao nível da requalificação das instalações, colmatar a falta de meios de trabalho e implementar verdadeiras políticas de Segurança, Saúde e Higiene no Trabalho;
-
-• Rever as condições em que se processa o atendimento dos utentes dos serviços de registo, no sentido de assegurar a necessária reserva durante o atendimento.
+- Rever as condições em que se processa o atendimento dos utentes dos serviços de registo, no sentido de assegurar a necessária reserva durante o atendimento.
 
 **26.** Responder às reivindicações dos advogados, solicitadores e agentes de execução:
 
-• Permitir a escolha entre a inscrição na Caixa de Previdência dos Advogados e Solicitadores e o regime da Segurança Social;
+- Permitir a escolha entre a inscrição na Caixa de Previdência dos Advogados e Solicitadores e o regime da Segurança Social;
 
-• Actualizar a tabela de honorários do acesso ao Direito, assegurar o pagamento de despesas no âmbito da representação de beneficiários deste sistema e ainda um sistema de pagamento progressivo;
+- Actualizar a tabela de honorários do acesso ao Direito, assegurar o pagamento de despesas no âmbito da representação de beneficiários deste sistema e ainda um sistema de pagamento progressivo;
 
-• Ponderar a alteração do método de distribuição dos processos a Agentes de Execução, passando nomeadamente para um processo de distribuição aleatória, com critério de proximidade;
+- Ponderar a alteração do método de distribuição dos processos a Agentes de Execução, passando nomeadamente para um processo de distribuição aleatória, com critério de proximidade;
 
-• Assegurar a suspensão dos prazos em caso de morte de filho, assim como garantir apoios em caso de doença grave ou prolongada;
+- Assegurar a suspensão dos prazos em caso de morte de filho, assim como garantir apoios em caso de doença grave ou prolongada;
 
-• Garantir às mães com bebés recém-nascidos (até aos 4 meses) a possibilidade de proceder ao adiamento das diligências;
+- Garantir às mães com bebés recém-nascidos (até aos 4 meses) a possibilidade de proceder ao adiamento das diligências;
 
-• Prever condições para o exercício dos mandatos, junto dos tribunais, nomeadamente disponibilizando acesso à internet.
+- Prever condições para o exercício dos mandatos, junto dos tribunais, nomeadamente disponibilizando acesso à internet.
 
 **27.** Responder às reivindicações dos guardas prisionais e
 
 técnicos de reinserção social:
 
-• Proceder à regulamentação uniforme do sistema de avaliação do Corpo da Guarda Prisional (CGP);
+- Proceder à regulamentação uniforme do sistema de avaliação do Corpo da Guarda Prisional (CGP);
 
-• Abrir vagas em número suficiente para a promoção dos Guardas Prisionais a Guardas Principais, alguns dos quais a aguardar a promoção há cerca de 20 anos;
+- Abrir vagas em número suficiente para a promoção dos Guardas Prisionais a Guardas Principais, alguns dos quais a aguardar a promoção há cerca de 20 anos;
 
-• Proceder à abertura de concursos para recrutamento de novos efectivos, com regularidade anual ou bianual;
+- Proceder à abertura de concursos para recrutamento de novos efectivos, com regularidade anual ou bianual;
 
-• Rever as normas estatutárias da carreira de guarda prisional, de modo a tornar a profissão mais atractiva e combater a falta de interesse que a carreira motiva em novos candidatos, com concursos de admissão que não conseguem preencher todos os lugares abertos;
+- Rever as normas estatutárias da carreira de guarda prisional, de modo a tornar a profissão mais atractiva e combater a falta de interesse que a carreira motiva em novos candidatos, com concursos de admissão que não conseguem preencher todos os lugares abertos;
 
-• Assegurar que os reformados do CGP, que não tenham condições económicas para encontrar outra habitação, não sejam despejados das respectivas casas de função;
+- Assegurar que os reformados do CGP, que não tenham condições económicas para encontrar outra habitação, não sejam despejados das respectivas casas de função;
 
-• Assegurar que as casas de função degradadas sejam objeto de recuperação pelo IGFEJ e sejam utilizadas para alojar elementos do CGP que se encontrem deslocados dos seus locais de residência;
+- Assegurar que as casas de função degradadas sejam objeto de recuperação pelo IGFEJ e sejam utilizadas para alojar elementos do CGP que se encontrem deslocados dos seus locais de residência;
 
-• Renovar profundamente todo o parque automóvel afeto ao sistema prisional, visto que uma grande parte da frota é obsoleta, nos termos da lei de programação plurianual para a Justiça, a aprovar;
+- Renovar profundamente todo o parque automóvel afeto ao sistema prisional, visto que uma grande parte da frota é obsoleta, nos termos da lei de programação plurianual para a Justiça, a aprovar;
 
-• Ampliação e construção de novos estabelecimentos prisionais necessários em diversas zonas do país;
+- Ampliação e construção de novos estabelecimentos prisionais necessários em diversas zonas do país;
 
-• Criminalizar o incitamento ao ódio contra guardas prisionais e agravar as penas relativas a agressões;
+- Criminalizar o incitamento ao ódio contra guardas prisionais e agravar as penas relativas a agressões;
 
-• Delinear uma estratégia de combate ao tráfico e consumo de droga nos estabelecimentos prisionais portugueses;
+- Delinear uma estratégia de combate ao tráfico e consumo de droga nos estabelecimentos prisionais portugueses;
 
-• Proceder à contratação de técnicos de reinserção social;
+- Proceder à contratação de técnicos de reinserção social;
 
-• Proceder à revalorização urgente das carreiras de técnico de reinserção social, já em 2024, principalmente na componente remuneratória, de modo a aumentar o potencial de captação e fixação de efectivos, evitando a debandada para outras carreiras ao abrigo da mobilidade.
+- Proceder à revalorização urgente das carreiras de técnico de reinserção social, já em 2024, principalmente na componente remuneratória, de modo a aumentar o potencial de captação e fixação de efectivos, evitando a debandada para outras carreiras ao abrigo da mobilidade.
 
 **28.** Impedir a renovação ou rescindir os contratos de arrendamento milionários de edifícios privados onde se encontram instalados vários tribunais, como por exemplo o arrendamento dos edifícios do Campus de Justiça de Lisboa, e, ao invés, utilizar o património do Estado existente, devoluto ou subaproveitado, para a instalação de tribunais.
 
@@ -382,41 +306,41 @@ técnicos de reinserção social:
 
 **43.** Combater a violência doméstica, através:
 
-• Do aumento dos meios disponíveis para a investigação deste tipo de crime;
+- Do aumento dos meios disponíveis para a investigação deste tipo de crime;
 
 - Mais formação para todos os envolvidos;
 - Aumento das penas;
 
-• Inverter a ideia de que a vítima, normalmente mulher, é que tem que ser afastada de casa e colocada em regime de casa-abrigo, ao invés do criminoso ser afastado;
+- Inverter a ideia de que a vítima, normalmente mulher, é que tem que ser afastada de casa e colocada em regime de casa-abrigo, ao invés do criminoso ser afastado;
 
-• Promover uma maior utilização dos meios técnicos de controlo à distância;
+- Promover uma maior utilização dos meios técnicos de controlo à distância;
 
-• Proceder à revisão das fichas de risco;
+- Proceder à revisão das fichas de risco;
 
-• Aumentar o número de casas-abrigo e assegurar a existência de uma rede nacional com implementação em todo o território;
+- Aumentar o número de casas-abrigo e assegurar a existência de uma rede nacional com implementação em todo o território;
 
-• Melhorar o financiamento das entidades que prestam apoio às vítimas.
+- Melhorar o financiamento das entidades que prestam apoio às vítimas.
 
 **44.** Combater a violência sexual:
 
 - Através do aumento das penas;
 - Da alteração da natureza do crime para crime público;
 
-• Mais formação para todos os envolvidos, reduzindo as potenciais situações de revitimização;
+- Mais formação para todos os envolvidos, reduzindo as potenciais situações de revitimização;
 
-• Alteração do regime de declarações para memória futura;
+- Alteração do regime de declarações para memória futura;
 
-• Assegurar que no momento da queixa é atribuído defensor oficioso à vítima;
+- Assegurar que no momento da queixa é atribuído defensor oficioso à vítima;
 
-• Garantir à vítima a possibilidade de proceder à suspensão provisória do processo;
+- Garantir à vítima a possibilidade de proceder à suspensão provisória do processo;
 
-• Garantir a possibilidade de escolha do sexo da pessoa que procede à perícia médica;
+- Garantir a possibilidade de escolha do sexo da pessoa que procede à perícia médica;
 
-• Criar centros de apoio para sobreviventes de violência sexual;
+- Criar centros de apoio para sobreviventes de violência sexual;
 
-• Proceder a um inquérito nacional de vitimação;
+- Proceder a um inquérito nacional de vitimação;
 
-• Assegurar a criação de um canal permanente de denúncia de abusos sexuais em diversas instituições.
+- Assegurar a criação de um canal permanente de denúncia de abusos sexuais em diversas instituições.
 
 **45.** Reverter a Lei n.º 55/2023, de 08 de Setembro que clarifica o regime sancionatório relativo à detenção de droga para consumo independentemente da quantidade e estabelece prazos regulares para a atualização das normas regulamentares.
 
@@ -446,49 +370,49 @@ técnicos de reinserção social:
 
 **58.** Promover uma Campanha Nacional de combate à pirataria de publicações jornalísticas, dando a conhecer os impactos negativos dessa prática para o pluralismo e democracia, bem como a circunstância de se tratar de acto criminoso já previsto e punido por lei, adoptanto ainda outras medidas necessárias com vista à protecção dos direitos de autor.
 
-# II CAPÍTULO **O QUE JÁ FIZEMOS PARA UMA JUSTIÇA QUE FUNCIONE**
+## II CAPÍTULO O QUE JÁ FIZEMOS PARA UMA JUSTIÇA QUE FUNCIONE
 
-#### **PROJECTO DE LEI 150/XV/1 (CH)**
+### PROJECTO DE LEI 150/XV/1 (CH)
 
 Impede a suspensão da execução da pena em caso de condenação por crime de de abuso sexual de crianças ou outros conexos.
 
-#### **PROJECTO DE LEI 156/XV/1 (CH)**
+### PROJECTO DE LEI 156/XV/1 (CH)
 
 Reforça a protecção das vítimas de devassa da vida privada por meio de partilha não consentida de conteúdos de cariz sexual.
 
-#### **PROJECTO DE LEI 600/XV/1 (CH)**
+### PROJECTO DE LEI 600/XV/1 (CH)
 
 Aumenta a protecção das vítimas de abuso sexual de menores, para tanto alterando o Código Penal.
 
-#### **PROJECTO DE LEI 672/XV/1 (CH)**
+### PROJECTO DE LEI 672/XV/1 (CH)
 
 Assegura o pagamento do suplemento para compensação do trabalho de recuperação dos atrasos processuais.
 
-#### **PROJECTO DE LEI 678/XV/1 (CH)**
+### PROJECTO DE LEI 678/XV/1 (CH)
 
 Reforça a protecção dos idosos que sejam vítimas de crimes.
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PSD, IL, PCP, BE, L **ABSTENÇÃO** --- **FAVOR** CHEGA, PAN
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PSD, PCP, BE, L **ABSTENÇÃO** IL, PAN **FAVOR** CHEGA
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PCP **ABSTENÇÃO** PSD, PAN, L **FAVOR** CHEGA, IL, BE
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** IL, PCP, L **FAVOR** PSD, CHEGA, BE, PAN
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PSD, PCP, BE **ABSTENÇÃO** L **FAVOR** CHEGA, IL, PAN
 
-# III CAPÍTULO **TORNAR PORTUGAL SEGURO. COMO?**
+## III CAPÍTULO TORNAR PORTUGAL SEGURO. COMO?
 
 **A**nalisada a situação política nacional ao longo dos anos verifica-se que o poder político tem vindo a permitir a progressiva degradação da actividade de segurança interna em Portugal. Esta degradação tem-se traduzido no desgaste da profissão, na falta de atracção das carreiras policiais, na deficiente superação dos problemas decorrentes da renovação dos efectivos em situação de aposentação, na humilhação conferida aos elementos das forças de segurança, na utilização abusiva dos órgãos de polícia criminal com o objectivo, torpe, não só de controlo da actividade de investigação criminal para fins e proveitos políticos, como de neutralização de práticas que podem consubstanciar ilícitos de natureza criminal por parte de quem exerce cargos de poder político. Associado à falta de prestígio e de dignificação das forças de segurança, soma-se o cenário de crescimento da criminalidade, com destaque para situações particularmente graves. A ampliação de possíveis conflitos sociais é também uma preocupação, especialmente se associada a movimentos migratórios desregulados.
 
@@ -498,19 +422,19 @@ Para além da falta de valorização, existe também uma enorme desprotecção d
 
 O CHEGA não esquece ainda a dimensão da saúde mental e os números relativos a suicídios nas forças de segurança, que são verdadeiramente alarmantes. Segundo o noticiado na Revista Visão**<sup>1</sup>** , nas últimas duas décadas, 160 elementos das forças de segurança – 80 na PSP e 80 na GNR – terminaram com a própria vida. Sendo que comparativamente, a taxa de incidência de suicídios nas forças de segurança varia entre o dobro e o triplo face à população geral. Esta é uma estatística a que o CHEGA não pode ficar indiferente. Pelo que, em suma, na sequência do que o Partido CHE-GA tem feito – uma vez que tem sido a única composição político-partidária a proceder insistentemente à defesa pública das forças de segurança – urge reorganizar, requalificar e redefinir, em ordem a obter aquilo que se pode resumir em poucas palavras: "Valorização e dignificação das forças de segurança".
 
-#### **PRIORIDADES**
+### PRIORIDADES
 
-• Tornar as carreiras nas forças de segurança atrativas, através da revisão dos vencimentos, da justa compensação pelo risco, reconhecimento de profissão de desgaste rápido, pagamento de horas suplementares, valorização do sistema de Ensino Superior Policial, entre outros aspectos; • Proceder à avaliação da distribuição das forças de segurança e assegurar abertura de postos nas zonas de maior carência, bem como o reforço do número de elementos, conforme as necessidades;
+- Tornar as carreiras nas forças de segurança atrativas, através da revisão dos vencimentos, da justa compensação pelo risco, reconhecimento de profissão de desgaste rápido, pagamento de horas suplementares, valorização do sistema de Ensino Superior Policial, entre outros aspectos; • Proceder à avaliação da distribuição das forças de segurança e assegurar abertura de postos nas zonas de maior carência, bem como o reforço do número de elementos, conforme as necessidades;
 
-• Assegurar que as forças de segurança dispõem de todos os meios para o cumprimento das suas funções e defesa do prestígio das instituições;
+- Assegurar que as forças de segurança dispõem de todos os meios para o cumprimento das suas funções e defesa do prestígio das instituições;
 
-• Reconhecer o papel fundamental dos bombeiros na defesa das populações e dotá-los dos meios necessários para o cumprimento das suas funções, incluindo a justa valorização salarial e a sua profissionalização;
+- Reconhecer o papel fundamental dos bombeiros na defesa das populações e dotá-los dos meios necessários para o cumprimento das suas funções, incluindo a justa valorização salarial e a sua profissionalização;
 
-• Melhorar os procedimentos de resposta da protecção civil, focar mais na prevenção e agilizar os processos.
+- Melhorar os procedimentos de resposta da protecção civil, focar mais na prevenção e agilizar os processos.
 
 **1** https://visao.sapo.pt/atualidade/sociedade/2021-11-25-o-que-se-passa-nas-policias-taxa-de-suicidios-e-mais-do-dobro-da-populacao-geral/
 
-#### **PROPOSTAS**
+### PROPOSTAS
 
 **59.** Equiparar o suplemento de risco entre as várias forças de segurança, tendo por referência o suplemento de missão auferido pela Polícia Judiciária, e aplicá-lo também à PSP e à GNR.
 
@@ -574,57 +498,57 @@ progressão, assim como seguros de vida e de acidentes de trabalho, a cobrir 24h
 
 **88.** Integrar totalmente na carreira militar os Guardas Florestais que transitaram para a GNR.
 
-# III CAPÍTULO **O QUE JÁ FIZEMOS PARA TORNAR PORTUGAL SEGURO**
+## III CAPÍTULO O QUE JÁ FIZEMOS PARA TORNAR PORTUGAL SEGURO
 
-#### **PROJECTO DE LEI 916/XV/2 (CH)**
+### PROJECTO DE LEI 916/XV/2 (CH)
 
 Aumenta para 500 Euros a componente fixa do suplemento por serviço e risco nas forças de segurança auferido pelos militares da GNR e pelos agentes da PSP
 
-## **REJEITADO CONTRA** Partido Socialista
+**REJEITADO CONTRA** Partido Socialista
 
 **ABSTENÇÃO** PSD, IL, PCP, BE, L **FAVOR** CHEGA, PAN
 
-#### **PROJECTO DE LEI 23/XV/1 (CH)**
+### PROJECTO DE LEI 23/XV/1 (CH)
 
 Criminaliza o incitamento ao ódio contra os membros dos órgãos de polícia criminal e órgãos judiciais
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, IL, PCP, BE, PAN, L **ABSTENÇÃO** PSD **FAVOR** CHEGA
 
-#### **PROJECTO DE RESOLUÇÃO 867/XV/1 (CH)**
+### PROJECTO DE RESOLUÇÃO 867/XV/1 (CH)
 
 Pela Prevenção do Suicídio nas Forças de Segurança
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** PCP, L **FAVOR** PSD, CHEGA, IL, BE
 
-#### **PROJECTO DE LEI Nº 370/XV/1ª (CH)**
+### PROJECTO DE LEI Nº 370/XV/1ª (CH)
 
 Alteração dos prazos de prescrição dos crimes sexuais contra menores e de um conjunto de crimes de corrupção.
 
-#### **PROJECTO DE RESOLUÇÃO 667/XV/1**
+### PROJECTO DE RESOLUÇÃO 667/XV/1
 
 Recomenda ao Governo o reconhecimento do Comando Nacional de Bombeiros
 
-#### **PROPOSTA DE ALTERAÇÃO OE 24 Nº 233C**
+### PROPOSTA DE ALTERAÇÃO OE 24 Nº 233C
 
 Classificação da profissão de desgaste rápido para os sapadores florestais
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PSD, PCP, BE, Livre **ABSTENÇÃO** IL, PAN **FAVOR** CHEGA
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, IL **ABSTENÇÃO** PCP, BE, PAN, L **FAVOR** PSD, CHEGA
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, IL **ABSTENÇÃO** PSD, PCP, BE, L **FAVOR** CHEGA, PAN
 
-# IV CAPÍTULO **GARANTIR O ACESSO À SAÚDE. COMO?**
+## IV CAPÍTULO GARANTIR O ACESSO À SAÚDE. COMO?
 
 **O**CHEGA reconhece que a saúde é um pilar funda-mental para o bem-estar dos cidadãos e, como tal, entende que é urgente a reestruturação profunda do Serviço Nacional de Saúde (SNS), que deve, desde logo, passar a designar-se Sistema Nacional de Saúde. Este é caracterizado por uma articulação estreita entre o sector público, privado e social.
 
@@ -668,33 +592,33 @@ Comprometemo-nos a aferir de forma credível os níveis de satisfação dos uten
 
 A proposta do CHEGA para a saúde, através deste programa para as eleições legislativas de 2024, reflete o compromisso inabalável de construir um sistema de saúde robusto, centrado nas pessoas e capaz de responder aos desafios emergentes.
 
-#### **PRIORIDADES**
+### PRIORIDADES
 
-• Modernizar o SNS, fazendo uso das inovações tecnológicas e inteligência artificial, garantindo assim uma maior informatização, eficiência operacional e, consequentemente, um melhor serviço prestado ao utente;
+- Modernizar o SNS, fazendo uso das inovações tecnológicas e inteligência artificial, garantindo assim uma maior informatização, eficiência operacional e, consequentemente, um melhor serviço prestado ao utente;
 
-• Alterar o paradigma para Sistema Nacional de Saúde, assegurando uma resposta integrada ao cidadão através da articulação dos serviços de saúde públicos, privados e sociais;
+- Alterar o paradigma para Sistema Nacional de Saúde, assegurando uma resposta integrada ao cidadão através da articulação dos serviços de saúde públicos, privados e sociais;
 
-• Investir na prevenção da doença e promoção da saúde;
+- Investir na prevenção da doença e promoção da saúde;
 
-• Reforçar os cuidados primários e o atendimento de urgência, com a garantia de atribuição de médico família a todos os cidadãos;
+- Reforçar os cuidados primários e o atendimento de urgência, com a garantia de atribuição de médico família a todos os cidadãos;
 
-• Promover a valorização e fixação dos profissionais de Saúde no SNS.
+- Promover a valorização e fixação dos profissionais de Saúde no SNS.
 
-#### **PROPOSTAS**
+### PROPOSTAS
 
 **89.** Desenvolver tecnologias inovadoras e sistemas de informação integrados que melhorem a coordenação entre as diferentes valências do sistema de saúde (cuidados médicos, terapêuticas, rastreios e diagnósticos), incluindo:
 
-• Plataforma única digital comum a todos os agentes envolvidos no sector da saúde em Portugal, processo essencial para que existam sinergias e ganhos de eficiência em todo o sistema de saúde;
+- Plataforma única digital comum a todos os agentes envolvidos no sector da saúde em Portugal, processo essencial para que existam sinergias e ganhos de eficiência em todo o sistema de saúde;
 
-• Registo Único de Saúde do Cidadão, permitindo a disponibilidade do processo clínico do utente em todas as instituições de saúde de forma a agilizar o acesso a informações médicas, melhorar a coordenação entre profissionais, reduzir a duplicação de exames, facilitar tomada de decisões e promover a segurança e precisão do histórico clínico do utente, numa abordagem, integrada e personalizada;
+- Registo Único de Saúde do Cidadão, permitindo a disponibilidade do processo clínico do utente em todas as instituições de saúde de forma a agilizar o acesso a informações médicas, melhorar a coordenação entre profissionais, reduzir a duplicação de exames, facilitar tomada de decisões e promover a segurança e precisão do histórico clínico do utente, numa abordagem, integrada e personalizada;
 
-• Dinamização da telemedicina na prestação de cuidados de saúde, permitindo consultas remotas e acessíveis atra-
+- Dinamização da telemedicina na prestação de cuidados de saúde, permitindo consultas remotas e acessíveis atra-
 
 **<sup>3</sup>** Análise Mensal do Balanço Social – SNS
 
 vés de tecnologias digitais;
 
-• Promoção da qualidade e transparência nos serviços públicos, privados e sociais, nomeadamente através da avaliação sistemática dos serviços, à comparação entre sectores com a publicação dos respectivos relatórios periódicos, criação de incentivos para a qualidade, entre outros.
+- Promoção da qualidade e transparência nos serviços públicos, privados e sociais, nomeadamente através da avaliação sistemática dos serviços, à comparação entre sectores com a publicação dos respectivos relatórios periódicos, criação de incentivos para a qualidade, entre outros.
 
 **90.** Evoluir o Serviço Nacional de Saúde para um Sistema Nacional de Saúde, com a integração de todo o Sector Público, Privado e Social, formalizando parcerias público-privadas estratégicas para optimizar recursos e garantir uma prestação de serviços mais eficaz, rápida e de qualidade.
 
@@ -730,13 +654,13 @@ vés de tecnologias digitais;
 
 **106.** Reforçar a Rede de Cuidados Continuados Integrados e Paliativos, através do:
 
-• Reforço substancial do número de camas nas unidades de convalescença, média duração e reabilitação e longa duração e manutenção;
+- Reforço substancial do número de camas nas unidades de convalescença, média duração e reabilitação e longa duração e manutenção;
 
-• Reforço significativo das equipas de apoio domiciliário da Rede Nacional de Cuidados Continuados Integrados;
+- Reforço significativo das equipas de apoio domiciliário da Rede Nacional de Cuidados Continuados Integrados;
 
-• Alargamento do horário previsto de visitas domiciliárias por parte dos médicos de família, estando sempre disponíveis viaturas para o efeito;
+- Alargamento do horário previsto de visitas domiciliárias por parte dos médicos de família, estando sempre disponíveis viaturas para o efeito;
 
-• Introdução do "Vale Cuidador", que consubstancia uma comparticipação atribuída às famílias que optem por cuidar dos seus idosos em casa para os ajudar a fazer face às despesas acrescidas em virtude dessa circunstância.
+- Introdução do "Vale Cuidador", que consubstancia uma comparticipação atribuída às famílias que optem por cuidar dos seus idosos em casa para os ajudar a fazer face às despesas acrescidas em virtude dessa circunstância.
 
 **107.** Revogar a Lei n.º 22/2023, de 25 de maio que regula as condições em que a morte medicamente assistida não é punível e altera o Código Penal, envolvendo a sociedade e promovendo a consciencialização sobre as questões relacionadas com o princípio do direito à vida, fundamental e inviolável.
 
@@ -744,13 +668,13 @@ vés de tecnologias digitais;
 
 **109.** Assegurar remunerações justas e valorização das carreiras dos profissionais de saúde, nomeadamente através:
 
-• Da revisão das tabelas salariais de médicos, enfermeiros e dos restantes profissionais do sector, que responda às suas legítimas reivindicações;
+- Da revisão das tabelas salariais de médicos, enfermeiros e dos restantes profissionais do sector, que responda às suas legítimas reivindicações;
 
-• Da criação de um sistema de incentivos individuais ou por grupo profissional, focado na eficiência e na obtenção de resultados para a comunidade;
+- Da criação de um sistema de incentivos individuais ou por grupo profissional, focado na eficiência e na obtenção de resultados para a comunidade;
 
-• Do pagamento de despesas de deslocação quando são afectos a serviços de saúde com uma distância superior a 100 kms da sua residência oficial;
+- Do pagamento de despesas de deslocação quando são afectos a serviços de saúde com uma distância superior a 100 kms da sua residência oficial;
 
-• Reconhecer a profissão de médico e de enfermeiro como de alto risco e desgaste rápido.
+- Reconhecer a profissão de médico e de enfermeiro como de alto risco e desgaste rápido.
 
 **110.** Criar equipas de apoio e gestão das candidaturas internacionais no Sistema Nacional de Saúde para financiamento de projectos de investigação e equipamentos tecnológicos, tornando Portugal um país mais competitivo e de relevo ao nível de ID.
 
@@ -766,39 +690,39 @@ vés de tecnologias digitais;
 
 **116.** Assegurar o acesso universal a cuidados de saúde oral, actualizar o valor do cheque dentista e promover campanhas de prevenção neste âmbito.
 
-# IV CAPÍTULO **O QUE JÁ FIZEMOS PARA GARANTIR O ACESSO À SAÚDE**
+## IV CAPÍTULO O QUE JÁ FIZEMOS PARA GARANTIR O ACESSO À SAÚDE
 
-#### **PROJECTO DE LEI 812/XV/1 (CH)**
+### PROJECTO DE LEI 812/XV/1 (CH)
 
 Altera o Decreto-Lei n.º 298/2007, de 22 de agosto, de forma a garantir o acesso universal a Médico Especialista em Medicina Geral e Familiar
 
-#### **PROJECTO DE LEI 880/XV/1 (CH)**
+### PROJECTO DE LEI 880/XV/1 (CH)
 
 Altera a Lei de Bases da Saúde, estabelecendo a obrigação do Estado referenciar os utentes do Serviço Nacional de Saúde (SNS) para atendimento nos sectores privado ou social em caso de esgotamento dos tempos máximos de resposta garantidos
 
-#### **PROJECTO DE RESOLUÇÃO 750/XV/1 (CH)**
+### PROJECTO DE RESOLUÇÃO 750/XV/1 (CH)
 
 Recomenda ao Governo que adote medidas para aumentar a eficácia, eficiência e produtividade do Serviço Nacional de Saúde, particularmente nas zonas e regiões mais carenciadas
 
-#### **PROJECTO DE RESOLUÇÃO 940/XV/2**
+### PROJECTO DE RESOLUÇÃO 940/XV/2
 
 Recomenda ao Governo o alargamento urgente da Rede de Cuidados Paliativos
 
-#### **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PCP, L **ABSTENÇÃO** PSD, IL, BE **FAVOR** CHEGA
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PCP, BE, L **ABSTENÇÃO** IL **FAVOR** PSD, CHEGA, PAN
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PCP, BE **ABSTENÇÃO** IL, PAN, L **FAVOR** PSD, CHEGA
 
-#### **SEM VOTAÇÃO**
+**SEM VOTAÇÃO**
 
-# V CAPÍTULO **ASSEGURAR HABITAÇÃO DIGNA. COMO?**
+## V CAPÍTULO ASSEGURAR HABITAÇÃO DIGNA. COMO?
 
 **A**habitação em Portugal assume contornos preo-cupantes, marcados pela escassez de soluções eficazes e pelo desalinhamento com os princípios constitucionais. É imperativo definir uma abordagem pragmática e consistente, que equilibre a oferta com a procura, um equilíbrio que deve ser transversal às diferentes nuances do parque imobiliário.
 
@@ -836,19 +760,19 @@ A política de portas abertas, por sua vez, exacerbou o problema, resultando em 
 
 Perante este cenário crítico é imperativo adoptar medidas políticas abrangentes na escala e transversais, algumas de emergência, outras de curto, médio e longo prazo, para assegurar o direito à habitação, numa abordagem integrada.
 
-#### **PRIORIDADES**
+### PRIORIDADES
 
-• Reformular a Fiscalidade na Habitação, nomeadamente implementar políticas fiscais atractivas para investidores, nacionais e estrangeiros, com a redução de impostos sobre a propriedade;
+- Reformular a Fiscalidade na Habitação, nomeadamente implementar políticas fiscais atractivas para investidores, nacionais e estrangeiros, com a redução de impostos sobre a propriedade;
 
-• Operacionalizar programas específicos voltados para a expansão habitacional em áreas metropolitanas, inspirados em modelos de planeamento urbano bem-sucedidos, (por ex. Parque Expo);
+- Operacionalizar programas específicos voltados para a expansão habitacional em áreas metropolitanas, inspirados em modelos de planeamento urbano bem-sucedidos, (por ex. Parque Expo);
 
-• Reforçar a fiscalização da utilização de habitação pública e implementar uma política de tolerância zero à ocupação ilegal;
+- Reforçar a fiscalização da utilização de habitação pública e implementar uma política de tolerância zero à ocupação ilegal;
 
-• Simplificar os processos de licenciamento através de um novo modelo, reduzindo a quantidade de documentos exigidos, simplificando os processos administrativos, sendo mais estável, ágil e menos burocrático.
+- Simplificar os processos de licenciamento através de um novo modelo, reduzindo a quantidade de documentos exigidos, simplificando os processos administrativos, sendo mais estável, ágil e menos burocrático.
 
-• Facilitar a aquisição de habitação própria permanente aos jovens através da implementação de diversas medidas de apoio.
+- Facilitar a aquisição de habitação própria permanente aos jovens através da implementação de diversas medidas de apoio.
 
-#### **PROPOSTAS**
+### PROPOSTAS
 
 **117.** Tributação na reabilitação em imóveis destinados à habitação, em igualdade de circunstâncias com os benefícios fiscais já em vigor para as Áreas de Reabilitação Urbana.
 
@@ -898,49 +822,49 @@ colas, hospitais e áreas de lazer nas áreas identificadas para expansão habit
 
 **138.** Ampliar o leque de beneficiários do Programa Porta 65 Jovem, bem como simplificar o seu processo de acesso.
 
-# V CAPÍTULO **O QUE JÁ FIZEMOS PARA ASSEGURAR HABITAÇÃO DIGNA**
+## V CAPÍTULO O QUE JÁ FIZEMOS PARA ASSEGURAR HABITAÇÃO DIGNA
 
-#### **PROJECTO DE LEI 567/XV/1 (CH)**
+### PROJECTO DE LEI 567/XV/1 (CH)
 
 Recomenda ao Governo que identifique o património imobiliário habitacional do Estado que está a ser indevidamente utilizado, alvo de fraude ou a necessitar de obras de reabilitação
 
-#### **PROJECTO DE LEI 873/XV/1 (CH)**
+### PROJECTO DE LEI 873/XV/1 (CH)
 
 Estabelece a contribuição de solidariedade temporária sobre o sector bancário, destinada ao financiamento de programas de apoio à habitação
 
-#### **PROJECTO DE LEI 673/XV/1 (CH)**
+### PROJECTO DE LEI 673/XV/1 (CH)
 
 Reforça os incentivos à estabilidade nos contratos de arrendamento para habitação própria e permanente por via da redução das taxas de tributação autónoma
 
-#### **PROJECTO DE LEI 470/XV/1 (CH)**
+### PROJECTO DE LEI 470/XV/1 (CH)
 
 Cria um programa de apoio aos jovens para compra de habitação própria e permanente
 
-#### **PROJECTO DE LEI 299/XV/1 (CH)**
+### PROJECTO DE LEI 299/XV/1 (CH)
 
 Estabelece medidas de apoio e protecção dos particulares, por motivo do aumento das taxas de juros aplicáveis aos contratos de financiamento à aquisição de habitação própria e permanente
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, IL, PCP, BE, PAN, L **ABSTENÇÃO** --- **FAVOR** PSD, CHEGA
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PSD, IL **ABSTENÇÃO** PCP, PAN, L **FAVOR** CHEGA, BE
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PCP, BE, L **ABSTENÇÃO** PSD **FAVOR** CHEGA, IL, PAN
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, IL, PCP **ABSTENÇÃO** BE, L **FAVOR** PSD, CHEGA
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PSD, IL **ABSTENÇÃO** PCP, L **FAVOR** CHEGA, BE, PAN
 
-# VI CAPÍTULO **LIBERTAR O ENSINO DE IDEOLOGIAS. COMO?**
+## VI CAPÍTULO LIBERTAR O ENSINO DE IDEOLOGIAS. COMO?
 
 **A**má gestão socialista tem levado à degradação dos serviços de educação públicos. Os resulta-dos não enganam: incumprimentos e injustiças nas carreiras e salários de educadores, professores, técnicos operacionais e demais funcionários; perda significativa do seu poder de compra; sofrimento físico e psicológico que atinge metade de um corpo socioprofissional dominantemente feminino; indisciplina nas salas de aula; transições de ano altamente facilitadas por imposição dos políticos; consequentes quebras acentuadas nos resultados internacionais do PISA 2022 em literacia, leitura, matemática e ciência de alunos com quinze anos; excessiva burocracia; ensino especial fortemente fragilizado por falta de apoios para pessoas com deficiência; números sem precedentes de alunos com falta de professores a pelo menos uma disciplina; incapacidade dos estabelecimentos de ensino de responderem à degradação do património edificado; um ministério da Educação em descalabro financeiro e o mais que se possa acrescentar.
 
@@ -986,19 +910,19 @@ Significa que a reforma do ensino superior também passará a colocar a tónica 
 
 Considerando que a democracia serve para garantir que as grandes causas sociais tenham a maior expressão eleitoral possível, o CHEGA limita-se a cumprir o dever de ser o proponente e o garante da implementação, a partir do dia seguinte ao das eleições, deste novo contrato social do ensino, com a devida neutralidade ideológica: uma abordagem equilibrada e imparcial no ensino de diferentes perspectivas e correntes de pensamento.
 
-#### **PRIORIDADES**
+### PRIORIDADES
 
-• Recuperar integralmente o tempo de serviço congelado a educadores e professores, extinguir quotas e demais procedimentos burocráticos de progressão na carreira docente que corromperam a dignidade e identidade da profissão, assim como assegurar a sustentabilidade a prazo da melhoria progressiva dos salários;
+- Recuperar integralmente o tempo de serviço congelado a educadores e professores, extinguir quotas e demais procedimentos burocráticos de progressão na carreira docente que corromperam a dignidade e identidade da profissão, assim como assegurar a sustentabilidade a prazo da melhoria progressiva dos salários;
 
-• Garantir uma maior e melhor articulação entre o sector público, privado e cooperativo, assegurando que nenhum aluno fica sem resposta e garantindo maior liberdade de escolha aos pais para o percurso escolar dos seus filhos;
+- Garantir uma maior e melhor articulação entre o sector público, privado e cooperativo, assegurando que nenhum aluno fica sem resposta e garantindo maior liberdade de escolha aos pais para o percurso escolar dos seus filhos;
 
-• Combater a burocracia e o facilitismo nas escolas, reintroduzir os exames nacionais no final de todos os ciclos do ensino básico e secundário e reconhecer aos professores o direito inalienável de reprovarem os alunos;
+- Combater a burocracia e o facilitismo nas escolas, reintroduzir os exames nacionais no final de todos os ciclos do ensino básico e secundário e reconhecer aos professores o direito inalienável de reprovarem os alunos;
 
-• Exigir a autonomia inequívoca entre as instituições do ensino superior e os partidos políticos para travar a crise do conhecimento por falta de liberdade intelectual e devolver aos portugueses a plenitude das suas liberdades cívicas;
+- Exigir a autonomia inequívoca entre as instituições do ensino superior e os partidos políticos para travar a crise do conhecimento por falta de liberdade intelectual e devolver aos portugueses a plenitude das suas liberdades cívicas;
 
-• Assegurar a existência de canais de denúncia para todas as pessoas da comunidade educativa e implementar medidas de combate ao assédio moral e sexual em contexto escolar e universitário.
+- Assegurar a existência de canais de denúncia para todas as pessoas da comunidade educativa e implementar medidas de combate ao assédio moral e sexual em contexto escolar e universitário.
 
-#### **PROPOSTAS**
+### PROPOSTAS
 
 **139.** Recuperar integralmente o tempo de serviço congelado a educadores e professores do ensino básico e secundário, num prazo máximo de quatro anos, com possibilidade de antecipação do prazo em função das negociações com os sindicatos do sector.
 
@@ -1058,47 +982,47 @@ mento passe a ser opcional e o seu currículo assegure imparcialidade ideológic
 
 **165.** Consagrar a obrigatoriedade da existência de canais de denúncia de assédio moral e sexual nas instituições de Ensino Superior, assegurando ainda informações sobre acesso a apoio psicológico e/ou jurídico, podendo para o efeito celebrar protocolos com Associações de Apoio à Vítima ou dispor de meios próprios.
 
-# VI CAPÍTULO **O QUE JÁ FIZEMOS PARA LIBERTAR O ENSINO DE IDEOLOGIAS**
+## VI CAPÍTULO O QUE JÁ FIZEMOS PARA LIBERTAR O ENSINO DE IDEOLOGIAS
 
-#### **PROJECTO DE LEI 891/XV/1 ª (CH)**
+### PROJECTO DE LEI 891/XV/1 ª (CH)
 
 Consagra a obrigatoriedade da existência de canais de denúncia de assédio moral e sexual nas Instituições de Ensino Superior
 
-#### **SEM VOTAÇÃO**
+**SEM VOTAÇÃO**
 
-#### **PROJECTO DE LEI 101/XV/1 (CH)**
+### PROJECTO DE LEI 101/XV/1 (CH)
 
 Novo regime jurídico da lecionação e da organização da disciplina e área curricular de Cidadania e Desenvolvimento (CD) nos estabelecimentos dos ensinos básico e secundário
 
-#### **PROJECTO DE LEI 106/XV/1 (CH)**
+### PROJECTO DE LEI 106/XV/1 (CH)
 
 Atribui ajudas de custo a professores do ensino básico e secundário que se encontrem deslocados
 
-#### **PROJECTO DE LEI 321/XV/1 (CH)**
+### PROJECTO DE LEI 321/XV/1 (CH)
 
 Determina a universalidade da gratuidade dos manuais escolares para todos os alunos do ensino obrigatório
 
-#### **PROJECTO DE LEI 886/XV/1 (CH)**
+### PROJECTO DE LEI 886/XV/1 (CH)
 
 Procede à isenção de propinas para alunos a frequentar estágios profissionais obrigatórios em cursos do ensino superior, transversal a todas as áreas de estudo, alterando a Lei n.º 37/2003, de 22 de agosto, que estabelece as bases do financiamento do ensino superior
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PCP, BE, PAN, L **ABSTENÇÃO** PSD, IL **FAVOR** CHEGA
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PSD **ABSTENÇÃO** IL, PCP, PAN, L **FAVOR** CHEGA, BE
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PCP, BE, L **ABSTENÇÃO** PAN **FAVOR** PSD, CHEGA, IL
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PSD, IL **ABSTENÇÃO** PCP, L **FAVOR** CHEGA, BE, PAN
 
-# VII CAPÍTULO **GARANTIR FRONTEIRAS CONTROLADAS. COMO?**
+## VII CAPÍTULO GARANTIR FRONTEIRAS CONTROLADAS. COMO?
 
 **A**imigração em Portugal é um fenómeno relati-vamente recente. Em 1995, apenas 1,7% da população era constituída por imigrantes. No entanto, a partir de 2016, assistimos a um aumento constante dos fluxos migratórios com destino ao nosso país o que levou a que, já em 2022, 10% da população residente fosse constituída por imigrantes. Isto é, o dobro do que se verificava há apenas 10 anos**<sup>1</sup>** .
 
@@ -1108,15 +1032,15 @@ A política migratória irresponsável de "portas abertas" e sem qualquer contro
 
 Esta política migratória irresponsável de "portas abertas" e sem qualquer controlo, traz naturalmente consequências para Portugal:
 
-• Comparando com os restantes países da União Europeia, entre 2012 e 2021, Portugal foi dos países onde mais aumentou o número de imigrantes, tendo por base a população residente. Destes imigrantes, 31% estão no patamar da pobreza ou exclusão social.
+- Comparando com os restantes países da União Europeia, entre 2012 e 2021, Portugal foi dos países onde mais aumentou o número de imigrantes, tendo por base a população residente. Destes imigrantes, 31% estão no patamar da pobreza ou exclusão social.
 
-• Assistimos nos últimos anos a um aumento do crime organizado**<sup>3</sup>** e das redes criminosas a operar no nosso país, principalmente aquelas que se dedicam ao tráfico humano onde, muitas das vezes, os próprios imigrantes, são as principais vítimas**<sup>4</sup>**.
+- Assistimos nos últimos anos a um aumento do crime organizado**<sup>3</sup>** e das redes criminosas a operar no nosso país, principalmente aquelas que se dedicam ao tráfico humano onde, muitas das vezes, os próprios imigrantes, são as principais vítimas**<sup>4</sup>**.
 
-• Pressão Migratória sobre o Serviço Nacional de Saúde (SNS). Segundo o Ministério da Saúde estão inscritos no Registo Nacional de Utentes (RNU) 1.560.468 estrangeiros. Especialidades como obstetrícia e ortopedia estão sob imensa pressão. Em algumas Unidades de Saúde do país, a maioria dos utentes já são imigrantes.
+- Pressão Migratória sobre o Serviço Nacional de Saúde (SNS). Segundo o Ministério da Saúde estão inscritos no Registo Nacional de Utentes (RNU) 1.560.468 estrangeiros. Especialidades como obstetrícia e ortopedia estão sob imensa pressão. Em algumas Unidades de Saúde do país, a maioria dos utentes já são imigrantes.
 
-• Turismo de Saúde. A permissividade da nossa Lei de Imigração e a gratuitidade do nosso Serviço Nacional de Saúde atraem cada vez mais grávidas estrangeiras que só se deslocam a Portugal para dar à luz.
+- Turismo de Saúde. A permissividade da nossa Lei de Imigração e a gratuitidade do nosso Serviço Nacional de Saúde atraem cada vez mais grávidas estrangeiras que só se deslocam a Portugal para dar à luz.
 
-• Escassez de Habitação. O aumento exponencial de imigrantes, como ocorreu em 2022, em que entraram no país mais de 118.000 pessoas, coloca sob imensa pressão o sector imobiliário, reduzindo o número de imóveis disponíveis no mercado.
+- Escassez de Habitação. O aumento exponencial de imigrantes, como ocorreu em 2022, em que entraram no país mais de 118.000 pessoas, coloca sob imensa pressão o sector imobiliário, reduzindo o número de imóveis disponíveis no mercado.
 
 O CHEGA não é contra a imigração nem contra os imigrantes. O CHEGA reconhece a importância dos imigrantes em diversos sectores da economia nacional. O CHEGA é, sim, contra uma imigração sem controlo, de "portas abertas", onde todos podem entrar em Portugal sem nenhum tipo de fiscalização. O CHEGA é contra uma imigração que só procura apoios sociais. Massiva. Que não se quer integrar. Que pretende transformar-nos e submeter-nos culturalmente, que não respeita as nossas tradições.
 
@@ -1128,19 +1052,19 @@ Assim, e perante a actual política migratória irresponsável de "portas aberta
 
 **<sup>2</sup>** População estrangeira e dos fluxos migratórios em Portugal – Pordata
 
-#### **PRIORIDADES**
+### PRIORIDADES
 
-• Dotar o Estado de meios para proceder a uma fiscalização efectiva das situações potenciais de tráfico de seres humanos, auxílio à imigração ilegal, entre outros.
+- Dotar o Estado de meios para proceder a uma fiscalização efectiva das situações potenciais de tráfico de seres humanos, auxílio à imigração ilegal, entre outros.
 
-• Alterar o paradigma relativo à obtenção de nacionalidade, no sentido de a atribuir a quem tenha efectivamente uma ligação com o nosso país, que conhece a sua história e fala a sua língua;
+- Alterar o paradigma relativo à obtenção de nacionalidade, no sentido de a atribuir a quem tenha efectivamente uma ligação com o nosso país, que conhece a sua história e fala a sua língua;
 
-• Assegurar que a população imigrante que opta pelo nosso país para criar a sua família não tem antecedentes criminais, não pratica actos criminosos em Portugal e não pretende viver de subsídios;
+- Assegurar que a população imigrante que opta pelo nosso país para criar a sua família não tem antecedentes criminais, não pratica actos criminosos em Portugal e não pretende viver de subsídios;
 
-• Procurar um equilíbrio entre a mão-de-obra necessária e a procura do nosso país para trabalhar;
+- Procurar um equilíbrio entre a mão-de-obra necessária e a procura do nosso país para trabalhar;
 
-• Promover a integração dos imigrantes na nossa sociedade, cultura e divulgar a língua portuguesa.
+- Promover a integração dos imigrantes na nossa sociedade, cultura e divulgar a língua portuguesa.
 
-#### **PROPOSTAS**
+### PROPOSTAS
 
 **166.** Reverter a extinção do Serviço de Estrangeiros e Fronteiras e, consequentemente, repor a sua estrutura orgânica, as suas atribuições e o seu estatuto jurídico e operacional.
 
@@ -1176,45 +1100,43 @@ Assim, e perante a actual política migratória irresponsável de "portas aberta
 
 **<sup>3</sup>** Crime organizado: relatório da secreta aponta para 1000 elementos do PCC a atuar em Portugal
 
-# VII CAPÍTULO **O QUE JÁ FIZEMOS PARA GARANTIR FRONTEIRAS CONTROLADAS**
+## VII CAPÍTULO O QUE JÁ FIZEMOS PARA GARANTIR FRONTEIRAS CONTROLADAS
 
-#### **PROJECTO DE LEI 34/XV/1 (CH)**
+### PROJECTO DE LEI 34/XV/1 (CH)
 
 Revoga a reestruturação do sistema português de controlo de fronteiras decorrente da Lei n.º 73/2021, de 12 de novembro, repondo a estrutura orgânica e as missões do Serviço de Estrangeiros e Fronteiras
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, BE, PAN, L **ABSTENÇÃO** PCP **FAVOR** PSD, CHEGA, IL
 
-#### **PROJECTO DE LEI 824/XV/1 (CH)**
+### PROJECTO DE LEI 824/XV/1 (CH)
 
 Revoga as normas da Lei n.º 23/2007, de 4 de julho, que criaram a possibilidade de emissão de visto para procura de trabalho (10.ª alteração à Lei n.º 23/2007, de 4 de julho (Entrada, permanência, saída e afastamento de estrangeiros do território nacional)
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PSD, IL, PCP, BE, PAN, L **ABSTENÇÃO** --- **FAVOR** CHEGA
 
-#### **PROJECTO DE LEI 911/XV/2 (CH)**
+### PROJECTO DE LEI 911/XV/2 (CH)
 
 Altera a lei da nacionalidade tornando os critérios de aquisição de nacionalidade mais equilibrados
 
-#### **PROPOSTA DE ALTERAÇÃO OE 24 Nº 135C (CH)**
+### PROPOSTA DE ALTERAÇÃO OE 24 Nº 135C (CH)
 
 Artigo 80.º-A (Programa Nacional para auxílio de retorno de pessoas estrangeiras em situação de sem-abrigo à sua pátria)
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PSD, IL, PCP, BE, L **ABSTENÇÃO** --- **FAVOR** CHEGA
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PCP, BE, PAN, L **ABSTENÇÃO** PSD, IL **FAVOR** CHEGA
 
 VIII CAPÍTULO
 
-#### VIII CAPÍTULO
-
-# **MAIS RENDIMENTOS PARA AS FAMÍLIAS E EMPRESAS. COMO?**
+## VIII CAPÍTULO MAIS RENDIMENTOS PARA AS FAMÍLIAS E EMPRESAS. COMO?
 
 **M**ais de vinte e cinco anos de estagnação eco-nómica, injustiça social, empobrecimento e perda do poder de compra levaram à desmotivação geral dos portugueses.
 
@@ -1250,19 +1172,19 @@ Não podemos deixar de mencionar igualmente a necessidade de proceder à harmoni
 
 Queremos com isto criar um sistema mais transparente, mais seguro para os cidadãos e empresas, mais justo, e mais equitativo
 
-#### **PRIORIDADES**
+### PRIORIDADES
 
-• Garantir mais rendimentos para as famílias e permitir que saiam da situação de asfixia financeira em que muitas, apesar de trabalharem, se encontram;
+- Garantir mais rendimentos para as famílias e permitir que saiam da situação de asfixia financeira em que muitas, apesar de trabalharem, se encontram;
 
-• Acabar com o saque fiscal às empresas e promover o investimento;
+- Acabar com o saque fiscal às empresas e promover o investimento;
 
-• Redução do impostos e adopção de outras medidas para combater a fraude e evasão fiscal através da uma adequada política de justiça fiscal;
+- Redução do impostos e adopção de outras medidas para combater a fraude e evasão fiscal através da uma adequada política de justiça fiscal;
 
-• Assegurar uma maior fiscalização na alocação de benefícios fiscais e apoios sociais por forma a garantir que só aqueles que realmente precisam é que são apoiados;
+- Assegurar uma maior fiscalização na alocação de benefícios fiscais e apoios sociais por forma a garantir que só aqueles que realmente precisam é que são apoiados;
 
-• Simplificar e desburocratizar o sistema fiscal para garantir uma maior transparência e certeza jurídica, desta forma aumentando também a confiança do contribuinte no sistema.
+- Simplificar e desburocratizar o sistema fiscal para garantir uma maior transparência e certeza jurídica, desta forma aumentando também a confiança do contribuinte no sistema.
 
-#### **PROPOSTAS**
+### PROPOSTAS
 
 **181.** Introduzir duas taxas marginais de IRS: de 15% até aos 39.999 euros e de 30% a partir de 40.000 euros, com isenção de pagamento para quem receber até aos mil euros mensais.
 
@@ -1296,11 +1218,11 @@ com o mesmo fim, mas celebrados com prazo superior a 10 anos, a taxa autónoma a
 
 **195.** Tornar as normas fiscais mais objectivas e claras:
 
-• Evitando complexidades desnecessárias e, consequentemente, reduzindo litígios;
+- Evitando complexidades desnecessárias e, consequentemente, reduzindo litígios;
 
-• Pugnando pela publicação atempada de todas as orientações da Autoridade Tributária (AT), assim trazendo mais transparência e clareza à interpretação feita pela AT e contribuindo para a uniformização de procedimentos;
+- Pugnando pela publicação atempada de todas as orientações da Autoridade Tributária (AT), assim trazendo mais transparência e clareza à interpretação feita pela AT e contribuindo para a uniformização de procedimentos;
 
-• Através da promoção da publicação de Códigos anotados, pela própria Assembleia da República, como já aconteceu na década de 80, assim facilitando o cumprimento das normas por parte dos contribuintes.
+- Através da promoção da publicação de Códigos anotados, pela própria Assembleia da República, como já aconteceu na década de 80, assim facilitando o cumprimento das normas por parte dos contribuintes.
 
 **196.** Reforçar os meios técnicos e humanos da AT para o combate à fraude e à evasão fiscal e melhorar os meios (inclusivamente legais) para o apuramento de manifestações de fortuna, nomeadamente, através da comunicação à AT do nome e NIF dos adquirentes de determinados bens de luxo.
 
@@ -1322,49 +1244,49 @@ com o mesmo fim, mas celebrados com prazo superior a 10 anos, a taxa autónoma a
 
 **205.** Criar mecanismos de aceleração de recuperação de dívidas ao Estado para que, por um lado seja garantida a justiça social, acabando com a impunidade sobre os infractores e, por outro, não se perca uma importante fonte de receita.
 
-# VIII CAPÍTULO **O QUE JÁ FIZEMOS PARA DAR MAIS RENDIMENTOS ÀS FAMÍLIAS E EMPRESAS**
+## VIII CAPÍTULO O QUE JÁ FIZEMOS PARA DAR MAIS RENDIMENTOS ÀS FAMÍLIAS E EMPRESAS
 
-#### **PROPOSTA DE ALTERAÇÃO OE24 Nº177C (CH)**
+### PROPOSTA DE ALTERAÇÃO OE24 Nº177C (CH)
 
 N.º 1, N.º 2, N.º 5, Artigo 87.º do código do IRC, constante do Artigo 144.º da PPL / Imposto sobre o rendimento das pessoas coletivas.
 
 **PROPOSTA DE ALTERAÇÃO OE24 Nº1507C (CH)** Artigo 173.º-A (Contribuição extraordinária sobre o sec-
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PSD, PCP, BE, L **ABSTENÇÃO** PAN **FAVOR** CHEGA, IL
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PSD, IL **ABSTENÇÃO** PCP, L **FAVOR** CHEGA, BE, PAN
 
-## **PROPOSTA DE ALTERAÇÃO OE 24 Nº 1590C (CH)**
+### PROPOSTA DE ALTERAÇÃO OE 24 Nº 1590C (CH)
 
 Artigo 161.º-A (Redução do valor do IUC)
 
 tor bancário)
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PSD, PCP, BE, PAN, L **ABSTENÇÃO** IL **FAVOR** CHEGA
 
-#### **PROPOSTA DE ALTERAÇÃO OE24 Nº 1503C**
+### PROPOSTA DE ALTERAÇÃO OE24 Nº 1503C
 
 Verba 2.9, Lista II anexa ao Código do IVA / Alteração ao Código do Imposto sobre o Valor Acrescentado - IVA Gasolina e Gasóleo Rodoviário
 
-#### **PROPOSTA DE ALTERAÇÃO OE24 Nº 1486C**
+### PROPOSTA DE ALTERAÇÃO OE24 Nº 1486C
 
 Ponto 2, Alínea b), N.º 3, Artigo 2.º do Código do IRS / Aumento para 80% da dedutibilidade do subsídio de alimentação.
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PSD, PCP, BE, PAN, L **ABSTENÇÃO** IL **FAVOR** CHEGA
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PSD **ABSTENÇÃO** IL, PCP, BE, PAN, L **FAVOR** CHEGA
 
-# IX CAPÍTULO **JOVENS COM UM FUTURO EM PORTUGAL. COMO?**
+## IX CAPÍTULO JOVENS COM UM FUTURO EM PORTUGAL. COMO?
 
 **P**ortugal é hoje um país em que, para um jovem, é mais fácil sair do que ficar. Em 2020, Portugal tor-nou-se o 13º país mais pobre da União Europeia. Cerca de 4,5 milhões de portugueses encontram-se em situação de pobreza, auferindo menos de 554 euros por mês. Este número reduz-se para 1,9 milhões quando são considerados apoios sociais. No entanto, esta redução, que à partida nos pode parecer exclusivamente positiva, tem contornos mais latos uma vez que evidencia que 2,6 milhões de portugueses estão directamente dependentes do Estado para viver e os 1,9 milhões de portugueses sem acesso a estes apoios limitam-se a sobreviver. Segundo o Pordata, em 2020, dois em cada cinco famílias portuguesas tinham rendimentos inferiores a 830 euros por mês, o que perfaz, aproximadamente 10.000 euros por ano.**<sup>1</sup>**
 
@@ -1388,19 +1310,19 @@ O Partido CHEGA acredita na força transformadora de uma juventude empenhada, am
 
 Por outro lado, o CHEGA não é alheio à realidade exterior, preocupa-nos a ideia de vivermos num mundo cada vez mais polarizado, com a multiplicação de conflitos regionais, com uma disputa emergente entre duas potências mundiais como a China e os Estados Unidos, e pensamos que, mais do que nunca, é tempo de dizer: a primeira casa do jovem português tem de ser Portugal. Temos de ser uma nação que procura a paz e a prosperidade. Temos de ser a primeira terra de oportunidade para os jovens. É esse o nosso desígnio.
 
-#### **PRIORIDADES**
+### PRIORIDADES
 
-• Fazer de Portugal a primeira casa dos jovens portugueses, impedindo que estes vejam os seus sonhos adiados por quererem ficar em Portugal;
+- Fazer de Portugal a primeira casa dos jovens portugueses, impedindo que estes vejam os seus sonhos adiados por quererem ficar em Portugal;
 
-• Combater os baixos salários, o emprego precário e o desemprego jovem;
+- Combater os baixos salários, o emprego precário e o desemprego jovem;
 
-• Mitigar o impacto da crise na habitação nos mais jovens;
+- Mitigar o impacto da crise na habitação nos mais jovens;
 
-• Priorizar a saúde mental dos jovens e garantir os apoios necessários para quem precisar;
+- Priorizar a saúde mental dos jovens e garantir os apoios necessários para quem precisar;
 
-• Garantir um ensino de qualidade, livre de ideologias, que capacite os jovens para os múltiplos desafios do século XXI.
+- Garantir um ensino de qualidade, livre de ideologias, que capacite os jovens para os múltiplos desafios do século XXI.
 
-#### **PROPOSTAS**
+### PROPOSTAS
 
 **206.** Criar um programa de apoio aos jovens portugueses para compra de habitação própria e permanente, nomeadamente através da assunção da garantia bancária por parte do Estado quanto ao valor da entrada de uma casa e disponibilização de linhas de crédito bonificado para jovens.
 
@@ -1452,39 +1374,39 @@ Por outro lado, o CHEGA não é alheio à realidade exterior, preocupa-nos a ide
 
 **228.** Assegurar que, até um determinado limite, os rendimentos auferidos pelos estudantes não têm implicações fiscais ou sobre o direito a bolsas ou outras prestações, conforme proposta da CIP.
 
-#### **PROJECTO DE LEI 506/XV/1 (CH)**
+### PROJECTO DE LEI 506/XV/1 (CH)
 
 Fomenta o regresso de portugueses emigrados e a contratação de jovens qualificados
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PCP **ABSTENÇÃO** PSD, BE, PAN, L **FAVOR** CHEGA, IL
 
-#### **PROJECTO DE LEI 470/XV/1ª (CH)**
+### PROJECTO DE LEI 470/XV/1ª (CH)
 
 Cria um programa de apoio aos jovens para compra de habitação própria e permanente
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, IL, PCP **ABSTENÇÃO** BE, L **FAVOR** PSD, CHEGA
 
-#### **PROJECTO DE RESOLUÇÃO 866/XV/1 ª (CH)**
+### PROJECTO DE RESOLUÇÃO 866/XV/1 ª (CH)
 
 Pela Prevenção do Suicídio Jovem
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** PCP, L **FAVOR** PSD, CHEGA, IL, BE
 
-#### **PROJECTO DE LEI 275/XV/1 ª (CH)**
+### PROJECTO DE LEI 275/XV/1 ª (CH)
 
 Amplia o leque de beneficiários do programa Porta 65 Jovem, assegurando o direito à habitação jovem
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, IL **ABSTENÇÃO** PSD, PCP, L **FAVOR** CHEGA, BE, PAN
 
-# X CAPÍTULO **FAZER PORTUGAL CRESCER. COMO?**
+## X CAPÍTULO FAZER PORTUGAL CRESCER. COMO?
 
 **E** m termos macroeconómicos, os últimos anos em Portugal foram marcados por uma condução errática, sem objectivos estratégicos definidos, numa "navegação à vista", o que relegou o país para os últimos lugares no contexto europeu. São já perto de 4 milhões de portugueses que vivem em situação precária ou no limiar de pobreza, se não contarmos com as transferências sociais.
 
@@ -1522,29 +1444,29 @@ De todos estes sectores da nova economia digital, há um em que Portugal é já 
 
 Em suma, os desafios profundos que enfrentamos exigem uma resposta inovadora e determinada, pelo que propomos um caminho de renovação económica, distinto das políticas dos governos anteriores.
 
-#### **PRIORIDADES**
+### PRIORIDADES
 
-• Implementar uma política orientada para o crescimento económico;
+- Implementar uma política orientada para o crescimento económico;
 
-• Racionalizar as empresas públicas e torná-las competitivas;
+- Racionalizar as empresas públicas e torná-las competitivas;
 
-• Promover o turismo como factor de progresso e de correcção de assimetrias internas;
+- Promover o turismo como factor de progresso e de correcção de assimetrias internas;
 
-• Apostar na inovação como elemento diferenciador, gerador de vantagem competitiva e de riqueza geracional;
+- Apostar na inovação como elemento diferenciador, gerador de vantagem competitiva e de riqueza geracional;
 
-• Apoiar a internacionalização das nossas empresas.
+- Apoiar a internacionalização das nossas empresas.
 
-#### **PROPOSTAS**
+### PROPOSTAS
 
 **229.** Reduzir a carga fiscal para incentivar o investimento e estimular o crescimento das empresas, nomeadamente:
 
-• Desagravar a taxa de IRC para 15% ao longo da legislatura, com efeito imediato nas empresas com sede social nos concelhos do interior;
+- Desagravar a taxa de IRC para 15% ao longo da legislatura, com efeito imediato nas empresas com sede social nos concelhos do interior;
 
-• Desagravar a Derrama Estadual e Municipal;
+- Desagravar a Derrama Estadual e Municipal;
 
-• Aumentar o limite de isenção de IVA para Trabalhadores Independentes e Empresários em Nome Individual (ENI);
+- Aumentar o limite de isenção de IVA para Trabalhadores Independentes e Empresários em Nome Individual (ENI);
 
-• Desagravar fiscalmente as empresas que utilizam o lucro gerado para o reinvestimento no negócio e para a criação de emprego.
+- Desagravar fiscalmente as empresas que utilizam o lucro gerado para o reinvestimento no negócio e para a criação de emprego.
 
 **230.** Simplificar e desburocratizar os processos administrativos para facilitar a criação de novos negócios, nomeadamente através da:
 
@@ -1552,7 +1474,7 @@ Em suma, os desafios profundos que enfrentamos exigem uma resposta inovadora e d
 - Revisão e Simplificação de Processos;
 - Redução de Exigências Regulatórias para Empresas;
 
-• Criação de uma conta-corrente entre o Estado e as empresas a fim de agilizar o relacionamento entre as duas entidades.
+- Criação de uma conta-corrente entre o Estado e as empresas a fim de agilizar o relacionamento entre as duas entidades.
 
 **231.** Rever o Código do Trabalho, tornando-o mais simples, garantindo flexibilidade às empresas e segurança aos trabalhadores, nomeadamente, promovendo o trabalho remoto e flexível e, eventualmente, implementar os Contratos de Zero Horas para Desempregados e Reformados.
 
@@ -1560,13 +1482,13 @@ Em suma, os desafios profundos que enfrentamos exigem uma resposta inovadora e d
 
 **233.** Implementar medidas de governança corporativa para melhorar a eficiência e a transparência das empresas públicas, nomeadamente:
 
-• Estabelecer Conselhos de Administração independentes, baseados na competência e não na simpatia ou filiação partidária;
+- Estabelecer Conselhos de Administração independentes, baseados na competência e não na simpatia ou filiação partidária;
 
 - Definir políticas claras e códigos de conduta internos;
 - Exigir a prestação de contas de forma transparente;
 - Fortalecer a gestão de riscos e controlos internos;
 
-• Facilitar a participação dos accionistas nas assembleias gerais, fornecer informações adequadas e garantir a protecção dos seus direitos.
+- Facilitar a participação dos accionistas nas assembleias gerais, fornecer informações adequadas e garantir a protecção dos seus direitos.
 
 **234.** Identificar necessidades de infra-estrutura turística, promovendo o seu investimento público e privado, incluindo as áreas necessitadas de alojamento e infra-estrutura de transportes e lançar programas de apoio à satisfação dessas necessidades.
 
@@ -1612,35 +1534,33 @@ do informações sobre potenciais parceiros e oferecendo apoio na negociação d
 
 **254.** Estudar a possibilidade do Estado utilizar a tecnologia blockchain para reduzir drasticamente a burocracia e complexidade administrativa e assegurar mais transparência, por exemplo, através:
 
-• Da disponibilização do registo das terras e propriedades
+- Da disponibilização do registo das terras e propriedades numa blockchain em vez do sistema actual caracterizado pela dispersão, erros, omissões e incertezas e os custos que essa ineficiência acarreta;
 
-numa blockchain em vez do sistema actual caracterizado pela dispersão, erros, omissões e incertezas e os custos que essa ineficiência acarreta;
+- Da criação de uma identidade digital numa blockchain em que a autenticação é garantida pela tecnologia já existente no actual Cartão de Cidadão (chaves criptográficas pública e privada) e uma vez criada essa identidade certificada pelo Estado, os seus titulares passariam a interagir de forma segura com os vários serviços do Estado de forma instantânea. Por exemplo, em vez do actual sistema moroso, burocrático e caro com que a Segurança Social distribui os vários apoios aos cidadãos, uma vez criada a identidade blockchain (que tem por definição associada uma carteira), os pagamentos seriam instantâneos;
 
-• Da criação de uma identidade digital numa blockchain em que a autenticação é garantida pela tecnologia já existente no actual Cartão de Cidadão (chaves criptográficas pública e privada) e uma vez criada essa identidade certificada pelo Estado, os seus titulares passariam a interagir de forma segura com os vários serviços do Estado de forma instantânea. Por exemplo, em vez do actual sistema moroso, burocrático e caro com que a Segurança Social distribui os vários apoios aos cidadãos, uma vez criada a identidade blockchain (que tem por definição associada uma carteira), os pagamentos seriam instantâneos;
+- Da gestão dos orçamentos de ministérios como Obras Públicas, Saúde e Educação numa blockchain pública, permitindo assim uma enorme transparência que possibilitasse aos cidadãos verem para onde vai o dinheiro dos seus impostos.
 
-• Da gestão dos orçamentos de ministérios como Obras Públicas, Saúde e Educação numa blockchain pública, permitindo assim uma enorme transparência que possibilitasse aos cidadãos verem para onde vai o dinheiro dos seus impostos.
+- Por fim, a utilização de tecnologia blockchain pelo Estado permitiria uma simplificação de vários procedimentos administrativos como licenciamentos, certificações, etc. o que contribuiria sobremaneira para diminuir a corrupção que se aproveita da opacidade existente para corromper os decisores que "ajudem" a ultrapassar a complexidade burocrática gerada muitas vezes deliberadamente.
 
-• Por fim, a utilização de tecnologia blockchain pelo Estado permitiria uma simplificação de vários procedimentos administrativos como licenciamentos, certificações, etc. o que contribuiria sobremaneira para diminuir a corrupção que se aproveita da opacidade existente para corromper os decisores que "ajudem" a ultrapassar a complexidade burocrática gerada muitas vezes deliberadamente.
+## X CAPÍTULO O QUE JÁ FIZEMOS PARA FAZER PORTUGAL CRESCER
 
-# X CAPÍTULO **O QUE JÁ FIZEMOS PARA FAZER PORTUGAL CRESCER**
-
-#### **PROJECTO DE LEI 663/XV/1 (CH)**
+### PROJECTO DE LEI 663/XV/1 (CH)
 
 Limita a 15% a Margem de Lucro Bruta na Comercialização de Bens Essenciais
 
-#### **PROJECTO DE RESOLUÇÃO 423/XV/1 (CH)**
+### PROJECTO DE RESOLUÇÃO 423/XV/1 (CH)
 
 Recomenda ao Governo a simplificação e facilitação do acesso das empresas à Linha de Apoio ao Aumento dos Custos de Produção
 
-#### **PROJECTO DE RESOLUÇÃO 732/XV/1 (CH)**
+### PROJECTO DE RESOLUÇÃO 732/XV/1 (CH)
 
 Recomenda ao Governo que implemente um programa para a reindustrialização e a promoção da competitividade do cluster farmacêutico nacional
 
-#### **PROPOSTA DE ALTERAÇÃO Nº 608C (CH)**
+### PROPOSTA DE ALTERAÇÃO Nº 608C (CH)
 
 Artigo 47.º-A (Isenção da Taxa turística)
 
-# **REJEITADO**
+**REJEITADO**
 
 **SEM VOTAÇÃO**
 
@@ -1650,15 +1570,15 @@ Artigo 47.º-A (Isenção da Taxa turística)
 
 **CONTRA** Partido Socialista, PSD, IL, BE, PAN **ABSTENÇÃO** PCP, L **FAVOR** CHEGA
 
-#### **PROPOSTA DE ALTERAÇÃO Nº 672C**
+### PROPOSTA DE ALTERAÇÃO Nº 672C
 
 Artigo 121.º-A (Suspensão da Contribuição do Serviço Rodoviário)
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PSD, PCP, PAN, L **ABSTENÇÃO** IL, BE **FAVOR** CHEGA
 
-# XI CAPÍTULO **RESTITUIR A DIGNIDADE AOS TRABALHADORES. COMO?**
+## XI CAPÍTULO RESTITUIR A DIGNIDADE AOS TRABALHADORES. COMO?
 
 **N**o contexto económico global em que nos inseri-mos é da maior relevância destacar a importân-cia que os trabalhadores e o factor "trabalho" possuem, quer para dar impulso à produção, à inovação e ao crescimento dos vários sectores da economia, quer como alicerces fundacionais para a manutenção de sociedades prósperas e da paz social.
 
@@ -1676,8 +1596,6 @@ A remuneração porque é essencial para motivar e manter os melhores trabalhado
 
 Em termos concretos, a produtividade por trabalhador em Portugal é 28% inferior à média dos países do espaço da moeda única. No espaço temporal de seis anos, Portugal foi ultrapassado ao nível de produtividade por três países Bálticos que entraram na Comunidade Europeia depois de Portugal (Estónia, Letónia e Lituânia), e no contexto da União Europeia foi ultrapassado pela Croácia (que este ano aderiu à Zona Euro), Roménia e Polónia. Além disso, Portugal possui dos níveis salariais por hora de trabalho mais baixos da União Europeia (1.25 € face à média europeia que se situa nos 4.05 €) e
 
-**76**
-
 a diferença entre os custos do trabalho por pessoa empregada e os custos do trabalho por hora são os que apresentam o maior diferencial, o que significa que no nosso país trabalha-se muito, mas produz-se pouco.
 
 No que diz respeito à taxa de desemprego jovem é de referir que, em setembro de 2023, a mesma fixou-se nos 20,3% e que, "desde 2015, a taxa de desemprego dos jovens com menos de 25 anos tem sido mais do dobro da população em geral. Durante a pandemia, chegou a ser 3,5 vezes superior."**<sup>1</sup>** . Esta situação, por sua vez, justifica a emigração dos jovens portugueses mais qualificados, uma vez que "as perspectivas salariais também pesam nas decisões de emigrar, dado que os salários de países próximos são significativamente mais elevados do que os oferecidos em Portugal. Em paridade de poder de compra, os salários mensais dos jovens com menos de 30 anos representavam 55% da média da UE-27, 33% da média salarial na Suíça e 47% na Alemanha, alguns dos principais destinos de emigração de portugueses."**<sup>2</sup>**.
@@ -1688,19 +1606,19 @@ Para escapar a este círculo infernal, Portugal precisa urgentemente de investir
 
 Só com empresas fortes financeiramente teremos empregos, trabalho digno e capacidade para atrair e manter os melhores trabalhadores e, entre estes, os jovens mais qualificados que o nosso sistema de ensino habilita para o mercado de trabalho. O factor "trabalho" e os trabalhadores são nucleares neste sistema.
 
-#### **PRIORIDADES**
+### PRIORIDADES
 
-• Assegurar salários dignos e condições de trabalho adequadas às funções;
+- Assegurar salários dignos e condições de trabalho adequadas às funções;
 
-• Promover emprego qualificado e criar atractividade para reter os trabalhadores mais qualificados;
+- Promover emprego qualificado e criar atractividade para reter os trabalhadores mais qualificados;
 
-• Procurar atingir o pleno emprego e o progresso social;
+- Procurar atingir o pleno emprego e o progresso social;
 
-• Lutar contra a exclusão social;
+- Lutar contra a exclusão social;
 
-• Promover o equilíbrio na relação entre o trabalho e a vida familiar.
+- Promover o equilíbrio na relação entre o trabalho e a vida familiar.
 
-#### **PROPOSTAS**
+### PROPOSTAS
 
 **255.** Aumentar o salário mínimo nacional para 1.000 euros até 2026 e criar um programa de apoio às empresas que demonstrem um peso de custos fixos operacionais superior a 30%, por forma a que estas consigam fazer face ao aumento.
 
@@ -1734,47 +1652,47 @@ te e as contribuições efetuadas pela entidade empregadora para a Segurança So
 
 **268.** Promover a longevidade ativa voluntária, alargando a presença dos seniores no mercado de trabalho, facilitando a acumulação de pensão-reforma e trabalho e criando um sistema de tutoria juniores/seniores para transmitir conhecimentos industriais estratégicos, conforme proposta da CIP.
 
-# XI CAPÍTULO **O QUE JÁ FIZEMOS PARA RESTITUIR A DIGNIDADE AOS TRABALHADORES**
+## XI CAPÍTULO O QUE JÁ FIZEMOS PARA RESTITUIR A DIGNIDADE AOS TRABALHADORES
 
-#### **PROJECTO DE LEI N.º 177/XV/1 (CH)**
+### PROJECTO DE LEI N.º 177/XV/1 (CH)
 
 Elimina restrições injustificadas no acesso a prpfissões reguladas e estabelece limites à duração e organização dos estágios
 
-#### **PROJECTO DE RESOLUÇÃO N.º 460/XV/1 (CH)**
+### PROJECTO DE RESOLUÇÃO N.º 460/XV/1 (CH)
 
 Recomenda as Governo que proceda ao levantamento de todas as profissões que devem ser consideradas de desgaste rápido
 
-#### **PROJECTO DE LEI N.º 914/XV/2 (CH)**
+### PROJECTO DE LEI N.º 914/XV/2 (CH)
 
 Actualiza o valor de Retribuição Mínima Mensal Garantida para 900 euros
 
-#### **PROJECTO DE LEI N.º 506/XV/1 (CH)**
+### PROJECTO DE LEI N.º 506/XV/1 (CH)
 
 Fomenta o regresso de portugueses emigrados e a contratação de jovens qualificados
 
-#### **PROJECTO DE LEI 730/XV/1**
+### PROJECTO DE LEI 730/XV/1
 
 Modifica o regime do horário flexível de trabalhador com responsabilidades familiares alterando o Código do Trabalho
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PSD, PCP **ABSTENÇÃO** IL, BE, PAN, L **FAVOR** CHEGA
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** PSD, IL, PCP, L **FAVOR** CHEGA, BE, PAN
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PSD, IL, BE **ABSTENÇÃO** PCP, L **FAVOR** CHEGA
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PCP **ABSTENÇÃO** PSD, BE, PAN, L **FAVOR** CHEGA, IL
 
-## **SEM VOTAÇÃO**
+**SEM VOTAÇÃO**
 
-# XII CAPÍTULO **SALVAR A SEGURANÇA SOCIAL. COMO?**
+## XII CAPÍTULO SALVAR A SEGURANÇA SOCIAL. COMO?
 
 **S**alvar a Segurança Social, enquanto sistema de ga-rantia dos direitos básicos dos cidadãos e um dos pilares de um Estado de Direito democrático, é uma prioridade absoluta, no sentido de garantir que os portugueses se sintam seguros no presente, mas sobretudo no futuro, depois de uma vida de trabalho em que contribuíram para o desenvolvimento de Portugal.
 
@@ -1800,19 +1718,19 @@ A cultura organizacional da Segurança Social deverá mudar no sentido de tratar
 
 É também necessário encontrar novas formas de financiamento da Segurança Social, associando as novas realidades tecnológicas e de robotização da economia à necessidade de desenvolvimento de uma nova responsabilidade colectiva solidária e corresponsável. Combater a pobreza só é possível derrotando o socialismo e com uma Segurança Social forte e atuante.
 
-#### **PRIORIDADES**
+### PRIORIDADES
 
-• Erradicar a pobreza e combater as desigualdades;
+- Erradicar a pobreza e combater as desigualdades;
 
-• Apoiar as famílias e proteger os mais vulneráveis: crianças e idosos;
+- Apoiar as famílias e proteger os mais vulneráveis: crianças e idosos;
 
-• Garantir protecção social no desemprego e doença;
+- Garantir protecção social no desemprego e doença;
 
-• Trabalhar para a sustentabilidade da Segurança Social e procurar formas alternativas do seu financiamento;
+- Trabalhar para a sustentabilidade da Segurança Social e procurar formas alternativas do seu financiamento;
 
-• Proceder à simplificação de procedimentos, facilmente auditáveis, para total transparência.
+- Proceder à simplificação de procedimentos, facilmente auditáveis, para total transparência.
 
-#### **PROPOSTAS**
+### PROPOSTAS
 
 **269.** Aumentar a pensão mínima de forma a igualar o valor ao salário mínimo nacional (SMN), ou seja, que nenhum idoso tenha rendimento inferior a 820 euros, devendo numa primeira fase igualar-se ao valor do IAS e, posteriormente, ao valor do SMN.
 
@@ -1860,41 +1778,41 @@ A cultura organizacional da Segurança Social deverá mudar no sentido de tratar
 
 **291.** Operacionalizar programas de vida independente para pessoas com deficiência.
 
-# XII CAPÍTULO **O QUE JÁ FIZEMOS PARA SALVAR A SEGURANÇA SOCIAL**
+## XII CAPÍTULO O QUE JÁ FIZEMOS PARA SALVAR A SEGURANÇA SOCIAL
 
-#### **PROJECTO DE LEI N.º 246/XV/1ª (CH)**
+### PROJECTO DE LEI N.º 246/XV/1ª (CH)
 
 Reformula o critério inerente à avaliação da incapacidade das pessoas com deficiência
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** IL, PCP, L **FAVOR** PSD, CHEGA, BE, PAN
 
-#### **PROJECTO DE LEI N.º 371/XV/1ª (CH)**
+### PROJECTO DE LEI N.º 371/XV/1ª (CH)
 
 Alteração do regime processual do incidente de revisão da incapacidade ou da pensão
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, IL **ABSTENÇÃO** PSD, PCP, BE, PAN, L **FAVOR** CHEGA
 
-#### **PROJECTO DE LEI N.º 628/XV/1ª (CH)**
+### PROJECTO DE LEI N.º 628/XV/1ª (CH)
 
 Altera a Lei que aprova o Alargamento Progressivo da Gratuitidade das Creches e das amas do Instituto da Segurança Social IP, assegurando uma compensação às famílias não contempladas
 
-#### **PROPOSTA DE ALTERAÇÃO OE24 Nº 128C (CH)**
+### PROPOSTA DE ALTERAÇÃO OE24 Nº 128C (CH)
 
 Artigo 80.º-A – Aumento do valor da pensão mínima
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, IL, PCP, BE **ABSTENÇÃO** PSD, PAN, L **FAVOR** CHEGA
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, IL **ABSTENÇÃO** PSD, PCP, BE, PAN, L **FAVOR** CHEGA
 
-# XIII CAPÍTULO **VALORIZAR O PAPEL DA FAMÍLIA NA SOCIEDADE. COMO?**
+## XIII CAPÍTULO VALORIZAR O PAPEL DA FAMÍLIA NA SOCIEDADE. COMO?
 
 **A**família é a célula base da sociedade, sendo uma instituição que precede ao próprio Esta-do. Assim, a sua importância transcende qualquer barreira temporal, qualquer definição legal e qualquer tentativa de mudança de paradigma civilizacional. O CHEGA quer mudar o paradigma estrutural do nosso país e quer fazê-lo centrando a sua acção no apoio à família, porque sociedades prósperas e saudáveis dependem de famílias prósperas e felizes.
 
@@ -1906,23 +1824,23 @@ O Inverno Demográfico em Portugal é consequência da instabilidade social e da
 
 Importa sublinhar o conjunto de dados que revelam que Portugal está a definhar do ponto de vista demográfico:
 
-• Portugal tem a quinta taxa de natalidade mais baixa da União Europeia;
+- Portugal tem a quinta taxa de natalidade mais baixa da União Europeia;
 
-• Em 1960 o índice sintético de fecundidade era 3,20 e atualmente esse valor ronda o número médio de 1,41;
+- Em 1960 o índice sintético de fecundidade era 3,20 e atualmente esse valor ronda o número médio de 1,41;
 
-• Em 1980, por cada 100 jovens, havia 44 idosos; hoje, pelos mesmos 100 jovens, há 130 idosos;
+- Em 1980, por cada 100 jovens, havia 44 idosos; hoje, pelos mesmos 100 jovens, há 130 idosos;
 
-• O despovoamento estrutural do território condiciona as zonas interiores e rurais do país a ficarem com cada vez menos pessoas;
+- O despovoamento estrutural do território condiciona as zonas interiores e rurais do país a ficarem com cada vez menos pessoas;
 
-• O saldo natural, ou seja, a diferença entre nascimentos e óbitos é negativo;
+- O saldo natural, ou seja, a diferença entre nascimentos e óbitos é negativo;
 
-• As mulheres deixam para mais tarde o nascimento do primeiro filho: a idade média da mãe é actualmente de 30 anos, seis anos mais tarde do que na década de 1970;
+- As mulheres deixam para mais tarde o nascimento do primeiro filho: a idade média da mãe é actualmente de 30 anos, seis anos mais tarde do que na década de 1970;
 
-• Segundo as previsões do INE, em 2060, Portugal terá entre os 7 e 8 milhões de pessoas, mas num cenário mais pessimista, poderá chegar aos 6,3 milhões;
+- Segundo as previsões do INE, em 2060, Portugal terá entre os 7 e 8 milhões de pessoas, mas num cenário mais pessimista, poderá chegar aos 6,3 milhões;
 
-• Portugal é, desde 2018, o terceiro país mais envelhecido da União Europeia, sendo expectável que em 2050 as pessoas com mais de 65 anos representem 28,5% da população nacional;
+- Portugal é, desde 2018, o terceiro país mais envelhecido da União Europeia, sendo expectável que em 2050 as pessoas com mais de 65 anos representem 28,5% da população nacional;
 
-• O Índice de Dependência de Idosos tem vindo a aumentar, projectando-se um aumento exponencial nos próximos anos. Esta situação, marcada por uma taxa de fecundidade baixa e por um saldo natural populacional negativo, vai reflectir- -se no grau de sustentabilidade da Segurança Social, assim como no Estado Social. Na Segurança Social, porque a falta de população activa (redução de nascimentos e desemprego elevado), não vai gerar fluxos financeiros para prover as necessidades dos reformados.
+- O Índice de Dependência de Idosos tem vindo a aumentar, projectando-se um aumento exponencial nos próximos anos. Esta situação, marcada por uma taxa de fecundidade baixa e por um saldo natural populacional negativo, vai reflectir- -se no grau de sustentabilidade da Segurança Social, assim como no Estado Social. Na Segurança Social, porque a falta de população activa (redução de nascimentos e desemprego elevado), não vai gerar fluxos financeiros para prover as necessidades dos reformados.
 
 São vários e de variada ordem os factores que concorrem para este cenário dramático, nomeadamente factores económicos, políticos, sociais e culturais. Do ponto de vista financeiro, os casais jovens admitem estar condicionados pela falta de emprego, pelo emprego precário e pelos encargos económicos que representam a vinda de um filho.
 
@@ -1934,19 +1852,19 @@ Pensar a demografia nacional não pode ser dissociado de valores fundamentais ta
 
 Parte da Europa não desistiu deste combate civilizacional, assumindo a Família como a grande solução para os desafios do futuro. Nesse sentido, algumas das propostas apresentadas seguem as conclusões de fóruns europeus que têm discutido a questão demográfica, a sustentabilidade das nações e as políticas pró-família. Também em Portugal precisamos de pensar nestas questões. O CHEGA quer apresentar propostas concretas, responsáveis, vencedoras e que levantem Portugal, para os Portugueses. É com esse espírito que se apresentam as seguintes medidas:
 
-#### **PRIORIDADES**
+### PRIORIDADES
 
-• Reconhecer a família como instituição central da nossa sociedade.
+- Reconhecer a família como instituição central da nossa sociedade.
 
-• Combater o Inverno Demográfico através da implementação de políticas activas para aumentar a natalidade, nomeadamente aumentando o rendimento das famílias.
+- Combater o Inverno Demográfico através da implementação de políticas activas para aumentar a natalidade, nomeadamente aumentando o rendimento das famílias.
 
-• Criar condições para a articulação da vida profissional com a familiar.
+- Criar condições para a articulação da vida profissional com a familiar.
 
-• Assegurar que as mulheres não são prejudicadas no acesso ao trabalho nem no acesso a determinados cargos em virtude de serem ou quererem vir a ser mães.
+- Assegurar que as mulheres não são prejudicadas no acesso ao trabalho nem no acesso a determinados cargos em virtude de serem ou quererem vir a ser mães.
 
-• Dignificar todos os elementos da família, assegurando que as famílias têm condições de criar efectivamente as suas crianças, mas também das pessoas com necessidades especiais ou idosos.
+- Dignificar todos os elementos da família, assegurando que as famílias têm condições de criar efectivamente as suas crianças, mas também das pessoas com necessidades especiais ou idosos.
 
-#### **PROPOSTAS**
+### PROPOSTAS
 
 **292.** Investir no diagnóstico precoce de situações de infertilidade, reforçando os apoios sociais e respostas públicas nesta área.
 
@@ -1990,47 +1908,47 @@ Parte da Europa não desistiu deste combate civilizacional, assumindo a Família
 
 **312.** Isentar de IVA os produtos alimentares destinados aos bebés, bem como os essenciais para a sua higiene.
 
-# XIII CAPÍTULO **O QUE JÁ FIZEMOS PARA VALORIZAR O PAPEL DA FAMÍLIA NA SOCIEDADE**
+## XIII CAPÍTULO O QUE JÁ FIZEMOS PARA VALORIZAR O PAPEL DA FAMÍLIA NA SOCIEDADE
 
-#### **PROJECTO DE RESOLUÇÃO N.º 103/XV/1ª (CH)**
+### PROJECTO DE RESOLUÇÃO N.º 103/XV/1ª (CH)
 
 Pela protecção da Mulher Grávida nos Cuidados de Saúde e no Trabalho
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** PCP, BE, PAN, L **FAVOR** PSD, CHEGA, IL
 
-## **PROJECTO DE LEI N.º 786/XV/1ª (CH)**
+### PROJECTO DE LEI N.º 786/XV/1ª (CH)
 
 Cria o Provedor da Criança
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PSD, BE **ABSTENÇÃO** IL, PCP **FAVOR** CHEGA
 
-#### **PROJECTO DE LEI N.º 529/XV/1ª (CH)**
+### PROJECTO DE LEI N.º 529/XV/1ª (CH)
 
 Altera o Código Civil, Regime Jurídico do Processo de Adopção e o Código do Trabalho, com o objectivo de reduzir o número de crianças institucionalizadas garantindo-lhes um processo de adopção célere e bem-sucedido
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** PSD, PCP, BE, PAN, L **FAVOR** CHEGA, IL
 
-#### **PROJECTO DE LEI 149/XV/1.ª (CH)**
+### PROJECTO DE LEI 149/XV/1.ª (CH)
 
 Reconhece o direito ao luto em caso de perda gestacional
 
-## **SEM VOTAÇÃO**
+**SEM VOTAÇÃO**
 
-#### **PROPOSTA DE ALTERAÇÃO OE24 Nº 270C**
+### PROPOSTA DE ALTERAÇÃO OE24 Nº 270C
 
 Artigo 80.º-A (Apoio à Natalidade)
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PCP, BE, L **ABSTENÇÃO** PAN **FAVOR** PSD, CHEGA, IL
 
-# XIV CAPÍTULO **ASSEGURAR A SOBERANIA ENERGÉTICA. COMO?**
+## XIV CAPÍTULO ASSEGURAR A SOBERANIA ENERGÉTICA. COMO?
 
 **N**uma altura em que a energia é cada vez mais um ponto fulcral da discussão política no cenário na-cional e internacional, quer pelos conflitos emergentes, quer pelo desígnio europeu de transformação do sector energético, é imperativo que Portugal assuma uma estratégia nacional pragmática e equilibrada de forma a assegurar um futuro energético seguro e próspero para os nossos cidadãos. Portugal deve ter uma abordagem que garanta a sua soberania e que defenda o superior interesse dos cidadãos portugueses, resistindo ao aproveitamento ideológico que avança nestas matérias com evidentes desafios aos direitos, liberdades e garantias.
 
@@ -2056,25 +1974,23 @@ Por fim, o CHEGA reconhece também a necessidade de combater a falta de transpar
 
 Estas prioridades reflectem o compromisso do CHEGA para encontrar soluções equilibradas no contexto de desafios energéticos que o país enfrenta no quadro da geopolítica e dos conflitos emergentes. Só convocando todos os sectores da sociedade, sem deixar para trás os cidadãos mais vulneráveis, é possível encontrar um futuro energético equilibrado e próspero para Portugal e para os portugueses.
 
-#### **PRIORIDADES**
+### PRIORIDADES
 
-• Garantir a Soberania Energética reconhecendo a sua importância para a economia nacional;
+- Garantir a Soberania Energética reconhecendo a sua importância para a economia nacional;
 
-• Combater a Pobreza Energética com meios eficazes, que não excluam a população mais vulnerável e reduzir os custos do gás, electricidade e combustíveis;
+- Combater a Pobreza Energética com meios eficazes, que não excluam a população mais vulnerável e reduzir os custos do gás, electricidade e combustíveis;
 
-• Promover o consumo e construção eficientes, combatendo as injustiças da transição energética.
+- Promover o consumo e construção eficientes, combatendo as injustiças da transição energética.
 
-• Garantir a Segurança Energética de Portugal promovendo a transparência das opções políticas;
+- Garantir a Segurança Energética de Portugal promovendo a transparência das opções políticas;
 
-• Promover a flexibilidade do sistema eléctrico, com aposta no armazenamento e dinamização do mix energético nacional, complementando a produção renovável com a produção via nuclear.
+- Promover a flexibilidade do sistema eléctrico, com aposta no armazenamento e dinamização do mix energético nacional, complementando a produção renovável com a produção via nuclear.
 
-#### **PROPOSTAS**
+### PROPOSTAS
 
 **313.** Criar a Estratégia Nacional para a Soberania Energética, potencializando os recursos nacionais tendo em vista a redução das dependências externas e modos de produção mais responsáveis, eficientes e limpos.
 
 **314.** Promover com carácter prioritário auditorias técnicas, legais e financeiras imediatas em relação aos grandes
-
-**95**
 
 projectos energéticos anunciados (eólicos offshore, hidrogénio verde, exploração de lítio).
 
@@ -2116,59 +2032,59 @@ projectos energéticos anunciados (eólicos offshore, hidrogénio verde, explora
 
 **333.** Rever os acordos internacionais que desafiem o interesse nacional e aumentem a dependência externa ao nível da energia, garantindo objectivos de soberania energética.
 
-# XIV C A P Í T U L O **O QUE JÁ FIZEMOS PARA ASSEGURAR A SOBERANIA ENERGÉTICA**
+## XIV CAPÍTULO O QUE JÁ FIZEMOS PARA ASSEGURAR A SOBERANIA ENERGÉTICA
 
-#### **PROPOSTA DE ALTERAÇÃO OE24 Nº 1570C (CH)**
+### PROPOSTA DE ALTERAÇÃO OE24 Nº 1570C (CH)
 
 Artigo 123.º-A (Estudo técnico-económico visando a autonomia energética via Energia Nuclear)
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PSD, PCP, BE, PAN, L **ABSTENÇÃO** --- **FAVOR** CHEGA, IL
 
-#### **PROJECTO DE RESOLUÇÃO Nº 559/XV/1ª (CH)**
+### PROJECTO DE RESOLUÇÃO Nº 559/XV/1ª (CH)
 
 Pela dinamização do programa Vale Eficiência, com vista ao combate à pobreza energética
 
-#### **PROJECTO DE LEI Nº 399/XV/1ª (CH)**
+### PROJECTO DE LEI Nº 399/XV/1ª (CH)
 
 Determina a distribuição dos lucros excessivos das empresas de energia licenciadas para operar no mercado nacional aos seus clientes
 
-#### **PROJECTO DE LEI Nº 370/XV/1ª (CH)**
+### PROJECTO DE LEI Nº 370/XV/1ª (CH)
 
 Alteração dos prazos de prescrição dos crimes sexuais contra menores e de um conjunto de crimes de corrupção.
 
-#### **PROJECTO DE RESOLUÇÃO Nº 445/XV/1ª (CH)**
+### PROJECTO DE RESOLUÇÃO Nº 445/XV/1ª (CH)
 
 Promove a transformação dos resíduos orgânicos em fonte de energia verde
 
-#### **PROJECTO DE RESOLUÇÃO Nº 776/XV/1ª (CH)**
+### PROJECTO DE RESOLUÇÃO Nº 776/XV/1ª (CH)
 
 Reformulação da proposta para instalação de turbinas eólicas offshore, tendo por base evidências ambientais, sociais e económicas
 
-## **CONTRA** Partido Socialista
+**CONTRA** Partido Socialista
 
 **REJEITADO**
 
 **ABSTENÇÃO** PSD, PCP, BE, PAN, L **FAVOR** CHEGA, IL
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, IL **ABSTENÇÃO** PSD, PCP, BE, PAN, L **FAVOR** CHEGA
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PSD, PCP, BE, Livre **ABSTENÇÃO** IL, PAN **FAVOR** CHEGA
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PCP **ABSTENÇÃO** PSD, BE, L **FAVOR** CHEGA, IL, PAN
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** PSD, IL, PCP, PAN, L **FAVOR** CHEGA, BE
 
-# XV CAPÍTULO **EQUILÍBRIO NA DEFESA DO AMBIENTE E DO BEM-ESTAR ANIMAL. COMO?**
+## XV CAPÍTULO EQUILÍBRIO NA DEFESA DO AMBIENTE E DO BEM-ESTAR ANIMAL. COMO?
 
 **P**ortugal é berço de uma diversidade natural sem paralelo, mas enfrenta hoje um desafio crucial: pre-servar o seu legado inestimável enquanto promove o progresso económico e social. O CHEGA defende uma visão conservadora acerca da ecologia e que se fundamenta na convicção de que a natureza não é apenas um recurso a ser explorado, mas um património a ser cuidadosamente gerido para as futuras gerações. O CHEGA considera que o verdadeiro conservadorismo ambiental reconhece a interdependência entre o ser humano e o ambiente, priorizando uma abordagem que respeita ambos.
 
@@ -2182,21 +2098,19 @@ O CHEGA defende uma política ambiental equilibrada que alie a preservação do 
 
 O compromisso do CHEGA é com um Portugal verde, onde a natureza e o progresso caminham lado a lado, garantindo um futuro próspero e saudável para todas as gerações e, de forma imperativa, que a transição energética não represente uma transição injusta para os cidadãos comuns. Como tal, elege como áreas prioritárias a promoção do bem-estar animal e o combate aos maus-tratos de diversas formas; a exploração e conservação dos recursos naturais, florestais e da biodiversidade tendo em conta o potencial económico e o compromisso de deixar às novas gerações um país com recursos abundantes e preservados; a adaptação do território e a mitigação para as situações de risco e catástrofe natural; uma estratégia de resíduos assente nos princípios de redução e circularidade e a reestruturação da pasta ministerial do Ambiente, bem como dos seus organismos, tendo em conta a necessidade de desburocratizar processos, combater a corrupção e trazer mais transparência às decisões ambientais.
 
-#### **PRIORIDADES**
+### PRIORIDADES
 
-• Promover o bem-estar animal e combater todas as formas de abuso e maus-tratos (pela via penal, legal, institucional e fiscal);
+- Promover o bem-estar animal e combater todas as formas de abuso e maus-tratos (pela via penal, legal, institucional e fiscal);
 
-• Reconciliar os valores de preservação e conservação dos recursos naturais, florestais e biodiversidade com o potencial económico dos mesmos;
+- Reconciliar os valores de preservação e conservação dos recursos naturais, florestais e biodiversidade com o potencial económico dos mesmos;
 
-• Preparar o país para a mitigação dos riscos e catástrofes naturais;
+- Preparar o país para a mitigação dos riscos e catástrofes naturais;
 
-• Implementar uma estratégia nacional eficaz para os resí-
+- Implementar uma estratégia nacional eficaz para os resíduos assente no princípio da economia circular;
 
-duos assente no princípio da economia circular;
+- Reestruturar o Ministério do Ambiente, assegurando a desburocratização, transparência e combate à corrupção nos processos ambientais.
 
-• Reestruturar o Ministério do Ambiente, assegurando a desburocratização, transparência e combate à corrupção nos processos ambientais.
-
-#### **PROPOSTAS**
+### PROPOSTAS
 
 **334.** Reconhecer de forma expressa a dignidade constitucional dos animais, inserindo-os, portanto, no texto da Constituição da República Portuguesa.
 
@@ -2252,9 +2166,9 @@ duos assente no princípio da economia circular;
 
 **360.** Combate efectivo aos incêndios florestais através:
 
-• do incentivo à limpeza das matas e terrenos, promovendo a utilização de resíduos para a produção de biomassa e a criação de uma rede nacional de centrais de produção de energia eléctrica a biomassa, com benefícios fiscais para os proprietários de terrenos com a situação regularizada;
+- do incentivo à limpeza das matas e terrenos, promovendo a utilização de resíduos para a produção de biomassa e a criação de uma rede nacional de centrais de produção de energia eléctrica a biomassa, com benefícios fiscais para os proprietários de terrenos com a situação regularizada;
 
-• reforço dos meios de fiscalização, prevenção e combate; • agravamento das penas para pirómanos e autores de incêndio.
+- reforço dos meios de fiscalização, prevenção e combate; • agravamento das penas para pirómanos e autores de incêndio.
 
 **361.** Concluir o cadastro florestal nacional e execução da limpeza dos terrenos do Estado, garantindo corredores de corta-fogo, limpeza das matas e recolha de resíduos lenhosos.
 
@@ -2280,14 +2194,14 @@ duos assente no princípio da economia circular;
 
 **372.** Promover a diminuição dos resíduos, nomeadamente dos plásticos, sem sobrecarregar financeiramente o consumidor através de, por exemplo:
 
-• Incentivos fiscais à venda a granel;
+- Incentivos fiscais à venda a granel;
 
-• Isenção de IVA das fraldas reutilizáveis e produtos de higiene feminina íntima;
+- Isenção de IVA das fraldas reutilizáveis e produtos de higiene feminina íntima;
 
 - Aposta na inovação e ecodesign das embalagens;
 - Redução da utilização de embalagens supérfluas;
 
-• Criação de incentivos fiscais para empresas que invistam em pesquisa e desenvolvimento de tecnologias de embalagens reutilizáveis, inovadoras e sustentáveis.
+- Criação de incentivos fiscais para empresas que invistam em pesquisa e desenvolvimento de tecnologias de embalagens reutilizáveis, inovadoras e sustentáveis.
 
 **373.** Combater o fenómeno da fast-fashion através da promoção de uma maior incorporação de materiais reutilizados nos bens produzidos, bem como criar incentivos às empresas para que promovam a devolução da roupa e calçado usado por parte dos clientes.
 
@@ -2327,47 +2241,47 @@ duos assente no princípio da economia circular;
 
 **391.** Avaliar a necessidade e eficácia de todas as taxas ambientais existentes e proceder à eliminação de todas as que não cumpram os seus fins, que se mostrem excessivas, contribuam para a dupla tributação ou para uma oneração excessiva dos contribuintes, assim como promover a eliminação progressiva de determinados impostos.
 
-#### **PROJECTO DE LEI Nº 301/XV/1ª (CH)**
+### PROJECTO DE LEI Nº 301/XV/1ª (CH)
 
 Altera o DL nº. 276/2001, de 17 de outubro, aumentando a protecção dos animais de companhia
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PSD, BE **ABSTENÇÃO** PCP, L **FAVOR** CHEGA, IL, PAN
 
-#### **PROJECTO DE LEI N.º 437/XV/1ª (CH)**
+### PROJECTO DE LEI N.º 437/XV/1ª (CH)
 
 Alteração à Lei dos serviços municipais de abastecimento público de água, de saneamento de águas residuais e de gestão de resíduos urbanos
 
-#### **PROJECTO DE RESOLUÇÃO N.º 445/XV/1ª (CH)**
+### PROJECTO DE RESOLUÇÃO N.º 445/XV/1ª (CH)
 
 Promove a transformação dos resíduos orgânicos em fonte de energia verde
 
-#### **PROPOSTA DE ALTERAÇÃO OE24 Nº1458C (CH)**
+### PROPOSTA DE ALTERAÇÃO OE24 Nº1458C (CH)
 
 Artigo 123.º-A (Instalação de contentores destinados ao lixo marinho em todos os portos e barras)
 
-#### **PROPOSTA DE ALTERAÇÃO OE 24 Nº 1658C**
+### PROPOSTA DE ALTERAÇÃO OE 24 Nº 1658C
 
 Artigo 123.º-A (Criação de um programa piloto de recolha porta a porta de Resíduos Eléctricos e Electrónicos)
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PCP, BE, L **ABSTENÇÃO** PSD, IL, PAN **FAVOR** CHEGA
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PCP **ABSTENÇÃO** PSD, BE, L **FAVOR** CHEGA, IL, PAN
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** PSD, PCP, BE, L **FAVOR** CHEGA, IL, PAN
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PSD **ABSTENÇÃO** PCP, BE, L **FAVOR** CHEGA, IL, PAN
 
-# XVI CAPÍTULO **OLHAR PARA PORTUGAL COMO UM TODO. COMO?**
+## XVI CAPÍTULO OLHAR PARA PORTUGAL COMO UM TODO. COMO?
 
 **O**país debate-se com o despovoamento do interior do território causado, por um lado, pelos baixos índices de natalidade registados em Portugal e, por outro, pela deslocação das populações para o litoral. As populações aderem e localizam-se em áreas onde encontram condições de subsistência, leia-se "emprego", ou vantagens para investimento e, em Portugal, os investimentos que geram os meios de subsistência estão cada vez mais localizados no litoral e nos grandes centros urbanos.
 
@@ -2401,29 +2315,29 @@ A revisão é bastante profunda nos sectores ferroviário e aeroportuário, os d
 
 Assim, os investimentos neste âmbito devem inserir-se num plano estratégico fundamentado e publicamente conhecido, devendo ser apreciados no pressuposto de que o sistema de transportes, nos seus diversos modos, responde a necessidades de movimento de pessoas e de mercadorias. As decisões têm de ser tomadas no quadro de uma estratégia que assente:
 
-• Na diminuição das assimetrias regionais do território nacional;
+- Na diminuição das assimetrias regionais do território nacional;
 
-• Na contribuição, através do investimento público em infra-estruturas, para o crescimento económico;
+- Na contribuição, através do investimento público em infra-estruturas, para o crescimento económico;
 
-• Na compatibilização dos grandes projectos com as linhas fundamentais das políticas de ordenamento do território, de salvaguarda dos valores ambientais e do património histórico-cultural;
+- Na compatibilização dos grandes projectos com as linhas fundamentais das políticas de ordenamento do território, de salvaguarda dos valores ambientais e do património histórico-cultural;
 
-• Na aproximação de Portugal à Europa, acelerando o curso da convergência real.
+- Na aproximação de Portugal à Europa, acelerando o curso da convergência real.
 
 Por outro lado, sendo muitas as necessidades e escassos os meios, deve ser efectuado um esforço de aproveitamento ao máximo das infra-estruturas já existentes, melhorando- -as e optando pela construção de raiz somente quando tal se revelar justificado.
 
-#### **PRIORIDADES**
+### PRIORIDADES
 
-• Assegurar uma efectiva coesão territorial, combater as assimetrias entre o litoral e a zona interior do país, bem como o despovoamento dessas áreas;
+- Assegurar uma efectiva coesão territorial, combater as assimetrias entre o litoral e a zona interior do país, bem como o despovoamento dessas áreas;
 
-• Promover o investimento nos territórios de baixa densidade através de políticas fiscais eficientes e proceder ao reordenamento administrativo territorial;
+- Promover o investimento nos territórios de baixa densidade através de políticas fiscais eficientes e proceder ao reordenamento administrativo territorial;
 
-• Investir na coesão digital de forma a que todo o território tenha cobertura de rede móvel e de dados de elevada capacidade;
+- Investir na coesão digital de forma a que todo o território tenha cobertura de rede móvel e de dados de elevada capacidade;
 
-• Concretizar o Plano Nacional de Ferrovia (PNF), concluir o processo relativo ao novo aeroporto e proceder a melhorias nos portos e transporte marítimo;
+- Concretizar o Plano Nacional de Ferrovia (PNF), concluir o processo relativo ao novo aeroporto e proceder a melhorias nos portos e transporte marítimo;
 
-• Apostar na melhoria da mobilidade dos cidadãos, tanto em transporte individual como colectivo, expandindo e melhorando a rede de transportes públicos.
+- Apostar na melhoria da mobilidade dos cidadãos, tanto em transporte individual como colectivo, expandindo e melhorando a rede de transportes públicos.
 
-#### **PROPOSTAS**
+### PROPOSTAS
 
 **392.** Redefinir o método de cálculo da transferência de verbas do Orçamento de Estado para os territórios de baixa densidade, garantindo uma maior equidade já que as transferências são calculadas com base na densidade populacional o que obviamente prejudica os territórios de baixa densidade, assim, a alteração do método de cálculo permite uma discriminação positiva aos territórios até hoje "esquecidos" potenciando o aumento de investimentos municipais, a melhoria das condições de vida das populações e oferta de serviços, tornando os territórios mais apelativos para as famílias.
 
@@ -2453,9 +2367,9 @@ Por outro lado, sendo muitas as necessidades e escassos os meios, deve ser efect
 
 **405.** Promover uma maior responsabilidade nas Parcerias Público-Privadas (PPPs), nomeadamente:
 
-• Avaliar cuidadosamente as parcerias público-privadas para garantir que sejam transparentes, justas e beneficiem ambas as partes;
+- Avaliar cuidadosamente as parcerias público-privadas para garantir que sejam transparentes, justas e beneficiem ambas as partes;
 
-• Estabelecer mecanismos eficazes de monitorização e avaliação para garantir o cumprimento dos contratos.
+- Estabelecer mecanismos eficazes de monitorização e avaliação para garantir o cumprimento dos contratos.
 
 **406.** Garantir a capacidade de manutenção a longo prazo das obras públicas, por forma a verificar a sua sustentabilidade e para evitar custos elevados de manutenção no futuro.
 
@@ -2463,23 +2377,21 @@ Por outro lado, sendo muitas as necessidades e escassos os meios, deve ser efect
 
 **408.** Garantir transparência e eficiência na gestão do dossier TAP, nomeadamente:
 
-• Procurando as parcerias estratégicas que, numa base séria, viabilizem o seu saneamento financeiro a curto prazo e aproveitamento económico das rotas tradicionais, designadamente de e para os Países de língua portuguesa;
+- Procurando as parcerias estratégicas que, numa base séria, viabilizem o seu saneamento financeiro a curto prazo e aproveitamento económico das rotas tradicionais, designadamente de e para os Países de língua portuguesa;
 
-• O Estado não caucionará qualquer decisão de aquisição da TAP pela Lufthansa ou Air France /KLM enquanto não estiver definitivamente decidida a queixa da Ryanair contra essas duas empresas, face ao risco de uma muito negativa repercussão financeira;
+- O Estado não caucionará qualquer decisão de aquisição da TAP pela Lufthansa ou Air France /KLM enquanto não estiver definitivamente decidida a queixa da Ryanair contra essas duas empresas, face ao risco de uma muito negativa repercussão financeira;
 
-• O Estado deverá procurar manter na TAP uma participa-
+- O Estado deverá procurar manter na TAP uma participação que lhe permita ter um assento no conselho de Administração.
 
-ção que lhe permita ter um assento no conselho de Administração.
+- O Estado deverá renegociar com a VINCI, no âmbito da escolha da solução aeroportuária para Lisboa, uma participação que lhe permita ter um assento na Administração da empresa ANA.
 
-• O Estado deverá renegociar com a VINCI, no âmbito da escolha da solução aeroportuária para Lisboa, uma participação que lhe permita ter um assento na Administração da empresa ANA.
+- Nas empresas industriais estratégicas para o cluster aeronáutico (TAP Enginnering e OGMA), o Estado deve manter uma posição accionista adequada à tipologia do negócio, no mínimo com um assento na Administração dessas empresas.
 
-• Nas empresas industriais estratégicas para o cluster aeronáutico (TAP Enginnering e OGMA), o Estado deve manter uma posição accionista adequada à tipologia do negócio, no mínimo com um assento na Administração dessas empresas.
+- Garantir a permanência do Hub em Lisboa;
 
-• Garantir a permanência do Hub em Lisboa;
+- Assegurar os postos de trabalho dos trabalhadores da TAP;
 
-• Assegurar os postos de trabalho dos trabalhadores da TAP;
-
-• Manter a Sede da TAP em Portugal, garantindo que os impostos continuam a ser pagos no nosso país.
+- Manter a Sede da TAP em Portugal, garantindo que os impostos continuam a ser pagos no nosso país.
 
 **409.** Eliminar a descontinuidade entre a linha de Cascais e a rede ferroviária geral por interligação à Linha de Sintra, um curto e facilitado percurso entre a estação da Cruz Quebrada (L. Cascais) e a estação (L. Sintra) unirá as duas linhas com mais tráfego do país, que também servem dois polos turísticos de primeira grandeza.
 
@@ -2487,11 +2399,11 @@ Por outro lado, sendo muitas as necessidades e escassos os meios, deve ser efect
 
 **411.** Proceder à integração na rede peninsular, mais especificamente:
 
-• As duas grandes áreas metropolitanas nacionais, Lisboa e Porto, devem estar integradas na rede de Alta Velocidade peninsular em bitola europeia, cuja extensão total ultrapassará quatro mil quilómetros e é centrada em Madrid, a segunda maior área metropolitana UE.
+- As duas grandes áreas metropolitanas nacionais, Lisboa e Porto, devem estar integradas na rede de Alta Velocidade peninsular em bitola europeia, cuja extensão total ultrapassará quatro mil quilómetros e é centrada em Madrid, a segunda maior área metropolitana UE.
 
-• O nó estratégico da rede ferroviária nacional é Lisboa – que articula as ligações nacionais norte-sul-leste e as peninsulares – cujas conexões devem ser observadas à escala de 600-700km, o que significa em bitola europeia que o eixo Lisboa-Madrid atinge 650km; a ligação Lisboa-Porto deve ser observada como parte do eixo Lisboa-Corunha com 600km e a ligação Porto-Compostela deve ser observada como parte do eixo Porto-Madrid com 750km.
+- O nó estratégico da rede ferroviária nacional é Lisboa – que articula as ligações nacionais norte-sul-leste e as peninsulares – cujas conexões devem ser observadas à escala de 600-700km, o que significa em bitola europeia que o eixo Lisboa-Madrid atinge 650km; a ligação Lisboa-Porto deve ser observada como parte do eixo Lisboa-Corunha com 600km e a ligação Porto-Compostela deve ser observada como parte do eixo Porto-Madrid com 750km.
 
-• As novas ligações de alta velocidade devem ter passagem directa nos aeroportos-HUB de modo a trocar a transferência avião-avião por avião-comboio nos trajectos com cerca de três horas: as ligações Lisboa-Porto/ Lisboa-Faro/Lisboa-Madrid.
+- As novas ligações de alta velocidade devem ter passagem directa nos aeroportos-HUB de modo a trocar a transferência avião-avião por avião-comboio nos trajectos com cerca de três horas: as ligações Lisboa-Porto/ Lisboa-Faro/Lisboa-Madrid.
 
 **412.** Desburocratizar a actividade portuária por forma a aumentar a competitividade dos nossos principais portos, em particular face aos que estão mais próximos.
 
@@ -2501,15 +2413,15 @@ Por outro lado, sendo muitas as necessidades e escassos os meios, deve ser efect
 
 **415.** Potenciar as infra-estruturas rodoviárias que já existem e que se encontram subaproveitadas, com o objectivo de captar o efectivo valor do que está subaproveitado por falta da conexão final (missed links), colocando-se como prioridades:
 
-• Maximizar as sinergias da rodovia com as novas ferrovias para evitar duplicações e/ou desperdícios;
+- Maximizar as sinergias da rodovia com as novas ferrovias para evitar duplicações e/ou desperdícios;
 
-• Antecipar a conclusão das interligações em falta (em relação às datas do PNI 2030), de modo a ter mais cedo o ganho económico associado ao uso de subaproveitada infra-estrutura já construída;
+- Antecipar a conclusão das interligações em falta (em relação às datas do PNI 2030), de modo a ter mais cedo o ganho económico associado ao uso de subaproveitada infra-estrutura já construída;
 
-• A execução das infra-estruturas rodoviárias que completam a rede fundamental de acessibilidades às cidades de média/grande dimensão;
+- A execução das infra-estruturas rodoviárias que completam a rede fundamental de acessibilidades às cidades de média/grande dimensão;
 
-• A abolição das actuais taxas de utilização das SCUT, com base na disponibilidade orçamental existente;
+- A abolição das actuais taxas de utilização das SCUT, com base na disponibilidade orçamental existente;
 
-• A consignação mais significativa das receitas sobre os combustíveis nas despesas de manutenção e conservação das infra-estruturas rodoviárias, bem como nas portagens das auto- -estradas que ligam as regiões mais deprimidas do país.
+- A consignação mais significativa das receitas sobre os combustíveis nas despesas de manutenção e conservação das infra-estruturas rodoviárias, bem como nas portagens das auto- -estradas que ligam as regiões mais deprimidas do país.
 
 **416.** Proceder à análise das implicações das medidas constantes do Livro Branco dos Transportes elaborado pela Comissão Europeia e a negociação das medidas convenientes à situação periférica do nosso País.
 
@@ -2539,21 +2451,21 @@ Por outro lado, sendo muitas as necessidades e escassos os meios, deve ser efect
 
 **429.** Alterar a regulamentação da actividade de transporte individual de passageiros em veículo descaracterizado (TVDE), nomeadamente definindo que esta só possa ser exercida por empresas ou empresários em nome individual, licenciados pelo Instituto da Mobilidade e dos Transportes, IP.; tornar mais rígidas as regras relativas à formação e idoneidade das pessoas que exercem a actividade e garantir que os condutores compreendem e falam a língua portuguesa.
 
-# XVI CAPÍTULO **O QUE JÁ FIZEMOS PARA OLHAR PARA PORTUGAL COMO UM TODO**
+## XVI CAPÍTULO O QUE JÁ FIZEMOS PARA OLHAR PARA PORTUGAL COMO UM TODO
 
-#### **PROJECTO DE LEI N.º 542/XV/1ª (CH)**
+### PROJECTO DE LEI N.º 542/XV/1ª (CH)
 
 Prevê a implementação de um plano gradual de isenção do pagamento de portagens
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, L **ABSTENÇÃO** PSD, IL, PCP, BE, PAN **FAVOR** CHEGA
 
-#### **PROJECTO DE LEI N.º706/XV/1ª (CH)**
+### PROJECTO DE LEI N.º706/XV/1ª (CH)
 
 Altera o regime jurídico aplicável ao contracto de transporte ferroviário no sentido de assegurar os direitos dos passageiros em caso de greve
 
-#### **PROJECTO DE LEI N.º 775/XV/1ª (CH)**
+### PROJECTO DE LEI N.º 775/XV/1ª (CH)
 
 Altera o regime jurídico que estabelece a actividade de transporte individual e remuneração de passageiros em veículos descaracterizados (TVDE)
 
@@ -2561,83 +2473,83 @@ Altera o regime jurídico que estabelece a actividade de transporte individual e
 
 Recomenda ao Governo a requalificação do IC8
 
-## **REJEITADO CONTRA** Partido Socialista, PCP, BE, L
+**REJEITADO CONTRA** Partido Socialista, PCP, BE, L
 
 **ABSTENÇÃO** PSD, PAN **FAVOR** CHEGA, IL
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, IL, PCP, BE, L **ABSTENÇÃO** PSD, PAN **FAVOR** CHEGA
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** PCP, L **FAVOR** PSD, CHEGA, IL, BE, PAN
 
-#### **PROJECTO DE RESOLUÇÃO Nº119/XV/1ª (CH)**
+### PROJECTO DE RESOLUÇÃO Nº119/XV/1ª (CH)
 
 Pela criação de uma Estratégia Integrada de Acessibilidade e Mobilidade do Alentejo nas ligações Nacionais e Internacionais
 
-#### **PROJECTO DE RESOLUÇÃO N.º355/XV/1ª (CH)**
+### PROJECTO DE RESOLUÇÃO N.º355/XV/1ª (CH)
 
 Recomenda ao Governo a revisão dos termos da PPP da Lusoponte, com vista à redução dos valores de taxas de portagem
 
-#### **PROJECTO DE RESOLUÇÃO 167/XV/1 (CH)**
+### PROJECTO DE RESOLUÇÃO 167/XV/1 (CH)
 
 Restituição de benefícios económicos e sociais aos colaboradores da TAP
 
-# **CONTRA** Partido Socialista
+**CONTRA** Partido Socialista
 
 **REJEITADO**
 
 **ABSTENÇÃO** 1 PS, PCP, BE, L **FAVOR** PSD, CHEGA, IL, PAN
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PSD, IL, PCP **ABSTENÇÃO** L **FAVOR** CHEGA, BE, PAN
 
-#### **SEM VOTAÇÃO**
+### SEM VOTAÇÃO
 
 **PROJECTO DE RESOLUÇÃO 499/XV/1 (CH)** Pela ligação ferroviária à cidade de Viseu
 
-## **PROPOSTA DE ALTERAÇÃO OE 24 Nº 492C (CH)**
+### PROPOSTA DE ALTERAÇÃO OE 24 Nº 492C (CH)
 
 Artigo 121.º-A (Ligação Ferroviária de Bragança ao resto do país e à linha de alta velocidade espanhola)
 
-## **PROPOSTA DE ALTERAÇÃO OE 24 Nº 670C (CH)**
+### PROPOSTA DE ALTERAÇÃO OE 24 Nº 670C (CH)
 
 Artigo 121.º-A (Reactivação das carreiras de passageiros entre Portimão e Funchal)
 
-#### **PROPOSTA DE ALTERAÇÃO OE Nº 1441C (CH)**
+### PROPOSTA DE ALTERAÇÃO OE Nº 1441C (CH)
 
 Artigo 121.º-A (Construção da Linha Maia II em modo Metro Ligeiro Convencional e sua ligação a Ermesinde)
 
-## **PROPOSTA DE ALTERAÇÃO OE 24 Nº 1439C (CH)** Artigo 120.º-A (Modernização da Linha da Beira Alta)
+### PROPOSTA DE ALTERAÇÃO OE 24 Nº 1439C (CH) Artigo 120.º-A (Modernização da Linha da Beira Alta)
 
 **PROPOSTA DE ALTERAÇÃO OE 24 Nº 1569C (CH)** Artigo 119.º-A (Conclusão do IP2 entre a A6, em Estremoz, e a A23, na Barragem do Fratel)
 
-#### **SEM VOTAÇÃO**
+**SEM VOTAÇÃO**
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** PSD,PCP, L **FAVOR** CHEGA, IL, BE, PAN
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** IL, PCP, L **FAVOR** PSD, CHEGA, BE, PAN
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** PSD, PCP, BE, L **FAVOR** CHEGA, IL, PAN
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** PSD, PCP, L **FAVOR** CHEGA, IL, BE,PAN
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** PSD, IL, PCP, PAN, L **FAVOR** CHEGA, BE
 
-# XVII CAPÍTULO **VALORIZAR O MUNDO RURAL E OS AGRICULTORES PORTUGUESES. COMO?**
+## XVII CAPÍTULO VALORIZAR O MUNDO RURAL E OS AGRICULTORES PORTUGUESES. COMO?
 
 **P**ara o CHEGA o sector primário virá sempre em pri-meiro lugar e deverá construir um verdadeiro de-sígnio nacional. O sector primário, historicamente representativo do mundo rural, da agricultura, bem como das pescas, sempre foi um dos sectores mais importantes como elemento de soberania nacional.
 
@@ -2673,19 +2585,17 @@ Até hoje têm sido os governos socialistas aqueles que de forma mais dramática
 
 Para o CHEGA, o caminho do primeiro sector passa por uma cooperação estreita e acompanhada, executiva, no sentido de impulsionar o segmento a que nos dirigimos, sempre na prossecução do seu contínuo desenvolvimento e da sua modernização. Mas nunca esquecendo que o desenvolvimento e a modernização só serão alcançáveis com estruturas governativas representativas fortes, coesas e unidas, com uma política verdadeiramente definida.
 
-#### **PRIORIDADES**
+### PRIORIDADES
 
-• Desburocratizar e simplificar os processos de licenciamento e financiamento para aumentar a riqueza primária gerada nos territórios, promovendo o empreendedorismo e a criação de emprego;
+- Desburocratizar e simplificar os processos de licenciamento e financiamento para aumentar a riqueza primária gerada nos territórios, promovendo o empreendedorismo e a criação de emprego;
 
-• Executar eficazmente as políticas comunitárias e nacionais de promoção da agricultura, pescas e florestas;
+- Executar eficazmente as políticas comunitárias e nacionais de promoção da agricultura, pescas e florestas;
 
-• Combater o flagelo dos incêndios florestais através da definição de uma política consistente de prevenção e combate; • Promover o desenvolvimento rural através do rejuvenes-
+- Combater o flagelo dos incêndios florestais através da definição de uma política consistente de prevenção e combate; • Promover o desenvolvimento rural através do rejuvenescimento do sector, da conversão nacional para agricultura de regadio e a diversificação produtiva;
 
-cimento do sector, da conversão nacional para agricultura de regadio e a diversificação produtiva;
+- Tornar a pesca um desígnio nacional com a implementação de tecnologias inovadoras, gestão eficiente das frotas e formação dos pescadores.
 
-• Tornar a pesca um desígnio nacional com a implementação de tecnologias inovadoras, gestão eficiente das frotas e formação dos pescadores.
-
-#### **PROPOSTAS**
+### PROPOSTAS
 
 **430.** Reedificar o "Ministério da Agricultura, Pescas e Florestas" com devolução de todas as suas competências políticas e históricas e a restituição imediata das Direcções Regionais de Agricultura e Pescas (DRAPs).
 
@@ -2729,49 +2639,49 @@ reconversão e melhoria económica das áreas agrícolas, protegendo e moderniza
 
 **449.** Assegurar que o transporte de animais para fins pecuários, nas suas várias vertentes, tem de cumprir a legislação em vigor em todo o seu percurso, sendo dotadas todas as entidades fiscalizadoras envolvidas dos meios e efectivos necessários ao cumprimento das suas várias atribuições.
 
-# XVII CAPÍTULO **O QUE JÁ FIZEMOS PARA VALORIZAR O MUNDO RURAL E OS AGRICULTORES**
+## XVII CAPÍTULO O QUE JÁ FIZEMOS PARA VALORIZAR O MUNDO RURAL E OS AGRICULTORES
 
-#### **PROJECTO DE RESOLUÇÃO 235/XV/1 (CH)**
+### PROJECTO DE RESOLUÇÃO 235/XV/1 (CH)
 
 Recomenda ao Governo a construção, modernização e reabilitação dos sistemas de regadio
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PCP, BE, PAN, L **ABSTENÇÃO** PSD **FAVOR** CHEGA, IL
 
-#### **PROJECTO DE RESOLUÇÃO 366/XV/1 (CH)**
+### PROJECTO DE RESOLUÇÃO 366/XV/1 (CH)
 
 Pela dignificação do Ministério da Agricultura e da actividade agrícola
 
-#### **PROJECTO DE RESOLUÇÃO 386/XV/1 (CH)**
+### PROJECTO DE RESOLUÇÃO 386/XV/1 (CH)
 
 Pela agilização da execução dos Fundos de Desenvolvimento Rural e publicação no Portal da Transparência de todas as verbas atribuídas
 
-#### **PROJECTO DE RESOLUÇÃO 624/XV/1 (CH)**
+### PROJECTO DE RESOLUÇÃO 624/XV/1 (CH)
 
 Pela criação da Rede Nacional da Água
 
-#### **PROJECTO DE LEI 305/XV/1 (CH)**
+### PROJECTO DE LEI 305/XV/1 (CH)
 
 Promove a produção agrícola nacional com vista a atingir a soberania e segurança alimentar de forma sustentável
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, BE, PAN **ABSTENÇÃO** PSD, PCP, L **FAVOR** CHEGA, IL
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** PCP, BE, L **FAVOR** PSD, CHEGA, IL, PAN
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PSD, PCP **ABSTENÇÃO** BE **FAVOR** CHEGA, IL
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PCP, BE, PAN, L **ABSTENÇÃO** PSD, IL **FAVOR** CHEGA
 
-# XVIII CAPÍTULO **SIMPLIFICAR PORTUGAL. COMO?**
+## XVIII CAPÍTULO SIMPLIFICAR PORTUGAL. COMO?
 
 **A**administração pública cumpre um papel basilar no funcionamento do Estado, desdobrando-se a sua acção em diversas esferas para garantir a eficiência, transparência e equidade na gestão dos recursos e na prestação de serviços públicos. Desta forma, a sua relevância transcende o mero aparelho burocrático do Estado, influenciando diretamente a qualidade de vida da população e o progresso económico e social do país.
 
@@ -2791,19 +2701,19 @@ município e, para que o financiamento da descentralização seja feito sem buro
 
 O poder local e os municípios desempenham um papel fundamental em muitas outras áreas, como o combate à pobreza, a transformação digital, a habitação, a educação e ensino, ambiente, bem-estar animal, saúde e até emprego. A aposta num municipalismo forte, de respeito pela autonomia do poder local e olhando para a descentralização de competências como um fim e não como um meio, trarão ao país respostas para grande parte dos actuais problemas sociais e económicos que atravessamos, melhor qualidade de vida para os cidadãos e finanças públicas mais eficientes.
 
-#### **PRIORIDADES**
+### PRIORIDADES
 
-• Proceder à simplificação e desburocratização dos serviços públicos, através da digitalização e modernização dos processos administrativos, qualificação e formação dos funcionários públicos e uma avaliação de desempenho e incentivos baseados em resultados;
+- Proceder à simplificação e desburocratização dos serviços públicos, através da digitalização e modernização dos processos administrativos, qualificação e formação dos funcionários públicos e uma avaliação de desempenho e incentivos baseados em resultados;
 
-• Pugnar por uma maior transparência, acessibilidade e participação dos cidadãos;
+- Pugnar por uma maior transparência, acessibilidade e participação dos cidadãos;
 
-• Combater a corrupção na administração pública e reforçar a ética nos serviços públicos;
+- Combater a corrupção na administração pública e reforçar a ética nos serviços públicos;
 
-• Rejeitar qualquer projecto de regionalização e reforçar o municipalismo;
+- Rejeitar qualquer projecto de regionalização e reforçar o municipalismo;
 
-• Fomentar o empreendedorismo e apoio das economias locais.
+- Fomentar o empreendedorismo e apoio das economias locais.
 
-#### **PROPOSTAS**
+### PROPOSTAS
 
 **450.** Desenvolver e implementar plataformas digitais unificadas que permitam o acesso centralizado aos serviços públicos, permitindo aos cidadãos e empresas realizar procedimentos online de forma integrada, assim reduzindo a burocracia, economizando tempo e recursos, e melhorando a eficiência na prestação de serviços.
 
@@ -2837,11 +2747,11 @@ O poder local e os municípios desempenham um papel fundamental em muitas outras
 
 **465.** Revisão dos impostos municipais, nomeadamente:
 
-• O IMI, conforme proposto no ponto 8 deste programa;
+- O IMI, conforme proposto no ponto 8 deste programa;
 
-• Taxa municipal de direitos de Passagem (TMDP), de forma a que nos municípios em que seja cobrada, as empresas que oferecem redes e serviços de comunicações electrónicas acessíveis ao público em local fixo sejam responsáveis pelo seu pagamento;
+- Taxa municipal de direitos de Passagem (TMDP), de forma a que nos municípios em que seja cobrada, as empresas que oferecem redes e serviços de comunicações electrónicas acessíveis ao público em local fixo sejam responsáveis pelo seu pagamento;
 
-• Taxa de ocupação de Subsolo (TOS) que deve deixar de ser cobrada às famílias.
+- Taxa de ocupação de Subsolo (TOS) que deve deixar de ser cobrada às famílias.
 
 **466.** Reforçar as verbas atribuídas aos municípios pertencentes aos territórios de baixa densidade, por forma a permitir que os municípios tenham a capacidade de dinamização e implementar políticas de desenvolvimento dos seus territórios.
 
@@ -2853,9 +2763,9 @@ O poder local e os municípios desempenham um papel fundamental em muitas outras
 
 **470.** Reforçar o Fundo de Financiamento da Descentralização com as verbas necessárias para permitir:
 
-• A melhoria da condição estrutural e o reforço de segurança sísmica dos equipamentos e edifícios transferidos para os municípios;
+- A melhoria da condição estrutural e o reforço de segurança sísmica dos equipamentos e edifícios transferidos para os municípios;
 
-• Que as Câmaras Municipais tenham oportunidade de aumentar a oferta de OTLs (Ocupação de Tempos Livres) dentro das escolas ou em espaços camarários e até ao final do terceiro ciclo, com o objectivo não só de aliviar as famílias de mais esta preocupação e despesa, mas também como forma de aumentar o tempo ao ar livre para brincar e conviver, bem como dando a oportunidade de participar em actividades formativas e/ou desportivas oferecidas pelos OTLs escolares.
+- Que as Câmaras Municipais tenham oportunidade de aumentar a oferta de OTLs (Ocupação de Tempos Livres) dentro das escolas ou em espaços camarários e até ao final do terceiro ciclo, com o objectivo não só de aliviar as famílias de mais esta preocupação e despesa, mas também como forma de aumentar o tempo ao ar livre para brincar e conviver, bem como dando a oportunidade de participar em actividades formativas e/ou desportivas oferecidas pelos OTLs escolares.
 
 **471.** Criar Centros de Coordenação Operacional Municipal ou intermunicipal dotados de equipamentos e ferramentas de apoio à tomada de decisões operacionais, nomeadamente, o Sistema Integrado de Gestão Municipal de Operações e Socorro, um software com capacidade de integração da informação fornecida pelos vários agentes de protecção civil, permitindo a sua gestão e dos recursos disponíveis em cenários de emergência ou socorro, sendo o seu funcionamento garantido, para além das redes tradicionais de internet, um acesso à via satélite, que garanta a eficácia e permanência de funcionamento do sistema de comunicações.
 
@@ -2869,9 +2779,9 @@ colos com entidades do sector privado e social que permitam dar resposta imediat
 
 **475.** Adoptar medidas financeiras de incentivo à subscrição de assinaturas de publicações periódicas por organismos públicos com elevada afluência de público, incluindo, designadamente, lojas do cidadão, centros de saúde, hospitais, postos de atendimento da Segurança Social e tribunais, promovendo, por esta via, a circulação de informação credível e de qualidade, contribuindo para a formação de cidadãos informados e críticos.
 
-# XVIII CAPÍTULO **O QUE JÁ FIZEMOS PARA SIMPLIFICAR PORTUGAL**
+## XVIII CAPÍTULO O QUE JÁ FIZEMOS PARA SIMPLIFICAR PORTUGAL
 
-## **PROJECTO DE LEI 514/XV/1 (CH)**
+### PROJECTO DE LEI 514/XV/1 (CH)
 
 **PROJECTO DE LEI 98/XV/1 (CH)**
 
@@ -2879,45 +2789,45 @@ dos serviços do Estado
 
 Altera o Decreto-Lei n.º 137/2010, de 28 de Dezembro no sentido de repor o valor da ajuda de custo por quilómetro
 
-#### **SEM VOTAÇÃO**
+**SEM VOTAÇÃO**
 
-# **REJEITADO**
+**REJEITADO**
 
 Pela criação de um mecanismo de auditoria permanente **CONTRA** Partido Socialista, PCP, L **ABSTENÇÃO** PSD, BE **FAVOR** CHEGA, IL, PAN
 
-#### **PROJECTO DE LEI Nº 94/XV/1ª (CH)**
+### PROJECTO DE LEI Nº 94/XV/1ª (CH)
 
 Criação do Estatuto do Arguido Colaborador e agravamento das penas aplicáveis aos crimes de corrupção previstos no Código Penal.
 
-#### **PROJECTO DE LEI 753/XV/1 (CH)**
+### PROJECTO DE LEI 753/XV/1 (CH)
 
 Cria a Base Patrimonial Única que possibilita a partilha de dados patrimoniais entre Conservatórias do Registo Predial, Autoridade Tributária, Autarquias e IMT
 
-#### **PROJECTO DE LEI 847/XV/1**
+### PROJECTO DE LEI 847/XV/1
 
 Estabelece medidas para a avaliação da necessidade e eficácia de comissões, grupos de trabalho, "task forces", e outras estruturas temporárias na Administração Pública
 
-#### **PROJECTO DE RESOLUÇÃO 191/XV/1**
+### PROJECTO DE RESOLUÇÃO 191/XV/1
 
 Recomenda ao Governo a execução e apresentação anual de um relatório de combate ao desperdício no sector público e da definitiva implementação do Sistema de Normalização Contabilística para a Administração Pública
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PSD, PCP, BE, Livre **ABSTENÇÃO** IL, PAN **FAVOR** CHEGA
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PCP **ABSTENÇÃO** PSD, BE, L **FAVOR** CHEGA, IL, PAN
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PCP, BE, PAN, L **ABSTENÇÃO** --- **FAVOR** PSD, CHEGA, IL
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PCP, L **ABSTENÇÃO** PSD, IL, BE, PAN **FAVOR** CHEGA
 
-# XIX CAPÍTULO **PROMOVER A NOSSA HISTÓRIA, CULTURA E TRADIÇÕES. COMO?**
+## XIX CAPÍTULO PROMOVER A NOSSA HISTÓRIA, CULTURA E TRADIÇÕES. COMO?
 
 **N**o mundo da globalização e em mutação, no qual vivemos, urge prospectivar o destino da salvaguarda da nossa herança cultural comum e das nossas referências identitárias através da adopção de um modelo pioneiro que esteja em correspondência com a complexidade dos desafios colocados pelas novas realidades.
 
@@ -2937,19 +2847,19 @@ A identidade nacional e a memória colectiva, naturalmente em construção perma
 
 Esta introdução estabelece, assim, o tom e o contexto para as políticas detalhadas nas prioridades subsequentes, que refletem um compromisso profundo do CHEGA com o fortalecimento e a valorização do património cultural em Portugal.
 
-#### **PRIORIDADES**
+### PRIORIDADES
 
-• Repensar o modelo de financiamento e promover a sustentabilidade do sector cultural;
+- Repensar o modelo de financiamento e promover a sustentabilidade do sector cultural;
 
-• Aflorar sinergias entre o turismo e o património cultural por forma a que ambos se promovam um ao outro;
+- Aflorar sinergias entre o turismo e o património cultural por forma a que ambos se promovam um ao outro;
 
-• Investir na educação, formação e internacionalização do património cultural português;
+- Investir na educação, formação e internacionalização do património cultural português;
 
-• Valorizar o património e preservá-lo, assegurando o seu acesso e compreensão pelas gerações futuras;
+- Valorizar o património e preservá-lo, assegurando o seu acesso e compreensão pelas gerações futuras;
 
-• Reconhecer a importância da tradição como factor de coesão e preservação da memória colectiva.
+- Reconhecer a importância da tradição como factor de coesão e preservação da memória colectiva.
 
-#### **PROPOSTAS**
+### PROPOSTAS
 
 **476.** Aumentar o Orçamento para a Cultura, visando corrigir o subfinanciamento crónico do sector, promovendo a valorização do património cultural e dos seus profissionais.
 
@@ -2995,29 +2905,29 @@ Esta introdução estabelece, assim, o tom e o contexto para as políticas detal
 
 **497.** Defender as tradições portuguesas com a criação de um programa de apoio financeiro (que disponibilize recursos financeiros, técnicos , formativos e assegurar a aplicação de uma taxa de IVA mínima às actividades culturais tradicionais) com vista à valorização das manifestações culturais tradicionais portuguesas, visando a sua preservação, divulgação e renovação, abrangendo expressões artísticas e culturais que reflectem a identidade e tradições do povo português.
 
-# XIX CAPÍTULO **O QUE JÁ FIZEMOS PARA PROMOVER A NOSSA HISTÓRIA E CULTURA**
+## XIX CAPÍTULO O QUE JÁ FIZEMOS PARA PROMOVER A NOSSA HISTÓRIA E CULTURA
 
-#### **PROJECTO DE RESOLUÇÃO 745/XV/1 (CH)**
+### PROJECTO DE RESOLUÇÃO 745/XV/1 (CH)
 
 Pela criação do Museu dos Descobrimentos e da Expansão Portuguesa
 
-#### **PROJECTO DE RESOLUÇÃO 747/XV/1 (CH)**
+### PROJECTO DE RESOLUÇÃO 747/XV/1 (CH)
 
 Pela protecção da identidade do Património Cultural classificado como Imóvel de Interesse Público, excluindo os edifícios ou imóveis assim classificados de contratos de naming
 
-#### **PROJECTO DE RESOLUÇÃO 891/XV/2 (CH)**
+### PROJECTO DE RESOLUÇÃO 891/XV/2 (CH)
 
 Assegura a gratuitidade de acesso aos museus e monumentos nacionais por idosos
 
-#### **PROPOSTA DE ALTERAÇÃO OE Nº 145C (CH)**
+### PROPOSTA DE ALTERAÇÃO OE Nº 145C (CH)
 
 Artigo 111.º-A (Fundo Financeiro de Apoio a Artistas Emergentes)
 
-#### **PROPOSTA DE ALTERAÇÃO OE 24 Nº150C**
+### PROPOSTA DE ALTERAÇÃO OE 24 Nº150C
 
 Artigo 111.º-A (Incentivo Financeiro à Cultura Tradicional)
 
-# **REJEITADO**
+**REJEITADO**
 
 **SEM VOTAÇÃO**
 
@@ -3027,11 +2937,11 @@ Artigo 111.º-A (Incentivo Financeiro à Cultura Tradicional)
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** PSD, IL PCP, BE, L **FAVOR** CHEGA, PAN
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, IL, PAN, L **ABSTENÇÃO** PSD, PCP, BE **FAVOR** CHEGA
 
-# XX CAPÍTULO **TORNAR O DESPORTO UM DESÍGNIO NACIONAL. COMO?**
+## XX CAPÍTULO TORNAR O DESPORTO UM DESÍGNIO NACIONAL. COMO?
 
 **E**m Portugal, a paixão pelo desporto é mais do que um mero passatempo - é um reflexo da nossa alma coletiva, um símbolo da nossa identidade e determinação. A história do desporto português é repleta de heróis que ultrapassaram fronteiras, desafiaram expectativas e elevaram o nome de Portugal aos patamares mais altos do reconhecimento mundial. Se o exemplo mais paradigmático é obviamente o do melhor de todos os tempos no futebol, o nosso Cristiano Ronaldo, muitos outros atletas nacionais são os melhores do mundo em muitas modalidades e, com apenas alguns exemplos podemos destacar desde logo a canoagem, atletismo, ginástica, natação, hóquei em patins, automobilismo, ciclismo - uma panóplia tão vasta que será sempre ingrato e injusto tentar enumerar todos. No entanto, apesar dos triunfos e do reconhecimento internacional, o nosso sistema desportivo enfrenta desafios significativos que exigem uma resposta audaciosa e reformista.
 
@@ -3055,19 +2965,19 @@ A modernização e a construção de novas infra-estruturas desportivas também 
 
 Uma questão "tabú" e deveras polémica que tanto afecta o desporto em Portugal, mas que é essencial abordar, passa pela relação entre os adeptos e desporto. É real a necessidade de reformular a legislação existente, como a Lei do Combate à Violência no Desporto, para garantir que a segurança e a paixão desportiva coexistem de forma harmoniosa. O actual clima de constante guerrilha entre adeptos e forças de segurança é resultado de legislação desadequada e alheada dos bons e mais avançados exemplos europeus. O CHEGA estará sempre ao lado das forças de segurança, assim como dos adeptos, o maior agente activo no evento desportivo e que merecem viver a sua liberdade na bancada, mas de forma responsável. Assim, a aposta é numa reforma pioneira em Portugal que conduza a uma co-existência pacífica entre todos e pelo que realmente é fundamental, o desporto, almejando o grande objectivo, combater a violência. Em resumo, esta visão abrangente e reformadora para o desporto em Portugal representa um compromisso com a inovação, inclusão e excelência. Com estas reformas, Portugal pode posicionar-se, não apenas como uma nação desportiva de destaque, mas também como um modelo de desenvolvimento desportivo integral, desde a base até ao topo. Este é o compromisso do CHEGA para com o desporto, para com os atletas, para com os adeptos, para com os amantes da actividade física, no fundo, para com a sociedade e, acima de tudo, para com Portugal, que volte a ver reconhecido como desígnio nacional o desporto e a actividade física.
 
-#### **PRIORIDADES**
+### PRIORIDADES
 
-• Reformar o modelo de financiamento para que este seja dinâmico, sustentável e adaptado às realidades do desporto moderno e assegure aos atletas todos os meios necessários para a prática desportiva;
+- Reformar o modelo de financiamento para que este seja dinâmico, sustentável e adaptado às realidades do desporto moderno e assegure aos atletas todos os meios necessários para a prática desportiva;
 
-• Apostar na promoção e desenvolvimento do Desporto Escolar e Universitário, dotando os jovens de ferramentas, instalações e orientações necessárias fomentando desta forma talentos desportivos de alta performance e promovendo o equilíbrio entre excelência académica e desportiva;
+- Apostar na promoção e desenvolvimento do Desporto Escolar e Universitário, dotando os jovens de ferramentas, instalações e orientações necessárias fomentando desta forma talentos desportivos de alta performance e promovendo o equilíbrio entre excelência académica e desportiva;
 
-• Modernizar as infra-estruturas desportivas por via do aumento do financiamento público para programas já existentes, mas também promover alterações ao Estatuto do Mecenato;
+- Modernizar as infra-estruturas desportivas por via do aumento do financiamento público para programas já existentes, mas também promover alterações ao Estatuto do Mecenato;
 
-• Promover a prática da actividade física e defesa da cultura de bancada, no respeito pela auto-responsabilidade, pela lei e autoridades;
+- Promover a prática da actividade física e defesa da cultura de bancada, no respeito pela auto-responsabilidade, pela lei e autoridades;
 
-• Defender a despolitização do desporto e salvaguardar a liberdade de pensamento e de expressão dos atletas, assim como a integridade das competições desportivas.
+- Defender a despolitização do desporto e salvaguardar a liberdade de pensamento e de expressão dos atletas, assim como a integridade das competições desportivas.
 
-#### **PROPOSTAS**
+### PROPOSTAS
 
 **498.** Rever a Lei de Bases da Actividade Física e do Desporto de forma a proceder à reforma do modelo de financiamento do desporto, consagrar a promoção do desporto feminino como grande objectivo desportivo nacional, defender a integridade e a verdade desportiva das competições, proibindo que modalidades categorizadas entres sexos biológicos aceitem atletas transgéneros e introduzir medidas de combate à corrupção desportiva.
 
@@ -3083,13 +2993,13 @@ Uma questão "tabú" e deveras polémica que tanto afecta o desporto em Portugal
 
 **504.** Estimular a prática de actividade física, nomeadamente através:
 
-• De campanhas nacionais de promoção da Actividade Física, sensibilizando os cidadãos para os seus benefícios;
+- De campanhas nacionais de promoção da Actividade Física, sensibilizando os cidadãos para os seus benefícios;
 
-• Redução do IVA na aquisição de equipamento e serviços desportivos;
+- Redução do IVA na aquisição de equipamento e serviços desportivos;
 
-• Aumentar a dedução do IVA com despesas com ginásios para 45%, assim como o aumentar o montante máximo de dedutibilidade para 500 euros;
+- Aumentar a dedução do IVA com despesas com ginásios para 45%, assim como o aumentar o montante máximo de dedutibilidade para 500 euros;
 
-• Atribuir benefícios fiscais a empresas que promovam e implementem a promoção de actividade física.
+- Atribuir benefícios fiscais a empresas que promovam e implementem a promoção de actividade física.
 
 **505.** Reduzir o IVA na venda de bilhetes para o desporto federado.
 
@@ -3099,41 +3009,41 @@ Uma questão "tabú" e deveras polémica que tanto afecta o desporto em Portugal
 
 **508.** Garantir igual acesso aos atletas insulares, garantindo que não ficam prejudicados no acesso a oportunidades desportivas pela sua condição ultraperiférica, nem ficam impossibilitados de participar em competições desportivas.
 
-# XX CAPÍTULO **O QUE JÁ FIZEMOS PARA TORNAR O DESPORTO UM DESÍGNIO NACIONAL**
+## XX CAPÍTULO O QUE JÁ FIZEMOS PARA TORNAR O DESPORTO UM DESÍGNIO NACIONAL
 
-#### **PROJECTO DE LEI 539/XV/1 (CH)**
+### PROJECTO DE LEI 539/XV/1 (CH)
 
 Procede à quinta alteração à Lei n.º 39/2009, de 30 de julho, que estabelece o regime jurídico da segurança e combate ao racismo, à xenofobia e à intolerância nos espectáculos desportivos
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PSD, PCP, BE **ABSTENÇÃO** PAN, Livre **FAVOR** CHEGA, IL
 
-#### **PROJECTO DE RESOLUÇÃO 932/XV/2 (CH)**
+### PROJECTO DE RESOLUÇÃO 932/XV/2 (CH)
 
 Recomenda ao Governo que adopte um conjunto de medidas que impactam os atletas de alta competição
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PCP, BE, PAN, L **ABSTENÇÃO** IL **FAVOR** PSD, CHEGA
 
-#### **PROJECTO DE LEI 372/XV/1 (CH)**
+### PROJECTO DE LEI 372/XV/1 (CH)
 
 Regime relativo à reparação dos danos emergentes de acidentes de trabalho dos praticantes desportivos profissionais
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PAN **ABSTENÇÃO** PSD, IL, PCP, BE, L **FAVOR** CHEGA
 
-#### **PROJECTO DE RESOLUÇÃO 296/XV/1 (CH)**
+### PROJECTO DE RESOLUÇÃO 296/XV/1 (CH)
 
 Aprovação de tabela com valores atuariais específicos para praticantes desportivos profissionais, aplicáveis à remição de pensões por acidente de trabalho
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** PSD, IL, PCP, BE, PAN, L **FAVOR** CHEGA
 
-# XXI CAPÍTULO **DIGNIFICAR AS FORÇAS ARMADAS. COMO?**
+## XXI CAPÍTULO DIGNIFICAR AS FORÇAS ARMADAS. COMO?
 
 **P**ortugal, uma das mais antigas nações da Europa, viu a sua história e a sua memória serem escritas com honra, lealdade e sacrifício dos seus soldados. Razão que leva o CHEGA a afirmar que as Forças Armadas portuguesas são um elemento estruturante da nossa identidade e exemplo de patriotismo. Nelas radicam os valores do trabalho, mérito, exigência, responsabilidade e espírito de serviço público. E a elas cabem a defesa das nossas fronteiras e a projecção externa dos nossos interesses, garantindo, assim, a soberania e independência nacionais.
 
@@ -3151,21 +3061,19 @@ Imperioso se torna, na conceptualização da política de Defesa Nacional, refor
 
 Assim, e perante o abandono das Forças Armadas, a degradação da Instituição Militar e o enfraquecimento da autoridade do Estado, o CHEGA propõe para a área da Defesa Nacional um conjunto de prioridades e medidas que possibilita a reforma necessária.
 
-#### **PRIORIDADES**
+### PRIORIDADES
 
-• Aumentar o Investimento na Defesa Nacional, cumprindo finalmente as metas orçamentais decorrentes dos compromissos com a NATO e União Europeia, sinal do emprenho português na participação da política de defesa e segurança europeia;
+- Aumentar o Investimento na Defesa Nacional, cumprindo finalmente as metas orçamentais decorrentes dos compromissos com a NATO e União Europeia, sinal do emprenho português na participação da política de defesa e segurança europeia;
 
-• Valorizar o factor humano nas Forças Armadas, de forma assegurar uma carreira sólida e digna a estes profissionais, dos vários ramos, estabelecendo igualmente uma carreira atractiva que sirva de referência aos jovens portugueses nas suas escolhas profissionais;
+- Valorizar o factor humano nas Forças Armadas, de forma assegurar uma carreira sólida e digna a estes profissionais, dos vários ramos, estabelecendo igualmente uma carreira atractiva que sirva de referência aos jovens portugueses nas suas escolhas profissionais;
 
-• Modernizar equipamentos e infra-estruturas, garantindo
+- Modernizar equipamentos e infra-estruturas, garantindo que as instalações militares se mantêm funcionais e eficientes no âmbito da defesa da soberania nacional e do prestígio das instituições militares;
 
-que as instalações militares se mantêm funcionais e eficientes no âmbito da defesa da soberania nacional e do prestígio das instituições militares;
+- Revitalizar as Indústrias de Defesa, promovendo as indústrias de ponta nesta área, nomeadamente as novas produções em matéria aeronáutica e cibernética;
 
-• Revitalizar as Indústrias de Defesa, promovendo as indústrias de ponta nesta área, nomeadamente as novas produções em matéria aeronáutica e cibernética;
+- Dignificar os Antigos Combatentes, garantindo acesso privilegiado à saúde e habitação digna.
 
-• Dignificar os Antigos Combatentes, garantindo acesso privilegiado à saúde e habitação digna.
-
-#### **PROPOSTAS**
+### PROPOSTAS
 
 **509.** Aumentar o Investimento na Defesa Nacional, assegurando o investimento de 2% do PIB na Defesa Nacional, só assim sendo possível combater o desinvestimento crónico associado ao sector e uma insuficiência de verbas para a sua operação e manutenção, que só o aumento do investimento permitirá reverter.
 
@@ -3191,9 +3099,9 @@ ença aos Militares (ADM), assim como dos Estabelecimentos de Saúde Militares e
 
 **519.** Modernizar equipamentos apostando cada vez mais nas tecnologias digitais, inteligência artificial e robotização da guerra, nomeadamente:
 
-• Proceder à renovação e manutenção das unidades Oceânicas de Superfície e Submarinas;
+- Proceder à renovação e manutenção das unidades Oceânicas de Superfície e Submarinas;
 
-• Reforçar a capacidade de Protecção e Sobrevivência da Força Terrestre;
+- Reforçar a capacidade de Protecção e Sobrevivência da Força Terrestre;
 
 - Renovar os meios de Luta Aérea Ofensiva e Defensiva;
 - Reforçar a capacidade de Ciberdefesa nacional;
@@ -3207,33 +3115,33 @@ ença aos Militares (ADM), assim como dos Estabelecimentos de Saúde Militares e
 
 **523.** Alteração Profunda ao Estatuto do Antigo Combatente (EAC), contemplando entre outras medidas:
 
-• Aumento dos valores do Suplemento Especial de Pensão, Complemento Especial de Pensão e Acréscimo Vitalício de Pensão;
+- Aumento dos valores do Suplemento Especial de Pensão, Complemento Especial de Pensão e Acréscimo Vitalício de Pensão;
 
-• Concessão de uma retribuição mínima mensal a cerca de 1.700 Antigos Combatentes beneficiários da pensão social de velhice;
+- Concessão de uma retribuição mínima mensal a cerca de 1.700 Antigos Combatentes beneficiários da pensão social de velhice;
 
-• Isenção de IRS sobre o Suplemento Especial de Pensão, Complemento Especial de Pensão e Acréscimo Vitalício de Pensão;
+- Isenção de IRS sobre o Suplemento Especial de Pensão, Complemento Especial de Pensão e Acréscimo Vitalício de Pensão;
 
-• Acesso dos Antigos Combatentes a medidas de apoio social complementar, nomeadamente o acesso ao Hospital das Forças Armadas;
+- Acesso dos Antigos Combatentes a medidas de apoio social complementar, nomeadamente o acesso ao Hospital das Forças Armadas;
 
-• Aumento da comparticipação nos medicamentos;
+- Aumento da comparticipação nos medicamentos;
 
-• Acesso a próteses, ortóteses, dispositivos médicos e outro material ortopédico em tempo útil;
+- Acesso a próteses, ortóteses, dispositivos médicos e outro material ortopédico em tempo útil;
 
-• Gratuitidade dos transportes públicos em todas as redes nacionais.
+- Gratuitidade dos transportes públicos em todas as redes nacionais.
 
-# XXI CAPÍTULO **O QUE JÁ FIZEMOS PARA DIGNIFICAR AS FORÇAS ARMADAS**
+## XXI CAPÍTULO O QUE JÁ FIZEMOS PARA DIGNIFICAR AS FORÇAS ARMADAS
 
-#### **PROJECTO DE RESOLUÇÃO 629/XV/1 (CH)**
+### PROJECTO DE RESOLUÇÃO 629/XV/1 (CH)
 
 Tornar as Forças Armadas mais atrativas e valorizar a Carreira Militar
 
-#### **SEM VOTAÇÃO**
+**SEM VOTAÇÃO**
 
 **PROJECTO DE RESOLUÇÃO 849/XV/1 (CH)**
 
-# **SEM VOTAÇÃO**
+**SEM VOTAÇÃO**
 
-#### **PROJECTO DE LEI 7/XV/1 (CH)**
+### PROJECTO DE LEI 7/XV/1 (CH)
 
 Militares das Forças Armadas
 
@@ -3241,65 +3149,63 @@ Aumenta o valor relativo ao Complemento Especial de Pensão dos Antigos Combaten
 
 Pela Revisão e Alteração do Sistema Remuneratório dos
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** PSD, IL, PCP, BE, L **FAVOR** CHEGA, PAN
 
-#### **PROJECTO DE LEI 752/XV/1 (CH)**
+### PROJECTO DE LEI 752/XV/1 (CH)
 
 Assegura em tempo útil o acesso a próteses e ortóteses e outro material ortopédico que se mostre necessário a prevenir a dependência, precariedade, isolamento e exclusão social dos deficientes militares
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** IL, PCP, L **FAVOR** PSD, CHEGA, BE, PAN
 
-#### **PROJECTO DE LEI 147/XV/1 (CH)**
+### PROJECTO DE LEI 147/XV/1 (CH)
 
 Procede à atualização dos montantes da componente fixa do suplemento de condição militar
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** IL, PCP, BE, L **FAVOR** PSD, CHEGA, PAN
 
-# XXII CAPÍTULO **DAR VOZ ÀS COMUNIDADES PORTUGUESAS. COMO?**
+## XXII CAPÍTULO DAR VOZ ÀS COMUNIDADES PORTUGUESAS. COMO?
 
 **O**s portugueses da diáspora, organizados em co-munidades um pouco por todo o mundo, não só são parte integrante da nação portuguesa, como se constituem como um dos seus mais valiosos activos. Valiosos, desde logo, porque souberam, desafiando o desconhecido, partir à procura de uma vida melhor. Valiosos, ainda, pela sua capacidade de trabalho, inventividade e capacidade para vencer em ambientes estranhos e, não poucas vezes, inicialmente hostis. Valiosos, finalmente, porque representam uma força não despicienda em inúmeros países de acolhimento onde ganharam um peso económico, social e político bem relevante, o que as pode transformar num pilar não despiciendo da nossa política externa. Isto também porque, sem jamais abdicarem das suas raízes, as nossas comunidades de emigrantes souberam sempre integrar-se pacificamente nos países de acolhimento, respeitando as suas leis e os seus usos e costumes sem abdicarem dos seus e sem renunciarem às suas raízes mais profundas. Tendo isto em conta, considera o CHEGA que os cerca de cinco milhões de portugueses espalhados pelo mundo são portugueses de parte inteira e como tal devem ser entendidos e tratados. Para o CHEGA, e isso é um ponto assente e incontornável, Portugal tem 15 milhões de habitantes e não apenas aqueles 10 milhões que residem no território nacional.
 
 Tal implica uma muito particular atenção do CHEGA e justifica plenamente a proposta de criação de um conjunto de mecanismos e de medidas tendente a que essas comunidades possam participar tão activamente na vida política, social e económica do país quanto aqueles que residem em território nacional. Por exemplo, não faz qualquer sentido funcional ou político que as Comunidades Portuguesas estejam sob a tutela do Ministério dos Negócios Estrangeiro. A criação do Ministério das Comunidades representa, quer um sinal de uma nova atitude para com as Comunidades, quer um primeiro passo para uma real integração dessas Comunidades no todo nacional.
 
-#### **PRIORIDADES**
+### PRIORIDADES
 
-• Reconhecer e valorizar as comunidades portuguesas pelo mundo como parte inteira e integrante da nação portuguesa;
+- Reconhecer e valorizar as comunidades portuguesas pelo mundo como parte inteira e integrante da nação portuguesa;
 
-• Reforçar a ligação dos membros das nossas comunidades
+- Reforçar a ligação dos membros das nossas comunidades às suas raízes portuguesas;
 
-às suas raízes portuguesas;
+- Facilitar o acesso dos emigrantes aos serviços da administração pública e simplificar os processos;
 
-• Facilitar o acesso dos emigrantes aos serviços da administração pública e simplificar os processos;
+- Assegurar a plena participação das comunidades nos diversos processos eleitorais;
 
-• Assegurar a plena participação das comunidades nos diversos processos eleitorais;
+- Criar condições e incentivos para o retorno daqueles que quiserem voltar a viver em território nacional.
 
-• Criar condições e incentivos para o retorno daqueles que quiserem voltar a viver em território nacional.
-
-#### **PROPOSTAS**
+### PROPOSTAS
 
 **524.** Criar o Ministério das Comunidades, nomeadamente, com as seguintes funções:
 
-• Defender os interesses das comunidades portuguesas promovendo a sua plena integração no todo nacional;
+- Defender os interesses das comunidades portuguesas promovendo a sua plena integração no todo nacional;
 
-• Definir uma estratégia que articule entre si as comunidades de forma que possam funcionar, de facto, como um pilar da nossa política externa;
+- Definir uma estratégia que articule entre si as comunidades de forma que possam funcionar, de facto, como um pilar da nossa política externa;
 
-• Criar e gerir a rede de lojas do cidadão adequadas às comunidades;
+- Criar e gerir a rede de lojas do cidadão adequadas às comunidades;
 
-• Criar os mecanismos necessários para uma plena participação das comunidades nos diversos processos eleitorais; • Tomar variadas iniciativas como, a título de exemplo, a de uma articulação, com as autoridades francesas, da localização dos beneficiários de milhões que estão em contas bancárias do Estado francês e que dizem respeito a reformas nunca recebidas por portugueses que trabalharam e descontaram ao longo dos últimos 50 anos que regressaram a Portugal e nunca mais voltaram a França.
+- Criar os mecanismos necessários para uma plena participação das comunidades nos diversos processos eleitorais; • Tomar variadas iniciativas como, a título de exemplo, a de uma articulação, com as autoridades francesas, da localização dos beneficiários de milhões que estão em contas bancárias do Estado francês e que dizem respeito a reformas nunca recebidas por portugueses que trabalharam e descontaram ao longo dos últimos 50 anos que regressaram a Portugal e nunca mais voltaram a França.
 
 **525.** Lançamento de uma rede de balcões de atendimento nos países da diáspora com o perfil das lojas do cidadão, em substituição dos sobrecarregados balcões consulares que nasceram e foram desenhados, essencialmente, para dar assistência a necessidades de portugueses em viagem e não a milhões de portugueses radicados no estrangeiro, com as seguintes características:
 
-• Permitir a realização de todos os actos administrativos até aqui realizados exclusivamente nos Consulados Portugueses de forma presencial;
+- Permitir a realização de todos os actos administrativos até aqui realizados exclusivamente nos Consulados Portugueses de forma presencial;
 
-• Estar localizados no terreno de forma estratégica por forma a reforçar e melhorar o serviço de atendimento aos portugueses aí residentes, devendo estar, nomeadamen-
+- Estar localizados no terreno de forma estratégica por forma a reforçar e melhorar o serviço de atendimento aos portugueses aí residentes, devendo estar, nomeadamen-
 
-• O recrutamento para estes postos da função pública deve ser prioritariamente feito entre os portugueses emigrantes, habitantes na região, ou no país em questão.
+- O recrutamento para estes postos da função pública deve ser prioritariamente feito entre os portugueses emigrantes, habitantes na região, ou no país em questão.
 
 **526.** Propor a criação de um gabinete de aconselhamento e acompanhamento de investimentos em Portugal que ultrapasse o investimento útil e rentável, mas demasiado concentrado, na compra de apartamentos para rendimento.
 
@@ -3325,47 +3231,47 @@ Tal implica uma muito particular atenção do CHEGA e justifica plenamente a pro
 
 **537.** Desenvolver um programa de apoio aos órgãos de comunicação social da diáspora, simples e transparente, e dinamizar a Plataforma dos Órgãos de Comunicação Social da Diáspora.
 
-# XXII CAPÍTULO **O QUE JÁ FIZEMOS PARA DAR VOZ ÀS COMUNIDADES PORTUGUESAS**
+## XXII CAPÍTULO O QUE JÁ FIZEMOS PARA DAR VOZ ÀS COMUNIDADES PORTUGUESAS
 
-#### **PROJECTO DE RESOLUÇÃO 465/XV/1 (CH)**
+### PROJECTO DE RESOLUÇÃO 465/XV/1 (CH)
 
 Recomenda ao Governo que tome as diligências necessárias para a regularização dos Serviços Consulares, Embaixadas e Missões Diplomáticas de Portugal no Estrangeiro
 
-#### **SEM VOTAÇÃO**
+**SEM VOTAÇÃO**
 
-#### **PROJECTO DE LEI N.º148/XV/1ª (CH)**
+### PROJECTO DE LEI N.º148/XV/1ª (CH)
 
 Altera o Decreto-lei nº165/2006 de 11 de agosto para promover um ensino de português de qualidade e gratuito no estrangeiro para as crianças e jovens portuguesas e lusodescendentes
 
-#### **PROJECTO DE RESOLUÇÃO N.º148/XV/1ª (CH)**
+### PROJECTO DE RESOLUÇÃO N.º148/XV/1ª (CH)
 
 Recomenda ao Governo o alargamento do 'Programa Regressar' aos emigrantes da Madeira e dos Açores
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** PSD, IL, PCP, L **FAVOR** CHEGA, BE, PAN
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** PCP, BE, L **FAVOR** PSD, CHEGA, IL, PAN
 
-#### **PROJECTO DE RESOLUÇÃO N.º375/XV/1ª (CH)**
+### PROJECTO DE RESOLUÇÃO N.º375/XV/1ª (CH)
 
 Inclusão do Ensino de História de Portugal no Estrangeiro para crianças e jovens portugueses e lusodescendentes
 
-#### **PROJECTO DE RESOLUÇÃO N.º496/XV/1ª (CH)**
+### PROJECTO DE RESOLUÇÃO N.º496/XV/1ª (CH)
 
 Recomenda ao Governo a abertura de postos de atendimento com um perfil semelhante ao das Lojas do Cidadão nas cidades de maior densidade de emigração
 
-#### **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** PCP, BE, PAN, L **FAVOR** PSD, CHEGA, IL
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** PSD, IL, PCP, BE, PAN, L **FAVOR** CHEGA
 
-# XXIII CAPÍTULO **POR UMA EUROPA DE NAÇÕES SOBERANAS. COMO?**
+## XXIII CAPÍTULO POR UMA EUROPA DE NAÇÕES SOBERANAS. COMO?
 
 **O**CHEGA considera que a Política Externa deve ter em consideração os interesses permanen-tes, as constantes históricas, a herança cultural, os determinismos geográficos e a evolução tecnológica. Assim, o CHEGA defende uma política externa que assuma como princípio básico de actuação o de privilegiar as relações bilaterais sobre as relações multilaterais e isto porque estas últimas caracterizam-se, no essencial, pela incapacidade de decisão que abre o caminho ao triunfo dos parceiro mais poderosos sentados à volta da mesa. As grandes plataformas multilaterais, alimentadas por uma burocracia crescente, não eleita e cada vez mais poderosa, representam um grave perigo para a independência das nações que as integram e para as suas democracias liberais.
 
@@ -3381,17 +3287,17 @@ Assim sendo, é no modelo inter-governamental que o CHEGA indiscutivelmente se r
 
 Assim sendo, e por entendermos que o modelo inter-governamental representa a melhor forma de conciliar a soberania dos Estados com a eficiência do funcionamento da União Europeia, e movido pela preocupação de que se não avance mais um passo sequer no modelo federal, o CHEGA propõe que se tomem, desde já, um conjunto de medidas que espelham o seu programa eleitoral.
 
-• Reestruturar o espaço mediterrânico, controlando os fluxos migratórios massivos para a União Europeia e garantindo um espaço comercial, cultural e político livre de ameaças;
+- Reestruturar o espaço mediterrânico, controlando os fluxos migratórios massivos para a União Europeia e garantindo um espaço comercial, cultural e político livre de ameaças;
 
-• Manter e consolidar o espaço atlântico-norte, uma vez que os nossos compromissos com a NATO são essenciais e a manutenção da antiga aliança com o Reino Unido e a sua extensão aos Estados Unidos da América do Norte são essenciais à preservação da nossa soberania;
+- Manter e consolidar o espaço atlântico-norte, uma vez que os nossos compromissos com a NATO são essenciais e a manutenção da antiga aliança com o Reino Unido e a sua extensão aos Estados Unidos da América do Norte são essenciais à preservação da nossa soberania;
 
-• Participar na reconstrução do Atlântico-Sul como um espaço assente sobre democracias liberais, um espaço de de liberdade que nasça como a continuação daquilo que representa, nesse aspecto, o espaço do Atlântico Norte.
+- Participar na reconstrução do Atlântico-Sul como um espaço assente sobre democracias liberais, um espaço de de liberdade que nasça como a continuação daquilo que representa, nesse aspecto, o espaço do Atlântico Norte.
 
-• Desenvolver o espaço lusófono, promovendo a sustentabilidade das ligações ao mundo lusófono e o seu papel preponderante a nível mundial, bem como as conexões às diferentes comunidades portuguesas inseridas nos países de língua oficial portuguesa;
+- Desenvolver o espaço lusófono, promovendo a sustentabilidade das ligações ao mundo lusófono e o seu papel preponderante a nível mundial, bem como as conexões às diferentes comunidades portuguesas inseridas nos países de língua oficial portuguesa;
 
-• Redefinir o espaço europeu, garantindo novas condições de segurança sobretudo nas fronteiras externas da União e a operacionalização de circuitos económicos seguros e estáveis que potenciem o crescimento das diferentes economias nacionais de forma equilibrada e coesa.
+- Redefinir o espaço europeu, garantindo novas condições de segurança sobretudo nas fronteiras externas da União e a operacionalização de circuitos económicos seguros e estáveis que potenciem o crescimento das diferentes economias nacionais de forma equilibrada e coesa.
 
-#### **PROPOSTAS**
+### PROPOSTAS
 
 **538.** Reafirmar a necessidade de Portugal permanecer na UE é vital para o País.
 
@@ -3435,33 +3341,33 @@ ciação entre políticas comuns e políticas facultativas, ou seja, políticas 
 
 **554.** Defender sempre a manutenção do direito de celebrar tratados internacionais, bilaterais ou multilaterais, ou seja, o poder de estabelecer e negociar tratados internacionais, negociar com outros Estados conforme as suas conveniências e interesses, bem como do Direito à Igualdade de tratamento.
 
-# XXIII CAPÍTULO **O QUE JÁ FIZEMOS POR UMA EUROPA DE NAÇÕES SOBERANAS**
+## XXIII CAPÍTULO O QUE JÁ FIZEMOS POR UMA EUROPA DE NAÇÕES SOBERANAS
 
-#### **PROPOSTA DE ALTERAÇÃO OE 24 Nº 220C (CH)**
+### PROPOSTA DE ALTERAÇÃO OE 24 Nº 220C (CH)
 
 Artigo 30.º-A (Regularização das carreiras contributivas dos trabalhadores do Mapa Único de Pessoal dos Serviços Periféricos Externos do Ministério dos Negócios Estrangeiros)
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** PCP, L **FAVOR** PSD, CHEGA, IL, BE, PAN
 
-#### **PROPOSTA DE ALTERAÇÃO OE 24 Nº 250C (CH)**
+### PROPOSTA DE ALTERAÇÃO OE 24 Nº 250C (CH)
 
 Artigo 30.º-A (Actualização do Abono de Habitação para a Carreira Diplomática)
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** PCP, L **FAVOR** PSD, CHEGA,IL, BE, PAN
 
-#### **PROPOSTA DE ALTERAÇÃO OE 24 Nº 255C (CH)**
+### PROPOSTA DE ALTERAÇÃO OE 24 Nº 255C (CH)
 
 Artigo 30.º-A (Actualização dos Salários dos Trabalhadores de Embaixadas, Consulados e Missões Diplomáticas de Portugal no Estrangeiro)
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista **ABSTENÇÃO** PCP, L **FAVOR** PSD, CHEGA, IL,BE, PAN
 
-# XXIV CAPÍTULO **MUDAR O SISTEMA POLÍTICO. COMO?**
+## XXIV CAPÍTULO MUDAR O SISTEMA POLÍTICO. COMO?
 
 **O**sistema político em Portugal está ultrapassado e enfrenta inúmeros desafios que acabam por afectar a qualidade da democracia e levam a que os cidadãos se afastem cada vez mais das instituições políticas, tendo como consequência, entre outros aspectos, uma participação cada vez menor nos processos de escolha dos seus representantes.
 
@@ -3489,19 +3395,19 @@ Outro tema que afasta eleitos de eleitores prende-se com a promiscuidade entre c
 
 É igualmente fundamental que o Estado consiga assegurar uma efectiva separação de poderes, nomeadamente entre o sistema de justiça ou regulatório e o poder executivo, tendo em vista retirar a influência política em instituições que devem estar acima de qualquer interesse partidário ou particular. Nesse sentido, o CHEGA pretende rever a forma de nomeação de diversos cargos públicos e judiciais, o que passa, naturalmente, por uma despolitização do Tribunal Constitucional. Por fim, há que facilitar a participação política dos cidadãos nas decisões dos seus governantes, através da promoção de referendos e de mais matérias sujeitas a este instrumento de auscultação popular, garantindo-lhe um carácter vinculativo.
 
-#### **PRIORIDADES**
+### PRIORIDADES
 
-• Combater a abstenção e promover, através da reforma eleitoral, uma maior justiça na distribuição de mandatos.
+- Combater a abstenção e promover, através da reforma eleitoral, uma maior justiça na distribuição de mandatos.
 
-• Assegurar uma maior transparência por parte dos Partidos Políticos no que diz respeito ao seu financiamento e determinar que não gozam de mais benefícios do que os restantes cidadãos.
+- Assegurar uma maior transparência por parte dos Partidos Políticos no que diz respeito ao seu financiamento e determinar que não gozam de mais benefícios do que os restantes cidadãos.
 
-• Alterar o estatuto dos titulares de cargos políticos de forma a garantir o efectivo combate a fenómenos de corrupção e tráfico de influências.
+- Alterar o estatuto dos titulares de cargos políticos de forma a garantir o efectivo combate a fenómenos de corrupção e tráfico de influências.
 
-• Assegurar a separação de poderes através da redução da capacidade de influência política em instituições que devem ser imparciais e objectivas, garantindo que a sua missão e prerrogativas não são, nem podem ser, limitadas ou restringidas pelo poder executivo ou por qualquer poder político ou partidário.
+- Assegurar a separação de poderes através da redução da capacidade de influência política em instituições que devem ser imparciais e objectivas, garantindo que a sua missão e prerrogativas não são, nem podem ser, limitadas ou restringidas pelo poder executivo ou por qualquer poder político ou partidário.
 
-• Promover maior participação cívica de forma a aproximar os cidadãos dos centros de decisão.
+- Promover maior participação cívica de forma a aproximar os cidadãos dos centros de decisão.
 
-#### **PROPOSTAS**
+### PROPOSTAS
 
 **555.** Criar um círculo de compensação nacional, à semelhança do que já acontece nos Açores.
 
@@ -3511,11 +3417,11 @@ Outro tema que afasta eleitos de eleitores prende-se com a promiscuidade entre c
 
 **558.** Reformar o modelo de financiamento dos Partidos Políticos, nomeadamente:
 
-• Através do fim das isenções fiscais que os Partidos usufruem actualmente;
+- Através do fim das isenções fiscais que os Partidos usufruem actualmente;
 
-• Clarificar a lei das subvenções parlamentares para que os recursos destinados aos grupos parlamentares não sejam utilizados para financiamento dos Partidos;
+- Clarificar a lei das subvenções parlamentares para que os recursos destinados aos grupos parlamentares não sejam utilizados para financiamento dos Partidos;
 
-• Reforçar as verbas da Entidade das Contas e Financiamento dos Partidos Políticos no sentido de os dotar dos meios necessários para a fiscalização das contas dos Partidos.
+- Reforçar as verbas da Entidade das Contas e Financiamento dos Partidos Políticos no sentido de os dotar dos meios necessários para a fiscalização das contas dos Partidos.
 
 **559.** Acabar com a acumulação de pensões e com as pensões vitalícias associadas a cargos políticos, administrativos e judiciais por colidirem frontalmente com o princípio da igualdade e também com o princípio ético-social da equidade, ao definir um privilégio injustificado para um conjunto limitado de titulares.
 
@@ -3523,55 +3429,55 @@ Outro tema que afasta eleitos de eleitores prende-se com a promiscuidade entre c
 
 **561.** Garantir que a missão e prerrogativas das instituições reguladoras e judiciais não são, nem podem ser, limitadas ou restringidas pelo poder executivo ou por qualquer poder político ou partidário, não obstante as necessárias garantias de equilíbrio de todos os poderes, devendo para isso:
 
-• Reduzir-se o número de juízes eleitos pela Assembleia da República para os tribunais superiores, passando a privilegiar-se a eleição entre pares;
+- Reduzir-se o número de juízes eleitos pela Assembleia da República para os tribunais superiores, passando a privilegiar-se a eleição entre pares;
 
-• Impedir os juízes de suspender o exercício da sua actividade para fins de ocupação de cargo político, excepto para o exercício do cargo de Presidente da República;
+- Impedir os juízes de suspender o exercício da sua actividade para fins de ocupação de cargo político, excepto para o exercício do cargo de Presidente da República;
 
-• Passar a ser o Presidente da República a nomear o Governador do Banco de Portugal e os presidentes das 23 entidades administrativas independentes com funções de regulação da actividade económica dos sectores privado, público e cooperativo;
+- Passar a ser o Presidente da República a nomear o Governador do Banco de Portugal e os presidentes das 23 entidades administrativas independentes com funções de regulação da actividade económica dos sectores privado, público e cooperativo;
 
-• Passar a fiscalização do financiamento e contas dos Partidos para a responsabilidade do Tribunal de Contas;
+- Passar a fiscalização do financiamento e contas dos Partidos para a responsabilidade do Tribunal de Contas;
 
-• Dotar os Grupos Parlamentares de poderes para requerer junto do Tribunal Constitucional a verificação da constitucionalidade da actuação do Presidente da Assembleia da República.
+- Dotar os Grupos Parlamentares de poderes para requerer junto do Tribunal Constitucional a verificação da constitucionalidade da actuação do Presidente da Assembleia da República.
 
 **562.** Aumentar o número de matérias passíveis de serem referendadas e tornar o resultado vinculativo, assim promovendo uma maior participação cívica.
 
 **563.** Implementar medidas que visem a participação em condições de igualdade para homens e mulheres no exercício de cargos políticos, nomeadamente que visem a facilitação da conciliação entre a vida familiar e a participação cívica e política.
 
-# XXIV CAPÍTULO **O QUE JÁ FIZEMOS PARA MUDAR O SISTEMA POLÍTICO**
+## XXIV CAPÍTULO O QUE JÁ FIZEMOS PARA MUDAR O SISTEMA POLÍTICO
 
-#### **PROJECTO DE LEI N.º 614/XV/1 (CH)**
+### PROJECTO DE LEI N.º 614/XV/1 (CH)
 
 Altera o quadro sancionatório previsto na Lei n.º 52/2019, de 31 de julho (Regime jurídico do exercício de funções por titulares de cargos políticos e altos cargos públicos)
 
-#### **PROJECTO DE LEI N.º 69/XV/1ª (CH)**
+### PROJECTO DE LEI N.º 69/XV/1ª (CH)
 
 Determina o fim da possibilidade de acumulação de pensões por parte dos titulares de cargos públicos e políticos delas beneficiários
 
-#### **PROJECTO DE LEI N.º 977/XV/2ª (CH)**
+### PROJECTO DE LEI N.º 977/XV/2ª (CH)
 
 Aumenta a amplitude da proibição de exercício de determinadas funções após a cessação de funções políticas executivas, bem como a duração dessa proibição (4.ª alteração à Lei n.º 52/2019, de 31 de julho, que "Aprova o regime do exercício de funções por titulares de cargos políticos e altos cargos públicos")
 
-#### **PROJECTO DE LEI N.º 68/XV/1ª (CH)**
+### PROJECTO DE LEI N.º 68/XV/1ª (CH)
 
 Altera a lei do financiamento dos partidos políticos e das campanhas eleitorais, eliminando várias isenções de que os Partidos políticos beneficiam
 
-## **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PSD, IL **ABSTENÇÃO** PCP, BE, PAN, L **FAVOR** CHEGA
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PSD, IL **ABSTENÇÃO** PCP, PAN, L **FAVOR** CHEGA, BE
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PSD, L **ABSTENÇÃO** PCP **FAVOR** CHEGA, IL, BE
 
-# **REJEITADO**
+**REJEITADO**
 
 **CONTRA** Partido Socialista, PSD, PCP, L **ABSTENÇÃO** --- **FAVOR** CHEGA, IL, BE, PAN
 
-# XXV PARTE **REFORMAR A CONSTITUIÇÃO E LIMPÁ-LA DA CARGA IDEOLÓGICA. COMO?**
+## XXV PARTE REFORMAR A CONSTITUIÇÃO E LIMPÁ-LA DA CARGA IDEOLÓGICA. COMO?
 
 **A**actual Constituição da República Portuguesa foi redigida num período de radicalismo revolucio-nário e, apesar de constituir um marco histórico, político e jurídico, importa agora actualizá-la. Desde logo é urgente eliminar os resquícios dos combates ideológicos dos anos 60 e 70. Manter referências ao período 'fascista' ou determinar o 'caminho para o socialismo' não é adequado a um texto constitucional que se mantém em vigor e que é a pedra angular do ordenamento jurídico português.
 
@@ -3583,19 +3489,19 @@ Por outro lado, o modelo económico constitucional português continua a ser dem
 
 No âmbito das instituições políticas, o CHEGA apresenta várias propostas que afectam a a sua dimensão ou mesmo a sua composição, mas pretende especialmente afastar qualquer influência política nos tribunais assim como uma excessiva influência sobre as instituições de controlo, mesmo aquelas que têm como missão fiscalizar o próprio Governo. A Constituição deve servir de salvaguarda inquebrável ao equilíbrio de poderes, vedando qualquer intromissão abusiva ou a criação de 'zonas cinzentas' em que os diversos poderes políticos aproveitam para operar de forma arbitrária contra os direitos dos cidadãos ou em proveito próprio. Infelizmente, na legislatura que terminou, o processo de revisão constitucional espoletado pelo CHEGA foi discutido na especialidade, foram recebidos vários pareceres e feitas audições de diversos especialistas, mas acabou por caducar devido à demissão do Governo. No entanto, este continua a ser da maior importância e será uma prioridade para o CHEGA na nova legislatura.
 
-#### **PRIORIDADES**
+### PRIORIDADES
 
-• Atingir a neutralidade ideológica da Constituição;
+- Atingir a neutralidade ideológica da Constituição;
 
-• Assegurar um sistema firme de direitos, liberdades e garantias, mas que não impeça a necessária reforma na justiça, sobretudo a justiça criminal;
+- Assegurar um sistema firme de direitos, liberdades e garantias, mas que não impeça a necessária reforma na justiça, sobretudo a justiça criminal;
 
-• Implementar um modelo económico e societário onde a convivência harmónica entre o sector público e privado está assegurada, mesmo em domínios fundamentais como a saúde ou o ensino;
+- Implementar um modelo económico e societário onde a convivência harmónica entre o sector público e privado está assegurada, mesmo em domínios fundamentais como a saúde ou o ensino;
 
-• Proceder à necessária reforma do poder político, reduzindo a sua dimensão institucional e burocrática, e assegurando a independência dos tribunais, dos órgãos de investigação criminal e das entidades reguladoras face ao poder político, independentemente das maiorias conjunturais.
+- Proceder à necessária reforma do poder político, reduzindo a sua dimensão institucional e burocrática, e assegurando a independência dos tribunais, dos órgãos de investigação criminal e das entidades reguladoras face ao poder político, independentemente das maiorias conjunturais.
 
-• Impedir ataques à liberdade dos cidadãos, seja no que diz respeito à sua liberdade de expressão, circulação, ou outros, mesmo em situação de crise sanitária.
+- Impedir ataques à liberdade dos cidadãos, seja no que diz respeito à sua liberdade de expressão, circulação, ou outros, mesmo em situação de crise sanitária.
 
-#### **PROPOSTAS**
+### PROPOSTAS
 
 **564.** Alterar o Preâmbulo no sentido de retirar a carga ideológica que ainda lá permanece, assim como noutros artigos do texto constitucional.
 
@@ -3621,9 +3527,9 @@ No âmbito das instituições políticas, o CHEGA apresenta várias propostas qu
 
 **575.** Assegurar mais transparência no âmbito da actividade governamental, mas também parlamentar, nomeadamente conferindo ao Tribunal de Contas a responsabilidade de fiscalizar as contas dos Partidos e campanhas eleitorais, reforçando o regime de incompatibilidades e alterando o regime de imunidades dos deputados.
 
-# XXV CAPÍTULO **O QUE JÁ FIZEMOS PARA REFORMAR A CONSTITUIÇÃO**
+## XXV CAPÍTULO O QUE JÁ FIZEMOS PARA REFORMAR A CONSTITUIÇÃO
 
-## **PROJECTO DE REVISÃO CONSTITUCIONAL 1/XV/1ª**
+### PROJECTO DE REVISÃO CONSTITUCIONAL 1/XV/1ª
 
 **SEM VOTAÇÃO**
 
@@ -3631,9 +3537,8 @@ No âmbito das instituições políticas, o CHEGA apresenta várias propostas qu
 
 Uma Constituição para o futuro de Portugal
 
-#### **PROJECTO DE LEI 143/XV/1 ª (CH)**
+### PROJECTO DE LEI 143/XV/1 ª (CH)
 
 **(CH)**
 
 Determina que a Assembleia da República deve autorizar o levantamento de imunidade dos Deputados para efeitos de prestar declarações ou ser constituído arguido sempre que não esteja em causa factos relacionados com votos e opiniões que estes emitirem no exercício das suas funções
-
