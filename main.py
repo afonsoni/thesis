@@ -14,6 +14,7 @@ Commands:
 
 import argparse
 import logging
+import os
 import sys
 
 from dotenv import load_dotenv
@@ -42,6 +43,22 @@ def cmd_parse(args):
         output_dir=args.output_dir,
     )
     logger.info("Generated %d markdown files.", len(generated))
+
+
+def cmd_clean(args):
+    import glob
+
+    from src.rag.indexing.cleaner import clean_markdown
+
+    raw_dir = os.path.join(args.markdown_dir, "_raw")
+    files = sorted(glob.glob(os.path.join(raw_dir, "**", "*.md"), recursive=True))
+    if args.party:
+        files = [f for f in files if os.path.basename(f).startswith(args.party.lower() + "-")]
+    if not files:
+        logger.error("No raw markdown found in %s (party=%s)", raw_dir, args.party)
+        sys.exit(1)
+    for path in files:
+        clean_markdown(path, model=args.model)
 
 
 def cmd_index(args):
@@ -150,9 +167,14 @@ def build_parser() -> argparse.ArgumentParser:
     # parse
     p_parse = sub.add_parser("parse", help="Convert PDFs to markdown via marker_single")
     p_parse.add_argument("--input-dir", default="data/0_raw", help="PDF source directory")
-    p_parse.add_argument("--output-dir", default="data/1_markdown", help="Markdown output directory")
+    p_parse.add_argument("--output-dir", default="data/1_markdown/_raw", help="Markdown output directory (raw, before cleaning)")
 
     # index
+    p_clean = sub.add_parser("clean", help="Rebuild header structure of raw markdown into <party>/<stem>-clean.md")
+    p_clean.add_argument("--party", type=str, default=None, help="Only clean this party key (e.g. 'be')")
+    p_clean.add_argument("--markdown-dir", default="data/1_markdown", help="Markdown root (reads <root>/_raw)")
+    p_clean.add_argument("--model", type=str, default=None, help="OpenRouter model for the structure pass")
+
     p_index = sub.add_parser("index", help="Run the indexing pipeline (chunk → classify → embed → store)")
     p_index.add_argument("--party", type=str, default=None, help="Only index files matching this party key (e.g. 'livre')")
     p_index.add_argument("--all", action="store_true", help="Index all parties")
@@ -206,6 +228,8 @@ def main():
 
     if args.command == "parse":
         cmd_parse(args)
+    elif args.command == "clean":
+        cmd_clean(args)
     elif args.command == "index":
         cmd_index(args)
     elif args.command == "query":

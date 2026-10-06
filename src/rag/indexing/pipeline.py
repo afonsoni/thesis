@@ -8,6 +8,7 @@ import glob
 import json
 import logging
 import os
+from collections import Counter
 from datetime import datetime
 from typing import Any, Dict, List, Optional
 
@@ -23,8 +24,21 @@ logger = logging.getLogger(__name__)
 
 
 def _discover_markdown_files(directory: str) -> List[str]:
-    """Recursively find all .md files under *directory*."""
-    return sorted(glob.glob(os.path.join(directory, "**", "*.md"), recursive=True))
+    """Recursively find the indexable .md files under *directory*.
+
+    Skips ``_raw/``, where unprocessed parser output lives: indexing it next to
+    the cleaned file would put every party in the index twice.
+    """
+    files = glob.glob(os.path.join(directory, "**", "*.md"), recursive=True)
+    files = sorted(f for f in files if "_raw" not in os.path.relpath(f, directory).split(os.sep))
+    per_dir = Counter(os.path.dirname(f) for f in files)
+    crowded = [d for d, n in per_dir.items() if n > 1]
+    if crowded:
+        raise ValueError(
+            f"More than one markdown per party folder in {crowded}: keep one "
+            "(e.g. *-manual.md or *-clean.md) so the party is not indexed twice."
+        )
+    return files
 
 
 def _build_default_checkpoint_path(

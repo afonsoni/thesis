@@ -122,6 +122,9 @@ indexing:
   classification_model: "google/gemma-4-31b-it:free"
   classification_batch_size: 15
   classification_delay: 1.0
+  # Structure pass of `main.py clean` (raw marker markdown -> *-clean.md).
+  # One call per ~120 header/short-line candidates, ~2-8 calls per party.
+  cleaning_model: "google/gemma-4-31b-it:free"
 
 # Evaluation settings
 # NOTE: judge_model should be a KNOWN-GOOD OpenRouter id and, ideally, different

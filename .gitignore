@@ -21,3 +21,7 @@ dissertation-overleaf.zip
 
 # Unzipped copy of the Overleaf bundle
 dissertation-overleaf/
+
+# Cleaner intermediates (rebuild with `python main.py clean` / scripts/validate_cleaner.py)
+data/2_processed/cleaner-cache/
+data/2_processed/cleaner-validation/

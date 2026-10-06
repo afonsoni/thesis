@@ -46,14 +46,15 @@ def parse_pdfs(
         pdf_dir: Directory containing the source PDFs.
                  Falls back to ``config.paths.raw_data``.
         output_dir: Where to write the generated ``.md`` files.
-                    Falls back to ``config.paths.markdown_data``.
+                    Falls back to ``<config.paths.markdown_data>/_raw``; the
+                    cleaner (``main.py clean``) writes the indexable copy.
         output_format: Output format passed to marker_single (default ``markdown``).
 
     Returns:
         List of absolute paths to the generated markdown files.
     """
     pdf_dir_value = pdf_dir if pdf_dir is not None else str(config.get("paths.raw_data", "data/0_raw"))
-    output_dir_value = output_dir if output_dir is not None else str(config.get("paths.markdown_data", "data/1_markdown"))
+    output_dir_value = output_dir if output_dir is not None else os.path.join(str(config.get("paths.markdown_data", "data/1_markdown")), "_raw")
     os.makedirs(output_dir_value, exist_ok=True)
 
     pdf_files = sorted(glob.glob(os.path.join(pdf_dir_value, "**", "*.pdf"), recursive=True))
