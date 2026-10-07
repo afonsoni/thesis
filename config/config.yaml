@@ -103,6 +103,12 @@ indexing:
   # while generation still receives the whole parent section.
   max_chunk_tokens: 400
   chunk_overlap_tokens: 80
+  # small_to_big only: cap on the parent a child hands to generation. A header
+  # section within it is passed whole; a bigger one (PAN has 14 headers, so its
+  # sections are whole chapters of 5-9k tokens) gives each child a window of its
+  # neighbouring children up to this size. Keeps one hit from filling the 8k
+  # generation prompt (llm.openrouter.max_prompt_tokens).
+  max_parent_tokens: 1500
 
   # Character budget, used ONLY by the `char` baseline strategy. These are the
   # values that produced the 62.7%-truncation baseline.

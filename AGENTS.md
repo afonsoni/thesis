@@ -41,6 +41,11 @@ Entry point: `main.py`
   characters overran `serafim-900m`'s 128-token window and silently truncated ~89%
   of chunks (62.7% of the corpus never embedded), which is why the encoder was
   replaced by `Qwen/Qwen3-Embedding-0.6B` (32k window, retrieval-trained).
+  Under `small_to_big`, a child's `parent_content` (what generation reads) is its
+  header section, capped at `indexing.max_parent_tokens`: an oversized section
+  gives each child a window of its neighbours instead. `scripts/rebuild_parents.py`
+  re-chunks and carries topics over from the classified checkpoints by content
+  hash, so parent-only changes need no reclassification.
 - `classifier.py`: OpenRouter-based structured multi-label topic classification with rate-limit retries.
 - `embedder.py`: SentenceTransformer embeddings with optional summary-based multi-representation
   indexing. Handles asymmetric retrieval models: use `encode_query()` at search time so the

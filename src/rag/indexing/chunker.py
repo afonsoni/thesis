@@ -76,6 +76,56 @@ def _build_window_splitter(
     return splitter, count_tokens
 
 
+def _locate(content: str, pieces: List[str]) -> Optional[List[Tuple[int, int]]]:
+    """Character span of each windowed piece inside *content*, in order.
+
+    The splitter emits substrings of its input, overlapping by design, so each
+    piece is searched for from just after the previous one's start. ``None`` if a
+    piece cannot be found (the caller then falls back to the piece itself).
+    """
+    spans: List[Tuple[int, int]] = []
+    cursor = 0
+    for piece in pieces:
+        start = content.find(piece, cursor)
+        if start < 0:
+            return None
+        spans.append((start, start + len(piece)))
+        cursor = start + 1
+    return spans
+
+
+def _bounded_parent(
+    content: str,
+    pieces: List[str],
+    spans: Optional[List[Tuple[int, int]]],
+    idx: int,
+    measure: Callable[[str], int],
+    max_parent_size: int,
+) -> str:
+    """Parent text for child *idx*: its whole section if that fits, else a window.
+
+    Header sections are the natural parent, but a manifesto with only chapter
+    headers (PAN: 14 for the whole document) makes every parent a whole chapter
+    of 5-9k tokens, which crowds the generation prompt or does not fit in it. Past
+    *max_parent_size*, the parent becomes the child plus as many neighbouring
+    children as fit, grown one step at a time on alternating sides, cut from the
+    section text so overlaps are not repeated.
+    """
+    if measure(content) <= max_parent_size:
+        return content
+    if spans is None:
+        return pieces[idx]
+    lo = hi = idx
+    grew = True
+    while grew:
+        grew = False
+        for a, b in ((lo - 1, hi), (lo, hi + 1)):
+            if 0 <= a and b < len(spans) and measure(content[spans[a][0]:spans[b][1]]) <= max_parent_size:
+                lo, hi = a, b
+                grew = True
+    return content[spans[lo][0]:spans[hi][1]]
+
+
 def chunk_markdown(
     markdown_content: str,
     file_name: str,
@@ -84,6 +134,7 @@ def chunk_markdown(
     year: int = 2024,
     strategy: ChunkStrategy = ChunkStrategy.CHAR,
     tokenizer_name: Optional[str] = None,
+    max_parent_size: Optional[int] = None,
 ) -> List[Chunk]:
     """
     Split a political manifesto markdown into semantically meaningful chunks.
@@ -106,6 +157,9 @@ def chunk_markdown(
             and ``SMALL_TO_BIG`` also records the parent section on each child.
         tokenizer_name: HF model id whose tokenizer defines the token budget.
             Required for the token strategies; ignored for ``CHAR``.
+        max_parent_size: ``SMALL_TO_BIG`` only — cap on a child's parent, in
+            tokens. A section over it gives each child a window of neighbouring
+            children instead of the whole section. ``None`` keeps whole sections.
 
     Returns:
         List of ``Chunk`` objects ready for classification & embedding.
@@ -151,7 +205,15 @@ def chunk_markdown(
         else:
             # Window into sub-chunks
             sub_texts = text_splitter.split_text(content)
+            spans = _locate(content, sub_texts) if keep_parents and max_parent_size else None
             for idx, sub_text in enumerate(sub_texts):
+                parent = None
+                if keep_parents:
+                    parent = (
+                        _bounded_parent(content, sub_texts, spans, idx, measure, max_parent_size)
+                        if max_parent_size
+                        else content
+                    )
                 enhanced_meta = {
                     **base_metadata,
                     "sub_chunk_index": idx,
@@ -163,7 +225,7 @@ def chunk_markdown(
                         content=sub_text,
                         # Only the windowed children have a distinct parent to
                         # fall back to; header_only chunks already *are* it.
-                        parent_content=content if keep_parents else None,
+                        parent_content=parent,
                         metadata=enhanced_meta,
                         party_name=party_info["name"],
                         ideology=party_info["ideology"],
@@ -193,6 +255,7 @@ def chunk_markdown_file(
     year: int = 2024,
     strategy: ChunkStrategy = ChunkStrategy.CHAR,
     tokenizer_name: Optional[str] = None,
+    max_parent_size: Optional[int] = None,
 ) -> List[Chunk]:
     """Convenience wrapper that reads a markdown file and chunks it."""
     with open(file_path, "r", encoding="utf-8") as fh:
@@ -206,4 +269,5 @@ def chunk_markdown_file(
         year,
         strategy=strategy,
         tokenizer_name=tokenizer_name,
+        max_parent_size=max_parent_size,
     )

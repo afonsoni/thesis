@@ -162,6 +162,8 @@ def index_documents(
         chunk_strategy or config.get("indexing.chunk_strategy", ChunkStrategy.CHAR.value)
     )
     embedding_model = str(config.get("embeddings.model"))
+    max_parent_tokens = config.get("indexing.max_parent_tokens")
+    max_parent_tokens = int(max_parent_tokens) if max_parent_tokens else None
     # Size/overlap live under different config keys per strategy, because the two
     # are measured in different units and are not interchangeable.
     if strategy is ChunkStrategy.CHAR:
@@ -221,6 +223,7 @@ def index_documents(
                 year=year,
                 strategy=strategy,
                 tokenizer_name=embedding_model,
+                max_parent_size=max_parent_tokens,
             )
             all_chunks.extend(chunks)
 
