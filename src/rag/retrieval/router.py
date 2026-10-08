@@ -1,21 +1,18 @@
 """
-Retrieval router – dispatches search strategies based on query type (Part 10).
+Retrieval router – picks the search strategy from the analyzed query (Part 10).
 
-Routes:
-- single_party   → metadata-filtered search with multi-query expansion
-- comparison      → parallel per-party searches with multi-query + RRF
-- topic_exploration → multi-query + topic-filtered search across all parties
-- general         → broad multi-query search with RRF
+Two strategies, keyed on ``AnalyzedQuery.query_type`` (derived from ``parties``
+and ``coverage``):
 
-The route is ``AnalyzedQuery.query_type``, which the query model derives from
-``parties`` and ``coverage`` rather than storing. A question that names no party
-but asks for exhaustive coverage ("o que defende cada partido sobre X") derives
-to COMPARISON and gets the per-party fan-out, which is the only route here that
-guarantees no party is crowded out of a global top-k.
+- comparison → one search per party (the named ones, or all of them for an
+  exhaustive question), so no party is crowded out of a global top-k;
+- everything else → one search, filtered to the single named party (if any)
+  and to the analyzed topics (if any). That covers single_party,
+  topic_exploration and general, which differ only in which filters are set.
 """
 
 import logging
-from typing import Dict, List, Optional
+from typing import List, Optional
 
 from src.rag.common.models import (
     AnalyzedQuery,
@@ -30,197 +27,69 @@ from src.rag.retrieval.searcher import Searcher
 
 logger = logging.getLogger(__name__)
 
-DEFAULT_TOP_K = 5
-DEFAULT_TOP_K_PER_PARTY = 3
-
 
 def route(
     query: AnalyzedQuery,
     searcher: Searcher,
     config: Optional[RetrievalConfig] = None,
 ) -> RetrievalResult:
-    """
-    Route the analyzed query to the appropriate search strategy.
-
-    Returns a ``RetrievalResult`` with either a flat ``results`` list
-    or a grouped ``results_by_party`` dict (for comparisons).
-
-    Behavior is driven by ``config``: ``use_multi_query`` controls expansion,
-    ``use_routing`` toggles type-specific strategies (off → always GENERAL),
-    and ``rrf_k`` / ``top_k`` / ``top_k_per_party`` size the search.
-    """
+    """Search for *query* and return flat ``results``, plus ``results_by_party``
+    for comparisons. ``config.use_routing=False`` (the naive arms) ignores the
+    analysis and runs one unfiltered search."""
     config = config or RetrievalConfig()
-    qt = query.query_type
     search_text = query.reformulated_query or query.original_query
+    queries = (
+        expand_query(search_text, n_queries=config.multi_query_count, strict=config.strict)
+        if config.use_multi_query
+        else [search_text]
+    )
 
-    # Multi-query expansion (Part 5)
-    if config.use_multi_query:
-        queries = expand_query(search_text, n_queries=config.multi_query_count, strict=config.strict)
-    else:
-        queries = [search_text]
+    def search(top_k: int, party: Optional[str], topics: Optional[List[str]]) -> List[SearchResult]:
+        return _search_relaxing_topics(searcher, queries, config, top_k, query.original_query, party, topics)
 
     if not config.use_routing:
-        return _route_general(query, queries, searcher, config)
+        logger.info("Routing disabled → one unfiltered search.")
+        return RetrievalResult(query=query, results=search(config.top_k, None, None))
 
-    if qt == QueryType.SINGLE_PARTY and query.parties:
-        return _route_single_party(query, queries, searcher, config)
-    elif qt == QueryType.COMPARISON:
-        return _route_comparison(query, queries, searcher, config)
-    elif qt == QueryType.TOPIC_EXPLORATION:
-        return _route_topic_exploration(query, queries, searcher, config)
-    else:
-        return _route_general(query, queries, searcher, config)
+    topics = query.topics or None
+    if query.query_type == QueryType.COMPARISON:
+        # No named party means an exhaustive question over the whole corpus. Bloc
+        # questions ("os partidos de direita") arrive already resolved into names.
+        parties = query.parties or [info["name"] for info in PARTY_MAP.values()]
+        logger.info("Routing COMPARISON → parties: %s", parties)
+        # Topics are relaxed per party, so one party lacking a topic does not lose
+        # its filter for the others.
+        grouped = {p: search(config.top_k_per_party, p, topics) for p in parties}
+        flat = sorted((r for rs in grouped.values() for r in rs), key=lambda r: r.similarity, reverse=True)
+        return RetrievalResult(query=query, results=flat[: config.top_k], results_by_party=grouped)
 
-
-# ---------------------------------------------------------------------------
-# Strategy implementations
-# ---------------------------------------------------------------------------
-
-def _search_kwargs(config: RetrievalConfig, rerank_query: str) -> Dict[str, object]:
-    """Fusion and reranking parameters shared by every route.
-
-    ``rerank_query`` is the user's original question: the cross-encoder scores
-    the pair (question, chunk), so it must see what was actually asked rather
-    than one of the generated expansions.
-    """
-    return {
-        "rrf_k": config.rrf_k,
-        "use_hybrid": config.use_hybrid,
-        "use_reranker": config.use_reranker,
-        "rerank_query": rerank_query,
-        "rerank_candidates": config.rerank_candidates,
-        "strip_party_names": config.strip_party_names,
-        "query_instruction": config.query_instruction,
-    }
+    party = query.parties[0] if query.parties else None
+    logger.info("Routing %s → party=%s, topics=%s", query.query_type.value.upper(), party, topics)
+    return RetrievalResult(query=query, results=search(config.top_k, party, topics))
 
 
 def _search_relaxing_topics(
-    queries: List[str],
     searcher: Searcher,
+    queries: List[str],
     config: RetrievalConfig,
-    topics: Optional[List[str]],
+    top_k: int,
     rerank_query: str,
-    **filters,
+    party: Optional[str],
+    topics: Optional[List[str]],
 ) -> List[SearchResult]:
     """Search with the topic filter, retrying without it if nothing matches.
 
-    The topic filter is a hard AND: a topic the query analyzer proposes but that
-    no chunk carries silently yields zero results, and the caller cannot tell an
-    empty corpus from a filter mismatch. That happens whenever the analyzer's
-    label does not match the classifier's vocabulary, and always on an index built
-    with --no-classify, where every chunk keeps the default topic.
+    The topic filter is a hard AND, so a topic no chunk carries (an analyzer
+    label outside the classifier's output, or any topic on a --no-classify index)
+    would return nothing. Topics are a precision aid, not a requirement: narrow
+    first, then fall back to the unfiltered search.
 
-    Topics are a precision aid, not a correctness requirement, so they are treated
-    as a preference: narrow first, then fall back to the unfiltered search rather
-    than return nothing.
+    ``rerank_query`` is the user's original question: the cross-encoder must
+    score what was asked, not one of the expansions.
     """
-    shared = _search_kwargs(config, rerank_query)
-    results = searcher.multi_query_search(
-        queries,
-        top_k=config.top_k,
-        topics=topics,
-        **shared,
-        **filters,
-    )
+    results = searcher.multi_query_search(queries, config, top_k, rerank_query, party, topics)
     if results or not topics:
         return results
-
-    logger.warning(
-        "No chunks matched topics=%s; retrying without the topic filter. "
-        "Is the index classified?",
-        topics,
-    )
-    return searcher.multi_query_search(
-        queries,
-        top_k=config.top_k,
-        topics=None,
-        **shared,
-        **filters,
-    )
-
-
-def _route_single_party(
-    query: AnalyzedQuery,
-    queries: List[str],
-    searcher: Searcher,
-    config: RetrievalConfig,
-) -> RetrievalResult:
-    """Metadata-filtered search for a specific party."""
-    party = query.parties[0]
-    logger.info("Routing SINGLE_PARTY → %s", party)
-    results = _search_relaxing_topics(
-        queries, searcher, config,
-        topics=query.topics or None,
-        rerank_query=query.original_query,
-        party_name=party,
-    )
-    return RetrievalResult(query=query, results=results)
-
-
-def _route_comparison(
-    query: AnalyzedQuery,
-    queries: List[str],
-    searcher: Searcher,
-    config: RetrievalConfig,
-) -> RetrievalResult:
-    """Per-party parallel search for comparison queries."""
-    # An empty party list means the question named no party and asked for
-    # exhaustive coverage, so the candidate set is the whole corpus. Bloc
-    # questions ("os partidos de direita") arrive already enumerated: the
-    # analyzer resolves them into names rather than passing an ideology label
-    # down for the store to filter on.
-    parties = query.parties or [info["name"] for info in PARTY_MAP.values()]
-
-    logger.info("Routing COMPARISON → parties: %s", parties)
-    # Relax per party, not across the batch: one party lacking a topic must not
-    # drop it from a comparison while the others keep their filtered hits.
-    grouped = {
-        party: _search_relaxing_topics(
-            queries, searcher,
-            config.model_copy(update={"top_k": config.top_k_per_party}),
-            topics=query.topics or None,
-            rerank_query=query.original_query,
-            party_name=party,
-        )
-        for party in parties
-    }
-    # Also provide a flat list for fallback
-    flat = [r for rs in grouped.values() for r in rs]
-    flat.sort(key=lambda r: r.similarity, reverse=True)
-    return RetrievalResult(
-        query=query,
-        results=flat[: config.top_k],
-        results_by_party=grouped,
-    )
-
-
-def _route_topic_exploration(
-    query: AnalyzedQuery,
-    queries: List[str],
-    searcher: Searcher,
-    config: RetrievalConfig,
-) -> RetrievalResult:
-    """Topic-filtered search across all parties."""
-    logger.info("Routing TOPIC_EXPLORATION → topics: %s", query.topics)
-    results = _search_relaxing_topics(
-        queries, searcher, config,
-        topics=query.topics or None,
-        rerank_query=query.original_query,
-    )
-    return RetrievalResult(query=query, results=results)
-
-
-def _route_general(
-    query: AnalyzedQuery,
-    queries: List[str],
-    searcher: Searcher,
-    config: RetrievalConfig,
-) -> RetrievalResult:
-    """Broad search with no filters, multi-query + RRF."""
-    logger.info("Routing GENERAL query.")
-    results = searcher.multi_query_search(
-        queries,
-        top_k=config.top_k,
-        **_search_kwargs(config, query.original_query),
-    )
-    return RetrievalResult(query=query, results=results)
+    logger.warning("No chunks matched topics=%s; retrying without the topic filter. "
+                   "Is the index classified?", topics)
+    return searcher.multi_query_search(queries, config, top_k, rerank_query, party, None)

@@ -8,6 +8,7 @@ from typing import List
 
 import pytest
 
+from src.rag.retrieval.config import RetrievalConfig
 from src.rag.retrieval.query_analyzer import strip_party_mentions
 from src.rag.retrieval.searcher import Searcher
 
@@ -45,5 +46,6 @@ class DenseStub(Searcher):
 ])
 def test_hybrid_search_strips_party_only_under_a_party_filter(party, expected):
     searcher = DenseStub()
-    searcher.multi_query_search(["O que propõe o PS para a saúde?"], party_name=party, use_hybrid=True)
+    searcher.multi_query_search(["O que propõe o PS para a saúde?"], RetrievalConfig(use_hybrid=True), 5, "q",
+                                party_name=party)
     assert searcher.store.queries == [expected]

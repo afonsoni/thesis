@@ -46,8 +46,7 @@ def corpus_store():
         "password": os.getenv("RAG_TEST_DB_PASSWORD", "postgres"),
     })
     store.table = f"party_programs_filter_{uuid.uuid4().hex[:8]}"
-    if not store.connect():
-        raise RuntimeError("Test PostgreSQL not reachable: docker compose up -d postgres_test")
+    store.connect()  # raises if the test DB is down: docker compose up -d postgres_test
     store.create_table(embedding_dim=DIM)
 
     rng = np.random.default_rng(0)

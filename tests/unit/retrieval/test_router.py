@@ -23,34 +23,21 @@ class StubSearcher(Searcher):
     def multi_query_search(
         self,
         queries: List[str],
-        top_k: int = 5,
+        config: RetrievalConfig,
+        top_k: int,
+        rerank_query: str,
         party_name: Optional[str] = None,
-        ideology: Optional[str] = None,
         topics: Optional[List[str]] = None,
-        year: Optional[int] = None,
-        rrf_k: int = 60,
-        use_hybrid: bool = False,
-        use_reranker: bool = False,
-        rerank_query: Optional[str] = None,
-        rerank_candidates: int = 30,
-        strip_party_names: bool = False,
-        query_instruction: Optional[str] = None,
     ) -> List[SearchResult]:
         self.multi_query_calls.append(
             {
                 "queries": queries,
                 "top_k": top_k,
                 "party_name": party_name,
-                "ideology": ideology,
                 "topics": topics,
-                "year": year,
-                "rrf_k": rrf_k,
-                "use_hybrid": use_hybrid,
-                "use_reranker": use_reranker,
+                "use_reranker": config.use_reranker,
                 "rerank_query": rerank_query,
-                "rerank_candidates": rerank_candidates,
-                "strip_party_names": strip_party_names,
-                "query_instruction": query_instruction,
+                "rerank_candidates": config.rerank_candidates,
             }
         )
         if topics and self.empty_when_topics:
@@ -119,8 +106,20 @@ def test_route_general_uses_multi_query_without_filters():
 
     assert retrieval.results
     assert searcher.multi_query_calls[0]["party_name"] is None
-    assert searcher.multi_query_calls[0]["ideology"] is None
     assert searcher.multi_query_calls[0]["topics"] is None
+
+
+@pytest.mark.unit
+def test_route_topic_exploration_filters_topics_across_all_parties():
+    searcher = StubSearcher()
+    analyzed = AnalyzedQuery(original_query="Propostas para a habitacao?", topics=["habitacao"])
+    assert analyzed.query_type == QueryType.TOPIC_EXPLORATION
+
+    route(analyzed, searcher, config=_no_expand(top_k=5))
+
+    assert len(searcher.multi_query_calls) == 1
+    assert searcher.multi_query_calls[0]["party_name"] is None
+    assert searcher.multi_query_calls[0]["topics"] == ["habitacao"]
 
 
 @pytest.mark.unit

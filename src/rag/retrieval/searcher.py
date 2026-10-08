@@ -1,19 +1,15 @@
 """
-Search interface wrapping pgvector similarity queries.
-
-Supports:
-- single-query search with metadata filters
-- multi-query search with Reciprocal Rank Fusion (RRF, Part 6 pattern)
-- parallel per-party search for comparison queries
+Search over the vector store: dense search per query, Reciprocal Rank Fusion
+(RRF, Part 6) across queries and modalities, and optional cross-encoder reranking.
 """
 
 import logging
-from collections import defaultdict
 from typing import Dict, List, Optional
 
 from src.rag.common.models import ScoreType, SearchResult
 from src.rag.indexing.embedder import Embedder
 from src.rag.indexing.store import VectorStore
+from src.rag.retrieval.config import RetrievalConfig
 from src.rag.retrieval.query_analyzer import strip_party_mentions
 
 logger = logging.getLogger(__name__)
@@ -56,10 +52,6 @@ def reciprocal_rank_fusion(
     return out
 
 
-# ---------------------------------------------------------------------------
-# Searcher class
-# ---------------------------------------------------------------------------
-
 class Searcher:
     """High-level search interface used by the retrieval router."""
 
@@ -75,10 +67,6 @@ class Searcher:
     def close(self):
         self.store.close()
 
-    # ------------------------------------------------------------------
-    # Single-query search
-    # ------------------------------------------------------------------
-
     def search(
         self,
         query: str,
@@ -87,98 +75,62 @@ class Searcher:
         topics: Optional[List[str]] = None,
         instruction: Optional[str] = None,
     ) -> List[SearchResult]:
-        """Embed query and run similarity search with optional filters."""
-        # encode_query, not encode: asymmetric retrieval models prefix queries with
-        # an instruction and leave documents bare.
+        """Dense search for one query (encoded with the model's query prompt, or
+        *instruction* in its place)."""
         vec = self.embedder.encode_query(query, instruction=instruction)
-        return self.store.similarity_search(
-            query_embedding=vec,
-            top_k=top_k,
-            party_name=party_name,
-            topics=topics,
-        )
-
-    # ------------------------------------------------------------------
-    # Multi-query search with RRF (Part 5 + Part 6)
-    # ------------------------------------------------------------------
+        return self.store.similarity_search(query_embedding=vec, top_k=top_k, party_name=party_name, topics=topics)
 
     def multi_query_search(
         self,
         queries: List[str],
-        top_k: int = 5,
+        config: RetrievalConfig,
+        top_k: int,
+        rerank_query: str,
         party_name: Optional[str] = None,
         topics: Optional[List[str]] = None,
-        rrf_k: int = 60,
-        use_hybrid: bool = False,
-        use_reranker: bool = False,
-        rerank_query: Optional[str] = None,
-        rerank_candidates: int = 30,
-        strip_party_names: bool = False,
-        query_instruction: Optional[str] = None,
     ) -> List[SearchResult]:
+        """Run each query, fuse the ranked lists with RRF, and return the best *top_k*.
+
+        With ``config.use_hybrid`` each query also contributes a BM25 list, and
+        dense and lexical lists are fused in a *single* RRF pass, so every list
+        weighs the same.
+
+        With a party filter the party name is redundant in the query: the lexical
+        query always drops it (as a rare term it would outweigh the topic), the
+        dense one only under ``config.strip_party_names``.
+
+        With ``config.use_reranker`` every sub-query fetches
+        ``rerank_candidates`` instead of *top_k*, and a cross-encoder re-orders
+        that shortlist against *rerank_query* (the user's original question)
+        before the trim. A reranker can only promote what retrieval surfaced, so
+        reranking exactly *top_k* items could never improve what is in them.
         """
-        Run each query independently, then fuse the ranked lists.
-
-        Each sub-query retrieves *top_k* results; more than one ranked list is
-        fused with Reciprocal Rank Fusion, and the result is trimmed back to
-        *top_k*.
-
-        When ``use_hybrid`` is True each query also contributes a Portuguese
-        full-text ranked list, and dense plus lexical lists are fused together in
-        a *single* RRF pass. Fusing once over all ``2 * len(queries)`` lists —
-        rather than fusing each modality and then fusing the fusions — keeps
-        every list's contribution weighted equally and the result interpretable.
-
-        When ``use_reranker`` is True the whole search widens: every sub-query
-        retrieves ``rerank_candidates`` instead of *top_k*, the fused list keeps
-        that many, and a cross-encoder re-orders them before the trim back to
-        *top_k*. Widening is the point — a reranker can only promote what
-        retrieval already surfaced, so reranking a list of exactly *top_k* items
-        would reshuffle the answer without ever improving what is in it.
-        ``rerank_query`` is the text the cross-encoder scores against and should
-        be the user's original question, not an expansion of it.
-        """
-        # Fetch depth: the reranker needs a wider net than the caller asked for.
-        fetch_k = max(top_k, rerank_candidates) if use_reranker else top_k
+        fetch_k = max(top_k, config.rerank_candidates) if config.use_reranker else top_k
 
         all_lists: List[List[SearchResult]] = []
         for q in queries:
-            all_lists.append(
-                self.search(
-                    strip_party_mentions(q) if strip_party_names and party_name else q,
-                    top_k=fetch_k,
-                    party_name=party_name, topics=topics,
-                    instruction=query_instruction,
-                )
-            )
-            if use_hybrid:
+            stripped = strip_party_mentions(q) if party_name else q
+            dense_q = stripped if config.strip_party_names else q
+            all_lists.append(self.search(
+                dense_q, top_k=fetch_k, party_name=party_name, topics=topics,
+                instruction=config.query_instruction,
+            ))
+            if config.use_hybrid:
                 all_lists.append(
-                    self.store.lexical_search(
-                        strip_party_mentions(q) if party_name else q, top_k=fetch_k,
-                        party_name=party_name, topics=topics,
-                    )
+                    self.store.lexical_search(stripped, top_k=fetch_k, party_name=party_name, topics=topics)
                 )
 
         # One ranked list (single query, dense only) is already in order; fusing
         # it would only swap cosine scores for rank-derived ones.
-        fused = reciprocal_rank_fusion(all_lists, k=rrf_k) if len(all_lists) > 1 else all_lists[0]
+        fused = reciprocal_rank_fusion(all_lists, k=config.rrf_k) if len(all_lists) > 1 else all_lists[0]
         logger.info(
             "Multi-query search: %d queries → %d ranked lists → %d unique results "
             "(hybrid=%s, rerank=%s, returning top %d).",
-            len(queries), len(all_lists), len(fused), use_hybrid, use_reranker, top_k,
+            len(queries), len(all_lists), len(fused), config.use_hybrid, config.use_reranker, top_k,
         )
 
-        if use_reranker and fused:
-            if not rerank_query:
-                # Refused rather than silently skipped: a variant that reports
-                # un-reranked numbers under the reranked name is worse than a crash.
-                raise ValueError(
-                    "use_reranker=True requires rerank_query (the original question)."
-                )
+        if config.use_reranker and fused:
             from src.rag.retrieval.reranker import get_reranker
 
-            return get_reranker().rerank(
-                rerank_query, fused[:rerank_candidates], top_k=top_k
-            )
-
+            return get_reranker().rerank(rerank_query, fused[: config.rerank_candidates], top_k=top_k)
         return fused[:top_k]

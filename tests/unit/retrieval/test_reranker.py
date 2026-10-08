@@ -10,6 +10,7 @@ from typing import List, Optional
 import pytest
 
 from src.rag.common.models import ScoreType, SearchResult
+from src.rag.retrieval.config import RetrievalConfig
 from src.rag.retrieval.reranker import Reranker
 from src.rag.retrieval.searcher import Searcher
 
@@ -124,9 +125,7 @@ class RecordingSearcher(Searcher):
         query: str,
         top_k: int = 5,
         party_name: Optional[str] = None,
-        ideology: Optional[str] = None,
         topics: Optional[List[str]] = None,
-        year: Optional[int] = None,
         instruction: Optional[str] = None,
     ) -> List[SearchResult]:
         self.requested_top_k.append(top_k)
@@ -148,10 +147,9 @@ def test_multi_query_search_widens_the_fetch_when_reranking(monkeypatch):
 
     out = searcher.multi_query_search(
         ["educacao"],
+        RetrievalConfig(use_reranker=True, rerank_candidates=30),
         top_k=5,
-        use_reranker=True,
         rerank_query="educacao",
-        rerank_candidates=30,
     )
 
     assert searcher.requested_top_k == [30], "sub-query should fetch the wide set"
@@ -163,17 +161,8 @@ def test_multi_query_search_widens_the_fetch_when_reranking(monkeypatch):
 def test_multi_query_search_without_reranker_keeps_the_narrow_fetch():
     searcher = RecordingSearcher()
 
-    out = searcher.multi_query_search(["educacao"], top_k=5)
+    out = searcher.multi_query_search(["educacao"], RetrievalConfig(), top_k=5, rerank_query="educacao")
 
     assert searcher.requested_top_k == [5]
     assert len(out) == 5
     assert all(r.score_type is not ScoreType.RERANK for r in out)
-
-
-@pytest.mark.unit
-def test_multi_query_search_refuses_to_rerank_without_a_query():
-    """Silently skipping would publish baseline numbers under the reranked name."""
-    searcher = RecordingSearcher()
-
-    with pytest.raises(ValueError, match="rerank_query"):
-        searcher.multi_query_search(["educacao"], top_k=5, use_reranker=True)

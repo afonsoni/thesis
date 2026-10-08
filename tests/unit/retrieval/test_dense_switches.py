@@ -4,6 +4,7 @@ from typing import List, Tuple
 
 import pytest
 
+from src.rag.retrieval.config import RetrievalConfig
 from src.rag.retrieval.searcher import Searcher
 
 
@@ -35,12 +36,13 @@ def _searcher() -> Searcher:
 ])
 def test_dense_query_drops_party_names_only_when_asked_and_filtered(strip, party, expected):
     s = _searcher()
-    s.multi_query_search(["Qual é a posição do PAN sobre as touradas?"], party_name=party, strip_party_names=strip)
+    s.multi_query_search(["Qual é a posição do PAN sobre as touradas?"],
+                         RetrievalConfig(strip_party_names=strip), 5, "q", party_name=party)
     assert s.embedder.calls == [(expected, None)]
 
 
 @pytest.mark.unit
 def test_query_instruction_reaches_the_encoder():
     s = _searcher()
-    s.multi_query_search(["q"], query_instruction="Given a manifesto question")
+    s.multi_query_search(["q"], RetrievalConfig(query_instruction="Given a manifesto question"), 5, "q")
     assert s.embedder.calls == [("q", "Given a manifesto question")]
