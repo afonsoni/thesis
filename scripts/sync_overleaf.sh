@@ -31,11 +31,12 @@ OUT="${ROOT_DIR}/dissertation-overleaf.zip"
 build_zip() {
     rm -f "$OUT"
     # Ship sources only: no build artifacts, no compiled PDF, no local config.
+    # Only the compiled PDF is excluded: figures in images/ are PDFs too.
     (cd "$PREFIX" && zip -r -q "$OUT" . \
         -x '*.aux' '*.bbl' '*.blg' '*.fdb_latexmk' '*.fls' '*.acn' '*.acr' \
            '*.alg' '*.glg' '*.glo' '*.gls' '*.glsdefs' '*.idx' '*.ilg' \
            '*.ind' '*.ist' '*.lof' '*.log' '*.lot' '*.out' '*.synctex.gz' \
-           '*.toc' '*.xdv' '*.pdf' '.gitignore' '.latexmkrc')
+           '*.toc' '*.xdv' 'dissertation.pdf' '.gitignore' '.latexmkrc')
     echo "[overleaf] wrote $OUT ($(unzip -l "$OUT" | tail -1 | awk '{print $2}') files)"
     echo "[overleaf] drag it onto the Overleaf project's file tree to update in place."
 }

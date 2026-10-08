@@ -4,195 +4,248 @@ This document explains how the RAG system works, stage by stage, with Mermaid
 diagrams. The system has three parts:
 
 1. **Indexing** (offline) — turns the manifesto PDFs into a searchable vector store.
-2. **Retrieval + Generation** (online) — answers a user question with grounded citations.
+2. **Query time** (online) — answers a user question with grounded citations.
 3. **Evaluation** (offline) — replays the *same* retrieval code as a ladder of
-   feature-flagged variants to measure what each technique contributes.
+  feature-flagged variants to measure what each technique contributes.
 
 Each retrieval/generation technique maps to a specific method from the
 *RAG-from-Scratch* series (noted as "Part N" below).
 
+The diagrams are also the dissertation's figures:
+`[scripts/render_diagrams.sh](../scripts/render_diagrams.sh)` renders every
+block below, in order, to `dissertation/images/architecture-*.pdf`. Keep the
+labels conceptual (code links go in the prose) and re-run the script after
+editing a diagram.
+
 ---
+
+
 
 ## 1. Overview
 
 ```mermaid
 flowchart LR
-    subgraph ING["Indexing (offline)"]
+    subgraph IDX["Indexing"]
         direction TB
-        PDF["8 manifesto PDFs"] --> MD["Markdown"] --> CH["Chunks"] --> CL["Topic labels"] --> EMB["Embeddings"]
+        I1[/"Manifesto PDFs"/] --> I2["Parsing"] --> I3["Cleaning"] --> I4["Chunking"] --> I5["Topic classification"] --> I6["Embedding"]
     end
 
-    VS[("PostgreSQL + pgvector<br/>HNSW index + metadata")]
-    EMB --> VS
+    VS[("Vector store<br/>PostgreSQL + pgvector")]
 
-    subgraph SERVE["Query time (online)"]
+    subgraph QT["Retrieval"]
         direction TB
-        Q["User question (pt-PT)"] --> R["Retrieval<br/>analyze → route → search"]
-        R --> G["Generation<br/>grounded synthesis"]
-        G --> A["Answer + source citations"]
+        Q1(["Question"]) --> Q2["Query analysis"] --> Q3["Multi-query expansion"] --> Q4["Routing"] --> Q5["Search and fusion"] --> Q6["Answer synthesis"] --> Q7(["Answer + sources"])
     end
-    VS --> R
 
-    subgraph EVAL["Evaluation (offline)"]
+    subgraph EV["Evaluation"]
         direction TB
-        GOLD["Curated gold set"] --> RUN["Variant ladder<br/>naive → current"]
-        RUN --> LB["Leaderboard"]
+        E1[/"Gold set"/] --> E2["Variant ladder"] --> E3["Metrics"] --> E4[/"Leaderboard"/]
     end
-    VS -.-> RUN
-    R -.-> RUN
+
+    IDX --> VS --> QT
+    QT -.-> EV
 ```
 
-The dotted arrows into the evaluation box mean the harness reuses the production
+
+
+The dotted arrow into evaluation means the harness reuses the production
 retrieval code and the same vector store — variants differ only by feature
 flags, so score differences isolate the contribution of one technique.
 
 ---
 
+
+
 ## 2. Indexing pipeline
 
-`PDF → Markdown → chunk → classify → embed → store`. Orchestrated by
-[`indexing/pipeline.py`](../src/rag/indexing/pipeline.py).
+`PDF → Markdown → clean → chunk → classify → embed → store`. Parsing and
+cleaning are separate commands (`main.py parse`, `main.py clean`); the rest is
+orchestrated by `[indexing/pipeline.py](../src/rag/indexing/pipeline.py)`.
 
 ```mermaid
 flowchart TD
-    A["Raw PDF<br/>data/0_raw/*.pdf"] -->|marker_single| B["Clean Markdown<br/>data/1_markdown/{party}/"]
-    B --> C["Header-aware chunking<br/>+ recursive windowing"]
-    C --> D["Topic classification<br/>OpenRouter · 18 categories · multi-label<br/>checkpoint/resume · fail-fast"]
-    D --> E["Embedding<br/>Serafim 900M · 1536d<br/>optional summary-based multi-representation"]
-    E --> F[("PostgreSQL + pgvector<br/>HNSW index + metadata")]
+    subgraph PREP["Document preparation"]
+        direction LR
+        PDF[/"8 manifesto PDFs"/] --> PARSE["<b>Parsing</b><br/>Marker<br/>PDF to Markdown"] --> CLEAN["<b>Cleaning</b><br/>layout residue, heading tree<br/>by hand, or LLM + review"]
+    end
 
-    D -.->|"--classify-only"| G["Classified JSON<br/>data/2_processed/*.json"]
-    G -.->|"--from-classified"| E
+    subgraph IDX["Indexing pipeline"]
+        direction LR
+        CHUNK["<b>Chunking</b><br/>split on headings<br/>400-token windows<br/>parents ≤ 1,500 tokens"] --> CLS["<b>Topic classification</b><br/>LLM, structured output<br/>18 topics, ≤ 3 per chunk<br/>checkpointed to JSON"] --> EMB["<b>Embedding</b><br/>Qwen3-Embedding-0.6B<br/>1,024 dimensions"]
+    end
+
+    VS[("<b>Vector store</b><br/>PostgreSQL 17 + pgvector<br/>HNSW on cosine, GIN on topics,<br/>Portuguese full-text column")]
+
+    PREP --> IDX --> VS
 ```
 
-- **Parse** — [`parser.py`](../src/rag/indexing/parser.py) wraps the `marker_single` CLI.
-- **Chunk** — [`chunker.py`](../src/rag/indexing/chunker.py) splits on markdown headers, then windows recursively.
-- **Classify** — [`classifier.py`](../src/rag/indexing/classifier.py) assigns topics via a structured LLM call; results can be checkpointed to JSON so re-indexing spends no classification tokens.
-- **Embed** — [`embedder.py`](../src/rag/indexing/embedder.py) uses the Portuguese-specific Serafim encoder.
-- **Store** — [`store.py`](../src/rag/indexing/store.py) writes vectors + metadata to pgvector with an HNSW index (Part 11 metadata filtering, Part 12 multi-representation).
+
+
+- **Parse** — `[parser.py](../src/rag/indexing/parser.py)` wraps the `marker_single` CLI; raw output goes to `data/1_markdown/_raw/`.
+- **Clean** — `[cleaner.py](../src/rag/indexing/cleaner.py)` runs a deterministic residue pass, then an LLM pass that may only keep, demote or drop heading candidates (any output word absent from the input is rejected). AD, LIVRE, PCP and PS were corrected by hand instead.
+- **Chunk** — `[chunker.py](../src/rag/indexing/chunker.py)` splits on headings, then windows recursively in tokens of the embedding model's own tokenizer (`small_to_big`). The window is embedded; its parent section (capped at `indexing.max_parent_tokens`) is what generation reads.
+- **Classify** — `[classifier.py](../src/rag/indexing/classifier.py)` assigns topics via a structured LLM call, fail-fast. Results are checkpointed to `data/2_processed/*-classified.json` (`--classify-only`), so re-indexing from them (`--from-classified`) spends no classification tokens.
+- **Embed** — `[embedder.py](../src/rag/indexing/embedder.py)` uses `Qwen/Qwen3-Embedding-0.6B` (32k-token window); queries get the model's instruction prefix, documents do not. Optional summary-based multi-representation (Part 12) exists but is off.
+- **Store** — `[store.py](../src/rag/indexing/store.py)` writes vectors + metadata to pgvector: HNSW for similarity, GIN on the topic array for filters (Part 11), and a generated Portuguese `tsvector` whose lexemes [`bm25.py`](../src/rag/indexing/bm25.py) ranks for lexical search.
 
 ---
+
+
 
 ## 3. Retrieval pipeline
 
-`analyze → expand → route → search`. Entry point:
-[`retrieval/pipeline.py`](../src/rag/retrieval/pipeline.py). Every step is gated
-by a flag on [`RetrievalConfig`](../src/rag/retrieval/config.py), which is how a
-single code path can act as any rung of the variant ladder.
+`analyze → expand → route → search → fuse → rerank`. Entry point:
+`[retrieval/pipeline.py](../src/rag/retrieval/pipeline.py)`. Dashed stages are
+gated by a flag on `[RetrievalConfig](../src/rag/retrieval/config.py)` (named
+in brackets), which is how a single code path can act as any rung of the
+variant ladder.
 
 ```mermaid
 flowchart TD
-    Q["User question"] --> AQ{"use_query_analysis?"}
-    AQ -->|yes| AN["analyze_query()<br/>structured LLM → parties, coverage,<br/>topics, answer_shape<br/>(alias-scan fallback)"]
-    AQ -->|no| GEN0["treat as GENERAL"]
+    Q(["Question (pt-PT)"])
+    AN["<b>Query analysis</b> [use_query_analysis]<br/>LLM, structured output: parties, coverage, topics,<br/>answer shape and a reformulated query"]
+    EX["<b>Multi-query expansion</b> [use_multi_query]<br/>reformulated query + 4 rewrites"]
+    RT["<b>Routing</b> [use_routing]<br/>query type derived from parties and coverage"]
+    SP["<b>Single party</b><br/>one party named<br/>party filter"]
+    CMP["<b>Comparison</b><br/>two or more, or every party<br/>one search per party"]
+    TOP["<b>Topic exploration</b><br/>no party, topics only<br/>topic filter"]
+    GEN["<b>General</b><br/>anything else<br/>no filter"]
+    SE["<b>Search</b>, for every query<br/>dense: pgvector cosine similarity<br/>+ lexical: BM25 on Portuguese lexemes [use_hybrid]"]
+    FU["<b>Fusion</b> [use_rrf]<br/>Reciprocal Rank Fusion, k = 60"]
+    RR["<b>Reranking</b> [use_reranker]<br/>cross-encoder over 30 candidates"]
+    OUT(["Top-5 chunks, or top-3 per party"])
 
-    AN --> MQ{"use_multi_query?"}
-    GEN0 --> MQ
-    MQ -->|yes| EX["expand_query()<br/>+4 reformulations (Part 5)"]
-    MQ -->|no| ONE["single query"]
+    Q --> AN --> EX --> RT
+    RT --> SP & CMP & TOP & GEN
+    SP & CMP & TOP & GEN --> SE
+    SE --> FU --> RR --> OUT
 
-    EX --> RT{"use_routing?"}
-    ONE --> RT
-    RT -->|no| G["GENERAL route"]
-    RT -->|yes| TYPE{"query_type?<br/>derived from parties + coverage"}
-
-    TYPE -->|single_party| SP["party-filtered search"]
-    TYPE -->|comparison| CMP["per-party parallel search<br/>→ grouped results"]
-    TYPE -->|topic_exploration| TP["topic-filtered search"]
-    TYPE -->|general| G
-
-    SP --> S["Searcher<br/>pgvector similarity per query"]
-    CMP --> S
-    TP --> S
-    G --> S
-
-    S --> RRF{"use_rrf?"}
-    RRF -->|yes| FUSE["Reciprocal Rank Fusion (Part 6)"]
-    RRF -->|no| ORDER["first-occurrence merge"]
-    FUSE --> RR{"use_reranker?"}
-    ORDER --> RR
-    RR -->|no| RES["RetrievalResult (top_k)"]
-    RR -->|yes| CE["Cross-encoder rerank<br/>score (question, chunk) pairs<br/>over rerank_candidates"]
-    CE --> RES
+    classDef flag stroke-dasharray: 5 4
+    class AN,EX,RT,FU,RR flag
 ```
 
-Routing logic lives in [`router.py`](../src/rag/retrieval/router.py); the
-similarity search + RRF live in [`searcher.py`](../src/rag/retrieval/searcher.py);
-the cross-encoder pass lives in [`reranker.py`](../src/rag/retrieval/reranker.py).
 
-When reranking is on, the search widens before it narrows: each sub-query
-retrieves `rerank_candidates` (default 30) rather than `top_k`, and the
-cross-encoder re-orders that shortlist before the trim. A reranker can only
-promote what retrieval surfaced, so the wide fetch is what gives it room to
-work.
+
+Routing logic lives in `[router.py](../src/rag/retrieval/router.py)`; the
+similarity search, lexical search and RRF live in
+`[searcher.py](../src/rag/retrieval/searcher.py)`; the cross-encoder pass lives
+in `[reranker.py](../src/rag/retrieval/reranker.py)`.
+
+With a flag off, each stage degrades instead of disappearing:
+
+
+| Flag off             | Behaviour                                                       |
+| -------------------- | --------------------------------------------------------------- |
+| `use_query_analysis` | no LLM call; question treated as GENERAL (no parties or topics) |
+| `use_multi_query`    | one query: the reformulated question                            |
+| `use_routing`        | every query takes the GENERAL route                             |
+| `use_hybrid`         | dense lists only (the default)                                  |
+| `use_rrf`            | lists merged by first occurrence                                |
+| `use_reranker`       | fused list trimmed straight to `top_k` (the default)            |
+
+
+Details the diagram compresses:
+
+- **Query analysis fallback.** If the LLM call fails, an exact party-alias scan
+sets the parties and coverage falls to *exhaustive*, so the router fans out
+rather than silently omitting parties.
+- **Topic filters are a preference.** Single-party and comparison searches also
+apply the analysed topics. Any topic-filtered search that matches nothing is
+retried without the filter (per party, for comparisons).
+- **Comparison** searches every named party, or all eight when the question
+asks for exhaustive coverage without naming any.
+- **Hybrid** adds a lexical list per query, so `2 × len(queries)` lists are
+fused in one RRF pass.
+- **Reranking** widens before it narrows: each sub-query retrieves
+`rerank_candidates` (default 30) rather than `top_k`, and the cross-encoder
+scores the *original* question against each chunk before the trim. A
+reranker can only promote what retrieval surfaced, so the wide fetch is what
+gives it room to work.
 
 ---
 
+
+
 ## 4. Generation (answer synthesis)
 
-The synthesizer picks a strategy from the requested `answer_shape` and the
-result shape, then produces an answer with source citations.
-[`synthesizer.py`](../src/rag/generation/synthesizer.py).
+The synthesizer prepares the context, then picks a strategy from the requested
+`answer_shape` and the result shape, and answers with source citations.
+`[synthesizer.py](../src/rag/generation/synthesizer.py)`.
 
 ```mermaid
 flowchart TD
-    RES["RetrievalResult"] --> D{"synthesize() dispatcher"}
-    D -->|"per_party + grouped results"| CMPA["comparison_answer()<br/>grouped-by-party prompt"]
-    D -->|"per_party, no groups"| DEC["decomposed_answer()<br/>sub-questions → synthesis (Part 7)"]
-    D -->|"narrative"| DIR["direct_answer()<br/>single-pass over the full grouped set"]
-    CMPA --> FIT["trim to max_prompt_tokens<br/>lowest-ranked first, never a whole party"]
-    DEC --> FIT
-    DIR --> FIT
-    FIT --> OUT["GeneratedAnswer<br/>+ source citations"]
+    IN(["Retrieved chunks"])
+    CTX["<b>Context preparation</b><br/>expand chunks to parent sections, deduplicate<br/>trim lowest-ranked to an 8,000-token budget,<br/>never dropping a whole party"]
+    D{"Answer<br/>shape"}
+    CMP["<b>Comparison</b><br/>per party, grouped results<br/>one context block per party"]
+    DEC["<b>Decomposition</b><br/>per party, flat results<br/>sub-questions, then synthesis"]
+    DIR["<b>Direct</b><br/>narrative<br/>single pass over the context"]
+    OUT(["Answer (pt-PT) + source citations"])
+
+    IN --> CTX --> D
+    D --> CMP & DEC & DIR
+    CMP & DEC & DIR --> OUT
 ```
+
+
 
 Shape rather than route, because the two cross: *"que partido propõe mais sobre
 habitação?"* needs every party retrieved but answered as one verdict. A
 narrative answer over a fan-out reads the whole grouped set rather than
-`RetrievalResult.results`, which the router truncates to `top_k`.
+`RetrievalResult.results`, which the router truncates to `top_k`. Decomposition
+(Part 7) is kept for the one case it addresses: a per-party question whose
+results arrived flat.
 
 Context size is bounded by `llm.openrouter.max_prompt_tokens` rather than by a
-result count. Retrieval can now hand generation `top_k_per_party` × 8 parties,
-so the prompt is no longer bounded by a small constant; over-budget contexts are
-trimmed lowest-ranked first, and a grouped context is trimmed from whichever
-party contributes most so that no party is dropped outright. Citations follow
-the trimmed context — a source the model never read is one it cannot have used.
+result count. Retrieval can hand generation `top_k_per_party` × 8 parties, so
+over-budget contexts are trimmed lowest-ranked first, and a grouped context is
+trimmed from whichever party contributes most so that no party is dropped
+outright. Citations follow the trimmed context — a source the model never read
+is one it cannot have used. An empty retrieval returns a fixed "no documents
+found" reply without calling the LLM.
 
 ---
+
+
 
 ## 5. Evaluation harness
 
 The harness measures each **implementation step** on the same gold set. Because
 every variant runs the production retrieval code with only different flags, a
 score delta is attributable to one technique. Code:
-[`src/rag/evaluation/`](../src/rag/evaluation/); methodology:
-[`evaluation.md`](evaluation.md).
+`[src/rag/evaluation/](../src/rag/evaluation/)`; methodology:
+`[evaluation.md](evaluation.md)`.
 
 ```mermaid
-flowchart LR
-    subgraph BUILD["Gold-set construction"]
-        direction TB
-        SAMP["sample_chunks() from pgvector"] --> QGEN["LLM writes a question<br/>answerable from that chunk"]
-        QGEN --> SYN["synthetic.json<br/>(curated=false)"]
-        SYN --> CUR["hand-curate → golden.json<br/>~30-50 Q (curated=true)"]
+flowchart TD
+    subgraph GS["Gold set construction"]
+        direction LR
+        C["<b>Questions</b><br/>hand-drafted,<br/>checked in corpus"] --> A["<b>Anchoring</b><br/>dense + lexical<br/>candidate chunks"] --> R["<b>Human review</b><br/>gold chunks and<br/>reference answers"]
     end
 
-    subgraph LADDER["Variant ladder — same code, flags differ"]
-        direction TB
-        V0["naive"] --> V1["multiquery"] --> V2["routed"] --> V3["current"] --> V4["hybrid"] --> V5["reranked"]
-    end
+    G[/"<b>Gold set</b><br/>dev / test split"/]
 
-    CUR --> RUN["runner<br/>run each variant over the gold set"]
-    LADDER --> RUN
-    RUN --> M{"metrics"}
-    M -->|retrieval| MR["hit@k · recall@k · MRR · nDCG@k"]
-    M -->|routing| MO["query-type acc · party F1 · topic F1"]
-    M -->|"generation (LLM-judge)"| MG["faithfulness · relevance · correctness"]
-    MR --> LB["leaderboard.md / .csv"]
-    MO --> LB
-    MG --> LB
+    RUN["<b>Variant ladder</b><br/>every variant over every question<br/>same code, feature flags differ"]
+    MR["<b>Retrieval</b><br/>hit@k, recall@k,<br/>MRR, nDCG@k"]
+    MO["<b>Routing</b><br/>query-type and coverage<br/>accuracy, party/topic F1"]
+    MG["<b>Generation</b>, LLM judge<br/>faithfulness, relevance,<br/>correctness"]
+    LB[/"Leaderboard"/]
+
+    GS --> G --> RUN
+    RUN --> MR & MO & MG
+    MR & MO & MG --> LB
 ```
+
+
+
+Gold questions are anchored by
+`[scripts/anchor_gold.py](../scripts/anchor_gold.py)`: it retrieves candidate
+chunks into `anchoring/ANCHORING.md`, a human ticks the gold chunks and writes
+the reference answer, and `compile` writes `golden.json`. Tune on `dev`, report
+headline numbers on `test` (`main.py eval --split test --curated-only`). A
+synthetic path (`main.py eval-dataset`, LLM questions anchored to sampled
+chunks) also exists, for smoke tests.
 
 Retrieval ground truth is matched by **content hash**, not database UUID, so the
 gold set survives re-indexing as long as chunking parameters are unchanged (see
-[`keys.py`](../src/rag/evaluation/keys.py)).
+`[keys.py](../src/rag/evaluation/keys.py)`).
