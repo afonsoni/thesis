@@ -45,12 +45,12 @@ stress type per rung; a spread of E/M/H.
 
 | # | Question (pt-PT) | Parties | Topics | Stresses | Diff | Grounding note |
 |---|---|---|---|---|---|---|
-| 19 | Compara as propostas de IRS da Iniciativa Liberal e do CHEGA. | IL, CHEGA | impostos | routing, hybrid | M | IL 15% única; CHEGA 15% até 39.999 e 30% acima, isenção até 1000/mês |
-| 20 | PCP e Bloco de Esquerda: o que propõem sobre a redução do horário de trabalho? | PCP, BE | trabalho | routing | M | ambos 35 horas para todos; BE junta-lhes a semana de quatro dias (secção "Tempo para viver: semana de quatro dias, 35 horas, desconexão") |
+| 19 | Compara as propostas de IRS da Iniciativa Liberal e do CHEGA. | IL, CHEGA | impostos | routing, hybrid | M | IL taxa única de 15% acima do SMN, faseada com 15%/28%; CHEGA 15% até 39.999 e 30% acima, isenção até 1000/mês |
+| 20 | PCP e Bloco de Esquerda: o que propõem sobre a redução do horário de trabalho? | PCP, BE | trabalho | routing | M | PCP 35 horas de imediato para todos; BE redução do período normal para 38 h (2025), 36 h (2026) e 34 h (2027), e 32 h a partir de 2028 nas empresas que adiram à semana de quatro dias |
 | 21 | Em que diferem AD e PS nas creches? | AD, PS | educacao, seguranca_social | routing | H | ambos prometem gratuitidade universal; PS como continuidade, AD via sector social/privado; a resposta correcta é "quase o mesmo", o que testa se o sistema inventa diferenças; |
 | 22 | O que propõem a IL e o Bloco de Esquerda para o Alojamento Local? | IL, BE | habitacao | routing | M | posições opostas: IL reverter as normas do Mais Habitação; BE limitar e impor quotas por zona |
 | 23 | AD e PS: o que propõem para o IRS Jovem? | AD, PS | impostos, jovens | hybrid | E | AD 15% até 35 anos; PS alargar a todos independentemente da escolaridade |
-| 24 | Compara as propostas de IRC do PCP e da IL. | PCP, IL | impostos, economia | hybrid | M | PCP 12,5% para MPME + derrama 14% acima de 50M; IL 12% única |
+| 24 | Compara as propostas de IRC do PCP e da IL. | PCP, IL | impostos, economia | hybrid | M | PCP 12,5% só para MPME até 15.000€ de rendimento colectável + derrama estadual de 14% acima de 50M; IL 12% única (15% para as grandes multinacionais) |
 | 25 | LIVRE e PS: como querem descentralizar o poder? | LIVRE, PS | governacao | multi-query | M | LIVRE órgãos regionais eleitos; PS regionalização |
 | 26 | Bloco de Esquerda e PCP: o que propõem sobre privatizações e controlo público de sectores estratégicos? | BE, PCP | economia, financas | reranker | H | BE: capítulo 7 "Controlo Público dos Setores Estratégicos" (GALP/EDP/REN, CTT, ANA, TAP, banca pública); PCP: reversão programada das privatizações, nacionalização, saída da União Bancária |
 | 27 | Compara a posição do CHEGA e do PS sobre imigração. | CHEGA, PS | imigracao | routing | M | 34 vs 16 menções; CHEGA restritivo, PS regulação/integração |
@@ -63,30 +63,30 @@ stress type per rung; a spread of E/M/H.
 
 | # | Question (pt-PT) | Parties | Topics | Stresses | Diff | Grounding note |
 |---|---|---|---|---|---|---|
-| 32 | Que partidos defendem a energia nuclear? | all | ambiente | routing | M | IL "estudar a viabilidade em Portugal"; CHEGA complementar renováveis com nuclear. LIVRE só fala de risco nuclear (Tejo/Espanha), não de produção |
-| 33 | O que propõem os partidos para o salário mínimo? | all | trabalho | routing (topic) | M | PCP 1000€ em 2024; IL negociação sectorial em vez de valor único; todos mencionam |
-| 34 | Que propostas existem para resolver as listas de espera no SNS? | all | saude | multi-query | M | IL médico de família; BE "salvar o SNS" |
+| 32 | Que partidos defendem a energia nuclear? | all | ambiente | routing | M | IL "estudar a viabilidade em Portugal"; CHEGA complementar renováveis com nuclear. LIVRE gere o risco nuclear (Tejo/Espanha) e "segue atentamente" os small modular reactors e a fusão nuclear, que "poderão contribuir para a descarbonização", sem propor produção em Portugal |
+| 33 | O que propõem os partidos para o salário mínimo? | all | trabalho | routing (topic) | M | PCP 1000€ em 2024; IL salário mínimo nacional fixado numa banda legal e negociado em concertação social, a evoluir para um modelo setorial de negociação; todos mencionam |
+| 34 | Que propostas existem para resolver as listas de espera no SNS? | all | saude | multi-query | M | AD voucher de consulta de especialidade quando o TMRG é ultrapassado; IL Programa Especial de Acesso, contratualizando consultas e cirurgias fora do TMRG; CHEGA referenciação para o privado/social quando o TMRG se esgota (medida 93); BE concursos onde a espera excede o recomendado; PCP programa de emergência para recuperar as listas de espera |
 | 35 | Que medidas há para baixar as rendas e o preço da habitação? | all | habitacao | reranker | H | 36 a 85 menções por partido |
-| 36 | Quem quer baixar o IRC e para quanto? | all | impostos, economia | hybrid | M | IL 12% única; AD 21%→15% a 2 p.p./ano; CHEGA 15% interior/regiões autónomas e 18% resto; PAN 17% a 1 p.p./ano; PCP 12,5% só para MPME (sobe para grandes) |
+| 36 | Quem quer baixar o IRC e para quanto? | all | impostos, economia | hybrid | M | IL 12% única; AD 21%→15% a 2 p.p./ano; CHEGA 15% interior/regiões autónomas e 18% resto (medida 184), mas noutro passo "desagravar a taxa de IRC para 15% ao longo da legislatura"; PAN 17% a 1 p.p./ano; PCP 12,5% só para MPME (sobe para grandes) |
 | 37 | Que propostas existem para valorizar a carreira dos professores? | all | educacao, trabalho | routing (topic) | M | IL 35, AD 25 menções |
 | 38 | O que propõem os partidos para a floresta e a prevenção de incêndios? | all | ambiente | multi-query | M | BE 45, LIVRE 47 menções |
 | 39 | Que medidas de combate à corrupção são propostas? | all | justica, governacao | routing (topic) | M | AD 37, CHEGA 36, PCP 29 |
 | 40 | Que propostas há para os emigrantes e a diáspora? | all | politica_externa, outros | multi-query | M | AD "diáspora" 15; CHEGA "emigra" 21 |
-| 41 | O que dizem os programas sobre a alta velocidade ferroviária? | all | economia, ambiente | hybrid | M | CHEGA, PS, IL, LIVRE, PCP; PAN condiciona a linha Porto-Lisboa |
+| 41 | O que dizem os programas sobre a alta velocidade ferroviária? | all | economia, ambiente | hybrid | M | CHEGA, PS, IL, LIVRE, PCP; BE travessia do Tejo exclusivamente ferroviária, incluindo alta velocidade; PAN condiciona a linha Porto-Lisboa; AD omisso |
 | 42 | Que apoios são propostos para pessoas com deficiência? | all | igualdade, seguranca_social | routing (topic) | M | BE 50, LIVRE 31 |
 | 43 | Algum partido fala de inteligência artificial? O quê? | all | educacao, economia | hybrid | M | AD 17, PS 10; BE 0 |
 | 44 | Que medidas contra a violência doméstica são propostas? | all | igualdade, justica | routing (topic) | E | PAN 21, todos mencionam |
 | 50 | Que partido propõe uma taxa única de IRC de 12%? | all | impostos | routing (reverse lookup) | H | IL (taxa única de 12%, 15% para multinacionais). Rotulada `topic_exploration`: a resposta é o partido, por isso é preciso procurar em todos; nenhum outro propõe 12% (PCP 12,5% só para MPME) |
-| 51 | Qual é a posição dos partidos sobre a eutanásia? | all | saude, justica | multi-query | H | os programas dizem "morte medicamente assistida", nunca "eutanásia": CHEGA revogar a Lei 22/2023 (medida 107); LIVRE acompanhar a implementação da despenalização; PAN regulamentação urgente da lei. AD, BE, IL, PCP, PS omissos |
+| 51 | Qual é a posição dos partidos sobre a eutanásia? | all | saude, justica | multi-query | H | os programas dizem "morte medicamente assistida", nunca "eutanásia": CHEGA revogar a Lei 22/2023 (medida 107); LIVRE acompanhar a implementação da despenalização; PAN regulamentação urgente da lei; BE (secção "Morte Assistida") defende a lei aprovada, critica a falta de regulamentação e compromete-se a combater a sua revogação. AD, IL, PCP, PS omissos |
 
 ## General (5)
 
 | # | Question (pt-PT) | Parties | Topics | Stresses | Diff | Grounding note |
 |---|---|---|---|---|---|---|
-| 45 | O que é o IRS Jovem? | none | impostos, jovens | hybrid | E | definição extraível de AD ou PS |
+| 45 | O que é o IRS Jovem? | none | impostos, jovens | hybrid | E | nenhum programa define o regime em vigor: AD redução de 2/3 nas taxas, máximo de 15%, até aos 35 anos; PS alargá-lo a todos os jovens, independentemente da escolaridade |
 | 46 | O que é o PRR e como pretendem os partidos aplicá-lo? | none | financas, economia | hybrid | M | AD 12, IL 11, PS 11 |
 | 47 | Quantos imigrantes entraram em Portugal em 2022, segundo os programas? | none | imigracao | hybrid | H | CHEGA: 118.000; facto numérico, responde apenas um partido |
-| 48 | O que é a "herança social"? | none | seguranca_social, impostos | hybrid | M | termo do LIVRE; imposto sucessório sobre grandes heranças |
+| 48 | O que é a "herança social"? | none | seguranca_social, impostos | hybrid | M | termo do LIVRE: transferência directa atribuída a cada criança ao atingir a maioridade, financiada por um imposto sucessório sobre grandes heranças e doações e pela tributação das grandes fortunas |
 | 49 | Em que ano foram repostas as 35 horas na Administração Pública? | none | trabalho | hybrid | H | PCP: 2016; facto exacto num único chunk |
 
 ## Abstention candidates (not counted in the 51)
