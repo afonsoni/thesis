@@ -47,7 +47,7 @@ def route(
 
     Behavior is driven by ``config``: ``use_multi_query`` controls expansion,
     ``use_routing`` toggles type-specific strategies (off → always GENERAL),
-    and ``use_rrf`` / ``rrf_k`` / ``top_k`` / ``top_k_per_party`` size the search.
+    and ``rrf_k`` / ``top_k`` / ``top_k_per_party`` size the search.
     """
     config = config or RetrievalConfig()
     qt = query.query_type
@@ -85,7 +85,6 @@ def _search_kwargs(config: RetrievalConfig, rerank_query: str) -> Dict[str, obje
     """
     return {
         "rrf_k": config.rrf_k,
-        "use_rrf": config.use_rrf,
         "use_hybrid": config.use_hybrid,
         "use_reranker": config.use_reranker,
         "rerank_query": rerank_query,

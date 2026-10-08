@@ -56,24 +56,6 @@ def reciprocal_rank_fusion(
     return out
 
 
-def merge_preserve_order(result_lists: List[List[SearchResult]]) -> List[SearchResult]:
-    """Flatten ranked lists into a single list, de-duplicating by id and
-    keeping the first occurrence order.
-
-    Used as the no-RRF fusion path (e.g. the naive baseline), where results are
-    simply concatenated rather than rank-fused.
-    """
-    seen: set = set()
-    out: List[SearchResult] = []
-    for results in result_lists:
-        for sr in results:
-            if sr.id in seen:
-                continue
-            seen.add(sr.id)
-            out.append(sr)
-    return out
-
-
 # ---------------------------------------------------------------------------
 # Searcher class
 # ---------------------------------------------------------------------------
@@ -127,7 +109,6 @@ class Searcher:
         party_name: Optional[str] = None,
         topics: Optional[List[str]] = None,
         rrf_k: int = 60,
-        use_rrf: bool = True,
         use_hybrid: bool = False,
         use_reranker: bool = False,
         rerank_query: Optional[str] = None,
@@ -138,10 +119,9 @@ class Searcher:
         """
         Run each query independently, then fuse the ranked lists.
 
-        Each sub-query retrieves *top_k* results; the final list is trimmed back
-        to *top_k*. When ``use_rrf`` is True the lists are fused with Reciprocal
-        Rank Fusion; otherwise they are merged by first-occurrence order (the
-        naive-baseline path).
+        Each sub-query retrieves *top_k* results; more than one ranked list is
+        fused with Reciprocal Rank Fusion, and the result is trimmed back to
+        *top_k*.
 
         When ``use_hybrid`` is True each query also contributes a Portuguese
         full-text ranked list, and dense plus lexical lists are fused together in
@@ -179,16 +159,13 @@ class Searcher:
                     )
                 )
 
-        fused = (
-            reciprocal_rank_fusion(all_lists, k=rrf_k)
-            if use_rrf
-            else merge_preserve_order(all_lists)
-        )
+        # One ranked list (single query, dense only) is already in order; fusing
+        # it would only swap cosine scores for rank-derived ones.
+        fused = reciprocal_rank_fusion(all_lists, k=rrf_k) if len(all_lists) > 1 else all_lists[0]
         logger.info(
             "Multi-query search: %d queries → %d ranked lists → %d unique results "
-            "(hybrid=%s, rrf=%s, rerank=%s, returning top %d).",
-            len(queries), len(all_lists), len(fused), use_hybrid, use_rrf,
-            use_reranker, top_k,
+            "(hybrid=%s, rerank=%s, returning top %d).",
+            len(queries), len(all_lists), len(fused), use_hybrid, use_reranker, top_k,
         )
 
         if use_reranker and fused:

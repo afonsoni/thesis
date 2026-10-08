@@ -29,7 +29,6 @@ class StubSearcher(Searcher):
         topics: Optional[List[str]] = None,
         year: Optional[int] = None,
         rrf_k: int = 60,
-        use_rrf: bool = True,
         use_hybrid: bool = False,
         use_reranker: bool = False,
         rerank_query: Optional[str] = None,
@@ -46,7 +45,6 @@ class StubSearcher(Searcher):
                 "topics": topics,
                 "year": year,
                 "rrf_k": rrf_k,
-                "use_rrf": use_rrf,
                 "use_hybrid": use_hybrid,
                 "use_reranker": use_reranker,
                 "rerank_query": rerank_query,
@@ -182,8 +180,8 @@ def test_route_comparison_relaxes_topics_per_party():
 
 
 @pytest.mark.unit
-def test_route_naive_config_disables_routing_and_rrf():
-    """Naive baseline: no routing (always general) and no RRF fusion."""
+def test_route_naive_config_disables_routing():
+    """Naive baseline: no routing (always general)."""
     searcher = StubSearcher()
     analyzed = AnalyzedQuery(
         original_query="PS e educacao",
@@ -197,7 +195,6 @@ def test_route_naive_config_disables_routing_and_rrf():
         use_query_analysis=False,
         use_routing=False,
         use_multi_query=False,
-        use_rrf=False,
         top_k=5,
     )
     retrieval = route(analyzed, searcher, config=naive)
@@ -206,7 +203,6 @@ def test_route_naive_config_disables_routing_and_rrf():
     # Routing disabled → general path → no party/topic filters applied.
     assert searcher.multi_query_calls[0]["party_name"] is None
     assert searcher.multi_query_calls[0]["topics"] is None
-    assert searcher.multi_query_calls[0]["use_rrf"] is False
     # Routing off means the comparison strategy never runs, so exactly one
     # unfiltered search is issued rather than one per party.
     assert len(searcher.multi_query_calls) == 1

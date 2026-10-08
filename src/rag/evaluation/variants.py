@@ -25,7 +25,6 @@ VARIANTS: Dict[str, RetrievalConfig] = {
         use_query_analysis=False,
         use_routing=False,
         use_multi_query=False,
-        use_rrf=False,
     ),
     # Rung 1 – add multi-query expansion + RRF fusion (Parts 5 & 6), still no routing.
     "multiquery": RetrievalConfig(
@@ -33,7 +32,6 @@ VARIANTS: Dict[str, RetrievalConfig] = {
         use_query_analysis=False,
         use_routing=False,
         use_multi_query=True,
-        use_rrf=True,
     ),
     # Rung 2 – add structured query analysis + logical routing (Part 10), single query.
     "routed": RetrievalConfig(
@@ -41,7 +39,6 @@ VARIANTS: Dict[str, RetrievalConfig] = {
         use_query_analysis=True,
         use_routing=True,
         use_multi_query=False,
-        use_rrf=False,
     ),
     # Rung 3 – the current production system: analysis + routing + multi-query + RRF.
     "current": RetrievalConfig(name="current"),
@@ -54,7 +51,6 @@ VARIANTS: Dict[str, RetrievalConfig] = {
         use_query_analysis=False,
         use_routing=False,
         use_multi_query=False,
-        use_rrf=True,  # required: RRF is what fuses the dense and lexical lists
         use_hybrid=True,
     ),
 
@@ -69,7 +65,6 @@ VARIANTS: Dict[str, RetrievalConfig] = {
         use_query_analysis=False,
         use_routing=False,
         use_multi_query=False,
-        use_rrf=False,
         use_reranker=True,
     ),
 

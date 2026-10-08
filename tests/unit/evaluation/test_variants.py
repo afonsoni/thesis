@@ -25,7 +25,6 @@ def test_naive_variant_disables_all_features():
     assert not naive.use_query_analysis
     assert not naive.use_routing
     assert not naive.use_multi_query
-    assert not naive.use_rrf
 
 
 @pytest.mark.unit

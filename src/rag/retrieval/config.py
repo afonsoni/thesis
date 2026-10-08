@@ -57,12 +57,8 @@ class RetrievalConfig(BaseModel):
         description="Number of expanded queries (excludes the original).",
     )
 
-    # Reciprocal Rank Fusion (Part 6)
-    use_rrf: bool = Field(
-        default=True,
-        description="Fuse multi-query result lists with RRF. When False, results are "
-        "merged by first-occurrence order instead.",
-    )
+    # Reciprocal Rank Fusion (Part 6): applied whenever a search yields more than
+    # one ranked list (multi-query and/or hybrid).
     rrf_k: int = Field(default_factory=_from_config("rrf_k", 60), ge=1, description="RRF constant.")
 
     # Hybrid retrieval – dense + Portuguese full-text, fused by the same RRF pass
