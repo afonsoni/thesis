@@ -1,8 +1,8 @@
 """
 PostgreSQL + pgvector storage layer.
 
-Provides batch insert, HNSW-indexed cosine similarity search, Portuguese
-full-text search for hybrid retrieval, and metadata-filtered queries.
+Provides batch insert, HNSW-indexed cosine similarity search, Portuguese BM25
+search for hybrid retrieval, and party/topic-filtered queries.
 """
 
 import json
@@ -42,16 +42,11 @@ class VectorStore:
     # Connection management
     # ------------------------------------------------------------------
 
-    def connect(self) -> bool:
-        """Open a connection to PostgreSQL."""
-        try:
-            self.connection = psycopg2.connect(**self.db_config)
-            self.connection.autocommit = False
-            logger.info("Connected to PostgreSQL at %s:%s", self.db_config["host"], self.db_config["port"])
-            return True
-        except Exception as exc:
-            logger.error("Failed to connect to PostgreSQL: %s", exc)
-            return False
+    def connect(self) -> None:
+        """Open a connection to PostgreSQL; raises if the server is unreachable."""
+        self.connection = psycopg2.connect(**self.db_config)
+        self.connection.autocommit = False
+        logger.info("Connected to PostgreSQL at %s:%s", self.db_config["host"], self.db_config["port"])
 
     def close(self):
         """Close the current connection."""
@@ -59,18 +54,11 @@ class VectorStore:
             self.connection.close()
             logger.info("Connection closed.")
 
-    def _ensure_connected(self):
-        if self.connection is None or self.connection.closed:
-            if not self.connect():
-                raise ConnectionError("Cannot connect to PostgreSQL")
-
     def _conn(self) -> psycopg2.extensions.connection:
-        """Return an active connection with concrete type for static checkers."""
-        self._ensure_connected()
-        conn = self.connection
-        if conn is None or conn.closed:
-            raise ConnectionError("Cannot connect to PostgreSQL")
-        return conn
+        """The open connection, reconnecting if it was closed."""
+        if self.connection is None or self.connection.closed:
+            self.connect()
+        return self.connection
 
     # ------------------------------------------------------------------
     # Schema
@@ -107,19 +95,6 @@ class VectorStore:
                 );
             """)
 
-            # Bring pre-existing tables up to the current schema — CREATE TABLE
-            # IF NOT EXISTS is a no-op on them, so new columns must be added.
-            cur.execute(f"""
-                ALTER TABLE {self.table}
-                ADD COLUMN IF NOT EXISTS parent_content TEXT;
-            """)
-            cur.execute(f"""
-                ALTER TABLE {self.table}
-                ADD COLUMN IF NOT EXISTS content_tsv TSVECTOR GENERATED ALWAYS AS (
-                    to_tsvector('portuguese', coalesce(content, ''))
-                ) STORED;
-            """)
-
             # HNSW index for fast approximate nearest-neighbour search
             cur.execute(f"""
                 CREATE INDEX IF NOT EXISTS idx_{self.table}_embedding_hnsw
@@ -128,12 +103,11 @@ class VectorStore:
                 WITH (m = 16, ef_construction = 64);
             """)
 
-            # B-tree indexes for common filter columns
-            for col in ("party_name", "ideology", "year"):
-                cur.execute(f"""
-                    CREATE INDEX IF NOT EXISTS idx_{self.table}_{col}
-                    ON {self.table} ({col});
-                """)
+            # B-tree index for the party filter
+            cur.execute(f"""
+                CREATE INDEX IF NOT EXISTS idx_{self.table}_party_name
+                ON {self.table} (party_name);
+            """)
 
             # GIN index for topics array
             cur.execute(f"""
@@ -230,9 +204,7 @@ class VectorStore:
     @staticmethod
     def _build_filters(
         party_name: Optional[str] = None,
-        ideology: Optional[str] = None,
         topics: Optional[List[str]] = None,
-        year: Optional[int] = None,
     ) -> Tuple[List[str], List[Any]]:
         """Build the shared metadata WHERE clauses and their bound parameters."""
         clauses: List[str] = []
@@ -240,15 +212,9 @@ class VectorStore:
         if party_name:
             clauses.append("party_name = %s")
             params.append(party_name)
-        if ideology:
-            clauses.append("ideology = %s")
-            params.append(ideology)
         if topics:
             clauses.append("topics && %s")
             params.append(topics)
-        if year:
-            clauses.append("year = %s")
-            params.append(year)
         return clauses, params
 
     @staticmethod
@@ -287,9 +253,7 @@ class VectorStore:
         query: str,
         top_k: int = 5,
         party_name: Optional[str] = None,
-        ideology: Optional[str] = None,
         topics: Optional[List[str]] = None,
-        year: Optional[int] = None,
     ) -> List[SearchResult]:
         """
         Portuguese BM25 search — the lexical half of hybrid retrieval.
@@ -319,7 +283,7 @@ class VectorStore:
                 return []
 
             allowed = None
-            clauses, params = self._build_filters(party_name, ideology, topics, year)
+            clauses, params = self._build_filters(party_name, topics)
             if clauses:
                 cur.execute(f"SELECT id::text AS id FROM {self.table} WHERE " + " AND ".join(clauses), params)
                 allowed = {r["id"] for r in cur.fetchall()}
@@ -349,30 +313,14 @@ class VectorStore:
         query_embedding: List[float],
         top_k: int = 5,
         party_name: Optional[str] = None,
-        ideology: Optional[str] = None,
         topics: Optional[List[str]] = None,
-        year: Optional[int] = None,
     ) -> List[SearchResult]:
-        """
-        Cosine-similarity search with optional metadata filters.
-
-        Args:
-            query_embedding: Query vector (same dimension as stored embeddings).
-            top_k: Number of results to return.
-            party_name: Filter by exact party name.
-            ideology: Filter by ``left`` / ``right``.
-            topics: Filter by any overlap with the chunk's topics array.
-            year: Filter by election year.
-
-        Returns:
-            List of ``SearchResult`` ordered by descending similarity.
-        """
+        """Cosine-similarity search, optionally restricted to one party and to
+        chunks sharing any of *topics*. Ordered by descending similarity."""
         conn = self._conn()
         cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
 
-        where_clauses, filter_params = self._build_filters(
-            party_name, ideology, topics, year
-        )
+        where_clauses, filter_params = self._build_filters(party_name, topics)
         where_sql = ("WHERE " + " AND ".join(where_clauses)) if where_clauses else ""
         params: List[Any] = [query_embedding, *filter_params, query_embedding, top_k]
 
@@ -396,44 +344,3 @@ class VectorStore:
             self._row_to_result(row, float(row["similarity"]), ScoreType.COSINE)
             for row in rows
         ]
-
-    # ------------------------------------------------------------------
-    # Utilities
-    # ------------------------------------------------------------------
-
-    def count(self, party_name: Optional[str] = None) -> int:
-        """Count rows, optionally filtered by party."""
-        conn = self._conn()
-        cur = conn.cursor()
-        if party_name:
-            cur.execute(f"SELECT count(*) FROM {self.table} WHERE party_name = %s;", (party_name,))
-        else:
-            cur.execute(f"SELECT count(*) FROM {self.table};")
-        row = cur.fetchone()
-        return int(row[0]) if row else 0
-
-    def get_distinct_parties(self) -> List[str]:
-        """Return list of distinct party names in the store."""
-        conn = self._conn()
-        cur = conn.cursor()
-        cur.execute(f"SELECT DISTINCT party_name FROM {self.table} WHERE party_name IS NOT NULL ORDER BY party_name;")
-        return [row[0] for row in cur.fetchall()]
-
-    def test_connection(self) -> bool:
-        """Quick connectivity & pgvector check."""
-        try:
-            conn = self._conn()
-            cur = conn.cursor()
-            cur.execute("SELECT version();")
-            row = cur.fetchone()
-            ver = row[0] if row else "unknown"
-            logger.info("PostgreSQL version: %s", ver)
-            cur.execute("SELECT * FROM pg_extension WHERE extname = 'vector';")
-            if cur.fetchone():
-                logger.info("pgvector extension is installed.")
-            else:
-                logger.warning("pgvector extension NOT found.")
-            return True
-        except Exception as exc:
-            logger.error("Connection test failed: %s", exc)
-            return False

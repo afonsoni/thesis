@@ -102,9 +102,7 @@ class Searcher:
         query: str,
         top_k: int = 5,
         party_name: Optional[str] = None,
-        ideology: Optional[str] = None,
         topics: Optional[List[str]] = None,
-        year: Optional[int] = None,
         instruction: Optional[str] = None,
     ) -> List[SearchResult]:
         """Embed query and run similarity search with optional filters."""
@@ -115,9 +113,7 @@ class Searcher:
             query_embedding=vec,
             top_k=top_k,
             party_name=party_name,
-            ideology=ideology,
             topics=topics,
-            year=year,
         )
 
     # ------------------------------------------------------------------
@@ -129,9 +125,7 @@ class Searcher:
         queries: List[str],
         top_k: int = 5,
         party_name: Optional[str] = None,
-        ideology: Optional[str] = None,
         topics: Optional[List[str]] = None,
-        year: Optional[int] = None,
         rrf_k: int = 60,
         use_rrf: bool = True,
         use_hybrid: bool = False,
@@ -173,8 +167,7 @@ class Searcher:
                 self.search(
                     strip_party_mentions(q) if strip_party_names and party_name else q,
                     top_k=fetch_k,
-                    party_name=party_name, ideology=ideology,
-                    topics=topics, year=year,
+                    party_name=party_name, topics=topics,
                     instruction=query_instruction,
                 )
             )
@@ -182,8 +175,7 @@ class Searcher:
                 all_lists.append(
                     self.store.lexical_search(
                         strip_party_mentions(q) if party_name else q, top_k=fetch_k,
-                        party_name=party_name, ideology=ideology,
-                        topics=topics, year=year,
+                        party_name=party_name, topics=topics,
                     )
                 )
 

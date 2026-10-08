@@ -4,6 +4,7 @@ import uuid
 from pathlib import Path
 from typing import Iterator
 
+import psycopg2
 import pytest
 from dotenv import load_dotenv
 
@@ -93,11 +94,13 @@ def test_vector_store(test_db_config: dict) -> Iterator[VectorStore]:
     table_name = f"party_programs_test_{uuid.uuid4().hex[:8]}"
     store = VectorStore(db_config=test_db_config)
     store.table = table_name
-    if not store.connect():
+    try:
+        store.connect()
+    except psycopg2.OperationalError as exc:
         raise RuntimeError(
             "Could not connect to dedicated test PostgreSQL instance. "
             "Start it with: docker compose up -d postgres_test"
-        )
+        ) from exc
     store.create_table(embedding_dim=3)
 
     try:
