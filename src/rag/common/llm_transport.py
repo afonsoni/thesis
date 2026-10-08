@@ -37,6 +37,7 @@ _DEFAULT_MAX_BACKOFF_SECS = float(config.get("llm.openrouter.max_backoff_secs", 
 # answering model can differ from the requested one; evaluation snapshots this
 # so a run can report how often a fallback was used (e.g. by the judge).
 MODEL_USAGE: Counter = Counter()
+_MAX_MODELS_PER_REQUEST = 3  # OpenRouter rejects a longer `models` array (400)
 
 
 def _fallback_models(model: str) -> List[str]:
@@ -154,14 +155,36 @@ def _call_openrouter_once(
     }
     if response_format:
         payload["response_format"] = response_format
-    chain = _fallback_models(model)
-    if len(chain) > 1:
-        # OpenRouter model fallbacks: on any error from one model (rate limit,
-        # downtime, context length) it tries the next, in this order.
-        payload["models"] = chain
     if extra_body:
         payload.update(extra_body)
 
+    # OpenRouter model fallbacks: on any error from one model (rate limit,
+    # downtime, context length) it tries the next in ``models``. It accepts at
+    # most 3 there, so a longer chain goes out in groups of 3, the next group
+    # only once every model in the previous one has failed.
+    chain = payload.pop("models", None) or _fallback_models(model)
+    last_error: Optional[Exception] = None
+    for start in range(0, len(chain), _MAX_MODELS_PER_REQUEST):
+        group = chain[start:start + _MAX_MODELS_PER_REQUEST]
+        payload["model"] = group[0]
+        if len(group) > 1:
+            payload["models"] = group
+        else:
+            payload.pop("models", None)
+        try:
+            return _post_chat(payload, api_key, timeout_seconds, requested=group[0])
+        except OpenRouterTransportError as exc:
+            if exc.status_code in (401, 403):  # bad key: no model will do better
+                raise
+            last_error = exc
+            if start + _MAX_MODELS_PER_REQUEST < len(chain):
+                logger.warning("Models %s all failed (%s); trying %s.", group, _truncate_error(exc),
+                               chain[start + _MAX_MODELS_PER_REQUEST:])
+    raise last_error  # type: ignore[misc]
+
+
+def _post_chat(payload: Dict[str, Any], api_key: str, timeout_seconds: int, requested: str) -> str:
+    """POST one chat completion; return its text or raise ``OpenRouterTransportError``."""
     try:
         response = requests.post(
             url=OPENROUTER_CHAT_COMPLETIONS_URL,
@@ -190,10 +213,10 @@ def _call_openrouter_once(
     except Exception as exc:
         raise OpenRouterTransportError(f"Unexpected OpenRouter response: {response.text[:500]}") from exc
 
-    answered_by = str(data.get("model") or model)
+    answered_by = str(data.get("model") or requested)
     MODEL_USAGE[answered_by] += 1
-    if not answered_by.startswith(model.split(":")[0]):
-        logger.info("Answered by fallback model %s (requested %s).", answered_by, model)
+    if not answered_by.startswith(requested.split(":")[0]):
+        logger.info("Answered by fallback model %s (requested %s).", answered_by, requested)
 
     if isinstance(message, str):
         return message.strip()
