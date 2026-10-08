@@ -139,6 +139,7 @@ def cmd_eval(args):
         variant_names=variants,
         dataset_path=args.dataset,
         curated_only=args.curated_only,
+        split=args.split,
         k=args.top_k,
         use_judge=not args.no_judge,
         judge_model=args.judge_model,
@@ -215,6 +216,8 @@ def build_parser() -> argparse.ArgumentParser:
                            "Defaults to config evaluation.variants.")
     p_ev.add_argument("--dataset", type=str, default=None, help="Gold-set JSON path")
     p_ev.add_argument("--curated-only", action="store_true", help="Only evaluate human-validated questions")
+    p_ev.add_argument("--split", choices=["dev", "test"], default=None,
+                      help="Only evaluate one split: dev while tuning, test for headline numbers")
     p_ev.add_argument("-k", "--top-k", type=int, default=None, help="Cut-off for retrieval metrics & judge context")
     p_ev.add_argument("--judge-model", type=str, default=None, help="Override the LLM-judge model")
     p_ev.add_argument("--no-judge", action="store_true", help="Skip the (LLM) generation-judge metrics")

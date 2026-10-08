@@ -37,6 +37,7 @@ def evaluate(
     variant_names: Optional[List[str]] = None,
     dataset_path: Optional[str] = None,
     curated_only: bool = False,
+    split: Optional[str] = None,
     k: Optional[int] = None,
     use_judge: bool = True,
     judge_model: Optional[str] = None,
@@ -50,6 +51,7 @@ def evaluate(
         variant_names: Variant preset names (see ``variants.VARIANTS``).
         dataset_path: Gold set JSON path.
         curated_only: Restrict to human-validated questions.
+        split: Restrict to one split (``dev`` while tuning, ``test`` for headline numbers).
         k: Cut-off for retrieval metrics and judge context.
         use_judge: Whether to run the (LLM) generation-judge metrics.
         judge_model: Override judge model id.
@@ -69,10 +71,12 @@ def evaluate(
     dataset = load_dataset(dataset_path)
     if curated_only:
         dataset = dataset.curated_only()
+    if split:
+        dataset = dataset.with_split(split)
     if not dataset.questions:
         raise ValueError(
             f"No questions to evaluate in {dataset_path}"
-            + (" (curated_only=True filtered everything)" if curated_only else "")
+            f" (curated_only={curated_only}, split={split!r})"
         )
 
     configs = resolve_variants(variant_names)

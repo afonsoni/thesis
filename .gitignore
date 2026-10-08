@@ -25,3 +25,6 @@ dissertation-overleaf/
 # Cleaner intermediates (rebuild with `python main.py clean` / scripts/validate_cleaner.py)
 data/2_processed/cleaner-cache/
 data/2_processed/cleaner-validation/
+
+# Anchoring candidates (rebuild with `python scripts/anchor_gold.py candidates`)
+data/eval/questions/anchoring/candidates.json

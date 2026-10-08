@@ -48,3 +48,14 @@ def test_dataset_round_trip_and_curated_filter(tmp_path):
 
     curated = loaded.curated_only()
     assert len(curated.questions) == 1 and curated.questions[0].id == "q-0001"
+
+
+@pytest.mark.unit
+def test_split_filter_keeps_only_that_split():
+    ds = EvalDataset(questions=[
+        EvalQuestion(id="q-01", question="A?", split="test"),
+        EvalQuestion(id="q-02", question="B?", split="dev"),
+        EvalQuestion(id="q-03", question="C?"),
+    ])
+    assert [q.id for q in ds.with_split("test").questions] == ["q-01"]
+    assert [q.id for q in ds.with_split("dev").questions] == ["q-02"]

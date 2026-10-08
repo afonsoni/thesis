@@ -41,6 +41,9 @@ class EvalQuestion(BaseModel):
     source_party: str = ""
     source_section: str = ""
     curated: bool = False  # True once a human has validated this question
+    # "dev" questions may be looked at while tuning; "test" ones are held out
+    # for headline numbers, so the reported scores are not tuned to them.
+    split: str = ""  # dev | test | "" (unsplit)
 
     @model_validator(mode="after")
     def _query_type_agrees_with_the_other_labels(self) -> "EvalQuestion":
@@ -75,6 +78,13 @@ class EvalDataset(BaseModel):
     format_version: int = 2
     created_at: str = ""
     questions: List[EvalQuestion] = Field(default_factory=list)
+
+    def with_split(self, split: str) -> "EvalDataset":
+        return EvalDataset(
+            format_version=self.format_version,
+            created_at=self.created_at,
+            questions=[q for q in self.questions if q.split == split],
+        )
 
     def curated_only(self) -> "EvalDataset":
         return EvalDataset(
