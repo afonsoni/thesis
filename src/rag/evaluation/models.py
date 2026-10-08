@@ -5,7 +5,7 @@ records, and aggregated per-variant results.
 
 from __future__ import annotations
 
-from typing import Dict, List, Optional
+from typing import Any, Dict, List, Optional
 
 from pydantic import BaseModel, Field, model_validator
 
@@ -118,6 +118,9 @@ class QuestionRun(BaseModel):
     error: Optional[str] = None
 
     metrics: Dict[str, float] = Field(default_factory=dict)
+    # Per-metric working: extracted claims and the judge's verdict on each, so a
+    # score can be audited and a sample can be rated by hand against it.
+    judgements: Dict[str, Any] = Field(default_factory=dict)
 
 
 class VariantResult(BaseModel):

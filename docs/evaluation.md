@@ -58,18 +58,30 @@ Reranking is also the slowest rung — one forward pass per candidate — so exp
 `RetrievalConfig()` with no arguments reproduces `current` exactly, so adding the
 config layer changed no default behavior.
 
-## 2. Gold set (synthetic-anchored + curated)
+## 2. Gold set (hand-written, then anchored and reviewed)
 
-Ground truth is built by
-[`dataset.build_dataset`](../src/rag/evaluation/dataset.py):
+The headline gold set is 51 questions written by hand against the eight
+manifestos ([`CANDIDATES.md`](../data/eval/questions/CANDIDATES.md)), each with a
+grounding note checked against the indexed text, the route it should take
+(parties named, topics, `coverage`), the ladder rung it is meant to stress, and an
+expected difficulty. [`scripts/anchor_gold.py`](../scripts/anchor_gold.py) turns
+them into `golden.json`:
 
-1. Sample indexed chunks from pgvector (`VectorStore.sample_chunks`).
-2. Ask a strong LLM to write a natural question **answerable from that chunk**,
-   plus a short reference answer.
-3. The construction method fixes the expected `query_type`, `parties`, and
-   `topics` — reliable routing ground truth without extra labeling.
-4. Coverage spans all four query types: `single_party`, `comparison`,
-   `topic_exploration`, `general`.
+1. `candidates` retrieves candidate chunks per question (dense search plus short
+   keyword queries, per expected party, or per every party when none is named).
+2. Gold chunks and a reference answer are proposed per question (here by Claude
+   subagents, from the candidates and the grounding note), then **reviewed by
+   hand** in `anchoring/ANCHORING.md`: ticks fixed, references edited, and
+   `reviewed: yes` set. Only reviewed questions are `curated`.
+   `anchoring/proposed-picks.json` keeps the unreviewed proposals, so the human
+   edits are visible as a diff.
+3. `compile` writes `golden.json`, deriving `query_type` from parties and
+   coverage exactly as the pipeline does.
+
+Questions carry a `split`: 30 **test** questions, balanced across route, stress,
+party and difficulty, are held out for headline numbers (`--split test`); 21
+**dev** questions are for tuning. `dataset.build_dataset` (LLM-written questions
+anchored on sampled chunks) remains available for quick synthetic sets.
 
 **Retrieval ground truth is matched by content hash, not database UUID.**
 `insert_chunks` mints a new UUID on every insert and `--drop` re-mints them, so
@@ -78,10 +90,6 @@ ids are unstable across re-indexing. Each question stores
 ([`keys.py`](../src/rag/evaluation/keys.py)); at eval time each retrieved chunk's
 content is hashed and checked for membership. This survives re-indexing as long
 as chunking parameters are unchanged.
-
-**Curation.** Generated questions start with `curated=false`. Hand-validate a
-~30–50 question subset (fix wording, drop bad ones, set `curated=true`) into
-`data/eval/questions/golden.json`. Run headline numbers with `--curated-only`.
 
 ## 3. Metrics
 
@@ -112,15 +120,47 @@ pure-Python, needs `gold_chunk_keys`):
   exhaustive question names none and still searches all eight.
 
 **Generation** ([`generation.py`](../src/rag/evaluation/metrics/generation.py),
-LLM-as-judge, 1–5 → [0, 1]):
+[`judge.py`](../src/rag/evaluation/judge.py)). Faithfulness and correctness are
+**claim-level**, following RAGAS (Es et al., EACL 2024): a text is split into
+atomic claims and each claim is verified against evidence by the judge, and the
+score is the share of claims supported. This is computed in code from the
+judge's per-claim verdicts, kept on `QuestionRun.judgements` for auditing.
 
-- `faithfulness` — answer grounded in retrieved context (reference-free).
-- `answer_relevance` — answer addresses the question (reference-free).
-- `correctness` — answer agrees with the reference answer (reference-based).
+- `faithfulness` — share of the answer's claims supported by the context the
+  generator actually read (`GeneratedAnswer.context`: parent sections after
+  deduplication and budget trimming). Reference-free.
+- `correctness_recall` — share of the curated reference answer's claims that the
+  answer states. Does not penalise true detail the reference left out.
+- `correctness` — F1 of that recall and the precision of the answer's claims
+  against the reference (RAGAS "answer correctness", factual part).
+- `answer_relevance` — a holistic 1–5 judgement mapped to [0, 1].
 
-Failed judge calls are **omitted** from the average (not scored 0), so a
-transient API error doesn't depress the result. `avg_latency_s` and `error_rate`
-are recorded for a quality-vs-cost view.
+A score whose judge calls failed (after waiting out free-tier errors) or that has
+nothing to score is **omitted** from the mean, not set to 0. `avg_latency_s` and
+`error_rate` are recorded for a quality-vs-cost view.
+
+**Why not RAGAS end to end.** Retrieval is scored against human-picked gold
+chunks with deterministic IR metrics rather than RAGAS's LLM-judged context
+precision/recall: no judge noise or cost, rank-aware, and attributable per
+technique. Routing and per-party coverage have no RAGAS counterpart. The RAGAS
+algorithms are reimplemented on the project transport because the judge must run
+on Gemma via Google's native endpoint, which the `ragas` library cannot call.
+
+**Uncertainty** ([`stats.py`](../src/rag/evaluation/stats.py)). Every leaderboard
+cell carries a 95% percentile-bootstrap interval over questions, and a second
+table gives each variant's **paired** difference from the first variant listed,
+with its 95% paired bootstrap interval (bold when it excludes 0). Pairing removes
+the between-question variance both arms share; on ~30 questions an unpaired
+comparison would rarely detect anything.
+
+**Judge validation** ([`scripts/judge_validation.py`](../scripts/judge_validation.py)).
+The judge is Gemma, as is the generator, so self-preference is possible. To
+measure it rather than assume it away: `export` samples answers from a results
+file into a blind rating sheet (claims without the judge's verdicts), a human
+marks each claim, and `score` reports claim-level agreement (raw %, Cohen's
+kappa) and answer-level Spearman correlation per metric, plus Spearman on
+relevance. The approach of calibrating an LLM judge against a small human-labelled
+set follows ARES (Saad-Falcon et al., NAACL 2024).
 
 ## 4. Running it
 
@@ -133,7 +173,7 @@ python main.py index --all            # or: --from-classified data/2_processed/<
 python main.py eval-dataset --sample-size 60 --out data/eval/questions/synthetic.json
 
 # 2. Run the harness and refresh the leaderboard
-python main.py eval --variants naive,current --curated-only
+python main.py eval --variants naive,current --curated-only --split test
 ```
 
 Outputs:

@@ -97,8 +97,14 @@ Entry point: `main.py`
   presets (`naive`, `multiquery`, `routed`, `current`, `hybrid`, `hybrid_only`,
   `reranked`, `reranked_only`).
 - `dataset.py`: synthetic-anchored gold-set generation + load/save (content-hash keys).
-- `metrics/`: retrieval (hit@k/recall@k/MRR/nDCG), routing (type acc, party/topic F1),
-  and LLM-judge generation (faithfulness/relevance/correctness) behind a `Metric` protocol.
+- `metrics/`: retrieval (hit@k/recall@k/MRR/nDCG against human-picked gold chunks),
+  routing (type acc, coverage, party/topic F1), and generation: claim-level
+  faithfulness and correctness (RAGAS-style, `judge.py`) plus a 1-5 relevance judge,
+  behind a `Metric` protocol. `stats.py` adds bootstrap CIs and paired differences to
+  the leaderboard; `scripts/judge_validation.py` measures judge-human agreement.
+- Gold set: `data/eval/questions/CANDIDATES.md` -> `scripts/anchor_gold.py` ->
+  `anchoring/ANCHORING.md` (human review, `reviewed: yes`) -> `golden.json`, with a
+  `dev`/`test` split (`eval --split test` for headline numbers).
 - `runner.py` / `report.py` / `pipeline.py`: run a variant, persist results, refresh
   `data/eval/reports/leaderboard.md`.
 - Retrieval is now feature-flagged via `src/rag/retrieval/config.py::RetrievalConfig`;

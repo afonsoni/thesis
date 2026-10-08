@@ -18,6 +18,7 @@ from datetime import datetime
 from typing import Dict, List
 
 from src.rag.evaluation.models import VariantResult
+from src.rag.evaluation.stats import metric_cis, paired_diff, per_question
 
 logger = logging.getLogger(__name__)
 
@@ -25,7 +26,7 @@ logger = logging.getLogger(__name__)
 _COLUMN_PRIORITY = [
     "hit@", "recall@", "mrr", "ndcg@",
     "query_type_acc", "coverage_acc", "party_f1", "topic_f1",
-    "faithfulness", "answer_relevance", "correctness",
+    "faithfulness", "correctness", "correctness_recall", "answer_relevance",
     "avg_latency_s", "error_rate",
 ]
 
@@ -58,8 +59,39 @@ def save_result(result: VariantResult, results_dir: str) -> str:
     return path
 
 
-def _format_cell(value: float) -> str:
-    return f"{value:.3f}" if isinstance(value, float) else str(value)
+_RUN_STATS = {"avg_latency_s", "error_rate"}  # not per-question scores: no interval
+
+
+def _format_cell(value: float, ci=None) -> str:
+    cell = f"{value:.3f}" if isinstance(value, float) else str(value)
+    return f"{cell} [{ci[0]:.2f}, {ci[1]:.2f}]" if ci else cell
+
+
+def _delta_table(results: List[VariantResult], columns: List[str]) -> List[str]:
+    """Paired differences of every variant against the first one, with 95% CIs."""
+    base = results[0]
+    metrics = [c for c in columns if c not in _RUN_STATS]
+    lines = [
+        f"## Paired difference vs `{base.variant}`",
+        "",
+        "Mean of (variant − baseline) over the questions both scored, with a 95% paired",
+        "bootstrap interval. **Bold** = the interval excludes 0.",
+        "",
+        "| variant | " + " | ".join(metrics) + " |",
+        "| --- | " + " | ".join("---" for _ in metrics) + " |",
+    ]
+    for r in results[1:]:
+        cells = []
+        for m in metrics:
+            d = paired_diff(per_question(base, m), per_question(r, m))
+            if d is None or d[1] is None:
+                cells.append("")
+                continue
+            mean, (lo, hi), _n = d
+            cell = f"{mean:+.3f} [{lo:+.2f}, {hi:+.2f}]"
+            cells.append(f"**{cell}**" if lo > 0 or hi < 0 else cell)
+        lines.append(f"| {r.variant} | " + " | ".join(cells) + " |")
+    return lines + [""]
 
 
 def write_leaderboard(results: List[VariantResult], reports_dir: str) -> str:
@@ -82,14 +114,19 @@ def write_leaderboard(results: List[VariantResult], reports_dir: str) -> str:
         sep,
     ]
     for r in results:
-        cells = [_format_cell(r.aggregate.get(col, float("nan"))) for col in columns]
+        cis = metric_cis(r, [c for c in columns if c not in _RUN_STATS])
+        cells = [_format_cell(r.aggregate.get(col, float("nan")), cis.get(col)) for col in columns]
         lines.append(f"| {r.variant} | " + " | ".join(cells) + " |")
     lines.extend([
         "",
         "Higher is better for all metrics except `avg_latency_s` and `error_rate`.",
-        "Scores are means over the dataset; generation metrics are LLM-judge scores mapped to [0, 1].",
+        "Cells are means over the questions scored, with a 95% bootstrap interval over",
+        "questions. `faithfulness` and `correctness*` are claim-level (RAGAS-style);",
+        "`answer_relevance` is a 1-5 judgement mapped to [0, 1].",
         "",
     ])
+    if len(results) > 1:
+        lines.extend(_delta_table(results, columns))
     with open(md_path, "w", encoding="utf-8") as fh:
         fh.write("\n".join(lines))
 

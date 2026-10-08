@@ -179,6 +179,7 @@ def direct_answer(query: str, results: List[SearchResult]) -> GeneratedAnswer:
         answer=answer,
         sources=_build_sources(results),
         query_type=QueryType.GENERAL,
+        context=context,
     )
 
 
@@ -195,6 +196,7 @@ def comparison_answer(
         answer=answer,
         sources=_build_sources(all_results),
         query_type=QueryType.COMPARISON,
+        context=context,
     )
 
 
@@ -233,6 +235,7 @@ def decomposed_answer(
         answer=final,
         sources=_build_sources(results),
         query_type=QueryType.COMPARISON,
+        context=context,
     )
 
 

@@ -142,6 +142,9 @@ evaluation:
   reports_dir: "data/eval/reports"
   judge_model: "google/gemma-4-31b-it:free"
   judge_temperature: 0.0
+  # Each judge call waits out free-tier failures this many times before the score
+  # is omitted (never recorded as 0).
+  judge_wait_out_attempts: 5
   sample_size: 60
   top_k: 5
   variants: ["naive", "current", "hybrid"]

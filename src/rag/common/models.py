@@ -282,5 +282,9 @@ class GeneratedAnswer(BaseModel):
     """Final answer produced by the generation pipeline."""
     answer: str
     sources: List[Dict[str, Any]] = Field(default_factory=list)
+    # The context block exactly as it went into the prompt (parent sections,
+    # after deduplication and budget trimming), so evaluation can check the
+    # answer against what the generator actually read.
+    context: str = ""
     query_type: QueryType = QueryType.GENERAL
     model_used: str = ""

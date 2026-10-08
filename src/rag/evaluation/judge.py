@@ -1,23 +1,31 @@
 """
-LLM-as-judge scoring, reusing the project's OpenRouter transport
-(``generate_structured``) so the judge inherits the same retry/backoff/config.
+LLM-as-judge calls, on the project's transport (``generate_structured``).
 
-Each judgement returns a 1–5 integer score with a short rationale. The judge
-model defaults to a model *distinct* from the generation model (config
-``evaluation.judge_model``) to reduce self-preference bias.
+Two kinds:
+
+- **Claim-level** (faithfulness, correctness), following RAGAS (Es et al., EACL
+  2024): :func:`extract_claims` splits a text into atomic claims and
+  :func:`verify_claims` checks each one against an evidence text. Scores are the
+  share of claims supported, computed by the metric, not by the model.
+- **Holistic** (answer relevance): a single 1-5 judgement with a rationale.
+
+Every call waits out free-tier failures (``call_with_wait_out``) and then
+returns ``None`` instead of raising, so the metric omits the score rather than
+recording a zero for an API outage.
 """
 
 from __future__ import annotations
 
 import logging
-from typing import Optional
+from typing import List, Optional
 
 from pydantic import BaseModel, Field
 
-from src.rag.common.llm_client import generate_structured
+from src.rag.common.llm_client import call_with_wait_out, generate_structured
 from src.rag.evaluation.prompts import (
-    JUDGE_CORRECTNESS_PROMPT,
-    JUDGE_FAITHFULNESS_PROMPT,
+    CLAIMS_EXTRACTION_PROMPT,
+    CLAIMS_SYSTEM_PROMPT,
+    CLAIMS_VERIFICATION_PROMPT,
     JUDGE_RELEVANCE_PROMPT,
     JUDGE_SYSTEM_PROMPT,
 )
@@ -36,63 +44,97 @@ class JudgeScore(BaseModel):
         return (self.score - 1) / 4.0
 
 
+class _Claims(BaseModel):
+    claims: List[str] = Field(default_factory=list)
+
+
+class ClaimVerdict(BaseModel):
+    index: int = 0
+    supported: bool = False
+    reason: str = ""
+
+
+class _Verdicts(BaseModel):
+    verdicts: List[ClaimVerdict] = Field(default_factory=list)
+
+
 def _judge_model(model: Optional[str]) -> str:
-    return str(
-        model
-        or config.get(
-            "evaluation.judge_model",
-            config.get("llm.openrouter.model", "meta-llama/llama-3.3-70b-instruct"),
-        )
-    )
+    return str(model or config.get("evaluation.judge_model", config.get("llm.openrouter.model")))
 
 
-def _judge_temperature() -> float:
-    return float(config.get("evaluation.judge_temperature", 0.0))
-
-
-def _judge(prompt: str, model: Optional[str]) -> Optional[JudgeScore]:
-    """Run one judgement; return None (not fail-fast) if the judge call errors."""
+def _call(prompt: str, schema: type, system: str, model: Optional[str], label: str, max_tokens: int):
+    """One structured judge call with wait-out; ``None`` once attempts run out."""
     try:
-        raw = generate_structured(
-            prompt=prompt,
-            response_schema=JudgeScore,
-            system_prompt=JUDGE_SYSTEM_PROMPT,
-            model=_judge_model(model),
-            temperature=_judge_temperature(),
-            max_tokens=400,
+        return call_with_wait_out(
+            lambda: generate_structured(
+                prompt=prompt,
+                response_schema=schema,
+                system_prompt=system,
+                model=_judge_model(model),
+                temperature=float(config.get("evaluation.judge_temperature", 0.0)),
+                max_tokens=max_tokens,
+            ),
+            label=label,
+            attempts=int(config.get("evaluation.judge_wait_out_attempts", 5)),
         )
-        score = max(1, min(5, int(raw.score)))
-        return JudgeScore(score=score, rationale=(raw.rationale or "")[:500])
-    except Exception as exc:  # noqa: BLE001 - judge failures degrade gracefully
-        logger.warning("Judge call failed: %s", exc)
+    except Exception as exc:  # noqa: BLE001 - judge failures are omitted, not fatal
+        logger.warning("%s failed: %s", label, exc)
         return None
 
 
-def judge_faithfulness(
-    question: str, answer: str, context: str, model: Optional[str] = None
-) -> Optional[JudgeScore]:
-    """Is the answer grounded in the retrieved context (reference-free)?"""
-    return _judge(
-        JUDGE_FAITHFULNESS_PROMPT.format(question=question, answer=answer, context=context),
-        model,
+def extract_claims(question: str, text: str, model: Optional[str] = None) -> Optional[List[str]]:
+    """Atomic, self-contained claims made by *text* (an answer or a reference)."""
+    out = _call(
+        CLAIMS_EXTRACTION_PROMPT.format(question=question, text=text),
+        _Claims, CLAIMS_SYSTEM_PROMPT, model, "claim extraction", 2000,
     )
+    if out is None:
+        return None
+    return [c.strip() for c in out.claims if c and c.strip()]
+
+
+def verify_claims(
+    claims: List[str], evidence: str, model: Optional[str] = None
+) -> Optional[List[ClaimVerdict]]:
+    """One verdict per claim, in order: is it supported by *evidence*?
+
+    A reply with the wrong number of verdicts is retried like any other failure,
+    since scoring a misaligned list would attribute verdicts to the wrong claims.
+    """
+    if not claims:
+        return []
+    numbered = "\n".join(f"{i}. {c}" for i, c in enumerate(claims, 1))
+    prompt = CLAIMS_VERIFICATION_PROMPT.format(evidence=evidence, claims=numbered)
+
+    def attempt():
+        out = generate_structured(
+            prompt=prompt, response_schema=_Verdicts, system_prompt=CLAIMS_SYSTEM_PROMPT,
+            model=_judge_model(model),
+            temperature=float(config.get("evaluation.judge_temperature", 0.0)),
+            max_tokens=200 + 120 * len(claims),
+        )
+        if len(out.verdicts) != len(claims):
+            raise ValueError(f"expected {len(claims)} verdicts, got {len(out.verdicts)}")
+        return sorted(out.verdicts, key=lambda v: v.index) if all(v.index for v in out.verdicts) else out.verdicts
+
+    try:
+        return call_with_wait_out(
+            attempt, label="claim verification",
+            attempts=int(config.get("evaluation.judge_wait_out_attempts", 5)),
+        )
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("claim verification failed: %s", exc)
+        return None
 
 
 def judge_answer_relevance(
     question: str, answer: str, model: Optional[str] = None
 ) -> Optional[JudgeScore]:
-    """Does the answer address the question (reference-free)?"""
-    return _judge(
+    """Does the answer address the question (reference-free, 1-5)?"""
+    out = _call(
         JUDGE_RELEVANCE_PROMPT.format(question=question, answer=answer),
-        model,
+        JudgeScore, JUDGE_SYSTEM_PROMPT, model, "relevance judge", 400,
     )
-
-
-def judge_correctness(
-    question: str, answer: str, reference: str, model: Optional[str] = None
-) -> Optional[JudgeScore]:
-    """Does the answer agree with the reference answer (reference-based)?"""
-    return _judge(
-        JUDGE_CORRECTNESS_PROMPT.format(question=question, answer=answer, reference=reference),
-        model,
-    )
+    if out is None:
+        return None
+    return JudgeScore(score=max(1, min(5, int(out.score))), rationale=(out.rationale or "")[:500])

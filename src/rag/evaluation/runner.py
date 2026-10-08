@@ -68,10 +68,12 @@ def run_question(
         run.predicted_coverage = result.query.coverage.value
         run.predicted_parties = result.query.parties
         run.predicted_topics = result.query.topics
-        run.context = _build_context(results, k)
-
         answer = generate_fn(result)
         run.answer = getattr(answer, "answer", "") or ""
+        # Judge against what the generator read (parent sections, trimmed to the
+        # prompt budget); the top-k child chunks are only a fallback for
+        # generators that do not report their context.
+        run.context = getattr(answer, "context", "") or _build_context(results, k)
     except Exception as exc:  # noqa: BLE001 - one bad question shouldn't kill the run
         run.error = str(exc)
         logger.warning("Question %s failed: %s", question.id, exc)
