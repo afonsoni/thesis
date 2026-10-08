@@ -7,9 +7,17 @@ from src.rag.indexing.embedder import Embedder
 @pytest.mark.unit
 def test_contextual_embedding_prefixes_party_and_section_but_keeps_content():
     """Only the embedded text changes, so gold keys (hashes of content) still match."""
-    embedder = Embedder.__new__(Embedder)
+    import numpy as np
+
     seen = []
-    embedder.encode_batch = lambda texts, batch_size=64: seen.extend(texts) or [[0.0]] * len(texts)
+
+    class FakeModel:
+        def encode_document(self, texts, **kwargs):
+            seen.extend(texts)
+            return np.zeros((len(texts), 1))
+
+    embedder = Embedder.__new__(Embedder)
+    embedder.model = FakeModel()
     chunk = Chunk(
         content="Abolir a tourada.",
         party_name="Pessoas-Animais-Natureza",

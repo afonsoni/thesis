@@ -22,14 +22,14 @@ pdf_extraction:
 # tokens (also its training length), which silently truncated 63% of the
 # corpus. The window, not the training task, was the reason for the swap.
 #
-# Changing `model` changes `dimension`, and pgvector cannot alter a VECTOR(n)
+# Changing `model` changes the vector dimension (read from the model), and
+# pgvector cannot alter a VECTOR(n)
 # column in place: reindex with `--drop`.
 #   Qwen/Qwen3-Embedding-0.6B ............ 1024 dims,  32768 ctx
 #   Alibaba-NLP/gte-multilingual-base .... 768 dims,    8192 ctx
 #   PORTULAN/serafim-900m-...-ir ......... 1536 dims,    128 ctx  (previous)
 embeddings:
   model: "Qwen/Qwen3-Embedding-0.6B"
-  dimension: 1024
   # Optional hard cap on the encoder's context window. Deliberately unset: a cap
   # below the chunk budget truncates silently, which is the bug this replaced.
   # Set it only to *reduce* the window on purpose, e.g. to ablate serafim at

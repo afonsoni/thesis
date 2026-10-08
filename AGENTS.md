@@ -50,12 +50,13 @@ Entry point: `main.py`
   re-chunks and carries topics over from the classified checkpoints by content
   hash, so parent-only changes need no reclassification.
 - `classifier.py`: OpenRouter-based structured multi-label topic classification with rate-limit retries.
-- `embedder.py`: SentenceTransformer embeddings. Handles asymmetric retrieval models: use `encode_query()` at search time so the
-  model's query instruction prefix is applied, and `encode()`/`encode_batch()` for documents.
-  Left padding is set automatically for last-token-pooling (decoder) encoders, matching
-  Qwen3-Embedding's model card. This is defensive, not load-bearing: sentence-transformers
-  5.x locates the last *unmasked* token via the attention mask, so it pools correctly with
-  either padding side. Do not cite it as a correctness requirement.
+- `embedder.py`: SentenceTransformer embeddings. Handles asymmetric retrieval models: use
+  `encode_query()` at search time so the model's query instruction prefix is applied;
+  `embed_chunks()` encodes documents (sentence-transformers' `encode_query` /
+  `encode_document`). Left padding is set for last-token-pooling (decoder) encoders, matching
+  Qwen3-Embedding's model card. Pooling is correct with either side (sentence-transformers
+  5.x uses the attention mask), so do not cite it as a correctness requirement; it stays fixed
+  because the side shifts bf16 vectors by ~3e-3 and indexes should be reproducible.
 - `store.py`: PostgreSQL + pgvector storage, HNSW index, metadata-filtered similarity
   search, plus `lexical_search()`: BM25 (`bm25.py`) over the lexemes of a generated
   Portuguese `tsvector` column (the lexical half of hybrid retrieval). Any query term
