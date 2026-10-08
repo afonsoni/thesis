@@ -146,16 +146,20 @@ def build_parser() -> argparse.ArgumentParser:
 
     # parse
     p_parse = sub.add_parser("parse", help="Convert PDFs to markdown via marker_single")
+    p_parse.set_defaults(func=cmd_parse)
     p_parse.add_argument("--input-dir", default="data/0_raw", help="PDF source directory")
     p_parse.add_argument("--output-dir", default="data/1_markdown/_raw", help="Markdown output directory (raw, before cleaning)")
 
-    # index
+    # clean
     p_clean = sub.add_parser("clean", help="Rebuild header structure of raw markdown into <party>/<stem>-clean.md")
+    p_clean.set_defaults(func=cmd_clean)
     p_clean.add_argument("--party", type=str, default=None, help="Only clean this party key (e.g. 'be')")
     p_clean.add_argument("--markdown-dir", default="data/1_markdown", help="Markdown root (reads <root>/_raw)")
     p_clean.add_argument("--model", type=str, default=None, help="OpenRouter model for the structure pass")
 
+    # index
     p_index = sub.add_parser("index", help="Run the indexing pipeline (chunk → classify → embed → store)")
+    p_index.set_defaults(func=cmd_index)
     p_index.add_argument("--party", type=str, default=None, help="Only index files matching this party key (e.g. 'livre')")
     p_index.add_argument("--all", action="store_true", help="Index all parties (the default without --party)")
     p_index.add_argument("--drop", action="store_true", help="Drop existing table before indexing")
@@ -177,12 +181,14 @@ def build_parser() -> argparse.ArgumentParser:
 
     # query
     p_query = sub.add_parser("query", help="Ask a question to the RAG system")
+    p_query.set_defaults(func=cmd_query)
     p_query.add_argument("question", nargs="?", type=str, help="The question to ask")
     p_query.add_argument("-k", "--top-k", type=int, default=5, help="Number of documents to retrieve")
     p_query.add_argument("--no-expand", action="store_true", help="Disable multi-query expansion")
 
     # eval
     p_ev = sub.add_parser("eval", help="Run the evaluation harness over one or more variants")
+    p_ev.set_defaults(func=cmd_eval)
     p_ev.add_argument("--variants", type=str, default=None,
                       help="Comma-separated variant names (naive,multiquery,routed,current). "
                            "Defaults to config evaluation.variants.")
@@ -201,20 +207,10 @@ def build_parser() -> argparse.ArgumentParser:
 def main():
     parser = build_parser()
     args = parser.parse_args()
-
-    if args.command == "parse":
-        cmd_parse(args)
-    elif args.command == "clean":
-        cmd_clean(args)
-    elif args.command == "index":
-        cmd_index(args)
-    elif args.command == "query":
-        cmd_query(args)
-    elif args.command == "eval":
-        cmd_eval(args)
-    else:
+    if not hasattr(args, "func"):
         parser.print_help()
         sys.exit(1)
+    args.func(args)
 
 
 if __name__ == "__main__":
