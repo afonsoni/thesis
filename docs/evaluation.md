@@ -92,9 +92,9 @@ as chunking parameters are unchanged.
 
 ## 3. Metrics
 
-All metrics implement the `Metric` protocol
-([`metrics/base.py`](../src/rag/evaluation/metrics/base.py)), so a standardized
-backend (e.g. RAGAS) can be added later without touching the runner.
+A metric is any object with a `name` and `score(run, question)` returning
+`{metric: value in [0, 1]}` (the `Metric` protocol in
+[`runner.py`](../src/rag/evaluation/runner.py)).
 
 **Retrieval** ([`retrieval.py`](../src/rag/evaluation/metrics/retrieval.py),
 pure-Python, needs `gold_chunk_keys`):

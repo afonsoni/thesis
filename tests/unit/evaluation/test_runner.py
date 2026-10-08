@@ -2,7 +2,7 @@ import pytest
 
 from src.rag.common.models import AnalyzedQuery, GeneratedAnswer, RetrievalResult, SearchResult
 from src.rag.evaluation.keys import chunk_key
-from src.rag.evaluation.metrics import RetrievalMetric
+from src.rag.evaluation.metrics.retrieval import RetrievalMetric
 from src.rag.evaluation.models import EvalQuestion
 from src.rag.evaluation.runner import run_question
 from src.rag.retrieval.config import RetrievalConfig

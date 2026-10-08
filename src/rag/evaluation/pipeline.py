@@ -13,15 +13,12 @@ from typing import List, Optional
 
 from src.rag.common.llm_transport import MODEL_USAGE
 from src.rag.evaluation.dataset import load_dataset
-from src.rag.evaluation.metrics import (
-    GenerationJudgeMetric,
-    RetrievalMetric,
-    RoutingMetric,
-)
-from src.rag.evaluation.metrics.base import Metric
+from src.rag.evaluation.metrics.generation import GenerationJudgeMetric
+from src.rag.evaluation.metrics.retrieval import RetrievalMetric
+from src.rag.evaluation.metrics.routing import RoutingMetric
 from src.rag.evaluation.models import VariantResult
 from src.rag.evaluation.report import save_result, write_leaderboard
-from src.rag.evaluation.runner import run_variant
+from src.rag.evaluation.runner import Metric, run_variant
 from src.rag.evaluation.variants import DEFAULT_VARIANTS, resolve_variants
 from src.utils.config_loader import config
 

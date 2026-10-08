@@ -32,7 +32,6 @@ class RoutingMetric:
     """``Metric`` implementation for query-analysis correctness."""
 
     name = "routing"
-    needs_llm = False
 
     def score(self, run: QuestionRun, question: EvalQuestion) -> Dict[str, float]:
         """Score the analysis against the gold annotations.

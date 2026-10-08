@@ -66,7 +66,6 @@ class RetrievalMetric:
     """
 
     name = "retrieval"
-    needs_llm = False
 
     def score(self, run: QuestionRun, question: EvalQuestion) -> Dict[str, float]:
         gold = question.gold_chunk_keys

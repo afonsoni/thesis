@@ -46,7 +46,6 @@ class GenerationJudgeMetric:
     """``Metric`` scoring the generated answer with claim-level and holistic judges."""
 
     name = "generation"
-    needs_llm = True
 
     def __init__(self, model: Optional[str] = None):
         self.model = model

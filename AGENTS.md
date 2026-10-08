@@ -114,7 +114,7 @@ Entry point: `main.py`
   faithfulness and correctness (RAGAS-style, `judge.py`) plus a 1-5 relevance judge
   whose `abstained` flag gives `abstention` (on `answerable: false` questions) and
   `false_refusal` (on the rest),
-  behind a `Metric` protocol. `stats.py` adds bootstrap CIs and paired differences to
+  (each a `name` + `score()`; see `runner.Metric`). `stats.py` adds bootstrap CIs and paired differences to
   the leaderboard; `scripts/judge_validation.py` measures judge-human agreement.
 - Gold set: `data/eval/questions/CANDIDATES.md` -> `scripts/anchor_gold.py` ->
   `anchoring/ANCHORING.md` (human review, `reviewed: yes`) -> `golden.json`, with a

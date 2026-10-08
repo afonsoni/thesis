@@ -12,16 +12,22 @@ from __future__ import annotations
 import logging
 import time
 from datetime import datetime
-from typing import Callable, Dict, List, Optional
+from typing import Callable, Dict, List, Optional, Protocol
 
 from src.rag.common.llm_client import CALL_LOG, call_with_wait_out
 from src.rag.common.models import RetrievalResult, SearchResult
 from src.rag.evaluation.keys import chunk_key
-from src.rag.evaluation.metrics.base import Metric
 from src.rag.evaluation.models import EvalDataset, EvalQuestion, QuestionRun, VariantResult
 from src.rag.retrieval.config import RetrievalConfig
 
 logger = logging.getLogger(__name__)
+
+class Metric(Protocol):
+    """Anything with a ``name`` and ``score(run, question) -> {metric: value in [0, 1]}``."""
+    name: str
+
+    def score(self, run: QuestionRun, question: EvalQuestion) -> Dict[str, float]: ...
+
 
 RetrieveFn = Callable[[str, RetrievalConfig], RetrievalResult]
 GenerateFn = Callable[[RetrievalResult], object]
@@ -124,7 +130,7 @@ def run_question(
         try:
             run.metrics.update(metric.score(run, question))
         except Exception as exc:  # noqa: BLE001
-            logger.warning("Metric %s failed on %s: %s", getattr(metric, "name", metric), question.id, exc)
+            logger.warning("Metric %s failed on %s: %s", metric.name, question.id, exc)
 
     run.llm_calls = _calls_since(first_call)
     return run
