@@ -34,69 +34,377 @@ researched, choice made, and how/why that choice was later revised.}
 % ============================================================
 \section{Indexing (offline)} \label{sec:indexing}
 % ============================================================
+%% DRAFT (Claude, 2026-10-06) from dissertation/HISTORY-GAPS.md and commit
+%% bodies. To be rewritten in the author's own words. Remaining \TODO markers
+%% are missing citations or facts to confirm, not passages to write.
 
-\TODO{Section lead-in: pipeline in one sentence (PDF $\rightarrow$ Markdown
-$\rightarrow$ chunks $\rightarrow$ topic labels $\rightarrow$ embeddings
-$\rightarrow$ vector store) + forward-reference the subsections.}
+Indexing turns the eight manifesto PDFs into a searchable store in six
+steps: each document is parsed to Markdown, cleaned, split into chunks,
+labelled with policy topics, embedded, and written to a vector database.
+It runs offline, once per corpus change, and everything the query-time
+pipeline (Section~\ref{sec:querytime}) does depends on the representation it
+produces. The subsections below follow the pipeline in order. Each one states
+the problem, the options considered, the choice made, and, where it happened,
+how and why that choice was later revised.
 
 \subsection{Corpus} \label{subsec:corpus}
-%% src: 8 manifesto PDFs, commit 80530d7 (2025-01-29); parties table in repo README
-\TODO{Describe the corpus: 8 Portuguese party manifestos (2024 elections),
-selection criteria, sizes, formats, licensing/availability.}
+
+The corpus consists of the electoral manifestos published for the 2024
+Portuguese legislative election by the eight parties already represented in
+the Assembleia da República before that election: Aliança Democrática (AD), Partido Socialista
+(PS), CHEGA, Iniciativa Liberal (IL), Bloco de Esquerda (BE), Partido
+Comunista Português (PCP), LIVRE and Pessoas--Animais--Natureza (PAN).
+PSD sat in the outgoing parliament on its own and stood in 2024 within the
+AD coalition. All eight were re-elected, so the corpus also covers every party
+in the parliament that resulted. The 2024 election was chosen because it was
+under way when this work began. Limiting the corpus to one election and to
+parties already in parliament kept the manual work of preparing documents
+manageable. The cost is that parties on the ballot but outside parliament,
+often the ones voters know least about, are not represented. The indexing
+pipeline was later made easier to extend for this reason
+(Section~\ref{subsec:cleaning}). Every chunk also records the election year,
+so manifestos from other elections can sit alongside these. That would make
+longitudinal questions possible, such as how a party's position on a given
+issue changed between elections (Chapter~\ref{ch:conclusion}). AD and PCP ran as coalitions (PSD/CDS-PP/PPM and CDU
+respectively); the documents used are the programmes those coalitions
+published.
+
+Table~\ref{tab:corpus} summarises the corpus. The documents are long and
+uneven, ranging from 94 to 275 pages and from about 31 to 68 thousand words
+after conversion, which totals roughly 1{,}400 pages and 427 thousand words.
+Every manifesto is a public document, freely downloadable from its party's
+website. \TODO{State where each PDF was obtained and on what date, and check
+whether any party states a licence.}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|l|r|r|}
+        \hline
+        \textbf{Party} & \textbf{Pages (PDF)} & \textbf{Words (cleaned Markdown)} \\
+        \hline
+        AD    & 184 & 55{,}474 \\
+        BE    & 275 & 66{,}303 \\
+        CHEGA & 176 & 53{,}260 \\
+        IL    & 166 & 67{,}866 \\
+        LIVRE & 155 & 60{,}247 \\
+        PAN   & 201 & 30{,}925 \\
+        PCP   &  94 & 41{,}070 \\
+        PS    & 144 & 51{,}668 \\
+        \hline
+        \textbf{Total} & \textbf{1{,}395} & \textbf{426{,}813} \\
+        \hline
+    \end{tabular}
+    \caption{The corpus: 2024 legislative manifestos of the eight parties
+    elected to parliament.}
+    \label{tab:corpus}
+\end{table}
 
 \subsection{Document parsing} \label{subsec:parsing}
-%% src: candidates already written in pre-thesis ProblemAndChallenges.tex §Data Collection
-%% src: git bake-off pdf_extractor_v1 (pdfminer) vs v2 (PyMuPDF), Jan 2025; marker corpus Apr 2025 (1af3074)
-\TODO{Problem: PDFs with complex layouts, multi-column, tables.}
-\TODO{Candidates researched: PyMuPDF, PDFMiner, PyPDF, LlamaParse, Marker
-(reuse/adapt pre-thesis text).}
-\TODO{Choice + why: Marker (PDF $\rightarrow$ Markdown). FILL FROM MEMORY: what
-made Marker win the bake-off.}
-\TODO{Revision: why manual correction of Marker output was still needed
-(-manual.md files, Aug 2025). FILL FROM MEMORY.}
+
+Manifestos are written to be printed and read, not parsed. They use
+multi-column layouts, decorative title pages, running page headers, pull
+quotes, tables of contents and infographics. A text extractor must recover
+the running text in reading order and, ideally, the heading structure that
+organises it into chapters and sections.
+
+Five tools were identified as candidates during the preliminary research:
+\href{https://pymupdf.readthedocs.io/en/latest/}{PyMuPDF},
+\href{https://github.com/pdfminer/pdfminer.six}{pdfminer.six},
+\href{https://pypi.org/project/pypdf/}{PyPDF},
+\href{https://docs.llamaindex.ai/en/stable/llama_cloud/llama_parse/}{LlamaParse}
+and Marker~\citep{marker}. Of these,
+pdfminer.six and PyMuPDF were tried first (January 2025), as both are
+widely used plain-text extractors, and Microsoft's
+MarkItDown~\citep{markitdown} was tried as well. None extracted the text
+reliably enough to avoid substantial manual repair. LlamaParse was ruled out
+without being tried because it is a paid cloud service. No record survives of
+PyPDF being tested.
+
+Marker was adopted in April 2025 and all eight manifestos were converted with
+it. It converts PDF directly to Markdown using neural layout-detection and
+OCR models, runs locally, and is free for research use. It also offers an
+LLM-assisted mode, which was not used. Its code is licensed under the GPL,
+while its model weights carry a modified OpenRAIL-M licence that permits
+research and personal use. Direct
+Markdown output turned out to matter more than expected. Markdown headings
+are what the chunker later uses to split documents along their own sections
+(Section~\ref{subsec:chunking}), so the parser's ability to recover headings
+ended up being load-bearing for retrieval. The selection was pragmatic.
+Parsing is a means here, not the object of study, and Marker was the first
+tool that met the requirement. No systematic comparison of parsers was run.
+
+\subsection{Cleaning} \label{subsec:cleaning}
+
+Marker's output was usable but not clean. Comparing its first output (April
+2025) with the hand-corrected versions produced in August 2025 shows where
+the errors were. Table~\ref{tab:cleaning} gives the counts for the four
+manifestos corrected by hand.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|l|r|r|r|r|}
+        \hline
+        \textbf{Party} & \textbf{Words} & \textbf{Headings} & \textbf{Top-level headings} & \textbf{Table lines} \\
+        \hline
+        AD    & 56{,}817 $\rightarrow$ 55{,}474 & 238 $\rightarrow$ 218 &  3 $\rightarrow$ 2 & 251 $\rightarrow$ 117 \\
+        LIVRE & 61{,}491 $\rightarrow$ 60{,}247 & 159 $\rightarrow$ 60  & 57 $\rightarrow$ 1 &  22 $\rightarrow$ 0 \\
+        PCP   & 42{,}856 $\rightarrow$ 41{,}070 & 301 $\rightarrow$ 224 & 11 $\rightarrow$ 1 & 118 $\rightarrow$ 9 \\
+        PS    & 52{,}307 $\rightarrow$ 51{,}668 & 163 $\rightarrow$ 138 &  1 $\rightarrow$ 1 &  24 $\rightarrow$ 24 \\
+        \hline
+    \end{tabular}
+    \caption{Marker output versus the hand-corrected Markdown.}
+    \label{tab:cleaning}
+\end{table}
+
+The corrections fall into three kinds. First, and most important, is the
+heading hierarchy. Marker frequently promoted running page headers and
+section titles to top-level headings; the LIVRE manifesto came out with 57 of
+them, one for nearly every page. Each document was restored to a single title
+and a consistent tree of sections beneath it. Second, tables of contents
+were removed: Marker renders them as Markdown tables of section names and page
+numbers, which match almost any query while containing no proposals. Third,
+layout residue was removed: image links, page anchors, repeated page headers
+and fragmented cover titles. Proposal text was left alone; between 1\% and
+4\% of words were removed, almost all of them from tables of contents and
+page furniture.
+
+Hand correction took twenty to thirty minutes per manifesto and was done for
+four of the eight. That cost is acceptable once but does not scale to new
+election cycles, to earlier manifestos, or to parties outside parliament.
+In October 2026 the remaining four manifestos were therefore cleaned with an
+automated cleaner written for the purpose, followed by a manual review. It runs
+in two passes. A deterministic pass removes the residue described above. An
+LLM pass then decides only the heading structure: the model is shown the
+existing heading candidates and, for each one, keeps it at a given level,
+demotes it to body text, or drops it. A verification step rejects any output
+containing a word absent from the input, so the model cannot paraphrase or
+invent manifesto text. The manual review still had to fix part and chapter
+headings the model missed in all four documents.
+\TODO{Report the cleaner's agreement with the four hand-corrected files
+(scripts/validate\_cleaner.py), if the number is meaningful.}
 
 \subsection{Chunking} \label{subsec:chunking}
-%% src: words 512/200 (3312dba) -> chars 1000 (9d15f90) -> chars 1600 (5a8453e) -> tokens 400/80 + small_to_big (f896f61, 54102b7)
-%% src: README "Why the embedding model changed" post-mortem; pre-thesis already planned token-based sizes (128-2048)!
-\TODO{Problem: chunk granularity trade-offs (you already have the trade-off
-table in pre-thesis ProblemAndChallenges.tex).}
-\TODO{History: word-based, then character-based sizing; the silent-truncation
-discovery (89.5\% of chunks truncated, 37.3\% of corpus embedded); note the
-irony that the pre-thesis had already planned token-based experiments.}
-\TODO{Final design: header-aware splitting + token-sized windows +
-small-to-big; explain the two-budgets argument (retrieval vs generation).}
+
+Retrieval operates on chunks, not documents, so chunk size sets the
+granularity of everything downstream. Small chunks give precise matches and
+more diverse sources but lose surrounding context. Large chunks keep context
+but dilute the embedding and risk burying the relevant sentence in the middle
+of the passage (Table~\ref{tab:chunk-sizes}).
+
+The final design combines three ideas. First, documents are split along their
+own Markdown headings, so every chunk belongs to exactly one section and
+carries that section's path (for example \textit{Com Sensibilidade Social
+$>$ Saúde $>$ Medidas}) as metadata. Second, sections longer than the budget
+are windowed recursively at paragraph, then sentence, then word boundaries,
+with overlap between consecutive windows. Third, the windows are retrieved
+small-to-big: the small window is what gets embedded and matched, while the
+full parent section is what the generator reads. The current budget is 400
+tokens per window with an 80-token overlap, which yields 383 chunks for the
+AD manifesto.
+
+\paragraph{How the design was reached.} Chunk size was revised four times.
+The first prototype (May 2025) split text by words.
+Its configuration asked for 512 words with an overlap of 200, but the code
+never read that setting and used its own defaults of 1{,}000 words with 200
+of overlap. The encoder at the time, \texttt{all-MiniLM-L6-v2}, reads at most
+256 tokens, so truncation was already present in the first prototype, a year
+before it was found. The rewrite of March 2026 switched to 1{,}000 characters
+with 100 of overlap, and in April 2026 this grew to 1{,}600 characters with
+200 of overlap. The increases followed practitioner guidance at the time,
+which moved towards larger chunks as LLM context windows grew. One widely
+read benchmark found page-level chunks gave the best average answer accuracy
+across its datasets~\citep{nvidia-chunking}. The evidence is more nuanced
+than the trend, however. A multi-dataset study found that small chunks
+(64--128 tokens) suit questions with short factual answers, while larger ones
+(512--1{,}024 tokens) help only when answers need broader
+context~\citep{bhat2025rethinkingchunksize}.
+
+The flaw in these choices only appeared in August 2026, when chunk lengths
+were first measured in the unit the embedding model actually uses. The
+encoder then in use, serafim-900m (Section~\ref{subsec:embeddings}),
+accepts at most 128 tokens and silently drops the rest. At 1{,}600
+characters the median chunk was 365 tokens: 89.5\% of chunks were truncated,
+and only 37.3\% of the corpus text was ever embedded. A probe made the cost
+concrete. Queried with its own opening, a chunk ranked first (cosine
+similarity 0.986). Queried with its own closing text, it did not appear in the
+top five. Two thirds of each chunk was invisible to retrieval, and nothing in
+the pipeline reported an error.
+
+There is an irony here worth stating plainly. The research plan written
+before implementation had already proposed a chunk-size experiment measured
+in tokens, from 128 to 2{,}048. The implementation drifted to characters
+because that is the default unit of the common splitting libraries, and the
+plan's own unit would have exposed the problem at once.
+
+The diagnosis was that one number had been made to serve two budgets.
+The \emph{retrieval budget} is set by the encoder's maximum input length,
+and exceeding it truncates silently. The \emph{generation budget} is set by
+the LLM's context window, and at these sizes it is never exceeded. The
+character-sized chunks had been sized for the second budget and fed to a
+component bound by the first. Two fixes followed. Chunk length is now
+measured with the embedding model's own tokenizer, so the budget is expressed
+in the unit that constrains it. Small-to-big retrieval decouples the two
+budgets entirely: the embedded window can be small and precise while the
+generator still receives the full section. After the change, no AD chunk was
+truncated and the whole corpus was embedded. The character-based strategy is
+kept only as the baseline against which this is measured.
 
 \subsection{Topic classification} \label{subsec:classification}
-%% src: 18 PT categories, structured LLM output (9d15f90); keyword fallback removed + checkpoint/resume (c298e4b); made optional (f5c61c7); cost story in d2d9f1d
-\TODO{Problem: metadata needed for filtering/routing; no labeled PT data.}
-\TODO{Design: 18-category multi-label taxonomy via structured LLM calls. FILL
-FROM MEMORY: how the taxonomy was defined.}
-\TODO{Revisions: keyword fallback removed; checkpoint/resume added; made
-optional after token-chunking multiplied chunk counts ($\sim$4.5$\times$) ---
-cost/scale discussion.}
+
+Query-time routing (Section~\ref{subsec:routing}) needs to know what each
+chunk is about, so that a question on housing can be restricted to housing
+passages, or a topic can be explored across parties. No labelled Portuguese
+manifesto data exists for this, and none of the documents tag their own
+sections consistently. Topics are therefore assigned by an LLM during indexing.
+
+\paragraph{Taxonomy.} The 18 categories (Table~\ref{tab:topics} in
+Appendix~\ref{app:results}) were derived by reading the
+manifestos for recurring policy areas and by consulting two public online
+tools for comparing party programmes, the \textit{Expresso} manifesto
+comparator for the 2024 election~\citep{expresso-comparador} and
+\textit{PolíticaAtivaPT}~\citep{politicaativa-comparar}. The final list
+combines categories from both. Classification is multi-label because manifesto passages often
+address several areas at once. A proposal to build student residences
+concerns housing, education and youth. Exempting young buyers from property
+transfer tax concerns housing, taxation and youth.
+
+\paragraph{Method.} Chunks are classified in batches of 15 through structured
+output: the model returns, for each chunk, a list of categories, a confidence
+score and keywords, validated against a schema. The model is
+\texttt{gemma-4-31b-it}, an open-weights model served free of charge through
+OpenRouter.
+
+\paragraph{Revisions.} Three changes followed from running the classifier at
+scale.
+\begin{itemize}
+    \item \textbf{Fail fast, resume cheaply.} The first version fell back to
+    keyword matching whenever an LLM call failed. Under free-tier rate limits
+    that happened often, and it produced a silent mix of LLM labels and much
+    cruder substring-match labels, with nothing to tell them apart. The
+    fallback was removed in April 2026. A failed call now stops the run, and a
+    checkpoint lets it resume where it stopped, so a stored label is always an
+    LLM label.
+    \item \textbf{Optional classification.} Classification costs roughly
+    thirty minutes of rate-limited calls per manifesto, so in August 2026 it
+    became optional. Retrieval experiments that do not depend on topics
+    (chunking, encoders, hybrid search) can then re-index without spending
+    that quota.
+    \item \textbf{Fewer, better labels.} A manual check of 30 random AD chunks
+    (October 2026) found the first label correct in about 29 cases. However,
+    about 8 chunks carried a clearly wrong additional label (tourism tagged
+    as health, business financing as public finance), and about 6 more carried
+    a reflexive \textit{governance} label whenever the State was mentioned.
+    The self-reported confidence was 4 or 5 out of 5 on all 383 chunks, so it
+    could not be used to filter. The cause was the prompt, which asked for
+    ``multiple categories (up to four)''. It now asks for the main topic
+    first, adds a further label only when the passage contains a concrete
+    proposal or figure on it, and caps labels at three.
+    \TODO{Re-run the spot check after re-classification and report
+    before/after.}
+\end{itemize}
 
 \subsection{Embeddings} \label{subsec:embeddings}
-%% src: candidates in pre-thesis (BERTimbau, SBERT, MiniLM via MTEB, E5, OpenAI, Google)
-%% src: MiniLM (3312dba) -> serafim-900m (2c52f75, Aug 2025, rationale NOT recorded) -> Qwen3-Embedding-0.6B (ee2ff51)
-%% src: README post-mortem: STS-vs-retrieval scores, 128-token window, truncation probe (cosine 0.986), asymmetric encoding
-\TODO{Problem: Portuguese, long passages, retrieval (not STS) task.}
-\TODO{Candidates researched: reuse pre-thesis list + MTEB methodology.}
-\TODO{First choices: MiniLM, then serafim-900m. FILL FROM MEMORY: why serafim
-was adopted (not documented anywhere; Jan-2025 meeting note mentions BERTimbau
-struggles).}
-\TODO{Reversal: serafim $\rightarrow$ Qwen3-Embedding-0.6B --- the README
-post-mortem is nearly thesis-ready; adapt it (sentence encoder vs retrieval
-encoder, silent truncation, asymmetric query/document encoding).}
+
+The embedding model decides which chunks a query can find. Three properties
+matter for this corpus. The model must handle European Portuguese well, it
+must be trained for \emph{retrieval} (matching a short question to a longer
+passage that answers it) rather than for sentence similarity, and its input
+window must fit the chunk budget.
+
+\paragraph{Candidates.} The preliminary research used the Massive Text
+Embedding Benchmark (MTEB)~\cite{mtebmassivetextembedding} to shortlist
+models supporting Portuguese: BERTimbau~\citep{souza2020bertimbau}, Sentence-BERT~\citep{reimers2019sentencebert},
+\texttt{paraphrase-multilingual-MiniLM-L12-v2},
+\texttt{multilingual-e5-large-instruct}~\cite{wang2024multilinguale5textembeddings},
+and two commercial APIs (OpenAI's \texttt{text-embedding-3-large} and Google's
+\texttt{text-multilingual-embedding-002}). The commercial options were set
+aside so that \sysname{} could run entirely locally on open models.
+
+\paragraph{First choices.} The first prototype (May 2025) used
+\texttt{all-MiniLM-L6-v2}, an English-only model chosen to get the
+pipeline running end to end rather than for quality. Results were poor, as
+expected, and the encoder was the first component revisited. In August 2025
+it was replaced by \texttt{serafim-900m-portuguese-pt-sentence-encoder-ir}
+from the Serafim family of European Portuguese
+encoders~\citep{gomes2024serafim}. Serafim was attractive on every visible criterion: trained on
+European Portuguese specifically, released in an information-retrieval
+variant, recent, and near the top of the Portuguese leaderboards. It was the
+first encoder with which \sysname{}'s answers became acceptable.
+
+\paragraph{Reversal.} Serafim had one property that was not noticed at
+selection time: it reads at most 128 tokens and silently discards the rest,
+which caused the truncation described in Section~\ref{subsec:chunking}. The
+limit is not a configuration detail that could simply be raised. The model
+was trained on short inputs, so there is no evidence it would represent a
+365-token passage well even if allowed to read one. In August 2026 it was
+replaced by \texttt{Qwen3-Embedding-0.6B}~\citep{zhang2025qwen3embedding},
+a decoder-based encoder trained for retrieval that accepts inputs of up to 32
+thousand tokens. The encoder therefore no longer constrains chunk size at
+all. It is also smaller (0.6B against 0.9B parameters) and produces narrower
+vectors (1{,}024 against 1{,}536 dimensions). On MTEB-PT, a Portuguese
+benchmark published after the switch, it scores 78.9 on
+retrieval~\citep{okamura2026mtebpt}. That benchmark evaluates only the
+general-purpose Serafim sentence encoder (54.9 on retrieval, 86.7 on semantic
+similarity), not the retrieval-tuned variant used here, so it offers no
+like-for-like comparison. The encoder comparison planned on this corpus is
+what will provide one.
+
+The replacement also brought a change in how the model is used. Like most
+current retrieval encoders, Qwen3-Embedding is \emph{asymmetric}: queries are
+prefixed with an instruction, while documents are encoded as they are. \sysname{}
+therefore encodes queries and documents through separate paths, so the
+instruction is never omitted at search time.
+
+The move from a Portuguese-native model to a multilingual one is a trade-off,
+not a straightforward upgrade. A model not built around Portuguese may
+represent the language's ambiguities less well, for example homonyms such as
+\textit{canto} (``corner'' or ``I sing'') or \textit{rio} (``river'' or ``I
+laugh''). Whether a long-window Portuguese encoder would outperform Qwen3 on
+this corpus is an empirical question. The evaluation harness can answer it by
+re-indexing the corpus once per encoder and comparing retrieval metrics on the
+same gold set (Section~\ref{sec:evaluation}). \TODO{Report the encoder
+comparison once run, or move it to future work.}
 
 \subsection{Vector store} \label{subsec:vectorstore}
-%% src: candidates in pre-thesis (Faiss, Pinecone, Qdrant, Milvus, ChromaDB, Weaviate + ANN-benchmarks)
-%% src: Milvus Lite (3312dba, May 2025) -> PostgreSQL 17 + pgvector (2c52f75, Aug 2025, rationale NOT recorded)
-\TODO{Candidates researched: reuse pre-thesis list.}
-\TODO{First choice: Milvus Lite. FILL FROM MEMORY: why Milvus initially.}
-\TODO{Reversal: Milvus $\rightarrow$ pgvector. FILL FROM MEMORY: rationale
-(pgvector was not even in the researched candidate list --- worth being honest
-about that). Describe final schema: HNSW index, metadata columns, tsvector
-lexical column.}
+
+The store must hold one vector per chunk alongside its metadata (party,
+section path, topics), and answer nearest-neighbour queries filtered by that
+metadata.
+
+\paragraph{Candidates and first choice.} The preliminary research surveyed
+dedicated vector databases (Faiss, Pinecone, Qdrant, Milvus, ChromaDB and
+Weaviate) with reference to ANN-Benchmarks~\citep{aumuller2020annbenchmarks}. All but Pinecone are
+open source. Milvus was chosen first (May 2025), on the strength of its
+reputation in practitioner discussions for being lightweight and fast, and
+because a dedicated vector database seemed the natural component for the job.
+In practice, it ran only in its embedded Milvus Lite mode, a single local
+file. The configuration for a standalone Milvus server was written but never
+used, because setting the server up proved more involved than the project
+warranted.
+
+\paragraph{Reversal.} In August 2025 the store was replaced by PostgreSQL~17
+with the pgvector extension~\citep{pgvector}. PostgreSQL had not been on the
+surveyed list at all, which is worth admitting: the survey had framed the
+question as \emph{which vector database}, and an extension to a general
+relational database fell outside that frame. The case for it rested on three
+points. The project does not need a separate vector service, given a corpus of
+a few thousand chunks. PostgreSQL was already familiar to the author. And
+metadata filtering becomes plain SQL rather than a product-specific filter
+language. A fourth benefit was not planned for. PostgreSQL ships with
+language-aware full-text search, including a Portuguese configuration, so
+when hybrid retrieval was added a year later (Section~\ref{subsec:search}),
+its lexical half needed no new component.
+
+\paragraph{Schema.} Each chunk is one row holding its text, the parent
+section text, party and ideology, topic labels as an array, the heading path
+as JSON, and a 1{,}024-dimensional vector. Similarity search uses an HNSW
+index~\citep{malkov2020hnsw} on cosine distance
+($m = 16$, $\mathit{ef\_construction} = 64$). Topic filters use a GIN index
+on the label array. A generated \texttt{tsvector} column, computed with
+PostgreSQL's Portuguese text-search configuration and also GIN-indexed,
+serves lexical search. Because the column is generated by the database, it
+cannot drift out of sync with the text it indexes. PostgreSQL runs in Docker,
+so the whole store is reproducible from one configuration file.
 
 % ============================================================
 \section{Query time (online)} \label{sec:querytime}

@@ -2,5 +2,41 @@
 
 \TODO{Full per-variant leaderboard tables (all metrics, all variants) that
 would clutter Section~\ref{subsec:results}; per-question examples showing a
-gold question, the retrieved chunks, and the judged answer; the topic
-taxonomy (18 categories) in full.}
+gold question, the retrieved chunks, and the judged answer.}
+
+\section{Topic taxonomy} \label{sec:taxonomy}
+
+The 18 categories used by the topic classifier
+(Section~\ref{subsec:classification}), with the descriptions given to the
+model in its prompt.
+
+\begin{table}[h]
+    \centering
+    \small
+    \begin{tabular}{|l|p{0.68\textwidth}|}
+        \hline
+        \textbf{Category} & \textbf{Description (as given to the classifier)} \\
+        \hline
+        \texttt{impostos} & Impostos, taxas, fiscalidade, tributação, política fiscal \\
+        \texttt{seguranca\_social} & Segurança social, pensões, reformas, subsídios, proteção social \\
+        \texttt{trabalho} & Trabalho, emprego, salários, direitos laborais, sindicatos, desemprego \\
+        \texttt{economia} & Economia, crescimento económico, competitividade, desenvolvimento económico \\
+        \texttt{financas} & Finanças públicas, orçamento, dívida pública, gestão financeira \\
+        \texttt{habitacao} & Habitação, arrendamento, propriedade, habitação social, urbanismo, residências estudantis \\
+        \texttt{saude} & Saúde, SNS, hospitais, cuidados médicos, saúde mental, medicamentos \\
+        \texttt{educacao} & Educação, ensino, universidades, escolas, formação profissional, ciência \\
+        \texttt{seguranca} & Segurança pública, forças policiais, criminalidade, ordem pública \\
+        \texttt{justica} & Justiça, tribunais, sistema judicial, direitos fundamentais, corrupção, offshores \\
+        \texttt{politica\_externa} & Política externa, relações internacionais, UE, diplomacia, offshores \\
+        \texttt{cultura} & Cultura, património, artes, língua portuguesa, criatividade, desporto \\
+        \texttt{ambiente} & Ambiente, clima, sustentabilidade, energia, proteção ambiental \\
+        \texttt{igualdade} & Igualdade de género, direitos humanos, inclusão, discriminação, minorias \\
+        \texttt{jovens} & Juventude, políticas para jovens, emancipação jovem, residências estudantis \\
+        \texttt{imigracao} & Imigração, integração, diversidade, comunidades estrangeiras, refugiados \\
+        \texttt{governacao} & Governação, administração pública, descentralização, poder local, transparência \\
+        \texttt{outros} & Outros temas não classificados nas categorias anteriores \\
+        \hline
+    \end{tabular}
+    \caption{Topic taxonomy.}
+    \label{tab:topics}
+\end{table}

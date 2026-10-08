@@ -90,43 +90,8 @@ challenges the generic list misses; candidates from your own project history:}
 each subsection is the "candidates researched" half of the matching
 Proposition subsection. Migrate block by block, then delete this section.}
 
-\subsection{Data Collection}
-% MIGRATE -> Proposition \ref{subsec:parsing}
-
-Extracting text from electoral programs, which are often distributed in PDF format, requires robust parsing tools capable of handling complex layouts and multilingual content. Several PDF parsers were evaluated for this purpose:
-
-\begin{itemize}
-    \item \href{https://pymupdf.readthedocs.io/en/latest/}{PyMuPDF}
-    \item \href{https://pypi.org/project/pdfminer/}{PDFMiner} (or \href{https://github.com/pdfminer/pdfminer.six}{Pdfminer.six})
-    \item \href{https://pypi.org/project/pypdf/}{PyPDF}
-    (or \href{https://python.langchain.com/api_reference/community/document_loaders/langchain_community.document_loaders.pdf.PyPDFLoader.html}{PyPDFLoader} from LangChain)
-    \item \href{https://docs.llamaindex.ai/en/stable/llama_cloud/llama_parse/}{LlamaParse}
-    \item \href{https://github.com/VikParuchuri/marker}{Marker} (PDF to Markdown)
-\end{itemize}
-
-\subsection{Embeddings}
-% MIGRATE -> Proposition \ref{subsec:embeddings}
-
-Embeddings play a critical role in encoding the semantic meaning of text into numerical representations, enabling machines to understand and process human language. The quality of embeddings directly impacts the performance of retrieval and generation tasks in the RAG pipeline. Several embedding models were researched, always focusing on those supporting the Portuguese language. Some of these models were identified through the \href{https://huggingface.co/spaces/mteb/leaderboard}{Massive Text Embedding Benchmark (MTEB)} \cite{mtebmassivetextembedding}, a comprehensive evaluation framework for text embeddings.
-
-The following embedding models are suitable for Portuguese text:
-
-\begin{itemize}
-    \item \texttt{BERTimbau-Large}: A Portuguese-specific variant of BERT (Bidirectional Encoder Representations from Transformers), fine-tuned for tasks requiring semantic understanding of Portuguese text.
-    \item \texttt{Sentence-BERT}: A variation of BERT optimized for generating sentence-level embeddings, which is useful for tasks like semantic similarity and retrieval.
-    \item \texttt{paraphrase-multilingual-MiniLM-L12-v2}: A multilingual model that maps text to a 384-dimensional dense vector space. It supports both Portuguese and English and ranks within the top 160 on the retrieval section of the MTEB Leaderboard.
-    \item \texttt{Multilingual-E5-large-instruct} \cite{wang2024multilinguale5textembeddings}: A multilingual embedding model designed for instruction-following tasks, offering robust performance across diverse languages, including Portuguese.
-    \item OpenAI's \texttt{text-embedding-3-large}: An embedding model from OpenAI.
-    \item Google's \texttt{text-multilingual-embedding-002}: An embedding model developed by Google, optimized for handling text in multiple languages, including Portuguese.
-\end{itemize}
-
-
-\subsection{Vector Databases}
-% MIGRATE -> Proposition \ref{subsec:vectorstore}
-
-The success of a Retrieval-Augmented Generation (RAG) system relies heavily on its ability to efficiently store and retrieve high-dimensional vector embeddings. Vector databases enable fast similarity searches over large datasets, making them a critical component of RAG pipelines. These databases are designed to handle complex data structures, such as text, images, or audio, which are converted into mathematical vectors for storage and retrieval.
-
-Several popular vector databases are available, each with unique strengths for specific use cases. These include Faiss, Pinecone, Qdrant, Milvus, ChromaDB, and Weaviate. To identify the most suitable option for this research, the performance of these databases will be evaluated in the context of Portuguese political text analysis. Benchmarks from \href{https://ann-benchmarks.com/index.html}{ANN Benchmarks} will also be referenced to inform the decision-making process.
+% Data Collection, Embeddings and Vector Databases migrated to Proposition
+% \ref{subsec:parsing}, \ref{subsec:embeddings}, \ref{subsec:vectorstore} (2026-10-06).
 
 \subsection{Techniques to Improve RAG Retrieval}
 % MIGRATE -> Proposition, split: metadata filtering -> \ref{subsec:routing};
