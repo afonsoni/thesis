@@ -63,6 +63,10 @@
 % Find every pending spot: search "TODO" across the project.
 \newcommand{\TODO}[1]{\textcolor{red}{\textbf{[TODO: #1]}}}
 
+% Name of the built system (provisional, 2026-10-08): rename it here only.
+% Write \sysname{} in running text so the following space is kept.
+\newcommand{\sysname}{PoliRAG}
+
 \begin{document}
 \setlength{\parindent}{0em}
 
@@ -101,19 +105,11 @@
 
 \cleardoublepage
 \pagenumbering{arabic}
-\setcounter{chapter}{-1}
-
-%-- Dissertation 
-\part{Introductory material}
-
-
+%-- Dissertation
 \input{chapters/Preamble}
 \input{chapters/Introduction}
 \input{chapters/StateOfTheArt}
 \input{chapters/ProblemAndChallenges}
-
-\part{Core of the Dissertation}
-
 \input{chapters/Proposition}
 %\input{chapters/Contribution}   % template stub — superseded by Proposition; delete file when tidying
 \input{chapters/Applications}    % repurposed as Prototype Demonstration
@@ -128,8 +124,6 @@
 
 \appendix
 \renewcommand\chaptername{Appendix}
-
-\part{Appendices}
 
 %\input{appendices/SupportWork}  % template stub — no planned content; delete file when tidying
 \input{appendices/DetailsOfResults}

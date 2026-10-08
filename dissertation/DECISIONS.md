@@ -95,8 +95,19 @@ for the decision-history thread of the Proposition chapter.
   and the workspace settings.
 - **Chapter layout** (2026-08-16): Introduction, State of the Art, The Problem
   and its Challenges, Proposition (indexing / query time / evaluation),
-  Prototype Demonstration, Conclusions and Future Work. The Preamble chapter
-  is dropped once its pivot story moves into the Introduction; the Work Plan
-  section is already gone.
+  PoliRAG in Practice, Conclusions and Future Work. The Work Plan section
+  is already gone.
+- **Preamble is kept, unnumbered** (2026-10-08, reverses the 2026-08-16 plan
+  to drop it). It opens the main matter as a starred chapter listed in the
+  table of contents without a number, so the Introduction is Chapter 1.
+- **The system is named PoliRAG, provisionally** (2026-10-08). The name sits
+  in one macro, `\sysname` in `dissertation.tex`, so a later rename is a
+  one-line change. It is introduced in the Abstract, Resumo, Introduction
+  (Motivation) and the Proposition lead-in; the demonstration chapter is
+  "PoliRAG in Practice". Rejected: ManifestoRAG, Manifesta (no "RAG"),
+  politico-meter (implies measuring leaning, the abandoned original idea).
+- **No part pages** (2026-10-08). The "Introductory material" and "Core of the
+  Dissertation" dividers were removed; they added pages without aiding
+  navigation.
 - **Political quiz** is future work, not a deliverable. Revisit only if time
   remains after the main chapters are drafted.
