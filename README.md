@@ -90,13 +90,17 @@ a third of them. Two independent fixes follow from that, and both are kept:
 
 1. **Chunk size is measured in tokens**, using the embedding model's own
    tokenizer, so the budget is expressed in the unit that constrains it.
-2. **The encoder was replaced.** serafim is a *sentence* encoder — excellent at
-   STS (86.7 on the PT-MTEB-style comparison) but weak at retrieval (54.9),
-   which is the same fact twice: it was built for short symmetric sentence
-   similarity, not asymmetric passage retrieval. `Qwen3-Embedding-0.6B` scores
-   78.9 on retrieval, is *smaller* (0.6B vs 0.9B), indexes narrower (1024 vs
-   1536 dims), and has a 32k window — so the encoder is no longer what limits
-   chunk size. Chunk size is now a free retrieval-granularity choice.
+2. **The encoder was replaced.** The variant used,
+   `serafim-900m-portuguese-pt-sentence-encoder-ir`, was already tuned for
+   retrieval; its problem was the 128-token window, which it was also trained
+   at, so raising the cap would not make it represent long passages well.
+   `Qwen3-Embedding-0.6B` has a 32k window, is *smaller* (0.6B vs 0.9B), indexes
+   narrower (1024 vs 1536 dims), and scores 78.9 on retrieval in MTEB-PT
+   ([arXiv 2607.04071](https://arxiv.org/abs/2607.04071)) — so the encoder is no
+   longer what limits chunk size. Chunk size is now a free retrieval-granularity
+   choice. MTEB-PT evaluates only the general serafim sentence encoder (54.9 on
+   retrieval), not the `-ir` variant, so there is no like-for-like comparison
+   yet; the planned encoder comparison on this corpus will provide one.
 
 Note that most modern retrieval encoders, including Qwen3, are **asymmetric**:
 queries take an instruction prefix, documents take none. `Embedder` applies

@@ -40,7 +40,10 @@ Entry point: `main.py`
   only for ablations. See `indexing.chunk_strategy` and the README — sizing in
   characters overran `serafim-900m`'s 128-token window and silently truncated ~89%
   of chunks (62.7% of the corpus never embedded), which is why the encoder was
-  replaced by `Qwen/Qwen3-Embedding-0.6B` (32k window, retrieval-trained).
+  replaced by `Qwen/Qwen3-Embedding-0.6B` (32k window). The serafim variant used
+  was the retrieval-tuned `...-sentence-encoder-ir`, so the reason for the swap
+  is the window, not the training task. Do not cite MTEB-PT's serafim scores
+  (STS 86.7 / retrieval 54.9) for it: they are for the general sentence encoder.
   Under `small_to_big`, a child's `parent_content` (what generation reads) is its
   header section, capped at `indexing.max_parent_tokens`: an oversized section
   gives each child a window of its neighbours instead. `scripts/rebuild_parents.py`

@@ -18,10 +18,9 @@ pdf_extraction:
 # documents — Embedder applies these automatically) and a 32k context window, so
 # the encoder is no longer what limits chunk size.
 #
-# Replaced serafim-900m, which was a *sentence* encoder: excellent at STS but
-# capped at 128 tokens, which silently truncated 63% of the corpus. Its weak
-# retrieval was the same fact seen twice — it was built for short symmetric
-# sentence similarity, not asymmetric passage retrieval.
+# Replaced serafim-900m-...-ir, which was retrieval-tuned but capped at 128
+# tokens (also its training length), which silently truncated 63% of the
+# corpus. The window, not the training task, was the reason for the swap.
 #
 # Changing `model` changes `dimension`, and pgvector cannot alter a VECTOR(n)
 # column in place: reindex with `--drop`.
