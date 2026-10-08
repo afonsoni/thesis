@@ -161,10 +161,11 @@
   "gold": [
    "sha1:d070e3ad0794a201ba8b1610b9f65df1f6c34d80",
    "sha1:984af31d890e03a980758f329d8ffb91c944e3ee",
-   "sha1:a1f925e6e1c874327468ca30e073d1b950e18d48"
+   "sha1:a1f925e6e1c874327468ca30e073d1b950e18d48",
+   "sha1:3bdad65188f4f77abff14c925fec626cf839365d"
   ],
   "reference": "A Iniciativa Liberal propõe reformar o sistema eleitoral para a Assembleia da República, começando por introduzir um círculo nacional de compensação que torne a representação mais proporcional sem quebrar o elo territorial: os eleitores continuam a votar no seu distrito e os mandatos do círculo de compensação repõem a proporcionalidade, à semelhança dos Açores. Em paralelo, continua a defender a eleição de deputados através de círculos uninominais, que a Constituição já permite.",
-  "flag": "Note mentions the D'Hondt method, which no candidate mentions; candidates add uninominal constituencies alongside the compensation circle."
+  "flag": "Added by hand: IL chunk ending d'Hondt's mandatory use (missed by candidate retrieval); reference may need extending."
  },
  "q-19": {
   "gold": [
@@ -319,7 +320,7 @@
    "sha1:9de9433a3e9f71cb3dd9e33da10c04f7120704a4"
   ],
   "reference": "O PCP propõe aumentar todas as pensões em janeiro de cada ano acima da inflação (em 2024, 7,5% com um mínimo de 70 euros), subir as pensões mínimas e criar novos escalões para carreiras de 36 a 40 anos (cerca de 510 euros) e de mais de 40 anos (109% do IAS, 555,90 euros), garantir a reforma sem penalização com 40 anos de descontos, eliminar o fator de sustentabilidade e repor a idade da reforma nos 65 anos. O PS propõe cumprir integralmente a fórmula de atualização com valorização adicional das pensões mais baixas, estudar incluir a massa salarial na indexação e garantir aumentos mínimos, rejeitar a privatização e o plafonamento, diversificar o financiamento da segurança social, rever a regra de formação das pensões a favor de carreiras intermitentes e salários baixos, permitir a reforma a tempo parcial e unificar a CGA com a Segurança Social.",
-  "flag": "PCP 36-40y minimum pension: table says 509.26 EUR, text says 510 EUR."
+  "flag": ""
  },
  "q-31": {
   "gold": [
@@ -365,10 +366,12 @@
    "sha1:cb1b19d3f3e61c99c2bdb7415f1d6d8269ccc1e4",
    "sha1:91f0c60b731aa62efe57db3c1a8a8cf5c14a243f",
    "sha1:ea6706ca3945ea9d6c72e1c9d07cb70047d89376",
-   "sha1:40d16a933e509a89e9388e9d256d55053f93f8f4"
+   "sha1:40d16a933e509a89e9388e9d256d55053f93f8f4",
+   "sha1:a486772907df4e7a480c4432dab7af727986099f",
+   "sha1:40c753a3274e03e72408884083ff096f85e5d0bc"
   ],
   "reference": "A AD propõe um Plano de Emergência do SNS 2024-2025 com um Voucher Consulta de Especialidade, que dá liberdade de escolha do prestador quando o Tempo Máximo de Resposta Garantido (TMRG) é ultrapassado, contratos temporários com médicos de família aposentados ou privados e o cumprimento dos TMRG para doentes oncológicos até final de 2027. A IL propõe um Programa Especial de Acesso a Cuidados de Saúde que contratualiza, por concurso público internacional, consultas de especialidade e cirurgias sempre que os TMRG não forem cumpridos, a par de carreiras mais atrativas e liberdade de contratação direta pelas instituições do SNS. O BE propõe a abertura imediata de concursos de contratação onde os tempos de espera excedem o recomendado, apoios à fixação em zonas carenciadas, a redução para 12 horas do horário semanal de urgência dos médicos para libertar tempo para consultas e cirurgias e a desburocratização. O PCP propõe um programa de emergência para recuperar as listas de espera em consultas, cirurgias, exames e tratamentos, assente sobretudo no aumento da capacidade dos serviços públicos.",
-  "flag": "Note ('IL médico de família; BE salvar o SNS') is vague; gold built from concrete waiting-list measures. CHEGA/LIVRE/PS candidates only generic."
+  "flag": "Added by hand: CHEGA measure 93 (refer to private/social sector when TMRG is exhausted); reference may need a CHEGA sentence."
  },
  "q-35": {
   "gold": [

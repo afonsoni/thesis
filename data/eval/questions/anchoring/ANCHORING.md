@@ -512,7 +512,7 @@ as curated (`eval --curated-only`).
 - note: círculo nacional de compensação, método de Hondt
 - reference: A Iniciativa Liberal propõe reformar o sistema eleitoral para a Assembleia da República, começando por introduzir um círculo nacional de compensação que torne a representação mais proporcional sem quebrar o elo territorial: os eleitores continuam a votar no seu distrito e os mandatos do círculo de compensação repõem a proporcionalidade, à semelhança dos Açores. Em paralelo, continua a defender a eleição de deputados através de círculos uninominais, que a Constituição já permite.
 - reviewed: no
-- review: Note mentions the D'Hondt method, which no candidate mentions; candidates add uninominal constituencies alongside the compensation circle.
+- review: Added by hand: IL chunk ending d'Hondt's mandatory use (missed by candidate retrieval); reference may need extending.
 
 - [ ] `sha1:f99a7f336224ff938d7d23dd8df073f8315fc0e4` · **Iniciativa Liberal** · PROGRAMA ELEITORAL > Rever a Constituição para a tornar mais liberal > 1. FORTALECER A DEMOCRACIA LIBERAL > 1.1. Tornar a democracia mais liberal e representativa > C. PORTUGAL MAIS LIBERAL
   > ### 1. FORTALECER A DEMOCRACIA LIBERAL #### 1.1. Tornar a democracia mais liberal e representativa ##### Rever a Constituição para a tornar mais liberal A Constituição da República Portuguesa, redigida em 1976, precisa de ser melhorada, simplificada e trazida para a modernidade. A Iniciativa Liberal considera que há muito para fazer na lei fundamental para que esta fique conforme a uma democracia …
@@ -536,6 +536,8 @@ as curated (`eval --curated-only`).
   > ##### Aproveitar a Política Agrícola Comum para dependermos menos da Política Agrícola Comum (PAC) A Iniciativa Liberal considera que o financiamento que Portugal retira da PAC será melhor aproveitado quanto mais este se focar na libertação dos agricultores da necessidade de receberem apoios; e a PAC poderá ser útil enquanto compensar boas práticas ambientais, sem por isso obstaculizar a abertura …
 - [ ] `sha1:c5c64452a6e9516421d5f144589805cb58794e1b` · **Iniciativa Liberal** · PROGRAMA ELEITORAL > 4.TRABALHO: MENOS RESTRIÇÕES, MAIS OPORTUNIDADES > 4.1. Flexibilizar a legislação laboral à luz dos padrões europeus > A. PORTUGAL A CRESCER
   > Uma forma alternativa de lidar com essas variações – muitas delas de difícil previsão – reside na **instituição de mecanismos de flexibilização de horários, assentes em acordos prévios entre a entidade patronal e o trabalhador**. Assim, a Iniciativa Liberal defende que a acrescer à possibilidade de recurso a bancos de horas como resultado de instrumentos de regulação coletiva seja novamente consag…
+- [x] `sha1:3bdad65188f4f77abff14c925fec626cf839365d` · **Iniciativa Liberal** · PROGRAMA ELEITORAL > Melhorar a arquitetura do regime > 1. FORTALECER A DEMOCRACIA LIBERAL > 1.1. Tornar a democracia mais liberal e representativa > C. PORTUGAL MAIS LIBERAL
+  > - Que os grupos parlamentares (independentemente da sua dimensão) passem a poder requerer ao Tribunal Constitucional a declaração de inconstitucionalidade ou de ilegalidade de normas; - O fim da obrigatoriedade do método de Hondt para apuramento de mandatos na Assembleia da República (inserido numa reforma do sistema eleitoral, como se poderá ler nas páginas seguintes). O método a utilizar passa a ser definido na lei eleitoral.
 
 ## q-19 — Compara as propostas de IRS da Iniciativa Liberal e do CHEGA.
 
@@ -544,7 +546,7 @@ as curated (`eval --curated-only`).
 - parties: Iniciativa Liberal, CHEGA
 - topics: impostos
 - stresses: routing, hybrid · diff: M
-- note: IL 15% única; CHEGA 15% até 39.999 e 30% acima, isenção até 1000/mês
+- note: IL taxa única de 15% acima do SMN, faseada com 15%/28%; CHEGA 15% até 39.999 e 30% acima, isenção até 1000/mês
 - reference: O CHEGA propõe duas taxas marginais de IRS — 15% até 39.999 euros e 30% a partir de 40.000 euros —, com isenção para quem recebe até mil euros mensais, e isenção de IRS para jovens até aos 35 anos até perfazerem 100 mil euros de rendimentos. A Iniciativa Liberal propõe uma taxa única de 15% sobre os rendimentos acima do salário mínimo nacional anualizado, mantendo as deduções à coleta, chegando lá numa primeira fase através de duas taxas (15% e 28%). Ambos simplificam o IRS para poucas taxas, mas o CHEGA mantém um escalão de 30% para rendimentos mais altos, enquanto a IL visa uma taxa única.
 - reviewed: no
 - review: IL also has a transitional two-rate step (15%/28%) not mentioned in the note.
@@ -595,7 +597,7 @@ as curated (`eval --curated-only`).
 - parties: Partido Comunista Português, Bloco de Esquerda
 - topics: trabalho
 - stresses: routing · diff: M
-- note: ambos 35 horas para todos; BE junta-lhes a semana de quatro dias (secção "Tempo para viver: semana de quatro dias, 35 horas, desconexão")
+- note: PCP 35 horas de imediato para todos; BE redução do período normal para 38 h (2025), 36 h (2026) e 34 h (2027), e 32 h a partir de 2028 nas empresas que adiram à semana de quatro dias
 - reference: O PCP propõe reduzir de imediato o horário para as 35 horas semanais e 7 horas diárias para todos os trabalhadores, sem perda de remuneração, prosseguindo depois a redução progressiva, e exige que a semana de 4 dias não seja aplicada à custa de jornadas diárias maiores ou de perda de salário ou direitos. O Bloco de Esquerda propõe fixar por lei, nesta legislatura, o máximo de 35 horas, com uma lei de redução progressiva (38 horas em 2025, 36 em 2026, 34 em 2027), e consagrar a opção pela semana de 4 dias sem perda de rendimento, com 32 horas a partir de 2028 nas empresas que adiram.
 - reviewed: no
 - review: BE text also gives a 38/36/34h schedule for 2025-27 and 32h for 4-day-week firms, beyond the note's '35h'.
@@ -776,7 +778,7 @@ as curated (`eval --curated-only`).
 - parties: Partido Comunista Português, Iniciativa Liberal
 - topics: impostos, economia
 - stresses: hybrid · diff: M
-- note: PCP 12,5% para MPME + derrama 14% acima de 50M; IL 12% única
+- note: PCP 12,5% só para MPME até 15.000€ de rendimento colectável + derrama estadual de 14% acima de 50M; IL 12% única (15% para as grandes multinacionais)
 - reference: A Iniciativa Liberal propõe uma taxa única de IRC de 12%, aplicando 15% apenas às multinacionais com faturação acima de 750 milhões de euros por exigência europeia, e revogar as derramas e as tributações autónomas. O PCP quer, pelo contrário, aprofundar a progressividade do IRC: um novo escalão de 12,5% para as micro, pequenas e médias empresas até 15.000 euros de rendimento coletável, um novo escalão de derrama estadual de 14% para empresas com rendimento coletável acima de 50 milhões de euros, taxação extraordinária dos lucros da banca, energia e grande distribuição e fim dos benefícios fiscais às grandes empresas.
 - reviewed: no
 - review: Note omits IL's 15% rate for large multinationals and that PCP's 12.5% applies only up to EUR 15k taxable income.
@@ -1082,7 +1084,6 @@ as curated (`eval --curated-only`).
 - note: 33 vs 21 menções
 - reference: O PCP propõe aumentar todas as pensões em janeiro de cada ano acima da inflação (em 2024, 7,5% com um mínimo de 70 euros), subir as pensões mínimas e criar novos escalões para carreiras de 36 a 40 anos (cerca de 510 euros) e de mais de 40 anos (109% do IAS, 555,90 euros), garantir a reforma sem penalização com 40 anos de descontos, eliminar o fator de sustentabilidade e repor a idade da reforma nos 65 anos. O PS propõe cumprir integralmente a fórmula de atualização com valorização adicional das pensões mais baixas, estudar incluir a massa salarial na indexação e garantir aumentos mínimos, rejeitar a privatização e o plafonamento, diversificar o financiamento da segurança social, rever a regra de formação das pensões a favor de carreiras intermitentes e salários baixos, permitir a reforma a tempo parcial e unificar a CGA com a Segurança Social.
 - reviewed: no
-- review: PCP 36-40y minimum pension: table says 509.26 EUR, text says 510 EUR.
 
 - [x] `sha1:9229ae03c9418ce52e1d2fb3ce61943a4cc81c94` · **Partido Comunista Português** · Programa Eleitoral do PCP: Política patriótica e de esquerda – Soluções para um Portugal com futuro > Proposta do PCP **Valorização das Pensões Mínimas** > 4.2.5 Regime não contributivo da Segurança Social: elevar os valores das prestações não contributivas > CAPÍTULO 4 ELEVAR A QUALIDADE DE VIDA. INVESTIR NOS SERVIÇOS PÚBLICOS, CUMPRIR AS FUNÇÕES SOCIAIS DO ESTADO > 4.2 Mais e melhor Segurança Social para todas as gerações > 2.ª PARTE
   > ###### Proposta do PCP **Valorização das Pensões Mínimas** | | | | | | | | ------------------------------------------------------------------------------------------ | ----------------------- | ------------------------------ | ------------------------------------ | --------------------------- | ----------------------- | | Regime Geral Valor mínimo das pensões de invalidez e velhice — número de anos de descontos | Valor actual (em euros) | Actual % de Indexação ao IAS\* | Proposta do PCP para 2024 (em euros) | Valor do aumento (em euros) | % de Indexação ao IAS\* | | inferior a 15 anos | 319.31 | 62.7 | 325.93 | + 6.62 | 64 | | de 15 a 20 anos | 335.09 | 65.8 | 341.20 | + 6.11 | 67 | | de 21 a 30 anos | 369.72 | 72.6 | 381.95 | + 12.22 | 75 | | superior a 30 anos | 462.41 | 90.8 | 468.52 | + 6.11 | 92 | | 36 a 40 anos | | | 509.26 | + 46.85 | 100 |
@@ -1170,7 +1171,7 @@ as curated (`eval --curated-only`).
 - parties: -
 - topics: ambiente
 - stresses: routing · diff: M
-- note: IL "estudar a viabilidade em Portugal"; CHEGA complementar renováveis com nuclear. LIVRE só fala de risco nuclear (Tejo/Espanha), não de produção
+- note: IL "estudar a viabilidade em Portugal"; CHEGA complementar renováveis com nuclear. LIVRE gere o risco nuclear (Tejo/Espanha) e "segue atentamente" os small modular reactors e a fusão nuclear, que "poderão contribuir para a descarbonização", sem propor produção em Portugal
 - reference: O CHEGA defende a incorporação da energia nuclear na matriz energética portuguesa, propondo promover a instalação de pequenos reatores modulares (SMR) até 300 MW e a investigação científica sobre novas soluções nucleares, incluindo a tecnologia nuclear com hidrogénio. A Iniciativa Liberal defende o nuclear na Europa e propõe estudar a sua viabilidade económica em Portugal, através de uma discussão pública e informada e dos estudos necessários, vendo com bons olhos os novos SMR. O LIVRE não defende a produção nuclear, centrando-se na gestão do risco nuclear (em particular a poluição radioativa no Tejo, em cooperação com Espanha), mas propõe acompanhar atentamente novas tecnologias como os SMR ou a fusão nuclear, que poderão contribuir para a descarbonização.
 - reviewed: no
 - review: LIVRE chunk also says it will follow SMR/fusion developments that 'could contribute to decarbonisation' (note says risk only); ticked as nuance, decide if LIVRE belongs. CHEGA past-bill chunk (nuclear study; CHEGA+IL voted for) not ticked.
@@ -1249,7 +1250,7 @@ as curated (`eval --curated-only`).
 - parties: -
 - topics: trabalho
 - stresses: routing (topic) · diff: M
-- note: PCP 1000€ em 2024; IL negociação sectorial em vez de valor único; todos mencionam
+- note: PCP 1000€ em 2024; IL salário mínimo nacional fixado numa banda legal e negociado em concertação social, a evoluir para um modelo setorial de negociação; todos mencionam
 - reference: A AD propõe aumentar o salário mínimo nacional para 1.000 euros até ao final da legislatura (2028), com base em ganhos de produtividade e diálogo social, e o PS propõe uma trajetória plurianual definida em concertação social para atingir pelo menos 1.000 euros em 2028. O CHEGA propõe 1.000 euros até 2026, com um programa de apoio às empresas com custos fixos operacionais superiores a 30%, e o PCP defende 1.000 euros já em 2024. O BE propõe um aumento intercalar para 900 euros em 2024 e depois aumentos anuais iguais à inflação mais 50 euros, o LIVRE 1.150 euros em 2028 e o PAN aumentos anuais que incorporem inflação, crescimento económico e produtividade, somando 10 euros, atingindo 1.100 euros em 2028. A IL propõe que o salário mínimo nacional seja fixado dentro de uma banda definida por indicadores legais (custo de vida, rácio face ao salário médio e mediano, produtividade) e negociado em concertação social, evoluindo para um modelo setorial em que a negociação coletiva pode fixar mínimos acima do nacional.
 - reviewed: no
 - review: IL chunk keeps a national minimum set within a legal band (sector minima on top); note's 'instead of a single value' overstates it.
@@ -1340,10 +1341,10 @@ as curated (`eval --curated-only`).
 - parties: -
 - topics: saude
 - stresses: multi-query · diff: M
-- note: IL médico de família; BE "salvar o SNS"
+- note: AD voucher de consulta de especialidade quando o TMRG é ultrapassado; IL Programa Especial de Acesso, contratualizando consultas e cirurgias fora do TMRG; CHEGA referenciação para o privado/social quando o TMRG se esgota (medida 93); BE concursos onde a espera excede o recomendado; PCP programa de emergência para recuperar as listas de espera
 - reference: A AD propõe um Plano de Emergência do SNS 2024-2025 com um Voucher Consulta de Especialidade, que dá liberdade de escolha do prestador quando o Tempo Máximo de Resposta Garantido (TMRG) é ultrapassado, contratos temporários com médicos de família aposentados ou privados e o cumprimento dos TMRG para doentes oncológicos até final de 2027. A IL propõe um Programa Especial de Acesso a Cuidados de Saúde que contratualiza, por concurso público internacional, consultas de especialidade e cirurgias sempre que os TMRG não forem cumpridos, a par de carreiras mais atrativas e liberdade de contratação direta pelas instituições do SNS. O BE propõe a abertura imediata de concursos de contratação onde os tempos de espera excedem o recomendado, apoios à fixação em zonas carenciadas, a redução para 12 horas do horário semanal de urgência dos médicos para libertar tempo para consultas e cirurgias e a desburocratização. O PCP propõe um programa de emergência para recuperar as listas de espera em consultas, cirurgias, exames e tratamentos, assente sobretudo no aumento da capacidade dos serviços públicos.
 - reviewed: no
-- review: Note ('IL médico de família; BE salvar o SNS') is vague; gold built from concrete waiting-list measures. CHEGA/LIVRE/PS candidates only generic.
+- review: Added by hand: CHEGA measure 93 (refer to private/social sector when TMRG is exhausted); reference may need a CHEGA sentence.
 
 - [x] `sha1:0f71aa7b7e04ea8e7679bee7423a91e7d81ddeb6` · **Aliança Democrática** · PROGRAMA SOCIAL E DE GOVERNAÇÃO DA ALIANÇA DEMOCRÁTICA > COMBATER A DESIGUALDADE DE ACESSO À SAÚDE > 3. Medidas > SAÚDE > COM SENSIBILIDADE SOCIAL
   > ##### 3. Medidas ###### COMBATER A DESIGUALDADE DE ACESSO À SAÚDE - Apresentar um Plano de Emergência SNS 2024-2025, nos primeiros 60 dias do novo Governo, sustentado por uma reorientação estratégica da política global do Governo nesta área, designadamente com o seguinte enquadramento legislativo e financeiro em 2024: **Ao nível das Consultas** - Garantir a emissão do Voucher Consulta de Especialidade, com liberdade de escolha do prestador pelo utente quando é ultrapassado o Tempo Máximo de Resposta Garantido (TMRG); - Promover um incremento sustentado das USF tipo B; - Realizar contratos temporários com Médicos de Família aposentados ou privados; - Assegurar consultas digitais com Equipa de Família das USF e Centros de Saúde; - Assegurar a inscrição no Enfermeiro de Família; - Alargar o âmbito e a cobertura do programa Cheque-Dentista; - Reforçar as Equipas de Apoio Domiciliário; - Abrir USF tipo C nas áreas metropolitanas Lisboa e Porto (projeto-piloto); - Alargar consultas de Psicologia Clínica, Terapia de Reabilitação e Nutrição nos Centros de Saúde. **Ao nível das Urgências** - Implementar um Plano de Motivação dos Profissionais de Saúde; - Redefinir a Rede de Urgências e referenciação hospitalares;
@@ -1415,6 +1416,10 @@ as curated (`eval --curated-only`).
   > ##### 2.4. A melhoria da autonomia e da prestação de cuidados pelo SNS passa igualmente por uma aposta clara no reforço da sua capacitação, através da **internalização da capacidade de resposta,** comprometendo-se o PS a: - Reforçar o SNS em Meios Complementares de Diagnóstico e Terapêutica (MDTC) e respetivo pessoal técnico, ao nível dos Cuidados de Saúde Primários, disponibilizando-os em unidade…
 - [ ] `sha1:5655033d956818b62a477f8905b8caf2578b88cd` · **Partido Socialista** · PLANO DE AÇÃO PARA PORTUGAL INTEIRO 2024 > 2.4. > **5.ª MISSÃO:** UM PORTUGAL CENTRAL NA EUROPA E NO MUNDO > 2. Política externa e apoio às comunidades portuguesas > INTRODUÇÃO
   > ##### 2.4. As **comunidades portuguesas** devem merecer uma atenção renovada ao longo dos próximos anos e estar no cerne das preocupações e da atuação do Partido Socialista. Neste sentido, propõe-se o seguinte: - Elaborar um Plano Estratégico para a Diáspora, envolvendo os vários atores das comunidades, um documento que sustente o desenho de novas políticas públicas para as comunidades; - Alocar o…
+- [x] `sha1:a486772907df4e7a480c4432dab7af727986099f` · **CHEGA** · PROGRAMA ELEITORAL: LIMPAR PORTUGAL > PROPOSTAS > IV CAPÍTULO GARANTIR O ACESSO À SAÚDE. COMO?
+  > vés de tecnologias digitais; - Promoção da qualidade e transparência nos serviços públicos, privados e sociais, nomeadamente através da avaliação sistemática dos serviços, à comparação entre sectores com a publicação dos respectivos relatórios periódicos, criação de incentivos para a qualidade, entre outros. **90.** Evoluir o Serviço Nacional de Saúde para um Sistema Nacional de Saúde, com a integração de todo o Sector Público, Privado e Social, formalizando parcerias público-privadas estratégicas para optimizar recursos e garantir uma prestação de serviços mais eficaz, rápida e de qualidade. **91.** Reformar a Lei de Bases da Saúde introduzindo novos modelos de gestão e parcerias público-privadas (PPP's) e alterar o Estatuto do Serviço Nacional de Saúde, nomeadamente, revogando a previsão do director executivo. **92.** Garantir que os serviços de saúde sejam prestados de maneira eficiente, equitativa e com padrões de qualidade elevados, com base em indicadores claros e metas mensuráveis de desempenho e conformidade. **93.** Assegurar que sempre que se verifique o esgotamento dos tempos máximos de resposta garantidos (TMRG), fixados para a rede de prestação de cuidados de saúde no SNS, o Estado tem a obrigação de referenciar os utentes para atendimento nos sectores privado ou social, o que deve acontecer de forma célere e eficaz, garantindo o acesso dos utentes a cuidados de saúde de qualidade, em tempo útil e próximo da sua área de residência.
+- [x] `sha1:40c753a3274e03e72408884083ff096f85e5d0bc` · **CHEGA** · PROGRAMA ELEITORAL: LIMPAR PORTUGAL > IV CAPÍTULO O QUE JÁ FIZEMOS PARA GARANTIR O ACESSO À SAÚDE
+  > ## IV CAPÍTULO O QUE JÁ FIZEMOS PARA GARANTIR O ACESSO À SAÚDE **PROJECTO DE LEI 812/XV/1 (CH)** Altera o Decreto-Lei n.º 298/2007, de 22 de agosto, de forma a garantir o acesso universal a Médico Especialista em Medicina Geral e Familiar **PROJECTO DE LEI 880/XV/1 (CH)** Altera a Lei de Bases da Saúde, estabelecendo a obrigação do Estado referenciar os utentes do Serviço Nacional de Saúde (SNS) para atendimento nos sectores privado ou social em caso de esgotamento dos tempos máximos de resposta garantidos **PROJECTO DE RESOLUÇÃO 750/XV/1 (CH)** Recomenda ao Governo que adote medidas para aumentar a eficácia, eficiência e produtividade do Serviço Nacional de Saúde, particularmente nas zonas e regiões mais carenciadas **PROJECTO DE RESOLUÇÃO 940/XV/2** Recomenda ao Governo o alargamento urgente da Rede de Cuidados Paliativos **REJEITADO** **CONTRA** Partido Socialista, PCP, L **ABSTENÇÃO** PSD, IL, BE **FAVOR** CHEGA **REJEITADO** **CONTRA** Partido Socialista, PCP, BE, L **ABSTENÇÃO** IL **FAVOR** PSD, CHEGA, PAN **REJEITADO**
 
 ## q-35 — Que medidas há para baixar as rendas e o preço da habitação?
 
@@ -1516,7 +1521,7 @@ as curated (`eval --curated-only`).
 - parties: -
 - topics: impostos, economia
 - stresses: hybrid · diff: M
-- note: IL 12% única; AD 21%→15% a 2 p.p./ano; CHEGA 15% interior/regiões autónomas e 18% resto; PAN 17% a 1 p.p./ano; PCP 12,5% só para MPME (sobe para grandes)
+- note: IL 12% única; AD 21%→15% a 2 p.p./ano; CHEGA 15% interior/regiões autónomas e 18% resto (medida 184), mas noutro passo "desagravar a taxa de IRC para 15% ao longo da legislatura"; PAN 17% a 1 p.p./ano; PCP 12,5% só para MPME (sobe para grandes)
 - reference: A IL propõe uma taxa única de IRC de 12%, com 15% apenas para multinacionais com faturação anual superior a 750 milhões de euros, e a revogação das derramas. A AD propõe reduzir o IRC de 21% para 15% ao ritmo de 2 pontos percentuais por ano até ao final da legislatura. O CHEGA propõe uma flat tax de IRC de 15% para as regiões autónomas e o interior e de 18% no resto do território, referindo noutra proposta a descida para 15% ao longo da legislatura com efeito imediato no interior. O PAN propõe reduzir a taxa em 1 ponto percentual por ano até 17% no final da legislatura. O PCP propõe uma taxa de 12,5% apenas para MPME (rendimento coletável até 15.000€), criando em simultâneo um escalão de derrama estadual de 14% para empresas com rendimento coletável superior a 50 milhões de euros.
 - reviewed: no
 - review: CHEGA internally inconsistent (prop. 184: 15% interior/18% rest; prop. 229: 15% over the legislature). PS only cuts autonomous taxation on company cars by 20% (not ticked); BE/LIVRE raise IRC on large firms.
@@ -1951,7 +1956,7 @@ as curated (`eval --curated-only`).
 - parties: -
 - topics: economia, ambiente
 - stresses: hybrid · diff: M
-- note: CHEGA, PS, IL, LIVRE, PCP; PAN condiciona a linha Porto-Lisboa
+- note: CHEGA, PS, IL, LIVRE, PCP; BE travessia do Tejo exclusivamente ferroviária, incluindo alta velocidade; PAN condiciona a linha Porto-Lisboa; AD omisso
 - reference: O PS propõe prosseguir as obras da Linha de Alta Velocidade Porto–Lisboa e lançar a 1.ª fase da LAV Porto–Valença, e a IL quer o TGV Porto–Lisboa até 2033, com a Terceira Travessia do Tejo, extensão a Braga, Viseu e Vigo e início da ligação Lisboa–Madrid. O LIVRE propõe uma rede de alta velocidade articulada com a rede existente que reduza em 50% os tempos de viagem no eixo Setúbal–Lisboa–Porto–Braga–Vigo até 2030 e garanta serviços frequentes Lisboa–Madrid, e o PCP defende a Alta Velocidade Lisboa/Porto, complementar à Linha do Norte e entrando em Lisboa pela Terceira Travessia do Tejo depois de passar no novo aeroporto, bem como uma ligação Lisboa/Évora em Alta Velocidade. O CHEGA quer integrar Lisboa e Porto na rede peninsular de alta velocidade em bitola europeia, com passagem direta nos aeroportos, mas propõe também estudar o impacto financeiro das ligações de alta velocidade em função da procura. O PAN condiciona a linha Porto–Lisboa à integração das estações na rede existente, à salvaguarda dos ecossistemas e à majoração da produção industrial portuguesa, e defende os troços Porto–Vigo e Lisboa–Madrid. O BE propõe uma terceira travessia do Tejo exclusivamente ferroviária que sirva também a alta velocidade.
 - reviewed: no
 - review: No AD candidate mentions high-speed rail (AD candidates are generic rail measures) - check AD manifesto. BE ticked only for its rail-only Tejo crossing serving alta velocidade (BE not in note). CHEGA [8] is a cautious 'study/evaluate' stance vs [9] full integration.
@@ -2310,7 +2315,7 @@ as curated (`eval --curated-only`).
 - parties: -
 - topics: saude, justica
 - stresses: multi-query · diff: H
-- note: os programas dizem "morte medicamente assistida", nunca "eutanásia": CHEGA revogar a Lei 22/2023 (medida 107); LIVRE acompanhar a implementação da despenalização; PAN regulamentação urgente da lei. AD, BE, IL, PCP, PS omissos
+- note: os programas dizem "morte medicamente assistida", nunca "eutanásia": CHEGA revogar a Lei 22/2023 (medida 107); LIVRE acompanhar a implementação da despenalização; PAN regulamentação urgente da lei; BE (secção "Morte Assistida") defende a lei aprovada, critica a falta de regulamentação e compromete-se a combater a sua revogação. AD, IL, PCP, PS omissos
 - reference: Os programas falam de "morte medicamente assistida" e não de eutanásia. O CHEGA propõe revogar a Lei n.º 22/2023, que torna não punível a morte medicamente assistida, invocando o direito à vida (medida 107). O LIVRE quer acompanhar a implementação da despenalização, com apoio médico e psicológico especializado e salvaguarda da liberdade de consciência de familiares e profissionais de saúde, e o PAN defende a regulamentação urgente da lei. O Bloco de Esquerda considera a despenalização uma vitória dos direitos e exige que o próximo Governo regulamente a lei com urgência, contrariando a intenção de a revogar.
 - reviewed: no
 - review: Note says BE is silent, but BE has a 'Morte Assistida' section (2 chunks) supporting the law and demanding urgent regulation; BE ticked. AD, IL, PCP, PS: no candidate addresses it.
@@ -2381,7 +2386,7 @@ as curated (`eval --curated-only`).
 - parties: -
 - topics: -
 - stresses: hybrid · diff: E
-- note: definição extraível de AD ou PS
+- note: nenhum programa define o regime em vigor: AD redução de 2/3 nas taxas, máximo de 15%, até aos 35 anos; PS alargá-lo a todos os jovens, independentemente da escolaridade
 - reference: O IRS Jovem é um regime de IRS com taxas reduzidas para jovens. A AD propõe adotá-lo de forma duradoura e estrutural, com uma redução de 2/3 nas taxas aplicáveis e uma taxa máxima de 15% para todos os jovens até aos 35 anos, exceto no último escalão de rendimentos. O PS propõe alargar o IRS Jovem a todos os jovens, independentemente do nível de escolaridade, e o PAN propõe prolongá-lo por mais 2 anos (redução de 15% no 6.º ano e de 5% no 7.º) e estendê-lo a jovens englobados num agregado familiar.
 - reviewed: no
 - review: No chunk gives a neutral definition of the existing regime; AD describes its own redesigned version, PS/PAN only imply current conditions (education level, duration) through proposed extensions.
@@ -2616,7 +2621,7 @@ as curated (`eval --curated-only`).
 - parties: -
 - topics: -
 - stresses: hybrid · diff: M
-- note: termo do LIVRE; imposto sucessório sobre grandes heranças
+- note: termo do LIVRE: transferência directa atribuída a cada criança ao atingir a maioridade, financiada por um imposto sucessório sobre grandes heranças e doações e pela tributação das grandes fortunas
 - reference: A "herança social" é uma proposta do LIVRE: um sistema de redistribuição da riqueza que atribui a cada criança nascida em Portugal um montante a que pode aceder na maioridade. Seria financiado pela tributação das grandes fortunas e das grandes heranças, nomeadamente por um imposto sucessório sobre grandes heranças e grandes doações. O LIVRE propõe estudar a sua criação.
 - reviewed: no
 - review: Note describes it as the inheritance tax itself; per the chunks, the tax is the funding source and the 'herança social' is the transfer paid at majority.
