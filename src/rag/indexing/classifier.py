@@ -1,18 +1,16 @@
 """
 Topic classifier for political manifesto chunks.
 
-LLM-only classification through centralized OpenRouter transport.
-
-Handles API limits by using:
-- Batch classification (multiple chunks per request).
-- Retry/backoff handled by the shared transport layer.
+Multi-label, LLM-only, in batches of several chunks per request. Fail-fast: a
+batch that still fails after ``call_with_wait_out`` aborts the run, so no chunk
+is ever stored with made-up default topics.
 """
 
 import json
 import logging
 import os
 import time
-from typing import Dict, List, Optional
+from typing import List, Optional
 
 from src.rag.common.models import (
     TOPIC_CATEGORIES,
@@ -20,17 +18,12 @@ from src.rag.common.models import (
     Chunk,
     TopicClassification,
 )
-from src.rag.common.llm_client import call_with_wait_out, generate_structured, generate_structured_batch
+from src.rag.common.llm_client import call_with_wait_out, generate_structured_batch
 from src.utils.config_loader import config
+
 logger = logging.getLogger(__name__)
 
-# ---------------------------------------------------------------------------
-# Classification runtime constants
-# ---------------------------------------------------------------------------
-
-DEFAULT_RPM_DELAY = 1.0
-# Per-batch retries before giving up. A failed batch still aborts the run (no
-# default topics are ever filled in); waiting first keeps one free-tier outage
+# Per-batch retries before giving up; waiting first keeps one free-tier outage
 # from throwing away a whole party's classification.
 WAIT_OUT_ATTEMPTS = int(config.get("indexing.classification_wait_out_attempts", 10))
 DEFAULT_CLASSIFICATION_MODEL = str(
@@ -39,10 +32,6 @@ DEFAULT_CLASSIFICATION_MODEL = str(
         config.get("llm.openrouter.model", "google/gemma-4-26b-a4b-it:free"),
     )
 )
-
-# ---------------------------------------------------------------------------
-# Classification prompt (Portuguese, multi-label)
-# ---------------------------------------------------------------------------
 
 _LABELLING_RULES = """REGRAS DE CLASSIFICAÇÃO:
 - Começa pela categoria principal: o tema de que o excerto trata.
@@ -60,71 +49,6 @@ _LABELLING_RULES = """REGRAS DE CLASSIFICAÇÃO:
    - "diagnóstico do SNS" -> ["saude"]
 - Confiança (1-5): 5=muito claro, 3=razoável, 1=incerto
 """
-
-CLASSIFICATION_PROMPT = f"""És um especialista em análise de programas políticos portugueses.
-
-CATEGORIAS:
-{json.dumps(TOPIC_CATEGORIES, indent=2, ensure_ascii=False)}
-
-{_LABELLING_RULES}
-
-RESPOSTA (JSON):
-{{
-    "categorias": ["categoria1", "categoria2"],
-    "confianca": 4,
-    "palavras_chave": ["palavra1", "palavra2", "palavra3"]
-}}"""
-
-# ---------------------------------------------------------------------------
-# LLM classification helpers
-# ---------------------------------------------------------------------------
-
-
-def _normalize_topic_classification(raw: object) -> TopicClassification:
-    """Normalize arbitrary JSON/Pydantic output into TopicClassification."""
-    if isinstance(raw, TopicClassification):
-        data = raw.model_dump()
-    elif isinstance(raw, dict):
-        data = raw
-    else:
-        data = {}
-
-    categorias = [c for c in data.get("categorias", []) if c in VALID_TOPICS] or ["outros"]
-    confianca = max(1, min(5, int(data.get("confianca", 3))))
-    palavras = data.get("palavras_chave", [])
-    if not isinstance(palavras, list):
-        palavras = []
-
-    return TopicClassification(
-        categorias=categorias[:3],
-        confianca=confianca,
-        palavras_chave=palavras[:10],
-    )
-
-
-def _classify_with_llm(
-    content: str,
-    context_info: str,
-    model: Optional[str] = None,
-) -> TopicClassification:
-    """Classify one chunk through centralized LLM client."""
-    selected_model = model or DEFAULT_CLASSIFICATION_MODEL
-    full_content = f"{context_info}TEXTO:\n{content}" if context_info else f"TEXTO:\n{content}"
-    prompt = f"{CLASSIFICATION_PROMPT}\n\n{full_content}"
-
-    parsed = generate_structured(
-        prompt=prompt,
-        response_schema=TopicClassification,
-        model=selected_model,
-        temperature=0.1,
-        max_tokens=500,
-    )
-    return _normalize_topic_classification(parsed)
-
-
-# ---------------------------------------------------------------------------
-# Batch LLM classification
-# ---------------------------------------------------------------------------
 
 BATCH_CLASSIFICATION_PROMPT = f"""És um especialista em análise de programas políticos portugueses.
 
@@ -149,142 +73,80 @@ RESPOSTA (JSON array):
 ]"""
 
 
-def _classify_batch_with_llm(
-    batch: List[Dict[str, str]],
-    model: Optional[str] = None,
-) -> List[TopicClassification]:
-    """Classify a batch through centralized LLM client.
+def _normalize(raw: object) -> TopicClassification:
+    """Keep known topics (at most 3), clamp confidence; tolerate a malformed item."""
+    data = raw if isinstance(raw, dict) else {}
+    categorias = [c for c in data.get("categorias", []) if c in VALID_TOPICS] or ["outros"]
+    palavras = data.get("palavras_chave", [])
+    return TopicClassification(
+        categorias=categorias[:3],
+        confianca=max(1, min(5, int(data.get("confianca", 3)))),
+        palavras_chave=palavras[:10] if isinstance(palavras, list) else [],
+    )
 
-    Primary path uses the shared OpenRouter transport. Retry/fallback orchestration
-    remains in `classify_chunks`.
-    """
-    selected_model = model or DEFAULT_CLASSIFICATION_MODEL
+
+def _classify_batch_with_llm(chunks: List[Chunk], model: str) -> List[TopicClassification]:
+    """One request for the whole batch; the header path goes along as context."""
     parts: List[str] = []
-    for item in batch:
-        ctx = item.get("context", "")
+    for idx, chunk in enumerate(chunks):
+        ctx = " | ".join(f"{k}: {v}" for k, v in chunk.metadata.items() if v and str(v).strip())
         header = f"Contexto: {ctx}\n" if ctx else ""
-        parts.append(f"--- EXCERTO {item['id']} ---\n{header}TEXTO:\n{item['content']}")
-
-    prompt = f"{BATCH_CLASSIFICATION_PROMPT}\n\n" + "\n\n".join(parts)
+        parts.append(f"--- EXCERTO {idx} ---\n{header}TEXTO:\n{chunk.content}")
 
     raw_items = generate_structured_batch(
-        prompt=prompt,
-        model=selected_model,
+        prompt=f"{BATCH_CLASSIFICATION_PROMPT}\n\n" + "\n\n".join(parts),
+        model=model,
         temperature=0.1,
         max_tokens=2500,
     )
-
-    results: List[TopicClassification] = []
-    for entry in raw_items:
-        results.append(_normalize_topic_classification(entry))
-    return results
-
-
-# ---------------------------------------------------------------------------
-# Public API
-# ---------------------------------------------------------------------------
-
-def classify_chunk(
-    chunk: Chunk,
-    model: Optional[str] = None,
-) -> Chunk:
-    """Classify a single chunk and attach the result (LLM-only, fail-fast)."""
-    if not os.getenv("OPENROUTER_API_KEY"):
-        raise ValueError("OPENROUTER_API_KEY is required for classification.")
-
-    context_parts = [
-        f"{k}: {v}" for k, v in chunk.metadata.items() if v and str(v).strip()
-    ]
-    context_info = f"Contexto: {' | '.join(context_parts)}\n\n" if context_parts else ""
-
-    tc = _classify_with_llm(chunk.content, context_info, model)
-
-    chunk.topics = tc.categorias
-    chunk.topic_classification = tc
-    return chunk
+    return [_normalize(entry) for entry in raw_items]
 
 
 def classify_chunks(
     chunks: List[Chunk],
     model: Optional[str] = None,
-    delay: float = DEFAULT_RPM_DELAY,
+    delay: float = 1.0,
     batch_size: int = 10,
 ) -> List[Chunk]:
-    """
-    Classify chunks with batching and fail-fast behavior.
-
-    Args:
-        chunks: Chunks to classify.
-        model: OpenRouter model name.
-        delay: Delay between API calls.
-        batch_size: Number of chunks per batch call.
-    """
+    """Classify *chunks* in place, *batch_size* per request, *delay* seconds apart."""
+    # Checked up front: a missing key is not transient, and waiting it out would
+    # take the full retry budget of every batch.
     if not os.getenv("OPENROUTER_API_KEY"):
         raise ValueError("OPENROUTER_API_KEY is required for classification.")
 
     total = len(chunks)
-    selected_model = model or DEFAULT_CLASSIFICATION_MODEL
+    model = model or DEFAULT_CLASSIFICATION_MODEL
+    logger.info("Classifying %d chunks (model=%s, batch_size=%d, delay=%.1fs) ...",
+                total, model, batch_size, delay)
 
-    logger.info(
-        "Classifying %d chunks (model=%s, batch_size=%d, delay=%.1fs) ...",
-        total,
-        selected_model,
-        batch_size,
-        delay,
-    )
-
-    classified = 0
     for batch_start in range(0, total, batch_size):
-        batch_end = min(batch_start + batch_size, total)
-        batch_chunks = chunks[batch_start:batch_end]
+        batch = chunks[batch_start:batch_start + batch_size]
+        label = f"classification of chunks {batch_start}-{batch_start + len(batch) - 1}"
 
-        batch_payload: List[Dict[str, str]] = []
-        for idx, chunk in enumerate(batch_chunks):
-            ctx_parts = [
-                f"{k}: {v}" for k, v in chunk.metadata.items() if v and str(v).strip()
-            ]
-            batch_payload.append(
-                {
-                    "id": str(idx),
-                    "context": " | ".join(ctx_parts),
-                    "content": chunk.content,
-                }
-            )
-
-        def classify_batch(payload=batch_payload, expected=len(batch_chunks)):
-            results = _classify_batch_with_llm(payload, model=selected_model)
+        def classify_batch(batch=batch):
+            results = _classify_batch_with_llm(batch, model)
             # A short answer is as transient as a 503: retried with the rest.
-            if len(results) != expected:
+            if len(results) != len(batch):
                 raise RuntimeError(
                     "Incomplete batch classification response: "
-                    f"expected {expected} results, got {len(results)}"
+                    f"expected {len(batch)} results, got {len(results)}"
                 )
             return results
 
         try:
-            results = call_with_wait_out(
-                classify_batch,
-                label=f"classification of chunks {batch_start}-{batch_end - 1}",
-                attempts=WAIT_OUT_ATTEMPTS,
-            )
+            results = call_with_wait_out(classify_batch, label=label, attempts=WAIT_OUT_ATTEMPTS)
         except Exception as exc:
-            logger.error(
-                "LLM batch classification failed for chunks %d-%d: %s",
-                batch_start,
-                batch_end - 1,
-                exc,
-            )
+            logger.error("LLM batch %s failed: %s", label, exc)
             raise
 
-        for idx, tc in enumerate(results):
-            batch_chunks[idx].topics = tc.categorias
-            batch_chunks[idx].topic_classification = tc
+        for chunk, tc in zip(batch, results):
+            chunk.topics = tc.categorias
+            chunk.topic_classification = tc
 
-        classified += len(batch_chunks)
-        if classified % 75 <= batch_size or classified == total:
-            logger.info("Classified %d / %d chunks", classified, total)
-
-        if batch_end < total and delay > 0:
+        done = batch_start + len(batch)
+        if done % 75 <= batch_size or done == total:
+            logger.info("Classified %d / %d chunks", done, total)
+        if done < total and delay > 0:
             time.sleep(delay)
 
     logger.info("Classification complete - %d chunks processed.", total)

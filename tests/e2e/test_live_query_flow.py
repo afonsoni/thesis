@@ -1,7 +1,7 @@
 import pytest
 
 from src.rag.common.models import Chunk, VALID_TOPICS
-from src.rag.indexing.classifier import classify_chunk
+from src.rag.indexing.classifier import classify_chunks
 import src.rag.retrieval.pipeline as retrieval_pipeline
 from src.rag.generation.pipeline import generate
 from src.rag.retrieval.pipeline import retrieve
@@ -40,7 +40,7 @@ def test_live_classification_on_manifesto_snippet(require_live_e2e):
         ideology="left",
     )
 
-    classified = classify_chunk(chunk)
+    [classified] = classify_chunks([chunk])
 
     assert classified.topic_classification is not None
     assert classified.topic_classification.categorias
