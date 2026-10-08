@@ -50,7 +50,7 @@ postgresql:
 #   OPENROUTER_API_KEY
 llm:
   openrouter:
-    model: "google/gemma-4-31b-it:free"
+    model: "google/gemma-4-26b-a4b-it:free"
     temperature: 0.2
     max_tokens: 1500 # cap on the *generated* answer, not on the prompt
     # Context the synthesiser may put in one prompt. Retrieval can now hand
@@ -124,12 +124,12 @@ indexing:
   # no classified checkpoint is written.
   use_llm_classification: true
   generate_summaries: false # multi-representation indexing (Part 12)
-  classification_model: "google/gemma-4-31b-it:free"
+  classification_model: "google/gemma-4-26b-a4b-it:free"
   classification_batch_size: 15
   classification_delay: 1.0
   # Structure pass of `main.py clean` (raw marker markdown -> *-clean.md).
   # One call per ~120 header/short-line candidates, ~2-8 calls per party.
-  cleaning_model: "google/gemma-4-31b-it:free"
+  cleaning_model: "google/gemma-4-26b-a4b-it:free"
 
 # Evaluation settings
 # NOTE: judge_model should be a KNOWN-GOOD OpenRouter id and, ideally, different
@@ -139,7 +139,7 @@ evaluation:
   dataset_path: "data/eval/questions/golden.json"
   results_dir: "data/eval/results"
   reports_dir: "data/eval/reports"
-  judge_model: "google/gemma-4-31b-it:free"
+  judge_model: "google/gemma-4-26b-a4b-it:free"
   judge_temperature: 0.0
   # Each judge call waits out free-tier failures this many times before the score
   # is omitted (never recorded as 0).

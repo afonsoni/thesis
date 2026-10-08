@@ -170,7 +170,7 @@ def generate_summaries(
         "EXCERTO:\n{content}\n\nRESUMO:"
     )
     selected_model = model or str(
-        config.get("llm.openrouter.model", "google/gemma-4-31b-it:free"),
+        config.get("llm.openrouter.model", "google/gemma-4-26b-a4b-it:free"),
     )
 
     for i, chunk in enumerate(chunks):

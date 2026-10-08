@@ -176,7 +176,7 @@ def index_documents(
         classification_model
         or config.get(
             "indexing.classification_model",
-            config.get("llm.openrouter.model", "google/gemma-4-31b-it:free"),
+            config.get("llm.openrouter.model", "google/gemma-4-26b-a4b-it:free"),
         )
     )
     classification_batch_size = int(
