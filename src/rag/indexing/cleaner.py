@@ -38,12 +38,6 @@ logger = logging.getLogger(__name__)
 # Small batches, as for classification: large Gemma requests time out or 500.
 BATCH_SIZE = 40
 CALL_DELAY_SECS = float(config.get("indexing.classification_delay"))
-# Free-tier errors (429/500/503, timeouts) are transient: wait them out rather
-# than fail a whole party after the transport's few quick retries.
-WAIT_OUT_ATTEMPTS = 10
-WAIT_OUT_BASE_SECS = 30
-WAIT_OUT_MAX_SECS = 300
-CALL_DEADLINE_SECS = 600  # wall-clock cap per call, transport retries included
 MAX_DROP_RANGE_FRACTION = 0.05
 
 _SPAN_RE = re.compile(r"</?span[^>]*>")
@@ -217,10 +211,6 @@ def _plan_batch(prompt: str, model: str, party: str, batch_no: int) -> Structure
         lambda: generate_structured(prompt, StructurePlan, model=model, temperature=0.0,
                                     max_tokens=4000, timeout_seconds=180),
         label=f"{party} batch {batch_no}",
-        attempts=WAIT_OUT_ATTEMPTS,
-        base_secs=WAIT_OUT_BASE_SECS,
-        max_secs=WAIT_OUT_MAX_SECS,
-        deadline_secs=CALL_DEADLINE_SECS,
     )
 
 

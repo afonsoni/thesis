@@ -36,6 +36,7 @@ from typing import Dict, List
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+from src.rag.common.models import PARTY_MAP  # noqa: E402
 from src.rag.evaluation.dataset import save_dataset  # noqa: E402
 from src.rag.evaluation.keys import chunk_key  # noqa: E402
 from src.rag.evaluation.models import EvalDataset, EvalQuestion  # noqa: E402
@@ -47,11 +48,8 @@ CANDIDATES_JSON = os.path.join(ANCHOR_DIR, "candidates.json")
 ANCHORING_MD = os.path.join(ANCHOR_DIR, "ANCHORING.md")
 GOLDEN = os.path.join(QDIR, "golden.json")
 
-PARTIES = {
-    "AD": "Aliança Democrática", "BE": "Bloco de Esquerda", "CHEGA": "CHEGA",
-    "IL": "Iniciativa Liberal", "LIVRE": "LIVRE", "PAN": "Pessoas-Animais-Natureza",
-    "PCP": "Partido Comunista Português", "PS": "Partido Socialista",
-}
+# "AD" -> "Aliança Democrática", ..., in PARTY_MAP order.
+PARTIES = {key.split("-")[0].upper(): info["name"] for key, info in PARTY_MAP.items()}
 
 # Decisions taken 2026-10-08 when the 51 candidates became the gold set.
 # "All parties" questions asking what *each* party says need every party covered.

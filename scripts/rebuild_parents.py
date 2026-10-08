@@ -12,7 +12,6 @@ Usage: python scripts/rebuild_parents.py   # then re-index with --from-classifie
 """
 
 import glob
-import hashlib
 import json
 import os
 import sys
@@ -23,12 +22,9 @@ from src.rag.common.models import Chunk, ChunkStrategy  # noqa: E402
 from src.rag.indexing.chunker import chunk_markdown_file  # noqa: E402
 from src.rag.indexing.pipeline import _discover_markdown_files, save_classified_chunks  # noqa: E402
 from src.utils.config_loader import config  # noqa: E402
+from src.rag.evaluation.keys import chunk_key as _key  # noqa: E402
 
 CARRIED = ("topics", "topic_classification")
-
-
-def _key(text: str) -> str:
-    return hashlib.sha1(text.encode("utf-8")).hexdigest()
 
 
 def main() -> None:
