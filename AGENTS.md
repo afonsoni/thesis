@@ -140,7 +140,9 @@ Entry point: `main.py`
 
 - Docker setup: `docker-compose.yml` runs PostgreSQL 17 + pgvector.
 - Config source: `config/config.yaml` (paths, retrieval settings, models, DB settings).
-- Config loader: `src/utils/config_loader.py` singleton.
+- Config loader: `src/utils/config_loader.py`. Strict: `config.get(key)` raises if the key is
+  missing from the YAML, so defaults live only in `config.yaml` (pass a default only for
+  keys that are optional by design, e.g. `embeddings.max_seq_length`).
 - No dependency lockfile or `requirements.txt` currently tracked in repo.
 
 ## What This Project Is (For Agents)

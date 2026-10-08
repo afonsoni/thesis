@@ -15,14 +15,7 @@ from src.rag.generation.prompts import QUERY_EXPANSION_PROMPT
 
 logger = logging.getLogger(__name__)
 
-DEFAULT_N_QUERIES = 4
-
-
-def expand_query(
-    question: str,
-    n_queries: int = DEFAULT_N_QUERIES,
-    strict: bool = False,
-) -> List[str]:
+def expand_query(question: str, n_queries: int, strict: bool = False) -> List[str]:
     """
     Generate *n_queries* reformulated versions of *question*.
 

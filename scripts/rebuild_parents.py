@@ -32,7 +32,7 @@ def _key(text: str) -> str:
 
 
 def main() -> None:
-    processed = str(config.get("paths.processed_data", "data/2_processed"))
+    processed = str(config.get("paths.processed_data"))
     checkpoints = {}
     for path in glob.glob(os.path.join(processed, "*-classified*.json")):
         with open(path, encoding="utf-8") as fh:
@@ -40,12 +40,12 @@ def main() -> None:
         checkpoints.setdefault(tuple(data.get("source_files", [])), []).append((path, data["chunks"]))
 
     max_parent = config.get("indexing.max_parent_tokens")
-    for md in _discover_markdown_files(str(config.get("paths.markdown_data", "data/1_markdown"))):
+    for md in _discover_markdown_files(str(config.get("paths.markdown_data"))):
         chunks = chunk_markdown_file(
             md,
             max_chunk_size=int(config.get("indexing.max_chunk_tokens")),
             chunk_overlap=int(config.get("indexing.chunk_overlap_tokens")),
-            year=int(config.get("indexing.year", 2024)),
+            year=int(config.get("indexing.year")),
             strategy=ChunkStrategy(config.get("indexing.chunk_strategy")),
             tokenizer_name=str(config.get("embeddings.model")),
             max_parent_size=int(max_parent) if max_parent else None,

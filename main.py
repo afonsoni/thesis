@@ -183,7 +183,7 @@ def build_parser() -> argparse.ArgumentParser:
     p_query = sub.add_parser("query", help="Ask a question to the RAG system")
     p_query.set_defaults(func=cmd_query)
     p_query.add_argument("question", nargs="?", type=str, help="The question to ask")
-    p_query.add_argument("-k", "--top-k", type=int, default=5, help="Number of documents to retrieve")
+    p_query.add_argument("-k", "--top-k", type=int, default=None, help="Number of documents to retrieve (default: retrieval.default_top_k)")
     p_query.add_argument("--no-expand", action="store_true", help="Disable multi-query expansion")
 
     # eval

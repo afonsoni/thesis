@@ -25,13 +25,7 @@ logger = logging.getLogger(__name__)
 
 # Per-batch retries before giving up; waiting first keeps one free-tier outage
 # from throwing away a whole party's classification.
-WAIT_OUT_ATTEMPTS = int(config.get("indexing.classification_wait_out_attempts", 10))
-DEFAULT_CLASSIFICATION_MODEL = str(
-    config.get(
-        "indexing.classification_model",
-        config.get("llm.openrouter.model", "google/gemma-4-26b-a4b-it:free"),
-    )
-)
+WAIT_OUT_ATTEMPTS = int(config.get("indexing.classification_wait_out_attempts"))
 
 _LABELLING_RULES = """REGRAS DE CLASSIFICAÇÃO:
 - Começa pela categoria principal: o tema de que o excerto trata.
@@ -105,17 +99,20 @@ def _classify_batch_with_llm(chunks: List[Chunk], model: str) -> List[TopicClass
 def classify_chunks(
     chunks: List[Chunk],
     model: Optional[str] = None,
-    delay: float = 1.0,
-    batch_size: int = 10,
+    delay: Optional[float] = None,
+    batch_size: Optional[int] = None,
 ) -> List[Chunk]:
-    """Classify *chunks* in place, *batch_size* per request, *delay* seconds apart."""
+    """Classify *chunks* in place, *batch_size* per request, *delay* seconds apart
+    (defaults: the ``indexing.classification_*`` config keys)."""
     # Checked up front: a missing key is not transient, and waiting it out would
     # take the full retry budget of every batch.
     if not os.getenv("OPENROUTER_API_KEY"):
         raise ValueError("OPENROUTER_API_KEY is required for classification.")
 
     total = len(chunks)
-    model = model or DEFAULT_CLASSIFICATION_MODEL
+    model = model or str(config.get("indexing.classification_model"))
+    delay = float(config.get("indexing.classification_delay")) if delay is None else delay
+    batch_size = batch_size or int(config.get("indexing.classification_batch_size"))
     logger.info("Classifying %d chunks (model=%s, batch_size=%d, delay=%.1fs) ...",
                 total, model, batch_size, delay)
 

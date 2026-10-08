@@ -6,12 +6,6 @@ paths:
   markdown_data: "data/1_markdown"
   processed_data: "data/2_processed"
 
-# PDF extraction settings
-pdf_extraction:
-  tool: "marker"
-  output_format: "markdown"
-  disable_images: true
-
 # Embedding settings
 #
 # Retrieval-trained, asymmetric (instruction prefix on queries, none on
@@ -23,8 +17,7 @@ pdf_extraction:
 # corpus. The window, not the training task, was the reason for the swap.
 #
 # Changing `model` changes the vector dimension (read from the model), and
-# pgvector cannot alter a VECTOR(n)
-# column in place: reindex with `--drop`.
+# pgvector cannot alter a VECTOR(n) column in place: reindex with `--drop`.
 #   Qwen/Qwen3-Embedding-0.6B ............ 1024 dims,  32768 ctx
 #   Alibaba-NLP/gte-multilingual-base .... 768 dims,    8192 ctx
 #   PORTULAN/serafim-900m-...-ir ......... 1536 dims,    128 ctx  (previous)
@@ -85,7 +78,7 @@ llm:
 retrieval:
   multi_query_count: 4 # number of expanded queries (Part 5)
   rrf_k: 60 # RRF constant (Part 6)
-  default_top_k: 5
+  default_top_k: 5 # results handed to generation (CLI: query -k)
   top_k_per_party: 3 # for comparison queries
 
   # Cross-encoder reranking (variant `reranked`; off by default).
@@ -147,6 +140,8 @@ indexing:
   classification_model: "google/gemma-4-26b-a4b-it:free"
   classification_batch_size: 15
   classification_delay: 1.0
+  # Per-batch waits for free-tier failures before the run aborts.
+  classification_wait_out_attempts: 10
   # Structure pass of `main.py clean` (raw marker markdown -> *-clean.md).
   # One call per ~120 header/short-line candidates, ~2-8 calls per party.
   cleaning_model: "google/gemma-4-26b-a4b-it:free"

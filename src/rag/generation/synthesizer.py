@@ -114,7 +114,7 @@ def _estimate_tokens(text: str) -> int:
 
 def _prompt_budget() -> int:
     """Tokens of context a single generation prompt may carry."""
-    return int(config.get("llm.openrouter.max_prompt_tokens", 8000))
+    return int(config.get("llm.openrouter.max_prompt_tokens"))
 
 
 def _fit_flat(results: List[SearchResult]) -> List[SearchResult]:

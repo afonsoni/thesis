@@ -27,14 +27,14 @@ class VectorStore:
     def __init__(self, db_config: Optional[Dict[str, Any]] = None):
         if db_config is None:
             db_config = {
-                "host": config.get("postgresql.host", "localhost"),
-                "port": int(config.get("postgresql.port", 5432)),
-                "database": config.get("postgresql.database", "ragdb"),
-                "user": config.get("postgresql.user", "postgres"),
-                "password": config.get("postgresql.password", "postgres"),
+                "host": config.get("postgresql.host"),
+                "port": int(config.get("postgresql.port")),
+                "database": config.get("postgresql.database"),
+                "user": config.get("postgresql.user"),
+                "password": config.get("postgresql.password"),
             }
         self.db_config = db_config
-        self.table = config.get("postgresql.table_name", "party_programs")
+        self.table = config.get("postgresql.table_name")
         self.connection: Optional[psycopg2.extensions.connection] = None
         self._bm25: Optional[Bm25Index] = None  # built on first lexical search
 

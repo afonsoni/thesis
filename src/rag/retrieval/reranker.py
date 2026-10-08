@@ -29,12 +29,6 @@ from src.utils.config_loader import config
 
 logger = logging.getLogger(__name__)
 
-# Multilingual by construction: trained on mMARCO, which includes Portuguese.
-# A Portuguese query against Portuguese passages needs a model that was trained
-# on pairs in the language, not an English reranker applied hopefully.
-DEFAULT_RERANKER_MODEL = "BAAI/bge-reranker-v2-m3"
-
-
 class Reranker:
     """Wraps a CrossEncoder to re-order retrieved candidates by joint relevance."""
 
@@ -43,9 +37,8 @@ class Reranker:
         # torch, and a run with the reranker disabled should not pay for it.
         from sentence_transformers import CrossEncoder
 
-        self.model_name = model_name or str(
-            config.get("retrieval.reranker_model", DEFAULT_RERANKER_MODEL)
-        )
+        # Must be multilingual (see retrieval.reranker_model in config.yaml).
+        self.model_name = model_name or str(config.get("retrieval.reranker_model"))
         logger.info("Loading reranker model: %s", self.model_name)
         # Deliberately unguarded: a failure here raises rather than degrading to
         # un-reranked results. A variant named `reranked` that quietly skipped

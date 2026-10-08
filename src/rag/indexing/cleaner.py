@@ -37,7 +37,7 @@ logger = logging.getLogger(__name__)
 
 # Small batches, as for classification: large Gemma requests time out or 500.
 BATCH_SIZE = 40
-CALL_DELAY_SECS = float(config.get("indexing.classification_delay", 1.0))
+CALL_DELAY_SECS = float(config.get("indexing.classification_delay"))
 # Free-tier errors (429/500/503, timeouts) are transient: wait them out rather
 # than fail a whole party after the transport's few quick retries.
 WAIT_OUT_ATTEMPTS = 10
@@ -249,7 +249,7 @@ def plan_structure(
     a free-tier outage resumes where it stopped. The cache is keyed on the prompt
     template, model and prepared text, so any change to those starts over.
     """
-    model = model or config.get("indexing.cleaning_model", config.get("llm.openrouter.model"))
+    model = model or config.get("indexing.cleaning_model")
     candidates = find_candidates(lines)
     index_block = _index_block(lines)
     decided: Dict[int, LineAction] = {}
@@ -363,13 +363,13 @@ def clean_markdown(raw_path: str, out_dir: Optional[str] = None, model: Optional
     """Clean one raw markdown file into ``<markdown_data>/<party>/<stem>-clean.md``."""
     stem = os.path.splitext(os.path.basename(raw_path))[0]
     party = stem.split("-")[0]
-    out_dir = out_dir or os.path.join(str(config.get("paths.markdown_data", "data/1_markdown")), party)
+    out_dir = out_dir or os.path.join(str(config.get("paths.markdown_data")), party)
 
     with open(raw_path, encoding="utf-8") as fh:
         raw = fh.read()
     lines = prepare(raw)
     cache_path = os.path.join(
-        str(config.get("paths.processed_data", "data/2_processed")), "cleaner-cache", f"{stem}-plan.json"
+        str(config.get("paths.processed_data")), "cleaner-cache", f"{stem}-plan.json"
     )
     plan = plan_structure(lines, party, model=model, cache_path=cache_path)
     clean = apply_plan(lines, plan)

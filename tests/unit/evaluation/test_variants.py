@@ -1,7 +1,6 @@
 import pytest
 
 from src.rag.evaluation.variants import (
-    DEFAULT_VARIANTS,
     VARIANTS,
     get_variant,
     resolve_variants,
@@ -31,7 +30,6 @@ def test_naive_variant_disables_all_features():
 def test_variant_ladder_present_and_resolvable():
     for name in ["naive", "multiquery", "routed", "current"]:
         assert name in VARIANTS
-    assert DEFAULT_VARIANTS == ["naive", "current"]
     configs = resolve_variants(["naive", "current"])
     assert [c.name for c in configs] == ["naive", "current"]
 

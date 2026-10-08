@@ -79,8 +79,6 @@ VARIANTS: Dict[str, RetrievalConfig] = {
     "contextual": RetrievalConfig(name="contextual", table=config.get("indexing.contextual_table")),
 }
 
-DEFAULT_VARIANTS: List[str] = ["naive", "current"]
-
 
 def get_variant(name: str) -> RetrievalConfig:
     """Look up a variant preset by name (raises KeyError with a helpful message)."""

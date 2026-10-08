@@ -20,16 +20,16 @@ from pydantic import BaseModel, Field
 from src.utils.config_loader import config
 
 
-def _from_config(key: str, fallback: int):
+def _from_config(key: str):
     """Default read from ``retrieval.<key>`` in config.yaml at construction time."""
-    return lambda: int(config.get(f"retrieval.{key}", fallback))
+    return lambda: int(config.get(f"retrieval.{key}"))
 
 
 class RetrievalConfig(BaseModel):
     """Declarative switches for the retrieval pipeline.
 
-    Defaults intentionally mirror the historical hard-coded behavior so that
-    ``retrieve(question)`` with no config behaves identically to before.
+    Defaults are the production (``current``) behaviour; sizes come from the
+    ``retrieval`` section of config.yaml.
     """
 
     name: str = Field(default="current", description="Human-readable variant name.")
@@ -52,14 +52,14 @@ class RetrievalConfig(BaseModel):
         description="Expand the query into multiple reformulations before search.",
     )
     multi_query_count: int = Field(
-        default_factory=_from_config("multi_query_count", 4),
+        default_factory=_from_config("multi_query_count"),
         ge=1,
         description="Number of expanded queries (excludes the original).",
     )
 
     # Reciprocal Rank Fusion (Part 6): applied whenever a search yields more than
     # one ranked list (multi-query and/or hybrid).
-    rrf_k: int = Field(default_factory=_from_config("rrf_k", 60), ge=1, description="RRF constant.")
+    rrf_k: int = Field(default_factory=_from_config("rrf_k"), ge=1, description="RRF constant.")
 
     # Hybrid retrieval – dense + Portuguese full-text, fused by the same RRF pass
     use_hybrid: bool = Field(
@@ -77,7 +77,7 @@ class RetrievalConfig(BaseModel):
         "the reranker has more to choose from than the caller asked for.",
     )
     rerank_candidates: int = Field(
-        default_factory=_from_config("rerank_candidates", 30),
+        default_factory=_from_config("rerank_candidates"),
         ge=1,
         description="Candidates fetched and scored before reranking trims to top_k. "
         "Reranking can only promote what retrieval surfaced, so this is the real "
@@ -113,10 +113,10 @@ class RetrievalConfig(BaseModel):
 
     # Result sizing
     top_k: int = Field(
-        default_factory=_from_config("default_top_k", 5), ge=1, description="Results returned to generation."
+        default_factory=_from_config("default_top_k"), ge=1, description="Results returned to generation."
     )
     top_k_per_party: int = Field(
-        default_factory=_from_config("top_k_per_party", 3),
+        default_factory=_from_config("top_k_per_party"),
         ge=1,
         description="Per-party results for comparison queries.",
     )

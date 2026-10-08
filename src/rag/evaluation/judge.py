@@ -63,7 +63,7 @@ class _Verdicts(BaseModel):
 
 
 def _judge_model(model: Optional[str]) -> str:
-    return str(model or config.get("evaluation.judge_model", config.get("llm.openrouter.model")))
+    return str(model or config.get("evaluation.judge_model"))
 
 
 def _call(prompt: str, schema: type, system: str, model: Optional[str], label: str, max_tokens: int):
@@ -75,12 +75,12 @@ def _call(prompt: str, schema: type, system: str, model: Optional[str], label: s
                 response_schema=schema,
                 system_prompt=system,
                 model=_judge_model(model),
-                temperature=float(config.get("evaluation.judge_temperature", 0.0)),
+                temperature=float(config.get("evaluation.judge_temperature")),
                 max_tokens=max_tokens,
                 label=f"judge: {label}",
             ),
             label=label,
-            attempts=int(config.get("evaluation.wait_out_attempts", 5)),
+            attempts=int(config.get("evaluation.wait_out_attempts")),
         )
     except Exception as exc:  # noqa: BLE001 - judge failures are omitted, not fatal
         logger.warning("%s failed: %s", label, exc)
@@ -115,7 +115,7 @@ def verify_claims(
         out = generate_structured(
             prompt=prompt, response_schema=_Verdicts, system_prompt=CLAIMS_SYSTEM_PROMPT,
             model=_judge_model(model),
-            temperature=float(config.get("evaluation.judge_temperature", 0.0)),
+            temperature=float(config.get("evaluation.judge_temperature")),
             max_tokens=200 + 120 * len(claims),
             label="judge: claim verification",
         )
@@ -126,7 +126,7 @@ def verify_claims(
     try:
         return call_with_wait_out(
             attempt, label="claim verification",
-            attempts=int(config.get("evaluation.wait_out_attempts", 5)),
+            attempts=int(config.get("evaluation.wait_out_attempts")),
         )
     except Exception as exc:  # noqa: BLE001
         logger.warning("claim verification failed: %s", exc)

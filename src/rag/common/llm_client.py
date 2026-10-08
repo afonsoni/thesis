@@ -103,19 +103,16 @@ def generate_text(
     ``label`` names the pipeline step in the log and in ``CALL_LOG``.
     """
     if temperature is None:
-        temperature = float(config.get("llm.openrouter.temperature", 0.2))
+        temperature = float(config.get("llm.openrouter.temperature"))
     if max_tokens is None:
-        max_tokens = int(config.get("llm.openrouter.max_tokens", 1500))
+        max_tokens = int(config.get("llm.openrouter.max_tokens"))
     if provider and provider not in ("openrouter", "auto"):
         logger.warning(
             "Provider '%s' is no longer a direct runtime option. Using OpenRouter transport.",
             provider,
         )
 
-    selected_model = model or config.get(
-        "llm.openrouter.model",
-        "meta-llama/llama-3.3-70b-instruct",
-    )
+    selected_model = model or config.get("llm.openrouter.model")
     text = call_openrouter_with_retries(
         prompt=prompt,
         model=selected_model,

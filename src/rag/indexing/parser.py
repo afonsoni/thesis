@@ -53,8 +53,8 @@ def parse_pdfs(
     Returns:
         List of absolute paths to the generated markdown files.
     """
-    pdf_dir_value = pdf_dir if pdf_dir is not None else str(config.get("paths.raw_data", "data/0_raw"))
-    output_dir_value = output_dir if output_dir is not None else os.path.join(str(config.get("paths.markdown_data", "data/1_markdown")), "_raw")
+    pdf_dir_value = pdf_dir if pdf_dir is not None else str(config.get("paths.raw_data"))
+    output_dir_value = output_dir if output_dir is not None else os.path.join(str(config.get("paths.markdown_data")), "_raw")
     os.makedirs(output_dir_value, exist_ok=True)
 
     pdf_files = sorted(glob.glob(os.path.join(pdf_dir_value, "**", "*.pdf"), recursive=True))

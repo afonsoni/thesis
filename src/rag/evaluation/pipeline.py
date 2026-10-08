@@ -19,7 +19,7 @@ from src.rag.evaluation.metrics.routing import RoutingMetric
 from src.rag.evaluation.models import VariantResult
 from src.rag.evaluation.report import save_result, write_leaderboard
 from src.rag.evaluation.runner import Metric, run_variant
-from src.rag.evaluation.variants import DEFAULT_VARIANTS, resolve_variants
+from src.rag.evaluation.variants import resolve_variants
 from src.utils.config_loader import config
 
 logger = logging.getLogger(__name__)
@@ -60,13 +60,13 @@ def evaluate(
     Returns:
         One ``VariantResult`` per variant.
     """
-    variant_names = variant_names or list(config.get("evaluation.variants", DEFAULT_VARIANTS))
+    variant_names = variant_names or list(config.get("evaluation.variants"))
     dataset_path = dataset_path or str(
-        config.get("evaluation.dataset_path", "data/eval/questions/golden.json")
+        config.get("evaluation.dataset_path")
     )
-    results_dir = results_dir or str(config.get("evaluation.results_dir", "data/eval/results"))
-    reports_dir = reports_dir or str(config.get("evaluation.reports_dir", "data/eval/reports"))
-    k = int(k or config.get("evaluation.top_k", config.get("retrieval.default_top_k", 5)))
+    results_dir = results_dir or str(config.get("evaluation.results_dir"))
+    reports_dir = reports_dir or str(config.get("evaluation.reports_dir"))
+    k = int(k or config.get("evaluation.top_k"))
 
     dataset = load_dataset(dataset_path)
     if curated_only:
@@ -81,7 +81,7 @@ def evaluate(
 
     configs = [c.model_copy(update={"top_k": k}) for c in resolve_variants(variant_names)]
     metrics = _build_metrics(use_judge, judge_model)
-    wait_out_attempts = int(config.get("evaluation.wait_out_attempts", 5))
+    wait_out_attempts = int(config.get("evaluation.wait_out_attempts"))
 
     logger.info(
         "Evaluating variants %s over %d questions (k=%d, judge=%s).",

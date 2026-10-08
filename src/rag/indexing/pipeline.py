@@ -128,14 +128,14 @@ def index_documents(
     Every classifying run writes a checkpoint to ``paths.processed_data``.
     Sizes, models and batching come from the ``indexing`` config section.
     """
-    markdown_dir = str(markdown_dir or config.get("paths.markdown_data", "data/1_markdown"))
+    markdown_dir = str(markdown_dir or config.get("paths.markdown_data"))
     strategy = ChunkStrategy(
-        chunk_strategy or config.get("indexing.chunk_strategy", ChunkStrategy.CHAR.value)
+        chunk_strategy or config.get("indexing.chunk_strategy")
     )
     classify = bool(
         use_llm_classification
         if use_llm_classification is not None
-        else config.get("indexing.use_llm_classification", True)
+        else config.get("indexing.use_llm_classification")
     )
     if classify_only and not classify:
         raise ValueError("--classify-only requires LLM classification to be enabled")
@@ -156,9 +156,9 @@ def index_documents(
         # 1. Chunk. Size and overlap are characters under ``char`` and tokens
         # otherwise, so each unit has its own config keys.
         if strategy is ChunkStrategy.CHAR:
-            size, overlap = config.get("indexing.max_chunk_size", 1000), config.get("indexing.chunk_overlap", 100)
+            size, overlap = config.get("indexing.max_chunk_size"), config.get("indexing.chunk_overlap")
         else:
-            size, overlap = config.get("indexing.max_chunk_tokens", 112), config.get("indexing.chunk_overlap_tokens", 24)
+            size, overlap = config.get("indexing.max_chunk_tokens"), config.get("indexing.chunk_overlap_tokens")
         max_parent_tokens = config.get("indexing.max_parent_tokens")
         all_chunks = []
         for md_path in md_files:
@@ -166,7 +166,7 @@ def index_documents(
                 md_path,
                 max_chunk_size=int(size),
                 chunk_overlap=int(overlap),
-                year=int(config.get("indexing.year", 2024)),
+                year=int(config.get("indexing.year")),
                 strategy=strategy,
                 tokenizer_name=str(config.get("embeddings.model")),
                 max_parent_size=int(max_parent_tokens) if max_parent_tokens else None,
@@ -176,16 +176,8 @@ def index_documents(
         # 2. Classify, and checkpoint the result. An unclassified run writes no
         # checkpoint: it would look classified and poison a later --from-classified.
         if classify:
-            all_chunks = classify_chunks(
-                all_chunks,
-                model=str(config.get(
-                    "indexing.classification_model",
-                    config.get("llm.openrouter.model", "google/gemma-4-31b-it:free"),
-                )),
-                batch_size=int(config.get("indexing.classification_batch_size", 15)),
-                delay=float(config.get("indexing.classification_delay", 1.0)),
-            )
-            processed_dir = str(config.get("paths.processed_data", "data/2_processed"))
+            all_chunks = classify_chunks(all_chunks)
+            processed_dir = str(config.get("paths.processed_data"))
             save_classified_chunks(
                 all_chunks,
                 output_path=_build_default_checkpoint_path(md_files, processed_dir, party_filter),
