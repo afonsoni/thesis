@@ -13,7 +13,7 @@ place a human reviews and edits:
               ANCHORING.md: use it before review, never after.
   compile     Read ANCHORING.md (labels, ticked candidates, reference answers)
               and write golden.json. A question is ``curated`` only when it has
-              at least one ticked chunk and a reference answer.
+              a ticked chunk, a reference answer and ``reviewed: yes``.
 
 Labels are seeded from CANDIDATES.md plus the decisions recorded below, and can be
 edited in ANCHORING.md before compiling.
@@ -181,7 +181,8 @@ def render(seeds: List[dict], picks: Dict[str, dict]) -> None:
         "full; the others are cut to 400 characters. Then run",
         "`python scripts/anchor_gold.py compile` to write `golden.json`.", "",
         "Pre-ticks and draft references, where present, were proposed by Claude and must",
-        "be checked: a question counts as curated once it has a tick and a reference.", "",
+        "be checked. Set `reviewed: yes` once a question is right: only then does it count",
+        "as curated (`eval --curated-only`).", "",
     ]
     for s in seeds:
         pick = picks.get(s["id"], {})
@@ -194,8 +195,12 @@ def render(seeds: List[dict], picks: Dict[str, dict]) -> None:
             f"- topics: {', '.join(s['topics']) or '-'}",
             f"- stresses: {s['stresses']} · diff: {s['diff']}",
             f"- note: {s['note']}",
-            f"- reference: {pick.get('reference', '')}", "",
+            f"- reference: {pick.get('reference', '')}",
+            "- reviewed: no",
         ]
+        if pick.get("flag"):
+            out.append(f"- review: {pick['flag']}")
+        out.append("")
         for c in s["candidates"]:
             ticked = c["key"] in gold
             body = _one_line(c["content"]) if ticked else _one_line(c["content"])[:400] + "…"
@@ -228,11 +233,11 @@ def parse_anchoring(path: str = ANCHORING_MD) -> List[EvalQuestion]:
         if m:
             flush()
             cur = {"id": m.group(1), "question": m.group(2), "gold": [], "reference": "",
-                   "parties": [], "topics": [], "coverage": "best_match", "split": ""}
+                   "parties": [], "topics": [], "coverage": "best_match", "split": "", "reviewed": "no"}
             continue
         if cur is None:
             continue
-        m = re.match(r"^- (split|coverage|parties|topics|reference): ?(.*)$", line)
+        m = re.match(r"^- (split|coverage|parties|topics|reference|reviewed): ?(.*)$", line)
         if m:
             key, val = m.group(1), m.group(2).strip()
             if key in ("parties", "topics"):
@@ -262,7 +267,10 @@ def _question(cur: dict) -> EvalQuestion:
         expected_topics=cur["topics"], gold_chunk_keys=cur["gold"],
         reference_answer=cur["reference"],
         source_party=cur["parties"][0] if len(cur["parties"]) == 1 else "",
-        curated=bool(cur["gold"] and cur["reference"]), split=cur["split"],
+        # Curated means a human signed it off, not merely that it is filled in:
+        # ticks and references may have been proposed by a model.
+        curated=bool(cur["gold"] and cur["reference"] and cur["reviewed"].lower() == "yes"),
+        split=cur["split"],
     )
 
 

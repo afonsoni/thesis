@@ -18,6 +18,8 @@ def test_rendered_ticks_and_labels_compile_into_gold_questions(tmp_path, monkeyp
          "diff": "M", "note": "", "candidates": []},
     ]
     ag.render(seeds, {"q-01": {"gold": ["sha1:aa"], "reference": "Uma taxa única de 15%."}})
+    assert not ag.parse_anchoring(str(md))[0].curated  # proposed, not yet signed off
+    md.write_text(md.read_text().replace("- reviewed: no", "- reviewed: yes", 1))
     qs = {q.id: q for q in ag.parse_anchoring(str(md))}
 
     assert qs["q-01"].gold_chunk_keys == ["sha1:aa"]
