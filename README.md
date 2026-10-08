@@ -48,12 +48,10 @@ thesis/
 | ----------------------------- | ------------------- | ----------------------------- |
 | Multi-Query Expansion         | Part 5              | `retrieval/query_expander.py` |
 | Reciprocal Rank Fusion        | Part 6 (RAG-Fusion) | `retrieval/searcher.py`       |
-| Question Decomposition        | Part 7              | `generation/synthesizer.py`   |
 | Logical Routing               | Part 10             | `retrieval/router.py`         |
 | Metadata-Filtered Search      | Part 11             | `indexing/store.py`           |
-| Multi-Representation Indexing | Part 12             | `indexing/embedder.py`        |
 | Small-to-Big Retrieval        | Part 12 (variant)   | `indexing/chunker.py`         |
-| Hybrid Dense + Full-Text      | —                   | `indexing/store.py`           |
+| Hybrid Dense + BM25           | —                   | `indexing/bm25.py`            |
 | Cross-Encoder Reranking       | —                   | `retrieval/reranker.py`       |
 
 ## Core Components
@@ -370,7 +368,7 @@ flowchart LR
 The **query flow** in words: `User question → Query Analysis (structured LLM) →
 Logical Routing by query type` (`single_party` / `comparison` /
 `topic_exploration` / `general`, each with metadata-filtered multi-query search
-+ RRF) `→ Answer Synthesis (direct / comparison / decomposed) → final answer
++ RRF) `→ Answer Synthesis (direct / comparison) → final answer
 with source citations`.
 
 ## Parties Tracked (2024)

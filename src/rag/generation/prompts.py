@@ -1,8 +1,7 @@
 """
 Centralized Portuguese-language prompt templates for the RAG pipeline.
 
-Covers: answer generation, comparison, decomposition, query expansion,
-and query analysis.
+Covers: answer generation, comparison, query expansion and query analysis.
 """
 
 import json
@@ -70,34 +69,6 @@ Contexto organizado por partido:
 Pergunta de comparação: {question}
 
 Análise comparativa:"""
-
-# ---------------------------------------------------------------------------
-# Question decomposition (Part 7 – recursive sub-questions)
-# ---------------------------------------------------------------------------
-
-DECOMPOSITION_PROMPT = """\
-És um assistente que decompõe perguntas complexas sobre política portuguesa \
-em sub-perguntas mais simples.
-
-Pergunta original: {question}
-
-Gera 3 sub-perguntas que, quando respondidas individualmente, \
-permitam construir uma resposta completa à pergunta original.
-Cada sub-pergunta deve poder ser respondida de forma independente.
-Separa as sub-perguntas por novas linhas.
-
-Sub-perguntas:"""
-
-SYNTHESIS_PROMPT = """\
-Aqui estão pares de pergunta e resposta sobre programas políticos portugueses:
-
-{qa_pairs}
-
-Usa estas respostas para sintetizar uma resposta completa à pergunta original, \
-mantendo as referências [n] das respostas:
-{question}
-
-Síntese:"""
 
 # ---------------------------------------------------------------------------
 # Multi-query expansion (Part 5 – overcome similarity search limitations)

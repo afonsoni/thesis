@@ -88,7 +88,7 @@ Entry point: `main.py`
 
 - `llm_client.py`: unified OpenRouter transport for text + structured outputs.
 - `prompts.py`: centralized Portuguese prompts.
-- `synthesizer.py`: direct, comparison, and decomposition-based synthesis strategies.
+- `synthesizer.py`: direct and per-party (comparison) synthesis strategies.
 - `pipeline.py`: generation entry point.
 
 #### Shared models

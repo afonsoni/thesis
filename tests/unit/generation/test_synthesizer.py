@@ -89,14 +89,14 @@ def test_narrative_shape_over_a_fan_out_reads_every_party(captured_prompts):
 
 
 @pytest.mark.unit
-def test_per_party_without_grouped_results_decomposes(captured_prompts):
-    retrieval = _retrieval(AnswerShape.PER_PARTY, results=[_result("CHEGA")])
+def test_per_party_without_grouped_results_groups_them_by_party(captured_prompts):
+    retrieval = _retrieval(AnswerShape.PER_PARTY, results=[_result("CHEGA"), _result("LIVRE")])
 
     synthesize(retrieval)
 
-    # Decomposition: one call to split the question, one per sub-question, one
-    # to synthesise — more than the single call a direct answer would make.
-    assert len(captured_prompts) > 1
+    assert len(captured_prompts) == 1
+    assert "## CHEGA" in captured_prompts[0]
+    assert "## LIVRE" in captured_prompts[0]
 
 
 @pytest.mark.unit

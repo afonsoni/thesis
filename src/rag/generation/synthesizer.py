@@ -22,8 +22,6 @@ from src.rag.generation.prompts import (
     ANSWER_SYSTEM_PROMPT,
     COMPARISON_PROMPT,
     COMPARISON_SYSTEM_PROMPT,
-    DECOMPOSITION_PROMPT,
-    SYNTHESIS_PROMPT,
 )
 
 logger = logging.getLogger(__name__)
@@ -220,45 +218,6 @@ def comparison_answer(
     )
 
 
-def decomposed_answer(
-    query: str,
-    results: List[SearchResult],
-) -> GeneratedAnswer:
-    """
-    Decompose a complex question into sub-questions, answer each,
-    then synthesise (Part 7 pattern).
-    """
-    # Step 1: decompose
-    decomp_prompt = DECOMPOSITION_PROMPT.format(question=query)
-    raw_sub_qs = generate_text(decomp_prompt, temperature=0.2, label="decomposition")
-    sub_questions = [q.strip() for q in raw_sub_qs.strip().split("\n") if q.strip()]
-
-    if not sub_questions:
-        logger.warning("Decomposition produced no sub-questions – falling back to direct.")
-        return direct_answer(query, results)
-
-    logger.info("Decomposed into %d sub-questions.", len(sub_questions))
-
-    # Step 2: answer each sub-question with the same context
-    context = _format_flat_context(results)
-    qa_pairs = []
-    for sq in sub_questions:
-        sub_prompt = ANSWER_PROMPT.format(context=context, question=sq)
-        sub_ans = generate_text(sub_prompt, system_prompt=ANSWER_SYSTEM_PROMPT, temperature=0.2, label="sub-answer")
-        qa_pairs.append(f"Pergunta: {sq}\nResposta: {sub_ans}")
-
-    # Step 3: synthesise
-    qa_text = "\n\n---\n\n".join(qa_pairs)
-    synth_prompt = SYNTHESIS_PROMPT.format(qa_pairs=qa_text, question=query)
-    final = generate_text(synth_prompt, system_prompt=ANSWER_SYSTEM_PROMPT, label="synthesis")
-    return GeneratedAnswer(
-        answer=final,
-        sources=_build_sources(_numbered_flat(results)),
-        query_type=QueryType.COMPARISON,
-        context=context,
-    )
-
-
 # ---------------------------------------------------------------------------
 # Dispatcher
 # ---------------------------------------------------------------------------
@@ -267,17 +226,7 @@ def synthesize(retrieval: RetrievalResult) -> GeneratedAnswer:
     """Pick a synthesis strategy from the requested answer shape.
 
     Shape rather than route: they cross. "Que partido propõe mais sobre
-    habitação?" retrieves every party but wants one verdict, and dispatching on
-    the route would have laid it out party by party.
-
-    There is no longer a result-count trigger for decomposition. The old rule
-    sent topic explorations with more than eight results down that path on the
-    theory that they were too large, but ``decomposed_answer`` formats the same
-    full context once and reuses it for every sub-question — it multiplies LLM
-    calls at constant context and never made a prompt smaller. Prompt size is
-    now handled where it belongs, by trimming to a measured budget, and
-    decomposition is left to the case it actually addresses: a multi-party
-    question whose results arrived flat, with no per-party grouping to lay out.
+    habitação?" retrieves every party but wants one verdict, not eight sections.
     """
     q = retrieval.query.original_query
     shape = retrieval.query.answer_shape
@@ -288,8 +237,13 @@ def synthesize(retrieval: RetrievalResult) -> GeneratedAnswer:
             logger.info("Using comparison synthesis strategy.")
             return comparison_answer(q, _fit_grouped(grouped))
         if retrieval.results:
-            logger.info("Per-party answer without grouped results – decomposing.")
-            return decomposed_answer(q, _fit_flat(retrieval.results))
+            # Flat results (e.g. a single-party route): group them so the answer
+            # can still be laid out party by party.
+            by_party: Dict[str, List[SearchResult]] = {}
+            for r in retrieval.results:
+                by_party.setdefault(r.party_name, []).append(r)
+            logger.info("Per-party answer from flat results – grouping by party.")
+            return comparison_answer(q, _fit_grouped(by_party))
 
     # A narrative answer over a fan-out reads the whole grouped set, not
     # ``results``: the router truncates that flat list to top_k, which would
