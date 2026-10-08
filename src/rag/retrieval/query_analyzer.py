@@ -32,7 +32,7 @@ from src.rag.common.models import (
 )
 from src.rag.common.llm_client import generate_structured
 from src.rag.retrieval.config import RetrievalConfig
-from src.rag.generation.prompts import (
+from src.rag.retrieval.prompts import (
     QUERY_ANALYSIS_PROMPT,
     QUERY_ANALYSIS_SYSTEM_PROMPT,
 )

@@ -11,7 +11,7 @@ import logging
 from typing import List
 
 from src.rag.common.llm_client import generate_text
-from src.rag.generation.prompts import QUERY_EXPANSION_PROMPT
+from src.rag.retrieval.prompts import QUERY_EXPANSION_PROMPT
 
 logger = logging.getLogger(__name__)
 

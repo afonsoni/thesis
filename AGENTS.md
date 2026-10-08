@@ -88,7 +88,8 @@ Entry point: `main.py`
 #### Generation (`src/rag/generation/`)
 
 - `llm_client.py`: unified OpenRouter transport for text + structured outputs.
-- `prompts.py`: centralized Portuguese prompts.
+- `prompts.py`: Portuguese answer-generation prompts (expansion and query-analysis prompts
+  live in `retrieval/prompts.py`, so retrieval does not import generation).
 - `synthesizer.py`: direct and per-party (comparison) synthesis strategies.
 - `pipeline.py`: generation entry point.
 

@@ -15,29 +15,14 @@ thesis/
 │   └── 2_processed/            # Classified JSON outputs
 ├── src/
 │   ├── rag/
-│   │   ├── common/             # Shared Pydantic models & constants
-│   │   │   ├── models.py
-│   │   │   ├── llm_transport.py
-│   │   │   └── llm_client.py
-│   │   ├── indexing/           # Parse → Chunk → Classify → Embed → Store
-│   │   │   ├── parser.py
-│   │   │   ├── chunker.py
-│   │   │   ├── classifier.py
-│   │   │   ├── embedder.py
-│   │   │   ├── store.py
-│   │   │   └── pipeline.py
-│   │   ├── retrieval/          # Analyze → Expand → Route → Search
-│   │   │   ├── query_analyzer.py
-│   │   │   ├── query_expander.py
-│   │   │   ├── router.py
-│   │   │   ├── searcher.py
-│   │   │   └── pipeline.py
-│   │   └── generation/         # LLM clients → Prompts → Synthesis
-│   │       ├── pipeline.py
-│   │       ├── prompts.py
-│   │       ├── synthesizer.py
+│   │   ├── common/             # Shared Pydantic models, party/topic tables, LLM client
+│   │   ├── indexing/           # Parse → Clean → Chunk → Classify → Embed → Store (+ BM25)
+│   │   ├── retrieval/          # Analyze → Expand → Route → Search (+ RRF, reranker)
+│   │   ├── generation/         # Prompts → Synthesis
+│   │   └── evaluation/         # Variant ladder, metrics, LLM judge, leaderboard
 │   └── utils/
-│       └── config_loader.py    # YAML config helper
+│       └── config_loader.py    # Strict YAML config lookup
+├── scripts/                    # Gold-set anchoring, judge validation, maintenance
 ├── tests/
 └── docker-compose.yml          # PostgreSQL 17 + pgvector
 ```
