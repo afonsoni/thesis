@@ -15,6 +15,7 @@ import psycopg2.extras
 from psycopg2.extras import execute_values
 
 from src.rag.common.models import EmbeddedChunk, ScoreType, SearchResult
+from src.rag.indexing.bm25 import Bm25Index, parse_tsvector
 from src.utils.config_loader import config
 
 logger = logging.getLogger(__name__)
@@ -35,6 +36,7 @@ class VectorStore:
         self.db_config = db_config
         self.table = config.get("postgresql.table_name", "party_programs")
         self.connection: Optional[psycopg2.extensions.connection] = None
+        self._bm25: Optional[Bm25Index] = None  # built on first lexical search
 
     # ------------------------------------------------------------------
     # Connection management
@@ -160,6 +162,7 @@ class VectorStore:
         try:
             cur.execute(f"DROP TABLE IF EXISTS {self.table} CASCADE;")
             conn.commit()
+            self._bm25 = None
             logger.warning("Table '%s' dropped.", self.table)
         except Exception as exc:
             conn.rollback()
@@ -208,6 +211,7 @@ class VectorStore:
         try:
             execute_values(cur, sql, rows, template=template, page_size=100)
             conn.commit()
+            self._bm25 = None  # term statistics changed
             logger.info("Inserted %d chunks into '%s'.", len(rows), self.table)
             return len(rows)
         except Exception as exc:
@@ -273,6 +277,14 @@ class VectorStore:
             score_type=score_type,
         )
 
+    def _bm25_index(self, cur) -> Bm25Index:
+        """Term statistics of the whole table, loaded once per store instance."""
+        if self._bm25 is None:
+            cur.execute(f"SELECT id::text AS id, content_tsv::text AS tsv FROM {self.table}")
+            self._bm25 = Bm25Index((r["id"], parse_tsvector(r["tsv"])) for r in cur.fetchall())
+            logger.info("BM25 index: %d chunks, %d lexemes", self._bm25.n, len(self._bm25.postings))
+        return self._bm25
+
     def lexical_search(
         self,
         query: str,
@@ -283,49 +295,55 @@ class VectorStore:
         year: Optional[int] = None,
     ) -> List[SearchResult]:
         """
-        Portuguese full-text search — the lexical half of hybrid retrieval.
+        Portuguese BM25 search — the lexical half of hybrid retrieval.
 
         Complements dense search on the cases embeddings handle worst: rare exact
         tokens such as acronyms and programme names (``USF``, ``TMRG``, ``RES_U``,
         ``Cheque-Dentista``), which carry little distributional signal but are
         precisely what a user quotes when asking about them.
 
-        Uses ``websearch_to_tsquery`` so arbitrary user text can never raise a
-        tsquery syntax error, and ``ts_rank_cd`` so proximity of the matched terms
-        counts. Scores are on their own scale — see :class:`ScoreType.LEXICAL` —
-        and are only comparable to dense scores after rank-based fusion.
+        The query goes through the same Portuguese ``to_tsvector`` as the stored
+        ``content_tsv`` (stemming, stop words), and chunks are ranked by BM25 over
+        those lexemes (:mod:`bm25`): any query term can match, and rare terms
+        weigh more. Metadata filters are applied in SQL. Scores are on their own
+        scale — see :class:`ScoreType.LEXICAL` — and are only comparable to dense
+        scores after rank-based fusion.
 
         Returns an empty list when the query has no searchable Portuguese terms
         (e.g. only stop-words), which is a normal outcome, not an error.
         """
         conn = self._conn()
         cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
-
-        clauses, filter_params = self._build_filters(party_name, ideology, topics, year)
-        clauses.insert(0, "content_tsv @@ websearch_to_tsquery('portuguese', %s)")
-        where_sql = "WHERE " + " AND ".join(clauses)
-
-        sql = f"""
-            SELECT {self._RESULT_COLUMNS},
-                   ts_rank_cd(content_tsv, websearch_to_tsquery('portuguese', %s)) AS score
-            FROM {self.table}
-            {where_sql}
-            ORDER BY score DESC
-            LIMIT %s;
-        """
-        params: List[Any] = [query, query, *filter_params, top_k]
-
         try:
-            cur.execute(sql, params)
-            rows = cur.fetchall()
+            index = self._bm25_index(cur)
+            cur.execute("SELECT to_tsvector('portuguese', %s)::text AS q", (query,))
+            terms = list(parse_tsvector(cur.fetchone()["q"]))
+            if not terms:
+                return []
+
+            allowed = None
+            clauses, params = self._build_filters(party_name, ideology, topics, year)
+            if clauses:
+                cur.execute(f"SELECT id::text AS id FROM {self.table} WHERE " + " AND ".join(clauses), params)
+                allowed = {r["id"] for r in cur.fetchall()}
+
+            ranked = index.top_k(terms, top_k, allowed)
+            if not ranked:
+                return []
+            cur.execute(
+                f"SELECT {self._RESULT_COLUMNS} FROM {self.table} WHERE id::text = ANY(%s)",
+                ([doc_id for doc_id, _ in ranked],),
+            )
+            rows = {str(r["id"]): r for r in cur.fetchall()}
         except Exception as exc:
             conn.rollback()
             logger.error("Lexical search failed: %s", exc)
             return []
 
         return [
-            self._row_to_result(row, float(row["score"]), ScoreType.LEXICAL)
-            for row in rows
+            self._row_to_result(rows[doc_id], score, ScoreType.LEXICAL)
+            for doc_id, score in ranked
+            if doc_id in rows
         ]
 
     def similarity_search(

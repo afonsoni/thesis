@@ -57,7 +57,7 @@ class ScoreType(str, Enum):
     """Scale that a ``SearchResult.similarity`` value is expressed on."""
     COSINE = "cosine"
     RRF = "rrf"
-    LEXICAL = "lexical"  # PostgreSQL ts_rank_cd over a Portuguese tsvector
+    LEXICAL = "lexical"  # BM25 over Portuguese tsvector lexemes (indexing/bm25.py)
     RERANK = "rerank"  # Cross-encoder relevance logit – unbounded, not a similarity
 
 

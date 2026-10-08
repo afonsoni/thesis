@@ -58,8 +58,10 @@ Entry point: `main.py`
   5.x locates the last *unmasked* token via the attention mask, so it pools correctly with
   either padding side. Do not cite it as a correctness requirement.
 - `store.py`: PostgreSQL + pgvector storage, HNSW index, metadata-filtered similarity
-  search, plus `lexical_search()` over a generated Portuguese `tsvector` column
-  (the lexical half of hybrid retrieval).
+  search, plus `lexical_search()`: BM25 (`bm25.py`) over the lexemes of a generated
+  Portuguese `tsvector` column (the lexical half of hybrid retrieval). Any query term
+  can match and rare terms weigh more; `websearch_to_tsquery`/`ts_rank_cd`, used
+  before, ANDed every word and so matched almost nothing for a natural question.
 - `pipeline.py`: end-to-end indexing orchestrator.
 
 #### Retrieval (`src/rag/retrieval/`)
