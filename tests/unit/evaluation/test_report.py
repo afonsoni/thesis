@@ -51,3 +51,11 @@ def test_save_result_writes_versioned_json(tmp_path):
 def test_summarize_maps_variant_to_aggregate():
     results = [_make_result("naive", 0.4, 0.5)]
     assert summarize(results)["naive"]["hit@5"] == 0.4
+
+
+@pytest.mark.unit
+def test_leaderboard_notes_when_fallback_models_answered(tmp_path):
+    r = _make_result("current", 0.8, 0.9)
+    r.models_used = {"google/gemma-4-26b-a4b-it:free": 40, "nvidia/nemotron-3-ultra-550b-a55b:free": 3}
+    content = open(write_leaderboard([r], str(tmp_path)), encoding="utf-8").read()
+    assert "Fallback models answered" in content and "nemotron" in content

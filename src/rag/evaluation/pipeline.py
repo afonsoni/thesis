@@ -8,8 +8,10 @@ persists per-variant results, and refreshes the comparison leaderboard.
 from __future__ import annotations
 
 import logging
+from collections import Counter
 from typing import List, Optional
 
+from src.rag.common.llm_transport import MODEL_USAGE
 from src.rag.evaluation.dataset import load_dataset
 from src.rag.evaluation.metrics import (
     GenerationJudgeMetric,
@@ -89,7 +91,9 @@ def evaluate(
 
     results: List[VariantResult] = []
     for cfg in configs:
+        before = Counter(MODEL_USAGE)
         result = run_variant(cfg, dataset, metrics, k=k)
+        result.models_used = dict(MODEL_USAGE - before)
         save_result(result, results_dir)
         results.append(result)
 

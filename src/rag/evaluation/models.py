@@ -132,3 +132,6 @@ class VariantResult(BaseModel):
     dataset_size: int = 0
     aggregate: Dict[str, float] = Field(default_factory=dict)
     per_question: List[QuestionRun] = Field(default_factory=list)
+    # LLM calls per answering model during this run (generation, analysis and
+    # judge alike); more than one entry means OpenRouter fallbacks were used.
+    models_used: Dict[str, int] = Field(default_factory=dict)

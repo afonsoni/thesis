@@ -13,6 +13,7 @@ import os
 import random
 import re
 import time
+from collections import Counter
 from typing import Any, Dict, List, Mapping, Optional
 
 import requests
@@ -30,6 +31,18 @@ _ERROR_LOG_MAX_CHARS = 300
 _DEFAULT_MAX_RETRIES = int(config.get("llm.openrouter.max_retries", 5))
 _DEFAULT_BASE_BACKOFF_SECS = float(config.get("llm.openrouter.base_backoff_secs", 1.0))
 _DEFAULT_MAX_BACKOFF_SECS = float(config.get("llm.openrouter.max_backoff_secs", 30.0))
+
+
+# Which model actually answered, per model id. With fallbacks configured the
+# answering model can differ from the requested one; evaluation snapshots this
+# so a run can report how often a fallback was used (e.g. by the judge).
+MODEL_USAGE: Counter = Counter()
+
+
+def _fallback_models(model: str) -> List[str]:
+    """``model`` followed by the configured fallbacks, without repeats."""
+    chain = [model, *list(config.get("llm.openrouter.fallback_models", []) or [])]
+    return list(dict.fromkeys(chain))
 
 
 class OpenRouterTransportError(RuntimeError):
@@ -141,6 +154,11 @@ def _call_openrouter_once(
     }
     if response_format:
         payload["response_format"] = response_format
+    chain = _fallback_models(model)
+    if len(chain) > 1:
+        # OpenRouter model fallbacks: on any error from one model (rate limit,
+        # downtime, context length) it tries the next, in this order.
+        payload["models"] = chain
     if extra_body:
         payload.update(extra_body)
 
@@ -171,6 +189,11 @@ def _call_openrouter_once(
         message = data["choices"][0]["message"]["content"]
     except Exception as exc:
         raise OpenRouterTransportError(f"Unexpected OpenRouter response: {response.text[:500]}") from exc
+
+    answered_by = str(data.get("model") or model)
+    MODEL_USAGE[answered_by] += 1
+    if not answered_by.startswith(model.split(":")[0]):
+        logger.info("Answered by fallback model %s (requested %s).", answered_by, model)
 
     if isinstance(message, str):
         return message.strip()

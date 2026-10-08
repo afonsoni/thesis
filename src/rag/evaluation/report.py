@@ -125,6 +125,12 @@ def write_leaderboard(results: List[VariantResult], reports_dir: str) -> str:
         "`answer_relevance` is a 1-5 judgement mapped to [0, 1].",
         "",
     ])
+    used = {r.variant: r.models_used for r in results if len(r.models_used) > 1}
+    if used:
+        lines.append("**Fallback models answered some LLM calls** (calls per model): " + "; ".join(
+            f"`{v}`: " + ", ".join(f"{m} {n}" for m, n in sorted(c.items(), key=lambda kv: -kv[1]))
+            for v, c in used.items()))
+        lines.append("")
     if len(results) > 1:
         lines.extend(_delta_table(results, columns))
     with open(md_path, "w", encoding="utf-8") as fh:

@@ -51,6 +51,13 @@ postgresql:
 llm:
   openrouter:
     model: "google/gemma-4-26b-a4b-it:free"
+    # OpenRouter model fallbacks, tried in order when the requested model errors
+    # (rate limit, downtime, context length). Applied to every call, whatever its
+    # model. The model that answered is counted in llm_transport.MODEL_USAGE and
+    # recorded per evaluation run, since a fallback can change a judge's verdicts.
+    fallback_models:
+      - "google/gemma-4-31b-it:free"
+      - "nvidia/nemotron-3-ultra-550b-a55b:free"
     temperature: 0.2
     max_tokens: 1500 # cap on the *generated* answer, not on the prompt
     # Context the synthesiser may put in one prompt. Retrieval can now hand
