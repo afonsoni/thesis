@@ -166,6 +166,5 @@ evaluation:
   # every judge call) waits out free-tier failures this many times. A question
   # that still fails is recorded as an error; a judge score is omitted (never 0).
   wait_out_attempts: 5
-  sample_size: 60
   top_k: 5
   variants: ["naive", "current", "hybrid"]

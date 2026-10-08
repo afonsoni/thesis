@@ -307,8 +307,9 @@ Each step is a `RetrievalConfig` preset (feature flags over the *same* productio
 code) — see `src/rag/evaluation/variants.py`.
 
 ```bash
-# 1. Build a synthetic gold set anchored to indexed chunks, then hand-curate golden.json
-python main.py eval-dataset --sample-size 60 --out data/eval/questions/synthetic.json
+# 1. Anchor the hand-written questions to indexed chunks, review, compile golden.json
+python scripts/anchor_gold.py candidates   # then review anchoring/ANCHORING.md
+python scripts/anchor_gold.py compile
 
 # 2. Run variants and refresh the leaderboard
 python main.py eval --variants naive,current --curated-only

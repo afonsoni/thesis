@@ -422,60 +422,6 @@ class VectorStore:
         cur.execute(f"SELECT DISTINCT party_name FROM {self.table} WHERE party_name IS NOT NULL ORDER BY party_name;")
         return [row[0] for row in cur.fetchall()]
 
-    def sample_chunks(
-        self,
-        n: int = 50,
-        party_name: Optional[str] = None,
-        topic: Optional[str] = None,
-        min_chars: int = 200,
-    ) -> List[SearchResult]:
-        """
-        Randomly sample stored chunks for evaluation-dataset generation.
-
-        Returns ``SearchResult`` objects (no embedding) so downstream code can
-        reuse the same content/party/topic/header fields it sees at query time.
-
-        Args:
-            n: Number of chunks to sample.
-            party_name: Restrict to a single party.
-            topic: Restrict to chunks tagged with this topic.
-            min_chars: Skip very short chunks (poor question sources).
-        """
-        conn = self._conn()
-        cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
-
-        where_clauses: List[str] = ["length(content) >= %s"]
-        params: List[Any] = [min_chars]
-        if party_name:
-            where_clauses.append("party_name = %s")
-            params.append(party_name)
-        if topic:
-            where_clauses.append("topics && %s")
-            params.append([topic])
-
-        where_sql = "WHERE " + " AND ".join(where_clauses)
-        params.append(n)
-
-        sql = f"""
-            SELECT {self._RESULT_COLUMNS}
-            FROM {self.table}
-            {where_sql}
-            ORDER BY random()
-            LIMIT %s;
-        """
-
-        try:
-            cur.execute(sql, params)
-            rows = cur.fetchall()
-        except Exception as exc:
-            conn.rollback()
-            logger.error("sample_chunks failed: %s", exc)
-            return []
-
-        return [
-            self._row_to_result(row, 0.0, ScoreType.COSINE) for row in rows
-        ]
-
     def test_connection(self) -> bool:
         """Quick connectivity & pgvector check."""
         try:

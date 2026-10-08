@@ -80,8 +80,7 @@ them into `golden.json`:
 
 Questions carry a `split`: 30 **test** questions, balanced across route, stress,
 party and difficulty, are held out for headline numbers (`--split test`); 21
-**dev** questions are for tuning. `dataset.build_dataset` (LLM-written questions
-anchored on sampled chunks) remains available for quick synthetic sets.
+**dev** questions are for tuning.
 
 **Retrieval ground truth is matched by content hash, not database UUID.**
 `insert_chunks` mints a new UUID on every insert and `--drop` re-mints them, so
@@ -177,8 +176,9 @@ set follows ARES (Saad-Falcon et al., NAACL 2024).
 docker compose up -d
 python main.py index --all            # or: --from-classified data/2_processed/<file>.json
 
-# 1. Build a synthetic gold set, then curate a golden.json by hand
-python main.py eval-dataset --sample-size 60 --out data/eval/questions/synthetic.json
+# 1. Anchor the hand-written questions, review ANCHORING.md, compile golden.json
+python scripts/anchor_gold.py candidates
+python scripts/anchor_gold.py compile
 
 # 2. Run the harness and refresh the leaderboard
 python main.py eval --variants naive,current --curated-only --split test

@@ -7,7 +7,6 @@ Commands:
                            [--classify-only] [--from-classified PATH]
                            [--checkpoint-out PATH] [--no-checkpoint]
     python main.py query   "question" [--top-k 5] [--no-expand]
-    python main.py eval-dataset [--sample-size 60] [--types ...] [--out PATH]
     python main.py eval    [--variants naive,current] [--dataset PATH]
                            [--curated-only] [--top-k 5] [--no-judge]
 """
@@ -120,27 +119,6 @@ def cmd_query(args):
             print(f"  {step}: {model}")
 
 
-def cmd_eval_dataset(args):
-    from src.rag.evaluation.dataset import build_dataset, save_dataset
-
-    types = [t.strip() for t in args.types.split(",")] if args.types else None
-    dataset = build_dataset(
-        sample_size=args.sample_size,
-        types=types,
-        model=args.model,
-    )
-    if not dataset.questions:
-        logger.error("No questions generated. Is the index populated? (python main.py index --all)")
-        sys.exit(1)
-    save_dataset(dataset, args.out)
-    logger.info(
-        "Generated %d questions → %s. Review and set curated=true on the best ones "
-        "(e.g. copy into golden.json).",
-        len(dataset.questions),
-        args.out,
-    )
-
-
 def cmd_eval(args):
     from src.rag.evaluation.pipeline import evaluate
 
@@ -214,15 +192,6 @@ def build_parser() -> argparse.ArgumentParser:
     p_query.add_argument("-k", "--top-k", type=int, default=5, help="Number of documents to retrieve")
     p_query.add_argument("--no-expand", action="store_true", help="Disable multi-query expansion")
 
-    # eval-dataset
-    p_evd = sub.add_parser("eval-dataset", help="Generate a synthetic gold set anchored to indexed chunks")
-    p_evd.add_argument("--sample-size", type=int, default=60, help="Total number of questions to generate")
-    p_evd.add_argument("--types", type=str, default=None,
-                       help="Comma-separated query types (single_party,comparison,topic_exploration,general)")
-    p_evd.add_argument("--model", type=str, default=None, help="OpenRouter model for question generation")
-    p_evd.add_argument("--out", type=str, default="data/eval/questions/synthetic.json",
-                       help="Output path for the generated dataset")
-
     # eval
     p_ev = sub.add_parser("eval", help="Run the evaluation harness over one or more variants")
     p_ev.add_argument("--variants", type=str, default=None,
@@ -252,8 +221,6 @@ def main():
         cmd_index(args)
     elif args.command == "query":
         cmd_query(args)
-    elif args.command == "eval-dataset":
-        cmd_eval_dataset(args)
     elif args.command == "eval":
         cmd_eval(args)
     else:

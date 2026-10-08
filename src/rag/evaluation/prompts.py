@@ -1,74 +1,7 @@
 """
-Portuguese-language prompts for the evaluation stage: synthetic gold-set
-generation and LLM-as-judge scoring. Kept local to the evaluation package so
-retrieval/generation stay independent of it.
+Portuguese-language prompts for the LLM-as-judge. Kept local to the evaluation
+package so retrieval/generation stay independent of it.
 """
-
-# ---------------------------------------------------------------------------
-# Dataset generation
-# ---------------------------------------------------------------------------
-
-GEN_SINGLE_PROMPT = """\
-És um avaliador que cria perguntas de teste para um sistema de perguntas e \
-respostas sobre programas políticos portugueses (eleições de 2024).
-
-A partir do EXCERTO abaixo (do programa do partido "{party}"), cria UMA pergunta \
-natural em português europeu cuja resposta esteja contida no excerto, e a \
-respetiva resposta de referência (curta, factual, baseada apenas no excerto).
-
-A pergunta deve mencionar o partido "{party}" e ser respondível só com este excerto.
-
-EXCERTO:
-{content}
-
-Responde em JSON:
-{{"question": "...", "reference_answer": "..."}}"""
-
-GEN_GENERAL_PROMPT = """\
-És um avaliador que cria perguntas de teste para um sistema de perguntas e \
-respostas sobre programas políticos portugueses (eleições de 2024).
-
-A partir do EXCERTO abaixo, cria UMA pergunta natural e geral em português \
-europeu (SEM mencionar nenhum partido) cuja resposta esteja no excerto, e a \
-respetiva resposta de referência curta.
-
-EXCERTO:
-{content}
-
-Responde em JSON:
-{{"question": "...", "reference_answer": "..."}}"""
-
-GEN_TOPIC_PROMPT = """\
-És um avaliador que cria perguntas de teste sobre programas políticos \
-portugueses (eleições de 2024).
-
-Cria UMA pergunta natural em português europeu sobre o tema "{topic}", do tipo \
-"que partidos propõem X" ou "o que propõem os partidos sobre X", que possa ser \
-respondida usando os excertos abaixo (de vários partidos). Inclui também uma \
-resposta de referência curta que sintetize os excertos.
-
-EXCERTOS:
-{content}
-
-Responde em JSON:
-{{"question": "...", "reference_answer": "..."}}"""
-
-GEN_COMPARISON_PROMPT = """\
-És um avaliador que cria perguntas de teste sobre programas políticos \
-portugueses (eleições de 2024).
-
-Cria UMA pergunta natural em português europeu que COMPARE os partidos \
-"{party_a}" e "{party_b}" sobre o tema "{topic}", respondível com os excertos \
-abaixo. Inclui uma resposta de referência curta que contraste as duas posições.
-
-EXCERTO ({party_a}):
-{content_a}
-
-EXCERTO ({party_b}):
-{content_b}
-
-Responde em JSON:
-{{"question": "...", "reference_answer": "..."}}"""
 
 # ---------------------------------------------------------------------------
 # LLM-as-judge

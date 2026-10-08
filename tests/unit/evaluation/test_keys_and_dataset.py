@@ -2,7 +2,7 @@ import os
 
 import pytest
 
-from src.rag.evaluation.dataset import _allocate, load_dataset, save_dataset
+from src.rag.evaluation.dataset import load_dataset, save_dataset
 from src.rag.evaluation.keys import chunk_key, normalize_content
 from src.rag.evaluation.models import EvalDataset, EvalQuestion
 
@@ -18,16 +18,6 @@ def test_chunk_key_stable_across_whitespace_and_form():
 @pytest.mark.unit
 def test_normalize_content_collapses_whitespace():
     assert normalize_content("  a\t b\n c ") == "a b c"
-
-
-@pytest.mark.unit
-def test_allocate_splits_evenly_with_remainder():
-    alloc = _allocate(10, ["single_party", "comparison", "topic_exploration", "general"])
-    assert sum(alloc.values()) == 10
-    # remainder distributed to the first types
-    assert alloc["single_party"] == 3 and alloc["general"] == 2
-    assert _allocate(0, ["a"]) == {"a": 0}
-    assert _allocate(5, []) == {}
 
 
 @pytest.mark.unit

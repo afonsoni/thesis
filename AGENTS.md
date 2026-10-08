@@ -107,7 +107,7 @@ Entry point: `main.py`
   from `current`: `party_stripped` (`strip_party_names`), `instructed`
   (`query_instruction` = `embeddings.task_instruction`) and `contextual` (searches
   `indexing.contextual_table`, built with `main.py index --contextual-headers --table`).
-- `dataset.py`: synthetic-anchored gold-set generation + load/save (content-hash keys).
+- `dataset.py`: gold-set load/save (content-hash keys).
 - `metrics/`: retrieval (hit/recall/MRR/nDCG over the full list handed to generation,
   against human-picked gold chunks),
   routing (type acc, coverage, party/topic F1), and generation: claim-level
