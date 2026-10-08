@@ -20,6 +20,7 @@ cosine similarities or RRF scores, which is why reranked results carry
 
 from __future__ import annotations
 
+import functools
 import logging
 from typing import List, Optional
 
@@ -89,17 +90,7 @@ class Reranker:
         return rescored[:top_k]
 
 
-# ---------------------------------------------------------------------------
-# Module-level singleton – mirrors the Searcher singleton in pipeline.py so the
-# cross-encoder is loaded once per process, not once per query.
-# ---------------------------------------------------------------------------
-
-_reranker: Optional[Reranker] = None
-
-
+@functools.cache
 def get_reranker() -> Reranker:
-    """Return the process-wide reranker, loading it on first use."""
-    global _reranker
-    if _reranker is None:
-        _reranker = Reranker()
-    return _reranker
+    """Process-wide reranker, so the cross-encoder loads once, not per query."""
+    return Reranker()

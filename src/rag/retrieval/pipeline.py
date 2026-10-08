@@ -4,8 +4,9 @@ Retrieval pipeline – single entry-point for the retrieval stage.
 Chains: analyze → expand → route → search → return RetrievalResult.
 """
 
+import functools
 import logging
-from typing import Dict, Optional
+from typing import Optional
 
 from src.rag.common.models import RetrievalResult
 from src.rag.indexing.store import VectorStore
@@ -16,24 +17,15 @@ from src.rag.retrieval.searcher import Searcher
 
 logger = logging.getLogger(__name__)
 
-# Module-level singleton to avoid re-loading the embedding model on every call
-_searcher: Optional[Searcher] = None
-# Searchers over alternative index tables (RetrievalConfig.table), sharing the
-# default searcher's embedder so the model is loaded once.
-_table_searchers: Dict[str, Searcher] = {}
-
-
-def _get_searcher(table: Optional[str] = None) -> Searcher:
-    global _searcher
-    if _searcher is None:
-        _searcher = Searcher()
-    if not table or table == _searcher.store.table:
-        return _searcher
-    if table not in _table_searchers:
-        store = VectorStore()
-        store.table = table
-        _table_searchers[table] = Searcher(embedder=_searcher.embedder, store=store)
-    return _table_searchers[table]
+@functools.cache
+def get_searcher(table: Optional[str] = None) -> Searcher:
+    """Process-wide Searcher per index table (``RetrievalConfig.table``; None is
+    ``postgresql.table_name``), all sharing one embedding model."""
+    if table is None:
+        return Searcher()
+    store = VectorStore()
+    store.table = table
+    return Searcher(embedder=get_searcher().embedder, store=store)
 
 
 def retrieve(
@@ -80,7 +72,7 @@ def retrieve(
     )
 
     # Step 2: route & search
-    searcher = _get_searcher(config.table)
+    searcher = get_searcher(config.table)
     result = route(analyzed, searcher, config=config)
     logger.info("Retrieved %d results.", len(result.results))
 

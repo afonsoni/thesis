@@ -9,8 +9,8 @@ from src.rag.retrieval.query_analyzer import _QueryAnalysisResponse
 
 
 @pytest.mark.integration
-def test_retrieve_single_party_with_test_db(seeded_searcher):
-    retrieval_pipeline._searcher = seeded_searcher
+def test_retrieve_single_party_with_test_db(seeded_searcher, monkeypatch):
+    monkeypatch.setattr(retrieval_pipeline, "get_searcher", lambda table=None: seeded_searcher)
     structured = _QueryAnalysisResponse(
         parties=["Partido Socialista"],
         coverage="best_match",
@@ -28,8 +28,8 @@ def test_retrieve_single_party_with_test_db(seeded_searcher):
 
 
 @pytest.mark.integration
-def test_retrieve_then_generate_with_mocked_llm(seeded_searcher):
-    retrieval_pipeline._searcher = seeded_searcher
+def test_retrieve_then_generate_with_mocked_llm(seeded_searcher, monkeypatch):
+    monkeypatch.setattr(retrieval_pipeline, "get_searcher", lambda table=None: seeded_searcher)
     structured = _QueryAnalysisResponse(
         parties=["Partido Socialista"],
         coverage="best_match",

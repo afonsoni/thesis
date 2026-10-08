@@ -40,30 +40,6 @@ class DeterministicEmbedder(Embedder):
         return self.encode(text)
 
 
-@pytest.fixture(autouse=True)
-def reset_retrieval_singleton() -> Iterator[None]:
-    """Ensure retrieval singleton state never leaks between tests."""
-    import src.rag.retrieval.pipeline as retrieval_pipeline
-
-    previous = retrieval_pipeline._searcher
-    retrieval_pipeline._searcher = None
-    if previous is not None:
-        try:
-            previous.close()
-        except Exception:
-            pass
-
-    yield
-
-    active = retrieval_pipeline._searcher
-    retrieval_pipeline._searcher = None
-    if active is not None:
-        try:
-            active.close()
-        except Exception:
-            pass
-
-
 @pytest.fixture
 def require_live_e2e() -> None:
     """Fail fast when live E2E prerequisites are missing."""

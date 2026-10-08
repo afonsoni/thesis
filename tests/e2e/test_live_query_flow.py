@@ -9,9 +9,9 @@ from src.rag.retrieval.pipeline import retrieve
 
 @pytest.mark.e2e
 @pytest.mark.live
-def test_live_query_flow_smoke(require_live_e2e, seeded_searcher):
+def test_live_query_flow_smoke(require_live_e2e, seeded_searcher, monkeypatch):
     """Live smoke: analyze -> expand -> retrieve -> synthesize."""
-    retrieval_pipeline._searcher = seeded_searcher
+    monkeypatch.setattr(retrieval_pipeline, "get_searcher", lambda table=None: seeded_searcher)
 
     retrieval_result = retrieve(
         "Quais sao as propostas do Partido Socialista para a educacao?",
