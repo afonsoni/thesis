@@ -10,29 +10,32 @@
 % Searchable, impossible-to-miss placeholder macro
 \providecommand{\TODO}[1]{\textcolor{red}{\textbf{[TODO: #1]}}}
 
-\chapter{Proposition} \label{ch:proposition}
+\chapter{\sysname{} Proposal} \label{ch:proposition}
 
 %% DRAFT (Claude, 2026-10-08): naming sentence, to be rewritten.
 This chapter presents \sysname{}, the system built in this work to answer
 questions about the 2024 Portuguese electoral manifestos.
 
 \TODO{Chapter lead-in (1--2 paragraphs): state that \sysname{} is presented in
-three parts --- indexing (offline), query time (online), evaluation (offline)
---- and that each subsection follows the same rhythm: problem, candidates
+three parts --- indexing, retrieval and evaluation --- with indexing and
+evaluation running offline and retrieval online, and that each subsection follows the same rhythm: problem, candidates
 researched, choice made, and how/why that choice was later revised.}
 
-\begin{figure}[h]
-\begin{center}
-    % \includegraphics[width=0.9\textwidth]{images/system-overview.png}
-    \TODO{Export the three-part overview diagram (docs/architecture.md, Overview
-    mermaid) as an image and include it here.}
-\end{center}
-\caption{\TODO{Caption for the system overview figure.}}
-\label{fig:system-overview}
+%% Figures in this chapter are rendered from the Mermaid diagrams in
+%% docs/architecture.md by scripts/render_diagrams.sh; edit them there.
+%% DRAFT (Claude, 2026-10-08): figure captions, to be rewritten.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{images/architecture-overview.pdf}
+    \caption{Overview of \sysname{}. Indexing builds the vector store that
+    retrieval searches to answer each question; evaluation replays the
+    retrieval pipeline under different feature flags. Indexing and evaluation
+    run offline, retrieval runs online.}
+    \label{fig:system-overview}
 \end{figure}
 
 % ============================================================
-\section{Indexing (offline)} \label{sec:indexing}
+\section{Indexing} \label{sec:indexing}
 % ============================================================
 %% DRAFT (Claude, 2026-10-06) from dissertation/HISTORY-GAPS.md and commit
 %% bodies. To be rewritten in the author's own words. Remaining \TODO markers
@@ -41,11 +44,21 @@ researched, choice made, and how/why that choice was later revised.}
 Indexing turns the eight manifesto PDFs into a searchable store in six
 steps: each document is parsed to Markdown, cleaned, split into chunks,
 labelled with policy topics, embedded, and written to a vector database.
-It runs offline, once per corpus change, and everything the query-time
-pipeline (Section~\ref{sec:querytime}) does depends on the representation it
-produces. The subsections below follow the pipeline in order. Each one states
+It runs offline, once per corpus change, and everything the retrieval
+pipeline (Section~\ref{sec:retrieval}) does depends on the representation it
+produces. The subsections below follow the pipeline in order
+(Figure~\ref{fig:indexing}). Each one states
 the problem, the options considered, the choice made, and, where it happened,
 how and why that choice was later revised.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{images/architecture-indexing.pdf}
+    \caption{The indexing pipeline. Document preparation runs once per
+    manifesto and its output is reviewed by hand; the indexing pipeline then
+    chunks, classifies and embeds the cleaned Markdown into the vector store.}
+    \label{fig:indexing}
+\end{figure}
 
 \subsection{Corpus} \label{subsec:corpus}
 
@@ -407,13 +420,29 @@ cannot drift out of sync with the text it indexes. PostgreSQL runs in Docker,
 so the whole store is reproducible from one configuration file.
 
 % ============================================================
-\section{Query time (online)} \label{sec:querytime}
+\section{Retrieval} \label{sec:retrieval}
 % ============================================================
 
-\TODO{Section lead-in: analyze $\rightarrow$ expand $\rightarrow$ route
-$\rightarrow$ search $\rightarrow$ synthesize; every step behind a feature
-flag (this enables the evaluation ladder --- forward-reference
-Section~\ref{sec:evaluation}).}
+%% DRAFT (Claude, 2026-10-08): section lead-in, to be rewritten.
+Retrieval runs online, once for every question a user asks. The question is
+analysed, expanded into several reformulations, routed to a search strategy,
+searched, and the ranked lists are fused into one
+(Figure~\ref{fig:retrieval}); the passages retrieved are then used to
+synthesise the answer (Figure~\ref{fig:generation}). Every technique beyond
+plain dense search sits behind a feature flag and can be switched off on its
+own. This is what allows the evaluation (Section~\ref{sec:evaluation}) to
+measure the contribution of each technique separately.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{images/architecture-retrieval.pdf}
+    \caption{The retrieval pipeline. Dashed stages are switched by the feature
+    flag in brackets; with the flag off, a stage falls back to its simplest
+    form (Section~\ref{subsec:variants}). A topic filter that matches no chunk
+    is dropped and the search retried. Answer synthesis follows in
+    Figure~\ref{fig:generation}.}
+    \label{fig:retrieval}
+\end{figure}
 
 \subsection{Query analysis} \label{subsec:queryanalysis}
 %% src: retrieval/query_analyzer.py; structured LLM -> query_type, parties, topics, ideology; heuristic fallback
@@ -437,14 +466,37 @@ honest note that measured gains were narrower than expected.}
 
 \subsection{Answer synthesis} \label{subsec:synthesis}
 %% src: generation/synthesizer.py; direct / comparison / decomposed (Part 7); citations
-\TODO{Strategy dispatch by query type and result shape; grounded citations.}
+\TODO{Strategy dispatch by answer shape and result shape; grounded citations.
+Reference Figure~\ref{fig:generation}.}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/architecture-generation.pdf}
+    \caption{Answer synthesis. The context is fitted to the prompt budget first;
+    the strategy then follows from the answer shape set by query analysis and
+    from whether the results arrived grouped by party.}
+    \label{fig:generation}
+\end{figure}
 
 % ============================================================
-\section{Evaluation (offline)} \label{sec:evaluation}
+\section{Evaluation} \label{sec:evaluation}
 % ============================================================
 
-\TODO{Section lead-in: goal --- attribute score deltas to individual
-techniques by replaying the SAME production code under different flags.}
+%% DRAFT (Claude, 2026-10-08): section lead-in, to be rewritten.
+Evaluation runs offline, like indexing, against the same vector store that
+retrieval searches. Its goal is to attribute differences in quality to
+individual techniques. Each variant replays the production retrieval
+pipeline over the same gold questions, with only the feature flags changed
+(Figure~\ref{fig:evaluation}), so a difference in scores between two variants
+that differ by one flag can be attributed to that one technique.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{images/architecture-evaluation.pdf}
+    \caption{The evaluation harness. Every variant on the ladder runs the same
+    production code over the same gold set; only the feature flags differ.}
+    \label{fig:evaluation}
+\end{figure}
 
 \subsection{Variant ladder} \label{subsec:variants}
 %% src: docs/evaluation.md §1; variants.py; naive -> multiquery -> routed -> current (+ reserved reranked/hybrid)
