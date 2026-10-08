@@ -63,8 +63,13 @@ def indexing_stubs(monkeypatch, tmp_path):
         return chunks
 
     monkeypatch.setattr(pipeline, "classify_chunks", _spy_classify)
+    # Classifying runs always checkpoint; record instead of writing to data/.
+    saved = []
+    monkeypatch.setattr(
+        pipeline, "save_classified_chunks", lambda *args, **kwargs: saved.append(kwargs.get("output_path"))
+    )
 
-    return {"markdown_dir": str(tmp_path), "store": store, "classify_calls": calls}
+    return {"markdown_dir": str(tmp_path), "store": store, "classify_calls": calls, "saved": saved}
 
 
 @pytest.mark.unit
@@ -72,7 +77,6 @@ def test_index_documents_skips_classification_when_disabled(indexing_stubs):
     count = pipeline.index_documents(
         markdown_dir=indexing_stubs["markdown_dir"],
         use_llm_classification=False,
-        save_checkpoint=False,
     )
 
     assert count == 1
@@ -86,33 +90,23 @@ def test_index_documents_classifies_when_enabled(indexing_stubs):
     count = pipeline.index_documents(
         markdown_dir=indexing_stubs["markdown_dir"],
         use_llm_classification=True,
-        save_checkpoint=False,
     )
 
     assert count == 1
     assert len(indexing_stubs["classify_calls"]) == 1
     assert indexing_stubs["store"].inserted[0].topics == ["saude"]
+    assert len(indexing_stubs["saved"]) == 1
 
 
 @pytest.mark.unit
-def test_index_documents_writes_no_checkpoint_without_classification(
-    indexing_stubs, tmp_path, monkeypatch
-):
+def test_index_documents_writes_no_checkpoint_without_classification(indexing_stubs):
     """An unclassified checkpoint would silently poison a later --from-classified."""
-    saved = []
-    monkeypatch.setattr(
-        pipeline,
-        "save_classified_chunks",
-        lambda *args, **kwargs: saved.append(kwargs.get("output_path")),
-    )
-
     pipeline.index_documents(
         markdown_dir=indexing_stubs["markdown_dir"],
         use_llm_classification=False,
-        checkpoint_output_path=str(tmp_path / "checkpoint.json"),
     )
 
-    assert saved == []
+    assert indexing_stubs["saved"] == []
 
 
 @pytest.mark.unit
