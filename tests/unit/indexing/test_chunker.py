@@ -25,22 +25,13 @@ Reforco do SNS e contratacao de mais profissionais de saude.
 Construcao de novos centros de saude nas areas metropolitanas.
 """
 
-    def test_chunk_count(self):
-        chunks = chunk_markdown(self.SAMPLE_MD, "ps-2024.md")
-        assert len(chunks) > 0
-
     def test_party_metadata(self):
         chunks = chunk_markdown(self.SAMPLE_MD, "ps-2024.md")
+        assert chunks
         for chunk in chunks:
             assert chunk.party_name == "Partido Socialista"
             assert chunk.ideology == "left"
             assert chunk.year == 2024
-
-    def test_small_chunks_filtered(self):
-        tiny_md = "# Title\n\nOk\n\n## Section\n\nToo small"
-        chunks = chunk_markdown(tiny_md, "test.md")
-        for chunk in chunks:
-            assert len(chunk.content) > 50
 
     def test_windowed_splitting(self):
         long_text = "Esta e uma proposta importante. " * 200

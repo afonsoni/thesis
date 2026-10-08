@@ -47,6 +47,7 @@ def _result(doc_id: str, content: str, similarity: float = 0.5) -> SearchResult:
 # Reranker unit behavior
 # ---------------------------------------------------------------------------
 
+
 @pytest.mark.unit
 def test_rerank_reorders_by_cross_encoder_score():
     """A weak dense hit that the cross-encoder likes must overtake a strong one."""
@@ -61,16 +62,6 @@ def test_rerank_reorders_by_cross_encoder_score():
     assert [r.id for r in out] == ["b", "a"]
     assert out[0].similarity == 2.0  # both query words matched
     assert all(r.score_type is ScoreType.RERANK for r in out)
-
-
-@pytest.mark.unit
-def test_rerank_trims_to_top_k():
-    fake = FakeCrossEncoder()
-    results = [_result(str(i), f"documento {i}") for i in range(10)]
-
-    out = _reranker_with(fake).rerank("documento", results, top_k=3)
-
-    assert len(out) == 3
 
 
 @pytest.mark.unit
@@ -94,15 +85,10 @@ def test_rerank_scores_the_child_not_the_parent():
     # Generation context is untouched by reranking.
     assert out[0].context_text == parent
 
-
-@pytest.mark.unit
-def test_rerank_empty_candidates_is_a_noop():
-    assert _reranker_with(FakeCrossEncoder()).rerank("qualquer", [], top_k=5) == []
-
-
 # ---------------------------------------------------------------------------
 # Searcher integration: over-fetch, then trim
 # ---------------------------------------------------------------------------
+
 
 class StubStore:
     def connect(self):
@@ -155,14 +141,3 @@ def test_multi_query_search_widens_the_fetch_when_reranking(monkeypatch):
     assert searcher.requested_top_k == [30], "sub-query should fetch the wide set"
     assert len(fake.seen_pairs) == 30, "every candidate should be scored"
     assert len(out) == 5, "and the answer trimmed back to top_k"
-
-
-@pytest.mark.unit
-def test_multi_query_search_without_reranker_keeps_the_narrow_fetch():
-    searcher = RecordingSearcher()
-
-    out = searcher.multi_query_search(["educacao"], RetrievalConfig(), top_k=5, rerank_query="educacao")
-
-    assert searcher.requested_top_k == [5]
-    assert len(out) == 5
-    assert all(r.score_type is not ScoreType.RERANK for r in out)

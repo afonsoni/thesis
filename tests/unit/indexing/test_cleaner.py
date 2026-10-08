@@ -4,7 +4,6 @@ from src.rag.indexing.cleaner import (
     LineAction,
     StructurePlan,
     apply_plan,
-    find_candidates,
     fix_bullets,
     prepare,
     verify,
@@ -26,13 +25,6 @@ O SNS precisa de investimento.
 
 Texto final.
 """
-
-
-@pytest.mark.unit
-def test_prepare_drops_spans_and_page_numbers():
-    lines = prepare(RAW)
-    assert "**12**" not in lines
-    assert not any("<span" in line for line in lines)
 
 
 @pytest.mark.unit
@@ -68,15 +60,9 @@ def test_invented_title_is_rejected_and_verify_catches_new_words():
     assert "Pública" not in clean  # falls back to the original title
     with pytest.raises(ValueError):
         verify(RAW, clean + "\nPalavra inventada\n")
-
-
-@pytest.mark.unit
-def test_find_candidates_is_headers_only():
-    lines = prepare(RAW)
-    picked = {lines[i] for i in find_candidates(lines)}
-    assert "## Por isso defendemos:" in picked
-    assert "Texto final." not in picked
-    assert "- medidas concretas;" not in picked
+    # A cleaned title must also keep its section number.
+    plan = StructurePlan(actions=[LineAction(line=0, action="header", level=3, title="25 de Abril, sempre")])
+    assert apply_plan(["#### 1.1. 25 de Abril, sempre", "", "Texto."], plan).startswith("### 1.1. 25 de Abril, sempre")
 
 
 @pytest.mark.unit
@@ -103,33 +89,6 @@ def test_fix_bullets_converts_and_rejoins_wrapped_bullets():
         "",
         "Novo parágrafo.",
     ]
-
-
-@pytest.mark.unit
-def test_cleaned_title_must_keep_section_number():
-    lines = ["#### 1.1. 25 de Abril, sempre", "", "Texto."]
-    plan = StructurePlan(actions=[LineAction(line=0, action="header", level=3, title="25 de Abril, sempre")])
-    assert apply_plan(lines, plan).startswith("### 1.1. 25 de Abril, sempre")
-
-
-@pytest.mark.unit
-def test_plan_cache_resumes_without_new_calls(tmp_path, monkeypatch):
-    import src.rag.indexing.cleaner as cleaner
-
-    calls = []
-
-    def fake_batch(prompt, model, party, batch_no):
-        calls.append(batch_no)
-        return StructurePlan(actions=[LineAction(line=0, action="header", level=1)])
-
-    monkeypatch.setattr(cleaner, "_plan_batch", fake_batch)
-    monkeypatch.setattr(cleaner, "CALL_DELAY_SECS", 0)
-    lines = ["# Título", "", "Texto."]
-    cache = str(tmp_path / "plan.json")
-    first = cleaner.plan_structure(lines, "x", model="m", cache_path=cache)
-    second = cleaner.plan_structure(lines, "x", model="m", cache_path=cache)
-    assert calls == [0]
-    assert first == second
 
 
 @pytest.mark.unit

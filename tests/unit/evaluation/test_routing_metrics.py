@@ -10,10 +10,6 @@ def test_set_f1_edge_cases():
     assert set_f1(["a"], []) == 0.0
     assert set_f1([], ["a"]) == 0.0
     assert set_f1(["a", "b"], ["a", "b"]) == 1.0
-
-
-@pytest.mark.unit
-def test_set_f1_partial_overlap():
     # predicted {a,b} vs expected {a}: precision 0.5, recall 1.0 → F1 = 2/3
     assert set_f1(["a", "b"], ["a"]) == pytest.approx(2 / 3)
 

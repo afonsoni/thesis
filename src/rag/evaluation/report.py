@@ -15,7 +15,7 @@ import json
 import logging
 import os
 from datetime import datetime
-from typing import Dict, List
+from typing import List
 
 from src.rag.evaluation.models import VariantResult
 from src.rag.evaluation.stats import bootstrap_ci, paired_diff, per_question
@@ -191,8 +191,3 @@ def write_leaderboard(results: List[VariantResult], reports_dir: str) -> str:
 
     logger.info("Wrote leaderboard → %s", md_path)
     return md_path
-
-
-def summarize(results: List[VariantResult]) -> Dict[str, Dict[str, float]]:
-    """Return {variant: aggregate} for quick programmatic inspection."""
-    return {r.variant: r.aggregate for r in results}

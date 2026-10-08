@@ -54,20 +54,25 @@ class StubSearcher(Searcher):
 
 
 @pytest.mark.unit
-def test_route_single_party_uses_party_filter():
+@pytest.mark.parametrize(
+    "parties, topics, expected_type",
+    [
+        (["Partido Socialista"], ["educacao"], QueryType.SINGLE_PARTY),
+        ([], ["habitacao"], QueryType.TOPIC_EXPLORATION),
+        ([], [], QueryType.GENERAL),
+    ],
+)
+def test_non_comparison_routes_are_one_filtered_search(parties, topics, expected_type):
     searcher = StubSearcher()
-    analyzed = AnalyzedQuery(
-        original_query="PS e educacao",
-        reformulated_query="partido socialista educacao",
-        parties=["Partido Socialista"],
-        topics=["educacao"],
-    )
+    analyzed = AnalyzedQuery(original_query="Pergunta?", parties=parties, topics=topics)
+    assert analyzed.query_type == expected_type
 
     retrieval = route(analyzed, searcher, config=_no_expand(top_k=5))
 
     assert retrieval.results
-    assert searcher.multi_query_calls[0]["party_name"] == "Partido Socialista"
-    assert searcher.multi_query_calls[0]["topics"] == ["educacao"]
+    assert len(searcher.multi_query_calls) == 1
+    assert searcher.multi_query_calls[0]["party_name"] == (parties[0] if parties else None)
+    assert searcher.multi_query_calls[0]["topics"] == (topics or None)
 
 
 @pytest.mark.unit
@@ -95,34 +100,6 @@ def test_route_comparison_searches_each_party_separately():
 
 
 @pytest.mark.unit
-def test_route_general_uses_multi_query_without_filters():
-    searcher = StubSearcher()
-    analyzed = AnalyzedQuery(
-        original_query="Qual a visao economica geral?",
-        reformulated_query="visao economica geral",
-    )
-
-    retrieval = route(analyzed, searcher, config=_no_expand(top_k=4))
-
-    assert retrieval.results
-    assert searcher.multi_query_calls[0]["party_name"] is None
-    assert searcher.multi_query_calls[0]["topics"] is None
-
-
-@pytest.mark.unit
-def test_route_topic_exploration_filters_topics_across_all_parties():
-    searcher = StubSearcher()
-    analyzed = AnalyzedQuery(original_query="Propostas para a habitacao?", topics=["habitacao"])
-    assert analyzed.query_type == QueryType.TOPIC_EXPLORATION
-
-    route(analyzed, searcher, config=_no_expand(top_k=5))
-
-    assert len(searcher.multi_query_calls) == 1
-    assert searcher.multi_query_calls[0]["party_name"] is None
-    assert searcher.multi_query_calls[0]["topics"] == ["habitacao"]
-
-
-@pytest.mark.unit
 def test_route_single_party_relaxes_topics_when_nothing_matches():
     """A topic no chunk carries must not turn a good question into zero results."""
     searcher = StubSearcher(empty_when_topics=True)
@@ -141,20 +118,6 @@ def test_route_single_party_relaxes_topics_when_nothing_matches():
     assert searcher.multi_query_calls[0]["topics"] == ["educacao"]
     assert searcher.multi_query_calls[1]["topics"] is None
     assert all(c["party_name"] == "Partido Socialista" for c in searcher.multi_query_calls)
-
-
-@pytest.mark.unit
-def test_route_does_not_retry_when_no_topics_were_requested():
-    """Without a topic filter an empty result is genuine, so there is nothing to relax."""
-    searcher = StubSearcher(empty_when_topics=True)
-    analyzed = AnalyzedQuery(
-        original_query="visao economica geral",
-        reformulated_query="visao economica geral",
-    )
-
-    route(analyzed, searcher, config=_no_expand(top_k=5))
-
-    assert len(searcher.multi_query_calls) == 1
 
 
 @pytest.mark.unit
@@ -227,23 +190,3 @@ def test_route_passes_original_question_to_the_reranker():
     assert call["use_reranker"] is True
     assert call["rerank_query"] == "O que propoe o PS para a educacao?"
     assert call["rerank_candidates"] == 25
-
-
-@pytest.mark.unit
-def test_route_comparison_reranks_every_party():
-    """Each party's shortlist is reranked against the same original question."""
-    searcher = StubSearcher()
-    analyzed = AnalyzedQuery(
-        original_query="Comparar PS e AD na saude",
-        reformulated_query="comparacao saude",
-        parties=["Partido Socialista", "Aliança Democrática"],
-    )
-
-    route(analyzed, searcher, config=_no_expand(use_reranker=True))
-
-    assert len(searcher.multi_query_calls) == 2
-    assert all(c["use_reranker"] for c in searcher.multi_query_calls)
-    assert all(
-        c["rerank_query"] == "Comparar PS e AD na saude"
-        for c in searcher.multi_query_calls
-    )

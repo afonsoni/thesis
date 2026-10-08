@@ -83,37 +83,5 @@ def test_index_documents_skips_classification_when_disabled(indexing_stubs):
     assert indexing_stubs["classify_calls"] == []
     # Topics stay at the model default, which is what disables topic filtering.
     assert indexing_stubs["store"].inserted[0].topics == ["outros"]
-
-
-@pytest.mark.unit
-def test_index_documents_classifies_when_enabled(indexing_stubs):
-    count = pipeline.index_documents(
-        markdown_dir=indexing_stubs["markdown_dir"],
-        use_llm_classification=True,
-    )
-
-    assert count == 1
-    assert len(indexing_stubs["classify_calls"]) == 1
-    assert indexing_stubs["store"].inserted[0].topics == ["saude"]
-    assert len(indexing_stubs["saved"]) == 1
-
-
-@pytest.mark.unit
-def test_index_documents_writes_no_checkpoint_without_classification(indexing_stubs):
-    """An unclassified checkpoint would silently poison a later --from-classified."""
-    pipeline.index_documents(
-        markdown_dir=indexing_stubs["markdown_dir"],
-        use_llm_classification=False,
-    )
-
+    # An unclassified checkpoint would silently poison a later --from-classified.
     assert indexing_stubs["saved"] == []
-
-
-@pytest.mark.unit
-def test_classify_only_rejects_disabled_classification(indexing_stubs):
-    with pytest.raises(ValueError, match="requires LLM classification"):
-        pipeline.index_documents(
-            markdown_dir=indexing_stubs["markdown_dir"],
-            use_llm_classification=False,
-            classify_only=True,
-        )

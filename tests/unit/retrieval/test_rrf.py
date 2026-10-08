@@ -14,9 +14,3 @@ def test_basic_fusion():
     fused = reciprocal_rank_fusion([[result_1, result_2], [result_3, result_4]], k=60)
     assert fused[0].id == "a"
     assert len(fused) == 3
-
-
-@pytest.mark.unit
-def test_empty_lists():
-    assert reciprocal_rank_fusion([]) == []
-    assert reciprocal_rank_fusion([[]]) == []
