@@ -1,7 +1,7 @@
 """
 End-to-end indexing pipeline.
 
-Chains: parse → chunk → classify → (optional: summarise) → embed → store.
+Chains: chunk → classify → embed → store.
 """
 
 import glob
@@ -15,7 +15,7 @@ from typing import Any, Dict, List, Optional
 from src.rag.common.models import Chunk, ChunkStrategy, EmbeddedChunk
 from src.rag.indexing.chunker import chunk_markdown_file
 from src.rag.indexing.classifier import classify_chunks
-from src.rag.indexing.embedder import Embedder, generate_summaries
+from src.rag.indexing.embedder import Embedder
 from src.rag.indexing.parser import parse_pdfs
 from src.rag.indexing.store import VectorStore
 from src.utils.config_loader import config
@@ -111,7 +111,6 @@ def load_classified_chunks(input_path: str) -> List[Chunk]:
 def index_documents(
     markdown_dir: Optional[str] = None,
     party_filter: Optional[str] = None,
-    generate_chunk_summaries: bool = False,
     classification_model: Optional[str] = None,
     classification_batch_size: Optional[int] = None,
     classification_delay: Optional[float] = None,
@@ -136,7 +135,6 @@ def index_documents(
                       Defaults to config ``paths.markdown_data``.
         party_filter: If set, only index files whose path contains this string
                       (case-insensitive). E.g. ``"livre"`` or ``"ps"``.
-        generate_chunk_summaries: Generate LLM summaries for multi-representation indexing.
         classification_model: OpenRouter model name for classification.
         classification_batch_size: Number of chunks per classification API request.
         classification_delay: Delay between classification API requests.
@@ -259,19 +257,15 @@ def index_documents(
             output_path = checkpoint_output_path or _build_default_checkpoint_path(md_files, processed_dir, party_filter)
             save_classified_chunks(all_chunks, output_path=output_path, source_files=md_files)
 
-    # 3. (Optional) Generate summaries for multi-representation indexing
-    if generate_chunk_summaries:
-        all_chunks = generate_summaries(all_chunks, model=classification_model)
-
     if classify_only:
         logger.info("Classify-only mode complete – %d chunks processed.", len(all_chunks))
         return len(all_chunks)
 
-    # 4. Embed
+    # 3. Embed
     embedder = Embedder()
     embedded_chunks: List[EmbeddedChunk] = embedder.embed_chunks(all_chunks, contextual=contextual_headers)
 
-    # 5. Store
+    # 4. Store
     store = VectorStore()
     if table:
         store.table = table

@@ -24,7 +24,7 @@ from src.rag.indexing.chunker import chunk_markdown_file  # noqa: E402
 from src.rag.indexing.pipeline import _discover_markdown_files, save_classified_chunks  # noqa: E402
 from src.utils.config_loader import config  # noqa: E402
 
-CARRIED = ("topics", "topic_classification", "summary")
+CARRIED = ("topics", "topic_classification")
 
 
 def _key(text: str) -> str:

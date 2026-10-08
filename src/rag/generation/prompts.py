@@ -2,7 +2,7 @@
 Centralized Portuguese-language prompt templates for the RAG pipeline.
 
 Covers: answer generation, comparison, decomposition, query expansion,
-query analysis, and chunk summarisation.
+and query analysis.
 """
 
 import json
@@ -163,16 +163,3 @@ Analisa esta pergunta e responde em JSON com os seguintes campos:
   veredicto ("que partido propõe mais sobre habitação?"), que exige consultar
   todos os partidos mas responder de uma só vez.
 - "reformulated_query": versão limpa e clara da pergunta para pesquisa semântica"""
-
-# ---------------------------------------------------------------------------
-# Chunk summarisation (for multi-representation indexing)
-# ---------------------------------------------------------------------------
-
-SUMMARY_PROMPT = """\
-Resume o seguinte excerto de um programa político português \
-numa frase curta e clara em português. Mantém os temas principais.
-
-EXCERTO:
-{content}
-
-RESUMO:"""

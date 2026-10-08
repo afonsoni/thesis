@@ -161,7 +161,6 @@ class Chunk(BaseModel):
     """A single document chunk ready for embedding / storage."""
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     content: str
-    summary: Optional[str] = None  # For multi-representation indexing
     # Small-to-big retrieval: ``content`` is the small child that gets embedded,
     # while ``parent_content`` holds the full header section it was windowed out
     # of. Retrieval matches on the child; generation reads the parent. None when
@@ -240,7 +239,6 @@ class SearchResult(BaseModel):
     """A single search result returned by the vector store."""
     id: str
     content: str
-    summary: Optional[str] = None
     parent_content: Optional[str] = None
     party_name: str = "Unknown"
     ideology: str = "unknown"

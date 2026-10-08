@@ -3,7 +3,7 @@ CLI entry-point for the RAG System for Political Programs Analysis.
 
 Commands:
     python main.py parse   [--input-dir ...] [--output-dir ...]
-    python main.py index   [--party X] [--all] [--drop] [--summaries]
+    python main.py index   [--party X] [--all] [--drop]
                            [--classify-only] [--from-classified PATH]
                            [--checkpoint-out PATH] [--no-checkpoint]
     python main.py query   "question" [--top-k 5] [--no-expand]
@@ -72,7 +72,6 @@ def cmd_index(args):
         party_filter=party_filter,
         chunk_strategy=args.chunk_strategy,
         use_llm_classification=False if args.no_classify else None,
-        generate_chunk_summaries=args.summaries,
         drop_existing=args.drop,
         classified_input_path=args.from_classified,
         checkpoint_output_path=args.checkpoint_out,
@@ -168,7 +167,6 @@ def build_parser() -> argparse.ArgumentParser:
     p_index.add_argument("--party", type=str, default=None, help="Only index files matching this party key (e.g. 'livre')")
     p_index.add_argument("--all", action="store_true", help="Index all parties")
     p_index.add_argument("--drop", action="store_true", help="Drop existing table before indexing")
-    p_index.add_argument("--summaries", action="store_true", help="Generate LLM summaries for multi-representation indexing")
     p_index.add_argument("--classify-only", action="store_true", help="Stop after classify and save checkpoint JSON (no DB write)")
     p_index.add_argument("--from-classified", type=str, default=None, help="Load classified chunks from JSON and skip chunk/classify")
     p_index.add_argument("--contextual-headers", action="store_true",

@@ -26,7 +26,7 @@ This file is written for coding agents and LLM contributors so they can quickly 
 Entry point: `main.py`
 
 - `parse`: PDF -> markdown using `marker_single`.
-- `index`: chunk -> classify -> (optional summaries) -> embed -> store.
+- `index`: chunk -> classify -> embed -> store.
 - `query`: retrieve -> generate final answer.
 
 ### Implemented architecture
@@ -50,8 +50,7 @@ Entry point: `main.py`
   re-chunks and carries topics over from the classified checkpoints by content
   hash, so parent-only changes need no reclassification.
 - `classifier.py`: OpenRouter-based structured multi-label topic classification with rate-limit retries.
-- `embedder.py`: SentenceTransformer embeddings with optional summary-based multi-representation
-  indexing. Handles asymmetric retrieval models: use `encode_query()` at search time so the
+- `embedder.py`: SentenceTransformer embeddings. Handles asymmetric retrieval models: use `encode_query()` at search time so the
   model's query instruction prefix is applied, and `encode()`/`encode_batch()` for documents.
   Left padding is set automatically for last-token-pooling (decoder) encoders, matching
   Qwen3-Embedding's model card. This is defensive, not load-bearing: sentence-transformers

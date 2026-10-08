@@ -89,7 +89,6 @@ class VectorStore:
                 CREATE TABLE IF NOT EXISTS {self.table} (
                     id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
                     content     TEXT NOT NULL,
-                    summary     TEXT,
                     parent_content TEXT,
                     embedding   VECTOR({embedding_dim}),
                     party_name  TEXT,
@@ -188,7 +187,6 @@ class VectorStore:
             rows.append((
                 str(uuid.uuid4()),
                 c.content,
-                c.summary,
                 c.parent_content,
                 c.embedding,
                 c.party_name,
@@ -202,11 +200,11 @@ class VectorStore:
 
         sql = f"""
             INSERT INTO {self.table}
-                (id, content, summary, parent_content, embedding, party_name,
+                (id, content, parent_content, embedding, party_name,
                  ideology, year, topics, confidence, header_hierarchy, chunk_type)
             VALUES %s
         """
-        template = "(%s, %s, %s, %s, %s::vector, %s, %s, %s, %s, %s, %s::jsonb, %s)"
+        template = "(%s, %s, %s, %s::vector, %s, %s, %s, %s, %s, %s::jsonb, %s)"
 
         try:
             execute_values(cur, sql, rows, template=template, page_size=100)
@@ -225,7 +223,7 @@ class VectorStore:
 
     # Columns every search path hydrates a SearchResult from.
     _RESULT_COLUMNS = (
-        "id, content, summary, parent_content, party_name, ideology, year, "
+        "id, content, parent_content, party_name, ideology, year, "
         "topics, header_hierarchy, chunk_type"
     )
 
@@ -266,7 +264,6 @@ class VectorStore:
         return SearchResult(
             id=str(row["id"]),
             content=row["content"],
-            summary=row.get("summary"),
             parent_content=row.get("parent_content"),
             party_name=row["party_name"] or "Unknown",
             ideology=row["ideology"] or "unknown",

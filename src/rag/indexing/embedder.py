@@ -1,8 +1,7 @@
 """
 Embedding generation using the Portuguese sentence encoder.
 
-Supports single and batch encoding, plus optional multi-representation
-indexing (LLM-generated summaries for improved retrieval).
+Supports single and batch encoding.
 """
 
 import logging
@@ -11,7 +10,6 @@ from typing import List, Optional
 from sentence_transformers import SentenceTransformer
 
 from src.rag.common.models import Chunk, EmbeddedChunk, section_path
-from src.rag.common.llm_client import generate_text
 from src.utils.config_loader import config
 
 logger = logging.getLogger(__name__)
@@ -133,11 +131,7 @@ class Embedder:
         """
         Generate embeddings for a list of chunks.
 
-        For each chunk the text used for embedding is:
-        - the *summary* if present (multi-representation indexing), or
-        - the full *content* otherwise.
-
-        With *contextual*, that text is prefixed with ``party | section path``:
+        The embedded text is the chunk's *content*. With *contextual*, it is prefixed with ``party | section path``:
         a windowed child past the first carries no heading of its own (58% of
         chunks), so its vector cannot tell which section it belongs to. Only the
         embedded text changes; ``content`` (and so every gold key) does not.
@@ -145,7 +139,7 @@ class Embedder:
         Returns:
             List of ``EmbeddedChunk`` objects with the ``embedding`` field populated.
         """
-        texts = [c.summary or c.content for c in chunks]
+        texts = [c.content for c in chunks]
         if contextual:
             texts = [
                 f"{' | '.join(filter(None, [c.party_name, section_path(c.metadata)]))}\n{t}"
@@ -164,51 +158,3 @@ class Embedder:
 
         logger.info("Embedding complete – %d vectors generated.", len(embedded))
         return embedded
-
-
-# ---------------------------------------------------------------------------
-# Optional: multi-representation summary generation
-# ---------------------------------------------------------------------------
-
-def generate_summaries(
-    chunks: List[Chunk],
-    model: Optional[str] = None,
-) -> List[Chunk]:
-    """
-    Generate short LLM summaries for each chunk (multi-representation indexing).
-
-    The summary is stored in ``chunk.summary`` and used for embedding,
-    while the full ``chunk.content`` is kept for generation context.
-
-    This improves retrieval for bullet-point-heavy manifesto sections
-    where the raw text may not match well with natural-language queries.
-    """
-    logger.info("Generating summaries for %d chunks …", len(chunks))
-
-    prompt_template = (
-        "Resume o seguinte excerto de um programa político português "
-        "numa frase curta e clara em português. Mantém os temas principais.\n\n"
-        "EXCERTO:\n{content}\n\nRESUMO:"
-    )
-    selected_model = model or str(
-        config.get("llm.openrouter.model", "google/gemma-4-26b-a4b-it:free"),
-    )
-
-    for i, chunk in enumerate(chunks):
-        try:
-            summary = generate_text(
-                prompt=prompt_template.format(content=chunk.content[:2000]),
-                model=selected_model,
-                temperature=0.2,
-                max_tokens=180,
-            )
-            chunk.summary = summary.strip()
-        except Exception as exc:
-            logger.warning("Summary generation failed for chunk %s: %s", chunk.id, exc)
-            # Leave summary as None – embedder will fall back to content
-
-        if (i + 1) % 25 == 0:
-            logger.info("Generated summaries for %d / %d chunks", i + 1, len(chunks))
-
-    logger.info("Summary generation complete.")
-    return chunks
