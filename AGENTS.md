@@ -17,17 +17,22 @@ This file is written for coding agents and LLM contributors so they can quickly 
 ### Data currently present
 
 - Raw PDFs: `data/0_raw/` contains 8 manifesto files (`ad`, `be`, `chega`, `il`, `livre`, `pan`, `pcp`, `ps`).
-- Markdown corpus: `data/1_markdown/` has party subfolders for all 8 parties.
-- Manual markdown variants currently exist for: `ad`, `livre`, `pcp`, `ps`.
-- Processed outputs: `data/2_processed/` currently includes `livre-2024-classified.json`.
+- Markdown corpus: `data/1_markdown/<party>/` holds exactly one indexable file per party:
+  hand-cleaned `*-manual.md` for `ad`, `livre`, `pcp`, `ps`, LLM-cleaned `*-clean.md`
+  (`main.py clean`) for `be`, `chega`, `il`, `pan`. Raw parser output sits in `_raw/`,
+  which indexing skips.
+- Processed outputs: `data/2_processed/` holds a classified checkpoint per party
+  (`<file>-classified.json`), reusable with `index --from-classified`.
 
 ### Implemented CLI
 
 Entry point: `main.py`
 
-- `parse`: PDF -> markdown using `marker_single`.
+- `parse`: PDF -> markdown using `marker_single` (into `data/1_markdown/_raw/`).
+- `clean`: raw markdown -> `<party>/<stem>-clean.md` (LLM-planned header structure).
 - `index`: chunk -> classify -> embed -> store.
 - `query`: retrieve -> generate final answer.
+- `eval`: run variants over the gold set and refresh the leaderboard.
 
 ### Implemented architecture
 
@@ -50,6 +55,8 @@ Entry point: `main.py`
   re-chunks and carries topics over from the classified checkpoints by content
   hash, so parent-only changes need no reclassification.
 - `classifier.py`: OpenRouter-based structured multi-label topic classification with rate-limit retries.
+- `cleaner.py`: the `clean` command; the LLM only plans header actions, and the
+  output is rejected if it contains any word the source did not.
 - `embedder.py`: SentenceTransformer embeddings. Handles asymmetric retrieval models: use
   `encode_query()` at search time so the model's query instruction prefix is applied;
   `embed_chunks()` encodes documents (sentence-transformers' `encode_query` /
@@ -87,15 +94,16 @@ Entry point: `main.py`
 
 #### Generation (`src/rag/generation/`)
 
-- `llm_client.py`: unified OpenRouter transport for text + structured outputs.
 - `prompts.py`: Portuguese answer-generation prompts (expansion and query-analysis prompts
   live in `retrieval/prompts.py`, so retrieval does not import generation).
 - `synthesizer.py`: direct and per-party (comparison) synthesis strategies.
 - `pipeline.py`: generation entry point.
 
-#### Shared models
+#### Shared (`src/rag/common/`)
 
-- `src/rag/common/models.py` defines:
+- `llm_client.py` / `llm_transport.py`: OpenRouter calls for text + structured
+  outputs, with retries and `call_with_wait_out` for free-tier outages.
+- `models.py` defines:
   - canonical topic list (`TOPIC_CATEGORIES`),
   - party mapping (`PARTY_MAP`),
   - all Pydantic schemas used across indexing/retrieval/generation.
@@ -122,20 +130,14 @@ Entry point: `main.py`
   `dev`/`test` split (`eval --split test` for headline numbers).
 - `runner.py` / `report.py` / `pipeline.py`: run a variant, persist results, refresh
   `data/eval/reports/leaderboard.md`.
-- Retrieval is now feature-flagged via `src/rag/retrieval/config.py::RetrievalConfig`;
-  `RetrievalConfig()` defaults reproduce the historical behavior, so `retrieve()` is
-  backward-compatible. See `docs/evaluation.md`.
+- Retrieval is feature-flagged via `src/rag/retrieval/config.py::RetrievalConfig`;
+  `RetrievalConfig()` is the production (`current`) behaviour. See `docs/evaluation.md`.
 
 ### Testing status
 
-- Existing test file: `tests/test_rag_pipeline.py`.
-- Coverage currently focuses on:
-  - chunking behavior,
-  - classifier batching and fail-fast behavior,
-  - model defaults,
-  - RRF utility,
-  - fallback query analysis.
-- There is no comprehensive integration test suite for live DB + live LLM flows yet.
+- `tests/unit/` (offline, per stage), `tests/integration/` (needs the test DB:
+  `docker compose up -d postgres_test`), `tests/e2e/` (live OpenRouter, marked `live`).
+- Run `python -m pytest tests/unit tests/integration` before committing.
 
 ### Infrastructure and config
 
@@ -144,7 +146,7 @@ Entry point: `main.py`
 - Config loader: `src/utils/config_loader.py`. Strict: `config.get(key)` raises if the key is
   missing from the YAML, so defaults live only in `config.yaml` (pass a default only for
   keys that are optional by design, e.g. `embeddings.max_seq_length`).
-- No dependency lockfile or `requirements.txt` currently tracked in repo.
+- Dependencies: pinned in `requirements.txt` (Python 3.13, see `.python-version`).
 
 ## What This Project Is (For Agents)
 
