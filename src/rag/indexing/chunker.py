@@ -205,9 +205,6 @@ def chunk_markdown(
                     party_name=party_info["name"],
                     ideology=party_info["ideology"],
                     year=year,
-                    size=len(content),
-                    word_count=len(content.split()),
-                    chunk_type="header_only",
                 )
             )
         else:
@@ -238,9 +235,6 @@ def chunk_markdown(
                         party_name=party_info["name"],
                         ideology=party_info["ideology"],
                         year=year,
-                        size=len(sub_text),
-                        word_count=len(sub_text.split()),
-                        chunk_type="windowed",
                     )
                 )
 

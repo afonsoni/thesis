@@ -83,9 +83,7 @@ class VectorStore:
                     ideology    TEXT,
                     year        INTEGER,
                     topics      TEXT[],
-                    confidence  INTEGER,
                     header_hierarchy JSONB,
-                    chunk_type  TEXT,
                     created_at  TIMESTAMPTZ DEFAULT now(),
                     -- Lexical half of hybrid search. Generated, so it can never
                     -- drift out of sync with content on insert or update.
@@ -167,18 +165,16 @@ class VectorStore:
                 c.ideology,
                 c.year,
                 c.topics,
-                c.topic_classification.confianca if c.topic_classification else None,
                 json.dumps(c.metadata),
-                c.chunk_type,
             ))
 
         sql = f"""
             INSERT INTO {self.table}
                 (id, content, parent_content, embedding, party_name,
-                 ideology, year, topics, confidence, header_hierarchy, chunk_type)
+                 ideology, year, topics, header_hierarchy)
             VALUES %s
         """
-        template = "(%s, %s, %s, %s::vector, %s, %s, %s, %s, %s, %s::jsonb, %s)"
+        template = "(%s, %s, %s, %s::vector, %s, %s, %s, %s, %s::jsonb)"
 
         try:
             execute_values(cur, sql, rows, template=template, page_size=100)
@@ -198,7 +194,7 @@ class VectorStore:
     # Columns every search path hydrates a SearchResult from.
     _RESULT_COLUMNS = (
         "id, content, parent_content, party_name, ideology, year, "
-        "topics, header_hierarchy, chunk_type"
+        "topics, header_hierarchy"
     )
 
     @staticmethod

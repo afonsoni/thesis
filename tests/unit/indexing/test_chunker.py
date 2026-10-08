@@ -40,14 +40,14 @@ Construcao de novos centros de saude nas areas metropolitanas.
         tiny_md = "# Title\n\nOk\n\n## Section\n\nToo small"
         chunks = chunk_markdown(tiny_md, "test.md")
         for chunk in chunks:
-            assert chunk.size > 50
+            assert len(chunk.content) > 50
 
     def test_windowed_splitting(self):
         long_text = "Esta e uma proposta importante. " * 200
         big_md = f"# Programa\n\n## Seccao grande\n\n{long_text}"
         chunks = chunk_markdown(big_md, "ad-2024.md", max_chunk_size=500)
         assert len(chunks) > 1
-        assert any(chunk.chunk_type == "windowed" for chunk in chunks)
+        assert any("sub_chunk_index" in chunk.metadata for chunk in chunks)
 
 
 @pytest.mark.unit

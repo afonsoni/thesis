@@ -21,7 +21,6 @@ def generate(retrieval_result: RetrievalResult) -> GeneratedAnswer:
         return GeneratedAnswer(
             answer="Não foram encontrados documentos relevantes para responder a esta pergunta.",
             sources=[],
-            query_type=retrieval_result.query.query_type,
         )
 
     return synthesize(retrieval_result)

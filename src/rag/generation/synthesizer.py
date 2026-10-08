@@ -11,7 +11,6 @@ from typing import Dict, List, Tuple
 from src.rag.common.models import (
     AnswerShape,
     GeneratedAnswer,
-    QueryType,
     RetrievalResult,
     SearchResult,
 )
@@ -197,7 +196,6 @@ def direct_answer(query: str, results: List[SearchResult]) -> GeneratedAnswer:
     return GeneratedAnswer(
         answer=answer,
         sources=_build_sources(_numbered_flat(results)),
-        query_type=QueryType.GENERAL,
         context=context,
     )
 
@@ -213,7 +211,6 @@ def comparison_answer(
     return GeneratedAnswer(
         answer=answer,
         sources=_build_sources([x for xs in _numbered_grouped(results_by_party).values() for x in xs]),
-        query_type=QueryType.COMPARISON,
         context=context,
     )
 

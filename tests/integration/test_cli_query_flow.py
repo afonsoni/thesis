@@ -7,7 +7,6 @@ from main import cmd_query
 from src.rag.common.models import (
     AnalyzedQuery,
     GeneratedAnswer,
-    QueryType,
     RetrievalResult,
     SearchResult,
 )
@@ -39,7 +38,6 @@ def test_cmd_query_prints_answer_and_sources(capsys):
                 "similarity": 0.91,
             }
         ],
-        query_type=QueryType.GENERAL,
     )
 
     with patch("src.rag.retrieval.pipeline.retrieve", return_value=retrieval):

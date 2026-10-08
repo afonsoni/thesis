@@ -23,12 +23,6 @@ class QueryType(str, Enum):
     GENERAL = "general"
 
 
-class Ideology(str, Enum):
-    LEFT = "left"
-    RIGHT = "right"
-    UNKNOWN = "unknown"
-
-
 class Coverage(str, Enum):
     """Whether the answer must represent every party in scope.
 
@@ -172,9 +166,6 @@ class Chunk(BaseModel):
     year: int = 2024
     topics: List[str] = Field(default_factory=lambda: ["outros"])
     topic_classification: Optional[TopicClassification] = None
-    size: int = 0
-    word_count: int = 0
-    chunk_type: str = "header_only"
 
 
 class EmbeddedChunk(Chunk):
@@ -285,5 +276,3 @@ class GeneratedAnswer(BaseModel):
     # after deduplication and budget trimming), so evaluation can check the
     # answer against what the generator actually read.
     context: str = ""
-    query_type: QueryType = QueryType.GENERAL
-    model_used: str = ""
