@@ -46,7 +46,7 @@ def _build_window_splitter(
 ) -> Tuple[RecursiveCharacterTextSplitter, Callable[[str], int]]:
     """Build the windowing splitter and the size function it measures with.
 
-    Under ``CHAR`` both are character-based (the historical baseline). Under the
+    Under ``CHAR`` both are character-based (the ablation baseline). Under the
     token strategies the splitter counts tokens with the *embedding model's own*
     tokenizer, so ``max_chunk_size`` becomes a token budget that the encoder can
     actually consume rather than a character count that silently overruns it.
@@ -59,7 +59,7 @@ def _build_window_splitter(
         )
         return splitter, len
 
-    # Tokenizer only — avoids loading the full ~900M-parameter encoder just to count.
+    # Tokenizer only — avoids loading the whole encoder just to count tokens.
     from transformers import AutoTokenizer
 
     tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)

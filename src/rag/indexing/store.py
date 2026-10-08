@@ -64,7 +64,7 @@ class VectorStore:
     # Schema
     # ------------------------------------------------------------------
 
-    def create_table(self, embedding_dim: int = 1536):
+    def create_table(self, embedding_dim: int):
         """
         Create the pgvector extension, the main table, and an HNSW index.
         """

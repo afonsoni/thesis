@@ -58,9 +58,8 @@ class ScoreType(str, Enum):
 class ChunkStrategy(str, Enum):
     """Chunk windowing strategies, usable as evaluation ablation arms.
 
-    ``CHAR`` is the historical behavior and is retained as the baseline: it
-    measures chunk size in characters, which silently overruns the embedding
-    model's token window. ``TOKEN`` and ``SMALL_TO_BIG`` measure in tokens so
+    ``CHAR`` is kept only as the ablation baseline: it measures chunk size in
+    characters, which silently overruns the embedding model's token window. ``TOKEN`` and ``SMALL_TO_BIG`` measure in tokens so
     every chunk fits; ``SMALL_TO_BIG`` additionally hands the parent section to
     generation instead of the embedded child.
     """
@@ -205,12 +204,8 @@ class AnalyzedQuery(BaseModel):
     @computed_field  # type: ignore[prop-decorator]
     @property
     def query_type(self) -> QueryType:
-        """The legacy route label, derived rather than stored.
-
-        Generation and ``RoutingMetric`` still speak in query types, but storing
-        one alongside ``parties``/``coverage`` would give the same fact two
-        sources of truth — which is the defect this schema replaced. Deriving it
-        keeps the old vocabulary without letting it drift.
+        """The route label, derived from the fields above so it cannot disagree
+        with them (the router and ``RoutingMetric`` speak in query types).
 
         Two or more named parties imply the fan-out whatever ``coverage`` says:
         naming them is itself the request that each be covered.

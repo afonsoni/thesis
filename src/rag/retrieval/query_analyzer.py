@@ -9,11 +9,9 @@ Uses structured LLM output (Part 10/11 pattern) to extract:
 - a reformulated query for embedding search
 
 The route label itself is *not* extracted: ``AnalyzedQuery.query_type`` derives
-it. Asking the model for a four-way route conflated "which programmes must be
-read" with "what should the answer look like", and questions like "o que pensa
-cada partido sobre educação?" sit in the overlap – they were labelled
-topic_exploration and answered from a single flat top-k that covered whichever
-parties happened to rank.
+it, so "which programmes must be read" (parties, coverage) and "how to lay out
+the answer" (answer_shape) stay separate decisions. "O que pensa cada partido
+sobre educação?" needs every party, which a single topic label cannot say.
 """
 
 import logging
@@ -106,9 +104,8 @@ def _build_party_aliases() -> Dict[str, str]:
 _PARTY_ALIASES = _build_party_aliases()
 
 # Alternation over the aliases, longest first so "cds-pp" wins over "cds" and
-# the full names win over their initials. Word-anchored: an unanchored scan
-# matched "ad" inside "sociedade" and "be" inside "liberdade", labelling neutral
-# questions with whichever party happened to be a substring.
+# the full names win over their initials. Word-anchored, so "ad" inside
+# "sociedade" or "be" inside "liberdade" is not a party.
 _PARTY_PATTERN = re.compile(
     r"\b(" + "|".join(re.escape(a) for a in sorted(_PARTY_ALIASES, key=len, reverse=True)) + r")\b"
 )
@@ -117,12 +114,10 @@ _PARTY_PATTERN = re.compile(
 def _normalize_parties(raw: List[str]) -> List[str]:
     """Map free-form party names from the LLM onto canonical names.
 
-    Exact alias lookups only. The previous substring fallback ("does either
-    string contain the other") resolved "PSD" to Partido Socialista, because
-    "ps" is inside "psd" — a question about one party answered from another
-    party's programme, with citations that look correct. An unrecognised name is
-    dropped instead: retrieval then widens rather than narrowing to the wrong
-    party.
+    Exact alias lookups only: a substring match would resolve "PSD" to Partido
+    Socialista ("ps" is inside "psd") and answer from the wrong programme with
+    plausible citations. An unrecognised name is dropped, so retrieval widens
+    rather than narrowing to the wrong party.
     """
     canonical: List[str] = []
     known_names = {info["name"] for info in PARTY_MAP.values()}
@@ -253,21 +248,12 @@ def analyze_query(
 
 
 def _fallback_analysis(question: str) -> AnalyzedQuery:
-    """Deterministic stand-in for when the analysis call is unavailable.
+    """Deterministic stand-in once the analysis call has exhausted its retries.
 
-    This runs when OpenRouter has exhausted its retries, so it is a degraded
-    mode, not a second opinion – and it is deliberately dumber than the version
-    it replaced. The old one guessed topics by substring-matching the category
-    descriptions and guessed a route from comparison keywords; both encoded
-    Portuguese phrasing rules in code, and both were wrong in ways nothing
-    downstream could detect.
-
-    What survives is what can be established without interpretation: parties are
-    a closed vocabulary, so an exact alias scan either finds one or does not.
-    Everything else fails toward coverage – no topic filter to narrow with, and
-    EXHAUSTIVE so the router fans out. The cost is a wider search than the
-    question may have needed; the alternative is an answer that silently omits
-    parties.
+    Only what needs no interpretation is extracted: parties, by an exact alias
+    scan over a closed vocabulary. Everything else fails toward coverage – no
+    topic filter, and EXHAUSTIVE so the router fans out. A wider search than
+    needed beats an answer that silently omits parties.
     """
     parties = _find_parties(question)
     return AnalyzedQuery(
