@@ -100,10 +100,16 @@ backend (e.g. RAGAS) can be added later without touching the runner.
 **Retrieval** ([`retrieval.py`](../src/rag/evaluation/metrics/retrieval.py),
 pure-Python, needs `gold_chunk_keys`):
 
-- `hit@k` — any gold chunk in the top-k.
-- `recall@k` — fraction of gold chunks in the top-k.
+- `hit` — any gold chunk retrieved.
+- `recall` — fraction of gold chunks retrieved.
 - `mrr` — reciprocal rank of the first gold chunk.
-- `ndcg@k` — binary-relevance normalized discounted cumulative gain.
+- `ndcg` — binary-relevance normalized discounted cumulative gain.
+
+All four score the full list retrieval hands to generation, with no separate
+cutoff: `top_k` chunks on a flat route (`eval -k` sets it for every variant),
+`top_k_per_party` per party on a per-party fan-out. A fan-out is scored on every
+party's list, interleaved by rank; scoring its flat cross-party top-k instead
+would hide most parties, and its RRF ties broke in a fixed party order.
 
 **Routing** ([`routing.py`](../src/rag/evaluation/metrics/routing.py)):
 
@@ -147,7 +153,9 @@ algorithms are reimplemented on the project transport because the judge must run
 on Gemma via Google's native endpoint, which the `ragas` library cannot call.
 
 **Uncertainty** ([`stats.py`](../src/rag/evaluation/stats.py)). Every leaderboard
-cell carries a 95% percentile-bootstrap interval over questions, and a second
+cell is a mean over the questions *every* variant scored on that metric (a
+question that errored in one arm drops out of all of them; `error_rate` counts
+it), with a 95% percentile-bootstrap interval over questions, and a second
 table gives each variant's **paired** difference from the first variant listed,
 with its 95% paired bootstrap interval (bold when it excludes 0). Pairing removes
 the between-question variance both arms share; on ~30 questions an unpaired
@@ -179,7 +187,18 @@ python main.py eval --variants naive,current --curated-only --split test
 Outputs:
 
 - `data/eval/results/<variant>-<timestamp>.json` — full per-question records (run history).
-- `data/eval/reports/leaderboard.md` + `leaderboard.csv` — the comparison table (committed).
+- `data/eval/reports/leaderboard[-<split>][-curated].md` + `.csv` — the comparison
+  table (committed), one per split and curation setting so a dev run cannot
+  overwrite the held-out numbers. Its header names the dataset, split and
+  question count.
+
+Failures are never scored as a weaker pipeline. Each eval question runs with
+`RetrievalConfig.strict`, so a query-analysis or expansion call that fails
+raises instead of falling back to its degraded mode; each stage first waits out
+free-tier failures `evaluation.wait_out_attempts` times. A retrieval failure is
+an error with no scores; a generation failure keeps the retrieval and routing
+scores. `--no-judge` skips generation entirely. A database error raises rather
+than reading as an empty result.
 
 ## 5. Adding a new step
 

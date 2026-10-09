@@ -21,16 +21,18 @@ DEFAULT_N_QUERIES = 4
 def expand_query(
     question: str,
     n_queries: int = DEFAULT_N_QUERIES,
+    strict: bool = False,
 ) -> List[str]:
     """
     Generate *n_queries* reformulated versions of *question*.
 
-    Always returns at least the original question (first element).
+    Always returns at least the original question (first element). On an LLM
+    failure it returns only the original, unless *strict*, in which case it raises.
     """
     prompt = QUERY_EXPANSION_PROMPT.format(question=question, n_queries=n_queries)
 
     try:
-        raw = generate_text(prompt, temperature=0.5, max_tokens=500)
+        raw = generate_text(prompt, temperature=0.5, max_tokens=500, label="query expansion")
         expanded = [q.strip() for q in raw.strip().split("\n") if q.strip()]
         # De-duplicate while preserving order
         seen = set()
@@ -46,5 +48,7 @@ def expand_query(
         return unique[:n_queries + 1]  # n expansions + original
 
     except Exception as exc:
+        if strict:
+            raise
         logger.warning("Query expansion failed: %s – using original only.", exc)
         return [question]

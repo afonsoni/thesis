@@ -11,14 +11,19 @@ import logging
 import re
 import threading
 import time
-from typing import Any, Callable, Dict, List, Optional, TypeVar
+from typing import Any, Callable, Dict, List, Optional, Tuple, TypeVar
 
 from pydantic import BaseModel
 
-from src.rag.common.llm_transport import call_openrouter_with_retries
+from src.rag.common.llm_transport import call_openrouter_with_retries, last_answering_model
 from src.utils.config_loader import config
 
 logger = logging.getLogger(__name__)
+
+# Every successful LLM call this process made, in order: (step label, model that
+# answered). A fallback model shows up here, so slicing it from a remembered
+# length gives one question's calls (``main.py query``, the eval runner).
+CALL_LOG: List[Tuple[str, str]] = []
 
 T = TypeVar("T")
 
@@ -85,8 +90,12 @@ def generate_text(
     timeout_seconds: int = 120,
     response_format: Optional[Dict[str, Any]] = None,
     extra_body: Optional[Dict[str, Any]] = None,
+    label: str = "",
 ) -> str:
-    """Generate text through OpenRouter transport with centralized retries."""
+    """Generate text through OpenRouter transport with centralized retries.
+
+    ``label`` names the pipeline step in the log and in ``CALL_LOG``.
+    """
     if provider and provider not in ("openrouter", "auto"):
         logger.warning(
             "Provider '%s' is no longer a direct runtime option. Using OpenRouter transport.",
@@ -97,7 +106,7 @@ def generate_text(
         "llm.openrouter.model",
         "meta-llama/llama-3.3-70b-instruct",
     )
-    return call_openrouter_with_retries(
+    text = call_openrouter_with_retries(
         prompt=prompt,
         model=selected_model,
         temperature=temperature,
@@ -107,6 +116,10 @@ def generate_text(
         response_format=response_format,
         extra_body=extra_body,
     )
+    answered_by = last_answering_model() or selected_model
+    CALL_LOG.append((label or "llm", answered_by))
+    logger.info("[%s] answered by %s", label or "llm", answered_by)
+    return text
 
 
 def generate_structured(
@@ -117,6 +130,7 @@ def generate_structured(
     model: Optional[str] = None,
     max_tokens: int = 1500,
     timeout_seconds: int = 120,
+    label: str = "",
 ) -> Any:
     """Generate structured JSON and validate with an optional Pydantic schema."""
     raw = generate_text(
@@ -131,6 +145,7 @@ def generate_structured(
         model=model,
         timeout_seconds=timeout_seconds,
         response_format={"type": "json_object"},
+        label=label,
     )
 
     data = _extract_json_payload(raw)

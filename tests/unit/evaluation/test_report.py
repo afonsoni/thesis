@@ -13,7 +13,7 @@ def _make_result(variant: str, hit: float, faith: float) -> VariantResult:
         created_at="2026-01-01T00:00:00",
         dataset_size=2,
         aggregate={
-            "hit@5": hit,
+            "hit": hit,
             "faithfulness": faith,
             "avg_latency_s": 1.2,
             "error_rate": 0.0,
@@ -31,7 +31,7 @@ def test_leaderboard_orders_columns_and_lists_all_variants(tmp_path):
     assert "| naive |" in content and "| current |" in content
     # retrieval metric column comes before generation + latency columns
     header = next(line for line in content.splitlines() if line.startswith("| variant |"))
-    assert header.index("hit@5") < header.index("faithfulness") < header.index("avg_latency_s")
+    assert header.index("hit") < header.index("faithfulness") < header.index("avg_latency_s")
 
     # CSV emitted alongside with matching rows
     csv_path = os.path.join(tmp_path, "leaderboard.csv")
@@ -50,7 +50,7 @@ def test_save_result_writes_versioned_json(tmp_path):
 @pytest.mark.unit
 def test_summarize_maps_variant_to_aggregate():
     results = [_make_result("naive", 0.4, 0.5)]
-    assert summarize(results)["naive"]["hit@5"] == 0.4
+    assert summarize(results)["naive"]["hit"] == 0.4
 
 
 @pytest.mark.unit

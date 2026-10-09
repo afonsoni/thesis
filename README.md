@@ -314,10 +314,10 @@ python main.py eval-dataset --sample-size 60 --out data/eval/questions/synthetic
 python main.py eval --variants naive,current --curated-only
 ```
 
-Metrics: retrieval (`hit@k`, `recall@k`, `mrr`, `ndcg@k`), routing
+Metrics: retrieval (`hit`, `recall`, `mrr`, `ndcg`), routing
 (`query_type_acc`, `party_f1`, `topic_f1`), and LLM-judge generation
 (`faithfulness`, `answer_relevance`, `correctness`). Results land in
-`data/eval/results/` and a committed `data/eval/reports/leaderboard.md`.
+`data/eval/results/` and a committed `data/eval/reports/leaderboard[-<split>].md`.
 Full methodology: [`docs/evaluation.md`](docs/evaluation.md).
 
 ## Configuration

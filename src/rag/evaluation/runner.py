@@ -14,6 +14,7 @@ import time
 from datetime import datetime
 from typing import Callable, Dict, List, Optional
 
+from src.rag.common.llm_client import CALL_LOG, call_with_wait_out
 from src.rag.common.models import RetrievalResult, SearchResult
 from src.rag.evaluation.keys import chunk_key
 from src.rag.evaluation.metrics.base import Metric
@@ -37,10 +38,22 @@ def _default_generate(result: RetrievalResult):
 
 
 def _flatten_results(result: RetrievalResult) -> List[SearchResult]:
-    """Prefer the flat list; fall back to flattening grouped comparison results."""
-    if result.results:
+    """The ranked list retrieval hands to generation, which is what gets scored.
+
+    A per-party fan-out is scored on every party's list, interleaved by rank
+    (each party's best, then each party's second, ...), because that is what the
+    generator reads. Its flat ``results`` is a cross-party top_k whose RRF ties
+    break in PARTY_MAP order, so scoring it cut PAN, PCP and PS out of
+    comparisons they were retrieved for.
+    """
+    if not result.results_by_party:
         return result.results
-    return [r for rs in result.results_by_party.values() for r in rs]
+    lists = list(result.results_by_party.values())
+    interleaved: List[SearchResult] = []
+    for rank in range(max((len(rs) for rs in lists), default=0)):
+        tier = [rs[rank] for rs in lists if rank < len(rs)]
+        interleaved.extend(sorted(tier, key=lambda r: r.similarity, reverse=True))
+    return interleaved
 
 
 def _build_context(results: List[SearchResult], k: int) -> str:
@@ -53,41 +66,72 @@ def run_question(
     metrics: List[Metric],
     k: int,
     retrieve_fn: RetrieveFn,
-    generate_fn: GenerateFn,
+    generate_fn: Optional[GenerateFn],
+    wait_out_attempts: int = 1,
 ) -> QuestionRun:
-    """Run the pipeline on one question and apply all metrics."""
+    """Run the pipeline on one question and apply all metrics.
+
+    Retrieval and generation fail separately: a generation failure is recorded
+    as the run's error but keeps the retrieval and routing scores, which do not
+    depend on it. Each stage waits out free-tier failures *wait_out_attempts*
+    times. ``strict`` is forced on, so an LLM step that still fails raises here
+    instead of quietly running a degraded pipeline under this variant's name.
+    """
+    config = config.model_copy(update={"strict": True})
     run = QuestionRun(question_id=question.id, variant=config.name)
+    first_call = len(CALL_LOG)
     start = time.perf_counter()
     try:
-        result = retrieve_fn(question.question, config)
-        results = _flatten_results(result)
-
-        run.retrieved_keys = [chunk_key(r.content) for r in results]
-        run.retrieved_parties = list(dict.fromkeys(r.party_name for r in results))
-        run.predicted_query_type = result.query.query_type.value
-        run.predicted_coverage = result.query.coverage.value
-        run.predicted_parties = result.query.parties
-        run.predicted_topics = result.query.topics
-        answer = generate_fn(result)
-        run.answer = getattr(answer, "answer", "") or ""
-        # Judge against what the generator read (parent sections, trimmed to the
-        # prompt budget); the top-k child chunks are only a fallback for
-        # generators that do not report their context.
-        run.context = getattr(answer, "context", "") or _build_context(results, k)
+        result = call_with_wait_out(
+            lambda: retrieve_fn(question.question, config),
+            f"[{config.name}] {question.id} retrieval",
+            attempts=wait_out_attempts,
+        )
     except Exception as exc:  # noqa: BLE001 - one bad question shouldn't kill the run
-        run.error = str(exc)
-        logger.warning("Question %s failed: %s", question.id, exc)
-    finally:
+        run.error = f"retrieval: {exc}"
         run.latency_s = round(time.perf_counter() - start, 3)
+        run.llm_calls = _calls_since(first_call)
+        logger.warning("Question %s failed: %s", question.id, run.error)
+        return run
 
-    if run.error is None:
-        for metric in metrics:
-            try:
-                run.metrics.update(metric.score(run, question))
-            except Exception as exc:  # noqa: BLE001
-                logger.warning("Metric %s failed on %s: %s", getattr(metric, "name", metric), question.id, exc)
+    results = _flatten_results(result)
+    run.retrieved_keys = [chunk_key(r.content) for r in results]
+    run.retrieved_parties = list(dict.fromkeys(r.party_name for r in results))
+    run.predicted_query_type = result.query.query_type.value
+    run.predicted_coverage = result.query.coverage.value
+    run.predicted_parties = result.query.parties
+    run.predicted_topics = result.query.topics
 
+    if generate_fn is not None:
+        try:
+            answer = call_with_wait_out(
+                lambda: generate_fn(result),
+                f"[{config.name}] {question.id} generation",
+                attempts=wait_out_attempts,
+            )
+            run.answer = getattr(answer, "answer", "") or ""
+            # Judge against what the generator read (parent sections, trimmed to
+            # the prompt budget); the top-k child chunks are only a fallback for
+            # generators that do not report their context.
+            run.context = getattr(answer, "context", "") or _build_context(results, k)
+        except Exception as exc:  # noqa: BLE001
+            run.error = f"generation: {exc}"
+            logger.warning("Question %s failed: %s", question.id, run.error)
+    run.latency_s = round(time.perf_counter() - start, 3)
+
+    # An empty answer (generation failed or skipped) yields no judge scores.
+    for metric in metrics:
+        try:
+            run.metrics.update(metric.score(run, question))
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("Metric %s failed on %s: %s", getattr(metric, "name", metric), question.id, exc)
+
+    run.llm_calls = _calls_since(first_call)
     return run
+
+
+def _calls_since(first: int) -> List[Dict[str, str]]:
+    return [{"step": step, "model": model} for step, model in CALL_LOG[first:]]
 
 
 def _aggregate(runs: List[QuestionRun]) -> Dict[str, float]:
@@ -114,15 +158,21 @@ def run_variant(
     k: int = 5,
     retrieve_fn: Optional[RetrieveFn] = None,
     generate_fn: Optional[GenerateFn] = None,
+    generate: bool = True,
+    wait_out_attempts: int = 1,
 ) -> VariantResult:
-    """Run *config* over the whole *dataset* and return aggregated results."""
+    """Run *config* over the whole *dataset* and return aggregated results.
+
+    ``generate=False`` skips answer generation (retrieval and routing scores
+    only), so a ``--no-judge`` run spends no LLM calls on answers nobody scores.
+    """
     retrieve_fn = retrieve_fn or _default_retrieve
-    generate_fn = generate_fn or _default_generate
+    generate_fn = (generate_fn or _default_generate) if generate else None
 
     logger.info("Evaluating variant '%s' over %d questions ...", config.name, len(dataset.questions))
     runs: List[QuestionRun] = []
     for i, question in enumerate(dataset.questions, start=1):
-        runs.append(run_question(question, config, metrics, k, retrieve_fn, generate_fn))
+        runs.append(run_question(question, config, metrics, k, retrieve_fn, generate_fn, wait_out_attempts))
         if i % 10 == 0 or i == len(dataset.questions):
             logger.info("  [%s] %d / %d done", config.name, i, len(dataset.questions))
 

@@ -28,8 +28,8 @@ from src.utils.config_loader import config
 logger = logging.getLogger(__name__)
 
 
-def _build_metrics(k: int, use_judge: bool, judge_model: Optional[str]) -> List[Metric]:
-    metrics: List[Metric] = [RetrievalMetric(k=k), RoutingMetric()]
+def _build_metrics(use_judge: bool, judge_model: Optional[str]) -> List[Metric]:
+    metrics: List[Metric] = [RetrievalMetric(), RoutingMetric()]
     if use_judge:
         metrics.append(GenerationJudgeMetric(model=judge_model))
     return metrics
@@ -54,7 +54,8 @@ def evaluate(
         dataset_path: Gold set JSON path.
         curated_only: Restrict to human-validated questions.
         split: Restrict to one split (``dev`` while tuning, ``test`` for headline numbers).
-        k: Cut-off for retrieval metrics and judge context.
+        k: Chunks retrieved on a flat route (``RetrievalConfig.top_k``) for
+            every variant; a per-party fan-out keeps ``top_k_per_party``.
         use_judge: Whether to run the (LLM) generation-judge metrics.
         judge_model: Override judge model id.
         results_dir / reports_dir: Output locations.
@@ -81,8 +82,9 @@ def evaluate(
             f" (curated_only={curated_only}, split={split!r})"
         )
 
-    configs = resolve_variants(variant_names)
-    metrics = _build_metrics(k, use_judge, judge_model)
+    configs = [c.model_copy(update={"top_k": k}) for c in resolve_variants(variant_names)]
+    metrics = _build_metrics(use_judge, judge_model)
+    wait_out_attempts = int(config.get("evaluation.wait_out_attempts", 5))
 
     logger.info(
         "Evaluating variants %s over %d questions (k=%d, judge=%s).",
@@ -92,8 +94,12 @@ def evaluate(
     results: List[VariantResult] = []
     for cfg in configs:
         before = Counter(MODEL_USAGE)
-        result = run_variant(cfg, dataset, metrics, k=k)
+        result = run_variant(cfg, dataset, metrics, k=k, generate=use_judge,
+                             wait_out_attempts=wait_out_attempts)
         result.models_used = dict(MODEL_USAGE - before)
+        result.dataset_path = dataset_path
+        result.split = split or ""
+        result.curated_only = curated_only
         save_result(result, results_dir)
         results.append(result)
 

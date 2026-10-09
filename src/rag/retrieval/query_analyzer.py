@@ -214,8 +214,11 @@ def analyze_query(
             response_schema=_QueryAnalysisResponse,
             system_prompt=QUERY_ANALYSIS_SYSTEM_PROMPT,
             temperature=0.1,
+            label="query analysis",
         )
     except Exception as exc:
+        if config.strict:
+            raise
         logger.warning("Structured query analysis failed: %s – using fallback.", exc)
         return _fallback_analysis(question)
 

@@ -57,23 +57,26 @@ def ndcg_at_k(retrieved: Sequence[str], gold: Sequence[str], k: int) -> float:
 
 
 class RetrievalMetric:
-    """``Metric`` implementation bundling the retrieval scores at a fixed k."""
+    """``Metric`` bundling the retrieval scores over everything retrieved.
 
+    No fixed cutoff: the list scored is the one handed to generation, which is
+    ``top_k`` chunks on a flat route but ``top_k_per_party`` per party on a
+    fan-out. A cutoff of ``top_k`` there would score 5 slots of a 24-chunk
+    comparison and could never see what the per-party routing adds.
+    """
+
+    name = "retrieval"
     needs_llm = False
-
-    def __init__(self, k: int = 5):
-        self.k = k
-        self.name = f"retrieval@{k}"
 
     def score(self, run: QuestionRun, question: EvalQuestion) -> Dict[str, float]:
         gold = question.gold_chunk_keys
         if not gold:
             return {}
         retrieved: List[str] = run.retrieved_keys
-        k = self.k
+        n = len(retrieved)
         return {
-            f"hit@{k}": hit_at_k(retrieved, gold, k),
-            f"recall@{k}": recall_at_k(retrieved, gold, k),
+            "hit": hit_at_k(retrieved, gold, n),
+            "recall": recall_at_k(retrieved, gold, n),
             "mrr": mrr(retrieved, gold),
-            f"ndcg@{k}": ndcg_at_k(retrieved, gold, k),
+            "ndcg": ndcg_at_k(retrieved, gold, n),
         }

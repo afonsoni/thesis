@@ -77,6 +77,15 @@ class RetrievalConfig(BaseModel):
         "recall ceiling of the reranked variant.",
     )
 
+    # Failure handling
+    strict: bool = Field(
+        default=False,
+        description="Raise when an LLM step (query analysis, expansion) fails instead "
+        "of falling back to its degraded mode. The evaluation harness sets it, so a "
+        "rate-limited question is recorded as an error rather than scored as a "
+        "cheaper pipeline under this variant's name.",
+    )
+
     # Result sizing
     top_k: int = Field(default=5, ge=1, description="Results returned to generation.")
     top_k_per_party: int = Field(

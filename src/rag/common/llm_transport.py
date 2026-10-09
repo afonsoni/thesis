@@ -12,6 +12,7 @@ import logging
 import os
 import random
 import re
+import threading
 import time
 from collections import Counter
 from typing import Any, Dict, List, Mapping, Optional
@@ -37,6 +38,15 @@ _DEFAULT_MAX_BACKOFF_SECS = float(config.get("llm.openrouter.max_backoff_secs", 
 # answering model can differ from the requested one; evaluation snapshots this
 # so a run can report how often a fallback was used (e.g. by the judge).
 MODEL_USAGE: Counter = Counter()
+
+# The model that answered this thread's latest successful call, read back by
+# ``llm_client.generate_text`` to label the call. Per thread because eval runs
+# each pipeline stage in a ``with_deadline`` worker thread.
+_LAST_ANSWER = threading.local()
+
+
+def last_answering_model() -> Optional[str]:
+    return getattr(_LAST_ANSWER, "model", None)
 _MAX_MODELS_PER_REQUEST = 3  # OpenRouter rejects a longer `models` array (400)
 
 
@@ -199,7 +209,8 @@ def _post_chat(payload: Dict[str, Any], api_key: str, timeout_seconds: int, requ
         excerpt = response.text[:500]
         retry_after = _parse_retry_after_from_headers(response.headers)
         if retry_after is None:
-            retry_after = _parse_retry_after_from_text(excerpt)
+            # The full body: Google's retryDelay sits past the excerpt's cut-off.
+            retry_after = _parse_retry_after_from_text(response.text)
         raise OpenRouterTransportError(
             message=f"OpenRouter request failed ({response.status_code}): {excerpt}",
             status_code=response.status_code,
@@ -215,6 +226,7 @@ def _post_chat(payload: Dict[str, Any], api_key: str, timeout_seconds: int, requ
 
     answered_by = str(data.get("model") or requested)
     MODEL_USAGE[answered_by] += 1
+    _LAST_ANSWER.model = answered_by
     if not answered_by.startswith(requested.split(":")[0]):
         logger.info("Answered by fallback model %s (requested %s).", answered_by, requested)
 
@@ -249,7 +261,7 @@ def _parse_retry_after_from_headers(headers: Mapping[str, str]) -> Optional[floa
 
 def _parse_retry_after_from_text(text: str) -> Optional[float]:
     patterns = [
-        r"retry(?:[_ ]?[Dd]elay|In)[^\d]*(\d+(?:\.\d+)?)",
+        r"retry(?:[_ ]?delay|[_ ]?in\b)[^\d]{0,20}(\d+(?:\.\d+)?)",  # retryDelay, retry_delay, retryIn, "retry in 37.1s"
         r"retry[-_ ]?after[^\d]*(\d+(?:\.\d+)?)",
     ]
     for pattern in patterns:

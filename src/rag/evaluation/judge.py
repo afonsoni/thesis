@@ -73,9 +73,10 @@ def _call(prompt: str, schema: type, system: str, model: Optional[str], label: s
                 model=_judge_model(model),
                 temperature=float(config.get("evaluation.judge_temperature", 0.0)),
                 max_tokens=max_tokens,
+                label=f"judge: {label}",
             ),
             label=label,
-            attempts=int(config.get("evaluation.judge_wait_out_attempts", 5)),
+            attempts=int(config.get("evaluation.wait_out_attempts", 5)),
         )
     except Exception as exc:  # noqa: BLE001 - judge failures are omitted, not fatal
         logger.warning("%s failed: %s", label, exc)
@@ -112,6 +113,7 @@ def verify_claims(
             model=_judge_model(model),
             temperature=float(config.get("evaluation.judge_temperature", 0.0)),
             max_tokens=200 + 120 * len(claims),
+            label="judge: claim verification",
         )
         if len(out.verdicts) != len(claims):
             raise ValueError(f"expected {len(claims)} verdicts, got {len(out.verdicts)}")
@@ -120,7 +122,7 @@ def verify_claims(
     try:
         return call_with_wait_out(
             attempt, label="claim verification",
-            attempts=int(config.get("evaluation.judge_wait_out_attempts", 5)),
+            attempts=int(config.get("evaluation.wait_out_attempts", 5)),
         )
     except Exception as exc:  # noqa: BLE001
         logger.warning("claim verification failed: %s", exc)

@@ -44,11 +44,19 @@ def test_ndcg_matches_manual_computation():
 
 @pytest.mark.unit
 def test_retrieval_metric_bundle_and_empty_gold():
-    metric = RetrievalMetric(k=5)
+    metric = RetrievalMetric()
     run = QuestionRun(question_id="q", variant="v", retrieved_keys=["x", "g1"])
     q = EvalQuestion(id="q", question="?", gold_chunk_keys=["g1"])
     scores = metric.score(run, q)
-    assert scores["hit@5"] == 1.0 and scores["mrr"] == pytest.approx(0.5)
+    assert scores["hit"] == 1.0 and scores["mrr"] == pytest.approx(0.5)
 
     # No gold keys → metric yields nothing (so it's excluded from averages).
     assert metric.score(run, EvalQuestion(id="q", question="?")) == {}
+
+
+@pytest.mark.unit
+def test_retrieval_metric_scores_the_whole_list_without_a_cutoff():
+    # A fan-out hands generation more than top_k chunks; gold at rank 7 counts.
+    run = QuestionRun(question_id="q", variant="v", retrieved_keys=[f"x{i}" for i in range(6)] + ["g1"])
+    scores = RetrievalMetric().score(run, EvalQuestion(id="q", question="?", gold_chunk_keys=["g1", "g2"]))
+    assert scores["hit"] == 1.0 and scores["recall"] == 0.5

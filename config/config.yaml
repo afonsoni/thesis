@@ -150,9 +150,10 @@ evaluation:
   reports_dir: "data/eval/reports"
   judge_model: "google/gemma-4-26b-a4b-it:free"
   judge_temperature: 0.0
-  # Each judge call waits out free-tier failures this many times before the score
-  # is omitted (never recorded as 0).
-  judge_wait_out_attempts: 5
+  # Each LLM stage of an eval run (retrieval's analysis/expansion, generation,
+  # every judge call) waits out free-tier failures this many times. A question
+  # that still fails is recorded as an error; a judge score is omitted (never 0).
+  wait_out_attempts: 5
   sample_size: 60
   top_k: 5
   variants: ["naive", "current", "hybrid"]

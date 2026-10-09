@@ -116,6 +116,10 @@ class QuestionRun(BaseModel):
 
     latency_s: float = 0.0
     error: Optional[str] = None
+    # Every LLM call this question made, in order: {"step", "model"}, the model
+    # being the one that answered, so a fallback is visible per question and per
+    # step (pipeline and judge alike).
+    llm_calls: List[Dict[str, str]] = Field(default_factory=list)
 
     metrics: Dict[str, float] = Field(default_factory=dict)
     # Per-metric working: extracted claims and the judge's verdict on each, so a
@@ -135,3 +139,8 @@ class VariantResult(BaseModel):
     # LLM calls per answering model during this run (generation, analysis and
     # judge alike); more than one entry means OpenRouter fallbacks were used.
     models_used: Dict[str, int] = Field(default_factory=dict)
+    # Which questions were scored, so a result can be tied to its gold set and
+    # a dev-split number cannot pass for a held-out one.
+    dataset_path: str = ""
+    split: str = ""  # dev | test | "" (all)
+    curated_only: bool = False

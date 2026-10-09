@@ -55,7 +55,7 @@ def route(
 
     # Multi-query expansion (Part 5)
     if config.use_multi_query:
-        queries = expand_query(search_text, n_queries=config.multi_query_count)
+        queries = expand_query(search_text, n_queries=config.multi_query_count, strict=config.strict)
     else:
         queries = [search_text]
 

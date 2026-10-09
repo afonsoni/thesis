@@ -10,7 +10,7 @@ rung-to-rung differences on one gold set detectable at all.
 
 from __future__ import annotations
 
-from typing import Dict, List, Optional, Sequence, Tuple
+from typing import Dict, Optional, Sequence, Tuple
 
 import numpy as np
 
@@ -43,7 +43,3 @@ def paired_diff(a: Dict[str, float], b: Dict[str, float], n: int = 2000, alpha: 
 
 def per_question(result: VariantResult, metric: str) -> Dict[str, float]:
     return {r.question_id: r.metrics[metric] for r in result.per_question if metric in r.metrics}
-
-
-def metric_cis(result: VariantResult, metrics: List[str], n: int = 2000) -> Dict[str, Optional[Interval]]:
-    return {m: bootstrap_ci(list(per_question(result, m).values()), n=n) for m in metrics}

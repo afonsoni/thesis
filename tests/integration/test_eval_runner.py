@@ -47,7 +47,7 @@ def test_run_variant_on_seeded_store(seeded_searcher, tmp_path):
 
     result = run_variant(
         naive, dataset,
-        metrics=[RetrievalMetric(k=5), RoutingMetric()],
+        metrics=[RetrievalMetric(), RoutingMetric()],
         k=5,
         retrieve_fn=retrieve_fn,
         generate_fn=generate_fn,
@@ -56,7 +56,7 @@ def test_run_variant_on_seeded_store(seeded_searcher, tmp_path):
     assert result.dataset_size == 1
     assert result.per_question[0].error is None
     # The seeded PS education chunk should be retrieved for an education query.
-    assert result.aggregate["hit@5"] == 1.0
+    assert result.aggregate["hit"] == 1.0
     assert result.aggregate["error_rate"] == 0.0
     # naive skips analysis → predicted type is general, matching the gold type.
     assert result.aggregate["query_type_acc"] == 1.0

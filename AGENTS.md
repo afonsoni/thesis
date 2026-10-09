@@ -102,7 +102,8 @@ Entry point: `main.py`
   presets (`naive`, `multiquery`, `routed`, `current`, `hybrid`, `hybrid_only`,
   `reranked`, `reranked_only`).
 - `dataset.py`: synthetic-anchored gold-set generation + load/save (content-hash keys).
-- `metrics/`: retrieval (hit@k/recall@k/MRR/nDCG against human-picked gold chunks),
+- `metrics/`: retrieval (hit/recall/MRR/nDCG over the full list handed to generation,
+  against human-picked gold chunks),
   routing (type acc, coverage, party/topic F1), and generation: claim-level
   faithfulness and correctness (RAGAS-style, `judge.py`) plus a 1-5 relevance judge,
   behind a `Metric` protocol. `stats.py` adds bootstrap CIs and paired differences to

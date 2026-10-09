@@ -18,13 +18,13 @@ from datetime import datetime
 from typing import Dict, List
 
 from src.rag.evaluation.models import VariantResult
-from src.rag.evaluation.stats import metric_cis, paired_diff, per_question
+from src.rag.evaluation.stats import bootstrap_ci, paired_diff, per_question
 
 logger = logging.getLogger(__name__)
 
 # Preferred left-to-right ordering for metric columns; unknown keys go last (sorted).
 _COLUMN_PRIORITY = [
-    "hit@", "recall@", "mrr", "ndcg@",
+    "hit", "recall", "mrr", "ndcg",
     "query_type_acc", "coverage_acc", "party_f1", "topic_f1",
     "faithfulness", "correctness", "correctness_recall", "answer_relevance",
     "avg_latency_s", "error_rate",
@@ -62,6 +62,42 @@ def save_result(result: VariantResult, results_dir: str) -> str:
 _RUN_STATS = {"avg_latency_s", "error_rate"}  # not per-question scores: no interval
 
 
+def _shared_scores(results: List[VariantResult], metric: str) -> Dict[str, Dict[str, float]]:
+    """Per variant, *metric*'s scores on the questions every variant scored.
+
+    A question that errored or went unjudged in one arm drops out of all of
+    them, so each row of the table is a mean over the same questions. Variants
+    that never produce *metric* (e.g. no judge) do not shrink the set.
+    """
+    scored = {r.variant: per_question(r, metric) for r in results}
+    having = [qs for qs in scored.values() if qs]
+    shared = set.intersection(*(set(qs) for qs in having)) if having else set()
+    return {v: {q: qs[q] for q in shared} for v, qs in scored.items() if qs}
+
+
+def _table(results: List[VariantResult], columns: List[str]) -> Dict[str, Dict[str, tuple]]:
+    """{variant: {column: (value, ci)}}: shared-question means, run stats as recorded."""
+    cells: Dict[str, Dict[str, tuple]] = {r.variant: {} for r in results}
+    for col in columns:
+        if col in _RUN_STATS:
+            for r in results:
+                if col in r.aggregate:
+                    cells[r.variant][col] = (r.aggregate[col], None)
+            continue
+        for variant, qs in _shared_scores(results, col).items():
+            if qs:
+                values = list(qs.values())
+                cells[variant][col] = (round(sum(values) / len(values), 4), bootstrap_ci(values))
+    return cells
+
+
+def _leaderboard_stem(results: List[VariantResult]) -> str:
+    """``leaderboard``, suffixed by split and curation so a dev run cannot
+    overwrite the held-out table."""
+    first = results[0] if results else VariantResult(variant="")
+    return "leaderboard" + (f"-{first.split}" if first.split else "") + ("-curated" if first.curated_only else "")
+
+
 def _format_cell(value: float, ci=None) -> str:
     cell = f"{value:.3f}" if isinstance(value, float) else str(value)
     return f"{cell} [{ci[0]:.2f}, {ci[1]:.2f}]" if ci else cell
@@ -95,11 +131,14 @@ def _delta_table(results: List[VariantResult], columns: List[str]) -> List[str]:
 
 
 def write_leaderboard(results: List[VariantResult], reports_dir: str) -> str:
-    """(Over)write leaderboard.md + leaderboard.csv comparing the given variants."""
+    """(Over)write leaderboard[-split][-curated].md + .csv comparing the given variants."""
     os.makedirs(reports_dir, exist_ok=True)
     columns = _ordered_columns(results)
-    md_path = os.path.join(reports_dir, "leaderboard.md")
-    csv_path = os.path.join(reports_dir, "leaderboard.csv")
+    table = _table(results, columns)
+    stem = _leaderboard_stem(results)
+    md_path = os.path.join(reports_dir, f"{stem}.md")
+    csv_path = os.path.join(reports_dir, f"{stem}.csv")
+    first = results[0] if results else VariantResult(variant="")
 
     # Markdown
     header = "| variant | " + " | ".join(columns) + " |"
@@ -108,20 +147,24 @@ def write_leaderboard(results: List[VariantResult], reports_dir: str) -> str:
         "# RAG Evaluation Leaderboard",
         "",
         f"_Generated: {datetime.now().isoformat(timespec='seconds')}_  ",
-        f"_Dataset size: {results[0].dataset_size if results else 0} questions_",
+        f"_Dataset: `{first.dataset_path or '?'}`, split `{first.split or 'all'}`, "
+        f"{'curated only' if first.curated_only else 'curated and uncurated'}, "
+        f"{first.dataset_size} questions_",
         "",
         header,
         sep,
     ]
     for r in results:
-        cis = metric_cis(r, [c for c in columns if c not in _RUN_STATS])
-        cells = [_format_cell(r.aggregate.get(col, float("nan")), cis.get(col)) for col in columns]
+        cells = [_format_cell(*table[r.variant].get(col, (float("nan"), None))) for col in columns]
         lines.append(f"| {r.variant} | " + " | ".join(cells) + " |")
     lines.extend([
         "",
         "Higher is better for all metrics except `avg_latency_s` and `error_rate`.",
-        "Cells are means over the questions scored, with a 95% bootstrap interval over",
-        "questions. `faithfulness` and `correctness*` are claim-level (RAGAS-style);",
+        "Cells are means over the questions every variant scored on that metric, with a",
+        "95% bootstrap interval over questions; `error_rate` counts the rest.",
+        "Retrieval metrics score the full list handed to generation: `top_k` chunks, or",
+        "`top_k_per_party` per party on a per-party fan-out.",
+        "`faithfulness` and `correctness*` are claim-level (RAGAS-style);",
         "`answer_relevance` is a 1-5 judgement mapped to [0, 1].",
         "",
     ])
@@ -141,7 +184,7 @@ def write_leaderboard(results: List[VariantResult], reports_dir: str) -> str:
         writer = csv.writer(fh)
         writer.writerow(["variant", *columns])
         for r in results:
-            writer.writerow([r.variant, *[r.aggregate.get(col, "") for col in columns]])
+            writer.writerow([r.variant, *[table[r.variant].get(col, ("",))[0] for col in columns]])
 
     logger.info("Wrote leaderboard → %s", md_path)
     return md_path

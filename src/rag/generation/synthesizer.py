@@ -174,7 +174,7 @@ def direct_answer(query: str, results: List[SearchResult]) -> GeneratedAnswer:
     """Single-pass generation for simple look-ups."""
     context = _format_flat_context(results)
     prompt = ANSWER_PROMPT.format(context=context, question=query)
-    answer = generate_text(prompt, system_prompt=ANSWER_SYSTEM_PROMPT)
+    answer = generate_text(prompt, system_prompt=ANSWER_SYSTEM_PROMPT, label="answer")
     return GeneratedAnswer(
         answer=answer,
         sources=_build_sources(results),
@@ -190,7 +190,7 @@ def comparison_answer(
     """Grouped-by-party generation for comparison questions."""
     context = _format_grouped_context(results_by_party)
     prompt = COMPARISON_PROMPT.format(context=context, question=query)
-    answer = generate_text(prompt, system_prompt=COMPARISON_SYSTEM_PROMPT)
+    answer = generate_text(prompt, system_prompt=COMPARISON_SYSTEM_PROMPT, label="comparison answer")
     all_results = [r for rs in results_by_party.values() for r in rs]
     return GeneratedAnswer(
         answer=answer,
@@ -210,7 +210,7 @@ def decomposed_answer(
     """
     # Step 1: decompose
     decomp_prompt = DECOMPOSITION_PROMPT.format(question=query)
-    raw_sub_qs = generate_text(decomp_prompt, temperature=0.2)
+    raw_sub_qs = generate_text(decomp_prompt, temperature=0.2, label="decomposition")
     sub_questions = [q.strip() for q in raw_sub_qs.strip().split("\n") if q.strip()]
 
     if not sub_questions:
@@ -224,13 +224,13 @@ def decomposed_answer(
     qa_pairs = []
     for sq in sub_questions:
         sub_prompt = ANSWER_PROMPT.format(context=context, question=sq)
-        sub_ans = generate_text(sub_prompt, system_prompt=ANSWER_SYSTEM_PROMPT, temperature=0.2)
+        sub_ans = generate_text(sub_prompt, system_prompt=ANSWER_SYSTEM_PROMPT, temperature=0.2, label="sub-answer")
         qa_pairs.append(f"Pergunta: {sq}\nResposta: {sub_ans}")
 
     # Step 3: synthesise
     qa_text = "\n\n---\n\n".join(qa_pairs)
     synth_prompt = SYNTHESIS_PROMPT.format(qa_pairs=qa_text, question=query)
-    final = generate_text(synth_prompt, system_prompt=ANSWER_SYSTEM_PROMPT)
+    final = generate_text(synth_prompt, system_prompt=ANSWER_SYSTEM_PROMPT, label="synthesis")
     return GeneratedAnswer(
         answer=final,
         sources=_build_sources(results),

@@ -141,3 +141,12 @@ def test_analyze_query_falls_back_when_structured_fails():
 
     assert analyzed.query_type == QueryType.COMPARISON
     assert len(analyzed.parties) >= 2
+
+
+@pytest.mark.unit
+def test_strict_config_raises_instead_of_falling_back():
+    from src.rag.retrieval.config import RetrievalConfig
+
+    with patch("src.rag.retrieval.query_analyzer.generate_structured", side_effect=RuntimeError("429")):
+        with pytest.raises(RuntimeError):
+            analyze_query("O que propõe o PS?", config=RetrievalConfig(strict=True))

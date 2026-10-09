@@ -335,10 +335,11 @@ class VectorStore:
                 ([doc_id for doc_id, _ in ranked],),
             )
             rows = {str(r["id"]): r for r in cur.fetchall()}
-        except Exception as exc:
+        except Exception:
+            # Roll back so the connection stays usable, then let the error
+            # through: returning [] made a broken index read as zero recall.
             conn.rollback()
-            logger.error("Lexical search failed: %s", exc)
-            return []
+            raise
 
         return [
             self._row_to_result(rows[doc_id], score, ScoreType.LEXICAL)
@@ -390,10 +391,9 @@ class VectorStore:
         try:
             cur.execute(sql, params)
             rows = cur.fetchall()
-        except Exception as exc:
+        except Exception:
             conn.rollback()
-            logger.error("Similarity search failed: %s", exc)
-            return []
+            raise
 
         return [
             self._row_to_result(row, float(row["similarity"]), ScoreType.COSINE)
