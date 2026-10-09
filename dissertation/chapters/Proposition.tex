@@ -464,6 +464,19 @@ tell the zero-results failure that motivated it.}
 \TODO{Hybrid dense + Portuguese full-text: motivation (acronyms/exact tokens),
 honest note that measured gains were narrower than expected.}
 
+\subsection{Agentic retrieval} \label{subsec:agentic}
+%% src: not built yet; DECISIONS.md "Agentic rung -- decided, to build" (2026-10-06)
+\TODO{BLOCKED until built. An LLM-driven loop over the existing retrieval
+pipeline: decide whether and what to retrieve, re-query when the results fall
+short, and self-check the evidence before synthesis. Build it behind a feature
+flag as a new rung of the variant ladder (Section~\ref{subsec:variants}), so
+``agentic vs hybrid + reranking'' is measured, not assumed. Cover: the loop
+and its stopping rule; the history (empty agentic/corrective stubs from May
+2025, deleted in March 2026, revived here); why Corrective RAG stays out (its
+fallback is web search, and answers must come from the manifestos); LLM calls
+per query against free-tier rate limits; and the update to
+Figure~\ref{fig:retrieval}.}
+
 \subsection{Answer synthesis} \label{subsec:synthesis}
 %% src: generation/synthesizer.py; direct / comparison / decomposed (Part 7); citations
 \TODO{Strategy dispatch by answer shape and result shape; grounded citations.

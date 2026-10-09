@@ -11,8 +11,9 @@
 %               — future work);
 %    PARTIAL:   reranking implemented (05908ac) but not yet measured on
 %               the leaderboard, so its verdict is still open;
-%    ABANDONED: agentic/corrective RAG (stubs deleted March 2026 —
-%               belongs in future work with the why);
+%    REVIVED:   agentic RAG (stubs deleted March 2026; decided to build
+%               as a ladder rung on 2026-10-06, Section subsec:agentic);
+%               corrective RAG stays out (its fallback is web search);
 %    OUT:       fine-tuning comparison (pre-thesis floated it; scope).
 %  The Work Plan section was removed on 2026-08-16: it belonged to the
 %  pre-thesis report, not the dissertation.
@@ -22,8 +23,8 @@
 \TODO{REWRITE LAST, once leaderboard results exist: findings per research
 question (RQ1--RQ5 in Section~\ref{sec:research-questions}), per-technique
 contribution summary from the variant ladder, limitations (gold-set size,
-LLM-judge bias, single election cycle), and future work (agentic/corrective
-RAG, chunk-size sweep, political quiz as a public-facing application, more
+LLM-judge bias, single election cycle), and future work (corrective RAG,
+chunk-size sweep, political quiz as a public-facing application, more
 election cycles). Name two corpus extensions explicitly: (1) parties on the
 ballot but outside parliament, made practical by automating Markdown
 cleaning end to end; (2) manifestos from other elections --- the store
