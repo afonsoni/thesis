@@ -274,14 +274,16 @@ def synthesize(retrieval: RetrievalResult) -> GeneratedAnswer:
     # A narrative answer over a fan-out reads the whole grouped set, not
     # ``results``: the router truncates that flat list to top_k, which would
     # quietly hide most parties behind a verdict claiming to weigh them all.
+    # It is trimmed per party before flattening, for the same reason: a flat
+    # lowest-ranked-first trim drops every chunk of a party that ranks low.
     if grouped:
         flat = sorted(
-            (r for rs in grouped.values() for r in rs),
+            (r for rs in _fit_grouped(grouped).values() for r in rs),
             key=lambda r: r.similarity,
             reverse=True,
         )
     else:
-        flat = retrieval.results
+        flat = _fit_flat(retrieval.results)
 
     logger.info("Using direct answer strategy.")
-    return direct_answer(q, _fit_flat(flat))
+    return direct_answer(q, flat)

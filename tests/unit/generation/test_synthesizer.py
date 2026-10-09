@@ -136,3 +136,25 @@ def test_grouped_trim_equalises_rather_than_truncating_the_tail():
 
     assert len(kept["B"]) == 1
     assert len(kept["A"]) < 6
+
+
+@pytest.mark.unit
+def test_narrative_trim_over_a_fan_out_never_drops_a_party(captured_prompts):
+    """A party that ranks low everywhere must survive the budget trim."""
+    grouped = _grouped(["A", "B", "C"], per_party=4, size=4000)
+    for r in grouped["C"]:
+        r.similarity = 0.001  # below every chunk of A and B
+
+    with patch.object(synthesizer, "_prompt_budget", return_value=3000):
+        synthesize(_retrieval(AnswerShape.NARRATIVE, grouped=grouped))
+
+    assert "C conteudo" in captured_prompts[0]
+
+
+@pytest.mark.unit
+def test_fan_out_with_every_party_empty_never_reaches_the_llm(captured_prompts):
+    from src.rag.generation.pipeline import generate
+
+    answer = generate(_retrieval(AnswerShape.PER_PARTY, grouped={"A": [], "B": []}))
+
+    assert captured_prompts == [] and answer.sources == []

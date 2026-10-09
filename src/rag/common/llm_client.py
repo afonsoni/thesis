@@ -15,14 +15,19 @@ from typing import Any, Callable, Dict, List, Optional, Tuple, TypeVar
 
 from pydantic import BaseModel
 
-from src.rag.common.llm_transport import call_openrouter_with_retries, last_answering_model
+from src.rag.common.llm_transport import (
+    call_openrouter_with_retries,
+    last_answer_truncated,
+    last_answering_model,
+)
 from src.utils.config_loader import config
 
 logger = logging.getLogger(__name__)
 
 # Every successful LLM call this process made, in order: (step label, model that
 # answered). A fallback model shows up here, so slicing it from a remembered
-# length gives one question's calls (``main.py query``, the eval runner).
+# length gives one question's calls (``main.py query``, the eval runner). A call
+# cut off at max_tokens has " [truncated]" appended to its step.
 CALL_LOG: List[Tuple[str, str]] = []
 
 T = TypeVar("T")
@@ -117,8 +122,9 @@ def generate_text(
         extra_body=extra_body,
     )
     answered_by = last_answering_model() or selected_model
-    CALL_LOG.append((label or "llm", answered_by))
-    logger.info("[%s] answered by %s", label or "llm", answered_by)
+    step = (label or "llm") + (" [truncated]" if last_answer_truncated() else "")
+    CALL_LOG.append((step, answered_by))
+    logger.info("[%s] answered by %s", step, answered_by)
     return text
 
 

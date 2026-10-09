@@ -67,3 +67,17 @@ def test_bounded_parent_keeps_small_sections_whole_and_windows_big_ones():
     assert parent in content
     # Unlocatable pieces fall back to the child itself.
     assert _bounded_parent(content, pieces, None, 2, len, 14) == "cccc dddd"
+
+
+@pytest.mark.unit
+def test_bounded_parent_grows_on_both_sides_of_the_child():
+    from src.rag.indexing.chunker import _bounded_parent, _locate
+
+    pieces = [c * 4 for c in "abcdefghij"]  # ten disjoint pieces, 4 chars apart by a space
+    content = " ".join(pieces)
+    spans = _locate(content, pieces)
+    # Room for four pieces around child 5 ("ffff"): it must not sit at the left
+    # edge with only right-hand neighbours, which drops the section's lead-in.
+    parent = _bounded_parent(content, pieces, spans, 5, len, 19)
+    assert parent == "eeee ffff gggg hhhh" or parent == "dddd eeee ffff gggg"
+    assert not parent.startswith("ffff")

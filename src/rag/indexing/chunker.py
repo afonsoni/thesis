@@ -115,14 +115,22 @@ def _bounded_parent(
         return content
     if spans is None:
         return pieces[idx]
+    def fits(a: int, b: int) -> bool:
+        return 0 <= a and b < len(spans) and measure(content[spans[a][0]:spans[b][1]]) <= max_parent_size
+
     lo = hi = idx
     grew = True
     while grew:
+        # Each side is tested against the window as it stands, so a step left
+        # is kept when the step right also fits (a tuple of both candidates,
+        # built up front, let the right one overwrite the left).
         grew = False
-        for a, b in ((lo - 1, hi), (lo, hi + 1)):
-            if 0 <= a and b < len(spans) and measure(content[spans[a][0]:spans[b][1]]) <= max_parent_size:
-                lo, hi = a, b
-                grew = True
+        if fits(lo - 1, hi):
+            lo -= 1
+            grew = True
+        if fits(lo, hi + 1):
+            hi += 1
+            grew = True
     return content[spans[lo][0]:spans[hi][1]]
 
 

@@ -68,3 +68,16 @@ def test_each_call_is_logged_with_its_step_and_the_model_that_answered(monkeypat
     first = len(llm_client.CALL_LOG)
     llm_client.generate_text("p", model="google/gemma-4-26b-a4b-it:free", label="query expansion")
     assert llm_client.CALL_LOG[first:] == [("query expansion", "nvidia/nemotron-3-ultra-550b-a55b:free")]
+
+
+@pytest.mark.unit
+def test_an_answer_cut_off_at_max_tokens_is_marked_truncated(monkeypatch):
+    from src.rag.common import llm_client
+
+    monkeypatch.setenv("OPENROUTER_API_KEY", "k")
+    monkeypatch.setattr(t, "_fallback_models", lambda model: [model])
+    monkeypatch.setattr(t.requests, "post", lambda url, headers, data, timeout: _Resp(200, {
+        "model": "a/1:free", "choices": [{"message": {"content": "metade da"}, "finish_reason": "length"}]}))
+    first = len(llm_client.CALL_LOG)
+    assert llm_client.generate_text("p", model="a/1:free", label="answer") == "metade da"
+    assert llm_client.CALL_LOG[first:] == [("answer [truncated]", "a/1:free")]

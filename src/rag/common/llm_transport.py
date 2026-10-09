@@ -47,6 +47,11 @@ _LAST_ANSWER = threading.local()
 
 def last_answering_model() -> Optional[str]:
     return getattr(_LAST_ANSWER, "model", None)
+
+
+def last_answer_truncated() -> bool:
+    """Whether that call stopped at ``max_tokens``, i.e. its text is cut off."""
+    return getattr(_LAST_ANSWER, "truncated", False)
 _MAX_MODELS_PER_REQUEST = 3  # OpenRouter rejects a longer `models` array (400)
 
 
@@ -220,13 +225,20 @@ def _post_chat(payload: Dict[str, Any], api_key: str, timeout_seconds: int, requ
 
     try:
         data = response.json()
-        message = data["choices"][0]["message"]["content"]
+        choice = data["choices"][0]
+        message = choice["message"]["content"]
     except Exception as exc:
         raise OpenRouterTransportError(f"Unexpected OpenRouter response: {response.text[:500]}") from exc
 
     answered_by = str(data.get("model") or requested)
     MODEL_USAGE[answered_by] += 1
     _LAST_ANSWER.model = answered_by
+    # A cut-off answer comes back as a normal 200 with whatever text fit, so it
+    # would otherwise pass for a complete one.
+    _LAST_ANSWER.truncated = str(choice.get("finish_reason") or "").lower() in ("length", "max_tokens")
+    if _LAST_ANSWER.truncated:
+        logger.warning("%s stopped at max_tokens=%s: the answer is cut off.",
+                       answered_by, payload.get("max_tokens"))
     if not answered_by.startswith(requested.split(":")[0]):
         logger.info("Answered by fallback model %s (requested %s).", answered_by, requested)
 
