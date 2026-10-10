@@ -22,6 +22,7 @@ import requests
 from src.utils.config_loader import config
 
 logger = logging.getLogger(__name__)
+progress = logging.getLogger("rag.progress")  # see retrieval/pipeline.py
 
 OPENROUTER_CHAT_COMPLETIONS_URL = "https://openrouter.ai/api/v1/chat/completions"
 
@@ -120,6 +121,8 @@ def call_openrouter_with_retries(
                 f" (provider asked for {retry_after:.0f}s)" if retry_after is not None else "",
                 _truncate_error(exc),
             )
+            progress.info("O modelo não respondeu (%s); nova tentativa dentro de %.0f s…",
+                          exc.status_code or type(exc).__name__, wait_for)
             time.sleep(wait_for)
     raise OpenRouterTransportError("llm.openrouter.max_retries must be at least 1.")
 

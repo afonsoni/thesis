@@ -26,6 +26,7 @@ from src.rag.retrieval.query_expander import expand_query
 from src.rag.retrieval.searcher import Searcher
 
 logger = logging.getLogger(__name__)
+progress = logging.getLogger("rag.progress")  # see retrieval/pipeline.py
 
 
 def route(
@@ -38,11 +39,17 @@ def route(
     analysis and runs one unfiltered search."""
     config = config or RetrievalConfig()
     search_text = query.reformulated_query or query.original_query
+    if config.use_multi_query:
+        progress.info("A reformular a pergunta para a pesquisa…")
     queries = (
         expand_query(search_text, n_queries=config.multi_query_count, strict=config.strict)
         if config.use_multi_query
         else [search_text]
     )
+    named = query.parties if config.use_routing else []
+    progress.info("A pesquisar %s…", f"no programa de {named[0]}" if len(named) == 1 else
+                  f"nos programas de {', '.join(named)}" if 1 < len(named) <= 3 else
+                  f"nos programas de {len(named)} partidos" if named else "nos programas de todos os partidos")
 
     def search(top_k: int, party: Optional[str], topics: Optional[List[str]]) -> List[SearchResult]:
         return _search_relaxing_topics(searcher, queries, config, top_k, query.original_query, party, topics)

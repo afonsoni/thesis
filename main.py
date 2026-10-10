@@ -5,7 +5,7 @@ Commands:
     python main.py parse   [--input-dir ...] [--output-dir ...]
     python main.py index   [--party X] [--drop] [--no-classify]
                            [--classify-only | --from-classified PATH]
-    python main.py query   "question" [--top-k 5] [--no-expand]
+    python main.py query   "question" [--top-k 5] [--no-expand] [--verbose]
     python main.py eval    [--variants naive,current] [--dataset PATH]
                            [--curated-only] [--top-k 5] [--no-judge]
 """
@@ -75,6 +75,13 @@ def cmd_index(args):
     logger.info("Processed %d chunks total.", count)
 
 
+class _ElapsedFormatter(logging.Formatter):
+    """``[  3.2s] message``: seconds since the program started."""
+
+    def format(self, record):
+        return f"[{record.relativeCreated / 1000:5.1f}s] {record.getMessage()}"
+
+
 def cmd_query(args):
     from src.rag.common.llm_client import CALL_LOG
     from src.rag.retrieval.pipeline import retrieve
@@ -83,6 +90,19 @@ def cmd_query(args):
     if not args.question:
         logger.error("Please provide a question with: python main.py query \"your question\"")
         sys.exit(1)
+
+    # Show the user each step and how long they have waited, instead of the
+    # developer log (back with --verbose).
+    if not args.verbose:
+        logging.getLogger().setLevel(logging.WARNING)
+        from transformers.utils import logging as hf_logging
+        hf_logging.disable_progress_bar()  # "Loading weights" bar
+    handler = logging.StreamHandler()
+    handler.setFormatter(_ElapsedFormatter())
+    progress = logging.getLogger("rag.progress")
+    progress.setLevel(logging.INFO)
+    progress.propagate = False
+    progress.addHandler(handler)
 
     first_call = len(CALL_LOG)
     result = retrieve(
@@ -188,6 +208,7 @@ def build_parser() -> argparse.ArgumentParser:
     p_query.add_argument("question", nargs="?", type=str, help="The question to ask")
     p_query.add_argument("-k", "--top-k", type=int, default=None, help="Number of documents to retrieve (default: retrieval.default_top_k)")
     p_query.add_argument("--no-expand", action="store_true", help="Disable multi-query expansion")
+    p_query.add_argument("-v", "--verbose", action="store_true", help="Show the developer log, not just the steps")
 
     # eval
     p_ev = sub.add_parser("eval", help="Run the evaluation harness over one or more variants")

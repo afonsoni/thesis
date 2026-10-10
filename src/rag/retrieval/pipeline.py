@@ -16,12 +16,16 @@ from src.rag.retrieval.router import route
 from src.rag.retrieval.searcher import Searcher
 
 logger = logging.getLogger(__name__)
+# User-facing steps, in pt-PT, for whoever is waiting on the answer: ``main.py
+# query`` prints them with the elapsed time; a UI would attach its own handler.
+progress = logging.getLogger("rag.progress")
 
 @functools.cache
 def get_searcher(table: Optional[str] = None) -> Searcher:
     """Process-wide Searcher per index table (``RetrievalConfig.table``; None is
     ``postgresql.table_name``), all sharing one embedding model."""
     if table is None:
+        progress.info("A carregar o modelo de pesquisa (só na primeira pergunta)…")
         return Searcher()
     store = VectorStore()
     store.table = table
@@ -63,6 +67,8 @@ def retrieve(
         config = config.model_copy(update=overrides)
 
     # Step 1: understand the question
+    if config.use_query_analysis:
+        progress.info("A analisar a pergunta…")
     analyzed = analyze_query(question, config=config)
     logger.info(
         "Query analysis → type=%s, parties=%s, topics=%s",

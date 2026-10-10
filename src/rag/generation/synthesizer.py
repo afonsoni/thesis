@@ -24,6 +24,7 @@ from src.rag.generation.prompts import (
 )
 
 logger = logging.getLogger(__name__)
+progress = logging.getLogger("rag.progress")  # see retrieval/pipeline.py
 
 
 # ---------------------------------------------------------------------------
@@ -210,6 +211,7 @@ def direct_answer(query: str, results: List[SearchResult]) -> GeneratedAnswer:
     """Single-pass generation for simple look-ups."""
     context = _format_flat_context(results)
     prompt = ANSWER_PROMPT.format(context=context, question=query)
+    progress.info("A redigir a resposta a partir de %d excertos…", len(results))
     answer = generate_text(prompt, system_prompt=ANSWER_SYSTEM_PROMPT, label="answer")
     return GeneratedAnswer(
         answer=answer,
@@ -225,6 +227,10 @@ def comparison_answer(
     """Grouped-by-party generation for comparison questions."""
     context = _format_grouped_context(results_by_party)
     prompt = COMPARISON_PROMPT.format(context=context, question=query)
+    if len(results_by_party) > 1:
+        progress.info("A redigir a comparação entre %d partidos…", len(results_by_party))
+    else:
+        progress.info("A redigir a resposta…")
     answer = generate_text(prompt, system_prompt=COMPARISON_SYSTEM_PROMPT, label="comparison answer")
     return GeneratedAnswer(
         answer=answer,
