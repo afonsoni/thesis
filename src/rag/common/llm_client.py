@@ -28,9 +28,8 @@ logger = logging.getLogger(__name__)
 # Every successful LLM call this process made, in order: {"step", "model",
 # "prompt_tokens", "completion_tokens", "cost", "secs"}, the model being the one that
 # answered, so a fallback shows up here. Slicing it from a remembered length gives
-# one question's calls (``main.py query``, the eval runner), and its token counts
-# are what ``scripts/llm_cost.py`` prices. A call cut off at max_tokens has
-# " [truncated]" appended to its step.
+# one question's calls (``main.py query``, the eval runner). A call cut off at
+# max_tokens has " [truncated]" appended to its step.
 CALL_LOG: List[Dict[str, Any]] = []
 
 T = TypeVar("T")
