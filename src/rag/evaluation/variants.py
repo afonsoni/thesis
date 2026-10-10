@@ -16,6 +16,7 @@ from __future__ import annotations
 from typing import Dict, List
 
 from src.rag.retrieval.config import RetrievalConfig
+from src.utils.config_loader import config
 
 VARIANTS: Dict[str, RetrievalConfig] = {
     # Rung 0 – naive RAG: single query → single similarity search → direct answer.
@@ -71,6 +72,16 @@ VARIANTS: Dict[str, RetrievalConfig] = {
         use_rrf=False,
         use_reranker=True,
     ),
+
+    # Dense-retrieval ablations (dissertation/DECISIONS.md, 2026-10-09), each one
+    # flag away from `current`. Run on the dev split before any becomes a default.
+    "party_stripped": RetrievalConfig(name="party_stripped", strip_party_names=True),
+    "instructed": RetrievalConfig(
+        name="instructed", query_instruction=config.get("embeddings.task_instruction"),
+    ),
+    # Needs the index built first:
+    #   main.py index --from-classified <ckpt> --contextual-headers --table <indexing.contextual_table>
+    "contextual": RetrievalConfig(name="contextual", table=config.get("indexing.contextual_table")),
 }
 
 DEFAULT_VARIANTS: List[str] = ["naive", "current"]

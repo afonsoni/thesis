@@ -125,6 +125,8 @@ def index_documents(
     checkpoint_output_path: Optional[str] = None,
     classify_only: bool = False,
     save_checkpoint: bool = True,
+    contextual_headers: bool = False,
+    table: Optional[str] = None,
 ) -> int:
     """
     Run the full indexing pipeline on markdown files.
@@ -153,6 +155,9 @@ def index_documents(
         checkpoint_output_path: Save classified chunks to this JSON path.
         classify_only: Stop after classification checkpoint generation.
         save_checkpoint: Persist checkpoints during normal index runs.
+        contextual_headers: Embed ``party | section path`` + text instead of the
+            bare text (see :meth:`Embedder.embed_chunks`). Stored content is unchanged.
+        table: Write to this table instead of ``postgresql.table_name``.
 
     Returns:
         Total number of chunks stored.
@@ -264,10 +269,12 @@ def index_documents(
 
     # 4. Embed
     embedder = Embedder()
-    embedded_chunks: List[EmbeddedChunk] = embedder.embed_chunks(all_chunks)
+    embedded_chunks: List[EmbeddedChunk] = embedder.embed_chunks(all_chunks, contextual=contextual_headers)
 
     # 5. Store
     store = VectorStore()
+    if table:
+        store.table = table
     store.connect()
     try:
         if drop_existing:

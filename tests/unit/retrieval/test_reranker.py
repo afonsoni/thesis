@@ -127,6 +127,7 @@ class RecordingSearcher(Searcher):
         ideology: Optional[str] = None,
         topics: Optional[List[str]] = None,
         year: Optional[int] = None,
+        instruction: Optional[str] = None,
     ) -> List[SearchResult]:
         self.requested_top_k.append(top_k)
         return [

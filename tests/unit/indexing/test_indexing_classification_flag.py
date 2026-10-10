@@ -7,7 +7,7 @@ from src.rag.indexing import pipeline
 class _FakeEmbedder:
     dimension = 4
 
-    def embed_chunks(self, chunks):
+    def embed_chunks(self, chunks, contextual=False):
         return [
             EmbeddedChunk(**chunk.model_dump(), embedding=[0.0] * self.dimension)
             for chunk in chunks

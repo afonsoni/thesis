@@ -10,7 +10,7 @@ from typing import List, Optional
 
 from sentence_transformers import SentenceTransformer
 
-from src.rag.common.models import Chunk, EmbeddedChunk
+from src.rag.common.models import Chunk, EmbeddedChunk, section_path
 from src.rag.common.llm_client import generate_text
 from src.utils.config_loader import config
 
@@ -93,10 +93,19 @@ class Embedder:
             normalize_embeddings=True,
         ).tolist()
 
-    def encode_query(self, text: str) -> List[float]:
+    def encode_query(self, text: str, instruction: Optional[str] = None) -> List[float]:
         """Encode a single text as a *query*, applying the model's instruction
         prefix when it has one. Must be used for search-time encoding, or an
-        asymmetric model silently loses the accuracy its prompts exist to add."""
+        asymmetric model silently loses the accuracy its prompts exist to add.
+
+        *instruction* replaces the shipped task sentence, in Qwen3-Embedding's
+        ``Instruct: <task>\\nQuery:`` format (the model card recommends a
+        task-specific one, written in English).
+        """
+        if instruction:
+            return self.model.encode(
+                text, prompt=f"Instruct: {instruction}\nQuery:", normalize_embeddings=True,
+            ).tolist()
         return self.model.encode(
             text,
             prompt_name=self._prompt_name("query"),
@@ -118,7 +127,9 @@ class Embedder:
     # Chunk-level helpers
     # ------------------------------------------------------------------
 
-    def embed_chunks(self, chunks: List[Chunk], batch_size: int = 64) -> List[EmbeddedChunk]:
+    def embed_chunks(
+        self, chunks: List[Chunk], batch_size: int = 64, contextual: bool = False,
+    ) -> List[EmbeddedChunk]:
         """
         Generate embeddings for a list of chunks.
 
@@ -126,10 +137,20 @@ class Embedder:
         - the *summary* if present (multi-representation indexing), or
         - the full *content* otherwise.
 
+        With *contextual*, that text is prefixed with ``party | section path``:
+        a windowed child past the first carries no heading of its own (58% of
+        chunks), so its vector cannot tell which section it belongs to. Only the
+        embedded text changes; ``content`` (and so every gold key) does not.
+
         Returns:
             List of ``EmbeddedChunk`` objects with the ``embedding`` field populated.
         """
         texts = [c.summary or c.content for c in chunks]
+        if contextual:
+            texts = [
+                f"{' | '.join(filter(None, [c.party_name, section_path(c.metadata)]))}\n{t}"
+                for c, t in zip(chunks, texts)
+            ]
         logger.info("Embedding %d chunks (batch_size=%d) …", len(texts), batch_size)
         vectors = self.encode_batch(texts, batch_size=batch_size)
 

@@ -34,6 +34,8 @@ class StubSearcher(Searcher):
         use_reranker: bool = False,
         rerank_query: Optional[str] = None,
         rerank_candidates: int = 30,
+        strip_party_names: bool = False,
+        query_instruction: Optional[str] = None,
     ) -> List[SearchResult]:
         self.multi_query_calls.append(
             {
@@ -49,6 +51,8 @@ class StubSearcher(Searcher):
                 "use_reranker": use_reranker,
                 "rerank_query": rerank_query,
                 "rerank_candidates": rerank_candidates,
+                "strip_party_names": strip_party_names,
+                "query_instruction": query_instruction,
             }
         )
         if topics and self.empty_when_topics:

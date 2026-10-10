@@ -35,6 +35,11 @@ embeddings:
   # Set it only to *reduce* the window on purpose, e.g. to ablate serafim at
   # 128 vs the 512 its DeBERTa-v2 backbone actually supports.
   # max_seq_length: 512
+  # Task sentence for the `instructed` variant (RetrievalConfig.query_instruction).
+  # Qwen3-Embedding's model card recommends a task-specific instruction, in English;
+  # the shipped default is "Given a web search query, retrieve relevant passages
+  # that answer the query".
+  task_instruction: "Given a question about a Portuguese party's 2024 election manifesto, retrieve the manifesto passages that state the party's proposals or position on it"
 
 # PostgreSQL + pgvector settings
 postgresql:
@@ -67,7 +72,11 @@ llm:
     # flat top_k, so the context is no longer bounded by a small constant and
     # something has to bound it. Chunks over this are trimmed lowest-ranked
     # first, and never so far as to drop a party.
-    max_prompt_tokens: 8000
+    # 16000 (was 8000): an 8-party comparison retrieves 24 hits whose parents
+    # total ~21k tokens; at 8000 the synthesiser kept a third of them and in half
+    # of the comparisons overflowed even at one per party. Flat routes (median
+    # ~4k) are unaffected. Gemma 4 accepts 262k, the fallbacks 1M.
+    max_prompt_tokens: 16000
     max_retries: 3
     base_backoff_secs: 1.0
     max_backoff_secs: 30.0
@@ -114,9 +123,12 @@ indexing:
   # small_to_big only: cap on the parent a child hands to generation. A header
   # section within it is passed whole; a bigger one (PAN has 14 headers, so its
   # sections are whole chapters of 5-9k tokens) gives each child a window of its
-  # neighbouring children up to this size. Keeps one hit from filling the 8k
+  # neighbouring children up to this size. Keeps one hit from filling the 16k
   # generation prompt (llm.openrouter.max_prompt_tokens).
   max_parent_tokens: 1500
+  # Table of the `contextual` variant: same chunks, embedded as
+  # "party | section path" + text (main.py index --contextual-headers --table ...).
+  contextual_table: "party_programs_ctx"
 
   # Character budget, used ONLY by the `char` baseline strategy. These are the
   # values that produced the 62.7%-truncation baseline.

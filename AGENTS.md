@@ -62,6 +62,9 @@ Entry point: `main.py`
   Portuguese `tsvector` column (the lexical half of hybrid retrieval). Any query term
   can match and rare terms weigh more; `websearch_to_tsquery`/`ts_rank_cd`, used
   before, ANDed every word and so matched almost nothing for a natural question.
+  Lexemes are accent-folded after stemming (so "saude" finds "saúde"), and a
+  party-filtered lexical query drops party names (`strip_party_mentions`), which
+  otherwise outweigh the topic as rare BM25 terms.
 - `pipeline.py`: end-to-end indexing orchestrator.
 
 #### Retrieval (`src/rag/retrieval/`)
@@ -100,12 +103,17 @@ Entry point: `main.py`
 
 - `variants.py`: the declarative ladder of implementation steps as `RetrievalConfig`
   presets (`naive`, `multiquery`, `routed`, `current`, `hybrid`, `hybrid_only`,
-  `reranked`, `reranked_only`).
+  `reranked`, `reranked_only`), plus three dense-retrieval ablations one flag away
+  from `current`: `party_stripped` (`strip_party_names`), `instructed`
+  (`query_instruction` = `embeddings.task_instruction`) and `contextual` (searches
+  `indexing.contextual_table`, built with `main.py index --contextual-headers --table`).
 - `dataset.py`: synthetic-anchored gold-set generation + load/save (content-hash keys).
 - `metrics/`: retrieval (hit/recall/MRR/nDCG over the full list handed to generation,
   against human-picked gold chunks),
   routing (type acc, coverage, party/topic F1), and generation: claim-level
-  faithfulness and correctness (RAGAS-style, `judge.py`) plus a 1-5 relevance judge,
+  faithfulness and correctness (RAGAS-style, `judge.py`) plus a 1-5 relevance judge
+  whose `abstained` flag gives `abstention` (on `answerable: false` questions) and
+  `false_refusal` (on the rest),
   behind a `Metric` protocol. `stats.py` adds bootstrap CIs and paired differences to
   the leaderboard; `scripts/judge_validation.py` measures judge-human agreement.
 - Gold set: `data/eval/questions/CANDIDATES.md` -> `scripts/anchor_gold.py` ->

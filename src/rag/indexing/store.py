@@ -15,7 +15,7 @@ import psycopg2.extras
 from psycopg2.extras import execute_values
 
 from src.rag.common.models import EmbeddedChunk, ScoreType, SearchResult
-from src.rag.indexing.bm25 import Bm25Index, parse_tsvector
+from src.rag.indexing.bm25 import Bm25Index, parse_tsvector, restore_suffix_accents
 from src.utils.config_loader import config
 
 logger = logging.getLogger(__name__)
@@ -316,7 +316,7 @@ class VectorStore:
         cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
         try:
             index = self._bm25_index(cur)
-            cur.execute("SELECT to_tsvector('portuguese', %s)::text AS q", (query,))
+            cur.execute("SELECT to_tsvector('portuguese', %s)::text AS q", (restore_suffix_accents(query),))
             terms = list(parse_tsvector(cur.fetchone()["q"]))
             if not terms:
                 return []

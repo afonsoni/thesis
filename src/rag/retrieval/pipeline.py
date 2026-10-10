@@ -5,9 +5,10 @@ Chains: analyze → expand → route → search → return RetrievalResult.
 """
 
 import logging
-from typing import Optional
+from typing import Dict, Optional
 
 from src.rag.common.models import RetrievalResult
+from src.rag.indexing.store import VectorStore
 from src.rag.retrieval.config import RetrievalConfig
 from src.rag.retrieval.query_analyzer import analyze_query
 from src.rag.retrieval.router import route
@@ -17,13 +18,22 @@ logger = logging.getLogger(__name__)
 
 # Module-level singleton to avoid re-loading the embedding model on every call
 _searcher: Optional[Searcher] = None
+# Searchers over alternative index tables (RetrievalConfig.table), sharing the
+# default searcher's embedder so the model is loaded once.
+_table_searchers: Dict[str, Searcher] = {}
 
 
-def _get_searcher() -> Searcher:
+def _get_searcher(table: Optional[str] = None) -> Searcher:
     global _searcher
     if _searcher is None:
         _searcher = Searcher()
-    return _searcher
+    if not table or table == _searcher.store.table:
+        return _searcher
+    if table not in _table_searchers:
+        store = VectorStore()
+        store.table = table
+        _table_searchers[table] = Searcher(embedder=_searcher.embedder, store=store)
+    return _table_searchers[table]
 
 
 def retrieve(
@@ -70,7 +80,7 @@ def retrieve(
     )
 
     # Step 2: route & search
-    searcher = _get_searcher()
+    searcher = _get_searcher(config.table)
     result = route(analyzed, searcher, config=config)
     logger.info("Retrieved %d results.", len(result.results))
 

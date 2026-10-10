@@ -144,6 +144,24 @@ def _find_parties(question: str) -> List[str]:
     return list(dict.fromkeys(found))
 
 
+def strip_party_mentions(text: str) -> str:
+    """*text*, lowercased, with every party name or alias blanked out.
+
+    For the lexical query of a party-filtered search: the filter already carries
+    the party, and left in, its name is a rare, heavily weighted BM25 term ("ps"
+    outweighs "saúde") that ranks a party's self-references above the topic asked
+    about. Accents are kept; matching runs on the accent-stripped copy, whose
+    character offsets are the same for precomposed text.
+    """
+    lowered = text.lower()
+    folded = _strip_accents(lowered)
+    if len(folded) != len(lowered):  # decomposed input: offsets would not line up
+        lowered = folded
+    for m in reversed(list(_PARTY_PATTERN.finditer(folded))):
+        lowered = lowered[: m.start()] + " " + lowered[m.end():]
+    return lowered
+
+
 def _coerce_topics(raw: Any) -> List[str]:
     """Keep the topics that exist in the closed vocabulary, drop the rest."""
     if not isinstance(raw, list):

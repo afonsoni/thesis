@@ -79,6 +79,8 @@ def cmd_index(args):
         checkpoint_output_path=args.checkpoint_out,
         classify_only=args.classify_only,
         save_checkpoint=not args.no_checkpoint,
+        contextual_headers=args.contextual_headers,
+        table=args.table,
     )
     logger.info("Processed %d chunks total.", count)
 
@@ -109,7 +111,7 @@ def cmd_query(args):
         print(f"\nFontes ({len(answer.sources)}):")
         for s in answer.sources:
             score_label = s.get("score_type", "cosine")
-            print(f"  • {s['party']} – {s.get('section', '')} ({score_label}={s['similarity']})")
+            print(f"  [{s['n']}] {s['party']} – {s.get('section', '')} ({score_label}={s['similarity']})")
 
     calls = CALL_LOG[first_call:]
     if calls:
@@ -191,6 +193,10 @@ def build_parser() -> argparse.ArgumentParser:
     p_index.add_argument("--summaries", action="store_true", help="Generate LLM summaries for multi-representation indexing")
     p_index.add_argument("--classify-only", action="store_true", help="Stop after classify and save checkpoint JSON (no DB write)")
     p_index.add_argument("--from-classified", type=str, default=None, help="Load classified chunks from JSON and skip chunk/classify")
+    p_index.add_argument("--contextual-headers", action="store_true",
+                         help="Embed 'party | section path' + text (content stored unchanged)")
+    p_index.add_argument("--table", type=str, default=None,
+                         help="Target table (default postgresql.table_name), e.g. indexing.contextual_table")
     p_index.add_argument("--checkpoint-out", type=str, default=None, help="Output path for classified checkpoint JSON")
     p_index.add_argument("--no-checkpoint", action="store_true", help="Disable automatic classified checkpoint saving")
     p_index.add_argument("--no-classify", action="store_true",

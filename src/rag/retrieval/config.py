@@ -13,7 +13,16 @@ See ``src/rag/evaluation/variants.py`` for the named preset ladder.
 
 from __future__ import annotations
 
+from typing import Optional
+
 from pydantic import BaseModel, Field
+
+from src.utils.config_loader import config
+
+
+def _from_config(key: str, fallback: int):
+    """Default read from ``retrieval.<key>`` in config.yaml at construction time."""
+    return lambda: int(config.get(f"retrieval.{key}", fallback))
 
 
 class RetrievalConfig(BaseModel):
@@ -43,7 +52,9 @@ class RetrievalConfig(BaseModel):
         description="Expand the query into multiple reformulations before search.",
     )
     multi_query_count: int = Field(
-        default=4, ge=1, description="Number of expanded queries (excludes the original)."
+        default_factory=_from_config("multi_query_count", 4),
+        ge=1,
+        description="Number of expanded queries (excludes the original).",
     )
 
     # Reciprocal Rank Fusion (Part 6)
@@ -52,7 +63,7 @@ class RetrievalConfig(BaseModel):
         description="Fuse multi-query result lists with RRF. When False, results are "
         "merged by first-occurrence order instead.",
     )
-    rrf_k: int = Field(default=60, ge=1, description="RRF constant.")
+    rrf_k: int = Field(default_factory=_from_config("rrf_k", 60), ge=1, description="RRF constant.")
 
     # Hybrid retrieval – dense + Portuguese full-text, fused by the same RRF pass
     use_hybrid: bool = Field(
@@ -70,7 +81,7 @@ class RetrievalConfig(BaseModel):
         "the reranker has more to choose from than the caller asked for.",
     )
     rerank_candidates: int = Field(
-        default=30,
+        default_factory=_from_config("rerank_candidates", 30),
         ge=1,
         description="Candidates fetched and scored before reranking trims to top_k. "
         "Reranking can only promote what retrieval surfaced, so this is the real "
@@ -86,8 +97,30 @@ class RetrievalConfig(BaseModel):
         "cheaper pipeline under this variant's name.",
     )
 
+    # Dense-retrieval ablations (dissertation/DECISIONS.md, 2026-10-09)
+    strip_party_names: bool = Field(
+        default=False,
+        description="Remove party names from the dense query when a party filter "
+        "is applied. The filter already carries the party; left in, the name pulls "
+        "the query towards chunks *about* the party. The lexical query always drops them.",
+    )
+    query_instruction: Optional[str] = Field(
+        default=None,
+        description="Task sentence for instruction-aware encoders (Qwen3-Embedding), "
+        "sent as 'Instruct: <task>\\nQuery:'. None keeps the model's shipped prompt.",
+    )
+    table: Optional[str] = Field(
+        default=None,
+        description="Index table to search. None is postgresql.table_name; the "
+        "contextual-headers index lives in indexing.contextual_table.",
+    )
+
     # Result sizing
-    top_k: int = Field(default=5, ge=1, description="Results returned to generation.")
+    top_k: int = Field(
+        default_factory=_from_config("default_top_k", 5), ge=1, description="Results returned to generation."
+    )
     top_k_per_party: int = Field(
-        default=3, ge=1, description="Per-party results for comparison queries."
+        default_factory=_from_config("top_k_per_party", 3),
+        ge=1,
+        description="Per-party results for comparison queries.",
     )

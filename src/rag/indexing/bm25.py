@@ -10,12 +10,18 @@ the rare one ("tourada") that the question is really about.
 Matching is OR over the query lexemes. Requiring all of them (what
 ``websearch_to_tsquery`` does) matched almost no chunk for a natural-language
 question, which silently turned hybrid search into dense search.
+
+Lexemes are compared without accents, so a question typed as "saude" finds the
+chunks stemmed to "saúd". The folding happens after stemming, not before: the
+Portuguese Snowball stemmer needs the accents to recognise suffixes, and
+unaccenting first split "habitação" ("habitaca") from "habitações" ("habitaco").
 """
 
 from __future__ import annotations
 
 import math
 import re
+import unicodedata
 from collections import defaultdict
 from typing import Dict, Iterable, List, Optional, Set, Tuple
 
@@ -25,13 +31,41 @@ B = 0.75
 
 _LEXEME_RE = re.compile(r"'((?:[^']|'')+)'(?::([0-9A-D,]+))?")
 
+# Unaccented spellings of suffixes the stemmer only strips when accented:
+# "habitacao" stems to "habitaca", "habitação" to "habit".
+_ACCENTED_SUFFIXES = {
+    "cao": "ção", "coes": "ções",
+    "encia": "ência", "encias": "ências", "ancia": "ância", "ancias": "âncias",
+    "avel": "ável", "aveis": "áveis", "ivel": "ível", "iveis": "íveis",
+}
+_SUFFIX_RE = re.compile(
+    r"(?<=\w)(" + "|".join(sorted(_ACCENTED_SUFFIXES, key=len, reverse=True)) + r")\b"
+)
+
+
+def fold_accents(text: str) -> str:
+    """Drop combining marks: ``"saúd"`` -> ``"saud"``, ``"ç"`` -> ``"c"``."""
+    return "".join(c for c in unicodedata.normalize("NFD", text) if unicodedata.category(c) != "Mn")
+
+
+def restore_suffix_accents(query: str) -> str:
+    """Re-accent the suffixes in :data:`_ACCENTED_SUFFIXES` so the stemmer can strip them."""
+    # ponytail: a suffix table, not a speller. Measured over the corpus vocabulary,
+    # an unaccented query still misses 6.5% of accented-word occurrences (28% without
+    # this), mostly function words ("é", "através"); -ária/-ário is left out because
+    # it is ambiguous ("secretaria"/"secretária").
+    return _SUFFIX_RE.sub(lambda m: _ACCENTED_SUFFIXES[m.group(1)], query.lower())
+
 
 def parse_tsvector(text: str) -> Dict[str, int]:
-    """``"'lexeme':1,5 'outro':3"`` -> ``{"lexeme": 2, "outro": 1}`` (term frequencies)."""
+    """``"'lexeme':1,5 'outro':3"`` -> ``{"lexeme": 2, "outro": 1}`` (term frequencies).
+
+    Lexemes are accent-folded, and ones that fold together have their counts summed.
+    """
     out: Dict[str, int] = {}
     for m in _LEXEME_RE.finditer(text or ""):
-        lexeme = m.group(1).replace("''", "'")
-        out[lexeme] = len(m.group(2).split(",")) if m.group(2) else 1
+        lexeme = fold_accents(m.group(1).replace("''", "'"))
+        out[lexeme] = out.get(lexeme, 0) + (len(m.group(2).split(",")) if m.group(2) else 1)
     return out
 
 

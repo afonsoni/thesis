@@ -14,6 +14,7 @@ from typing import Dict, List, Optional
 from src.rag.common.models import ScoreType, SearchResult
 from src.rag.indexing.embedder import Embedder
 from src.rag.indexing.store import VectorStore
+from src.rag.retrieval.query_analyzer import strip_party_mentions
 
 logger = logging.getLogger(__name__)
 
@@ -104,11 +105,12 @@ class Searcher:
         ideology: Optional[str] = None,
         topics: Optional[List[str]] = None,
         year: Optional[int] = None,
+        instruction: Optional[str] = None,
     ) -> List[SearchResult]:
         """Embed query and run similarity search with optional filters."""
         # encode_query, not encode: asymmetric retrieval models prefix queries with
         # an instruction and leave documents bare.
-        vec = self.embedder.encode_query(query)
+        vec = self.embedder.encode_query(query, instruction=instruction)
         return self.store.similarity_search(
             query_embedding=vec,
             top_k=top_k,
@@ -136,6 +138,8 @@ class Searcher:
         use_reranker: bool = False,
         rerank_query: Optional[str] = None,
         rerank_candidates: int = 30,
+        strip_party_names: bool = False,
+        query_instruction: Optional[str] = None,
     ) -> List[SearchResult]:
         """
         Run each query independently, then fuse the ranked lists.
@@ -167,15 +171,17 @@ class Searcher:
         for q in queries:
             all_lists.append(
                 self.search(
-                    q, top_k=fetch_k,
+                    strip_party_mentions(q) if strip_party_names and party_name else q,
+                    top_k=fetch_k,
                     party_name=party_name, ideology=ideology,
                     topics=topics, year=year,
+                    instruction=query_instruction,
                 )
             )
             if use_hybrid:
                 all_lists.append(
                     self.store.lexical_search(
-                        q, top_k=fetch_k,
+                        strip_party_mentions(q) if party_name else q, top_k=fetch_k,
                         party_name=party_name, ideology=ideology,
                         topics=topics, year=year,
                     )

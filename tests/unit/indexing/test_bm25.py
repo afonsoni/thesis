@@ -1,12 +1,26 @@
 import pytest
 
-from src.rag.indexing.bm25 import Bm25Index, parse_tsvector
+from src.rag.indexing.bm25 import Bm25Index, parse_tsvector, restore_suffix_accents
 
 
 @pytest.mark.unit
 def test_parse_tsvector_counts_positions_and_unescapes():
-    assert parse_tsvector("'tourad':4,9 'é':1 'd''hondt':2 'pan'") == {"tourad": 2, "é": 1, "d'hondt": 1, "pan": 1}
+    assert parse_tsvector("'tourad':4,9 'é':1 'd''hondt':2 'pan'") == {"tourad": 2, "e": 1, "d'hondt": 1, "pan": 1}
     assert parse_tsvector("") == {}
+
+
+@pytest.mark.unit
+def test_parse_tsvector_folds_accents_and_merges_counts():
+    """"saude" typed without accents must reach the chunks stemmed to "saúd"."""
+    assert parse_tsvector("'saúd':1,4 'saud':2 'polít':3") == {"saud": 3, "polit": 1}
+
+
+@pytest.mark.unit
+def test_restore_suffix_accents_only_touches_known_unaccented_suffixes():
+    # The stemmer strips "-ção"/"-ções" only when accented; restored, both forms stem alike.
+    assert restore_suffix_accents("Habitacao e habitacoes") == "habitação e habitações"
+    assert restore_suffix_accents("transparencia sustentavel") == "transparência sustentável"
+    assert restore_suffix_accents("habitação, cao, secretaria") == "habitação, cao, secretaria"
 
 
 def _index():

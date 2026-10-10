@@ -90,6 +90,8 @@ def _search_kwargs(config: RetrievalConfig, rerank_query: str) -> Dict[str, obje
         "use_reranker": config.use_reranker,
         "rerank_query": rerank_query,
         "rerank_candidates": config.rerank_candidates,
+        "strip_party_names": config.strip_party_names,
+        "query_instruction": config.query_instruction,
     }
 
 
