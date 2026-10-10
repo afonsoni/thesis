@@ -422,16 +422,30 @@ so the whole store is reproducible from one configuration file.
 % ============================================================
 \section{Retrieval} \label{sec:retrieval}
 % ============================================================
+%% DRAFT (Claude, 2026-10-10) from the code, commit bodies and DECISIONS.md.
+%% To be read and rewritten in the author's own words before it stands.
+\TODO{REVIEW: Claude's draft of this section (2026-10-10). Read it, check the
+facts against your memory, and rewrite it in your own words.}
 
-%% DRAFT (Claude, 2026-10-08): section lead-in, to be rewritten.
-Retrieval runs online, once for every question a user asks. The question is
-analysed, expanded into several reformulations, routed to a search strategy,
-searched, and the ranked lists are fused into one
-(Figure~\ref{fig:retrieval}); the passages retrieved are then used to
-synthesise the answer (Figure~\ref{fig:generation}). Every technique beyond
-plain dense search sits behind a feature flag and can be switched off on its
-own. This is what allows the evaluation (Section~\ref{sec:evaluation}) to
-measure the contribution of each technique separately.
+Indexing happens once, ahead of time; retrieval happens every time a user asks
+a question. That split between an offline and an online half is the usual
+shape of a RAG system, and it explains several design choices in this chapter.
+Offline work can be slow, expensive and strict. Indexing stops on the first
+classification error because a bad label would be stored permanently
+(Section~\ref{subsec:classification}). Online work must answer within seconds,
+and a degraded answer is better than none, so every online step falls back to
+a simpler behaviour when an LLM call fails.
+
+Retrieval turns a question into a ranked set of manifesto passages in five
+steps (Figure~\ref{fig:retrieval}). The question is analysed to find which
+parties and topics it concerns. It is expanded into several reformulations,
+routed to a search strategy, searched, and the resulting ranked lists are fused
+into one. Every technique beyond plain dense search sits behind a feature flag
+and can be switched off on its own. This is what allows the evaluation
+(Section~\ref{sec:evaluation}) to measure each technique's contribution
+separately. Most of the techniques come from the \textit{RAG from Scratch}
+series~\citep{rag-from-scratch}; others were adapted from practitioner
+tutorials and blog posts.
 
 \begin{figure}[htbp]
     \centering
@@ -445,24 +459,199 @@ measure the contribution of each technique separately.
 \end{figure}
 
 \subsection{Query analysis} \label{subsec:queryanalysis}
-%% src: retrieval/query_analyzer.py; structured LLM -> query_type, parties, topics, ideology; heuristic fallback
-\TODO{What it extracts, the four query types, fallback behavior.}
+
+Every chunk in the store carries its party and its topic labels. Those fields
+were added with filtering in mind: if the system knows a question concerns
+one party, or one policy area, it can search only the passages that match
+and leave the rest of the corpus out. The first versions of the system
+supported this only by hand. The caller passed the party or topic as an
+explicit filter. Query analysis, introduced in March 2026, automates that
+step: an LLM reads the question and extracts the filters itself, following
+the logical-routing and metadata-filtering patterns of \textit{RAG from
+Scratch}~\citep{rag-from-scratch}.
+
+The analysis is a single structured-output call that returns five fields:
+\begin{itemize}
+    \item \textbf{parties}: the parties the question concerns. When a question
+    refers to a bloc rather than naming parties (``os partidos de direita'',
+    \textit{the right-wing parties}), the model lists the members of that bloc.
+    The left--right placement it uses is stated in the prompt, following the
+    Chapel Hill Expert Survey~\citep{jolly2022ches}, rather than left to the
+    model's own view of Portuguese politics.
+    \item \textbf{coverage}: whether the answer must represent every party in
+    scope (\textit{exhaustive}) or the most relevant passages are enough,
+    wherever they come from (\textit{best match}).
+    \item \textbf{topics}: labels from the same 18-category taxonomy used at
+    indexing time.
+    \item \textbf{answer shape}: whether the answer should be laid out party by
+    party or as a single text (Section~\ref{sec:generation}).
+    \item \textbf{reformulated query}: a cleaned-up version of the question for
+    search.
+\end{itemize}
+
+\paragraph{Revision: describe the question, derive the route.} The first
+version asked the model for a \emph{query type} directly: single party,
+comparison, topic exploration or general. That conflated two independent
+questions, namely which manifestos must be read and what the answer should
+look like, and it failed on a whole class of questions. ``O que pensa cada
+partido sobre a educação pública?'' (\textit{What does each party think about
+public education?}) names no party and contains no comparison verb, so the model
+labelled it a topic exploration. That route runs one search across the whole
+corpus and keeps the top results, so the answer covered whichever parties
+happened to rank highest. Nothing in the output showed the others had been
+dropped.
+
+Since August 2026 the model only describes the question, through the fields
+above, and the query type is derived from them by a fixed rule. Two or more
+parties, or exhaustive coverage, yield a comparison. One party yields a
+single-party query. Otherwise, topics yield a topic exploration, and the rest
+is general. There is now one source of truth: the router cannot disagree with
+the analyser, and the analyser's output can be scored against hand-written
+annotations without depending on any particular route. The same revision
+removed an \emph{ideology} field. A single left--right label is too coarse
+for questions about, say, ``the conservative parties'', so bloc language is now
+resolved into an explicit list of parties, which is visible and can be checked.
+The revision also fixed party matching, which worked on substrings:
+``PSD'' resolved to the Partido Socialista because ``ps'' is inside ``psd'', so
+a question about one party was answered from another's manifesto, with
+citations that looked correct. Names are now matched as whole words, and
+coalition members resolve to the programme actually published (PSD and CDS-PP
+to AD, CDU to PCP).
+
+\paragraph{Fallback.} If the analysis call fails after its retries, a
+deterministic fallback takes over. It extracts only what needs no
+interpretation: party names, matched exactly against a list of aliases. Every
+other field defaults towards wider coverage: no topic filter, and exhaustive
+coverage so that the router searches each party separately. The search may be
+wider than the question needed, but no party is silently left out.
 
 \subsection{Multi-query expansion} \label{subsec:multiquery}
-%% src: retrieval/query_expander.py; RAG-from-Scratch Part 5
-\TODO{Problem (vocabulary mismatch), method (+4 reformulations), source.}
 
-\subsection{Logical routing and metadata filtering} \label{subsec:routing}
-%% src: router.py; Parts 10-11; prefer-then-relax topic fallback (2e11d09) after zero-result discovery
-\TODO{Route per query type (single-party / comparison / topic / general).}
-\TODO{Revision: hard topic filter $\rightarrow$ prefer-then-relax fallback ---
-tell the zero-results failure that motivated it.}
+A question and the passage that answers it often use different words. A user
+asks about \textit{rendas} (rents); the manifesto speaks of
+\textit{arrendamento acessível} (affordable letting). Dense embeddings narrow
+this gap but do not close it. Multi-query expansion~\citep{rag-from-scratch,
+rackauckas2024ragfusion} asks the LLM for four reformulations of the
+question, each with a different vocabulary or perspective, and searches with
+all five versions. A passage missed by the original wording can then be found
+by one of the reformulations. The reformulations are fused into a single
+ranking (Section~\ref{subsec:search}), so this adds recall at the cost of one
+extra LLM call and four extra searches per question.
+
+\subsection{Routing and metadata filtering} \label{subsec:routing}
+
+The derived query type selects one of four search strategies:
+\begin{itemize}
+    \item \textbf{Single party}: search only that party's chunks, preferring the
+    question's topics.
+    \item \textbf{Comparison}: search each party in scope separately, three
+    results per party, and keep the results grouped by party. When the question
+    names no party, every party is in scope.
+    \item \textbf{Topic exploration}: search the whole corpus, restricted to the
+    question's topics.
+    \item \textbf{General}: search the whole corpus without filters.
+\end{itemize}
+
+The comparison route matters most for a civic tool. A single search over the
+whole corpus returns whichever passages score highest, and parties with
+longer or more verbose manifestos win more of those slots. Searching each
+party separately gives every party the same number of slots. It is the only
+route that guarantees no party is crowded out of an answer that claims to
+cover them all.
+
+\paragraph{Revision: topics as a preference.} Topic filters were originally
+strict: a search for health-related passages returned only chunks labelled
+\textit{saude}, or nothing. In August 2026 a question the corpus could answer
+well came back with ``não foram encontrados documentos relevantes''
+(\textit{no relevant documents were found}). The analyser had proposed the
+topic \textit{saude}, but that index had been built without classification, so
+every chunk carried the default label and the intersection was empty. The same
+failure occurs whenever the analyser proposes a topic the classifier never
+assigned. Topics are a precision aid, not a correctness requirement, so they
+became a preference: the search runs with the topic filter first and, if
+nothing matches, runs again without it and logs a warning. Comparison queries
+relax the filter per party, so a party that does not mention a topic cannot
+remove it from the search for the others.
 
 \subsection{Search and fusion} \label{subsec:search}
-%% src: searcher.py; RRF (Part 6); hybrid dense+FTS (f8d0f77) motivated by rare exact tokens (RES_U 0/5 -> 2/5)
-\TODO{Dense similarity search; RRF across query reformulations.}
-\TODO{Hybrid dense + Portuguese full-text: motivation (acronyms/exact tokens),
-honest note that measured gains were narrower than expected.}
+
+Each query version is embedded and matched against the stored chunk vectors
+by cosine similarity, within whatever party and topic filters the route
+applies. Multi-query expansion produces one ranked list per version, and these
+are merged with Reciprocal Rank Fusion (RRF)~\citep{cormack2009rrf}. RRF
+scores each chunk by the sum of $1/(k + r)$ over the lists in which it
+appears at rank $r$, with $k = 60$. It uses only ranks, not scores, so lists
+whose scores are on different scales can be fused without calibration, and a
+chunk that ranks well for several reformulations rises above one that ranks
+first for only one.
+
+\paragraph{Hybrid retrieval.} Dense embeddings capture meaning but can
+under-weight rare exact strings: acronyms, programme names, codes
+(\textit{RES\_U}, \textit{TMRG}, \textit{USF tipo C}). These are often exactly
+what a user quotes. Hybrid retrieval adds a lexical search over PostgreSQL's
+Portuguese full-text index (Section~\ref{subsec:vectorstore}) for every query
+version, and fuses all dense and lexical lists in a single RRF pass, so each
+list carries the same weight.
+
+The history of this feature is the second silent failure in this work, after
+the encoder truncation of Section~\ref{subsec:chunking}. When hybrid retrieval
+was added in August 2026, a handful of probes showed a smaller gain than
+expected. Only one acronym was clearly rescued: \textit{RES\_U} went from zero
+to two relevant chunks in the top five. In October 2026 the cause became
+clear. The lexical search required \emph{every} word of the question to
+appear in a chunk, so a natural-language question matched almost nothing. ``Qual
+é a taxa única de IRS proposta pela Iniciativa Liberal?'' (\textit{What flat
+IRS rate does the Iniciativa Liberal propose?}) matched none of IL's chunks.
+The hybrid configuration had been running as dense search alone, with no error
+to show it. Lexical search was rewritten as Okapi
+BM25~\citep{robertson2009bm25}, in which any query term can match and rarer
+terms weigh more. After the rewrite, lexical search alone found a relevant
+chunk in its top ten for 44 of the 51 gold questions. The August measurement
+therefore says nothing about hybrid retrieval, and its value is settled by the
+evaluation (Section~\ref{subsec:results}).
+
+Two refinements followed. Accents are folded after stemming, so a question
+typed without accents (``saude'') still finds chunks about \textit{saúde}.
+Folding before stemming would break the Portuguese stemmer, which needs the
+accents to recognise suffixes. And under a party filter, the party's name is
+removed from the lexical query. As a rare term it would otherwise outweigh the
+topic, even though the filter already guarantees every candidate belongs to
+that party.
+
+\paragraph{Party names in dense queries.} The same effect appears in dense
+search, and is being measured rather than assumed. On ``Qual é a posição do
+PAN sobre as touradas?'' (\textit{What is PAN's position on bullfighting?}),
+searched within PAN's chunks, the best relevant chunk ranked sixth. With
+``PAN'' removed from the query, it ranked first. The party name pulls the
+query towards chunks \emph{about the party}, such as ``O PAN é um partido de
+causas\ldots'' (\textit{PAN is a party of causes\ldots}), which the party
+filter already makes redundant. Removing party names from dense queries is one
+of three dense-retrieval variants now measured on the evaluation set, alongside
+contextual chunk headers and a task-specific query instruction for the encoder
+(Section~\ref{subsec:variants}).
+
+\subsection{Reranking} \label{subsec:reranking}
+
+Dense retrieval embeds the question and each chunk independently. That is what
+makes searching a whole corpus affordable, and also what limits its precision:
+a chunk's vector cannot depend on the question being asked. A
+\emph{cross-encoder} reads the question and a passage together and scores
+their relevance directly~\citep{nogueira2019passagererankingbert}. It is
+far more accurate but far too slow to apply to the whole corpus, so it runs
+second, over a shortlist.
+
+With reranking enabled, each search fetches 30 candidates instead of the
+usual five, the fused list keeps all 30, and the cross-encoder
+(\texttt{bge-reranker-v2-m3}~\citep{bge-reranker-v2-m3}, a multilingual
+model) reorders them before the list is cut back. The wider fetch is the
+point: a reranker can only promote what retrieval already found, so reranking
+exactly five candidates would reorder the answer without ever improving its
+contents. The number of candidates is therefore the real limit on what
+reranking can recall. The model scores the user's original question against
+each \emph{small} chunk, not its parent section. Under small-to-big retrieval
+many chunks share one parent, and scoring the parent would give all of them the
+same score. Whether the gain in precision justifies the extra latency is a
+question for the evaluation.
 
 \subsection{Agentic retrieval} \label{subsec:agentic}
 %% src: not built yet; DECISIONS.md "Agentic rung -- decided, to build" (2026-10-06)
@@ -477,10 +666,20 @@ fallback is web search, and answers must come from the manifestos); LLM calls
 per query against free-tier rate limits; and the update to
 Figure~\ref{fig:retrieval}.}
 
-\subsection{Answer synthesis} \label{subsec:synthesis}
-%% src: generation/synthesizer.py; direct / comparison / decomposed (Part 7); citations
-\TODO{Strategy dispatch by answer shape and result shape; grounded citations.
-Reference Figure~\ref{fig:generation}.}
+% ============================================================
+\section{Generation} \label{sec:generation}
+% ============================================================
+%% DRAFT (Claude, 2026-10-10) from the code, commit bodies and
+%% HISTORY-GAPS.md §5. To be read and rewritten in the author's own words.
+\TODO{REVIEW: Claude's draft of this section (2026-10-10). Read it, check the
+facts against your memory, and rewrite it in your own words.}
+
+Generation turns the retrieved passages into an answer
+(Figure~\ref{fig:generation}). It is the step a user actually sees, and the
+one where a civic tool can do the most harm: an answer that sounds fluent but
+misstates a party's position is worse than no answer. Every choice below aims
+at one property: each claim in an answer should be traceable to a passage of
+a manifesto.
 
 \begin{figure}[htbp]
     \centering
@@ -490,6 +689,152 @@ Reference Figure~\ref{fig:generation}.}
     from whether the results arrived grouped by party.}
     \label{fig:generation}
 \end{figure}
+
+\subsection{Language model} \label{subsec:llm}
+
+The language model changed four times, and each change was forced by
+something outside the system rather than by its answers.
+\begin{itemize}
+    \item \textbf{Local models (2024--2025).} The project started with small
+    open models run locally through Ollama. In 2024, local inference was the
+    only way to use an LLM without paying for a subscription or depending on a
+    vendor's free tier. The author's machine could run only small models,
+    though, and their answers were both weaker and slow, which slowed down
+    every iteration of the system.
+    \item \textbf{A hosted router that disappeared.} A paid routing service,
+    LlamaAPI, was tried briefly. It shut down without notice, taking the
+    prepaid credit with it. That made the project wary of intermediaries for
+    some time.
+    \item \textbf{Gemini (early 2026).} Google's Gemini 2.5 Flash and Pro were
+    then used through Google's API: inexpensive, with free credits, and good in
+    Portuguese. Quotas and the inability to try other vendors' models through
+    the same interface eventually became limiting.
+    \item \textbf{OpenRouter (April 2026 onwards).} OpenRouter puts many models
+    behind one interface. The system now uses Gemma~4, an open-weights model,
+    through its free tier. Each request names a primary model and a list of
+    free fallbacks, which OpenRouter tries in turn when the first is rate-limited or
+    unavailable. The model that actually answered is recorded with every call,
+    so evaluation results can show where a fallback was used.
+\end{itemize}
+\TODO{Confirm the LlamaAPI dates and whether Ollama models were ever run end
+to end; state the final generation and judge models once the paid models
+replace the free tier.}
+
+The free tier was a choice as well as a constraint. It keeps the whole system
+runnable by anyone at no cost, which suits a tool meant for public use. Its
+cost is rate limits, which shaped the code: retries with backoff, fallbacks,
+and the fail-fast-then-resume design of indexing.
+
+\subsection{Grounding and neutrality} \label{subsec:grounding}
+
+All prompts are written in European Portuguese, and so are all answers. The
+system prompt sets the rules the answer must follow:
+\begin{itemize}
+    \item answer \emph{only} from the context supplied, never from the model's
+    own knowledge;
+    \item cite the source of every claim (Section~\ref{subsec:citations});
+    \item if the context does not contain the answer, reply with one fixed
+    sentence, ``Não tenho informação suficiente para responder a esta
+    pergunta.'' (\textit{I do not have enough information to answer this
+    question.});
+    \item in comparisons, be impartial and factual, and say explicitly when a
+    party's manifesto does not address the topic.
+\end{itemize}
+Generation runs at a low temperature (0.2), trading variety for stability:
+the same question should produce the same answer.
+
+The fixed refusal sentence has a practical purpose too. The evaluation detects
+it to measure whether the system abstains on questions the manifestos cannot
+answer, and whether it wrongly refuses questions they can
+(Section~\ref{subsec:metrics}).
+
+\paragraph{Revision: partial answers and false premises.} The first prompts
+allowed only two outcomes: a full answer or a refusal. Real questions often
+fall in between. The context covers part of the question, or the question
+assumes something the manifestos do not say. Since October 2026 the prompts
+ask the model to answer the part the context supports and to say what the
+manifestos do not cover. When a question rests on a premise the context does
+not confirm, the model should say so rather than accept it.
+
+\subsection{Synthesis strategies} \label{subsec:synthesis}
+
+The strategy is chosen by the \emph{answer shape} set during query analysis,
+not by the retrieval route, because the two can differ. ``Que partido propõe
+mais sobre habitação?'' (\textit{Which party proposes most on housing?}) must
+retrieve every party, which is the comparison route, but wants a single
+verdict, not eight sections. Three strategies follow from this:
+\begin{itemize}
+    \item \textbf{Direct}: one prompt with all passages, producing one text.
+    Used for narrative answers.
+    \item \textbf{Comparison}: passages grouped under party headings, with a
+    prompt asking for each party's position in turn and then a summary of
+    similarities and differences. Used when the answer should be laid out party
+    by party and the results arrived grouped.
+    \item \textbf{Decomposition}~\citep{rag-from-scratch}: the question is split
+    into three sub-questions, each answered from the same context, and the
+    answers are combined. Used only when a party-by-party answer is wanted but
+    the results arrived as one flat list.
+\end{itemize}
+
+\paragraph{Revision: what decomposition is for.} Decomposition was first
+triggered whenever a question returned more than eight passages, on the
+theory that large contexts needed breaking down. That theory was wrong.
+Decomposition reuses the same full context for every sub-question, so it
+multiplies LLM calls without ever making a prompt smaller. Since August 2026
+prompt size is handled directly (Section~\ref{subsec:context}), and
+decomposition is kept only for the case it actually addresses.
+
+\subsection{Fitting the context} \label{subsec:context}
+
+Retrieval returns small chunks, but under small-to-big retrieval the generator
+reads each chunk's parent section (Section~\ref{subsec:chunking}). Several
+chunks often share a parent, so passages are deduplicated by the text the
+generator will read. Otherwise one section could appear two or three times in
+the same prompt.
+
+The prompt has a budget of 16{,}000 tokens of context. The generation model
+runs remotely, so its tokenizer is not available locally, and the budget is
+enforced with a deliberately cautious estimate of 3.5 characters per token.
+It overestimates slightly, so trimming happens a little early rather than one
+passage too late. The budget was 8{,}000 tokens until October 2026, when an
+eight-party comparison with only one passage per party was found to overflow
+it. When the context is too long, a flat list loses its lowest-ranked passages.
+A context grouped by party is trimmed differently: passages come off whichever
+party currently contributes most, and every party keeps at least one, even if
+the prompt then exceeds the budget. An over-long prompt is a visible failure;
+an answer that silently omits a party is not.
+
+\paragraph{Revision: no party lost on the way to the answer.} The per-party
+route of Section~\ref{subsec:routing} guarantees every party is
+\emph{retrieved}. Two later defects showed that this does not guarantee every
+party reaches the \emph{answer}.
+\begin{itemize}
+    \item A narrative answer over a per-party search read the router's flat
+    list, which is cut to the top five passages. A verdict claiming to weigh
+    eight parties was written from five passages, with nothing in the output to
+    show it. It now reads the full grouped set (August 2026).
+    \item That grouped set was then trimmed to budget as one flat list, which
+    could drop every passage of a low-ranking party. It is now trimmed per party
+    before being flattened (October 2026).
+\end{itemize}
+In the same vein, a per-party search in which every party came back empty now
+returns the fixed no-information answer instead of prompting the model with no
+context. An answer that stops at the length limit is flagged as cut off,
+instead of passing as complete.
+
+\subsection{Citations} \label{subsec:citations}
+
+Source transparency is a requirement, not a feature, for a system that
+summarises political positions. Every passage in the prompt is numbered,
+\texttt{[Documento 1]} to \texttt{[Documento $n$]}, across the whole
+context, with its party and section path. The model must cite each claim
+inline with the matching number, for example \texttt{[2]} or
+\texttt{[1][3]}. Since the answer's list of sources uses the same numbers,
+every claim can be traced to the chunk, section and manifesto it came from,
+and the evaluation can check each claim against its cited passage
+(Section~\ref{subsec:metrics}). Earlier prompts asked the model to mention the party
+and section in prose, which named where information came from but could not
+tie a statement to one specific passage.
 
 % ============================================================
 \section{Evaluation} \label{sec:evaluation}
