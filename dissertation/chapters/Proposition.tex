@@ -204,6 +204,21 @@ more diverse sources but lose surrounding context. Large chunks keep context
 but dilute the embedding and risk burying the relevant sentence in the middle
 of the passage (Table~\ref{tab:chunk-sizes}).
 
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Small chunks} & \textbf{Large chunks}\\
+        \hline
+        More granular matches & Less granular matches \\
+        More diverse sources & Fewer, longer sources \\
+        Incomplete context & Relevant text lost in the middle \\
+        \hline
+    \end{tabular}
+    \caption{Trade-offs in chunk size.}
+    \label{tab:chunk-sizes}
+\end{table}
+
 The final design combines three ideas. First, documents are split along their
 own Markdown headings, so every chunk belongs to exactly one section and
 carries that section's path (for example \textit{Com Sensibilidade Social
@@ -691,6 +706,16 @@ a manifesto.
 \end{figure}
 
 \subsection{Language model} \label{subsec:llm}
+
+The preliminary research shortlisted four models in early 2025: two open
+models, Llama~3.3 70B and DeepSeek-V3, and two proprietary ones, OpenAI's
+GPT-4 and Google's Gemini~2.0 Flash. None of them is used today. Within a
+year all four had been overtaken by newer models that were stronger, cheaper
+and able to read far longer inputs, which is one face of the moving-target
+challenge of Section~\ref{subsec:challenge-obsolescence}.
+\TODO{Add the current candidates you considered or plan to use (the paid
+Gemma/Qwen models, the free fallbacks), so the paragraph reads as a then/now
+comparison.}
 
 The language model changed four times, and each change was forced by
 something outside the system rather than by its answers.
