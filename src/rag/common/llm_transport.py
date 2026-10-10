@@ -29,9 +29,9 @@ OPENROUTER_CHAT_COMPLETIONS_URL = "https://openrouter.ai/api/v1/chat/completions
 # includes the quota JSON. Truncate so a long payload cannot dominate the log.
 _ERROR_LOG_MAX_CHARS = 300
 
-_DEFAULT_MAX_RETRIES = int(config.get("llm.openrouter.max_retries", 5))
-_DEFAULT_BASE_BACKOFF_SECS = float(config.get("llm.openrouter.base_backoff_secs", 1.0))
-_DEFAULT_MAX_BACKOFF_SECS = float(config.get("llm.openrouter.max_backoff_secs", 30.0))
+_MAX_RETRIES = int(config.get("llm.openrouter.max_retries"))
+_BASE_BACKOFF_SECS = float(config.get("llm.openrouter.base_backoff_secs"))
+_MAX_BACKOFF_SECS = float(config.get("llm.openrouter.max_backoff_secs"))
 
 
 # Which model actually answered, per model id. With fallbacks configured the
@@ -64,17 +64,10 @@ def _fallback_models(model: str) -> List[str]:
 class OpenRouterTransportError(RuntimeError):
     """Structured transport error used by higher-level callers."""
 
-    def __init__(
-        self,
-        message: str,
-        status_code: Optional[int] = None,
-        retry_after: Optional[float] = None,
-        response_excerpt: str = "",
-    ):
+    def __init__(self, message: str, status_code: Optional[int] = None, retry_after: Optional[float] = None):
         super().__init__(message)
         self.status_code = status_code
         self.retry_after = retry_after
-        self.response_excerpt = response_excerpt
 
 
 def call_openrouter_with_retries(
@@ -85,18 +78,9 @@ def call_openrouter_with_retries(
     system_prompt: Optional[str] = None,
     timeout_seconds: int = 120,
     response_format: Optional[Dict[str, Any]] = None,
-    extra_body: Optional[Dict[str, Any]] = None,
-    max_retries: Optional[int] = None,
-    base_backoff_secs: Optional[float] = None,
-    max_backoff_secs: Optional[float] = None,
 ) -> str:
-    """Call OpenRouter with centralized retry/backoff policy."""
-    attempts = max_retries if max_retries is not None else _DEFAULT_MAX_RETRIES
-    base_backoff = base_backoff_secs if base_backoff_secs is not None else _DEFAULT_BASE_BACKOFF_SECS
-    max_backoff = max_backoff_secs if max_backoff_secs is not None else _DEFAULT_MAX_BACKOFF_SECS
-
-    last_error: Optional[Exception] = None
-    for attempt in range(attempts):
+    """Call OpenRouter, retrying transient failures with jittered exponential backoff."""
+    for attempt in range(_MAX_RETRIES):
         try:
             return _call_openrouter_once(
                 prompt=prompt,
@@ -106,41 +90,30 @@ def call_openrouter_with_retries(
                 system_prompt=system_prompt,
                 timeout_seconds=timeout_seconds,
                 response_format=response_format,
-                extra_body=extra_body,
             )
-        except Exception as exc:
-            last_error = exc
-            if attempt >= attempts - 1 or not _is_retriable_error(exc):
-                # Without this, exhausting retries on a slow provider is
-                # indistinguishable from a hang: the caller only logs once the
-                # final error propagates, which can be attempts * timeout later.
+        except OpenRouterTransportError as exc:
+            retriable = _is_retriable_error(exc)
+            if attempt == _MAX_RETRIES - 1 or not retriable:
+                # Logged here: otherwise exhausting retries on a slow provider looks
+                # like a hang until the error surfaces, attempts * timeout later.
                 logger.warning(
-                    "OpenRouter call failed on attempt %d/%d and will not be retried "
-                    "(%s): %s",
-                    attempt + 1,
-                    attempts,
-                    "retries exhausted" if _is_retriable_error(exc) else "not retriable",
+                    "OpenRouter call failed on attempt %d/%d and will not be retried (%s): %s",
+                    attempt + 1, _MAX_RETRIES,
+                    "retries exhausted" if retriable else "not retriable",
                     _truncate_error(exc),
                 )
-                break
-
-            retry_after = _extract_retry_after(exc)
-            exp_backoff = min(max_backoff, base_backoff * (2 ** attempt))
-            jitter_wait = random.uniform(0.0, exp_backoff)
-            wait_for = max(retry_after, jitter_wait) if retry_after is not None else jitter_wait
+                raise
+            retry_after = exc.retry_after
+            backoff = random.uniform(0.0, min(_MAX_BACKOFF_SECS, _BASE_BACKOFF_SECS * (2 ** attempt)))
+            wait_for = max(retry_after, backoff) if retry_after is not None else backoff
             logger.warning(
                 "OpenRouter call failed on attempt %d/%d, retrying in %.1fs%s: %s",
-                attempt + 1,
-                attempts,
-                wait_for,
+                attempt + 1, _MAX_RETRIES, wait_for,
                 f" (provider asked for {retry_after:.0f}s)" if retry_after is not None else "",
                 _truncate_error(exc),
             )
             time.sleep(wait_for)
-
-    if last_error is None:
-        raise OpenRouterTransportError("OpenRouter call failed without an explicit error.")
-    raise last_error
+    raise OpenRouterTransportError("llm.openrouter.max_retries must be at least 1.")
 
 
 def _call_openrouter_once(
@@ -151,11 +124,10 @@ def _call_openrouter_once(
     system_prompt: Optional[str],
     timeout_seconds: int,
     response_format: Optional[Dict[str, Any]],
-    extra_body: Optional[Dict[str, Any]],
 ) -> str:
     api_key = os.getenv("OPENROUTER_API_KEY")
-    if not api_key:
-        raise OpenRouterTransportError("Missing OPENROUTER_API_KEY.")
+    if not api_key:  # 401: not transient, so neither retried nor waited out as one
+        raise OpenRouterTransportError("Missing OPENROUTER_API_KEY.", status_code=401)
 
     messages: List[Dict[str, str]] = []
     if system_prompt:
@@ -170,14 +142,12 @@ def _call_openrouter_once(
     }
     if response_format:
         payload["response_format"] = response_format
-    if extra_body:
-        payload.update(extra_body)
 
     # OpenRouter model fallbacks: on any error from one model (rate limit,
     # downtime, context length) it tries the next in ``models``. It accepts at
     # most 3 there, so a longer chain goes out in groups of 3, the next group
     # only once every model in the previous one has failed.
-    chain = payload.pop("models", None) or _fallback_models(model)
+    chain = _fallback_models(model)
     last_error: Optional[Exception] = None
     for start in range(0, len(chain), _MAX_MODELS_PER_REQUEST):
         group = chain[start:start + _MAX_MODELS_PER_REQUEST]
@@ -217,10 +187,9 @@ def _post_chat(payload: Dict[str, Any], api_key: str, timeout_seconds: int, requ
             # The full body: Google's retryDelay sits past the excerpt's cut-off.
             retry_after = _parse_retry_after_from_text(response.text)
         raise OpenRouterTransportError(
-            message=f"OpenRouter request failed ({response.status_code}): {excerpt}",
+            f"OpenRouter request failed ({response.status_code}): {excerpt}",
             status_code=response.status_code,
             retry_after=retry_after,
-            response_excerpt=excerpt,
         )
 
     try:
@@ -291,22 +260,7 @@ def _truncate_error(exc: Exception) -> str:
     return f"{type(exc).__name__}: {text}" if text else type(exc).__name__
 
 
-def _extract_retry_after(exc: Exception) -> Optional[float]:
-    if isinstance(exc, OpenRouterTransportError):
-        return exc.retry_after
-    return _parse_retry_after_from_text(str(exc))
-
-
-def _is_retriable_error(exc: Exception) -> bool:
-    if isinstance(exc, OpenRouterTransportError):
-        if exc.status_code is None:
-            return True
-        if exc.status_code in (408, 409, 429):
-            return True
-        return 500 <= exc.status_code < 600
-
-    if isinstance(exc, requests.RequestException):
-        return True
-
-    msg = str(exc).lower()
-    return "429" in msg or "rate limit" in msg or "resource_exhausted" in msg
+def _is_retriable_error(exc: OpenRouterTransportError) -> bool:
+    """Network failures (no status), timeouts/conflicts/rate limits, and 5xx."""
+    code = exc.status_code
+    return code is None or code in (408, 409, 429) or 500 <= code < 600

@@ -40,7 +40,7 @@ def test_chain_longer_than_three_goes_out_in_groups(monkeypatch):
 
     monkeypatch.setattr(t.requests, "post", post)
     t.MODEL_USAGE.clear()
-    assert t._call_openrouter_once("p", "a/1:free", 0.0, 10, None, 5, None, None) == "ok"
+    assert t._call_openrouter_once("p", "a/1:free", 0.0, 10, None, 5, None) == "ok"
     assert sent == [("a/1:free", ["a/1:free", "b/2:free", "c/3:free"]), ("d/4:free", None)]
     assert t.MODEL_USAGE == {"d/4:free": 1}
 
@@ -81,3 +81,11 @@ def test_an_answer_cut_off_at_max_tokens_is_marked_truncated(monkeypatch):
     first = len(llm_client.CALL_LOG)
     assert llm_client.generate_text("p", model="a/1:free", label="answer") == "metade da"
     assert llm_client.CALL_LOG[first:] == [("answer [truncated]", "a/1:free")]
+
+
+@pytest.mark.unit
+def test_a_missing_api_key_fails_at_once_instead_of_being_retried(monkeypatch):
+    monkeypatch.delenv("OPENROUTER_API_KEY", raising=False)
+    monkeypatch.setattr(t.time, "sleep", lambda s: pytest.fail("a missing key is not transient"))
+    with pytest.raises(t.OpenRouterTransportError, match="OPENROUTER_API_KEY"):
+        t.call_openrouter_with_retries("p", "a/1:free")

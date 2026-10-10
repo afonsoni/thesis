@@ -36,8 +36,8 @@ T = TypeVar("T")
 def with_deadline(fn: Callable[[], T], secs: float) -> T:
     """Run *fn* in a daemon thread; raise TimeoutError if it has not returned in *secs*.
 
-    Gemini can hold a connection open for many minutes without answering, which a
-    per-read socket timeout never catches. A hung call's thread is abandoned
+    A provider can hold a connection open for many minutes without answering,
+    which a per-read socket timeout never catches. A hung call's thread is abandoned
     (daemon, so it cannot block interpreter exit).
     """
     box: Dict[str, Any] = {}
@@ -90,11 +90,9 @@ def generate_text(
     system_prompt: Optional[str] = None,
     temperature: Optional[float] = None,
     max_tokens: Optional[int] = None,
-    provider: Optional[str] = None,
     model: Optional[str] = None,
     timeout_seconds: int = 120,
     response_format: Optional[Dict[str, Any]] = None,
-    extra_body: Optional[Dict[str, Any]] = None,
     label: str = "",
 ) -> str:
     """Generate text through OpenRouter transport with centralized retries.
@@ -106,12 +104,6 @@ def generate_text(
         temperature = float(config.get("llm.openrouter.temperature"))
     if max_tokens is None:
         max_tokens = int(config.get("llm.openrouter.max_tokens"))
-    if provider and provider not in ("openrouter", "auto"):
-        logger.warning(
-            "Provider '%s' is no longer a direct runtime option. Using OpenRouter transport.",
-            provider,
-        )
-
     selected_model = model or config.get("llm.openrouter.model")
     text = call_openrouter_with_retries(
         prompt=prompt,
@@ -121,7 +113,6 @@ def generate_text(
         system_prompt=system_prompt,
         timeout_seconds=timeout_seconds,
         response_format=response_format,
-        extra_body=extra_body,
     )
     answered_by = last_answering_model() or selected_model
     step = (label or "llm") + (" [truncated]" if last_answer_truncated() else "")
@@ -149,7 +140,6 @@ def generate_structured(
         system_prompt=system_prompt,
         temperature=temperature,
         max_tokens=max_tokens,
-        provider="openrouter",
         model=model,
         timeout_seconds=timeout_seconds,
         response_format={"type": "json_object"},
@@ -167,14 +157,13 @@ def generate_structured(
 
 def generate_structured_batch(
     prompt: str,
-    item_schema: Optional[type] = None,
     system_prompt: Optional[str] = None,
     temperature: float = 0.1,
     model: Optional[str] = None,
     max_tokens: int = 2000,
     timeout_seconds: int = 120,
 ) -> List[Any]:
-    """Generate a JSON array and optionally validate each item schema."""
+    """Generate a JSON array (a lone object counts as a one-item array)."""
     raw = generate_text(
         (
             prompt
@@ -183,19 +172,12 @@ def generate_structured_batch(
         system_prompt=system_prompt,
         temperature=temperature,
         max_tokens=max_tokens,
-        provider="openrouter",
         model=model,
         timeout_seconds=timeout_seconds,
         response_format={"type": "json_object"},
     )
-
     data = _extract_json_payload(raw)
-    if not isinstance(data, list):
-        data = [data]
-
-    if item_schema and isinstance(item_schema, type) and issubclass(item_schema, BaseModel):
-        return [item_schema.model_validate(item) for item in data]
-    return data
+    return data if isinstance(data, list) else [data]
 
 
 def _extract_json_payload(raw_text: str) -> Any:
