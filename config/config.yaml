@@ -48,7 +48,7 @@ postgresql:
 #   OPENROUTER_API_KEY
 llm:
   openrouter:
-    model: "google/gemma-4-26b-a4b-it:free"
+    model: "google/gemma-4-26b-a4b-it"
     # OpenRouter model fallbacks, tried in order when the requested model errors
     # (rate limit, downtime, context length); OpenRouter takes at most 3 per request,
     # so a longer chain is sent in groups of 3. Applied to every call, whatever its
@@ -139,14 +139,14 @@ indexing:
   # filtering and topic_exploration routing will NOT work on such an index, and
   # no classified checkpoint is written.
   use_llm_classification: true
-  classification_model: "google/gemma-4-26b-a4b-it:free"
+  classification_model: "google/gemma-4-26b-a4b-it"
   classification_batch_size: 15
   classification_delay: 1.0
   # Per-batch waits for free-tier failures before the run aborts.
   classification_wait_out_attempts: 10
   # Structure pass of `main.py clean` (raw marker markdown -> *-clean.md).
   # One call per ~120 header/short-line candidates, ~2-8 calls per party.
-  cleaning_model: "google/gemma-4-26b-a4b-it:free"
+  cleaning_model: "google/gemma-4-26b-a4b-it"
 
 # Evaluation settings
 # NOTE: judge_model should be a KNOWN-GOOD OpenRouter id and, ideally, different
@@ -156,7 +156,7 @@ evaluation:
   dataset_path: "data/eval/questions/golden.json"
   results_dir: "data/eval/results"
   reports_dir: "data/eval/reports"
-  judge_model: "google/gemma-4-26b-a4b-it:free"
+  judge_model: "google/gemma-4-26b-a4b-it"
   judge_temperature: 0.0
   # Each LLM stage of an eval run (retrieval's analysis/expansion, generation,
   # every judge call) waits out free-tier failures this many times. A question
