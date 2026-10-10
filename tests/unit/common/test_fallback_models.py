@@ -29,7 +29,7 @@ def test_chain_longer_than_three_goes_out_in_groups(monkeypatch):
     monkeypatch.setattr(t, "_fallback_models", lambda model: chain)
     sent = []
 
-    def post(url, headers, data, timeout):
+    def post(url, headers, data, timeout, stream=False):
         body = json.loads(data)
         sent.append((body["model"], body.get("models")))
         if len(sent) == 1:  # every model of the first group failed
@@ -74,7 +74,7 @@ def test_an_answer_cut_off_at_max_tokens_is_marked_truncated(monkeypatch):
 
     monkeypatch.setenv("OPENROUTER_API_KEY", "k")
     monkeypatch.setattr(t, "_fallback_models", lambda model: [model])
-    monkeypatch.setattr(t.requests, "post", lambda url, headers, data, timeout: _Resp(200, {
+    monkeypatch.setattr(t.requests, "post", lambda url, headers, data, timeout, stream=False: _Resp(200, {
         "model": "a/1:free", "choices": [{"message": {"content": "metade da"}, "finish_reason": "length"}],
         "usage": {"prompt_tokens": 120, "completion_tokens": 10, "cost": 0.0003}}))
     first = len(llm_client.CALL_LOG)
@@ -83,6 +83,35 @@ def test_an_answer_cut_off_at_max_tokens_is_marked_truncated(monkeypatch):
     assert call.pop("secs") >= 0
     assert call == {"step": "answer [truncated]", "model": "a/1:free",
                     "prompt_tokens": 120, "completion_tokens": 10, "cost": 0.0003}
+
+
+def test_a_streamed_answer_reaches_the_caller_piece_by_piece(monkeypatch):
+    import json
+
+    from src.rag.common import llm_client
+
+    chunks = [{"model": "a/1", "choices": [{"delta": {"content": "Olá, "}}]},
+              {"model": "a/1", "choices": [{"delta": {"content": "Lisboa"}, "finish_reason": "stop"}],
+               "usage": {"prompt_tokens": 9, "completion_tokens": 3, "cost": 0.0001}}]
+    lines = [b": OPENROUTER PROCESSING", b""] + [f"data: {json.dumps(c)}".encode() for c in chunks] + [b"data: [DONE]"]
+
+    class _Stream(_Resp):
+        def iter_lines(self):
+            return iter(lines)
+
+    def post(url, headers, data, timeout, stream=False):
+        assert stream and json.loads(data)["stream"]
+        return _Stream(200, None)
+
+    monkeypatch.setenv("OPENROUTER_API_KEY", "k")
+    monkeypatch.setattr(t, "_fallback_models", lambda model: [model])
+    monkeypatch.setattr(t.requests, "post", post)
+    seen = []
+    first = len(llm_client.CALL_LOG)
+    assert llm_client.generate_text("p", model="a/1", label="answer", on_token=seen.append) == "Olá, Lisboa"
+    assert seen == ["Olá, ", "Lisboa"]
+    (call,) = llm_client.CALL_LOG[first:]
+    assert (call["step"], call["prompt_tokens"], call["completion_tokens"], call["cost"]) == ("answer", 9, 3, 0.0001)
 
 
 def test_a_missing_api_key_fails_at_once_instead_of_being_retried(monkeypatch):

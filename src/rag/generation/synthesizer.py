@@ -6,7 +6,7 @@ Selects the right strategy based on ``AnswerShape`` and produces a
 """
 
 import logging
-from typing import Dict, List, Optional, Tuple
+from typing import Callable, Dict, List, Optional, Tuple
 
 from src.rag.common.models import (
     AnswerShape,
@@ -25,6 +25,8 @@ from src.rag.generation.prompts import (
 
 logger = logging.getLogger(__name__)
 progress = logging.getLogger("rag.progress")  # see retrieval/pipeline.py
+
+OnToken = Optional[Callable[[str], None]]  # streams the answer text as it arrives
 
 
 # ---------------------------------------------------------------------------
@@ -207,12 +209,12 @@ def _build_sources(numbered: List[Tuple[int, SearchResult]]) -> List[Dict]:
 # Synthesis strategies
 # ---------------------------------------------------------------------------
 
-def direct_answer(query: str, results: List[SearchResult]) -> GeneratedAnswer:
+def direct_answer(query: str, results: List[SearchResult], on_token: OnToken = None) -> GeneratedAnswer:
     """Single-pass generation for simple look-ups."""
     context = _format_flat_context(results)
     prompt = ANSWER_PROMPT.format(context=context, question=query)
     progress.info("A redigir a resposta a partir de %d excertos…", len(results))
-    answer = generate_text(prompt, system_prompt=ANSWER_SYSTEM_PROMPT, label="answer")
+    answer = generate_text(prompt, system_prompt=ANSWER_SYSTEM_PROMPT, label="answer", on_token=on_token)
     return GeneratedAnswer(
         answer=answer,
         sources=_build_sources(_numbered_flat(results)),
@@ -223,6 +225,7 @@ def direct_answer(query: str, results: List[SearchResult]) -> GeneratedAnswer:
 def comparison_answer(
     query: str,
     results_by_party: Dict[str, List[SearchResult]],
+    on_token: OnToken = None,
 ) -> GeneratedAnswer:
     """Grouped-by-party generation for comparison questions."""
     context = _format_grouped_context(results_by_party)
@@ -231,7 +234,8 @@ def comparison_answer(
         progress.info("A redigir a comparação entre %d partidos…", len(results_by_party))
     else:
         progress.info("A redigir a resposta…")
-    answer = generate_text(prompt, system_prompt=COMPARISON_SYSTEM_PROMPT, label="comparison answer")
+    answer = generate_text(prompt, system_prompt=COMPARISON_SYSTEM_PROMPT, label="comparison answer",
+                           on_token=on_token)
     return GeneratedAnswer(
         answer=answer,
         sources=_build_sources([x for xs in _numbered_grouped(results_by_party).values() for x in xs]),
@@ -243,8 +247,9 @@ def comparison_answer(
 # Dispatcher
 # ---------------------------------------------------------------------------
 
-def synthesize(retrieval: RetrievalResult) -> GeneratedAnswer:
-    """Pick a synthesis strategy from the requested answer shape.
+def synthesize(retrieval: RetrievalResult, on_token: OnToken = None) -> GeneratedAnswer:
+    """Pick a synthesis strategy from the requested answer shape. *on_token*
+    receives the answer as it is written.
 
     Shape rather than route: they cross. "Que partido propõe mais sobre
     habitação?" retrieves every party but wants one verdict, not eight sections.
@@ -256,7 +261,7 @@ def synthesize(retrieval: RetrievalResult) -> GeneratedAnswer:
     if shape == AnswerShape.PER_PARTY:
         if grouped:
             logger.info("Using comparison synthesis strategy.")
-            return comparison_answer(q, _fit_grouped(grouped))
+            return comparison_answer(q, _fit_grouped(grouped), on_token)
         if retrieval.results:
             # Flat results (e.g. a single-party route): group them so the answer
             # can still be laid out party by party.
@@ -264,7 +269,7 @@ def synthesize(retrieval: RetrievalResult) -> GeneratedAnswer:
             for r in retrieval.results:
                 by_party.setdefault(r.party_name, []).append(r)
             logger.info("Per-party answer from flat results – grouping by party.")
-            return comparison_answer(q, _fit_grouped(by_party))
+            return comparison_answer(q, _fit_grouped(by_party), on_token)
 
     # A narrative answer over a fan-out reads the whole grouped set, not
     # ``results``: the router truncates that flat list to top_k, which would
@@ -281,4 +286,4 @@ def synthesize(retrieval: RetrievalResult) -> GeneratedAnswer:
         flat = _fit_flat(retrieval.results)
 
     logger.info("Using direct answer strategy.")
-    return direct_answer(q, flat)
+    return direct_answer(q, flat, on_token)

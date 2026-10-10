@@ -97,11 +97,13 @@ def generate_text(
     timeout_seconds: int = 120,
     response_format: Optional[Dict[str, Any]] = None,
     label: str = "",
+    on_token: Optional[Callable[[str], None]] = None,
 ) -> str:
     """Generate text through OpenRouter transport with centralized retries.
 
     ``temperature`` / ``max_tokens`` default to ``llm.openrouter.*`` in config.
     ``label`` names the pipeline step in the log and in ``CALL_LOG``.
+    ``on_token`` streams the text as it is generated (see the transport).
     """
     if temperature is None:
         temperature = float(config.get("llm.openrouter.temperature"))
@@ -117,6 +119,7 @@ def generate_text(
         system_prompt=system_prompt,
         timeout_seconds=timeout_seconds,
         response_format=response_format,
+        on_token=on_token,
     )
     answered_by = last_answering_model() or selected_model
     step = (label or "llm") + (" [truncated]" if last_answer_truncated() else "")

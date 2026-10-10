@@ -111,11 +111,20 @@ def cmd_query(args):
         expand_queries=not args.no_expand,
     )
 
-    answer = generate(result)
+    # Stream the answer as it is written; the rule above it goes out with the
+    # first words, so the progress lines stay above it.
+    streamed = []
 
+    def show(text):
+        if not streamed:
+            print("\n" + "=" * 60)
+        streamed.append(text)
+        print(text, end="", flush=True)
+
+    answer = generate(result, on_token=show)
+    if not streamed:  # nothing to generate (no documents found)
+        print("\n" + "=" * 60 + "\n" + answer.answer, end="")
     print("\n" + "=" * 60)
-    print(answer.answer)
-    print("=" * 60)
 
     if answer.sources:
         print(f"\nFontes ({len(answer.sources)}):")

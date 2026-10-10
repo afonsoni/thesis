@@ -15,7 +15,7 @@ import re
 import threading
 import time
 from collections import Counter
-from typing import Any, Dict, List, Mapping, Optional
+from typing import Any, Callable, Dict, List, Mapping, Optional
 
 import requests
 
@@ -87,8 +87,14 @@ def call_openrouter_with_retries(
     system_prompt: Optional[str] = None,
     timeout_seconds: int = 120,
     response_format: Optional[Dict[str, Any]] = None,
+    on_token: Optional[Callable[[str], None]] = None,
 ) -> str:
-    """Call OpenRouter, retrying transient failures with jittered exponential backoff."""
+    """Call OpenRouter, retrying transient failures with jittered exponential backoff.
+
+    With *on_token* the answer is streamed: each piece of text is passed to it as
+    it arrives, and the whole text is still returned. A stream that breaks off is
+    retried from the start, so *on_token* may see a partial answer, then a new one.
+    """
     for attempt in range(_MAX_RETRIES):
         try:
             return _call_openrouter_once(
@@ -99,6 +105,7 @@ def call_openrouter_with_retries(
                 system_prompt=system_prompt,
                 timeout_seconds=timeout_seconds,
                 response_format=response_format,
+                on_token=on_token,
             )
         except OpenRouterTransportError as exc:
             retriable = _is_retriable_error(exc)
@@ -135,6 +142,7 @@ def _call_openrouter_once(
     system_prompt: Optional[str],
     timeout_seconds: int,
     response_format: Optional[Dict[str, Any]],
+    on_token: Optional[Callable[[str], None]] = None,
 ) -> str:
     api_key = os.getenv("OPENROUTER_API_KEY")
     if not api_key:  # 401: not transient, so neither retried nor waited out as one
@@ -171,7 +179,7 @@ def _call_openrouter_once(
         else:
             payload.pop("models", None)
         try:
-            return _post_chat(payload, api_key, timeout_seconds, requested=group[0])
+            return _post_chat(payload, api_key, timeout_seconds, requested=group[0], on_token=on_token)
         except OpenRouterTransportError as exc:
             if exc.status_code in (401, 403):  # bad key: no model will do better
                 raise
@@ -182,14 +190,18 @@ def _call_openrouter_once(
     raise last_error  # type: ignore[misc]
 
 
-def _post_chat(payload: Dict[str, Any], api_key: str, timeout_seconds: int, requested: str) -> str:
-    """POST one chat completion; return its text or raise ``OpenRouterTransportError``."""
+def _post_chat(payload: Dict[str, Any], api_key: str, timeout_seconds: int, requested: str,
+               on_token: Optional[Callable[[str], None]] = None) -> str:
+    """POST one chat completion; return its text or raise ``OpenRouterTransportError``.
+    With *on_token*, stream it (see ``call_openrouter_with_retries``)."""
+    stream = on_token is not None
     try:
         response = requests.post(
             url=OPENROUTER_CHAT_COMPLETIONS_URL,
             headers=_openrouter_headers(api_key),
-            data=json.dumps(payload),
-            timeout=timeout_seconds,
+            data=json.dumps({**payload, "stream": True} if stream else payload),
+            timeout=timeout_seconds,  # with a stream: the longest gap between chunks
+            stream=stream,
         )
     except requests.RequestException as exc:
         raise OpenRouterTransportError(f"OpenRouter request failed: {exc}") from exc
@@ -207,11 +219,14 @@ def _post_chat(payload: Dict[str, Any], api_key: str, timeout_seconds: int, requ
         )
 
     try:
-        data = response.json()
+        data = _read_stream(response, on_token) if stream else response.json()
         choice = data["choices"][0]
         message = choice["message"]["content"]
+    except OpenRouterTransportError:
+        raise
     except Exception as exc:
-        raise OpenRouterTransportError(f"Unexpected OpenRouter response: {response.text[:500]}") from exc
+        detail = f"stream broke off ({exc})" if stream else response.text[:500]
+        raise OpenRouterTransportError(f"Unexpected OpenRouter response: {detail}") from exc
 
     answered_by = str(data.get("model") or requested)
     MODEL_USAGE[answered_by] += 1
@@ -229,6 +244,32 @@ def _post_chat(payload: Dict[str, Any], api_key: str, timeout_seconds: int, requ
     if isinstance(message, str):
         return message.strip()
     return json.dumps(message, ensure_ascii=False)
+
+
+def _read_stream(response: requests.Response, on_token: Callable[[str], None]) -> Dict[str, Any]:
+    """Read a server-sent-event chat stream, passing each text delta to *on_token*,
+    and return it shaped like a non-streamed response (the last chunk has ``usage``)."""
+    parts: List[str] = []
+    model = usage = finish = None
+    for raw in response.iter_lines():
+        line = raw.decode("utf-8")  # decoded here: requests would assume latin-1 for SSE
+        if not line.startswith("data: "):
+            continue  # blank separators and ": OPENROUTER PROCESSING" keep-alives
+        if line == "data: [DONE]":
+            break
+        chunk = json.loads(line[len("data: "):])
+        if "error" in chunk:  # a failure after the 200 arrives inside the stream
+            raise OpenRouterTransportError(f"OpenRouter stream failed: {chunk['error']}")
+        model = chunk.get("model") or model
+        usage = chunk.get("usage") or usage
+        choice = (chunk.get("choices") or [{}])[0]
+        delta = (choice.get("delta") or {}).get("content")
+        if delta:
+            parts.append(delta)
+            on_token(delta)
+        finish = choice.get("finish_reason") or finish
+    return {"model": model, "usage": usage,
+            "choices": [{"message": {"content": "".join(parts)}, "finish_reason": finish}]}
 
 
 def _openrouter_headers(api_key: str) -> Dict[str, str]:
