@@ -52,6 +52,14 @@ def last_answering_model() -> Optional[str]:
 def last_answer_truncated() -> bool:
     """Whether that call stopped at ``max_tokens``, i.e. its text is cut off."""
     return getattr(_LAST_ANSWER, "truncated", False)
+
+
+def last_usage() -> Dict[str, Any]:
+    """That call's ``usage`` block: ``prompt_tokens``, ``completion_tokens`` and
+    ``cost`` (USD, 0 on free models), which OpenRouter returns on every response."""
+    return getattr(_LAST_ANSWER, "usage", None) or {}
+
+
 _MAX_MODELS_PER_REQUEST = 3  # OpenRouter rejects a longer `models` array (400)
 
 
@@ -202,6 +210,7 @@ def _post_chat(payload: Dict[str, Any], api_key: str, timeout_seconds: int, requ
     answered_by = str(data.get("model") or requested)
     MODEL_USAGE[answered_by] += 1
     _LAST_ANSWER.model = answered_by
+    _LAST_ANSWER.usage = data.get("usage") or {}
     # A cut-off answer comes back as a normal 200 with whatever text fit, so it
     # would otherwise pass for a complete one.
     _LAST_ANSWER.truncated = str(choice.get("finish_reason") or "").lower() in ("length", "max_tokens")

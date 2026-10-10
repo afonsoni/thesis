@@ -121,10 +121,11 @@ class QuestionRun(BaseModel):
 
     latency_s: float = 0.0
     error: Optional[str] = None
-    # Every LLM call this question made, in order: {"step", "model"}, the model
-    # being the one that answered, so a fallback is visible per question and per
-    # step (pipeline and judge alike).
-    llm_calls: List[Dict[str, str]] = Field(default_factory=list)
+    # Every LLM call this question made, in order: {"step", "model",
+    # "prompt_tokens", "completion_tokens", "cost", "secs"}, the model being the one that
+    # answered, so a fallback is visible per question and per step (pipeline and
+    # judge alike). Runs before token accounting carry only step and model.
+    llm_calls: List[Dict[str, Any]] = Field(default_factory=list)
 
     metrics: Dict[str, float] = Field(default_factory=dict)
     # Per-metric working: extracted claims and the judge's verdict on each, so a

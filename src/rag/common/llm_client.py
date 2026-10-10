@@ -11,7 +11,7 @@ import logging
 import re
 import threading
 import time
-from typing import Any, Callable, Dict, List, Optional, Tuple, TypeVar
+from typing import Any, Callable, Dict, List, Optional, TypeVar
 
 from pydantic import BaseModel
 
@@ -19,16 +19,19 @@ from src.rag.common.llm_transport import (
     call_openrouter_with_retries,
     last_answer_truncated,
     last_answering_model,
+    last_usage,
 )
 from src.utils.config_loader import config
 
 logger = logging.getLogger(__name__)
 
-# Every successful LLM call this process made, in order: (step label, model that
-# answered). A fallback model shows up here, so slicing it from a remembered
-# length gives one question's calls (``main.py query``, the eval runner). A call
-# cut off at max_tokens has " [truncated]" appended to its step.
-CALL_LOG: List[Tuple[str, str]] = []
+# Every successful LLM call this process made, in order: {"step", "model",
+# "prompt_tokens", "completion_tokens", "cost", "secs"}, the model being the one that
+# answered, so a fallback shows up here. Slicing it from a remembered length gives
+# one question's calls (``main.py query``, the eval runner), and its token counts
+# are what ``scripts/llm_cost.py`` prices. A call cut off at max_tokens has
+# " [truncated]" appended to its step.
+CALL_LOG: List[Dict[str, Any]] = []
 
 T = TypeVar("T")
 
@@ -105,6 +108,7 @@ def generate_text(
     if max_tokens is None:
         max_tokens = int(config.get("llm.openrouter.max_tokens"))
     selected_model = model or config.get("llm.openrouter.model")
+    start = time.perf_counter()
     text = call_openrouter_with_retries(
         prompt=prompt,
         model=selected_model,
@@ -116,7 +120,15 @@ def generate_text(
     )
     answered_by = last_answering_model() or selected_model
     step = (label or "llm") + (" [truncated]" if last_answer_truncated() else "")
-    CALL_LOG.append((step, answered_by))
+    usage = last_usage()
+    CALL_LOG.append({
+        "step": step,
+        "model": answered_by,
+        "prompt_tokens": int(usage.get("prompt_tokens") or 0),
+        "completion_tokens": int(usage.get("completion_tokens") or 0),
+        "cost": float(usage.get("cost") or 0.0),
+        "secs": round(time.perf_counter() - start, 2),  # retries included
+    })
     logger.info("[%s] answered by %s", step, answered_by)
     return text
 

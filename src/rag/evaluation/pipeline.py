@@ -94,6 +94,12 @@ def evaluate(
         result = run_variant(cfg, dataset, metrics, k=k, generate=use_judge,
                              wait_out_attempts=wait_out_attempts)
         result.models_used = dict(MODEL_USAGE - before)
+        calls = [c for run in result.per_question for c in run.llm_calls]
+        logger.info(
+            "[%s] %d LLM calls, %d tokens in / %d out, $%.4f.", cfg.name, len(calls),
+            sum(c["prompt_tokens"] for c in calls), sum(c["completion_tokens"] for c in calls),
+            sum(c["cost"] for c in calls),
+        )
         result.dataset_path = dataset_path
         result.split = split or ""
         result.curated_only = curated_only

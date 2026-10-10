@@ -65,7 +65,8 @@ def test_each_call_is_logged_with_its_step_and_the_model_that_answered(monkeypat
     monkeypatch.setattr(llm_client, "call_openrouter_with_retries", fake_transport)
     first = len(llm_client.CALL_LOG)
     llm_client.generate_text("p", model="google/gemma-4-26b-a4b-it:free", label="query expansion")
-    assert llm_client.CALL_LOG[first:] == [("query expansion", "nvidia/nemotron-3-ultra-550b-a55b:free")]
+    assert [(c["step"], c["model"]) for c in llm_client.CALL_LOG[first:]] == [
+        ("query expansion", "nvidia/nemotron-3-ultra-550b-a55b:free")]
 
 
 def test_an_answer_cut_off_at_max_tokens_is_marked_truncated(monkeypatch):
@@ -74,10 +75,14 @@ def test_an_answer_cut_off_at_max_tokens_is_marked_truncated(monkeypatch):
     monkeypatch.setenv("OPENROUTER_API_KEY", "k")
     monkeypatch.setattr(t, "_fallback_models", lambda model: [model])
     monkeypatch.setattr(t.requests, "post", lambda url, headers, data, timeout: _Resp(200, {
-        "model": "a/1:free", "choices": [{"message": {"content": "metade da"}, "finish_reason": "length"}]}))
+        "model": "a/1:free", "choices": [{"message": {"content": "metade da"}, "finish_reason": "length"}],
+        "usage": {"prompt_tokens": 120, "completion_tokens": 10, "cost": 0.0003}}))
     first = len(llm_client.CALL_LOG)
     assert llm_client.generate_text("p", model="a/1:free", label="answer") == "metade da"
-    assert llm_client.CALL_LOG[first:] == [("answer [truncated]", "a/1:free")]
+    (call,) = llm_client.CALL_LOG[first:]
+    assert call.pop("secs") >= 0
+    assert call == {"step": "answer [truncated]", "model": "a/1:free",
+                    "prompt_tokens": 120, "completion_tokens": 10, "cost": 0.0003}
 
 
 def test_a_missing_api_key_fails_at_once_instead_of_being_retried(monkeypatch):

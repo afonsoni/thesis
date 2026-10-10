@@ -49,11 +49,11 @@ def test_each_question_records_its_llm_calls():
     from src.rag.common.llm_client import CALL_LOG
 
     def retrieve(q, c):
-        CALL_LOG.append(("query analysis", "google/gemma-4-26b-a4b-it:free"))
+        CALL_LOG.append({"step": "query analysis", "model": "google/gemma-4-26b-a4b-it:free"})
         return RetrievalResult(query=AnalyzedQuery(original_query=q), results=[_hit("gold")])
 
     def generate(r):
-        CALL_LOG.append(("answer", "nvidia/nemotron-3-ultra-550b-a55b:free"))
+        CALL_LOG.append({"step": "answer", "model": "nvidia/nemotron-3-ultra-550b-a55b:free"})
         return GeneratedAnswer(answer="A", context="C")
 
     run = run_question(Q, RetrievalConfig(name="v"), [], 5, retrieve_fn=retrieve, generate_fn=generate)

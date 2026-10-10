@@ -105,9 +105,12 @@ def cmd_query(args):
 
     calls = CALL_LOG[first_call:]
     if calls:
-        print(f"\nModelos ({len(calls)} chamadas):")
-        for step, model in calls:
-            print(f"  {step}: {model}")
+        tokens_in = sum(c["prompt_tokens"] for c in calls)
+        tokens_out = sum(c["completion_tokens"] for c in calls)
+        cost = sum(c["cost"] for c in calls)
+        print(f"\nModelos ({len(calls)} chamadas, {tokens_in} tokens in / {tokens_out} out, ${cost:.4f}):")
+        for c in calls:
+            print(f"  {c['step']}: {c['model']} ({c['secs']:.1f}s)")
 
 
 def cmd_eval(args):

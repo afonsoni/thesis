@@ -12,7 +12,7 @@ from __future__ import annotations
 import logging
 import time
 from datetime import datetime
-from typing import Callable, Dict, List, Optional, Protocol
+from typing import Any, Callable, Dict, List, Optional, Protocol
 
 from src.rag.common.llm_client import CALL_LOG, call_with_wait_out
 from src.rag.common.models import RetrievalResult, SearchResult
@@ -136,8 +136,8 @@ def run_question(
     return run
 
 
-def _calls_since(first: int) -> List[Dict[str, str]]:
-    return [{"step": step, "model": model} for step, model in CALL_LOG[first:]]
+def _calls_since(first: int) -> List[Dict[str, Any]]:
+    return CALL_LOG[first:]
 
 
 def _aggregate(runs: List[QuestionRun]) -> Dict[str, float]:
