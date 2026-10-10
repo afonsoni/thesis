@@ -36,7 +36,7 @@ class DeterministicEmbedder(Embedder):
     # Symmetric by design: this double has no instruction prompts, so queries and
     # documents encode identically. Defined explicitly because the real Embedder's
     # encode_query reads state that this __init__ deliberately skips.
-    def encode_query(self, text: str) -> list[float]:
+    def encode_query(self, text: str, instruction=None) -> list[float]:
         return self.encode(text)
 
 

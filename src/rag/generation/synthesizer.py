@@ -6,7 +6,7 @@ Selects the right strategy based on ``AnswerShape`` and produces a
 """
 
 import logging
-from typing import Dict, List
+from typing import Dict, List, Tuple
 
 from src.rag.common.models import (
     AnswerShape,
@@ -52,10 +52,29 @@ def _dedupe_by_context(results: List[SearchResult]) -> List[SearchResult]:
     return unique
 
 
+def _numbered_flat(results: List[SearchResult]) -> List[Tuple[int, SearchResult]]:
+    """The documents a flat prompt shows, with the number it shows them under."""
+    return list(enumerate(_dedupe_by_context(results), 1))
+
+
+def _numbered_grouped(
+    results_by_party: Dict[str, List[SearchResult]],
+) -> Dict[str, List[Tuple[int, SearchResult]]]:
+    """Per-party documents numbered across the whole prompt, so ``[n]`` names one."""
+    numbered: Dict[str, List[Tuple[int, SearchResult]]] = {}
+    n = 0
+    for party, results in results_by_party.items():
+        numbered[party] = []
+        for r in _dedupe_by_context(results):
+            n += 1
+            numbered[party].append((n, r))
+    return numbered
+
+
 def _format_flat_context(results: List[SearchResult]) -> str:
     """Format a flat list of search results into numbered context blocks."""
     parts = []
-    for i, r in enumerate(_dedupe_by_context(results), 1):
+    for i, r in _numbered_flat(results):
         # Build section breadcrumb from header hierarchy
         headers = r.section_path
         header_line = f"  Secção: {headers}\n" if headers else ""
@@ -70,12 +89,12 @@ def _format_flat_context(results: List[SearchResult]) -> str:
 def _format_grouped_context(results_by_party: Dict[str, List[SearchResult]]) -> str:
     """Format search results grouped by party for comparison prompts."""
     parts = []
-    for party, results in results_by_party.items():
+    for party, numbered in _numbered_grouped(results_by_party).items():
         docs = []
-        for i, r in enumerate(_dedupe_by_context(results), 1):
+        for i, r in numbered:
             headers = r.section_path
             header_line = f"  Secção: {headers}\n" if headers else ""
-            docs.append(f"  [{i}] {header_line}{r.context_text}")
+            docs.append(f"[Documento {i}]\n{header_line}{r.context_text}")
         parts.append(f"## {party}\n" + "\n\n".join(docs))
     return "\n\n".join(parts)
 
@@ -152,17 +171,19 @@ def _fit_grouped(
     return kept
 
 
-def _build_sources(results: List[SearchResult]) -> List[Dict]:
-    """Extract source metadata for citations."""
+def _build_sources(numbered: List[Tuple[int, SearchResult]]) -> List[Dict]:
+    """Source metadata for citations: ``n`` is the ``[n]`` the answer cites."""
     return [
         {
+            "n": n,
+            "id": r.id,
             "party": r.party_name,
             "topics": r.topics,
             "section": r.section_path,
             "similarity": round(r.similarity, 4),
             "score_type": r.score_type.value,
         }
-        for r in results
+        for n, r in numbered
     ]
 
 
@@ -177,7 +198,7 @@ def direct_answer(query: str, results: List[SearchResult]) -> GeneratedAnswer:
     answer = generate_text(prompt, system_prompt=ANSWER_SYSTEM_PROMPT, label="answer")
     return GeneratedAnswer(
         answer=answer,
-        sources=_build_sources(results),
+        sources=_build_sources(_numbered_flat(results)),
         query_type=QueryType.GENERAL,
         context=context,
     )
@@ -191,10 +212,9 @@ def comparison_answer(
     context = _format_grouped_context(results_by_party)
     prompt = COMPARISON_PROMPT.format(context=context, question=query)
     answer = generate_text(prompt, system_prompt=COMPARISON_SYSTEM_PROMPT, label="comparison answer")
-    all_results = [r for rs in results_by_party.values() for r in rs]
     return GeneratedAnswer(
         answer=answer,
-        sources=_build_sources(all_results),
+        sources=_build_sources([x for xs in _numbered_grouped(results_by_party).values() for x in xs]),
         query_type=QueryType.COMPARISON,
         context=context,
     )
@@ -233,7 +253,7 @@ def decomposed_answer(
     final = generate_text(synth_prompt, system_prompt=ANSWER_SYSTEM_PROMPT, label="synthesis")
     return GeneratedAnswer(
         answer=final,
-        sources=_build_sources(results),
+        sources=_build_sources(_numbered_flat(results)),
         query_type=QueryType.COMPARISON,
         context=context,
     )

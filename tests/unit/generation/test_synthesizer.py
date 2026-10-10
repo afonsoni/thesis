@@ -139,6 +139,30 @@ def test_grouped_trim_equalises_rather_than_truncating_the_tail():
 
 
 @pytest.mark.unit
+def test_sources_carry_the_number_the_prompt_shows(captured_prompts):
+    """Siblings sharing a parent are shown once; [n] in the answer must name the
+    same document in ``sources``, so numbering skips the duplicate in both."""
+    a, b, c = _result("LIVRE", 1), _result("LIVRE", 2), _result("LIVRE", 3)
+    b.parent_content = a.parent_content = "secção partilhada"
+
+    answer = synthesize(_retrieval(AnswerShape.NARRATIVE, results=[a, b, c]))
+
+    assert [(s["n"], s["id"]) for s in answer.sources] == [(1, "LIVRE-1"), (2, "LIVRE-3")]
+    assert "[Documento 2]" in captured_prompts[0] and "[Documento 3]" not in captured_prompts[0]
+
+
+@pytest.mark.unit
+def test_grouped_documents_are_numbered_across_parties(captured_prompts):
+    """Per-party numbering restarted at [1] for every party, so [1] was ambiguous."""
+    answer = synthesize(_retrieval(AnswerShape.PER_PARTY, grouped=_grouped(["Partido Socialista", "CHEGA"])))
+
+    assert [(s["n"], s["party"]) for s in answer.sources] == [
+        (1, "Partido Socialista"), (2, "Partido Socialista"), (3, "CHEGA"), (4, "CHEGA"),
+    ]
+    assert "[Documento 4]" in captured_prompts[0]
+
+
+@pytest.mark.unit
 def test_narrative_trim_over_a_fan_out_never_drops_a_party(captured_prompts):
     """A party that ranks low everywhere must survive the budget trim."""
     grouped = _grouped(["A", "B", "C"], per_party=4, size=4000)

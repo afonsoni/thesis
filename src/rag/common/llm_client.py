@@ -88,8 +88,8 @@ def call_with_wait_out(
 def generate_text(
     prompt: str,
     system_prompt: Optional[str] = None,
-    temperature: float = 0.3,
-    max_tokens: int = 1500,
+    temperature: Optional[float] = None,
+    max_tokens: Optional[int] = None,
     provider: Optional[str] = None,
     model: Optional[str] = None,
     timeout_seconds: int = 120,
@@ -99,8 +99,13 @@ def generate_text(
 ) -> str:
     """Generate text through OpenRouter transport with centralized retries.
 
+    ``temperature`` / ``max_tokens`` default to ``llm.openrouter.*`` in config.
     ``label`` names the pipeline step in the log and in ``CALL_LOG``.
     """
+    if temperature is None:
+        temperature = float(config.get("llm.openrouter.temperature", 0.2))
+    if max_tokens is None:
+        max_tokens = int(config.get("llm.openrouter.max_tokens", 1500))
     if provider and provider not in ("openrouter", "auto"):
         logger.warning(
             "Provider '%s' is no longer a direct runtime option. Using OpenRouter transport.",
@@ -156,6 +161,9 @@ def generate_structured(
 
     data = _extract_json_payload(raw)
     if isinstance(response_schema, type) and issubclass(response_schema, BaseModel):
+        # gemma-4-26b sometimes wraps the requested object in a one-item array.
+        if isinstance(data, list) and len(data) == 1 and isinstance(data[0], dict):
+            data = data[0]
         return response_schema.model_validate(data)
     return data
 

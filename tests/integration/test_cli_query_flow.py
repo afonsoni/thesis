@@ -31,6 +31,8 @@ def test_cmd_query_prints_answer_and_sources(capsys):
         answer="Resposta de teste",
         sources=[
             {
+                "n": 1,
+                "id": "chunk-1",
                 "party": "Partido Socialista",
                 "topics": ["educacao"],
                 "section": "Educacao",
@@ -47,4 +49,4 @@ def test_cmd_query_prints_answer_and_sources(capsys):
     captured = capsys.readouterr().out
     assert "Resposta de teste" in captured
     assert "Fontes (1):" in captured
-    assert "Partido Socialista" in captured
+    assert "[1] Partido Socialista" in captured

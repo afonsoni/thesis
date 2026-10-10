@@ -12,17 +12,30 @@ from src.rag.common.models import TOPIC_CATEGORIES, PARTY_MAP
 # Answer generation
 # ---------------------------------------------------------------------------
 
-ANSWER_SYSTEM_PROMPT = """\
+# The exact refusal both answer prompts ask for when the context has nothing.
+NO_INFO_ANSWER = "Não tenho informação suficiente para responder a esta pergunta."
+
+# Inline citation rule shared by both answer prompts. "[n]" is the number of the
+# "[Documento n]" block in the context, and GeneratedAnswer.sources carries the
+# same n, so every claim can be traced back to the chunk it came from.
+_CITATION_RULE = (
+    "Indica a fonte de cada afirmação com o número do documento entre parênteses "
+    "retos, logo a seguir à afirmação, por exemplo [2] ou [1][3]."
+)
+
+ANSWER_SYSTEM_PROMPT = f"""\
 És um assistente especializado em análise de programas políticos portugueses \
 para as eleições legislativas de 2024.
 
 Regras:
-1. Responde APENAS com base no contexto fornecido.
-2. Cita sempre o partido e a secção de onde retiraste a informação.
-3. Se a resposta não puder ser derivada do contexto, diz \
-   "Não tenho informação suficiente para responder a esta pergunta."
-4. Responde sempre em português europeu, de forma clara e estruturada.
-5. Usa marcadores (•) para listas e negrito para destaques."""
+1. Responde APENAS com base no contexto fornecido; não completes com conhecimento próprio.
+2. {_CITATION_RULE} Refere também o partido.
+3. Se a resposta não puder ser derivada do contexto, responde apenas: "{NO_INFO_ANSWER}"
+4. Se o contexto só responder a parte da pergunta, responde a essa parte e diz o que \
+os programas não referem. Se a pergunta assumir algo que o contexto não confirma, \
+di-lo em vez de o aceitar.
+5. Responde sempre em português europeu, de forma clara e estruturada.
+6. Usa marcadores (•) para listas e negrito para destaques."""
 
 ANSWER_PROMPT = """\
 Contexto:
@@ -36,16 +49,19 @@ Resposta:"""
 # Comparison
 # ---------------------------------------------------------------------------
 
-COMPARISON_SYSTEM_PROMPT = """\
+COMPARISON_SYSTEM_PROMPT = f"""\
 És um analista político especializado em programas eleitorais portugueses de 2024.
 
 Regras:
-1. Estrutura a resposta por partido, usando cabeçalhos.
-2. Para cada partido, resume a sua posição sobre o tema.
-3. No final, apresenta uma síntese das principais semelhanças e diferenças.
-4. Cita sempre a secção do programa de cada partido.
-5. Sê imparcial e factual.
-6. Responde em português europeu."""
+1. Responde APENAS com base no contexto fornecido; não completes com conhecimento próprio.
+2. Estrutura a resposta por partido, usando cabeçalhos.
+3. Para cada partido, resume a sua posição sobre o tema. Se os documentos de um \
+partido não abordarem o tema, diz que o programa desse partido não o refere.
+4. No final, apresenta uma síntese das principais semelhanças e diferenças.
+5. {_CITATION_RULE}
+6. Se nenhum documento abordar o tema, responde apenas: "{NO_INFO_ANSWER}"
+7. Sê imparcial e factual.
+8. Responde em português europeu."""
 
 COMPARISON_PROMPT = """\
 Contexto organizado por partido:
@@ -77,7 +93,8 @@ Aqui estão pares de pergunta e resposta sobre programas políticos portugueses:
 
 {qa_pairs}
 
-Usa estas respostas para sintetizar uma resposta completa à pergunta original:
+Usa estas respostas para sintetizar uma resposta completa à pergunta original, \
+mantendo as referências [n] das respostas:
 {question}
 
 Síntese:"""

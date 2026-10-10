@@ -88,6 +88,11 @@ HEADER_METADATA_KEYS = (
 )
 
 
+def section_path(headers: Dict[str, Any]) -> str:
+    """Breadcrumb of markdown headers, coarsest first, ignoring bookkeeping keys."""
+    return " > ".join(str(headers[key]) for key in HEADER_METADATA_KEYS if headers.get(key))
+
+
 # ---------------------------------------------------------------------------
 # Topic categories (canonical list used across the whole pipeline)
 # ---------------------------------------------------------------------------
@@ -260,11 +265,7 @@ class SearchResult(BaseModel):
     @property
     def section_path(self) -> str:
         """Breadcrumb of markdown headers, coarsest first, ignoring bookkeeping keys."""
-        return " > ".join(
-            str(self.header_hierarchy[key])
-            for key in HEADER_METADATA_KEYS
-            if self.header_hierarchy.get(key)
-        )
+        return section_path(self.header_hierarchy)
 
 
 class RetrievalResult(BaseModel):
