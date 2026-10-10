@@ -152,6 +152,21 @@ def test_sources_carry_the_number_the_prompt_shows(captured_prompts):
 
 
 @pytest.mark.unit
+def test_overlapping_windows_of_one_section_become_one_document(captured_prompts):
+    """Neighbouring children's parents are overlapping slices of one section;
+    showing both repeats most of the passage, so they merge into one span."""
+    section = " ".join(f"Frase {i} da secção sobre habitação." for i in range(60))
+    a, b, other = _result("LIVRE", 1), _result("LIVRE", 2), _result("LIVRE", 3)
+    a.parent_content, b.parent_content = section[:1200], section[800:2000]
+
+    answer = synthesize(_retrieval(AnswerShape.NARRATIVE, results=[a, b, other]))
+
+    assert [s["id"] for s in answer.sources] == ["LIVRE-1", "LIVRE-3"]
+    prompt = captured_prompts[0]
+    assert section[:2000] in prompt and prompt.count("Frase 30 da secção") == 1
+
+
+@pytest.mark.unit
 def test_grouped_documents_are_numbered_across_parties(captured_prompts):
     """Per-party numbering restarted at [1] for every party, so [1] was ambiguous."""
     answer = synthesize(_retrieval(AnswerShape.PER_PARTY, grouped=_grouped(["Partido Socialista", "CHEGA"])))

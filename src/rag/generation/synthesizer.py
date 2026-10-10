@@ -6,7 +6,7 @@ Selects the right strategy based on ``AnswerShape`` and produces a
 """
 
 import logging
-from typing import Dict, List, Tuple
+from typing import Dict, List, Optional, Tuple
 
 from src.rag.common.models import (
     AnswerShape,
@@ -30,23 +30,41 @@ logger = logging.getLogger(__name__)
 # Context formatting helpers
 # ---------------------------------------------------------------------------
 
-def _dedupe_by_context(results: List[SearchResult]) -> List[SearchResult]:
-    """Drop results whose context text was already included, keeping rank order.
+def _merge_windows(a: str, b: str) -> Optional[str]:
+    """One text covering both windows if one contains or overlaps the other, else None."""
+    if b in a:
+        return a
+    if a in b:
+        return b
+    for first, second in ((a, b), (b, a)):
+        start = first.find(second[:200])
+        if start >= 0 and second.startswith(first[start:]):
+            return first + second[len(first) - start:]
+    return None
 
-    Under small-to-big retrieval several sibling children can win slots in the
-    same parent section, and each would expand to identical parent text. Without
-    this the prompt carries the same passage two or three times, wasting context
-    and biasing the model toward whatever it repeats.
+
+def _dedupe_by_context(results: List[SearchResult]) -> List[SearchResult]:
+    """Collapse results whose context windows repeat or overlap, keeping rank order.
+
+    Under small-to-big retrieval several sibling children of one section win
+    slots, and their parent windows are the same text or overlapping slices of
+    it (neighbouring windows share most of their lines). Left alone, the prompt
+    carries the same passage two or three times, wasting budget and biasing the
+    model toward what it repeats. Overlapping windows of one section become a
+    single document spanning both, at the rank of the best-ranked child.
     """
-    seen: set[str] = set()
-    unique: List[SearchResult] = []
+    kept: List[SearchResult] = []
     for r in results:
-        text = r.context_text
-        if text in seen:
-            continue
-        seen.add(text)
-        unique.append(r)
-    return unique
+        for i, k in enumerate(kept):
+            if (k.party_name, k.section_path) != (r.party_name, r.section_path):
+                continue
+            merged = _merge_windows(k.context_text, r.context_text)
+            if merged is not None:
+                kept[i] = k.model_copy(update={"parent_content": merged})
+                break
+        else:
+            kept.append(r)
+    return kept
 
 
 def _numbered_flat(results: List[SearchResult]) -> List[Tuple[int, SearchResult]]:
