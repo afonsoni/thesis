@@ -17,17 +17,17 @@ _The LaTeX sources are the source of truth: delete a `\TODO{...}` once that pass
 - **L134** — Align the methodology with what actually happened: the plan above held up overall, but the real process was iterative with documented reversals (embedding model, vector store, chunking) — say that the methodology included revisiting earlier choices as the field evolved, which Chapter `ch:proposition` documents per component.
 - **L142** — Rewrite this section for the final chapter layout: Introduction, State of the Art, The Problem and its Challenges, sysname{} Proposal (indexing / retrieval / evaluation), sysname{} in Practice, Conclusions & Future Work. The unnumbered Preamble before Chapter 1 tells the pivot story (original bias-classification idea, why it was infeasible, how it led to RAG over manifestos); mention it in one line here rather than as a numbered chapter.
 
-## chapters/StateOfTheArt.tex (4)
+## chapters/StateOfTheArt.tex (5)
 
 - **L14** — Tense/framing pass: this chapter was written in early 2025 for the pre-thesis. Update the framing to reflect that the survey informed choices you went on to make.
 - **L42** — NEW subsection: the field moved fast during this work (a core thesis theme). Survey what appeared after the pre-thesis (2025--2026): retrieval-tuned embedding families (e.g. Qwen3-Embedding), reranker models, hybrid dense+lexical retrieval as standard practice, RAG evaluation frameworks (RAGAS-style, LLM-as-judge), and the technique series you drew from (RAG-from-Scratch). This subsection justifies WHY choices were revisited mid-project — link it to the decision-history narrative in Chapter `ch:proposition`.
-- **L51** — Decide: keep or drop an embeddings survey subsection here. There is a commented-out draft below; candidate-model detail may fit better in Section `subsec:embeddings`. If kept here, survey encoder FAMILIES and benchmarks (MTEB), not your specific candidates.
-- **L70** — Expand related work: you have unused bib entries that belong here (political-rag, givers-takers, llm-future, laver_benoit_garry is cited only in the Introduction). Position your work against them: what does a RAG-over-manifestos system do that manifesto-NLP classifiers and generic PT chatbots do not?
+- **L53** — REVIEW: Claude's draft of this subsection (2026-10-10). Read it, trim and sharpen it, and rewrite it in your own voice. The 750k-token corpus size was measured with the Qwen3-Embedding tokenizer; other tokenizers will differ somewhat.
+- **L106** — Decide: keep or drop an embeddings survey subsection here. There is a commented-out draft below; candidate-model detail may fit better in Section `subsec:embeddings`. If kept here, survey encoder FAMILIES and benchmarks (MTEB), not your specific candidates.
+- **L125** — Expand related work: you have unused bib entries that belong here (political-rag, givers-takers, llm-future, laver_benoit_garry is cited only in the Introduction). Position your work against them: what does a RAG-over-manifestos system do that manifesto-NLP classifiers and generic PT chatbots do not?
 
-## chapters/ProblemAndChallenges.tex (2)
+## chapters/ProblemAndChallenges.tex (1)
 
-- **L13** — REVIEW: Claude's draft of this chapter (2026-10-10). Read it, check the facts and the framing against your own view, and rewrite it in your own words.
-- **L258** — Make sure the defence of RAG lands where this points: a short version in the Introduction's motivation, the long-context-versus-RAG debate in Section `subsec:sota-recent`, and the verdict in the Conclusions once RQ5 has numbers.
+- **L10** — REVIEW: Claude's draft of this chapter (2026-10-10). Read it, check the facts and the framing, and rewrite it in your own words.
 
 ## chapters/Proposition.tex (17)
 
