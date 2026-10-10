@@ -48,6 +48,61 @@ dense+lexical retrieval as standard practice, RAG evaluation frameworks
 mid-project --- link it to the decision-history narrative in
 Chapter~\ref{ch:proposition}.}
 
+\subsection{Is retrieval still worth it?} \label{subsec:sota-why-rag}
+%% DRAFT (Claude, 2026-10-10): to be read and rewritten in the author's own words.
+\TODO{REVIEW: Claude's draft of this subsection (2026-10-10). Read it, trim
+and sharpen it, and rewrite it in your own voice. The 750k-token corpus size
+was measured with the Qwen3-Embedding tokenizer; other tokenizers will differ
+somewhat.}
+
+Every jump in context length revives the same obituary: why retrieve a few
+passages when the model can simply read everything? The windows went from
+thousands of tokens to a million, and ``RAG is dead'' became a recurring
+industry refrain. For a corpus like this one, the obituary is premature.
+Six reasons:
+
+\begin{description}
+    \item[Reading everything is not reading well.] Long-context models use
+    their input unevenly. Information in the middle of a long prompt is used
+    worse than information at its edges~\citep{liu2024lostinthemiddle}, and
+    performance grows less reliable as the input grows, even on simple
+    tasks~\citep{hong2025contextrot}. A shortlist of relevant passages gives
+    the model less to get lost in.
+    \item[Reading everything is expensive.] The eight manifestos come to
+    roughly 750 thousand tokens. Sending them with every question means paying
+    for the whole corpus every time; \sysname{} sends at most 16 thousand,
+    about fifty times less. A controlled comparison found that long-context
+    models outperform RAG on average when resources are unlimited, while RAG
+    costs far less~\citep{li2024ragorlongcontext}. A civic tool meant to be
+    free does not have unlimited resources.
+    \item[The long tail is not in the weights.] Models remember popular facts
+    well and rare ones badly~\citep{kandpal2023largelanguagemodelsstruggle}.
+    A small party's housing proposal, written in European Portuguese, is about
+    as long-tail as knowledge gets.
+    \item[Receipts.] Every claim in a RAG answer can cite the passage it came
+    from. For political information the citation is the product: a reader who
+    doubts an answer can check it in seconds.
+    \item[The parties' words, not the model's.] Language models absorb
+    political leanings from their training
+    data~\citep{pretraining-political-bias}. Grounding answers in the
+    manifestos keeps the model reporting positions rather than holding them,
+    and makes ``the manifestos do not say'' a legitimate answer instead of an
+    invitation to improvise.
+    \item[New election, same model.] Updating a RAG system means indexing new
+    documents, not retraining a model. Adding a party outside parliament or a
+    past election is a data task, and no answer depends on a training cutoff.
+\end{description}
+
+To be fair to the other side: retrieval brings failure modes of its own. A
+passage that is never retrieved can never be cited, and
+Chapter~\ref{ch:proposition} documents two failures that went unnoticed for
+months. Hybrid designs such as Self-Route~\citep{li2024ragorlongcontext},
+which answer from retrieved passages and fall back to the full context only
+when those fall short, suggest the real answer is ``both, routed well''.
+Whether \sysname{} earns its keep against a strong model with no retrieval at
+all is not argued here but measured: it is RQ5
+(Section~\ref{sec:research-questions}).
+
 \TODO{Decide: keep or drop an embeddings survey subsection here. There is a
 commented-out draft below; candidate-model detail may fit better in
 Section~\ref{subsec:embeddings}. If kept here, survey encoder
