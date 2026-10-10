@@ -78,3 +78,27 @@ def test_runner_judges_against_the_generators_own_context():
         generate_fn=lambda r: GeneratedAnswer(answer="A", context="[1] PARENT"),
     )
     assert run.context == "[1] PARENT"
+
+
+@pytest.mark.unit
+@pytest.mark.parametrize("abstained", [True, False])
+def test_unanswerable_question_scores_only_abstention(fake_judge, monkeypatch, abstained):
+    """A refusal has no claims worth checking; whether the system refused is the score."""
+    monkeypatch.setattr(gen, "judge_answer_relevance", lambda q, a, m=None: JudgeScore(score=1, abstained=abstained))
+    q = EvalQuestion(id="q-52", question="Q?", reference_answer="REF", answerable=False)
+    run = QuestionRun(question_id="q-52", variant="v", answer="ANSWER", context="CONTEXT")
+
+    assert gen.GenerationJudgeMetric().score(run, q) == {"abstention": float(abstained)}
+    assert fake_judge["extract"] == []
+
+
+@pytest.mark.unit
+def test_answerable_question_records_false_refusal(fake_judge, monkeypatch):
+    monkeypatch.setattr(gen, "judge_answer_relevance", lambda q, a, m=None: JudgeScore(score=1, abstained=True))
+    q = EvalQuestion(id="q-01", question="Q?", reference_answer="REF")
+    run = QuestionRun(question_id="q-01", variant="v", answer="ANSWER", context="CONTEXT")
+
+    scores = gen.GenerationJudgeMetric().score(run, q)
+
+    assert scores["false_refusal"] == 1.0
+    assert "abstention" not in scores

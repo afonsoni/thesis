@@ -37,6 +37,10 @@ logger = logging.getLogger(__name__)
 class JudgeScore(BaseModel):
     score: int = Field(ge=1, le=5)
     rationale: str = ""
+    # Whether the answer declines (says the manifestos do not say, or rejects the
+    # question's premise) instead of answering. Read off the relevance call so
+    # abstention costs no extra judge call.
+    abstained: bool = False
 
     @property
     def normalized(self) -> float:
@@ -139,4 +143,8 @@ def judge_answer_relevance(
     )
     if out is None:
         return None
-    return JudgeScore(score=max(1, min(5, int(out.score))), rationale=(out.rationale or "")[:500])
+    return JudgeScore(
+        score=max(1, min(5, int(out.score))),
+        rationale=(out.rationale or "")[:500],
+        abstained=bool(out.abstained),
+    )

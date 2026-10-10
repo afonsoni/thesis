@@ -91,9 +91,10 @@ stress type per rung; a spread of E/M/H.
 
 ## Abstention candidates (not counted in the 51)
 
-The harness has no metric for "the manifestos do not say". These need a
-`gold_chunk_keys: []` convention and a judge rubric that rewards refusal
-before they can be scored. Include only if that lands.
+Now scored: these three plus five more are q-52–q-59 in
+`anchoring/ANCHORING.md`, with `answerable: no` and no gold chunks, and count
+towards the `abstention` metric. q-60 (PAN vs PS on touradas, PS silent) checks
+partial abstention in a comparison.
 
 | Question | Why it is unanswerable |
 |---|---|

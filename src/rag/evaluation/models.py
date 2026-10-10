@@ -38,6 +38,11 @@ class EvalQuestion(BaseModel):
     expected_topics: List[str] = Field(default_factory=list)
     gold_chunk_keys: List[str] = Field(default_factory=list)  # sha1: content keys
     reference_answer: str = ""
+    # False when the manifestos do not answer the question (topic never raised,
+    # false premise, party not in the corpus). Such a question has no gold
+    # chunks, and the only right answer is to say so: it is scored on
+    # abstention, not on faithfulness or correctness.
+    answerable: bool = True
     source_party: str = ""
     source_section: str = ""
     curated: bool = False  # True once a human has validated this question

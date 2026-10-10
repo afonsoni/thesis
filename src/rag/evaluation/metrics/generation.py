@@ -9,6 +9,10 @@ Generation metrics.
   ``correctness`` is their F1. Recall alone reads "did the answer say what the
   reference says", without penalising true detail the reference left out.
 - ``answer_relevance`` (reference-free): a holistic 1-5 judgement mapped to [0, 1].
+- ``abstention`` (unanswerable questions only): 1 if the answer declined, else 0.
+  Its mean is the share of unanswerable questions the system refused.
+- ``false_refusal`` (answerable questions only): 1 if the answer declined. Both
+  are read off the relevance call, so they add no judge call.
 
 A score whose judge calls failed, or that has nothing to score (an answer with
 no claims), is omitted rather than set to 0, so an outage cannot pass for a bad
@@ -59,6 +63,14 @@ class GenerationJudgeMetric:
     def score(self, run: QuestionRun, question: EvalQuestion) -> Dict[str, float]:
         if not run.answer.strip():
             return {}
+        if not question.answerable:
+            # The right answer is a refusal: faithfulness and correctness of one
+            # measure nothing, so only whether it declined is scored.
+            rel = judge_answer_relevance(question.question, run.answer, self.model)
+            if rel is None:
+                return {}
+            run.judgements["abstention"] = {"abstained": rel.abstained, "rationale": rel.rationale}
+            return {"abstention": float(rel.abstained)}
         scores: Dict[str, float] = {}
 
         claims = extract_claims(question.question, run.answer, self.model)
@@ -86,5 +98,8 @@ class GenerationJudgeMetric:
         rel = judge_answer_relevance(question.question, run.answer, self.model)
         if rel is not None:
             scores["answer_relevance"] = rel.normalized
-            run.judgements["answer_relevance"] = {"score": rel.score, "rationale": rel.rationale}
+            scores["false_refusal"] = float(rel.abstained)
+            run.judgements["answer_relevance"] = {
+                "score": rel.score, "abstained": rel.abstained, "rationale": rel.rationale,
+            }
         return scores

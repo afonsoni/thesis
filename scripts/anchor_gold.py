@@ -13,7 +13,9 @@ place a human reviews and edits:
               ANCHORING.md: use it before review, never after.
   compile     Read ANCHORING.md (labels, ticked candidates, reference answers)
               and write golden.json. A question is ``curated`` only when it has
-              a ticked chunk, a reference answer and ``reviewed: yes``.
+              a ticked chunk, a reference answer and ``reviewed: yes``. An
+              ``answerable: no`` question (the manifestos do not answer it) has
+              no chunk to tick and needs only the reference and the review.
 
 Labels are seeded from CANDIDATES.md plus the decisions recorded below, and can be
 edited in ANCHORING.md before compiling.
@@ -233,11 +235,12 @@ def parse_anchoring(path: str = ANCHORING_MD) -> List[EvalQuestion]:
         if m:
             flush()
             cur = {"id": m.group(1), "question": m.group(2), "gold": [], "reference": "",
-                   "parties": [], "topics": [], "coverage": "best_match", "split": "", "reviewed": "no"}
+                   "parties": [], "topics": [], "coverage": "best_match", "split": "", "reviewed": "no",
+                   "answerable": "yes"}
             continue
         if cur is None:
             continue
-        m = re.match(r"^- (split|coverage|parties|topics|reference|reviewed): ?(.*)$", line)
+        m = re.match(r"^- (split|coverage|parties|topics|reference|reviewed|answerable): ?(.*)$", line)
         if m:
             key, val = m.group(1), m.group(2).strip()
             if key in ("parties", "topics"):
@@ -261,15 +264,16 @@ def _question(cur: dict) -> EvalQuestion:
         original_query=cur["question"], parties=cur["parties"],
         coverage=Coverage(cur["coverage"]), topics=cur["topics"],
     ).query_type.value
+    answerable = cur["answerable"].lower() != "no"
     return EvalQuestion(
         id=cur["id"], question=cur["question"], query_type=query_type,
         coverage=cur["coverage"], expected_parties=cur["parties"],
         expected_topics=cur["topics"], gold_chunk_keys=cur["gold"],
-        reference_answer=cur["reference"],
+        reference_answer=cur["reference"], answerable=answerable,
         source_party=cur["parties"][0] if len(cur["parties"]) == 1 else "",
         # Curated means a human signed it off, not merely that it is filled in:
         # ticks and references may have been proposed by a model.
-        curated=bool(cur["gold"] and cur["reference"] and cur["reviewed"].lower() == "yes"),
+        curated=bool((cur["gold"] or not answerable) and cur["reference"] and cur["reviewed"].lower() == "yes"),
         split=cur["split"],
     )
 

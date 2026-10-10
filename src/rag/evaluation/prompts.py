@@ -89,11 +89,15 @@ Escala:
 3 = responde parcialmente ou de forma vaga
 1 = não responde / foge ao tema
 
+Indica também se a RESPOSTA se abstém: "abstained" é true se diz que os programas \
+(ou o contexto) não contêm a informação pedida, ou rejeita a premissa da pergunta, \
+em vez de responder; é false se responde, mesmo que só em parte.
+
 PERGUNTA: {question}
 
 RESPOSTA: {answer}
 
-Responde em JSON: {{"score": <1-5>, "rationale": "..."}}"""
+Responde em JSON: {{"score": <1-5>, "abstained": <true|false>, "rationale": "..."}}"""
 
 # ---------------------------------------------------------------------------
 # Claim-level judging (RAGAS-style: Es et al., EACL 2024)

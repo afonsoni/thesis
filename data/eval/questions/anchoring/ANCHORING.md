@@ -2770,3 +2770,123 @@ as curated (`eval --curated-only`).
   > Mas é preciso melhorar ainda mais a governação pública e modernizar e simplificar os procedimentos administrativos e os mecanismos de gestão da Administração Pública, além de valorizar e qualificar os dirigentes e os trabalhadores, através de políticas públicas coerentes e eficazes. Para tal, o Partido Socialista compromete-se a: - Adotar modelos inovadores de gestão organizativa, designadamente a…
 - [ ] `sha1:5220ce767d7bca680753c05e2e9407cd30a4d58f` · **Partido Socialista** · PLANO DE AÇÃO PARA PORTUGAL INTEIRO 2024 > **4.ª MISSÃO:** UMA DEMOCRACIA DE QUALIDADE PARA TODOS > 5. Uma Administração Pública inovadora e eficiente com trabalhadores motivados > INTRODUÇÃO
   > - Concluir a revisão das carreiras não revistas, com uma discussão alargada e transparente para harmonizar regimes, garantir a equidade e a sustentabilidade, assegurando percursos profissionais assentes no mérito dos trabalhadores; - Garantir a **atualização anual dos salários** respeitando o princípio da não compressão de carreiras por via do aumento do SMN; - Promover a qualificação e capacitaçã…
+
+# Abstention questions
+
+The manifestos do not answer q-52–q-59, so the right answer is a refusal. They have
+`answerable: no`, no chunks to tick, and are scored on `abstention` only. Absence was
+checked by searching every chunk and its parent section in the index (2,815 chunks)
+for the terms in each note. q-60 is answerable for one party only: it checks that a
+comparison says the other party's programme is silent.
+
+## q-52 — O que propõe o PCP sobre a legalização da canábis?
+
+- split: test
+- coverage: best_match
+- parties: Partido Comunista Português
+- topics: saude
+- answerable: no
+- stresses: abstention · diff: M
+- note: zero chunks do PCP com canábis/cannabis/canabis
+- reference: O programa eleitoral do PCP para 2024 não aborda a legalização da canábis.
+- reviewed: no
+
+## q-53 — Qual é a posição do PAN sobre a NATO?
+
+- split: dev
+- coverage: best_match
+- parties: Pessoas-Animais-Natureza
+- topics: politica_externa
+- answerable: no
+- stresses: abstention · diff: M
+- note: zero chunks do PAN com NATO/OTAN (palavra inteira)
+- reference: O programa eleitoral do PAN para 2024 não refere a NATO.
+- reviewed: no
+
+## q-54 — O que propõe o PS para a energia nuclear?
+
+- split: test
+- coverage: best_match
+- parties: Partido Socialista
+- topics: ambiente
+- answerable: no
+- stresses: abstention · diff: M
+- note: zero chunks do PS com "nuclear"
+- reference: O programa eleitoral do PS para 2024 não aborda a energia nuclear.
+- reviewed: no
+
+## q-55 — Porque é que o LIVRE defende a saída de Portugal da União Europeia?
+
+- split: test
+- coverage: best_match
+- parties: LIVRE
+- topics: politica_externa
+- answerable: no
+- stresses: abstention, false premise · diff: H
+- note: nenhum programa propõe sair da UE ou do euro; a premissa é falsa
+- reference: O programa eleitoral do LIVRE para 2024 não defende a saída de Portugal da União Europeia; a premissa da pergunta não tem apoio no programa.
+- reviewed: no
+
+## q-56 — O que propõe o CHEGA sobre o serviço militar obrigatório?
+
+- split: test
+- coverage: best_match
+- parties: CHEGA
+- topics: seguranca
+- answerable: no
+- stresses: abstention · diff: H
+- note: zero chunks do CHEGA com "serviço militar"
+- reference: O programa eleitoral do CHEGA para 2024 não aborda o serviço militar obrigatório.
+- reviewed: no
+
+## q-57 — Qual é a posição da Aliança Democrática sobre as touradas?
+
+- split: dev
+- coverage: best_match
+- parties: Aliança Democrática
+- topics: cultura, outros
+- answerable: no
+- stresses: abstention · diff: M
+- note: só BE, LIVRE e PAN referem touradas/tauromaquia
+- reference: O programa eleitoral da Aliança Democrática para 2024 não refere as touradas.
+- reviewed: no
+
+## q-58 — O que propõe a Iniciativa Liberal sobre o rendimento básico incondicional?
+
+- split: dev
+- coverage: best_match
+- parties: Iniciativa Liberal
+- topics: seguranca_social
+- answerable: no
+- stresses: abstention · diff: M
+- note: só o LIVRE refere "rendimento básico"
+- reference: O programa eleitoral da Iniciativa Liberal para 2024 não aborda o rendimento básico incondicional.
+- reviewed: no
+
+## q-59 — O que propõe o ADN para a habitação?
+
+- split: test
+- coverage: best_match
+- parties: -
+- topics: habitacao
+- answerable: no
+- stresses: abstention, out-of-corpus party · diff: H
+- note: o ADN não tem programa no corpus; a pesquisa geral devolve propostas de outros partidos
+- reference: O corpus não inclui o programa do ADN, por isso não é possível dizer o que propõe para a habitação.
+- reviewed: no
+
+## q-60 — O que defendem o PAN e o PS sobre as touradas?
+
+- split: test
+- coverage: best_match
+- parties: Pessoas-Animais-Natureza, Partido Socialista
+- topics: cultura, outros
+- stresses: abstention (partial), comparison · diff: M
+- note: gold do PAN igual ao de q-04; o PS não refere touradas
+- reference: O PAN compromete-se a abolir a tourada e os espetáculos tauromáquicos em Portugal, que considera um erro civilizacional; enquanto tal não acontecer, propõe eliminar os apoios públicos a estas atividades, retirá-las da lista do Património Cultural Imaterial, reconverter as praças de touros e revogar a isenção de IVA nos serviços de artistas tauromáquicos. O programa do PS não refere as touradas.
+- reviewed: no
+
+- [x] `sha1:3010208d73e94966bfa937af8e55973febbfef8d` · **Pessoas-Animais-Natureza** · (gold de q-04)
+- [x] `sha1:9de71c600cb7c578dd9cf864d0fdbc8dbdf7a577` · **Pessoas-Animais-Natureza** · (gold de q-04)
+- [x] `sha1:9afbac33a6bc20fe0eeaa4d90737b7d7e47b5fca` · **Pessoas-Animais-Natureza** · (gold de q-04)
+- [x] `sha1:b6480ea6968adb16ba94987e579189404ecb4c2e` · **Pessoas-Animais-Natureza** · (gold de q-04)

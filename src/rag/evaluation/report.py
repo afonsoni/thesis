@@ -27,6 +27,7 @@ _COLUMN_PRIORITY = [
     "hit", "recall", "mrr", "ndcg",
     "query_type_acc", "coverage_acc", "party_f1", "topic_f1",
     "faithfulness", "correctness", "correctness_recall", "answer_relevance",
+    "abstention", "false_refusal",
     "avg_latency_s", "error_rate",
 ]
 
@@ -159,13 +160,15 @@ def write_leaderboard(results: List[VariantResult], reports_dir: str) -> str:
         lines.append(f"| {r.variant} | " + " | ".join(cells) + " |")
     lines.extend([
         "",
-        "Higher is better for all metrics except `avg_latency_s` and `error_rate`.",
+        "Higher is better for all metrics except `false_refusal`, `avg_latency_s` and `error_rate`.",
         "Cells are means over the questions every variant scored on that metric, with a",
         "95% bootstrap interval over questions; `error_rate` counts the rest.",
         "Retrieval metrics score the full list handed to generation: `top_k` chunks, or",
         "`top_k_per_party` per party on a per-party fan-out.",
         "`faithfulness` and `correctness*` are claim-level (RAGAS-style);",
         "`answer_relevance` is a 1-5 judgement mapped to [0, 1].",
+        "`abstention` is the share of unanswerable questions the system declined;",
+        "`false_refusal` the share of answerable ones it declined.",
         "",
     ])
     used = {r.variant: r.models_used for r in results if len(r.models_used) > 1}
