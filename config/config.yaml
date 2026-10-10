@@ -58,6 +58,11 @@ llm:
       - "google/gemma-4-31b-it:free"
       - "nvidia/nemotron-3-ultra-550b-a55b:free"
       - "nvidia/nemotron-3.5-lightning:free"
+    # Which of a model's providers OpenRouter picks: unset weighs toward the
+    # cheapest, "throughput" picks the fastest, "price" only the cheapest. Unset,
+    # paid Gemma 4 26B went to a ~50 tok/s provider (a 1.4k-token comparison took
+    # 87 s); "throughput" chose one at ~300 tok/s for ~40% more per call (2026-10-10).
+    provider_sort: "throughput"
     temperature: 0.2
     max_tokens: 3000 # cap on the *generated* answer, not on the prompt; an 8-party answer ran past 1500
     # Context the synthesiser may put in one prompt. Retrieval can now hand

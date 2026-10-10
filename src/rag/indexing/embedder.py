@@ -32,7 +32,12 @@ class Embedder:
     def __init__(self, model_name: Optional[str] = None):
         model_name = model_name or config.get("embeddings.model")
         logger.info("Loading embedding model: %s", model_name)
-        self.model = SentenceTransformer(model_name)
+        # The cached copy first: an online load spends 5-12 s asking the Hub
+        # whether the files changed, an offline one 0.7 s. Download only if absent.
+        try:
+            self.model = SentenceTransformer(model_name, local_files_only=True)
+        except OSError:
+            self.model = SentenceTransformer(model_name)
 
         # Left padding, as Qwen3-Embedding's model card specifies. Pooling is correct
         # either way (sentence-transformers uses the attention mask), but the side

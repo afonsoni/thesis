@@ -150,6 +150,9 @@ def _call_openrouter_once(
     }
     if response_format:
         payload["response_format"] = response_format
+    provider_sort = config.get("llm.openrouter.provider_sort")
+    if provider_sort:
+        payload["provider"] = {"sort": provider_sort}
 
     # OpenRouter model fallbacks: on any error from one model (rate limit,
     # downtime, context length) it tries the next in ``models``. It accepts at
