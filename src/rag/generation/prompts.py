@@ -19,6 +19,13 @@ _CITATION_RULE = (
     "retos, logo a seguir à afirmação, por exemplo [2] ou [1][3]."
 )
 
+# Shared by both answer prompts: spend the output budget on content, not framing
+# (an 8-party answer otherwise runs into llm.openrouter.max_tokens).
+_CONCISION_RULE = (
+    "Sê direto: sem introduções, fórmulas de cortesia nem repetição da pergunta. "
+    "Cada frase deve trazer informação concreta do contexto (medidas, valores, prazos)."
+)
+
 ANSWER_SYSTEM_PROMPT = f"""\
 És um assistente especializado em análise de programas políticos portugueses \
 para as eleições legislativas de 2024.
@@ -31,7 +38,8 @@ Regras:
 os programas não referem. Se a pergunta assumir algo que o contexto não confirma, \
 di-lo em vez de o aceitar.
 5. Responde sempre em português europeu, de forma clara e estruturada.
-6. Usa marcadores (•) para listas e negrito para destaques."""
+6. Usa marcadores (•) para listas e negrito para destaques.
+7. {_CONCISION_RULE}"""
 
 ANSWER_PROMPT = """\
 Contexto:
@@ -53,11 +61,13 @@ Regras:
 2. Estrutura a resposta por partido, usando cabeçalhos.
 3. Para cada partido, resume a sua posição sobre o tema. Se os documentos de um \
 partido não abordarem o tema, diz que o programa desse partido não o refere.
-4. No final, apresenta uma síntese das principais semelhanças e diferenças.
+4. No final, apresenta uma síntese breve das principais semelhanças e diferenças, \
+sem repetir o que já disseste por partido.
 5. {_CITATION_RULE}
 6. Se nenhum documento abordar o tema, responde apenas: "{NO_INFO_ANSWER}"
 7. Sê imparcial e factual.
-8. Responde em português europeu."""
+8. Responde em português europeu.
+9. {_CONCISION_RULE}"""
 
 COMPARISON_PROMPT = """\
 Contexto organizado por partido:

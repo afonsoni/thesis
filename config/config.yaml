@@ -59,7 +59,7 @@ llm:
       - "nvidia/nemotron-3-ultra-550b-a55b:free"
       - "nvidia/nemotron-3.5-lightning:free"
     temperature: 0.2
-    max_tokens: 1500 # cap on the *generated* answer, not on the prompt
+    max_tokens: 3000 # cap on the *generated* answer, not on the prompt; an 8-party answer ran past 1500
     # Context the synthesiser may put in one prompt. Retrieval can now hand
     # generation a per-party fan-out (top_k_per_party × 8 parties) instead of a
     # flat top_k, so the context is no longer bounded by a small constant and
