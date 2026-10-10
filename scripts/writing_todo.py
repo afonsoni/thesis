@@ -25,7 +25,7 @@ SEARCH_ORDER = [
     "chapters/StateOfTheArt.tex",
     "chapters/ProblemAndChallenges.tex",
     "chapters/Proposition.tex",
-    "chapters/Applications.tex",
+    "chapters/PrototypeDemonstration.tex",
     "chapters/ConclusionsAndFutureWork.tex",
     "chapters/Preamble.tex",
     "preamble/Abstract.tex",

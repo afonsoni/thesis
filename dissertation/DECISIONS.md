@@ -57,12 +57,53 @@ chapter is built from.
   than expected". The leaderboard settles whether it stays on as a default.
 - **Chunk-size sweep (128–2048 tokens).** Promised in the pre-thesis and never
   run. Cheap now that the harness exists, and it would answer RQ1 directly.
+  Two prerequisites found 2026-10-09:
+  - *Gold matching.* Gold keys are hashes of the current 400-token chunks
+    (`keys.py`), so a re-chunked index has none of them. The sweep needs
+    overlap-based matching: a chunk counts as relevant if it shares enough text
+    with a gold chunk.
+  - *Run it after the party-name decision.* Chunk size and party names
+    interact. On the PAN touradas question, the best touradas chunk ranked
+    49 / 18 / 6 / 3 at 128 / 200 / 400 / 800 tokens with "PAN" in the query
+    (fewer, bigger chunks leave fewer generic "O PAN é…" chunks to compete),
+    but 1 / 4 / 1 / 11 with it stripped. A sweep run with party names would
+    pick the wrong size.
+
+  Embedding the small-to-big parents as chunks (alone: rank 8, or 7 stripped;
+  alongside the children: 11, or 1 stripped) did not help on that question.
+  Parked unless the dev results show broad questions failing.
 - **Encoder comparison — decided, to run** (2026-10-06). Re-index the same
   corpus once per encoder (same chunking) and compare retrieval-only metrics
   (hit@k, MRR, nDCG) on the gold set; no LLM judge needed. Candidates:
   Qwen3-Embedding-0.6B (current), multilingual-E5, BGE-M3, and a
   Portuguese-native encoder with a long enough window if one exists. Answers
   RQ1 together with the chunk-size sweep.
+- **Dense-retrieval ablations on the dev split — decided, to run** (2026-10-09).
+  Three cheap changes, each measured against `current` on retrieval-only
+  metrics before any becomes a default:
+  1. *Contextual chunk headers*: embed `party | section path` + content.
+     `content` stays unchanged, so gold keys still match; needs a second
+     table and re-embedding only. 58% of chunks (1,635 of 2,815) contain no
+     heading at all.
+  2. *Task-specific query instruction* for Qwen3-Embedding, in English per
+     the model card, instead of the shipped "Given a web search query…".
+     Query side only, no re-index.
+  3. *Party names stripped from dense queries* under a party filter (the
+     lexical side already does this).
+
+  Built 2026-10-09 as the ladder variants `contextual`, `instructed` and
+  `party_stripped` (`src/rag/evaluation/variants.py`); `contextual` searches
+  the `party_programs_ctx` table, built from the same eight checkpoints.
+
+  Evidence (q-04, "Qual é a posição do PAN sobre as touradas?", PAN-filtered,
+  rank of the best gold chunk among 179): 6 as is; 1 with the party name
+  stripped; 2 with contextual headers; 1 with both; 3 with the custom
+  instruction. Generic self-describing chunks ("O PAN é um partido de
+  causas…") rank top-3 for four of five different PAN questions: the party
+  name pulls the query towards chunks *about the party*, which a party
+  filter makes pure noise. The reranker on the dense top 30 also lifts two
+  gold chunks to ranks 1–2; the other two (one line each inside chunks about
+  other things) never reach the top 30.
 - **Agentic rung — decided, to build** (2026-10-06). An LLM-driven retrieval
   loop (decide whether/what to retrieve, re-query, self-check) added as a
   ladder variant, so "agentic vs hybrid + reranking" becomes measurable.
