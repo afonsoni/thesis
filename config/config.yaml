@@ -1,40 +1,20 @@
-# Main configuration file for the RAG system
+# RAG system configuration. Rationale for past values lives in git history.
 
-# Data paths
 paths:
   raw_data: "data/0_raw"
   markdown_data: "data/1_markdown"
   processed_data: "data/2_processed"
 
-# Embedding settings
-#
-# Retrieval-trained, asymmetric (instruction prefix on queries, none on
-# documents — Embedder applies these automatically) and a 32k context window, so
-# the encoder is no longer what limits chunk size.
-#
-# Replaced serafim-900m-...-ir, which was retrieval-tuned but capped at 128
-# tokens (also its training length), which silently truncated 63% of the
-# corpus. The window, not the training task, was the reason for the swap.
-#
-# Changing `model` changes the vector dimension (read from the model), and
-# pgvector cannot alter a VECTOR(n) column in place: reindex with `--drop`.
-#   Qwen/Qwen3-Embedding-0.6B ............ 1024 dims,  32768 ctx
-#   Alibaba-NLP/gte-multilingual-base .... 768 dims,    8192 ctx
-#   PORTULAN/serafim-900m-...-ir ......... 1536 dims,    128 ctx  (previous)
+# Changing `model` changes the vector dimension: reindex with `--drop`.
+#   Qwen/Qwen3-Embedding-0.6B ...... 1024 dims, 32k ctx (current)
+#   PORTULAN/serafim-900m-...-ir ... 1536 dims, 128 ctx (truncated 63% of the corpus)
 embeddings:
   model: "Qwen/Qwen3-Embedding-0.6B"
-  # Optional hard cap on the encoder's context window. Deliberately unset: a cap
-  # below the chunk budget truncates silently, which is the bug this replaced.
-  # Set it only to *reduce* the window on purpose, e.g. to ablate serafim at
-  # 128 vs the 512 its DeBERTa-v2 backbone actually supports.
+  # Leave unset: a cap below the chunk budget truncates silently. Only for ablations.
   # max_seq_length: 512
-  # Task sentence for the `instructed` variant (RetrievalConfig.query_instruction).
-  # Qwen3-Embedding's model card recommends a task-specific instruction, in English;
-  # the shipped default is "Given a web search query, retrieve relevant passages
-  # that answer the query".
+  # Query instruction of the `instructed` variant (English, per the model card).
   task_instruction: "Given a question about a Portuguese party's 2024 election manifesto, retrieve the manifesto passages that state the party's proposals or position on it"
 
-# PostgreSQL + pgvector settings
 postgresql:
   host: "localhost"
   port: "5432"
@@ -43,129 +23,69 @@ postgresql:
   password: "postgres"
   table_name: "party_programs"
 
-# LLM runtime transport (OpenRouter)
-# API key is read from environment variables:
-#   OPENROUTER_API_KEY
+# OpenRouter; key in OPENROUTER_API_KEY.
 llm:
   openrouter:
     model: "google/gemma-4-26b-a4b-it"
-    # OpenRouter model fallbacks, tried in order when the requested model errors
-    # (rate limit, downtime, context length); OpenRouter takes at most 3 per request,
-    # so a longer chain is sent in groups of 3. Applied to every call, whatever its
-    # model. The model that answered is counted in llm_transport.MODEL_USAGE and
-    # recorded per evaluation run, since a fallback can change a judge's verdicts.
+    # Tried in order when a model errors; the one that answered is recorded per run.
     fallback_models:
       - "google/gemma-4-31b-it:free"
       - "nvidia/nemotron-3-ultra-550b-a55b:free"
       - "nvidia/nemotron-3.5-lightning:free"
-    # Which of a model's providers OpenRouter picks: unset weighs toward the
-    # cheapest, "throughput" picks the fastest, "price" only the cheapest. Unset,
-    # paid Gemma 4 26B went to a ~50 tok/s provider (a 1.4k-token comparison took
-    # 87 s); "throughput" chose one at ~300 tok/s for ~40% more per call (2026-10-10).
+    # Provider choice: unset leans cheapest (a ~50 tok/s provider for Gemma),
+    # "throughput" the fastest (~300 tok/s, ~40% dearer), "price" the cheapest.
     provider_sort: "throughput"
     temperature: 0.2
-    max_tokens: 3000 # cap on the *generated* answer, not on the prompt; an 8-party answer ran past 1500
-    # Context the synthesiser may put in one prompt. Retrieval can now hand
-    # generation a per-party fan-out (top_k_per_party × 8 parties) instead of a
-    # flat top_k, so the context is no longer bounded by a small constant and
-    # something has to bound it. Chunks over this are trimmed lowest-ranked
-    # first, and never so far as to drop a party.
-    # 32000 (was 16000, before that 8000): an 8-party comparison retrieves 24
-    # hits whose parents total 14-24k tokens. On dev q-33 (salário mínimo, all
-    # parties; same retrieval, 3 paid-Gemma generations per budget) 16000 dropped
-    # 11 of 24 chunks and 4 of 9 gold, scoring correctness 0.43 / recall 0.53;
-    # 32000 kept everything and scored 0.77 / 0.89. Flat routes (median ~4k) are
-    # unaffected. Gemma 4 accepts 262k, the fallbacks 1M.
+    max_tokens: 3000 # cap on the generated answer
+    # Context budget per generation prompt; the lowest-ranked chunks are trimmed
+    # first, never a whole party. An 8-party comparison needs ~14-24k.
     max_prompt_tokens: 32000
     max_retries: 3
     base_backoff_secs: 1.0
     max_backoff_secs: 30.0
 
-# Retrieval settings
 retrieval:
-  multi_query_count: 4 # number of expanded queries (Part 5)
-  rrf_k: 60 # RRF constant (Part 6)
+  multi_query_count: 4 # expanded queries
+  rrf_k: 60
   default_top_k: 5 # results handed to generation (CLI: query -k)
   top_k_per_party: 3 # for comparison queries
-
-  # Cross-encoder reranking (variant `reranked`; off by default).
-  # Scores each (question, chunk) pair jointly instead of comparing independent
-  # embeddings, which is more accurate and far slower — hence a second pass over
-  # a shortlist rather than the corpus. Must be multilingual: the queries and the
-  # corpus are Portuguese.
-  #   BAAI/bge-reranker-v2-m3 .......................... 568M, 8k ctx (default)
-  #   cross-encoder/mmarco-mMiniLMv2-L12-H384-v1 ....... 118M, 512 ctx (faster)
+  # Cross-encoder of the `reranked` variants; must be multilingual.
+  # bge-reranker-v2-m3: 568M, 8k ctx; mmarco-mMiniLMv2-L12: 118M, 512 ctx (faster).
   reranker_model: "BAAI/bge-reranker-v2-m3"
-  # Candidates retrieved and scored before the reranker trims back to top_k.
-  # Reranking can only reorder what retrieval surfaced, so this is the recall
-  # ceiling of the reranked variant; raising it costs one forward pass each.
-  rerank_candidates: 30
+  rerank_candidates: 30 # shortlist the reranker scores: its recall ceiling
 
-# Indexing settings
 indexing:
-  # Windowing strategy: char | token | small_to_big
-  #   char         – legacy baseline. Measures chunk size in CHARACTERS, which
-  #                  overruns the encoder's token window and silently truncates.
-  #                  Kept only as the ablation baseline; do not use in production.
-  #   token        – measures in tokens, so every chunk fits the window.
-  #   small_to_big – token-sized children are embedded, but the full parent
-  #                  section is what generation reads. Best of both.
+  # small_to_big: embed token-sized children, generate from their parent section.
+  # token: token-sized chunks only. char: truncating baseline, ablations only.
   chunk_strategy: "small_to_big"
-
-  # Token budget for the token strategies, i.e. the size of the *embedded child*.
-  # No longer pinned to the encoder's window — Qwen3 allows 32k — so this is now a
-  # free retrieval-granularity choice: small enough that a chunk's embedding stays
-  # about one thing, large enough to be self-contained. 400 keeps the chunk count
-  # (and so the classification cost) close to the original character-based run,
-  # while generation still receives the whole parent section.
-  max_chunk_tokens: 400
+  max_chunk_tokens: 400 # embedded child
   chunk_overlap_tokens: 80
-  # small_to_big only: cap on the parent a child hands to generation. A header
-  # section within it is passed whole; a bigger one (PAN has 14 headers, so its
-  # sections are whole chapters of 5-9k tokens) gives each child a window of its
-  # neighbouring children up to this size. Keeps one hit from filling the 16k
-  # generation prompt (llm.openrouter.max_prompt_tokens).
+  # small_to_big: a section above this hands each child a window of its neighbours.
   max_parent_tokens: 1500
-  # Table of the `contextual` variant: same chunks, embedded as
-  # "party | section path" + text (main.py index --contextual-headers --table ...).
+  # Table of the `contextual` variant (main.py index --contextual-headers --table ...).
   contextual_table: "party_programs_ctx"
-
-  # Character budget, used ONLY by the `char` baseline strategy. These are the
-  # values that produced the 62.7%-truncation baseline.
+  # `char` strategy only.
   max_chunk_size: 1600
   chunk_overlap: 200
   year: 2024
-
-  # Run LLM topic classification during indexing (CLI override: --no-classify).
-  # Token-sized chunking multiplied the chunk count ~4.5x (AD: 710 → 3163), so a
-  # full classified index is now ~200 rate-limited OpenRouter requests per party.
-  # Set to false to index without spending that quota when testing retrieval
-  # changes; chunks then keep their default `["outros"]` topic, so topic
-  # filtering and topic_exploration routing will NOT work on such an index, and
-  # no classified checkpoint is written.
+  # Off (--no-classify): chunks keep topic "outros", so topic filters and
+  # topic_exploration routing do not work, and no checkpoint is written.
   use_llm_classification: true
   classification_model: "google/gemma-4-26b-a4b-it"
   classification_batch_size: 15
   classification_delay: 1.0
-  # Per-batch waits for free-tier failures before the run aborts.
-  classification_wait_out_attempts: 10
-  # Structure pass of `main.py clean` (raw marker markdown -> *-clean.md).
-  # One call per ~120 header/short-line candidates, ~2-8 calls per party.
-  cleaning_model: "google/gemma-4-26b-a4b-it"
+  classification_wait_out_attempts: 10 # per batch, before the run aborts
+  cleaning_model: "google/gemma-4-26b-a4b-it" # structure pass of `main.py clean`
 
-# Evaluation settings
-# NOTE: judge_model should be a KNOWN-GOOD OpenRouter id and, ideally, different
-# from the generation model above to reduce self-preference bias. Verify the
-# model ids in this file resolve on OpenRouter before a live run.
 evaluation:
   dataset_path: "data/eval/questions/golden.json"
   results_dir: "data/eval/results"
   reports_dir: "data/eval/reports"
+  # Ideally a different model from generation, to limit self-preference bias.
   judge_model: "google/gemma-4-26b-a4b-it"
   judge_temperature: 0.0
-  # Each LLM stage of an eval run (retrieval's analysis/expansion, generation,
-  # every judge call) waits out free-tier failures this many times. A question
-  # that still fails is recorded as an error; a judge score is omitted (never 0).
+  # Waits per LLM stage before a question is recorded as an error (a failed
+  # judge score is omitted, never 0).
   wait_out_attempts: 5
   top_k: 5
   variants: ["naive", "current", "hybrid"]
