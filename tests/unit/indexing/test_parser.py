@@ -1,9 +1,6 @@
-import pytest
-
 from src.rag.indexing.parser import strip_images
 
 
-@pytest.mark.unit
 def test_strip_images_removes_every_image_form():
     md = (
         "# Saúde\n\n"

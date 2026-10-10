@@ -55,7 +55,6 @@ def captured_prompts():
         yield seen
 
 
-@pytest.mark.unit
 def test_per_party_shape_uses_the_grouped_comparison_prompt(captured_prompts):
     grouped = _grouped(["Partido Socialista", "CHEGA"])
 
@@ -67,7 +66,6 @@ def test_per_party_shape_uses_the_grouped_comparison_prompt(captured_prompts):
     assert len(answer.sources) == 4
 
 
-@pytest.mark.unit
 def test_narrative_shape_over_a_fan_out_reads_every_party(captured_prompts):
     """The router truncates the flat list to top_k; a verdict must not.
 
@@ -88,7 +86,6 @@ def test_narrative_shape_over_a_fan_out_reads_every_party(captured_prompts):
         assert party in prompt
 
 
-@pytest.mark.unit
 def test_per_party_without_grouped_results_groups_them_by_party(captured_prompts):
     retrieval = _retrieval(AnswerShape.PER_PARTY, results=[_result("CHEGA"), _result("LIVRE")])
 
@@ -99,7 +96,6 @@ def test_per_party_without_grouped_results_groups_them_by_party(captured_prompts
     assert "## LIVRE" in captured_prompts[0]
 
 
-@pytest.mark.unit
 def test_flat_context_is_trimmed_to_the_prompt_budget(captured_prompts):
     results = [_result("CHEGA", i + 1, size=4000) for i in range(10)]
     retrieval = _retrieval(AnswerShape.NARRATIVE, results=results)
@@ -113,7 +109,6 @@ def test_flat_context_is_trimmed_to_the_prompt_budget(captured_prompts):
     assert len(answer.sources) < 10
 
 
-@pytest.mark.unit
 def test_grouped_trim_never_drops_a_party(captured_prompts):
     """Coverage is the point of the fan-out; an over-long prompt is the lesser evil."""
     grouped = _grouped(["A", "B", "C", "D"], per_party=4, size=4000)
@@ -126,7 +121,6 @@ def test_grouped_trim_never_drops_a_party(captured_prompts):
         assert f"## {party}" in prompt
 
 
-@pytest.mark.unit
 def test_grouped_trim_equalises_rather_than_truncating_the_tail():
     """Chunks come off the biggest contributor, not off whichever party is last."""
     grouped = {"A": [_result("A", i + 1, size=2000) for i in range(6)], "B": [_result("B", 1, size=2000)]}
@@ -138,7 +132,6 @@ def test_grouped_trim_equalises_rather_than_truncating_the_tail():
     assert len(kept["A"]) < 6
 
 
-@pytest.mark.unit
 def test_sources_carry_the_number_the_prompt_shows(captured_prompts):
     """Siblings sharing a parent are shown once; [n] in the answer must name the
     same document in ``sources``, so numbering skips the duplicate in both."""
@@ -151,7 +144,6 @@ def test_sources_carry_the_number_the_prompt_shows(captured_prompts):
     assert "[Documento 2]" in captured_prompts[0] and "[Documento 3]" not in captured_prompts[0]
 
 
-@pytest.mark.unit
 def test_overlapping_windows_of_one_section_become_one_document(captured_prompts):
     """Neighbouring children's parents are overlapping slices of one section;
     showing both repeats most of the passage, so they merge into one span."""
@@ -166,7 +158,6 @@ def test_overlapping_windows_of_one_section_become_one_document(captured_prompts
     assert section[:2000] in prompt and prompt.count("Frase 30 da secção") == 1
 
 
-@pytest.mark.unit
 def test_grouped_documents_are_numbered_across_parties(captured_prompts):
     """Per-party numbering restarted at [1] for every party, so [1] was ambiguous."""
     answer = synthesize(_retrieval(AnswerShape.PER_PARTY, grouped=_grouped(["Partido Socialista", "CHEGA"])))
@@ -177,7 +168,6 @@ def test_grouped_documents_are_numbered_across_parties(captured_prompts):
     assert "[Documento 4]" in captured_prompts[0]
 
 
-@pytest.mark.unit
 def test_narrative_trim_over_a_fan_out_never_drops_a_party(captured_prompts):
     """A party that ranks low everywhere must survive the budget trim."""
     grouped = _grouped(["A", "B", "C"], per_party=4, size=4000)
@@ -190,7 +180,6 @@ def test_narrative_trim_over_a_fan_out_never_drops_a_party(captured_prompts):
     assert "C conteudo" in captured_prompts[0]
 
 
-@pytest.mark.unit
 def test_fan_out_with_every_party_empty_never_reaches_the_llm(captured_prompts):
     from src.rag.generation.pipeline import generate
 

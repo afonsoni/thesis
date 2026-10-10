@@ -1,10 +1,7 @@
-import pytest
-
 from src.rag.evaluation.keys import chunk_key
 from src.rag.evaluation.models import EvalDataset, EvalQuestion
 
 
-@pytest.mark.unit
 def test_chunk_key_stable_across_whitespace_and_form():
     a = chunk_key("O LIVRE   propõe\n\nhabitação.")
     b = chunk_key("O LIVRE propõe habitação.")
@@ -12,7 +9,6 @@ def test_chunk_key_stable_across_whitespace_and_form():
     assert a.startswith("sha1:")
 
 
-@pytest.mark.unit
 def test_split_filter_keeps_only_that_split():
     ds = EvalDataset(questions=[
         EvalQuestion(id="q-01", question="A?", split="test"),

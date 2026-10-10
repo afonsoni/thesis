@@ -7,7 +7,6 @@ of any particular model, and a unit run must not download 568M parameters.
 
 from typing import List, Optional
 
-import pytest
 
 from src.rag.common.models import ScoreType, SearchResult
 from src.rag.retrieval.config import RetrievalConfig
@@ -48,7 +47,6 @@ def _result(doc_id: str, content: str, similarity: float = 0.5) -> SearchResult:
 # ---------------------------------------------------------------------------
 
 
-@pytest.mark.unit
 def test_rerank_reorders_by_cross_encoder_score():
     """A weak dense hit that the cross-encoder likes must overtake a strong one."""
     fake = FakeCrossEncoder()
@@ -64,7 +62,6 @@ def test_rerank_reorders_by_cross_encoder_score():
     assert all(r.score_type is ScoreType.RERANK for r in out)
 
 
-@pytest.mark.unit
 def test_rerank_scores_the_child_not_the_parent():
     """Small-to-big siblings share a parent; scoring it would tie them all.
 
@@ -121,7 +118,6 @@ class RecordingSearcher(Searcher):
         ]
 
 
-@pytest.mark.unit
 def test_multi_query_search_widens_the_fetch_when_reranking(monkeypatch):
     """Reranking a list of exactly top_k could only reshuffle it, never improve
     it — so retrieval must fetch rerank_candidates first."""

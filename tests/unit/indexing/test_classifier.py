@@ -6,7 +6,6 @@ from src.rag.common.models import Chunk, TopicClassification
 from src.rag.indexing.classifier import classify_chunks
 
 
-@pytest.mark.unit
 class TestClassifierBatching:
     def test_classify_chunks_batches_requests(self, monkeypatch):
         monkeypatch.setenv("OPENROUTER_API_KEY", "test-key")

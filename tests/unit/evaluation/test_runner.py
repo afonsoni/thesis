@@ -1,5 +1,3 @@
-import pytest
-
 from src.rag.common.models import AnalyzedQuery, GeneratedAnswer, RetrievalResult, SearchResult
 from src.rag.evaluation.keys import chunk_key
 from src.rag.evaluation.metrics.retrieval import RetrievalMetric
@@ -18,7 +16,6 @@ def _fail(*_):
     raise RuntimeError("429")
 
 
-@pytest.mark.unit
 def test_generation_failure_keeps_the_retrieval_scores():
     result = RetrievalResult(query=AnalyzedQuery(original_query="Q?"), results=[_hit("gold")])
     run = run_question(Q, RetrievalConfig(name="v"), [RetrievalMetric()], 5,
@@ -27,7 +24,6 @@ def test_generation_failure_keeps_the_retrieval_scores():
     assert run.metrics["hit"] == 1.0
 
 
-@pytest.mark.unit
 def test_retrieval_runs_strict_so_a_fallback_cannot_pass_as_the_variant():
     seen = {}
     run_question(Q, RetrievalConfig(name="v"), [], 5,
@@ -36,7 +32,6 @@ def test_retrieval_runs_strict_so_a_fallback_cannot_pass_as_the_variant():
     assert seen["strict"] is True
 
 
-@pytest.mark.unit
 def test_fan_out_is_scored_on_every_party_not_the_flat_top_k():
     # Equal RRF scores: the router's flat top-k keeps AD and BE and drops PS.
     grouped = {"AD": [_hit("a1", "AD")], "BE": [_hit("b1", "BE")], "PS": [_hit("gold", "PS")]}
@@ -50,7 +45,6 @@ def test_fan_out_is_scored_on_every_party_not_the_flat_top_k():
     assert run.metrics["hit"] == 1.0
 
 
-@pytest.mark.unit
 def test_each_question_records_its_llm_calls():
     from src.rag.common.llm_client import CALL_LOG
 

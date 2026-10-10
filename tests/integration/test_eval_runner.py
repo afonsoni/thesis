@@ -8,7 +8,6 @@ injected, and the LLM-judge is not used.
 
 import os
 
-import pytest
 
 from src.rag.evaluation.keys import chunk_key
 from src.rag.evaluation.metrics.retrieval import RetrievalMetric
@@ -24,7 +23,6 @@ from src.rag.retrieval.router import route
 _PS_EDU = "O Partido Socialista reforca o investimento em educacao publica."
 
 
-@pytest.mark.integration
 def test_run_variant_on_seeded_store(seeded_searcher, tmp_path):
     # naive variant: no query analysis / routing / expansion / RRF → fully offline
     naive = get_variant("naive")

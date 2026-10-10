@@ -32,7 +32,6 @@ def fake_judge(monkeypatch):
     return calls
 
 
-@pytest.mark.unit
 def test_claim_level_scores(fake_judge):
     q = EvalQuestion(id="q-01", question="Q?", reference_answer="REF")
     run = QuestionRun(question_id="q-01", variant="v", answer="ANSWER", context="CONTEXT")
@@ -45,7 +44,6 @@ def test_claim_level_scores(fake_judge):
     assert [c["supported"] for c in run.judgements["faithfulness"]] == [True, False, True]
 
 
-@pytest.mark.unit
 def test_reference_claims_extracted_once_across_variants(fake_judge):
     metric = gen.GenerationJudgeMetric()
     q = EvalQuestion(id="q-01", question="Q?", reference_answer="REF")
@@ -54,7 +52,6 @@ def test_reference_claims_extracted_once_across_variants(fake_judge):
     assert fake_judge["extract"].count("REF") == 1
 
 
-@pytest.mark.unit
 def test_no_claims_or_failed_judge_is_omitted_not_zero(fake_judge, monkeypatch):
     q = EvalQuestion(id="q-01", question="Q?")
     run = QuestionRun(question_id="q-01", variant="v", answer="sem afirmações", context="CONTEXT")
@@ -64,7 +61,6 @@ def test_no_claims_or_failed_judge_is_omitted_not_zero(fake_judge, monkeypatch):
     assert "faithfulness" not in gen.GenerationJudgeMetric().score(run, q)
 
 
-@pytest.mark.unit
 def test_runner_judges_against_the_generators_own_context():
     from src.rag.common.models import AnalyzedQuery, GeneratedAnswer, RetrievalResult, SearchResult
     from src.rag.evaluation.runner import run_question
@@ -80,7 +76,6 @@ def test_runner_judges_against_the_generators_own_context():
     assert run.context == "[1] PARENT"
 
 
-@pytest.mark.unit
 @pytest.mark.parametrize("abstained", [True, False])
 def test_unanswerable_question_scores_only_abstention(fake_judge, monkeypatch, abstained):
     """A refusal has no claims worth checking; whether the system refused is the score."""
@@ -92,7 +87,6 @@ def test_unanswerable_question_scores_only_abstention(fake_judge, monkeypatch, a
     assert fake_judge["extract"] == []
 
 
-@pytest.mark.unit
 def test_answerable_question_records_false_refusal(fake_judge, monkeypatch):
     monkeypatch.setattr(gen, "judge_answer_relevance", lambda q, a, m=None: JudgeScore(score=1, abstained=True))
     q = EvalQuestion(id="q-01", question="Q?", reference_answer="REF")

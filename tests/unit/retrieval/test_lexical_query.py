@@ -13,7 +13,6 @@ from src.rag.retrieval.query_analyzer import strip_party_mentions
 from src.rag.retrieval.searcher import Searcher
 
 
-@pytest.mark.unit
 def test_strip_party_mentions_blanks_names_and_keeps_accents():
     assert strip_party_mentions("Propostas do PS para a saúde?").split() == ["propostas", "do", "para", "a", "saúde?"]
     assert "aliança" not in strip_party_mentions("A Aliança Democrática e o CDS-PP sobre habitação")
@@ -39,11 +38,12 @@ class DenseStub(Searcher):
         return []
 
 
-@pytest.mark.unit
 @pytest.mark.parametrize("party, expected", [
     ("Partido Socialista", "o que propõe o   para a saúde?"),
     (None, "O que propõe o PS para a saúde?"),  # no filter: the name is the only party signal
 ])
+
+
 def test_hybrid_search_strips_party_only_under_a_party_filter(party, expected):
     searcher = DenseStub()
     searcher.multi_query_search(["O que propõe o PS para a saúde?"], RetrievalConfig(use_hybrid=True), 5, "q",

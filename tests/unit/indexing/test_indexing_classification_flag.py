@@ -72,7 +72,6 @@ def indexing_stubs(monkeypatch, tmp_path):
     return {"markdown_dir": str(tmp_path), "store": store, "classify_calls": calls, "saved": saved}
 
 
-@pytest.mark.unit
 def test_index_documents_skips_classification_when_disabled(indexing_stubs):
     count = pipeline.index_documents(
         markdown_dir=indexing_stubs["markdown_dir"],

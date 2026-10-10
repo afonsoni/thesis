@@ -27,7 +27,6 @@ Texto final.
 """
 
 
-@pytest.mark.unit
 def test_apply_plan_relevels_demotes_and_drops():
     lines = prepare(RAW)
     idx = {line: i for i, line in enumerate(lines)}
@@ -52,7 +51,6 @@ def test_apply_plan_relevels_demotes_and_drops():
     verify(RAW, clean)
 
 
-@pytest.mark.unit
 def test_invented_title_is_rejected_and_verify_catches_new_words():
     lines = prepare(RAW)
     i = next(i for i, line in enumerate(lines) if "Saúde" in line)
@@ -65,7 +63,6 @@ def test_invented_title_is_rejected_and_verify_catches_new_words():
     assert apply_plan(["#### 1.1. 25 de Abril, sempre", "", "Texto."], plan).startswith("### 1.1. 25 de Abril, sempre")
 
 
-@pytest.mark.unit
 def test_fix_bullets_converts_and_rejoins_wrapped_bullets():
     lines = [
         "**•Elaborar uma Estratégia Nacional para o armaze-**",
@@ -91,7 +88,6 @@ def test_fix_bullets_converts_and_rejoins_wrapped_bullets():
     ]
 
 
-@pytest.mark.unit
 def test_with_deadline_abandons_a_hung_call():
     import time
 

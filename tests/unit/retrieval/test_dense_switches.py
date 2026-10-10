@@ -28,12 +28,13 @@ def _searcher() -> Searcher:
     return s
 
 
-@pytest.mark.unit
 @pytest.mark.parametrize("strip, party, expected", [
     (True, "Pessoas-Animais-Natureza", "qual é a posição do   sobre as touradas?"),
     (True, None, "Qual é a posição do PAN sobre as touradas?"),   # no filter: keep the only party signal
     (False, "Pessoas-Animais-Natureza", "Qual é a posição do PAN sobre as touradas?"),
 ])
+
+
 def test_dense_query_drops_party_names_only_when_asked_and_filtered(strip, party, expected):
     s = _searcher()
     s.multi_query_search(["Qual é a posição do PAN sobre as touradas?"],
@@ -41,7 +42,6 @@ def test_dense_query_drops_party_names_only_when_asked_and_filtered(strip, party
     assert s.embedder.calls == [(expected, None)]
 
 
-@pytest.mark.unit
 def test_query_instruction_reaches_the_encoder():
     s = _searcher()
     s.multi_query_search(["q"], RetrievalConfig(query_instruction="Given a manifesto question"), 5, "q")

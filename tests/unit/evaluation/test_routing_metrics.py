@@ -4,7 +4,6 @@ from src.rag.evaluation.metrics.routing import RoutingMetric, set_f1
 from src.rag.evaluation.models import EvalQuestion, QuestionRun
 
 
-@pytest.mark.unit
 def test_set_f1_edge_cases():
     assert set_f1([], []) == 1.0  # both empty → perfect
     assert set_f1(["a"], []) == 0.0
@@ -14,7 +13,6 @@ def test_set_f1_edge_cases():
     assert set_f1(["a", "b"], ["a"]) == pytest.approx(2 / 3)
 
 
-@pytest.mark.unit
 def test_routing_metric_scores_type_and_sets():
     metric = RoutingMetric()
     q = EvalQuestion(
@@ -41,7 +39,6 @@ def test_routing_metric_scores_type_and_sets():
     assert scores["topic_f1"] == 0.0
 
 
-@pytest.mark.unit
 def test_coverage_isolates_the_aggregative_failure():
     """Right parties, right topic, wrong coverage — the flat-search failure.
 
@@ -71,7 +68,6 @@ def test_coverage_isolates_the_aggregative_failure():
     assert scores["query_type_acc"] == 0.0
 
 
-@pytest.mark.unit
 def test_gold_labels_must_agree_with_each_other():
     """A route the pipeline cannot derive is a broken annotation, not a hard question."""
     with pytest.raises(ValueError, match="contradicts"):

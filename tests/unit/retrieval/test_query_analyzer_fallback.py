@@ -10,14 +10,12 @@ from src.rag.common.models import Coverage, QueryType
 from src.rag.retrieval.query_analyzer import _fallback_analysis, _normalize_parties
 
 
-@pytest.mark.unit
 def test_named_parties_are_searched():
     query = _fallback_analysis("Comparar as politicas do PS e do CHEGA sobre saude")
     assert query.query_type == QueryType.COMPARISON
     assert query.parties == ["Partido Socialista", "CHEGA"]
 
 
-@pytest.mark.unit
 def test_unnamed_question_fans_out_rather_than_guessing():
     """No analysis means no basis to narrow, so the whole corpus is in scope."""
     query = _fallback_analysis("Quais sao as propostas sobre educacao?")
@@ -27,7 +25,6 @@ def test_unnamed_question_fans_out_rather_than_guessing():
     assert query.topics == []  # a wrong topic is a hard AND; none just costs recall
 
 
-@pytest.mark.unit
 @pytest.mark.parametrize(
     "raw, expected",
     [
@@ -46,7 +43,6 @@ def test_party_aliases_resolve_to_the_published_programme(raw, expected):
     assert _normalize_parties([raw]) == expected
 
 
-@pytest.mark.unit
 @pytest.mark.parametrize(
     "question",
     [

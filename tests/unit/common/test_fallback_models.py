@@ -3,7 +3,6 @@ import pytest
 from src.rag.common import llm_transport as t
 
 
-@pytest.mark.unit
 def test_fallback_chain_starts_with_requested_model_without_repeats(monkeypatch):
     monkeypatch.setattr(t.config, "get", lambda key, default=None: (
         ["google/gemma-4-31b-it:free", "nvidia/nemotron-3-ultra-550b-a55b:free"]
@@ -22,7 +21,6 @@ class _Resp:
         return self._body
 
 
-@pytest.mark.unit
 def test_chain_longer_than_three_goes_out_in_groups(monkeypatch):
     import json
 
@@ -45,18 +43,18 @@ def test_chain_longer_than_three_goes_out_in_groups(monkeypatch):
     assert t.MODEL_USAGE == {"d/4:free": 1}
 
 
-@pytest.mark.unit
 @pytest.mark.parametrize("text, secs", [
     ("Please retry in 37.1s.", 37.1),
     ('"retryDelay": "37s"', 37.0),
     ("retry-after: 5", 5.0),
     ("retrying soon, limit: 20", None),  # "retrying" is not a delay
 ])
+
+
 def test_retry_after_is_read_from_provider_text(text, secs):
     assert t._parse_retry_after_from_text(text) == secs
 
 
-@pytest.mark.unit
 def test_each_call_is_logged_with_its_step_and_the_model_that_answered(monkeypatch):
     from src.rag.common import llm_client
 
@@ -70,7 +68,6 @@ def test_each_call_is_logged_with_its_step_and_the_model_that_answered(monkeypat
     assert llm_client.CALL_LOG[first:] == [("query expansion", "nvidia/nemotron-3-ultra-550b-a55b:free")]
 
 
-@pytest.mark.unit
 def test_an_answer_cut_off_at_max_tokens_is_marked_truncated(monkeypatch):
     from src.rag.common import llm_client
 
@@ -83,7 +80,6 @@ def test_an_answer_cut_off_at_max_tokens_is_marked_truncated(monkeypatch):
     assert llm_client.CALL_LOG[first:] == [("answer [truncated]", "a/1:free")]
 
 
-@pytest.mark.unit
 def test_a_missing_api_key_fails_at_once_instead_of_being_retried(monkeypatch):
     monkeypatch.delenv("OPENROUTER_API_KEY", raising=False)
     monkeypatch.setattr(t.time, "sleep", lambda s: pytest.fail("a missing key is not transient"))

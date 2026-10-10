@@ -18,7 +18,6 @@ def _response(**overrides) -> _QueryAnalysisResponse:
     return _QueryAnalysisResponse(**base)
 
 
-@pytest.mark.unit
 def test_analyze_query_structured_path_uses_llm_output():
     structured = _response(
         parties=["PS"],
@@ -35,7 +34,6 @@ def test_analyze_query_structured_path_uses_llm_output():
     assert "partido socialista" in analyzed.reformulated_query
 
 
-@pytest.mark.unit
 def test_unreadable_coverage_fails_towards_full_coverage():
     """Over-retrieving costs queries; under-retrieving silently drops parties."""
     structured = _response(coverage="dunno", topics=["saude"])
@@ -47,7 +45,6 @@ def test_unreadable_coverage_fails_towards_full_coverage():
     assert analyzed.query_type == QueryType.COMPARISON
 
 
-@pytest.mark.unit
 def test_bad_values_are_dropped_field_by_field():
     """One unusable value must not discard the fields the model got right.
 
@@ -69,7 +66,6 @@ def test_bad_values_are_dropped_field_by_field():
     assert analyzed.answer_shape == AnswerShape.NARRATIVE  # inferred, single party
 
 
-@pytest.mark.unit
 def test_analyze_query_falls_back_when_structured_fails():
     with patch("src.rag.retrieval.query_analyzer.generate_structured", side_effect=RuntimeError("boom")):
         analyzed = analyze_query("Comparar PS e CHEGA sobre saude")
@@ -78,7 +74,6 @@ def test_analyze_query_falls_back_when_structured_fails():
     assert len(analyzed.parties) >= 2
 
 
-@pytest.mark.unit
 def test_strict_config_raises_instead_of_falling_back():
     from src.rag.retrieval.config import RetrievalConfig
 

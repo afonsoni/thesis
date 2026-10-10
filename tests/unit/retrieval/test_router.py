@@ -53,7 +53,6 @@ class StubSearcher(Searcher):
         ]
 
 
-@pytest.mark.unit
 @pytest.mark.parametrize(
     "parties, topics, expected_type",
     [
@@ -75,7 +74,6 @@ def test_non_comparison_routes_are_one_filtered_search(parties, topics, expected
     assert searcher.multi_query_calls[0]["topics"] == (topics or None)
 
 
-@pytest.mark.unit
 def test_route_comparison_searches_each_party_separately():
     searcher = StubSearcher()
     analyzed = AnalyzedQuery(
@@ -99,7 +97,6 @@ def test_route_comparison_searches_each_party_separately():
     assert all(c["top_k"] == 3 for c in searcher.multi_query_calls)
 
 
-@pytest.mark.unit
 def test_route_single_party_relaxes_topics_when_nothing_matches():
     """A topic no chunk carries must not turn a good question into zero results."""
     searcher = StubSearcher(empty_when_topics=True)
@@ -120,7 +117,6 @@ def test_route_single_party_relaxes_topics_when_nothing_matches():
     assert all(c["party_name"] == "Partido Socialista" for c in searcher.multi_query_calls)
 
 
-@pytest.mark.unit
 def test_route_comparison_relaxes_topics_per_party():
     """One party missing a topic must not strip the filter from the others."""
     searcher = StubSearcher(empty_when_topics=True)
@@ -141,7 +137,6 @@ def test_route_comparison_relaxes_topics_per_party():
         assert [c["topics"] for c in calls] == [["saude"], None]
 
 
-@pytest.mark.unit
 def test_route_naive_config_disables_routing():
     """Naive baseline: no routing (always general)."""
     searcher = StubSearcher()
@@ -170,7 +165,6 @@ def test_route_naive_config_disables_routing():
     assert len(searcher.multi_query_calls) == 1
 
 
-@pytest.mark.unit
 def test_route_passes_original_question_to_the_reranker():
     """The cross-encoder must score the question the user asked, not a rewrite.
 

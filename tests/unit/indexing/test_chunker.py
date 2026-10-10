@@ -1,9 +1,6 @@
-import pytest
-
 from src.rag.indexing.chunker import chunk_markdown
 
 
-@pytest.mark.unit
 class TestChunker:
     SAMPLE_MD = """# Programa do Partido X
 
@@ -41,7 +38,6 @@ Construcao de novos centros de saude nas areas metropolitanas.
         assert any("sub_chunk_index" in chunk.metadata for chunk in chunks)
 
 
-@pytest.mark.unit
 def test_bounded_parent_keeps_small_sections_whole_and_windows_big_ones():
     from src.rag.indexing.chunker import _bounded_parent, _locate
 
@@ -60,7 +56,6 @@ def test_bounded_parent_keeps_small_sections_whole_and_windows_big_ones():
     assert _bounded_parent(content, pieces, None, 2, len, 14) == "cccc dddd"
 
 
-@pytest.mark.unit
 def test_bounded_parent_grows_on_both_sides_of_the_child():
     from src.rag.indexing.chunker import _bounded_parent, _locate
 

@@ -136,8 +136,9 @@ Entry point: `main.py`
 ### Testing status
 
 - `tests/unit/` (offline, per stage), `tests/integration/` (needs the test DB:
-  `docker compose up -d postgres_test`), `tests/e2e/` (live OpenRouter, marked `live`).
-- Run `python -m pytest tests/unit tests/integration` before committing.
+  `docker compose up -d postgres_test`), `tests/e2e/` (live OpenRouter).
+- `python -m pytest` runs unit + integration; run it before committing. The live
+  e2e tests run only when asked: `python -m pytest tests/e2e`.
 
 ### Infrastructure and config
 

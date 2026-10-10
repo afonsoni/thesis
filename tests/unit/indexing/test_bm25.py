@@ -1,21 +1,16 @@
-import pytest
-
 from src.rag.indexing.bm25 import Bm25Index, parse_tsvector, restore_suffix_accents
 
 
-@pytest.mark.unit
 def test_parse_tsvector_counts_positions_and_unescapes():
     assert parse_tsvector("'tourad':4,9 'é':1 'd''hondt':2 'pan'") == {"tourad": 2, "e": 1, "d'hondt": 1, "pan": 1}
     assert parse_tsvector("") == {}
 
 
-@pytest.mark.unit
 def test_parse_tsvector_folds_accents_and_merges_counts():
     """"saude" typed without accents must reach the chunks stemmed to "saúd"."""
     assert parse_tsvector("'saúd':1,4 'saud':2 'polít':3") == {"saud": 3, "polit": 1}
 
 
-@pytest.mark.unit
 def test_restore_suffix_accents_only_touches_known_unaccented_suffixes():
     # The stemmer strips "-ção"/"-ções" only when accented; restored, both forms stem alike.
     assert restore_suffix_accents("Habitacao e habitacoes") == "habitação e habitações"
@@ -32,14 +27,12 @@ def _index():
     ])
 
 
-@pytest.mark.unit
 def test_rare_term_beats_common_ones_and_any_term_matches():
     ranked = _index().top_k(["é", "posiçã", "pan", "tourad"], k=3)
     assert ranked[0][0] == "bulls"  # one rare match outweighs several common ones
     assert {doc for doc, _ in ranked} == {"bulls", "press", "health"}  # OR semantics
 
 
-@pytest.mark.unit
 def test_allowed_ids_filter_and_unknown_terms():
     idx = _index()
     assert [d for d, _ in idx.top_k(["tourad", "posiçã"], k=5, allowed={"press"})] == ["press"]

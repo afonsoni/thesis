@@ -1,5 +1,3 @@
-import pytest
-
 from src.rag.common.models import Chunk, VALID_TOPICS
 from src.rag.indexing.classifier import classify_chunks
 import src.rag.retrieval.pipeline as retrieval_pipeline
@@ -7,8 +5,6 @@ from src.rag.generation.pipeline import generate
 from src.rag.retrieval.pipeline import retrieve
 
 
-@pytest.mark.e2e
-@pytest.mark.live
 def test_live_query_flow_smoke(require_live_e2e, seeded_searcher, monkeypatch):
     """Live smoke: analyze -> expand -> retrieve -> synthesize."""
     monkeypatch.setattr(retrieval_pipeline, "get_searcher", lambda table=None: seeded_searcher)
@@ -25,8 +21,6 @@ def test_live_query_flow_smoke(require_live_e2e, seeded_searcher, monkeypatch):
     assert answer.sources
 
 
-@pytest.mark.e2e
-@pytest.mark.live
 def test_live_classification_on_manifesto_snippet(require_live_e2e):
     """Live classifier smoke using a short political-program snippet."""
     snippet = (

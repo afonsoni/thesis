@@ -1,13 +1,11 @@
 from unittest.mock import patch
 
-import pytest
 
 import src.rag.retrieval.pipeline as retrieval_pipeline
 from src.rag.retrieval.pipeline import retrieve
 from src.rag.retrieval.query_analyzer import _QueryAnalysisResponse
 
 
-@pytest.mark.integration
 def test_retrieve_single_party_with_test_db(seeded_searcher, monkeypatch):
     monkeypatch.setattr(retrieval_pipeline, "get_searcher", lambda table=None: seeded_searcher)
     structured = _QueryAnalysisResponse(

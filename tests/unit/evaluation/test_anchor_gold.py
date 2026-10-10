@@ -1,9 +1,6 @@
-import pytest
-
 import scripts.anchor_gold as ag
 
 
-@pytest.mark.unit
 def test_rendered_ticks_and_labels_compile_into_gold_questions(tmp_path, monkeypatch):
     md = tmp_path / "ANCHORING.md"
     monkeypatch.setattr(ag, "ANCHORING_MD", str(md))
@@ -28,7 +25,6 @@ def test_rendered_ticks_and_labels_compile_into_gold_questions(tmp_path, monkeyp
     assert qs["q-33"].query_type == "comparison" and not qs["q-33"].curated
 
 
-@pytest.mark.unit
 def test_unanswerable_question_is_curated_without_gold_chunks(tmp_path):
     md = tmp_path / "ANCHORING.md"
     md.write_text(

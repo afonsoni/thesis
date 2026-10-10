@@ -1,10 +1,7 @@
-import pytest
-
 from src.rag.common.models import Chunk, TopicClassification
 from src.rag.indexing.pipeline import load_classified_chunks, save_classified_chunks
 
 
-@pytest.mark.unit
 def test_save_and_load_classified_checkpoint_roundtrip(tmp_path):
     chunks = [
         Chunk(

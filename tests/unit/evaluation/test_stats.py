@@ -5,7 +5,6 @@ from src.rag.evaluation.report import write_leaderboard
 from src.rag.evaluation.stats import bootstrap_ci, paired_diff
 
 
-@pytest.mark.unit
 def test_bootstrap_ci_brackets_the_mean_and_is_reproducible():
     values = [0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 1.0, 0.0]
     lo, hi = bootstrap_ci(values)
@@ -14,7 +13,6 @@ def test_bootstrap_ci_brackets_the_mean_and_is_reproducible():
     assert bootstrap_ci([1.0]) is None
 
 
-@pytest.mark.unit
 def test_paired_diff_uses_shared_questions_only():
     a = {f"q{i}": 0.5 for i in range(10)}
     b = {f"q{i}": 0.7 for i in range(10)} | {"extra": 0.0}
@@ -28,7 +26,6 @@ def _result(variant, scores):
                          aggregate={"hit": sum(scores) / len(scores)})
 
 
-@pytest.mark.unit
 def test_leaderboard_reports_intervals_and_bolds_a_clear_paired_gain(tmp_path):
     base = _result("naive", [0, 0, 1, 0, 1, 0, 0, 1, 0, 0])
     better = _result("current", [1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
@@ -38,7 +35,6 @@ def test_leaderboard_reports_intervals_and_bolds_a_clear_paired_gain(tmp_path):
     assert "0.300 [" in content  # mean with its interval
 
 
-@pytest.mark.unit
 def test_leaderboard_means_cover_the_same_questions_and_split_gets_its_own_file(tmp_path):
     base = _result("naive", [0, 0, 0, 1])
     other = _result("current", [1, 1, 1, 1])

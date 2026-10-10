@@ -1,10 +1,7 @@
-import pytest
-
 from src.rag.common.models import SearchResult
 from src.rag.retrieval.searcher import reciprocal_rank_fusion
 
 
-@pytest.mark.unit
 def test_basic_fusion():
     result_1 = SearchResult(id="a", content="doc A", similarity=0.9)
     result_2 = SearchResult(id="b", content="doc B", similarity=0.8)

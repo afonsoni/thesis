@@ -5,8 +5,6 @@ from src.rag.common.models import (
     Coverage,
     QueryType,
 )
-
-@pytest.mark.unit
 @pytest.mark.parametrize(
     "parties, coverage, topics, expected",
     [

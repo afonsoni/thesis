@@ -1,7 +1,6 @@
 import csv
 import os
 
-import pytest
 
 from src.rag.evaluation.models import QuestionRun, VariantResult
 from src.rag.evaluation.report import write_leaderboard
@@ -22,7 +21,6 @@ def _make_result(variant: str, hit: float, faith: float) -> VariantResult:
     )
 
 
-@pytest.mark.unit
 def test_leaderboard_orders_columns_and_lists_all_variants(tmp_path):
     results = [_make_result("naive", 0.4, 0.5), _make_result("current", 0.8, 0.9)]
     md_path = write_leaderboard(results, str(tmp_path))
@@ -40,7 +38,6 @@ def test_leaderboard_orders_columns_and_lists_all_variants(tmp_path):
     assert {r[0] for r in rows[1:]} == {"naive", "current"}
 
 
-@pytest.mark.unit
 def test_leaderboard_notes_when_fallback_models_answered(tmp_path):
     r = _make_result("current", 0.8, 0.9)
     r.models_used = {"google/gemma-4-26b-a4b-it:free": 40, "nvidia/nemotron-3-ultra-550b-a55b:free": 3}

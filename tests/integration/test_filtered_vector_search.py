@@ -82,7 +82,6 @@ def _exact_top_k(rows, query, party, topic=None):
     return [cid for _, cid in sorted(hits, reverse=True)[:TOP_K]]
 
 
-@pytest.mark.integration
 @pytest.mark.parametrize("party", list(PARTY_SIZES))
 def test_party_filter_returns_exact_top_k(corpus_store, party):
     store, rows = corpus_store
@@ -94,7 +93,6 @@ def test_party_filter_returns_exact_top_k(corpus_store, party):
     assert got == _exact_top_k(rows, query, party)
 
 
-@pytest.mark.integration
 def test_party_and_topic_filter_returns_exact_top_k(corpus_store):
     """The router's other filter: topics overlap, on top of party (fewer than k may exist)."""
     store, rows = corpus_store
