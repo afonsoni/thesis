@@ -242,9 +242,7 @@ Gold questions are anchored by
 `[scripts/anchor_gold.py](../scripts/anchor_gold.py)`: it retrieves candidate
 chunks into `anchoring/ANCHORING.md`, a human ticks the gold chunks and writes
 the reference answer, and `compile` writes `golden.json`. Tune on `dev`, report
-headline numbers on `test` (`main.py eval --split test --curated-only`). A
-synthetic path (`main.py eval-dataset`, LLM questions anchored to sampled
-chunks) also exists, for smoke tests.
+headline numbers on `test` (`main.py eval --split test --curated-only`).
 
 Retrieval ground truth is matched by **content hash**, not database UUID, so the
 gold set survives re-indexing as long as chunking parameters are unchanged (see
