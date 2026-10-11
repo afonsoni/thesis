@@ -9,7 +9,12 @@ Query expansion and query analysis prompts live in ``retrieval/prompts.py``.
 # ---------------------------------------------------------------------------
 
 # The exact refusal both answer prompts ask for when the context has nothing.
-NO_INFO_ANSWER = "Não tenho informação suficiente para responder a esta pergunta."
+# It reports what retrieval found, not what the manifestos hold: top-k search
+# cannot prove a manifesto never says something (gold q-61).
+NO_INFO_ANSWER = (
+    "Não encontrei resposta a esta pergunta nos excertos dos programas que consultei, "
+    "mas isso não garante que os programas não abordem o tema."
+)
 
 # Inline citation rule shared by both answer prompts. "[n]" is the number of the
 # "[Documento n]" block in the context, and GeneratedAnswer.sources carries the

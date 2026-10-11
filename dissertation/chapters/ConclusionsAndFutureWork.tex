@@ -33,14 +33,33 @@ such as which party's position on a given issue changed most between
 elections. Phrase these neutrally: \sysname{} reports what the manifestos
 say, it does not judge consistency.}
 
-\TODO{Add a Limitations section. Two items belong here that cannot be answered
+\TODO{Add a Limitations section. Three items belong here that cannot be answered
 by the harness and should not be claimed as results: (a) cross-language
 parity --- whether European Portuguese retrieval reaches the quality reported
 for English --- which this work cannot measure without a parallel English
 corpus and gold set, and can only discuss against published multilingual
 benchmark figures; (b) temporal staleness --- the corpus is one election
 cycle, and party positions move, so \sysname{} answers "what the 2024
-manifestos say", not "what the parties currently hold".}
+manifestos say", not "what the parties currently hold"; (c) existence
+questions --- "does party X ever mention Y?" ask for an exhaustive search,
+and top-$k$ retrieval cannot prove absence. Example: gold q-61, "O Chega
+menciona alguma vez touradas?". CHEGA mentions bullfighting once, as
+rhetoric, not policy: at 16 one may have sex-reassignment surgery but not
+attend an ``espectáculo tauromáquico''. Three things hide it: the chunk is
+classified \texttt{jovens}/\texttt{educacao}, so the analyzer's
+\texttt{cultura} filter excludes it; ``touradas'' and ``tauromáquico'' share no
+stem, so BM25 misses it; and RRF rewards agreement across lists, which a lone
+mention never gets. The \texttt{lexical\_wide} variant (lexical list without
+the topic filter, synonym-seeking expansions) still ranked it 25th and moved
+no dev metric beyond noise (recall $+0.011$, nDCG $+0.008$, intervals
+spanning 0). The nuance matters too: even if retrieved, the answer must
+present an aside as an aside, not as a position on bullfighting. Possible
+fixes (future work): a mention-lookup route for existence questions ---
+LLM-generated synonyms, BM25 over the party's whole manifesto with no topic
+filter, and its best hits given reserved context slots outside RRF --- or an
+agentic search tool the generator can call. Meanwhile the refusal sentence
+says ``I found no answer in the excerpts I consulted'', not ``the manifesto
+does not say it''.}
 
 \TODO{Add an Implications section (or fold into the discussion): what a system
 like this could mean for political literacy and public access, who would
