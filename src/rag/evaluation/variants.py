@@ -77,6 +77,12 @@ VARIANTS: Dict[str, RetrievalConfig] = {
     # flag away from `current`. Run on the dev split before any becomes a default.
     "party_stripped": RetrievalConfig(name="party_stripped", strip_party_names=True),
     "no_topic_filter": RetrievalConfig(name="no_topic_filter", use_topic_filter=False),
+    # Vocabulary-mismatch fix for incidental mentions (gold q-61): the lexical
+    # list skips the topic filter and expansions use manifesto wording. Two flags
+    # from `current`, measured together. Dev 2026-10-11: no metric moved beyond
+    # noise (recall +0.011, nDCG +0.008) and q-61 stayed unretrieved, so both
+    # flags stay off.
+    "lexical_wide": RetrievalConfig(name="lexical_wide", lexical_topic_filter=False, expansion_synonyms=True),
     "instructed": RetrievalConfig(
         name="instructed", query_instruction=config.get("embeddings.task_instruction"),
     ),

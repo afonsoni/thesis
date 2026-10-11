@@ -117,7 +117,8 @@ class Searcher:
             ))
             if config.use_hybrid:
                 all_lists.append(
-                    self.store.lexical_search(stripped, top_k=fetch_k, party_name=party_name, topics=topics)
+                    self.store.lexical_search(stripped, top_k=fetch_k, party_name=party_name,
+                                              topics=topics if config.lexical_topic_filter else None)
                 )
 
         # One ranked list (single query, dense only) is already in order; fusing

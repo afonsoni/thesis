@@ -11,18 +11,21 @@ import logging
 from typing import List
 
 from src.rag.common.llm_client import generate_text
-from src.rag.retrieval.prompts import QUERY_EXPANSION_PROMPT
+from src.rag.retrieval.prompts import QUERY_EXPANSION_PROMPT, QUERY_EXPANSION_SYNONYMS
 
 logger = logging.getLogger(__name__)
 
-def expand_query(question: str, n_queries: int, strict: bool = False) -> List[str]:
+def expand_query(question: str, n_queries: int, strict: bool = False, synonyms: bool = False) -> List[str]:
     """
     Generate *n_queries* reformulated versions of *question*.
 
     Always returns at least the original question (first element). On an LLM
     failure it returns only the original, unless *strict*, in which case it raises.
+    *synonyms* asks for manifesto vocabulary in place of the user's words.
     """
     prompt = QUERY_EXPANSION_PROMPT.format(question=question, n_queries=n_queries)
+    if synonyms:
+        prompt = prompt.replace("Perguntas reformuladas:", QUERY_EXPANSION_SYNONYMS + "\n\nPerguntas reformuladas:")
 
     try:
         raw = generate_text(prompt, temperature=0.0, max_tokens=500, label="query expansion")

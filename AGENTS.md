@@ -116,7 +116,8 @@ Entry point: `main.py`
   `party_stripped` (`strip_party_names`), `instructed` (`query_instruction` =
   `embeddings.task_instruction`), `contextual` (searches `indexing.contextual_table`,
   built with `main.py index --contextual-headers --table`) and `no_topic_filter`
-  (`use_topic_filter=False`).
+  (`use_topic_filter=False`); and `lexical_wide` (`lexical_topic_filter=False` +
+  `expansion_synonyms=True`), built for incidental mentions (gold q-61).
 - `dataset.py`: gold-set load/save (content-hash keys).
 - `metrics/`: retrieval (hit/recall/MRR/nDCG over the full list handed to generation,
   against human-picked gold chunks),
@@ -188,7 +189,9 @@ Based on the dissertation draft and repository structure, near-term direction is
 2. Retrieval upgrades beyond current baseline. Hybrid search is **the default**
    (dev nDCG +0.064 over `dense_only`). The cross-encoder reranker was measured on
    dev and lost (recall -0.055, twice the latency); dropping the topic filter lost
-   too (`no_topic_filter`, recall -0.085). Improved query planning remains open.
+   too (`no_topic_filter`, recall -0.085), and `lexical_wide` moved nothing beyond
+   noise. Existence questions ("does X ever mention Y?") stay a known limitation:
+   top-k retrieval cannot prove absence. Improved query planning remains open.
 3. Better robustness/reproducibility (tests, experiment scripts, clearer dependency management).
 4. Optional user-facing feature exploration (e.g., quiz-oriented interaction over manifesto positions).
 

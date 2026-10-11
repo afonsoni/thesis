@@ -22,6 +22,12 @@ Separa as perguntas por novas linhas. Não numeres as perguntas.
 
 Perguntas reformuladas:"""
 
+# Appended before "Perguntas reformuladas:" under RetrievalConfig.expansion_synonyms.
+# No worked example on purpose: any example would be a gold-set question.
+QUERY_EXPANSION_SYNONYMS = """\
+Em pelo menos metade das versões, troca as palavras-chave da pergunta pelos \
+sinónimos e termos formais ou técnicos que um programa eleitoral usaria."""
+
 # ---------------------------------------------------------------------------
 # Query analysis (Part 10/11 – structured query understanding)
 # ---------------------------------------------------------------------------

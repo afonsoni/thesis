@@ -19,3 +19,14 @@ def test_expand_query_strict_raises_instead_of_degrading():
     with patch("src.rag.retrieval.query_expander.generate_text", side_effect=RuntimeError("rate limited")):
         with pytest.raises(RuntimeError):
             expand_query("Pergunta original", n_queries=4, strict=True)
+
+
+@pytest.mark.parametrize("synonyms", [False, True])
+def test_expand_query_asks_for_manifesto_vocabulary_only_when_told(synonyms):
+    from src.rag.retrieval.prompts import QUERY_EXPANSION_SYNONYMS
+
+    with patch("src.rag.retrieval.query_expander.generate_text", return_value="A") as gen:
+        expand_query("Pergunta original", n_queries=2, synonyms=synonyms)
+    prompt = gen.call_args.args[0]
+    assert (QUERY_EXPANSION_SYNONYMS in prompt) is synonyms
+    assert prompt.endswith("Perguntas reformuladas:")

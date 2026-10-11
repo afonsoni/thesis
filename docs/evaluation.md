@@ -81,12 +81,16 @@ them into `golden.json`:
 Nine abstention probes (q-52–q-60) follow the 51: eight `answerable: false`
 questions the manifestos do not answer, scored only on whether the answer
 declines (`abstention`), and q-60, a comparison where one party is silent, for
-partial abstention. `golden.json` therefore holds 60 questions.
+partial abstention. q-61 ("O Chega menciona alguma vez touradas?", added
+2026-10-11 from a failed query) probes an incidental mention: one rhetorical
+sentence, in a chunk classified `jovens`/`educacao` and worded "tauromáquico",
+so both the topic filter and the lexical match miss it. `golden.json` therefore
+holds 61 questions.
 
 Questions carry a `split`: of the 51, 30 **test** questions, balanced across
 route, stress, party and difficulty, are held out for headline numbers
 (`--split test`) and 21 **dev** questions are for tuning; the probes add 6 test
-and 3 dev, for 36 test and 24 dev.
+and 4 dev, for 36 test and 25 dev.
 
 **Retrieval ground truth is matched by content hash, not database UUID.**
 `insert_chunks` mints a new UUID on every insert and `--drop` re-mints them, so

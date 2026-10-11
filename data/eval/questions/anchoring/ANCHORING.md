@@ -2847,7 +2847,7 @@ comparison says the other party's programme is silent.
 - topics: cultura, outros
 - answerable: no
 - stresses: abstention · diff: M
-- note: só BE, LIVRE e PAN referem touradas/tauromaquia
+- note: só BE, LIVRE e PAN referem touradas/tauromaquia (e o CHEGA, de passagem, ver q-61)
 - reference: O programa eleitoral da Aliança Democrática para 2024 não refere as touradas.
 - reviewed: no
 
@@ -2890,3 +2890,17 @@ comparison says the other party's programme is silent.
 - [x] `sha1:9de71c600cb7c578dd9cf864d0fdbc8dbdf7a577` · **Pessoas-Animais-Natureza** · (gold de q-04)
 - [x] `sha1:9afbac33a6bc20fe0eeaa4d90737b7d7e47b5fca` · **Pessoas-Animais-Natureza** · (gold de q-04)
 - [x] `sha1:b6480ea6968adb16ba94987e579189404ecb4c2e` · **Pessoas-Animais-Natureza** · (gold de q-04)
+
+## q-61 — O Chega menciona alguma vez touradas?
+
+- split: dev
+- coverage: best_match
+- parties: CHEGA
+- topics: cultura, outros
+- stresses: routing, multi-query (menção incidental) · diff: H
+- note: uma única menção, retórica, no capítulo dos jovens (chunk classificado jovens/educacao, fora do filtro cultura); o programa diz "espectáculo tauromáquico", nunca "tourada"
+- reference: Sim, mas apenas de passagem e sem qualquer proposta: no capítulo sobre os jovens, o CHEGA usa as touradas como argumento retórico, afirmando que aos 16 anos um jovem pode escolher fazer uma operação para mudar de sexo, mas está interdito de ir a um espectáculo tauromáquico.
+- reviewed: no
+
+- [x] `sha1:4b5c4bfa0e5a6c6668ed4b3857c66a259412719c` · **CHEGA** · PROGRAMA ELEITORAL: LIMPAR PORTUGAL > IX CAPÍTULO JOVENS COM UM FUTURO EM PORTUGAL. COMO?
+  > O empobrecimento crónico das novas gerações, a falta de perspectivas e a precariedade são resultados directos de décadas de governação socialista. [...] Com 16 anos poderá escolher fazer uma operação para mudar de sexo, mas estará interdito de ir a um espectáculo tauromáquico. [...] É uma geração amputada.

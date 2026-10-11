@@ -96,6 +96,10 @@ Now scored: these three plus five more are q-52–q-59 in
 towards the `abstention` metric. q-60 (PAN vs PS on touradas, PS silent) checks
 partial abstention in a comparison.
 
+q-61, "O Chega menciona alguma vez touradas?" (dev, added 2026-10-11 from a
+failed query), is answerable: a single rhetorical "espectáculo tauromáquico" in
+CHEGA's youth chapter. It lives only in `anchoring/ANCHORING.md`, like the probes.
+
 | Question | Why it is unanswerable |
 |---|---|
 | O que propõe o PCP sobre a legalização da canábis? | PCP não menciona canábis |

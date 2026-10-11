@@ -107,6 +107,18 @@ class RetrievalConfig(BaseModel):
         "the catch-all 'outros'). Off, topics play no part in retrieval: a chunk the "
         "classifier tagged differently from the analyzer can still be found.",
     )
+    lexical_topic_filter: bool = Field(
+        default=True,
+        description="Apply the topic filter to the lexical list too. Off, only dense "
+        "search is topic-filtered: a rare exact term is precise on its own, and an "
+        "incidental mention sits in a chunk classified under another topic.",
+    )
+    expansion_synonyms: bool = Field(
+        default=False,
+        description="Ask multi-query expansion to swap the question's key words for "
+        "the synonyms and formal terms a manifesto would use, so the lexical lists "
+        "can match wording the user did not type.",
+    )
     query_instruction: Optional[str] = Field(
         default=None,
         description="Task sentence for instruction-aware encoders (Qwen3-Embedding), "

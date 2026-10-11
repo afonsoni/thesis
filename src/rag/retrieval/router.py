@@ -43,7 +43,8 @@ def route(
     if config.use_multi_query:
         progress.info("A reformular a pergunta para a pesquisa…")
     queries = (
-        expand_query(search_text, n_queries=config.multi_query_count, strict=config.strict)
+        expand_query(search_text, n_queries=config.multi_query_count, strict=config.strict,
+                     synonyms=config.expansion_synonyms)
         if config.use_multi_query
         else [search_text]
     )
