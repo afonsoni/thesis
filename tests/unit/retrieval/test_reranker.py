@@ -129,7 +129,7 @@ def test_multi_query_search_widens_the_fetch_when_reranking(monkeypatch):
 
     out = searcher.multi_query_search(
         ["educacao"],
-        RetrievalConfig(use_reranker=True, rerank_candidates=30),
+        RetrievalConfig(use_reranker=True, rerank_candidates=30, use_hybrid=False),
         top_k=5,
         rerank_query="educacao",
     )

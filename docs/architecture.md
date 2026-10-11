@@ -139,7 +139,7 @@ With a flag off, each stage degrades instead of disappearing:
 | `use_query_analysis` | no LLM call; question treated as GENERAL (no parties or topics) |
 | `use_multi_query`    | one query: the reformulated question                            |
 | `use_routing`        | every query takes the GENERAL route                             |
-| `use_hybrid`         | dense lists only (the default)                                  |
+| `use_hybrid`         | dense lists only (`dense_only` and the first three rungs)       |
 | `use_rrf`            | lists merged by first occurrence                                |
 | `use_reranker`       | fused list trimmed straight to `top_k` (the default)            |
 

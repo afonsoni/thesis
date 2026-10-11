@@ -123,7 +123,7 @@ python main.py index --all --drop --chunk-strategy small_to_big
 the dense lists in a single RRF pass. It exists because dense embeddings
 under-weight rare exact tokens — `USF tipo C`, `TMRG`, `RES_U`,
 `Cheque-Dentista` — which are exactly the strings a user quotes when asking about
-them. Enable it per-variant (`hybrid`, `hybrid_only`) or via `RetrievalConfig`.
+them. It is on by default (dev nDCG +0.064 over dense-only); `dense_only` turns it off.
 
 ### Cross-encoder reranking
 
@@ -252,7 +252,7 @@ python main.py query "Políticas ambientais dos partidos de esquerda" --top-k 10
 ## Evaluation
 
 The system is evaluated as a ladder of **implementation steps** (`naive` →
-`multiquery` → `routed` → `current` → `hybrid` → `reranked`, plus the
+`multiquery` → `routed` → `dense_only` → `current` → `reranked`, plus the
 `hybrid_only` / `reranked_only` isolation rungs), all run over the same gold set
 so gains are attributable to specific techniques.
 Each step is a `RetrievalConfig` preset (feature flags over the *same* production

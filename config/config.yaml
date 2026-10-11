@@ -88,4 +88,4 @@ evaluation:
   # judge score is omitted, never 0).
   wait_out_attempts: 5
   top_k: 5
-  variants: ["naive", "current", "hybrid"]
+  variants: ["naive", "dense_only", "current"]

@@ -111,7 +111,7 @@ Entry point: `main.py`
 #### Evaluation (`src/rag/evaluation/`)
 
 - `variants.py`: the declarative ladder of implementation steps as `RetrievalConfig`
-  presets (`naive`, `multiquery`, `routed`, `current`, `hybrid`, `hybrid_only`,
+  presets (`naive`, `multiquery`, `routed`, `dense_only`, `current`, `hybrid_only`,
   `reranked`, `reranked_only`), plus four ablations one flag away from `current`:
   `party_stripped` (`strip_party_names`), `instructed` (`query_instruction` =
   `embeddings.task_instruction`), `contextual` (searches `indexing.contextual_table`,
@@ -185,11 +185,10 @@ Based on the dissertation draft and repository structure, near-term direction is
 1. Formal evaluation of retrieval and answer quality. **(In progress — the evaluation
    harness now exists in `src/rag/evaluation/`; next is curating `golden.json` and
    running the variant ladder to produce headline numbers.)**
-2. Retrieval upgrades beyond current baseline. Hybrid search and cross-encoder
-   reranking are **implemented** (`use_hybrid`, `use_reranker`, with `hybrid`,
-   `hybrid_only`, `reranked`, `reranked_only` on the ladder); both still need
-   leaderboard numbers over a curated gold set to earn their place. Improved
-   query planning remains open.
+2. Retrieval upgrades beyond current baseline. Hybrid search is **the default**
+   (dev nDCG +0.064 over `dense_only`). The cross-encoder reranker was measured on
+   dev and lost (recall -0.055, twice the latency); dropping the topic filter lost
+   too (`no_topic_filter`, recall -0.085). Improved query planning remains open.
 3. Better robustness/reproducibility (tests, experiment scripts, clearer dependency management).
 4. Optional user-facing feature exploration (e.g., quiz-oriented interaction over manifesto positions).
 

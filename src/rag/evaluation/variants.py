@@ -25,6 +25,7 @@ VARIANTS: Dict[str, RetrievalConfig] = {
         use_query_analysis=False,
         use_routing=False,
         use_multi_query=False,
+        use_hybrid=False,
     ),
     # Rung 1 – add multi-query expansion + RRF fusion (Parts 5 & 6), still no routing.
     "multiquery": RetrievalConfig(
@@ -32,6 +33,7 @@ VARIANTS: Dict[str, RetrievalConfig] = {
         use_query_analysis=False,
         use_routing=False,
         use_multi_query=True,
+        use_hybrid=False,
     ),
     # Rung 2 – add structured query analysis + logical routing (Part 10), single query.
     "routed": RetrievalConfig(
@@ -39,11 +41,13 @@ VARIANTS: Dict[str, RetrievalConfig] = {
         use_query_analysis=True,
         use_routing=True,
         use_multi_query=False,
+        use_hybrid=False,
     ),
-    # Rung 3 – the current production system: analysis + routing + multi-query + RRF.
+    # Rung 3 – analysis + routing + multi-query + RRF, over dense retrieval only.
+    "dense_only": RetrievalConfig(name="dense_only", use_hybrid=False),
+    # Rung 4 – the current production system: rung 3 plus the lexical half (BM25
+    # fused by the same RRF pass), the default since it raised dev nDCG by 0.064.
     "current": RetrievalConfig(name="current"),
-    # Rung 4 – add the lexical half: dense + Portuguese full-text, fused by RRF.
-    "hybrid": RetrievalConfig(name="hybrid", use_hybrid=True),
     # Isolates hybrid's contribution against `naive`, holding expansion/routing off
     # so the only difference from rung 0 is the added lexical retrieval.
     "hybrid_only": RetrievalConfig(
@@ -65,6 +69,7 @@ VARIANTS: Dict[str, RetrievalConfig] = {
         use_query_analysis=False,
         use_routing=False,
         use_multi_query=False,
+        use_hybrid=False,
         use_reranker=True,
     ),
 

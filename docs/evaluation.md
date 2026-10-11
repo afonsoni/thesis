@@ -19,14 +19,14 @@ scores isolates the contribution of a single feature.
 | `naive`          | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | Single query → single similarity search → direct answer |
 | `multiquery`     | ✗ | ✗ | ✓ | ✓ | ✗ | ✗ | + multi-query expansion (Part 5) & RRF fusion (Part 6) |
 | `routed`         | ✓ | ✓ | ✗ | ✗ | ✗ | ✗ | + structured query analysis & logical routing (Part 10) |
-| `current`        | ✓ | ✓ | ✓ | ✓ | ✗ | ✗ | The full production pipeline |
-| `hybrid`         | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | + Portuguese full-text lists fused in the same RRF pass |
+| `dense_only`     | ✓ | ✓ | ✓ | ✓ | ✗ | ✗ | The pipeline before hybrid became the default |
+| `current`        | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | The full production pipeline: + BM25 lists fused in the same RRF pass |
 | `hybrid_only`    | ✗ | ✗ | ✗ | ✓ | ✓ | ✗ | Isolates the lexical half against `naive` |
-| `reranked`       | ✓ | ✓ | ✓ | ✓ | ✗ | ✓ | + cross-encoder precision pass over a wide candidate set |
+| `reranked`       | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | + cross-encoder precision pass over a wide candidate set |
 | `reranked_only`  | ✗ | ✗ | ✗ | ✗ | ✗ | ✓ | Isolates reranking against `naive` |
 
 Each of the last four differs from a baseline by exactly one flag, which is what
-makes the delta attributable: `hybrid` − `current` is the lexical half,
+makes the delta attributable: `current` − `dense_only` is the lexical half,
 `reranked` − `current` is the cross-encoder, and the `*_only` rungs measure the
 same two techniques against `naive` without expansion or routing in the way.
 
