@@ -78,9 +78,15 @@ them into `golden.json`:
 3. `compile` writes `golden.json`, deriving `query_type` from parties and
    coverage exactly as the pipeline does.
 
-Questions carry a `split`: 30 **test** questions, balanced across route, stress,
-party and difficulty, are held out for headline numbers (`--split test`); 21
-**dev** questions are for tuning.
+Nine abstention probes (q-52–q-60) follow the 51: eight `answerable: false`
+questions the manifestos do not answer, scored only on whether the answer
+declines (`abstention`), and q-60, a comparison where one party is silent, for
+partial abstention. `golden.json` therefore holds 60 questions.
+
+Questions carry a `split`: of the 51, 30 **test** questions, balanced across
+route, stress, party and difficulty, are held out for headline numbers
+(`--split test`) and 21 **dev** questions are for tuning; the probes add 6 test
+and 3 dev, for 36 test and 24 dev.
 
 **Retrieval ground truth is matched by content hash, not database UUID.**
 `insert_chunks` mints a new UUID on every insert and `--drop` re-mints them, so
