@@ -56,7 +56,10 @@ class GenerationJudgeMetric:
     def _reference(self, question: EvalQuestion) -> Optional[List[str]]:
         key = (question.id, question.reference_answer)
         if key not in self._reference_claims:
-            self._reference_claims[key] = extract_claims(question.question, question.reference_answer, self.model)
+            claims = extract_claims(question.question, question.reference_answer, self.model)
+            if claims is None:  # failed: try again on the next variant, not never
+                return None
+            self._reference_claims[key] = claims
         return self._reference_claims[key]
 
     def score(self, run: QuestionRun, question: EvalQuestion) -> Dict[str, float]:

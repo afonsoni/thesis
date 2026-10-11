@@ -96,3 +96,21 @@ def test_answerable_question_records_false_refusal(fake_judge, monkeypatch):
 
     assert scores["false_refusal"] == 1.0
     assert "abstention" not in scores
+
+
+def test_a_failed_reference_extraction_is_retried_on_the_next_variant(fake_judge, monkeypatch):
+    ref_attempts = {"n": 0}
+
+    def extract(question, text, model=None):
+        if text == "REF":
+            ref_attempts["n"] += 1
+            if ref_attempts["n"] == 1:
+                return None  # judge call failed this once
+        return {"ANSWER": ["a1", "a2", "a3"], "REF": ["r1", "r2"]}.get(text, [])
+
+    monkeypatch.setattr(gen, "extract_claims", extract)
+    metric = gen.GenerationJudgeMetric()
+    q = EvalQuestion(id="q-01", question="Q?", reference_answer="REF")
+    first = metric.score(QuestionRun(question_id="q-01", variant="naive", answer="ANSWER", context="CONTEXT"), q)
+    second = metric.score(QuestionRun(question_id="q-01", variant="current", answer="ANSWER", context="CONTEXT"), q)
+    assert "correctness" not in first and "correctness" in second
