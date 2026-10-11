@@ -35,7 +35,7 @@ llm:
     # Provider choice: unset leans cheapest (a ~50 tok/s provider for Gemma),
     # "throughput" the fastest (~300 tok/s, ~40% dearer), "price" the cheapest.
     provider_sort: "throughput"
-    temperature: 0.2
+    temperature: 0.0 # analysis and expansion are 0 too: a rerun repeats, so a delta is the change
     max_tokens: 3000 # cap on the generated answer
     # Context budget per generation prompt; the lowest-ranked chunks are trimmed
     # first, never a whole party. An 8-party comparison needs ~14-24k.

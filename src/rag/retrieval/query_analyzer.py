@@ -226,7 +226,7 @@ def analyze_query(
             prompt,
             response_schema=_QueryAnalysisResponse,
             system_prompt=QUERY_ANALYSIS_SYSTEM_PROMPT,
-            temperature=0.1,
+            temperature=0.0,
             label="query analysis",
         )
     except Exception as exc:

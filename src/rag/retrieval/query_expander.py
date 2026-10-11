@@ -25,7 +25,7 @@ def expand_query(question: str, n_queries: int, strict: bool = False) -> List[st
     prompt = QUERY_EXPANSION_PROMPT.format(question=question, n_queries=n_queries)
 
     try:
-        raw = generate_text(prompt, temperature=0.5, max_tokens=500, label="query expansion")
+        raw = generate_text(prompt, temperature=0.0, max_tokens=500, label="query expansion")
         expanded = [q.strip() for q in raw.strip().split("\n") if q.strip()]
         # De-duplicate while preserving order
         seen = set()
