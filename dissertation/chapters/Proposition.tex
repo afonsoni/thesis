@@ -902,6 +902,50 @@ routing ground truth for free, content-hash identity across re-indexing.}
 \TODO{Three metric families; judge-model caveat (self-preference bias if judge
 == generator) and how you addressed it.}
 
+\subsection{Measurement safeguards} \label{subsec:safeguards}
+%% DRAFT (Claude, 2026-10-10): safeguards paragraph, to be rewritten.
+%% src: evaluation/models.py (label validator), runner.py (strict mode),
+%% metrics/generation.py (omitted scores), reranker.py, report.py (models_used),
+%% tests/integration/test_filtered_vector_search.py, tests/unit/indexing/test_contextual_embedding.py
+\TODO{Read this draft and rewrite it in your own words. Check each claim
+against the code, and add the pgvector citation.}
+
+A comparison between variants is only as good as the numbers on both sides,
+and several failures in this pipeline would not raise an error: they would
+quietly change a score. Each of the following is therefore checked
+automatically, either by the evaluation harness itself or by a test in the
+repository's test suite.
+
+\begin{itemize}
+    \item \textbf{Consistent gold labels.} A gold question's route label is
+    derived from its parties and coverage, exactly as the pipeline derives it.
+    A question whose labels contradict each other is rejected when the gold set
+    is loaded, instead of scoring zero on every variant.
+    \item \textbf{Failures are errors, not scores.} The harness runs query
+    analysis and query expansion in strict mode: a call that still fails after
+    its retries is recorded as an error for that question, rather than falling
+    back to a simpler pipeline whose output would be scored under the variant's
+    name. A judge call that fails leaves its score out instead of recording a
+    zero, so a free-tier outage cannot pass for a bad answer.
+    \item \textbf{Exact filtered search.} pgvector applies metadata filters
+    after the approximate (HNSW) index scan, so a filtered query can return
+    fewer rows than requested; measured here, a party filter under an HNSW plan
+    returned 3 of 30 requested rows \TODO{cite the pgvector documentation on
+    filtering}. A test on a table shaped like the real one (same per-party
+    sizes and vector dimension) checks that a party-filtered search returns the
+    full top-$k$, so retrieval would not be silently starved if the query plan
+    changed as the corpus grows.
+    \item \textbf{Stable gold identity.} Gold chunks are identified by a hash of
+    their content (Section~\ref{subsec:goldset}). A test checks that the
+    contextual-header ablation changes only the text that is embedded, not the
+    stored content, so one gold set scores every variant.
+    \item \textbf{No silent substitutions.} A reranker that fails to load stops
+    the run instead of returning un-reranked results under the
+    \texttt{reranked} name. An answer cut off at the output token limit is
+    marked in the per-question record, and the leaderboard notes any variant in
+    which a fallback model answered some of the calls.
+\end{itemize}
+
 \subsection{Results and discussion} \label{subsec:results}
 %% src: data/eval/reports/leaderboard.md (once curated runs exist)
 \TODO{BLOCKED until curated gold-set runs are done. Leaderboard table +
