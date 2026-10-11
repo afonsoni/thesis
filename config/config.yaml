@@ -81,8 +81,10 @@ evaluation:
   dataset_path: "data/eval/questions/golden.json"
   results_dir: "data/eval/results"
   reports_dir: "data/eval/reports"
-  # Ideally a different model from generation, to limit self-preference bias.
-  judge_model: "google/gemma-4-26b-a4b-it"
+  # A different family from the generator (self-preference bias), called with
+  # no fallback chain, reasoning off, and the provider judge_provider_sort picks.
+  judge_model: "qwen/qwen3.8-27b"
+  judge_provider_sort: "price"
   judge_temperature: 0.0
   # Waits per LLM stage before a question is recorded as an error (a failed
   # judge score is omitted, never 0).
