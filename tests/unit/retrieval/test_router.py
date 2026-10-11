@@ -118,6 +118,15 @@ def test_the_catch_all_topic_is_never_a_filter():
     assert searcher.multi_query_calls[0]["topics"] is None
 
 
+def test_topics_play_no_part_with_the_topic_filter_off():
+    searcher = StubSearcher()
+    analyzed = AnalyzedQuery(original_query="O PS e a saúde?", parties=["Partido Socialista"], topics=["saude"])
+
+    route(analyzed, searcher, config=_no_expand(top_k=5, use_topic_filter=False))
+
+    assert searcher.multi_query_calls[0]["topics"] is None
+
+
 def test_route_single_party_relaxes_topics_when_nothing_matches():
     """A topic no chunk carries must not turn a good question into zero results."""
     searcher = StubSearcher(empty_when_topics=True)

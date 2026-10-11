@@ -61,7 +61,8 @@ def route(
 
     # "outros" is what the analyzer says when no topic fits, so as a filter it
     # keeps only the chunks the classifier could not place, never the answer.
-    topics = [t for t in query.topics if t != "outros"] or None
+    topics = [t for t in query.topics if t != "outros"] if config.use_topic_filter else []
+    topics = topics or None
     if query.query_type in (QueryType.COMPARISON, QueryType.TOPIC_EXPLORATION):
         # No named party means the whole corpus. Bloc questions ("os partidos de
         # direita") arrive already resolved into names.

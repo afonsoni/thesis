@@ -71,6 +71,7 @@ VARIANTS: Dict[str, RetrievalConfig] = {
     # Dense-retrieval ablations (dissertation/DECISIONS.md, 2026-10-09), each one
     # flag away from `current`. Run on the dev split before any becomes a default.
     "party_stripped": RetrievalConfig(name="party_stripped", strip_party_names=True),
+    "no_topic_filter": RetrievalConfig(name="no_topic_filter", use_topic_filter=False),
     "instructed": RetrievalConfig(
         name="instructed", query_instruction=config.get("embeddings.task_instruction"),
     ),

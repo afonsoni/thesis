@@ -100,6 +100,12 @@ class RetrievalConfig(BaseModel):
         "is applied. The filter already carries the party; left in, the name pulls "
         "the query towards chunks *about* the party. The lexical query always drops them.",
     )
+    use_topic_filter: bool = Field(
+        default=True,
+        description="Restrict searches to chunks sharing an analyzed topic (never "
+        "the catch-all 'outros'). Off, topics play no part in retrieval: a chunk the "
+        "classifier tagged differently from the analyzer can still be found.",
+    )
     query_instruction: Optional[str] = Field(
         default=None,
         description="Task sentence for instruction-aware encoders (Qwen3-Embedding), "

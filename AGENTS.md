@@ -112,10 +112,11 @@ Entry point: `main.py`
 
 - `variants.py`: the declarative ladder of implementation steps as `RetrievalConfig`
   presets (`naive`, `multiquery`, `routed`, `current`, `hybrid`, `hybrid_only`,
-  `reranked`, `reranked_only`), plus three dense-retrieval ablations one flag away
-  from `current`: `party_stripped` (`strip_party_names`), `instructed`
-  (`query_instruction` = `embeddings.task_instruction`) and `contextual` (searches
-  `indexing.contextual_table`, built with `main.py index --contextual-headers --table`).
+  `reranked`, `reranked_only`), plus four ablations one flag away from `current`:
+  `party_stripped` (`strip_party_names`), `instructed` (`query_instruction` =
+  `embeddings.task_instruction`), `contextual` (searches `indexing.contextual_table`,
+  built with `main.py index --contextual-headers --table`) and `no_topic_filter`
+  (`use_topic_filter=False`).
 - `dataset.py`: gold-set load/save (content-hash keys).
 - `metrics/`: retrieval (hit/recall/MRR/nDCG over the full list handed to generation,
   against human-picked gold chunks),
