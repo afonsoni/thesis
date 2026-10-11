@@ -2,7 +2,7 @@ from typing import List, Optional
 
 import pytest
 
-from src.rag.common.models import AnalyzedQuery, QueryType, SearchResult
+from src.rag.common.models import PARTY_MAP, AnalyzedQuery, QueryType, SearchResult
 from src.rag.retrieval.config import RetrievalConfig
 from src.rag.retrieval.router import route
 from src.rag.retrieval.searcher import Searcher
@@ -57,11 +57,10 @@ class StubSearcher(Searcher):
     "parties, topics, expected_type",
     [
         (["Partido Socialista"], ["educacao"], QueryType.SINGLE_PARTY),
-        ([], ["habitacao"], QueryType.TOPIC_EXPLORATION),
         ([], [], QueryType.GENERAL),
     ],
 )
-def test_non_comparison_routes_are_one_filtered_search(parties, topics, expected_type):
+def test_single_party_and_general_routes_are_one_filtered_search(parties, topics, expected_type):
     searcher = StubSearcher()
     analyzed = AnalyzedQuery(original_query="Pergunta?", parties=parties, topics=topics)
     assert analyzed.query_type == expected_type
@@ -95,6 +94,28 @@ def test_route_comparison_searches_each_party_separately():
     ]
     assert all(c["topics"] == ["saude"] for c in searcher.multi_query_calls)
     assert all(c["top_k"] == 3 for c in searcher.multi_query_calls)
+
+
+def test_topic_exploration_searches_every_party():
+    """"What is proposed for X" must hear from each party, not the 5 best chunks."""
+    searcher = StubSearcher()
+    analyzed = AnalyzedQuery(original_query="Que propostas há para a habitação?", topics=["habitacao"])
+    assert analyzed.query_type == QueryType.TOPIC_EXPLORATION
+
+    retrieval = route(analyzed, searcher, config=_no_expand(top_k=5, top_k_per_party=5))
+
+    assert len(retrieval.results_by_party) == len(PARTY_MAP)
+    assert all(c["top_k"] == 5 and c["topics"] == ["habitacao"] for c in searcher.multi_query_calls)
+
+
+def test_the_catch_all_topic_is_never_a_filter():
+    searcher = StubSearcher()
+    analyzed = AnalyzedQuery(original_query="A IL e a canábis?", parties=["Iniciativa Liberal"],
+                             topics=["outros"])
+
+    route(analyzed, searcher, config=_no_expand(top_k=5))
+
+    assert searcher.multi_query_calls[0]["topics"] is None
 
 
 def test_route_single_party_relaxes_topics_when_nothing_matches():

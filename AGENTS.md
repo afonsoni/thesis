@@ -89,7 +89,7 @@ Entry point: `main.py`
   scoring it would tie them). Results carry `ScoreType.RERANK` — raw logits, not
   comparable to cosine/RRF. Model-load failures raise rather than degrade to
   un-reranked results, so a `reranked` run cannot silently report baseline numbers.
-- `router.py`: per-party fan-out for comparisons; one party/topic-filtered search otherwise.
+- `router.py`: per-party fan-out for comparisons and topic explorations; one party/topic-filtered search otherwise. The catch-all topic `outros` is never a filter.
 - `pipeline.py`: retrieval entry point using a singleton `Searcher`.
 
 #### Generation (`src/rag/generation/`)

@@ -118,5 +118,5 @@ class RetrievalConfig(BaseModel):
     top_k_per_party: int = Field(
         default_factory=_from_config("top_k_per_party"),
         ge=1,
-        description="Per-party results for comparison queries.",
+        description="Per-party results for comparison and topic-exploration queries.",
     )

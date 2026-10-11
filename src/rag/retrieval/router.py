@@ -4,11 +4,12 @@ Retrieval router – picks the search strategy from the analyzed query (Part 10)
 Two strategies, keyed on ``AnalyzedQuery.query_type`` (derived from ``parties``
 and ``coverage``):
 
-- comparison → one search per party (the named ones, or all of them for an
-  exhaustive question), so no party is crowded out of a global top-k;
-- everything else → one search, filtered to the single named party (if any)
-  and to the analyzed topics (if any). That covers single_party,
-  topic_exploration and general, which differ only in which filters are set.
+- comparison and topic_exploration → one search per party (the named ones, or
+  all of them), so no party is crowded out of a global top-k: "what is proposed
+  for X" wants every party that proposes something, not the five best chunks;
+- single_party and general → one search, filtered to the named party (if any).
+
+Both filter on the analyzed topics, except the catch-all "outros".
 """
 
 import logging
@@ -58,12 +59,14 @@ def route(
         logger.info("Routing disabled → one unfiltered search.")
         return RetrievalResult(query=query, results=search(config.top_k, None, None))
 
-    topics = query.topics or None
-    if query.query_type == QueryType.COMPARISON:
-        # No named party means an exhaustive question over the whole corpus. Bloc
-        # questions ("os partidos de direita") arrive already resolved into names.
+    # "outros" is what the analyzer says when no topic fits, so as a filter it
+    # keeps only the chunks the classifier could not place, never the answer.
+    topics = [t for t in query.topics if t != "outros"] or None
+    if query.query_type in (QueryType.COMPARISON, QueryType.TOPIC_EXPLORATION):
+        # No named party means the whole corpus. Bloc questions ("os partidos de
+        # direita") arrive already resolved into names.
         parties = query.parties or [info["name"] for info in PARTY_MAP.values()]
-        logger.info("Routing COMPARISON → parties: %s", parties)
+        logger.info("Routing %s → parties: %s", query.query_type.value.upper(), parties)
         # Topics are relaxed per party, so one party lacking a topic does not lose
         # its filter for the others.
         grouped = {p: search(config.top_k_per_party, p, topics) for p in parties}
