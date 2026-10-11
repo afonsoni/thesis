@@ -98,7 +98,7 @@ def extract_claims(question: str, text: str, model: Optional[str] = None) -> Opt
     """Atomic, self-contained claims made by *text* (an answer or a reference)."""
     out = _call(
         CLAIMS_EXTRACTION_PROMPT.format(question=question, text=text),
-        _Claims, CLAIMS_SYSTEM_PROMPT, model, "claim extraction", 2000,
+        _Claims, CLAIMS_SYSTEM_PROMPT, model, "claim extraction", 4000,
     )
     if out is None:
         return None
@@ -124,7 +124,7 @@ def verify_claims(
         return sorted(out.verdicts, key=lambda v: v.index) if all(v.index for v in out.verdicts) else out.verdicts
 
     return _call(prompt, _Verdicts, CLAIMS_SYSTEM_PROMPT, model, "claim verification",
-                 200 + 120 * len(claims), check=aligned)
+                 200 + 200 * len(claims), check=aligned)
 
 
 def judge_answer_relevance(
