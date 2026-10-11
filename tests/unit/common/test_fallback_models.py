@@ -119,3 +119,52 @@ def test_a_missing_api_key_fails_at_once_instead_of_being_retried(monkeypatch):
     monkeypatch.setattr(t.time, "sleep", lambda s: pytest.fail("a missing key is not transient"))
     with pytest.raises(t.OpenRouterTransportError, match="OPENROUTER_API_KEY"):
         t.call_openrouter_with_retries("p", "a/1:free")
+
+
+def test_a_call_can_opt_out_of_fallbacks_provider_sort_and_reasoning(monkeypatch):
+    import json
+
+    monkeypatch.setenv("OPENROUTER_API_KEY", "k")
+    monkeypatch.setattr(t, "_fallback_models", lambda model: [model, "b/2:free"])
+    monkeypatch.setattr(t.config, "get", lambda key, default=None: "throughput"
+                        if key == "llm.openrouter.provider_sort" else default)
+    sent = []
+
+    def post(url, headers, data, timeout, stream=False):
+        sent.append(json.loads(data))
+        return _Resp(200, {"model": "a/1", "choices": [{"message": {"content": "ok"}}]})
+
+    monkeypatch.setattr(t.requests, "post", post)
+    t._call_openrouter_once("p", "a/1", 0.0, 10, None, 5, None,
+                            fallback_models=[], provider_sort="price", reasoning=False)
+    body = sent[0]
+    assert body["model"] == "a/1" and "models" not in body  # no chain: this model or nothing
+    assert body["provider"] == {"sort": "price"}
+    assert body["reasoning"] == {"enabled": False}
+
+
+def test_wait_out_retries_only_the_errors_it_is_told_to(monkeypatch):
+    from src.rag.common import llm_client
+
+    monkeypatch.setattr(llm_client.time, "sleep", lambda s: None)
+    calls = {"n": 0}
+
+    def bad_reply():
+        calls["n"] += 1
+        raise ValueError("expected 3 verdicts, got 2")
+
+    with pytest.raises(ValueError):
+        llm_client.call_with_wait_out(bad_reply, "judge", attempts=5,
+                                      retry_on=(t.OpenRouterTransportError, TimeoutError))
+    assert calls["n"] == 1  # deterministic failure: not worth five rounds of sleeping
+
+    def flaky():
+        calls["n"] += 1
+        if calls["n"] < 3:
+            raise t.OpenRouterTransportError("503", status_code=503)
+        return "ok"
+
+    calls["n"] = 0
+    assert llm_client.call_with_wait_out(flaky, "judge", attempts=5,
+                                         retry_on=(t.OpenRouterTransportError, TimeoutError)) == "ok"
+    assert calls["n"] == 3

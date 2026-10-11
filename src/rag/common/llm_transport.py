@@ -88,12 +88,20 @@ def call_openrouter_with_retries(
     timeout_seconds: int = 120,
     response_format: Optional[Dict[str, Any]] = None,
     on_token: Optional[Callable[[str], None]] = None,
+    fallback_models: Optional[List[str]] = None,
+    provider_sort: Optional[str] = None,
+    reasoning: Optional[bool] = None,
 ) -> str:
     """Call OpenRouter, retrying transient failures with jittered exponential backoff.
 
     With *on_token* the answer is streamed: each piece of text is passed to it as
     it arrives, and the whole text is still returned. A stream that breaks off is
     retried from the start, so *on_token* may see a partial answer, then a new one.
+
+    ``fallback_models``, ``provider_sort`` and ``reasoning`` override the
+    ``llm.openrouter.*`` config for this call: an empty fallback list means the
+    requested model answers or the call fails, and ``reasoning=False`` turns a
+    hybrid-reasoning model's thinking off so it is not billed as output.
     """
     for attempt in range(_MAX_RETRIES):
         try:
@@ -106,6 +114,9 @@ def call_openrouter_with_retries(
                 timeout_seconds=timeout_seconds,
                 response_format=response_format,
                 on_token=on_token,
+                fallback_models=fallback_models,
+                provider_sort=provider_sort,
+                reasoning=reasoning,
             )
         except OpenRouterTransportError as exc:
             retriable = _is_retriable_error(exc)
@@ -143,6 +154,9 @@ def _call_openrouter_once(
     timeout_seconds: int,
     response_format: Optional[Dict[str, Any]],
     on_token: Optional[Callable[[str], None]] = None,
+    fallback_models: Optional[List[str]] = None,
+    provider_sort: Optional[str] = None,
+    reasoning: Optional[bool] = None,
 ) -> str:
     api_key = os.getenv("OPENROUTER_API_KEY")
     if not api_key:  # 401: not transient, so neither retried nor waited out as one
@@ -161,15 +175,18 @@ def _call_openrouter_once(
     }
     if response_format:
         payload["response_format"] = response_format
-    provider_sort = config.get("llm.openrouter.provider_sort")
+    if provider_sort is None:
+        provider_sort = config.get("llm.openrouter.provider_sort")
     if provider_sort:
         payload["provider"] = {"sort": provider_sort}
+    if reasoning is False:
+        payload["reasoning"] = {"enabled": False}
 
     # OpenRouter model fallbacks: on any error from one model (rate limit,
     # downtime, context length) it tries the next in ``models``. It accepts at
     # most 3 there, so a longer chain goes out in groups of 3, the next group
     # only once every model in the previous one has failed.
-    chain = _fallback_models(model)
+    chain = _fallback_models(model) if fallback_models is None else list(dict.fromkeys([model, *fallback_models]))
     last_error: Optional[Exception] = None
     for start in range(0, len(chain), _MAX_MODELS_PER_REQUEST):
         group = chain[start:start + _MAX_MODELS_PER_REQUEST]

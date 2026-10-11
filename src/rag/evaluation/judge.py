@@ -22,6 +22,7 @@ from typing import Any, Callable, List, Optional
 from pydantic import BaseModel, Field
 
 from src.rag.common.llm_client import call_with_wait_out, generate_structured
+from src.rag.common.llm_transport import OpenRouterTransportError
 from src.rag.evaluation.prompts import (
     CLAIMS_EXTRACTION_PROMPT,
     CLAIMS_SYSTEM_PROMPT,
@@ -70,8 +71,14 @@ def _call(prompt: str, schema: type, system: str, model: Optional[str], label: s
           check: Optional[Callable[[Any], Any]] = None):
     """One structured judge call with wait-out; ``None`` once attempts run out.
 
-    *check* validates/transforms the reply inside the retried call, so a reply
-    it rejects (by raising) is retried like a transport failure.
+    The judge is one instrument: the configured model answers with no fallback
+    chain (a swapped-in model mid-run would score with a different ruler), from
+    the provider ``evaluation.judge_provider_sort`` picks, with reasoning off so
+    thinking tokens are neither billed nor mixed into the reply.
+
+    *check* validates/transforms the reply. Only transport failures and timeouts
+    are waited out: at temperature 0 a malformed reply or a rejected *check* comes
+    back identical on every retry, so it fails once instead of five times.
     """
     def attempt():
         out = generate_structured(
@@ -82,12 +89,16 @@ def _call(prompt: str, schema: type, system: str, model: Optional[str], label: s
             temperature=float(config.get("evaluation.judge_temperature")),
             max_tokens=max_tokens,
             label=f"judge: {label}",
+            fallback_models=[],
+            provider_sort=config.get("evaluation.judge_provider_sort", None),
+            reasoning=False,
         )
         return check(out) if check else out
 
     try:
         return call_with_wait_out(
             attempt, label=label, attempts=int(config.get("evaluation.wait_out_attempts")),
+            retry_on=(OpenRouterTransportError, TimeoutError),
         )
     except Exception as exc:  # noqa: BLE001 - judge failures are omitted, not fatal
         logger.warning("%s failed: %s", label, exc)

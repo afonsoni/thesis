@@ -11,7 +11,7 @@ import logging
 import re
 import threading
 import time
-from typing import Any, Callable, Dict, List, Optional, TypeVar
+from typing import Any, Callable, Dict, List, Optional, Tuple, Type, TypeVar
 
 from pydantic import BaseModel
 
@@ -67,18 +67,21 @@ def call_with_wait_out(
     base_secs: float = 30,
     max_secs: float = 300,
     deadline_secs: float = 600,
+    retry_on: Tuple[Type[BaseException], ...] = (Exception,),
 ) -> T:
     """Call *fn*, waiting out transient failures; re-raise once *attempts* run out.
 
     For batch jobs on the free tier, where 429/500/503s and timeouts come in bursts
     that outlast the transport's few quick retries. Still fail-fast in the sense
     that matters: the last error is raised, never swallowed into a default.
+    Only errors that are instances of *retry_on* are waited out; any other is
+    raised at once (a deterministic failure repeats, so waiting cannot fix it).
     """
     for attempt in range(attempts):
         try:
             return with_deadline(fn, deadline_secs)
         except Exception as exc:  # noqa: BLE001 - retried, then re-raised
-            if attempt == attempts - 1:
+            if attempt == attempts - 1 or not isinstance(exc, retry_on):
                 raise
             wait = min(max_secs, base_secs * (attempt + 1))
             logger.warning("%s failed (%s); waiting %ds (attempt %d/%d)",
@@ -97,12 +100,17 @@ def generate_text(
     response_format: Optional[Dict[str, Any]] = None,
     label: str = "",
     on_token: Optional[Callable[[str], None]] = None,
+    fallback_models: Optional[List[str]] = None,
+    provider_sort: Optional[str] = None,
+    reasoning: Optional[bool] = None,
 ) -> str:
     """Generate text through OpenRouter transport with centralized retries.
 
     ``temperature`` / ``max_tokens`` default to ``llm.openrouter.*`` in config.
     ``label`` names the pipeline step in the log and in ``CALL_LOG``.
     ``on_token`` streams the text as it is generated (see the transport).
+    ``fallback_models`` / ``provider_sort`` / ``reasoning`` override the config
+    for this call (see the transport); ``None`` keeps the configured behaviour.
     """
     if temperature is None:
         temperature = float(config.get("llm.openrouter.temperature"))
@@ -119,6 +127,9 @@ def generate_text(
         timeout_seconds=timeout_seconds,
         response_format=response_format,
         on_token=on_token,
+        fallback_models=fallback_models,
+        provider_sort=provider_sort,
+        reasoning=reasoning,
     )
     answered_by = last_answering_model() or selected_model
     step = (label or "llm") + (" [truncated]" if last_answer_truncated() else "")
@@ -144,6 +155,9 @@ def generate_structured(
     max_tokens: int = 1500,
     timeout_seconds: int = 120,
     label: str = "",
+    fallback_models: Optional[List[str]] = None,
+    provider_sort: Optional[str] = None,
+    reasoning: Optional[bool] = None,
 ) -> Any:
     """Generate structured JSON and validate with an optional Pydantic schema."""
     raw = generate_text(
@@ -158,6 +172,9 @@ def generate_structured(
         timeout_seconds=timeout_seconds,
         response_format={"type": "json_object"},
         label=label,
+        fallback_models=fallback_models,
+        provider_sort=provider_sort,
+        reasoning=reasoning,
     )
 
     data = _extract_json_payload(raw)
