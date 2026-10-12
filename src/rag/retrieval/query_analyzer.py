@@ -197,6 +197,16 @@ def _coerce_answer_shape(raw: Any, parties: List[str], coverage: Coverage) -> An
 # Public API
 # ---------------------------------------------------------------------------
 
+# Successful analyses, per question, for the life of the process. At temperature 0
+# the analyzer still drifts between calls (providers are not bit-exact), and two
+# identical eval runs moved recall by up to 0.03; cached, every variant of a run
+# routes on the same analysis, so a delta between variants is the feature under
+# test. Failures are not cached: a fallback must not outlive the outage.
+# ponytail: unbounded dict, fine for an eval or a CLI; an LRU if a long-lived
+# server sees many distinct questions.
+_ANALYSES: Dict[str, "_QueryAnalysisResponse"] = {}
+
+
 def analyze_query(
     question: str,
     config: Optional[RetrievalConfig] = None,
@@ -219,21 +229,22 @@ def analyze_query(
             reformulated_query=question,
         )
 
-    prompt = QUERY_ANALYSIS_PROMPT.format(question=question)
-
-    try:
-        parsed: _QueryAnalysisResponse = generate_structured(
-            prompt,
-            response_schema=_QueryAnalysisResponse,
-            system_prompt=QUERY_ANALYSIS_SYSTEM_PROMPT,
-            temperature=0.0,
-            label="query analysis",
-        )
-    except Exception as exc:
-        if config.strict:
-            raise
-        logger.warning("Structured query analysis failed: %s – using fallback.", exc)
-        return _fallback_analysis(question)
+    parsed = _ANALYSES.get(question)
+    if parsed is None:
+        try:
+            parsed = generate_structured(
+                QUERY_ANALYSIS_PROMPT.format(question=question),
+                response_schema=_QueryAnalysisResponse,
+                system_prompt=QUERY_ANALYSIS_SYSTEM_PROMPT,
+                temperature=0.0,
+                label="query analysis",
+            )
+        except Exception as exc:
+            if config.strict:
+                raise
+            logger.warning("Structured query analysis failed: %s – using fallback.", exc)
+            return _fallback_analysis(question)
+        _ANALYSES[question] = parsed
 
     parties = _normalize_parties(parsed.parties)
     coverage = _coerce_coverage(parsed.coverage)

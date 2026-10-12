@@ -35,6 +35,11 @@ is the lexical half, `current` − `hybrid` is contextual retrieval, `reranked` 
 `current` is the cross-encoder, and the `*_only` rungs measure two techniques
 against `naive` without expansion or routing in the way.
 
+Within one `eval` run every variant reuses each question's query analysis and
+expansions (cached per process), so variants differ only in the feature under
+test. Separate runs still drift (providers are not bit-exact at temperature 0):
+two identical runs moved recall by up to ±0.03.
+
 ### The reranked rung
 
 Reranking is the one rung that changes *how much* is retrieved, not just how it

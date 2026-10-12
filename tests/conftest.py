@@ -19,6 +19,16 @@ if str(PROJECT_ROOT) not in sys.path:
 
 load_dotenv(PROJECT_ROOT / ".env")
 
+
+@pytest.fixture(autouse=True)
+def _fresh_llm_step_caches():
+    """Analyses and expansions are cached per process; a test's mock must not
+    answer for the next test's."""
+    from src.rag.retrieval import query_analyzer, query_expander
+
+    query_analyzer._ANALYSES.clear()
+    query_expander._EXPANSIONS.clear()
+
 class DeterministicEmbedder(Embedder):
     """Small deterministic embedder for DB-backed integration tests."""
 

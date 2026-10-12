@@ -30,3 +30,14 @@ def test_expand_query_asks_for_manifesto_vocabulary_only_when_told(synonyms):
     prompt = gen.call_args.args[0]
     assert (QUERY_EXPANSION_SYNONYMS in prompt) is synonyms
     assert prompt.endswith("Perguntas reformuladas:")
+
+
+def test_a_question_is_expanded_once_per_process_but_a_failure_is_retried():
+    """Every eval variant must search with the same expansions; a failure must not stick."""
+    with patch("src.rag.retrieval.query_expander.generate_text", side_effect=RuntimeError("down")):
+        assert expand_query("Pergunta original", n_queries=2) == ["Pergunta original"]
+    with patch("src.rag.retrieval.query_expander.generate_text", return_value="A\nB") as gen:
+        first = expand_query("Pergunta original", n_queries=2)
+        second = expand_query("Pergunta original", n_queries=2)
+    assert first == second == ["Pergunta original", "A", "B"]
+    assert gen.call_count == 1

@@ -8,12 +8,16 @@ be expressed in many different ways.
 """
 
 import logging
-from typing import List
+from typing import Dict, List
 
 from src.rag.common.llm_client import generate_text
 from src.rag.retrieval.prompts import QUERY_EXPANSION_PROMPT, QUERY_EXPANSION_SYNONYMS
 
 logger = logging.getLogger(__name__)
+
+# Successful expansions per prompt, shared by every variant of an eval run for the
+# same reason as query_analyzer._ANALYSES (whose note this follows).
+_EXPANSIONS: Dict[str, str] = {}
 
 def expand_query(question: str, n_queries: int, strict: bool = False, synonyms: bool = False) -> List[str]:
     """
@@ -28,7 +32,10 @@ def expand_query(question: str, n_queries: int, strict: bool = False, synonyms: 
         prompt = prompt.replace("Perguntas reformuladas:", QUERY_EXPANSION_SYNONYMS + "\n\nPerguntas reformuladas:")
 
     try:
-        raw = generate_text(prompt, temperature=0.0, max_tokens=500, label="query expansion")
+        raw = _EXPANSIONS.get(prompt)
+        if raw is None:
+            raw = generate_text(prompt, temperature=0.0, max_tokens=500, label="query expansion")
+            _EXPANSIONS[prompt] = raw
         expanded = [q.strip() for q in raw.strip().split("\n") if q.strip()]
         # De-duplicate while preserving order
         seen = set()
