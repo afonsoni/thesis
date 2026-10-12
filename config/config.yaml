@@ -64,6 +64,13 @@ indexing:
   max_parent_tokens: 1500
   # Table of the `contextual` variant (main.py index --contextual-headers --table ...).
   contextual_table: "party_programs_ctx"
+  # The pre-contextual index the ladder's earlier rungs search (built with
+  # --no-contextual-headers --no-llm-context --table ...).
+  plain_table: "party_programs_plain"
+  # Contextual retrieval, the default for `main.py index`: embed "party | section"
+  # and an LLM-written context with each chunk, and BM25-index the context too.
+  contextual_headers: true
+  llm_context: true
   # `char` strategy only.
   max_chunk_size: 1600
   chunk_overlap: 200
@@ -76,6 +83,8 @@ indexing:
   classification_delay: 1.0
   classification_wait_out_attempts: 10 # per batch, before the run aborts
   cleaning_model: "google/gemma-4-26b-a4b-it" # structure pass of `main.py clean`
+  # Writes each chunk's context for contextual retrieval (main.py index --llm-context).
+  contextual_model: "google/gemma-4-31b-it"
 
 evaluation:
   dataset_path: "data/eval/questions/golden.json"
@@ -90,4 +99,4 @@ evaluation:
   # judge score is omitted, never 0).
   wait_out_attempts: 5
   top_k: 5
-  variants: ["naive", "dense_only", "current"]
+  variants: ["naive", "dense_only", "hybrid", "current"]

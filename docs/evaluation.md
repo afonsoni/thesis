@@ -14,21 +14,26 @@ Every variant is a `RetrievalConfig` preset in
 through the **same production code** (only feature flags differ), a difference in
 scores isolates the contribution of a single feature.
 
-| Variant          | analysis | routing | multi-query | RRF | hybrid | rerank | Notes |
-| ---------------- | :------: | :-----: | :---------: | :-: | :----: | :----: | ----- |
-| `naive`          | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | Single query → single similarity search → direct answer |
-| `multiquery`     | ✗ | ✗ | ✓ | ✓ | ✗ | ✗ | + multi-query expansion (Part 5) & RRF fusion (Part 6) |
-| `routed`         | ✓ | ✓ | ✗ | ✗ | ✗ | ✗ | + structured query analysis & logical routing (Part 10) |
-| `dense_only`     | ✓ | ✓ | ✓ | ✓ | ✗ | ✗ | The pipeline before hybrid became the default |
-| `current`        | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | The full production pipeline: + BM25 lists fused in the same RRF pass |
-| `hybrid_only`    | ✗ | ✗ | ✗ | ✓ | ✓ | ✗ | Isolates the lexical half against `naive` |
-| `reranked`       | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | + cross-encoder precision pass over a wide candidate set |
-| `reranked_only`  | ✗ | ✗ | ✗ | ✗ | ✗ | ✓ | Isolates reranking against `naive` |
+| Variant          | analysis | routing | multi-query | RRF | hybrid | contextual index | rerank | Notes |
+| ---------------- | :------: | :-----: | :---------: | :-: | :----: | :--------------: | :----: | ----- |
+| `naive`          | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | Single query → single similarity search → direct answer |
+| `multiquery`     | ✗ | ✗ | ✓ | ✓ | ✗ | ✗ | ✗ | + multi-query expansion (Part 5) & RRF fusion (Part 6) |
+| `routed`         | ✓ | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ | + structured query analysis & logical routing (Part 10) |
+| `dense_only`     | ✓ | ✓ | ✓ | ✓ | ✗ | ✗ | ✗ | All of the above, dense retrieval only |
+| `hybrid`         | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | ✗ | + BM25 lists fused in the same RRF pass |
+| `current`        | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ | The production pipeline: + contextual retrieval |
+| `hybrid_only`    | ✗ | ✗ | ✗ | ✓ | ✓ | ✗ | ✗ | Isolates the lexical half against `naive` |
+| `reranked`       | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | + cross-encoder precision pass over a wide candidate set |
+| `reranked_only`  | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✓ | Isolates reranking against `naive` |
 
-Each of the last four differs from a baseline by exactly one flag, which is what
-makes the delta attributable: `current` − `dense_only` is the lexical half,
-`reranked` − `current` is the cross-encoder, and the `*_only` rungs measure the
-same two techniques against `naive` without expansion or routing in the way.
+The contextual index (`postgresql.table_name`) embeds and BM25-indexes each chunk
+with its `party | section` headers and an LLM-written context
+(`indexing/contextualizer.py`); every rung below `current` searches the plain index
+(`indexing.plain_table`) instead. Each rung differs from the one before by exactly
+one technique, which is what makes the delta attributable: `hybrid` − `dense_only`
+is the lexical half, `current` − `hybrid` is contextual retrieval, `reranked` −
+`current` is the cross-encoder, and the `*_only` rungs measure two techniques
+against `naive` without expansion or routing in the way.
 
 ### The reranked rung
 

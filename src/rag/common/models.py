@@ -165,6 +165,10 @@ class Chunk(BaseModel):
     year: int = 2024
     topics: List[str] = Field(default_factory=lambda: ["outros"])
     topic_classification: Optional[TopicClassification] = None
+    # Contextual retrieval: an LLM-written sentence or two situating the chunk in
+    # its manifesto (indexing/contextualizer.py). Embedded and BM25-indexed with
+    # the chunk, never part of ``content``, so gold keys do not change.
+    context: str = ""
 
 
 class EmbeddedChunk(Chunk):

@@ -125,6 +125,15 @@ under-weight rare exact tokens — `USF tipo C`, `TMRG`, `RES_U`,
 `Cheque-Dentista` — which are exactly the strings a user quotes when asking about
 them. It is on by default (dev nDCG +0.064 over dense-only); `dense_only` turns it off.
 
+### Contextual retrieval
+
+`main.py index` gives each chunk an LLM-written context (`indexing.contextual_model`,
+cached in `data/2_processed/contexts-*.json`) and embeds and BM25-indexes it with
+the chunk and its `party | section` headers; the stored `content`, and so every
+gold key, is unchanged. Over all 61 gold questions (two passes) it raised recall by
+0.046 and nDCG by 0.057 over the plain index. `--no-llm-context` and
+`--no-contextual-headers` build the plain index the ladder's earlier rungs search.
+
 ### Cross-encoder reranking
 
 `use_reranker` adds a precision pass after fusion. Retrieval embeds the query
@@ -252,7 +261,7 @@ python main.py query "Políticas ambientais dos partidos de esquerda" --top-k 10
 ## Evaluation
 
 The system is evaluated as a ladder of **implementation steps** (`naive` →
-`multiquery` → `routed` → `dense_only` → `current` → `reranked`, plus the
+`multiquery` → `routed` → `dense_only` → `hybrid` → `current` → `reranked`, plus the
 `hybrid_only` / `reranked_only` isolation rungs), all run over the same gold set
 so gains are attributable to specific techniques.
 Each step is a `RetrievalConfig` preset (feature flags over the *same* production

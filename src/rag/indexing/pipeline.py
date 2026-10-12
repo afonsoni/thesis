@@ -103,7 +103,8 @@ def index_documents(
     drop_existing: bool = False,
     classified_input_path: Optional[str] = None,
     classify_only: bool = False,
-    contextual_headers: bool = False,
+    contextual_headers: Optional[bool] = None,
+    llm_context: Optional[bool] = None,
     table: Optional[str] = None,
 ) -> int:
     """
@@ -123,6 +124,10 @@ def index_documents(
         classify_only: Stop after writing the classified checkpoint (no DB).
         contextual_headers: Embed ``party | section path`` + text instead of the
             bare text (see :meth:`Embedder.embed_chunks`). Stored content is unchanged.
+            Default ``indexing.contextual_headers``.
+        llm_context: Contextual retrieval: give each chunk an LLM-written context
+            (``indexing.contextual_model``, cached), embedded and BM25-indexed with it.
+            Default ``indexing.llm_context``.
         table: Write to this table instead of ``postgresql.table_name``.
 
     Every classifying run writes a checkpoint to ``paths.processed_data``.
@@ -193,6 +198,16 @@ def index_documents(
     if classify_only:
         logger.info("Classify-only mode complete – %d chunks processed.", len(all_chunks))
         return len(all_chunks)
+
+    if contextual_headers is None:
+        contextual_headers = bool(config.get("indexing.contextual_headers"))
+    if llm_context is None:
+        llm_context = bool(config.get("indexing.llm_context"))
+    if llm_context:
+        from src.rag.indexing.contextualizer import context_key, contextualize
+        contexts = contextualize(all_chunks)
+        for chunk in all_chunks:
+            chunk.context = contexts[context_key(chunk)]
 
     # 3. Embed
     embedder = Embedder()

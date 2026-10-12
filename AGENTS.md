@@ -55,6 +55,11 @@ Entry point: `main.py`
   re-chunks and carries topics over from the classified checkpoints by content
   hash, so parent-only changes need no reclassification.
 - `classifier.py`: OpenRouter-based structured multi-label topic classification with rate-limit retries.
+- `contextualizer.py`: contextual retrieval. An LLM (`indexing.contextual_model`)
+  writes a short context per chunk, cached by content hash in
+  `data/2_processed/contexts-*.json`; `index` embeds it with the chunk and stores it
+  in the `context` column, which the BM25 `tsvector` covers too. On by default
+  (`indexing.llm_context`, `indexing.contextual_headers`); `content` never changes.
 - `cleaner.py`: the `clean` command; the LLM only plans header actions, and the
   output is rejected if it contains any word the source did not.
 - `embedder.py`: SentenceTransformer embeddings. Handles asymmetric retrieval models: use
@@ -111,11 +116,12 @@ Entry point: `main.py`
 #### Evaluation (`src/rag/evaluation/`)
 
 - `variants.py`: the declarative ladder of implementation steps as `RetrievalConfig`
-  presets (`naive`, `multiquery`, `routed`, `dense_only`, `current`, `hybrid_only`,
-  `reranked`, `reranked_only`), plus four ablations one flag away from `current`:
+  presets (`naive`, `multiquery`, `routed`, `dense_only`, `hybrid`, `current`,
+  `hybrid_only`, `reranked`, `reranked_only`; every rung below `current` searches the
+  plain index `indexing.plain_table`), plus ablations one flag away from `current`:
   `party_stripped` (`strip_party_names`), `instructed` (`query_instruction` =
-  `embeddings.task_instruction`), `contextual` (searches `indexing.contextual_table`,
-  built with `main.py index --contextual-headers --table`) and `no_topic_filter`
+  `embeddings.task_instruction`), `contextual` (headers without the LLM context,
+  `indexing.contextual_table`) and `no_topic_filter`
   (`use_topic_filter=False`); and `lexical_wide` (`lexical_topic_filter=False` +
   `expansion_synonyms=True`), built for incidental mentions (gold q-61).
 - `dataset.py`: gold-set load/save (content-hash keys).
@@ -187,7 +193,8 @@ Based on the dissertation draft and repository structure, near-term direction is
    harness now exists in `src/rag/evaluation/`; next is curating `golden.json` and
    running the variant ladder to produce headline numbers.)**
 2. Retrieval upgrades beyond current baseline. Hybrid search is **the default**
-   (dev nDCG +0.064 over `dense_only`). The cross-encoder reranker was measured on
+   (dev nDCG +0.064 over `dense_only`), and so is contextual retrieval (all 61
+   questions, two passes: recall +0.046, nDCG +0.057 over `hybrid`). The cross-encoder reranker was measured on
    dev and lost (recall -0.055, twice the latency); dropping the topic filter lost
    too (`no_topic_filter`, recall -0.085), and `lexical_wide` moved nothing beyond
    noise. Existence questions ("does X ever mention Y?") stay a known limitation:

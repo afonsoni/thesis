@@ -26,3 +26,23 @@ def test_contextual_embedding_prefixes_party_and_section_but_keeps_content():
 
     assert seen == ["Pessoas-Animais-Natureza | Agenda > Animais\nAbolir a tourada.", "Abolir a tourada."]
     assert out.content == "Abolir a tourada."
+
+
+def test_an_llm_context_is_embedded_but_not_stored_as_content():
+    import numpy as np
+
+    seen = []
+
+    class FakeModel:
+        def encode_document(self, texts, **kwargs):
+            seen.extend(texts)
+            return np.zeros((len(texts), 1))
+
+    embedder = Embedder.__new__(Embedder)
+    embedder.model = FakeModel()
+    chunk = Chunk(content="Abolir a tourada.", context="Proposta do PAN sobre touradas e bem-estar animal.")
+
+    (out,) = embedder.embed_chunks([chunk])
+
+    assert seen == ["Proposta do PAN sobre touradas e bem-estar animal.\nAbolir a tourada."]
+    assert out.content == "Abolir a tourada."

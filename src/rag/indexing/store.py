@@ -84,14 +84,18 @@ class VectorStore:
                     year        INTEGER,
                     topics      TEXT[],
                     header_hierarchy JSONB,
+                    context     TEXT,
                     created_at  TIMESTAMPTZ DEFAULT now(),
-                    -- Lexical half of hybrid search. Generated, so it can never
+                    -- Lexical half of hybrid search, over the chunk and its
+                    -- contextual-retrieval context. Generated, so it can never
                     -- drift out of sync with content on insert or update.
                     content_tsv TSVECTOR GENERATED ALWAYS AS (
-                        to_tsvector('portuguese', coalesce(content, ''))
+                        to_tsvector('portuguese', coalesce(context, '') || ' ' || coalesce(content, ''))
                     ) STORED
                 );
             """)
+            # Tables made before contexts existed; their tsvector stays content-only.
+            cur.execute(f"ALTER TABLE {self.table} ADD COLUMN IF NOT EXISTS context TEXT;")
 
             # HNSW index for fast approximate nearest-neighbour search
             cur.execute(f"""
@@ -166,15 +170,16 @@ class VectorStore:
                 c.year,
                 c.topics,
                 json.dumps(c.metadata),
+                c.context or None,
             ))
 
         sql = f"""
             INSERT INTO {self.table}
                 (id, content, parent_content, embedding, party_name,
-                 ideology, year, topics, header_hierarchy)
+                 ideology, year, topics, header_hierarchy, context)
             VALUES %s
         """
-        template = "(%s, %s, %s, %s::vector, %s, %s, %s, %s, %s::jsonb)"
+        template = "(%s, %s, %s, %s::vector, %s, %s, %s, %s, %s::jsonb, %s)"
 
         try:
             execute_values(cur, sql, rows, template=template, page_size=100)

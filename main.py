@@ -70,6 +70,7 @@ def cmd_index(args):
         classified_input_path=args.from_classified,
         classify_only=args.classify_only,
         contextual_headers=args.contextual_headers,
+        llm_context=args.llm_context,
         table=args.table,
     )
     logger.info("Processed %d chunks total.", count)
@@ -198,8 +199,12 @@ def build_parser() -> argparse.ArgumentParser:
     resume = p_index.add_mutually_exclusive_group()
     resume.add_argument("--classify-only", action="store_true", help="Stop after classify and save checkpoint JSON (no DB write)")
     resume.add_argument("--from-classified", type=str, default=None, help="Load classified chunks from JSON and skip chunk/classify")
-    p_index.add_argument("--contextual-headers", action="store_true",
-                         help="Embed 'party | section path' + text (content stored unchanged)")
+    p_index.add_argument("--contextual-headers", action=argparse.BooleanOptionalAction, default=None,
+                         help="Embed 'party | section path' + text, content stored unchanged "
+                              "(default: indexing.contextual_headers)")
+    p_index.add_argument("--llm-context", action=argparse.BooleanOptionalAction, default=None,
+                         help="Contextual retrieval: embed and BM25-index each chunk with an LLM-written context "
+                              "(indexing.contextual_model, cached in paths.processed_data; default: indexing.llm_context)")
     p_index.add_argument("--table", type=str, default=None,
                          help="Target table (default postgresql.table_name), e.g. indexing.contextual_table")
     p_index.add_argument("--no-classify", action="store_true",

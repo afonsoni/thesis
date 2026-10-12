@@ -18,10 +18,15 @@ from typing import Dict, List
 from src.rag.retrieval.config import RetrievalConfig
 from src.utils.config_loader import config
 
+# The index before contextual retrieval: the rungs below `current` search it, so
+# each rung still adds exactly one technique.
+PLAIN = config.get("indexing.plain_table")
+
 VARIANTS: Dict[str, RetrievalConfig] = {
     # Rung 0 – naive RAG: single query → single similarity search → direct answer.
     "naive": RetrievalConfig(
         name="naive",
+        table=PLAIN,
         use_query_analysis=False,
         use_routing=False,
         use_multi_query=False,
@@ -30,6 +35,7 @@ VARIANTS: Dict[str, RetrievalConfig] = {
     # Rung 1 – add multi-query expansion + RRF fusion (Parts 5 & 6), still no routing.
     "multiquery": RetrievalConfig(
         name="multiquery",
+        table=PLAIN,
         use_query_analysis=False,
         use_routing=False,
         use_multi_query=True,
@@ -38,20 +44,26 @@ VARIANTS: Dict[str, RetrievalConfig] = {
     # Rung 2 – add structured query analysis + logical routing (Part 10), single query.
     "routed": RetrievalConfig(
         name="routed",
+        table=PLAIN,
         use_query_analysis=True,
         use_routing=True,
         use_multi_query=False,
         use_hybrid=False,
     ),
     # Rung 3 – analysis + routing + multi-query + RRF, over dense retrieval only.
-    "dense_only": RetrievalConfig(name="dense_only", use_hybrid=False),
-    # Rung 4 – the current production system: rung 3 plus the lexical half (BM25
-    # fused by the same RRF pass), the default since it raised dev nDCG by 0.064.
+    "dense_only": RetrievalConfig(name="dense_only", use_hybrid=False, table=PLAIN),
+    # Rung 4 – plus the lexical half (BM25 fused by the same RRF pass): dev nDCG
+    # +0.064 over dense-only.
+    "hybrid": RetrievalConfig(name="hybrid", table=PLAIN),
+    # Rung 5 – the current production system: rung 4 over the contextual index,
+    # each chunk embedded and BM25-indexed with its headers and an LLM-written
+    # context (61 questions, two passes: recall +0.046, nDCG +0.057 over rung 4).
     "current": RetrievalConfig(name="current"),
     # Isolates hybrid's contribution against `naive`, holding expansion/routing off
     # so the only difference from rung 0 is the added lexical retrieval.
     "hybrid_only": RetrievalConfig(
         name="hybrid_only",
+        table=PLAIN,
         use_query_analysis=False,
         use_routing=False,
         use_multi_query=False,
@@ -66,6 +78,7 @@ VARIANTS: Dict[str, RetrievalConfig] = {
     # cross-encoder re-ordering a wide single-query candidate set.
     "reranked_only": RetrievalConfig(
         name="reranked_only",
+        table=PLAIN,
         use_query_analysis=False,
         use_routing=False,
         use_multi_query=False,
@@ -86,8 +99,9 @@ VARIANTS: Dict[str, RetrievalConfig] = {
     "instructed": RetrievalConfig(
         name="instructed", query_instruction=config.get("embeddings.task_instruction"),
     ),
-    # Needs the index built first:
-    #   main.py index --from-classified <ckpt> --contextual-headers --table <indexing.contextual_table>
+    # Headers without the LLM context, i.e. half of `current`'s contextual index:
+    # recall +0.026 over `hybrid`, against +0.046 with the context. Needs:
+    #   main.py index --from-classified <ckpt> --no-llm-context --table <indexing.contextual_table>
     "contextual": RetrievalConfig(name="contextual", table=config.get("indexing.contextual_table")),
 }
 

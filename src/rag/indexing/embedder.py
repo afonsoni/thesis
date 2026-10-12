@@ -75,10 +75,11 @@ class Embedder:
 
         With *contextual*, the embedded text is prefixed with ``party | section
         path``: a windowed child past the first carries no heading of its own (58%
-        of chunks), so its vector cannot tell which section it belongs to. Only the
-        embedded text changes; ``content`` (and so every gold key) does not.
+        of chunks), so its vector cannot tell which section it belongs to. A chunk's
+        LLM-written ``context``, when it has one, is prefixed too. Only the embedded
+        text changes; ``content`` (and so every gold key) does not.
         """
-        texts = [c.content for c in chunks]
+        texts = [f"{c.context}\n{c.content}" if c.context else c.content for c in chunks]
         if contextual:
             texts = [
                 f"{' | '.join(filter(None, [c.party_name, section_path(c.metadata)]))}\n{t}"
