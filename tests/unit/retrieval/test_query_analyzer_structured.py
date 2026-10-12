@@ -80,3 +80,11 @@ def test_strict_config_raises_instead_of_falling_back():
     with patch("src.rag.retrieval.query_analyzer.generate_structured", side_effect=RuntimeError("429")):
         with pytest.raises(RuntimeError):
             analyze_query("O que propõe o PS?", config=RetrievalConfig(strict=True))
+
+
+def test_the_analyzer_sees_what_each_topic_covers():
+    """From bare topic names the analyzer cannot map "canábis" to saude/justica."""
+    from src.rag.common.models import TOPIC_CATEGORIES
+    from src.rag.retrieval.prompts import QUERY_ANALYSIS_SYSTEM_PROMPT
+
+    assert all(description in QUERY_ANALYSIS_SYSTEM_PROMPT for description in TOPIC_CATEGORIES.values())

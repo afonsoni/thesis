@@ -32,7 +32,10 @@ sinónimos e termos formais ou técnicos que um programa eleitoral usaria."""
 # Query analysis (Part 10/11 – structured query understanding)
 # ---------------------------------------------------------------------------
 
-_topic_list = ", ".join(f'"{t}"' for t in TOPIC_CATEGORIES.keys())
+# With what each topic covers, as the classifier sees it: from the bare names the
+# analyzer cannot know that "canábis" is filed under saude and justica, and
+# answered "outros" (or a wrong neighbour) where the chunks carry a real topic.
+_topic_list = "\n".join(f'- "{t}": {d}' for t, d in TOPIC_CATEGORIES.items())
 
 # Positions on the conventional economic left-right axis, stated here rather
 # than left to the model's own beliefs about Portuguese politics. The analyzer
@@ -53,7 +56,8 @@ para as eleições legislativas de 2024.
 Partidos disponíveis (e posição no eixo esquerda-direita):
 {_party_positions}
 
-Tópicos disponíveis: {_topic_list}
+Tópicos disponíveis (e o que cada um abrange):
+{_topic_list}
 
 Analisa a pergunta do utilizador e extrai informação estruturada."""
 
@@ -69,7 +73,14 @@ Analisa esta pergunta e responde em JSON com os seguintes campos:
   em causa (por exemplo "o que defende cada partido sobre X", "compara os
   partidos de direita quanto a Y"); "best_match" se bastarem as passagens mais
   relevantes, venham de onde vierem.
-- "topics": lista de tópicos relevantes da lista disponível (lista vazia se nenhum)
+- "topics": os tópicos sob os quais estariam classificadas as passagens que
+  respondem à pergunta, segundo as descrições acima. A pesquisa filtra por eles:
+  um tópico errado esconde a resposta, um em falta só alarga a pesquisa, por isso
+  inclui apenas os que encaixam claramente (normalmente 1 ou 2). Um tema que
+  atravessa várias áreas recebe as áreas onde as medidas caem ("cuidadores
+  informais" -> ["seguranca_social", "trabalho"]). Se a pergunta é sobre um tema
+  de políticas que nenhum tópico cobre, usa ["outros"]. Lista vazia se a pergunta
+  pede uma definição ou um dado factual ("O que é o Simplex?"), não propostas.
 - "answer_shape": "per_party" se a resposta deve ser organizada partido a partido;
   "narrative" se deve ser um texto único — inclusive quando a pergunta pede um
   veredicto ("que partido propõe mais sobre habitação?"), que exige consultar
