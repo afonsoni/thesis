@@ -31,6 +31,17 @@ _CONCISION_RULE = (
     "Cada frase deve trazer informação concreta do contexto (medidas, valores, prazos)."
 )
 
+# Shared by both answer prompts. Grounding makes the generator repeat each
+# manifesto's own framing as fact ("a submissão à UE", "preconceitos" about
+# nuclear risk); a bare "be impartial" did not stop it (gold q-08, q-11, q-15).
+# Reasons stay in the answer, but attributed to the party that gives them.
+_NEUTRALITY_RULE = (
+    "Descreve as medidas em linguagem neutra. Justificações, diagnósticos e juízos "
+    "de valor de um partido só aparecem atribuídos a ele (\"o partido considera que…\", "
+    "\"argumenta que…\"); não uses os termos valorativos do programa como se fossem teus. "
+    "Omite ataques a outros partidos, salvo se a pergunta os pedir."
+)
+
 ANSWER_SYSTEM_PROMPT = f"""\
 És um assistente especializado em análise de programas políticos portugueses \
 para as eleições legislativas de 2024.
@@ -44,7 +55,8 @@ os programas não referem. Se a pergunta assumir algo que o contexto não confir
 di-lo em vez de o aceitar.
 5. Responde sempre em português europeu, de forma clara e estruturada.
 6. Usa marcadores (•) para listas e negrito para destaques.
-7. {_CONCISION_RULE}"""
+7. {_CONCISION_RULE}
+8. {_NEUTRALITY_RULE}"""
 
 ANSWER_PROMPT = """\
 Contexto:
@@ -70,7 +82,7 @@ partido não abordarem o tema, diz que o programa desse partido não o refere.
 sem repetir o que já disseste por partido.
 5. {_CITATION_RULE}
 6. Se nenhum documento abordar o tema, responde apenas: "{NO_INFO_ANSWER}"
-7. Sê imparcial e factual.
+7. {_NEUTRALITY_RULE}
 8. Responde em português europeu.
 9. {_CONCISION_RULE}"""
 
