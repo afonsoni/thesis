@@ -232,10 +232,7 @@ def comparison_answer(
     """Grouped-by-party generation for comparison questions."""
     context = _format_grouped_context(results_by_party)
     prompt = COMPARISON_PROMPT.format(context=context, question=query)
-    if len(results_by_party) > 1:
-        progress.info("A redigir a comparação entre %d partidos…", len(results_by_party))
-    else:
-        progress.info("A redigir a resposta…")
+    progress.info("A redigir a comparação entre %d partidos…", len(results_by_party))
     answer = generate_text(prompt, system_prompt=COMPARISON_SYSTEM_PROMPT, label="comparison answer",
                            on_token=on_token)
     return GeneratedAnswer(
@@ -262,16 +259,18 @@ def synthesize(retrieval: RetrievalResult, on_token: OnToken = None) -> Generate
     grouped = retrieval.results_by_party
 
     if shape == AnswerShape.PER_PARTY:
-        if grouped:
-            logger.info("Using comparison synthesis strategy.")
-            return comparison_answer(q, _fit_grouped(grouped, budget), on_token)
-        if retrieval.results:
-            # Flat results (e.g. a single-party route): group them so the answer
-            # can still be laid out party by party.
-            by_party: Dict[str, List[SearchResult]] = {}
+        # Flat results (no fan-out) are grouped so the answer can still be laid
+        # out party by party.
+        by_party: Dict[str, List[SearchResult]] = {p: rs for p, rs in grouped.items() if rs}
+        if not grouped:
             for r in retrieval.results:
                 by_party.setdefault(r.party_name, []).append(r)
-            logger.info("Per-party answer from flat results – grouping by party.")
+        # A comparison needs two parties with something to compare. With one,
+        # the comparison prompt pads the answer with a "síntese" of there being
+        # nothing to compare (gold q-03): the analyzer labels single-party
+        # questions per_party too, and a fan-out can come back with one party.
+        if len(by_party) > 1:
+            logger.info("Using comparison synthesis strategy.")
             return comparison_answer(q, _fit_grouped(by_party, budget), on_token)
 
     # A narrative answer over a fan-out reads the whole grouped set, not

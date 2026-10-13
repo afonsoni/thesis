@@ -66,6 +66,20 @@ def test_per_party_shape_uses_the_grouped_comparison_prompt(captured_prompts):
     assert len(answer.sources) == 4
 
 
+@pytest.mark.parametrize("retrieval", [
+    _retrieval(AnswerShape.PER_PARTY, results=[_result("CHEGA", 1), _result("CHEGA", 2)]),
+    _retrieval(AnswerShape.PER_PARTY, grouped=_grouped(["CHEGA"])),
+    _retrieval(AnswerShape.PER_PARTY, grouped={"CHEGA": [_result("CHEGA")], "LIVRE": []}),
+], ids=["single-party route", "one-party fan-out", "fan-out with one party empty"])
+def test_per_party_shape_with_one_party_is_not_a_comparison(retrieval):
+    """The analyzer labels single-party questions per_party too (gold q-03); the
+    comparison prompt then closes with a "síntese" that there is nothing to compare."""
+    with patch.object(synthesizer, "generate_text", return_value="resposta") as gen:
+        synthesize(retrieval)
+
+    assert gen.call_args.kwargs["system_prompt"] == synthesizer.ANSWER_SYSTEM_PROMPT
+
+
 def test_narrative_shape_over_a_fan_out_reads_every_party(captured_prompts):
     """The router truncates the flat list to top_k; a verdict must not.
 
