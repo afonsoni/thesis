@@ -194,11 +194,14 @@ def generate_structured_batch(
     max_tokens: int = 2000,
     timeout_seconds: int = 120,
 ) -> List[Any]:
-    """Generate a JSON array (a lone object counts as a one-item array)."""
+    """Generate a JSON list, asked for as ``{"items": [...]}``: JSON mode makes the
+    paid providers return exactly one object, so a bare array came back as its
+    first element only. A bare array or a lone object is still accepted."""
     raw = generate_text(
         (
             prompt
-            + "\n\nResponde APENAS com um array JSON valido na ordem pedida."
+            + '\n\nResponde APENAS com JSON valido no formato {"items": [...]}, '
+            "um elemento por item pedido, na ordem pedida."
         ),
         system_prompt=system_prompt,
         temperature=temperature,
@@ -208,6 +211,8 @@ def generate_structured_batch(
         response_format={"type": "json_object"},
     )
     data = _extract_json_payload(raw)
+    if isinstance(data, dict) and isinstance(data.get("items"), list):
+        data = data["items"]
     return data if isinstance(data, list) else [data]
 
 

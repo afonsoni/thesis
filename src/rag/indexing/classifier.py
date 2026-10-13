@@ -55,8 +55,8 @@ INSTRUÇÕES:
 
 {_LABELLING_RULES}
 
-RESPOSTA (JSON array):
-[
+RESPOSTA (JSON):
+{{"items": [
     {{
     "id": 0,
     "categorias": ["categoria1", "categoria2"],
@@ -64,7 +64,7 @@ RESPOSTA (JSON array):
     "palavras_chave": ["palavra1", "palavra2"]
     }},
   ...
-]"""
+]}}"""
 
 
 def _normalize(raw: object) -> TopicClassification:
@@ -79,8 +79,13 @@ def _normalize(raw: object) -> TopicClassification:
     )
 
 
-def _classify_batch_with_llm(chunks: List[Chunk], model: str) -> List[TopicClassification]:
-    """One request for the whole batch; the header path goes along as context."""
+def _classify_batch_with_llm(chunks: List[Chunk], model: str) -> List[Optional[TopicClassification]]:
+    """One request for the whole batch; the header path goes along as context.
+
+    Answers are placed by their "id", not by position, and a chunk without one
+    is None: matched by position, one skipped item would hand every later chunk
+    its neighbour's topics without any error.
+    """
     parts: List[str] = []
     for idx, chunk in enumerate(chunks):
         ctx = " | ".join(f"{k}: {v}" for k, v in chunk.metadata.items() if v and str(v).strip())
@@ -93,7 +98,15 @@ def _classify_batch_with_llm(chunks: List[Chunk], model: str) -> List[TopicClass
         temperature=0.1,
         max_tokens=2500,
     )
-    return [_normalize(entry) for entry in raw_items]
+    placed: List[Optional[TopicClassification]] = [None] * len(chunks)
+    for pos, entry in enumerate(raw_items):
+        try:
+            idx = int(entry.get("id", pos)) if isinstance(entry, dict) else pos
+        except (TypeError, ValueError):
+            continue
+        if 0 <= idx < len(chunks) and placed[idx] is None:
+            placed[idx] = _normalize(entry)
+    return placed
 
 
 def classify_chunks(
@@ -122,11 +135,18 @@ def classify_chunks(
 
         def classify_batch(batch=batch):
             results = _classify_batch_with_llm(batch, model)
-            # A short answer is as transient as a 503: retried with the rest.
-            if len(results) != len(batch):
+            missing = [i for i, r in enumerate(results) if r is None]
+            if missing:
+                # Gemma can close the list early (the 15th of a batch, every time
+                # at this temperature), so a plain retry repeats it: ask for the gap.
+                for i, r in zip(missing, _classify_batch_with_llm([batch[i] for i in missing], model)):
+                    results[i] = r
+            # Still short: as transient as a 503, so retried with the rest.
+            unanswered = sum(r is None for r in results)
+            if unanswered:
                 raise RuntimeError(
                     "Incomplete batch classification response: "
-                    f"expected {len(batch)} results, got {len(results)}"
+                    f"{unanswered} of {len(batch)} chunks unanswered"
                 )
             return results
 
