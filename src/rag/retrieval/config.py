@@ -131,6 +131,13 @@ class RetrievalConfig(BaseModel):
     )
 
     # Result sizing
+    max_prompt_tokens: Optional[int] = Field(
+        default=None,
+        ge=1,
+        description="Context budget generation may fill from these results (lowest-ranked "
+        "trimmed first, never a whole party). None is llm.openrouter.max_prompt_tokens; "
+        "set per variant so retrieving more can be measured with room to read it.",
+    )
     top_k: int = Field(
         default_factory=_from_config("default_top_k"), ge=1, description="Results returned to generation."
     )

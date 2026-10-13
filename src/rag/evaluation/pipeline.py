@@ -51,8 +51,9 @@ def evaluate(
         dataset_path: Gold set JSON path.
         curated_only: Restrict to human-validated questions.
         split: Restrict to one split (``dev`` while tuning, ``test`` for headline numbers).
-        k: Chunks retrieved on a flat route (``RetrievalConfig.top_k``) for
-            every variant; a per-party fan-out keeps ``top_k_per_party``.
+        k: Chunks retrieved on a flat route (``RetrievalConfig.top_k``), forced on
+            every variant; None keeps each variant's own. A per-party fan-out
+            keeps ``top_k_per_party``.
         use_judge: Whether to run the (LLM) generation-judge metrics.
         judge_model: Override judge model id.
         results_dir / reports_dir: Output locations.
@@ -66,7 +67,6 @@ def evaluate(
     )
     results_dir = results_dir or str(config.get("evaluation.results_dir"))
     reports_dir = reports_dir or str(config.get("evaluation.reports_dir"))
-    k = int(k or config.get("evaluation.top_k"))
 
     dataset = load_dataset(dataset_path)
     if curated_only:
@@ -79,19 +79,21 @@ def evaluate(
             f" (curated_only={curated_only}, split={split!r})"
         )
 
-    configs = [c.model_copy(update={"top_k": k}) for c in resolve_variants(variant_names)]
+    # -k overrides every variant's top_k; without it each keeps its own (a variant
+    # may retrieve more on purpose, e.g. `wide`).
+    configs = [c.model_copy(update={"top_k": k}) if k else c for c in resolve_variants(variant_names)]
     metrics = _build_metrics(use_judge, judge_model)
     wait_out_attempts = int(config.get("evaluation.wait_out_attempts"))
 
     logger.info(
-        "Evaluating variants %s over %d questions (k=%d, judge=%s).",
-        variant_names, len(dataset.questions), k, use_judge,
+        "Evaluating variants %s over %d questions (k=%s, judge=%s).",
+        variant_names, len(dataset.questions), k or "per variant", use_judge,
     )
 
     results: List[VariantResult] = []
     for cfg in configs:
         before = Counter(MODEL_USAGE)
-        result = run_variant(cfg, dataset, metrics, k=k, generate=use_judge,
+        result = run_variant(cfg, dataset, metrics, k=cfg.top_k, generate=use_judge,
                              wait_out_attempts=wait_out_attempts)
         result.models_used = dict(MODEL_USAGE - before)
         calls = [c for run in result.per_question for c in run.llm_calls]

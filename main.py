@@ -235,7 +235,7 @@ def build_parser() -> argparse.ArgumentParser:
     p_ev.add_argument("--split", choices=["dev", "test"], default=None,
                       help="Only evaluate one split: dev while tuning, test for headline numbers")
     p_ev.add_argument("-k", "--top-k", type=int, default=None, help="Chunks retrieved per flat route for every variant "
-                           "(default: evaluation.top_k); fan-outs keep top_k_per_party per party")
+                           "(default: each variant's own); fan-outs keep top_k_per_party per party")
     p_ev.add_argument("--judge-model", type=str, default=None, help="Override the LLM-judge model")
     p_ev.add_argument("--no-judge", action="store_true", help="Skip the (LLM) generation-judge metrics")
 

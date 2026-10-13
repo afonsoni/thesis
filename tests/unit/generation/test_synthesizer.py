@@ -186,3 +186,16 @@ def test_fan_out_with_every_party_empty_never_reaches_the_llm(captured_prompts):
     answer = generate(_retrieval(AnswerShape.PER_PARTY, grouped={"A": [], "B": []}))
 
     assert captured_prompts == [] and answer.sources == []
+
+
+def test_a_retrieval_can_carry_its_own_prompt_budget():
+    """A variant's max_prompt_tokens must reach the trim, so `wide_64k` reads more."""
+    from src.rag.common.models import AnalyzedQuery, RetrievalResult, SearchResult
+
+    hits = [SearchResult(id=str(i), content=f"palavra{i} " * 700, party_name="Partido Socialista") for i in range(10)]
+    seen = []
+    with patch.object(synthesizer, "direct_answer", side_effect=lambda q, rs, on_token=None: seen.append(len(rs))):
+        for budget in (2000, 8000):
+            synthesizer.synthesize(RetrievalResult(query=AnalyzedQuery(original_query="q"), results=hits,
+                                                   max_prompt_tokens=budget))
+    assert seen[0] < seen[1]

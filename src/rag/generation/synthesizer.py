@@ -138,9 +138,10 @@ def _prompt_budget() -> int:
     return int(config.get("llm.openrouter.max_prompt_tokens"))
 
 
-def _fit_flat(results: List[SearchResult]) -> List[SearchResult]:
-    """Drop lowest-ranked results until the formatted context fits the budget."""
-    budget = _prompt_budget()
+def _fit_flat(results: List[SearchResult], budget: Optional[int] = None) -> List[SearchResult]:
+    """Drop lowest-ranked results until the formatted context fits *budget*
+    (default :func:`_prompt_budget`)."""
+    budget = budget or _prompt_budget()
     kept = list(results)
     while kept and _estimate_tokens(_format_flat_context(kept)) > budget:
         kept.pop()
@@ -155,6 +156,7 @@ def _fit_flat(results: List[SearchResult]) -> List[SearchResult]:
 
 def _fit_grouped(
     results_by_party: Dict[str, List[SearchResult]],
+    budget: Optional[int] = None,
 ) -> Dict[str, List[SearchResult]]:
     """Trim a grouped context to budget without losing a party.
 
@@ -164,9 +166,9 @@ def _fit_grouped(
     would silently omit it, which is the failure the per-party route exists to
     prevent. Every party therefore keeps at least one chunk, even if that means
     exceeding the budget — an over-long prompt is a visible failure, a missing
-    party is not.
+    party is not. *budget* defaults to :func:`_prompt_budget`.
     """
-    budget = _prompt_budget()
+    budget = budget or _prompt_budget()
     kept = {party: list(rs) for party, rs in results_by_party.items() if rs}
     total = sum(len(rs) for rs in kept.values())
 
@@ -255,13 +257,14 @@ def synthesize(retrieval: RetrievalResult, on_token: OnToken = None) -> Generate
     habitação?" retrieves every party but wants one verdict, not eight sections.
     """
     q = retrieval.query.original_query
+    budget = retrieval.max_prompt_tokens
     shape = retrieval.query.answer_shape
     grouped = retrieval.results_by_party
 
     if shape == AnswerShape.PER_PARTY:
         if grouped:
             logger.info("Using comparison synthesis strategy.")
-            return comparison_answer(q, _fit_grouped(grouped), on_token)
+            return comparison_answer(q, _fit_grouped(grouped, budget), on_token)
         if retrieval.results:
             # Flat results (e.g. a single-party route): group them so the answer
             # can still be laid out party by party.
@@ -269,7 +272,7 @@ def synthesize(retrieval: RetrievalResult, on_token: OnToken = None) -> Generate
             for r in retrieval.results:
                 by_party.setdefault(r.party_name, []).append(r)
             logger.info("Per-party answer from flat results – grouping by party.")
-            return comparison_answer(q, _fit_grouped(by_party), on_token)
+            return comparison_answer(q, _fit_grouped(by_party, budget), on_token)
 
     # A narrative answer over a fan-out reads the whole grouped set, not
     # ``results``: the router truncates that flat list to top_k, which would
@@ -278,12 +281,12 @@ def synthesize(retrieval: RetrievalResult, on_token: OnToken = None) -> Generate
     # lowest-ranked-first trim drops every chunk of a party that ranks low.
     if grouped:
         flat = sorted(
-            (r for rs in _fit_grouped(grouped).values() for r in rs),
+            (r for rs in _fit_grouped(grouped, budget).values() for r in rs),
             key=lambda r: r.similarity,
             reverse=True,
         )
     else:
-        flat = _fit_flat(retrieval.results)
+        flat = _fit_flat(retrieval.results, budget)
 
     logger.info("Using direct answer strategy.")
     return direct_answer(q, flat, on_token)

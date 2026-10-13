@@ -80,6 +80,7 @@ def retrieve(
     # Step 2: route & search
     searcher = get_searcher(config.table)
     result = route(analyzed, searcher, config=config)
+    result.max_prompt_tokens = config.max_prompt_tokens
     logger.info("Retrieved %d results.", len(result.results))
 
     return result

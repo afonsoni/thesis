@@ -98,5 +98,4 @@ evaluation:
   # Waits per LLM stage before a question is recorded as an error (a failed
   # judge score is omitted, never 0).
   wait_out_attempts: 5
-  top_k: 5
   variants: ["naive", "dense_only", "hybrid", "current"]

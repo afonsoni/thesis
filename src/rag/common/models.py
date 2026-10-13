@@ -261,6 +261,9 @@ class RetrievalResult(BaseModel):
     query: AnalyzedQuery
     results: List[SearchResult] = Field(default_factory=list)
     results_by_party: Dict[str, List[SearchResult]] = Field(default_factory=dict)
+    # Context budget the retrieving configuration hands generation
+    # (RetrievalConfig.max_prompt_tokens); None is llm.openrouter.max_prompt_tokens.
+    max_prompt_tokens: Optional[int] = None
 
 
 # ---------------------------------------------------------------------------
