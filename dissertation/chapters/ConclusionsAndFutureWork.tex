@@ -59,7 +59,13 @@ LLM-generated synonyms, BM25 over the party's whole manifesto with no topic
 filter, and its best hits given reserved context slots outside RRF --- or an
 agentic search tool the generator can call. Meanwhile the refusal sentence
 says ``I found no answer in the excerpts I consulted'', not ``the manifesto
-does not say it''.}
+does not say it''.
+Add (d) framing leakage (Section~\ref{subsec:grounding}): a grounded
+generator inherits the framing of its sources, the attribution rule reduces
+it but cannot be shown to remove it, and no automatic metric measures it
+(the count is by hand, on 61 questions). Its effect is uneven across parties,
+which matters for a tool meant to be neutral. Future work: a judge for
+attribution, i.e.\ value-laden statements made in the system's own voice.}
 
 \TODO{Add an Implications section (or fold into the discussion): what a system
 like this could mean for political literacy and public access, who would
