@@ -89,12 +89,22 @@ VARIANTS: Dict[str, RetrievalConfig] = {
     # Dense-retrieval ablations (dissertation/DECISIONS.md, 2026-10-09), each one
     # flag away from `current`. Run on the dev split before any becomes a default.
     "party_stripped": RetrievalConfig(name="party_stripped", strip_party_names=True),
-    "no_topic_filter": RetrievalConfig(name="no_topic_filter", use_topic_filter=False),
+    # `current` before it went deeper without the topic filter (results `wide*` of
+    # 2026-10-13, judged on all 61 questions): 5 per search and per party, topics
+    # filtering. `current` beat it by recall +0.123, correctness +0.041 and
+    # correctness recall +0.102, faithfulness within noise.
+    "shallow": RetrievalConfig(name="shallow", top_k=5, top_k_per_party=5, use_topic_filter=True),
+    # One flag each: the topic filter back on (retrieval only: recall -0.028 at 5/5),
+    # and a 64k prompt budget, which read no better than 32k (correctness +0.029
+    # vs current's +0.041 over `shallow`) for 18% more input tokens.
+    "topic_filter": RetrievalConfig(name="topic_filter", use_topic_filter=True),
+    "budget_64k": RetrievalConfig(name="budget_64k", max_prompt_tokens=64000),
     # Vocabulary-mismatch fix for incidental mentions (gold q-61): the lexical
     # list skips the topic filter and expansions use manifesto wording. Two flags
     # from `current`, measured together. Dev 2026-10-11: no metric moved beyond
     # noise (recall +0.011, nDCG +0.008) and q-61 stayed unretrieved, so both
-    # flags stay off.
+    # flags stay off. With the topic filter now off by default, only the
+    # expansion flag still changes anything.
     "lexical_wide": RetrievalConfig(name="lexical_wide", lexical_topic_filter=False, expansion_synonyms=True),
     "instructed": RetrievalConfig(
         name="instructed", query_instruction=config.get("embeddings.task_instruction"),

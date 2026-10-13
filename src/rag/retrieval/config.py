@@ -102,10 +102,11 @@ class RetrievalConfig(BaseModel):
         "the query towards chunks *about* the party. The lexical query always drops them.",
     )
     use_topic_filter: bool = Field(
-        default=True,
+        default=False,
         description="Restrict searches to chunks sharing an analyzed topic (never "
-        "the catch-all 'outros'). Off, topics play no part in retrieval: a chunk the "
-        "classifier tagged differently from the analyzer can still be found.",
+        "the catch-all 'outros'). Off by default: 9% of gold chunks carry none of "
+        "the analyzer's topics, and on the contextual index the filter cost recall "
+        "(-0.028 retrieval-only, 61 questions); the contexts carry the topic words.",
     )
     lexical_topic_filter: bool = Field(
         default=True,

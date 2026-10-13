@@ -94,7 +94,7 @@ Entry point: `main.py`
   scoring it would tie them). Results carry `ScoreType.RERANK` — raw logits, not
   comparable to cosine/RRF. Model-load failures raise rather than degrade to
   un-reranked results, so a `reranked` run cannot silently report baseline numbers.
-- `router.py`: per-party fan-out for comparisons and topic explorations; one party/topic-filtered search otherwise. The catch-all topic `outros` is never a filter.
+- `router.py`: per-party fan-out for comparisons and topic explorations; one party-filtered search otherwise. Topic filtering (`use_topic_filter`) is off by default, and the catch-all topic `outros` is never a filter.
 - `pipeline.py`: retrieval entry point using a singleton `Searcher`.
 
 #### Generation (`src/rag/generation/`)
@@ -121,8 +121,9 @@ Entry point: `main.py`
   plain index `indexing.plain_table`), plus ablations one flag away from `current`:
   `party_stripped` (`strip_party_names`), `instructed` (`query_instruction` =
   `embeddings.task_instruction`), `contextual` (headers without the LLM context,
-  `indexing.contextual_table`) and `no_topic_filter`
-  (`use_topic_filter=False`); and `lexical_wide` (`lexical_topic_filter=False` +
+  `indexing.contextual_table`), `topic_filter` (`use_topic_filter=True`), `budget_64k`
+  (`max_prompt_tokens=64000`) and `shallow` (`current` before it went to 10 / 8 per
+  party without the topic filter); and `lexical_wide` (`lexical_topic_filter=False` +
   `expansion_synonyms=True`), built for incidental mentions (gold q-61).
 - `dataset.py`: gold-set load/save (content-hash keys).
 - `metrics/`: retrieval (hit/recall/MRR/nDCG over the full list handed to generation,
@@ -194,10 +195,11 @@ Based on the dissertation draft and repository structure, near-term direction is
    running the variant ladder to produce headline numbers.)**
 2. Retrieval upgrades beyond current baseline. Hybrid search is **the default**
    (dev nDCG +0.064 over `dense_only`), and so is contextual retrieval (all 61
-   questions, two passes: recall +0.046, nDCG +0.057 over `hybrid`). The cross-encoder reranker was measured on
-   dev and lost (recall -0.055, twice the latency); dropping the topic filter lost
-   too (`no_topic_filter`, recall -0.085), and `lexical_wide` moved nothing beyond
-   noise. Existence questions ("does X ever mention Y?") stay a known limitation:
+   questions, two passes: recall +0.046, nDCG +0.057 over `hybrid`), and so is
+   retrieving 10 chunks (8 per party) without the topic filter (61 questions,
+   judged: recall +0.123, correctness +0.041, correctness recall +0.102 over
+   `shallow`). The cross-encoder reranker was measured on dev and lost (recall
+   -0.055, twice the latency), and `lexical_wide` moved nothing beyond noise. Existence questions ("does X ever mention Y?") stay a known limitation:
    top-k retrieval cannot prove absence. Improved query planning remains open.
 3. Better robustness/reproducibility (tests, experiment scripts, clearer dependency management).
 4. Optional user-facing feature exploration (e.g., quiz-oriented interaction over manifesto positions).

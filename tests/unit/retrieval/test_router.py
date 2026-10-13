@@ -9,8 +9,9 @@ from src.rag.retrieval.searcher import Searcher
 
 
 def _no_expand(**overrides) -> RetrievalConfig:
-    """Config mirroring the old ``expand_queries=False`` call style."""
-    return RetrievalConfig(use_multi_query=False, **overrides)
+    """Config mirroring the old ``expand_queries=False`` call style, with the
+    topic filter on (off by default) so its routing can be tested."""
+    return RetrievalConfig(**{"use_multi_query": False, "use_topic_filter": True, **overrides})
 
 
 class StubSearcher(Searcher):

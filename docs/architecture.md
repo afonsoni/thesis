@@ -149,9 +149,9 @@ Details the diagram compresses:
 - **Query analysis fallback.** If the LLM call fails, an exact party-alias scan
 sets the parties and coverage falls to *exhaustive*, so the router fans out
 rather than silently omitting parties.
-- **Topic filters are a preference.** Single-party and comparison searches also
-apply the analysed topics. Any topic-filtered search that matches nothing is
-retried without the filter (per party, for comparisons).
+- **Topic filters are off by default** (`use_topic_filter`). When on, searches
+also apply the analysed topics (never `outros`), and any topic-filtered search
+that matches nothing is retried without the filter (per party, for comparisons).
 - **Comparison** searches every named party, or all eight when the question
 asks for exhaustive coverage without naming any.
 - **Hybrid** adds a lexical list per query, so `2 × len(queries)` lists are

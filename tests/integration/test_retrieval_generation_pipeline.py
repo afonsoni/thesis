@@ -2,6 +2,7 @@ from unittest.mock import patch
 
 
 import src.rag.retrieval.pipeline as retrieval_pipeline
+from src.rag.retrieval.config import RetrievalConfig
 from src.rag.retrieval.pipeline import retrieve
 from src.rag.retrieval.query_analyzer import _QueryAnalysisResponse
 
@@ -17,7 +18,9 @@ def test_retrieve_single_party_with_test_db(seeded_searcher, monkeypatch):
     )
 
     with patch("src.rag.retrieval.query_analyzer.generate_structured", return_value=structured):
-        result = retrieve("Quais sao as propostas do PS para educacao?", top_k=3, expand_queries=False)
+        # The topic filter is off by default; on, so the topic path is exercised too.
+        result = retrieve("Quais sao as propostas do PS para educacao?", top_k=3, expand_queries=False,
+                          config=RetrievalConfig(use_topic_filter=True))
 
     assert result.results
     assert all(item.party_name == "Partido Socialista" for item in result.results)

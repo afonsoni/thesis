@@ -47,8 +47,12 @@ llm:
 retrieval:
   multi_query_count: 4 # expanded queries
   rrf_k: 60
-  default_top_k: 5 # results handed to generation (CLI: query -k)
-  top_k_per_party: 5 # per party, for comparison and topic-exploration questions
+  # Results handed to generation (CLI: query -k), and per party on a comparison or
+  # topic-exploration fan-out. 10/8 over 5/5 (with the topic filter off): recall
+  # 0.77 -> 0.89, correctness recall 0.64 -> 0.74 on all 61 gold questions; the
+  # 32k budget trims the excess, and 64k read no better.
+  default_top_k: 10
+  top_k_per_party: 8
   # Cross-encoder of the `reranked` variants; must be multilingual.
   # bge-reranker-v2-m3: 568M, 8k ctx; mmarco-mMiniLMv2-L12: 118M, 512 ctx (faster).
   reranker_model: "BAAI/bge-reranker-v2-m3"

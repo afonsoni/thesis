@@ -9,7 +9,8 @@ and ``coverage``):
   for X" wants every party that proposes something, not the five best chunks;
 - single_party and general → one search, filtered to the named party (if any).
 
-Both filter on the analyzed topics, except the catch-all "outros".
+With ``use_topic_filter`` (off by default), both also filter on the analyzed
+topics, never the catch-all "outros".
 """
 
 import logging
