@@ -127,16 +127,19 @@ Entry point: `main.py`
   `expansion_synonyms=True`), built for incidental mentions (gold q-61).
 - `dataset.py`: gold-set load/save (content-hash keys).
 - `metrics/`: retrieval (hit/recall/MRR/nDCG over the full list handed to generation,
-  against human-picked gold chunks),
+  against human-picked gold chunks, plus `recall_capped` = found / min(gold, slots)
+  and `aspect_recall` over the gold chunks' manifesto sections, `gold_aspects`),
   routing (type acc, coverage, party/topic F1), and generation: claim-level
-  faithfulness and correctness (RAGAS-style, `judge.py`) plus a 1-5 relevance judge
+  faithfulness and correctness (RAGAS-style, `judge.py`; `correctness_grounded` =
+  F1 of faithfulness and correctness recall, for aspect-level references) plus a 1-5 relevance judge
   whose `abstained` flag gives `abstention` (on `answerable: false` questions) and
   `false_refusal` (on the rest),
   (each a `name` + `score()`; see `runner.Metric`). `stats.py` adds bootstrap CIs and paired differences to
   the leaderboard; `scripts/judge_validation.py` measures judge-human agreement.
 - Gold set: `data/eval/questions/CANDIDATES.md` -> `scripts/anchor_gold.py` ->
   `anchoring/ANCHORING.md` (human review, `reviewed: yes`) -> `golden.json`, with a
-  `dev`/`test` split (`eval --split test` for headline numbers).
+  `dev`/`test` split (`eval --split test` for headline numbers). The leaderboard
+  repeats its table for the broad questions (more gold chunks than `top_k`).
 - `runner.py` / `report.py` / `pipeline.py`: run a variant, persist results, refresh
   `data/eval/reports/leaderboard.md`.
 - Retrieval is feature-flagged via `src/rag/retrieval/config.py::RetrievalConfig`;

@@ -20,6 +20,7 @@ from src.rag.evaluation.models import VariantResult
 from src.rag.evaluation.report import save_result, write_leaderboard
 from src.rag.evaluation.runner import Metric, run_variant
 from src.rag.evaluation.variants import resolve_variants
+from src.rag.retrieval.config import RetrievalConfig
 from src.utils.config_loader import config
 
 logger = logging.getLogger(__name__)
@@ -108,5 +109,8 @@ def evaluate(
         save_result(result, results_dir)
         results.append(result)
 
-    write_leaderboard(results, reports_dir)
+    # Broad: more gold chunks than a flat retrieval at the production depth returns.
+    slots = RetrievalConfig().top_k
+    broad = {q.id for q in dataset.questions if len(set(q.gold_chunk_keys)) > slots}
+    write_leaderboard(results, reports_dir, broad_ids=broad)
     return results

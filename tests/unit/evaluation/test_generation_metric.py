@@ -40,6 +40,8 @@ def test_claim_level_scores(fake_judge):
     assert s["correctness_recall"] == pytest.approx(1 / 2)
     p, r = 1 / 3, 1 / 2
     assert s["correctness"] == pytest.approx(2 * p * r / (p + r))
+    f = 2 / 3  # faithfulness stands in for precision
+    assert s["correctness_grounded"] == pytest.approx(2 * f * r / (f + r))
     assert s["answer_relevance"] == 1.0
     assert [c["supported"] for c in run.judgements["faithfulness"]] == [True, False, True]
 
@@ -114,3 +116,4 @@ def test_a_failed_reference_extraction_is_retried_on_the_next_variant(fake_judge
     first = metric.score(QuestionRun(question_id="q-01", variant="naive", answer="ANSWER", context="CONTEXT"), q)
     second = metric.score(QuestionRun(question_id="q-01", variant="current", answer="ANSWER", context="CONTEXT"), q)
     assert "correctness" not in first and "correctness" in second
+

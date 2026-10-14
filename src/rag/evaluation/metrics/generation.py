@@ -8,6 +8,10 @@ Generation metrics.
   answer (precision) and the reference's claims against the answer (recall);
   ``correctness`` is their F1. Recall alone reads "did the answer say what the
   reference says", without penalising true detail the reference left out.
+- ``correctness_grounded``: F1 of faithfulness and ``correctness_recall``. On a
+  broad question the reference is aspect-level, so true detail from the gold
+  sections counts against ``correctness`` precision; faithfulness stands in for
+  that precision. Reuses both scores, so it adds no judge call.
 - ``answer_relevance`` (reference-free): a holistic 1-5 judgement mapped to [0, 1].
 - ``abstention`` (unanswerable questions only): 1 if the answer declined, else 0.
   Its mean is the share of unanswerable questions the system refused.
@@ -96,6 +100,9 @@ class GenerationJudgeMetric:
                 if f1 is not None:
                     scores["correctness"] = f1
                     run.judgements["correctness_precision"] = _log(claims, precision_v)
+        grounded = _f1(scores.get("faithfulness"), scores.get("correctness_recall"))
+        if grounded is not None:
+            scores["correctness_grounded"] = grounded
 
         rel = judge_answer_relevance(question.question, run.answer, self.model)
         if rel is not None:

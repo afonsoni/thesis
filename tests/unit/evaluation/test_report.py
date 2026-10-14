@@ -43,3 +43,14 @@ def test_leaderboard_notes_when_fallback_models_answered(tmp_path):
     r.models_used = {"google/gemma-4-26b-a4b-it:free": 40, "nvidia/nemotron-3-ultra-550b-a55b:free": 3}
     content = open(write_leaderboard([r], str(tmp_path)), encoding="utf-8").read()
     assert "Fallback models answered" in content and "nemotron" in content
+
+
+def test_broad_questions_get_their_own_table(tmp_path):
+    runs = [QuestionRun(question_id="q-01", variant="v", metrics={"recall": 0.2}),
+            QuestionRun(question_id="q-02", variant="v", metrics={"recall": 1.0})]
+    r = VariantResult(variant="v", per_question=runs, aggregate={"recall": 0.6})
+    content = open(write_leaderboard([r], str(tmp_path), broad_ids={"q-01"}), encoding="utf-8").read()
+    broad = content.split("## Broad questions")[1]
+    assert "The 1 questions" in broad and "| v | 0.200 |" in broad
+    # Without broad ids there is no such section.
+    assert "## Broad questions" not in open(write_leaderboard([r], str(tmp_path)), encoding="utf-8").read()
