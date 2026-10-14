@@ -47,6 +47,10 @@ def expand_query(question: str, n_queries: int, strict: bool = False, synonyms: 
         # Ensure the original is always included
         if question.lower() not in seen:
             unique.insert(0, question)
+        if strict and len(unique) < 2:
+            # Under the harness this question would otherwise run single-query
+            # under a multi-query variant's name.
+            raise ValueError("query expansion produced no usable reformulation")
         logger.info("Expanded query into %d variants.", len(unique))
         return unique[:n_queries + 1]  # n expansions + original
 
