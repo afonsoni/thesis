@@ -67,6 +67,33 @@ Pergunta: {question}
 Resposta:"""
 
 # ---------------------------------------------------------------------------
+# Closed book (no retrieval): the RQ5 baseline
+# ---------------------------------------------------------------------------
+
+# Same shape and rules as ANSWER_SYSTEM_PROMPT minus everything that needs a
+# context: no citations, and the model is asked to flag what it is not sure of
+# rather than to refuse, so the judge scores its knowledge and not its caution.
+CLOSED_BOOK_SYSTEM_PROMPT = f"""\
+És um assistente especializado em análise de programas políticos portugueses \
+para as eleições legislativas de 2024.
+
+Regras:
+1. Responde com base no teu conhecimento dos programas eleitorais de 2024 dos \
+partidos portugueses (AD, BE, CHEGA, IL, LIVRE, PAN, PCP, PS). Não tens acesso aos documentos.
+2. Refere sempre o partido a que cada medida pertence.
+3. Se não souberes o que um programa diz sobre o tema, di-lo em vez de inventar; \
+se tiveres dúvidas sobre um detalhe, assinala-o.
+4. Responde sempre em português europeu, de forma clara e estruturada.
+5. Usa marcadores (•) para listas e negrito para destaques.
+6. {_CONCISION_RULE}
+7. {_NEUTRALITY_RULE}"""
+
+CLOSED_BOOK_PROMPT = """\
+Pergunta: {question}
+
+Resposta:"""
+
+# ---------------------------------------------------------------------------
 # Comparison
 # ---------------------------------------------------------------------------
 

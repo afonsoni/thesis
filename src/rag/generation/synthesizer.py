@@ -17,6 +17,8 @@ from src.rag.common.models import (
 from src.utils.config_loader import config
 from src.rag.common.llm_client import generate_text
 from src.rag.generation.prompts import (
+    CLOSED_BOOK_PROMPT,
+    CLOSED_BOOK_SYSTEM_PROMPT,
     ANSWER_PROMPT,
     ANSWER_SYSTEM_PROMPT,
     COMPARISON_PROMPT,
@@ -211,12 +213,14 @@ def _build_sources(numbered: List[Tuple[int, SearchResult]]) -> List[Dict]:
 # Synthesis strategies
 # ---------------------------------------------------------------------------
 
-def direct_answer(query: str, results: List[SearchResult], on_token: OnToken = None) -> GeneratedAnswer:
+def direct_answer(query: str, results: List[SearchResult], on_token: OnToken = None,
+                  model: Optional[str] = None) -> GeneratedAnswer:
     """Single-pass generation for simple look-ups."""
     context = _format_flat_context(results)
     prompt = ANSWER_PROMPT.format(context=context, question=query)
     progress.info("A redigir a resposta a partir de %d excertos…", len(results))
-    answer = generate_text(prompt, system_prompt=ANSWER_SYSTEM_PROMPT, label="answer", on_token=on_token)
+    answer = generate_text(prompt, system_prompt=ANSWER_SYSTEM_PROMPT, label="answer", on_token=on_token,
+                           model=model)
     return GeneratedAnswer(
         answer=answer,
         sources=_build_sources(_numbered_flat(results)),
@@ -228,6 +232,7 @@ def comparison_answer(
     query: str,
     results_by_party: Dict[str, List[SearchResult]],
     on_token: OnToken = None,
+    model: Optional[str] = None,
 ) -> GeneratedAnswer:
     """Grouped-by-party generation for comparison questions."""
     context = _format_grouped_context(results_by_party)
@@ -237,12 +242,25 @@ def comparison_answer(
     else:
         progress.info("A redigir a resposta…")
     answer = generate_text(prompt, system_prompt=COMPARISON_SYSTEM_PROMPT, label="comparison answer",
-                           on_token=on_token)
+                           on_token=on_token, model=model)
     return GeneratedAnswer(
         answer=answer,
         sources=_build_sources([x for xs in _numbered_grouped(results_by_party).values() for x in xs]),
         context=context,
     )
+
+
+def closed_book_answer(query: str, on_token: OnToken = None, model: Optional[str] = None) -> GeneratedAnswer:
+    """No context: the model answers from what it knows. The RQ5 baseline.
+
+    ``context`` stays empty, so faithfulness is not scored (nothing to be
+    faithful to) and ``sources`` is empty: a closed-book answer cannot cite.
+    """
+    prompt = CLOSED_BOOK_PROMPT.format(question=query)
+    progress.info("A redigir a resposta sem consultar os programas…")
+    answer = generate_text(prompt, system_prompt=CLOSED_BOOK_SYSTEM_PROMPT, label="closed-book answer",
+                           on_token=on_token, model=model)
+    return GeneratedAnswer(answer=answer, sources=[], context="")
 
 
 # ---------------------------------------------------------------------------
@@ -258,13 +276,17 @@ def synthesize(retrieval: RetrievalResult, on_token: OnToken = None) -> Generate
     """
     q = retrieval.query.original_query
     budget = retrieval.max_prompt_tokens
+    model = retrieval.generation_model
     shape = retrieval.query.answer_shape
     grouped = retrieval.results_by_party
+
+    if retrieval.closed_book:
+        return closed_book_answer(q, on_token, model)
 
     if shape == AnswerShape.PER_PARTY:
         if grouped:
             logger.info("Using comparison synthesis strategy.")
-            return comparison_answer(q, _fit_grouped(grouped, budget), on_token)
+            return comparison_answer(q, _fit_grouped(grouped, budget), on_token, model)
         if retrieval.results:
             # Flat results (e.g. a single-party route): group them so the answer
             # can still be laid out party by party.
@@ -272,7 +294,7 @@ def synthesize(retrieval: RetrievalResult, on_token: OnToken = None) -> Generate
             for r in retrieval.results:
                 by_party.setdefault(r.party_name, []).append(r)
             logger.info("Per-party answer from flat results – grouping by party.")
-            return comparison_answer(q, _fit_grouped(by_party, budget), on_token)
+            return comparison_answer(q, _fit_grouped(by_party, budget), on_token, model)
 
     # A narrative answer over a fan-out reads the whole grouped set, not
     # ``results``: the router truncates that flat list to top_k, which would
@@ -289,4 +311,4 @@ def synthesize(retrieval: RetrievalResult, on_token: OnToken = None) -> Generate
         flat = _fit_flat(retrieval.results, budget)
 
     logger.info("Using direct answer strategy.")
-    return direct_answer(q, flat, on_token)
+    return direct_answer(q, flat, on_token, model)

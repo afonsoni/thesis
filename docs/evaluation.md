@@ -40,6 +40,20 @@ expansions (cached per process), so variants differ only in the feature under
 test. Separate runs still drift (providers are not bit-exact at temperature 0):
 two identical runs moved recall by up to ±0.03.
 
+### The closed-book rungs (RQ5)
+
+`no_retrieval` switches retrieval off (`use_retrieval=False`): no analysis, no
+search, and the production generator answers from memory under a prompt with the
+same rules minus citations. `no_retrieval_strong` does the same with
+`evaluation.strong_model`, a frontier model from a third family (the judge is
+Qwen, the generator Gemma), and `current_strong` runs the production pipeline
+with that model. Two paired differences answer the question: does retrieval
+lift the small model past the strong one working from memory, and what does the
+strong model still gain from retrieval. Closed-book rungs have nothing to score
+retrieval, routing or faithfulness on, so those columns are blank for them;
+compare on `correctness_recall`, `answer_relevance` and the call log's cost.
+A closed-book answer also cannot cite a passage, which no column captures.
+
 ### The reranked rung
 
 Reranking is the one rung that changes *how much* is retrieved, not just how it

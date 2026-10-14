@@ -18,6 +18,8 @@ def generate(retrieval_result: RetrievalResult,
     This is the single entry-point for the generation stage. *on_token*, if
     given, receives the answer text as it is generated (streaming).
     """
+    if retrieval_result.closed_book:
+        return synthesize(retrieval_result, on_token)
     # ``any``: a fan-out where every party came back empty is still a dict of
     # (empty) lists, and would otherwise send the LLM a prompt with no context.
     if not retrieval_result.results and not any(retrieval_result.results_by_party.values()):

@@ -113,6 +113,22 @@ VARIANTS: Dict[str, RetrievalConfig] = {
     # recall +0.026 over `hybrid`, against +0.046 with the context. Needs:
     #   main.py index --from-classified <ckpt> --no-llm-context --table <indexing.contextual_table>
     "contextual": RetrievalConfig(name="contextual", table=config.get("indexing.contextual_table")),
+
+    # RQ5, retrieval versus scale. `no_retrieval` is the closed-book baseline:
+    # the production generator answers from memory. `*_strong` swap in
+    # evaluation.strong_model, a third family (judge: Qwen; generator: Gemma),
+    # so the crossover can be read off two paired differences: does retrieval
+    # lift the small model past the strong one working from memory, and what
+    # does the strong model still gain from retrieval. Retrieval and routing
+    # metrics are not scored on the closed-book rungs; neither is faithfulness.
+    "no_retrieval": RetrievalConfig(name="no_retrieval", use_retrieval=False),
+    "no_retrieval_strong": RetrievalConfig(
+        name="no_retrieval_strong", use_retrieval=False,
+        generation_model=config.get("evaluation.strong_model"),
+    ),
+    "current_strong": RetrievalConfig(
+        name="current_strong", generation_model=config.get("evaluation.strong_model"),
+    ),
 }
 
 

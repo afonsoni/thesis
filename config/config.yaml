@@ -102,4 +102,8 @@ evaluation:
   # Waits per LLM stage before a question is recorded as an error (a failed
   # judge score is omitted, never 0).
   wait_out_attempts: 5
+  # Generator of the `*_strong` rungs (RQ5): a frontier model from a third
+  # family, so neither the judge nor the production generator scores its kin.
+  # Closed-book prompts are tiny; `current_strong` reads the full context.
+  strong_model: "openai/gpt-5.4"
   variants: ["naive", "dense_only", "hybrid", "current"]

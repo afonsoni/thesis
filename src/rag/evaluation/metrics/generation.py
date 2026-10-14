@@ -80,7 +80,7 @@ class GenerationJudgeMetric:
         scores: Dict[str, float] = {}
 
         claims = extract_claims(question.question, run.answer, self.model)
-        if claims:
+        if claims and run.context.strip():  # closed-book answers have nothing to be faithful to
             verdicts = verify_claims(claims, run.context, self.model)
             if verdicts is not None:
                 scores["faithfulness"] = _supported_share(verdicts)

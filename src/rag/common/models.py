@@ -264,6 +264,12 @@ class RetrievalResult(BaseModel):
     # Context budget the retrieving configuration hands generation
     # (RetrievalConfig.max_prompt_tokens); None is llm.openrouter.max_prompt_tokens.
     max_prompt_tokens: Optional[int] = None
+    # Model that writes the answer (RetrievalConfig.generation_model); None is
+    # llm.openrouter.model.
+    generation_model: Optional[str] = None
+    # True when retrieval was switched off (RetrievalConfig.use_retrieval): the
+    # answer is to come from the model alone, not from an empty context.
+    closed_book: bool = False
 
 
 # ---------------------------------------------------------------------------

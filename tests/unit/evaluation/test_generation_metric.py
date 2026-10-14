@@ -117,3 +117,10 @@ def test_a_failed_reference_extraction_is_retried_on_the_next_variant(fake_judge
     second = metric.score(QuestionRun(question_id="q-01", variant="current", answer="ANSWER", context="CONTEXT"), q)
     assert "correctness" not in first and "correctness" in second
 
+
+def test_an_empty_context_skips_faithfulness_but_not_correctness(fake_judge):
+    q = EvalQuestion(id="q-01", question="Q?", reference_answer="REF")
+    run = QuestionRun(question_id="q-01", variant="no_retrieval", answer="ANSWER", context="")
+    s = gen.GenerationJudgeMetric().score(run, q)
+    assert "faithfulness" not in s and "correctness_grounded" not in s
+    assert s["correctness_recall"] == pytest.approx(1 / 2)

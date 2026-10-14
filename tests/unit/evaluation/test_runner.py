@@ -61,3 +61,21 @@ def test_each_question_records_its_llm_calls():
         {"step": "query analysis", "model": "google/gemma-4-26b-a4b-it:free"},
         {"step": "answer", "model": "nvidia/nemotron-3-ultra-550b-a55b:free"},
     ]
+
+
+def test_a_closed_book_rung_is_scored_on_generation_only():
+    from src.rag.evaluation.metrics.routing import RoutingMetric
+
+    class Gen:
+        name = "generation"
+
+        def score(self, run, question):
+            return {"correctness_recall": 1.0}
+
+    result = RetrievalResult(query=AnalyzedQuery(original_query="Q?"), closed_book=True)
+    run = run_question(Q, RetrievalConfig(name="no_retrieval", use_retrieval=False),
+                       [RetrievalMetric(), RoutingMetric(), Gen()], 5,
+                       retrieve_fn=lambda q, c: result,
+                       generate_fn=lambda r: GeneratedAnswer(answer="A", context=""))
+    assert run.error is None
+    assert run.metrics == {"correctness_recall": 1.0}

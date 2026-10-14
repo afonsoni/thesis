@@ -125,6 +125,10 @@ Entry point: `main.py`
   (`max_prompt_tokens=64000`) and `shallow` (`current` before it went to 10 / 8 per
   party without the topic filter); and `lexical_wide` (`lexical_topic_filter=False` +
   `expansion_synonyms=True`), built for incidental mentions (gold q-61).
+  For RQ5, three more: `no_retrieval` (`use_retrieval=False`, closed book: the
+  production generator answers from memory), `no_retrieval_strong` and
+  `current_strong` (`generation_model` = `evaluation.strong_model`, a third model
+  family). Closed-book rungs skip the retrieval, routing and faithfulness metrics.
 - `dataset.py`: gold-set load/save (content-hash keys).
 - `metrics/`: retrieval (hit/recall/MRR/nDCG over the full list handed to generation,
   against human-picked gold chunks, plus `recall_capped` = found / min(gold, slots)
