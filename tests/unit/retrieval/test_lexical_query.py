@@ -14,8 +14,8 @@ from src.rag.retrieval.searcher import Searcher
 
 
 def test_strip_party_mentions_blanks_names_and_keeps_accents():
-    assert strip_party_mentions("Propostas do PS para a saúde?").split() == ["propostas", "do", "para", "a", "saúde?"]
-    assert "aliança" not in strip_party_mentions("A Aliança Democrática e o CDS-PP sobre habitação")
+    assert strip_party_mentions("Propostas do PS para a saúde?").split() == ["Propostas", "do", "para", "a", "saúde?"]
+    assert "Aliança" not in strip_party_mentions("A Aliança Democrática e o CDS-PP sobre habitação")
     assert "habitação" in strip_party_mentions("A Aliança Democrática e o CDS-PP sobre habitação")
     # Word-anchored: "ps" inside another word is not a party.
     assert strip_party_mentions("lapso") == "lapso"
@@ -39,7 +39,7 @@ class DenseStub(Searcher):
 
 
 @pytest.mark.parametrize("party, expected", [
-    ("Partido Socialista", "o que propõe o   para a saúde?"),
+    ("Partido Socialista", "O que propõe o   para a saúde?"),  # BM25 lowercases on its side
     (None, "O que propõe o PS para a saúde?"),  # no filter: the name is the only party signal
 ])
 

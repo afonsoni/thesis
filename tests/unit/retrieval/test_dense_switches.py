@@ -29,7 +29,7 @@ def _searcher() -> Searcher:
 
 
 @pytest.mark.parametrize("strip, party, expected", [
-    (True, "Pessoas-Animais-Natureza", "qual é a posição do   sobre as touradas?"),
+    (True, "Pessoas-Animais-Natureza", "Qual é a posição do   sobre as touradas?"),  # case kept: one change, not two
     (True, None, "Qual é a posição do PAN sobre as touradas?"),   # no filter: keep the only party signal
     (False, "Pessoas-Animais-Natureza", "Qual é a posição do PAN sobre as touradas?"),
 ])

@@ -140,21 +140,21 @@ def _find_parties(question: str) -> List[str]:
 
 
 def strip_party_mentions(text: str) -> str:
-    """*text*, lowercased, with every party name or alias blanked out.
+    """*text* with every party name or alias blanked out; case and accents kept.
 
     For the lexical query of a party-filtered search: the filter already carries
     the party, and left in, its name is a rare, heavily weighted BM25 term ("ps"
     outweighs "saúde") that ranks a party's self-references above the topic asked
-    about. Accents are kept; matching runs on the accent-stripped copy, whose
-    character offsets are the same for precomposed text.
+    about. Also the dense query under ``strip_party_names``, which is why the
+    case is kept: lowercasing would be a second change in that ablation. Matching
+    runs on a lowercased, accent-stripped copy, whose character offsets are the
+    same for precomposed text.
     """
-    lowered = text.lower()
-    folded = _strip_accents(lowered)
-    if len(folded) != len(lowered):  # decomposed input: offsets would not line up
-        lowered = folded
+    folded = _strip_accents(text.lower())
+    out = text if len(folded) == len(text) else folded  # decomposed input: offsets would not line up
     for m in reversed(list(_PARTY_PATTERN.finditer(folded))):
-        lowered = lowered[: m.start()] + " " + lowered[m.end():]
-    return lowered
+        out = out[: m.start()] + " " + out[m.end():]
+    return out
 
 
 def _coerce_topics(raw: Any) -> List[str]:
