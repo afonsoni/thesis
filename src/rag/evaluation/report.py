@@ -18,6 +18,7 @@ from datetime import datetime
 from typing import Dict, List, Optional, Set
 
 from src.rag.evaluation.models import VariantResult
+from src.utils.config_loader import config
 from src.rag.evaluation.stats import bootstrap_ci, paired_diff, per_question
 
 logger = logging.getLogger(__name__)
@@ -134,6 +135,8 @@ def _leaderboard_stem(results: List[VariantResult]) -> str:
 
 
 def _format_cell(value: float, ci=None) -> str:
+    if isinstance(value, float) and value != value:  # nan: the variant never produced this metric
+        return ""
     cell = f"{value:.3f}" if isinstance(value, float) else str(value)
     return f"{cell} [{ci[0]:.2f}, {ci[1]:.2f}]" if ci else cell
 
@@ -206,7 +209,16 @@ def write_leaderboard(results: List[VariantResult], reports_dir: str,
         "`false_refusal` the share of answerable ones it declined.",
         "",
     ])
-    used = {r.variant: r.models_used for r in results if len(r.models_used) > 1}
+    # A model outside the ones this run was configured with answered a call,
+    # i.e. the transport fell back. The judge and a variant's own generator
+    # are expected, not fallbacks.
+    expected = {str(config.get("llm.openrouter.model")), str(config.get("evaluation.judge_model"))}
+    used = {
+        r.variant: {m: n for m, n in r.models_used.items()
+                    if m not in expected | {str(r.config.get("generation_model") or "")}}
+        for r in results
+    }
+    used = {v: c for v, c in used.items() if c}
     if used:
         lines.append("**Fallback models answered some LLM calls** (calls per model): " + "; ".join(
             f"`{v}`: " + ", ".join(f"{m} {n}" for m, n in sorted(c.items(), key=lambda kv: -kv[1]))

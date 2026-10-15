@@ -54,3 +54,26 @@ def test_broad_questions_get_their_own_table(tmp_path):
     assert "The 1 questions" in broad and "| v | 0.200 |" in broad
     # Without broad ids there is no such section.
     assert "## Broad questions" not in open(write_leaderboard([r], str(tmp_path)), encoding="utf-8").read()
+
+
+def test_the_judge_and_a_variant_generator_are_not_reported_as_fallbacks(tmp_path, monkeypatch):
+    from src.rag.evaluation import report
+
+    monkeypatch.setattr(report.config, "get", lambda key, default=None: {
+        "llm.openrouter.model": "google/gemma", "evaluation.judge_model": "qwen/judge"}.get(key, default))
+    r = _make_result("current_strong", 0.8, 0.9)
+    r.config = {"generation_model": "openai/strong"}
+    r.models_used = {"google/gemma": 2, "qwen/judge": 40, "openai/strong": 25}
+    content = open(write_leaderboard([r], str(tmp_path)), encoding="utf-8").read()
+    assert "Fallback models answered" not in content
+
+
+def test_a_metric_a_variant_never_produced_is_a_blank_cell_not_nan(tmp_path):
+    with_hit = _make_result("current", 0.8, 0.9)
+    with_hit.per_question[0].metrics = {"hit": 0.8, "faithfulness": 0.9}
+    closed = _make_result("no_retrieval", 0.0, 0.5)
+    closed.aggregate = {"faithfulness": 0.5, "avg_latency_s": 1.0, "error_rate": 0.0}
+    closed.per_question[0].metrics = {"faithfulness": 0.5}
+    content = open(write_leaderboard([with_hit, closed], str(tmp_path)), encoding="utf-8").read()
+    assert "| nan" not in content and " nan " not in content
+    assert "| no_retrieval |  |" in content
