@@ -86,6 +86,16 @@ def retrieve(
         analyzed.topics,
     )
 
+    # Only parties the corpus lacks: nothing to search, and any programme found
+    # would answer for the wrong party. Generation turns this into a refusal.
+    if analyzed.unlisted_parties and not analyzed.parties:
+        logger.info("No programme in the corpus for %s; skipping search.", analyzed.unlisted_parties)
+        return RetrievalResult(
+            query=analyzed,
+            max_prompt_tokens=config.max_prompt_tokens,
+            generation_model=config.generation_model,
+        )
+
     # Step 2: route & search
     searcher = get_searcher(config.table)
     result = route(analyzed, searcher, config=config)

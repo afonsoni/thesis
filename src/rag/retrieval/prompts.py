@@ -69,6 +69,9 @@ Analisa esta pergunta e responde em JSON com os seguintes campos:
   Se a pergunta se referir a um bloco em vez de nomear partidos ("os partidos de
   direita", "os conservadores", "a esquerda"), enumera os partidos desse bloco.
   Lista vazia quando a pergunta não restringe a nenhum partido em concreto.
+- "unlisted_parties": partidos nomeados na pergunta que não estão na lista acima.
+  Nunca substituas um partido destes por um da lista, mesmo que o nome ou a sigla
+  se pareçam: vai para aqui, não para "parties". Lista vazia se não houver nenhum.
 - "coverage": "exhaustive" se a resposta tiver de representar todos os partidos
   em causa (por exemplo "o que defende cada partido sobre X", "compara os
   partidos de direita quanto a Y"); "best_match" se bastarem as passagens mais

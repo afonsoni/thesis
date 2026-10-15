@@ -204,6 +204,10 @@ class AnalyzedQuery(BaseModel):
     topics: List[str] = Field(default_factory=list)
     answer_shape: AnswerShape = AnswerShape.NARRATIVE
     reformulated_query: str = ""
+    # Parties the question names that have no programme in the corpus. With no
+    # corpus party alongside, the question is refused instead of answered from
+    # whichever programme retrieval finds (gold q-59).
+    unlisted_parties: List[str] = Field(default_factory=list)
 
     @computed_field  # type: ignore[prop-decorator]
     @property

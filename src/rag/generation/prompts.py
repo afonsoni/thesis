@@ -16,6 +16,14 @@ NO_INFO_ANSWER = (
     "mas isso não garante que os programas não abordem o tema."
 )
 
+# Fixed answer when the question names only parties with no programme in the
+# corpus (AnalyzedQuery.unlisted_parties): unlike NO_INFO_ANSWER, here absence is
+# certain, so the answer says so and lists what the corpus does hold.
+OUT_OF_CORPUS_ANSWER = (
+    "O corpus não inclui o programa eleitoral destes partidos: {parties}. "
+    "Inclui apenas os de: {corpus}."
+)
+
 # Inline citation rule shared by both answer prompts. "[n]" is the number of the
 # "[Documento n]" block in the context, and GeneratedAnswer.sources carries the
 # same n, so every claim can be traced back to the chunk it came from.

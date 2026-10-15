@@ -58,6 +58,7 @@ class _QueryAnalysisResponse(BaseModel):
     topics: List[str] = Field(default_factory=list)
     answer_shape: str = ""
     reformulated_query: str = ""
+    unlisted_parties: List[str] = Field(default_factory=list)
 
 
 # ---------------------------------------------------------------------------
@@ -155,6 +156,18 @@ def strip_party_mentions(text: str) -> str:
     for m in reversed(list(_PARTY_PATTERN.finditer(folded))):
         out = out[: m.start()] + " " + out[m.end():]
     return out
+
+
+def _coerce_unlisted(raw: Any) -> List[str]:
+    """Named parties outside the corpus, minus any that resolve to a corpus party.
+
+    The guard matters because a refusal follows: "PSD" listed here by mistake
+    would refuse a question the Aliança Democrática programme answers.
+    """
+    if not isinstance(raw, list):
+        return []
+    kept = [p.strip() for p in raw if isinstance(p, str) and p.strip() and not _normalize_parties([p])]
+    return list(dict.fromkeys(kept))
 
 
 def _coerce_topics(raw: Any) -> List[str]:
@@ -255,6 +268,7 @@ def analyze_query(
         topics=_coerce_topics(parsed.topics),
         answer_shape=_coerce_answer_shape(parsed.answer_shape, parties, coverage),
         reformulated_query=parsed.reformulated_query or question,
+        unlisted_parties=_coerce_unlisted(parsed.unlisted_parties),
     )
 
 

@@ -82,6 +82,8 @@ Entry point: `main.py`
 #### Retrieval (`src/rag/retrieval/`)
 
 - `query_analyzer.py`: structured query analysis into `single_party`, `comparison`, `topic_exploration`, `general` (+ heuristic fallback).
+  A question naming only parties outside the corpus (`unlisted_parties`) skips search
+  and gets the fixed `OUT_OF_CORPUS_ANSWER` (gold q-59: ADN was answered as AD).
 - `query_expander.py`: multi-query expansion.
 - `searcher.py`: similarity search + Reciprocal Rank Fusion (RRF). With
   `use_hybrid`, each query also contributes a lexical ranked list and all
