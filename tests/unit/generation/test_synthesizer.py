@@ -243,3 +243,21 @@ def test_the_variant_model_reaches_the_grounded_answer_too():
     with patch.object(synthesizer, "generate_text", fake_generate):
         synthesize(retrieval)
     assert seen["model"] == "x/strong"
+
+
+def test_a_party_outside_the_corpus_named_alongside_others_is_not_passed_over():
+    """"PS e ADN": the answer covers PS and must say the ADN programme is missing."""
+    from src.rag.generation.pipeline import generate
+
+    retrieval = RetrievalResult(
+        query=AnalyzedQuery(original_query="Compara o PS e o ADN", parties=["Partido Socialista"],
+                            unlisted_parties=["ADN"]),
+        results=[_result("Partido Socialista")],
+    )
+    streamed: List[str] = []
+    with patch.object(synthesizer, "generate_text", return_value="resposta"):
+        answer = generate(retrieval, on_token=streamed.append)
+
+    assert answer.answer.startswith("O corpus não inclui") and "ADN" in answer.answer
+    assert answer.answer.endswith("resposta")
+    assert streamed and "ADN" in streamed[0]
