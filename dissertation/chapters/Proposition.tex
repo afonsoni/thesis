@@ -43,9 +43,10 @@ researched, choice made, and how/why that choice was later revised.}
 \TODO{REVIEW: Claude's draft of this section (2026-10-06). Read it, check the
 facts against your memory, and rewrite it in your own words.}
 
-Indexing turns the eight manifesto PDFs into a searchable store in six
+Indexing turns the eight manifesto PDFs into a searchable store in seven
 steps: each document is parsed to Markdown, cleaned, split into chunks,
-labelled with policy topics, embedded, and written to a vector database.
+labelled with policy topics, given a short context of its own, embedded, and
+written to a vector database.
 It runs offline, once per corpus change, and everything the retrieval
 pipeline (Section~\ref{sec:retrieval}) does depends on the representation it
 produces. The subsections below follow the pipeline in order
@@ -333,6 +334,27 @@ scale.
     before/after.}
 \end{itemize}
 
+\subsection{Contextual retrieval} \label{subsec:contextual}
+
+A chunk cut from the middle of a section is an orphan. It no longer says which
+party wrote it or what the section is about. In this corpus, 58\% of chunks
+(1{,}635 of 2{,}815) contain no heading at all. Voters do not help either: they
+rarely use the manifesto's own words.
+
+Contextual retrieval~\citep{anthropic2024contextual} gives each orphan a
+label. Before embedding, an LLM reads the chunk alongside its section and
+writes a sentence or two placing it in context. The chunk is then embedded,
+and indexed for lexical search, together with that context and its
+``party | section'' path. The original text is stored untouched, so citations
+and the gold set still point at exactly what the manifesto says. Contexts are
+cached by content hash, so a rebuild never pays for them twice, and, like
+classification, a context that cannot be written stops the run.
+
+It paid off. Over all 61 gold questions, run twice, the contextual index beat
+the plain hybrid one on recall (+0.046, 95\% CI [+0.011, +0.089]), MRR
+(+0.082) and nDCG (+0.057, CI [+0.025, +0.095]). Section paths alone gave
+about half of that. Since October 2026 it is the default index.
+
 \subsection{Embeddings} \label{subsec:embeddings}
 
 The embedding model decides which chunks a query can find. Three properties
@@ -487,7 +509,7 @@ step: an LLM reads the question and extracts the filters itself, following
 the logical-routing and metadata-filtering patterns of \textit{RAG from
 Scratch}~\citep{rag-from-scratch}.
 
-The analysis is a single structured-output call that returns five fields:
+The analysis is a single structured-output call that returns six fields:
 \begin{itemize}
     \item \textbf{parties}: the parties the question concerns. When a question
     refers to a bloc rather than naming parties (``os partidos de direita'',
@@ -504,6 +526,8 @@ The analysis is a single structured-output call that returns five fields:
     party or as a single text (Section~\ref{sec:generation}).
     \item \textbf{reformulated query}: a cleaned-up version of the question for
     search.
+    \item \textbf{unlisted parties}: parties the question names that are not in
+    the corpus.
 \end{itemize}
 
 \paragraph{Revision: describe the question, derive the route.} The first
@@ -532,26 +556,20 @@ The revision also fixed party matching, which worked on substrings:
 ``PSD'' resolved to the Partido Socialista because ``ps'' is inside ``psd'', so
 a question about one party was answered from another's manifesto, with
 citations that looked correct. Names are now matched as whole words, and
-coalition members resolve to the programme actually published (PSD and CDS-PP
-to AD, CDU to PCP).
+coalition members resolve to the programme actually published (PSD, CDS-PP
+and PPM to AD; the CDU's PCP and PEV to PCP).
 
-%% src: dissertation/DECISIONS.md (Settled, "Parties outside the corpus");
-%% commits ec100e3, c13d365, 26b7718; q-59 in
-%% data/eval/results/current-20261013T140724.json and wide-20261013T032701.json
-\TODO{Write a ``Revision: parties outside the corpus'' paragraph (October
-2026). Gold q-59 asks what ADN proposes for housing; ADN is a real party with
-no programme in the corpus. Told to use the exact names on the list, and shown
-only full names, the analyser mapped ADN to AD, and the answer presented AD's
-housing measures as ADN's. The fix: a sixth field, \textit{unlisted parties}.
-A question naming only such parties skips the search and gets a fixed answer
-that names them and lists the eight covered; a mixed question (``PS e ADN'')
-is answered for the corpus party and opens with a one-line note. A live check
-after the first fix still read ``PS e ADN'' as AD and sent PPM to PAN, so the
-party table now shows initials and the coalition members (PSD, CDS-PP, PPM in
-AD; PCP, PEV in CDU). Say why not a hand-made list of non-corpus parties:
-``ADN'' is also Portuguese for DNA. Then update the ``five fields'' list above
-and the coalition sentence (add PPM), and contrast the two refusals in
-Section~\ref{subsec:grounding}.}
+\paragraph{Revision: parties outside the corpus.} Gold question q-59 asks what
+ADN proposes for housing. ADN is a real party; its manifesto is not in the
+corpus. Told to use only the names on its list, the analyser did the obliging
+thing and mapped ADN to AD, and the answer presented AD's housing plans as
+ADN's, with tidy citations. The sixth field fixes this. A question naming only
+unlisted parties skips the search and gets a fixed answer that says so and
+lists the eight parties covered. A mixed one (``PS e ADN'') is answered for
+the corpus party, with a one-line note up front. A first live check still read
+``PS e ADN'' as AD and sent PPM to PAN, so the party table the analyser sees
+now spells out initials and coalition members. Why not keep a hand-made list
+of parties outside the corpus? Because ``ADN'' is also Portuguese for DNA.
 
 \paragraph{Fallback.} If the analysis call fails after its retries, a
 deterministic fallback takes over. It extracts only what needs no
@@ -577,14 +595,14 @@ extra LLM call and four extra searches per question.
 
 The derived query type selects one of four search strategies:
 \begin{itemize}
-    \item \textbf{Single party}: search only that party's chunks, preferring the
-    question's topics.
-    \item \textbf{Comparison}: search each party in scope separately, three
+    \item \textbf{Single party}: search only that party's chunks, keeping the
+    top ten.
+    \item \textbf{Comparison}: search each party in scope separately, eight
     results per party, and keep the results grouped by party. When the question
     names no party, every party is in scope.
-    \item \textbf{Topic exploration}: search the whole corpus, restricted to the
-    question's topics.
-    \item \textbf{General}: search the whole corpus without filters.
+    \item \textbf{Topic exploration}: the same per-party search. ``What is
+    proposed on X?'' is a comparison in disguise.
+    \item \textbf{General}: search the whole corpus, keeping the top ten.
 \end{itemize}
 
 The comparison route matters most for a civic tool. A single search over the
@@ -608,11 +626,24 @@ nothing matches, runs again without it and logs a warning. Comparison queries
 relax the filter per party, so a party that does not mention a topic cannot
 remove it from the search for the others.
 
+\paragraph{Revision: no filter at all.} The gold set then showed the filter
+hurting even when it matched something. On the development questions, 41\% of
+the gold chunks the system missed had been excluded by the topic filter, often
+because the analyser answered \textit{outros}, the catch-all, which as a filter
+keeps only the chunks the classifier could not place. A topic exploration also
+got a single search of five chunks for eight parties, so a question could score
+zero with every relevant chunk sitting in its party's top three. Topic
+explorations now fan out per party, and the filter is off by default. Together
+with a wider net (10 chunks, 8 per party, up from 5 and 5), this was judged on
+all 61 gold questions: recall +0.123 (CI [+0.08, +0.17]) and correctness
++0.041 (CI [+0.01, +0.07]), with faithfulness unchanged within noise. The
+filter survives as an ablation (Section~\ref{subsec:variants}); topics still
+decide whether a question is a topic exploration.
+
 \subsection{Search and fusion} \label{subsec:search}
 
 Each query version is embedded and matched against the stored chunk vectors
-by cosine similarity, within whatever party and topic filters the route
-applies. Multi-query expansion produces one ranked list per version, and these
+by cosine similarity, within whatever party filter the route applies. Multi-query expansion produces one ranked list per version, and these
 are merged with Reciprocal Rank Fusion (RRF)~\citep{cormack2009rrf}. RRF
 scores each chunk by the sum of $1/(k + r)$ over the lists in which it
 appears at rank $r$, with $k = 60$. It uses only ranks, not scores, so lists
@@ -641,9 +672,11 @@ The hybrid configuration had been running as dense search alone, with no error
 to show it. Lexical search was rewritten as Okapi
 BM25~\citep{robertson2009bm25}, in which any query term can match and rarer
 terms weigh more. After the rewrite, lexical search alone found a relevant
-chunk in its top ten for 44 of the 51 gold questions. The August measurement
-therefore says nothing about hybrid retrieval, and its value is settled by the
-evaluation (Section~\ref{subsec:results}).
+chunk in its top ten for 44 of the 51 gold questions. Measured properly this
+time, hybrid beat dense search alone on the development set (nDCG +0.064, with
+a paired 95\% CI excluding zero; MRR +0.10) at no cost in latency, helping most
+where a comparison's wording is exact. It has been the default since October
+2026.
 
 Two refinements followed. Accents are folded after stemming, so a question
 typed without accents (``saude'') still finds chunks about \textit{saúde}.
@@ -653,17 +686,15 @@ removed from the lexical query. As a rare term it would otherwise outweigh the
 topic, even though the filter already guarantees every candidate belongs to
 that party.
 
-\paragraph{Party names in dense queries.} The same effect appears in dense
-search, and is being measured rather than assumed. On ``Qual é a posição do
-PAN sobre as touradas?'' (\textit{What is PAN's position on bullfighting?}),
-searched within PAN's chunks, the best relevant chunk ranked sixth. With
-``PAN'' removed from the query, it ranked first. The party name pulls the
-query towards chunks \emph{about the party}, such as ``O PAN é um partido de
-causas\ldots'' (\textit{PAN is a party of causes\ldots}), which the party
-filter already makes redundant. Removing party names from dense queries is one
-of three dense-retrieval variants now measured on the evaluation set, alongside
-contextual chunk headers and a task-specific query instruction for the encoder
-(Section~\ref{subsec:variants}).
+\paragraph{Party names in dense queries.} The same effect appeared in dense
+search. On ``Qual é a posição do PAN sobre as touradas?'' (\textit{What is
+PAN's position on bullfighting?}), searched within PAN's chunks, the best
+relevant chunk ranked sixth; with ``PAN'' removed from the query, first. The
+name pulled the query towards chunks \emph{about the party} (``O PAN é um
+partido de causas\ldots''), which the filter already makes redundant. Stripping
+names was built as a variant, but never needed a run: contextual retrieval
+(Section~\ref{subsec:contextual}) already puts the gold chunks for that
+question at ranks one to three.
 
 \subsection{Reranking} \label{subsec:reranking}
 
@@ -676,17 +707,25 @@ far more accurate but far too slow to apply to the whole corpus, so it runs
 second, over a shortlist.
 
 With reranking enabled, each search fetches 30 candidates instead of the
-usual five, the fused list keeps all 30, and the cross-encoder
+usual ten, the fused list keeps all 30, and the cross-encoder
 (\texttt{bge-reranker-v2-m3}~\citep{bge-reranker-v2-m3}, a multilingual
 model) reorders them before the list is cut back. The wider fetch is the
 point: a reranker can only promote what retrieval already found, so reranking
-exactly five candidates would reorder the answer without ever improving its
+exactly ten candidates would reorder the answer without ever improving its
 contents. The number of candidates is therefore the real limit on what
 reranking can recall. The model scores the user's original question against
 each \emph{small} chunk, not its parent section. Under small-to-big retrieval
 many chunks share one parent, and scoring the parent would give all of them the
-same score. Whether the gain in precision justifies the extra latency is a
-question for the evaluation.
+same score.
+
+\paragraph{Verdict: it lost.} On the development set the reranker cut recall by
+0.055 and doubled latency, so it stays off and is reported as a negative
+result. That runs against the published experience, where reranking on top of
+contextual retrieval cut failed retrievals further, from 49\% to 67\%
+fewer~\citep{anthropic2024contextual}.
+\TODO{Say why, if you have a view: a general multilingual reranker on European
+Portuguese manifesto prose, short child chunks scored without their section,
+or simply that hybrid fusion had already done the reranker's job.}
 
 \subsection{Agentic retrieval} \label{subsec:agentic}
 %% src: not built yet; DECISIONS.md "Agentic rung -- decided, to build" (2026-10-06)
@@ -755,20 +794,25 @@ something outside the system rather than by its answers.
     Portuguese. Quotas and the inability to try other vendors' models through
     the same interface eventually became limiting.
     \item \textbf{OpenRouter (April 2026 onwards).} OpenRouter puts many models
-    behind one interface. The system now uses Gemma~4, an open-weights model,
-    through its free tier. Each request names a primary model and a list of
-    free fallbacks, which OpenRouter tries in turn when the first is rate-limited or
-    unavailable. The model that actually answered is recorded with every call,
-    so evaluation results can show where a fallback was used.
+    behind one interface. The system uses Gemma~4 (\texttt{gemma-4-26b-a4b-it}),
+    an open-weights model: on the free tier until October 2026, then on a cheap
+    paid endpoint, with free endpoints as fallbacks. The model that actually
+    answered is recorded with every call, so evaluation results show where a
+    fallback stepped in.
 \end{itemize}
 \TODO{Confirm the LlamaAPI dates and whether Ollama models were ever run end
-to end; state the final generation and judge models once the paid models
-replace the free tier.}
+to end.}
 
-The free tier was a choice as well as a constraint. It keeps the whole system
-runnable by anyone at no cost, which suits a tool meant for public use. Its
-cost is rate limits, which shaped the code: retries with backoff, fallbacks,
-and the fail-fast-then-resume design of indexing.
+The judge is deliberately from another family, Qwen
+(\texttt{qwen3.8-27b}), so no number in this thesis is a model grading its own
+homework (Section~\ref{subsec:metrics}).
+
+The free tier carried the project for months and shaped the code: retries with
+backoff, fallbacks, and the fail-fast-then-resume design of indexing. The move
+to a paid endpoint changed the bill, not the model: everything here still runs
+on an open model.
+\TODO{Say why you moved to the paid endpoint in October 2026, and roughly what
+the evaluation runs cost.}
 
 \subsection{Grounding and neutrality} \label{subsec:grounding}
 
@@ -793,8 +837,13 @@ system prompt sets the rules the answer must follow:
     \item in comparisons, say explicitly when a party's manifesto does not
     address the topic.
 \end{itemize}
-Generation runs at a low temperature (0.2), trading variety for stability:
-the same question should produce the same answer.
+Query analysis, expansion and generation all run at temperature zero. The same
+question should produce the same answer, and a rerun should repeat, so a
+difference between two runs is the change being measured rather than noise.
+
+Questions about parties outside the corpus get a different fixed reply
+(Section~\ref{subsec:queryanalysis}). The two must not be confused: one means
+``I searched and found nothing'', the other ``I have nothing to search''.
 
 The fixed refusal sentence has a practical purpose too. The evaluation detects
 it to measure whether the system abstains on questions the manifestos cannot
@@ -884,27 +933,25 @@ The strategy is chosen by the \emph{answer shape} set during query analysis,
 not by the retrieval route, because the two can differ. ``Que partido propõe
 mais sobre habitação?'' (\textit{Which party proposes most on housing?}) must
 retrieve every party, which is the comparison route, but wants a single
-verdict, not eight sections. Three strategies follow from this:
+verdict, not eight sections. Two strategies follow:
 \begin{itemize}
     \item \textbf{Direct}: one prompt with all passages, producing one text.
     Used for narrative answers.
     \item \textbf{Comparison}: passages grouped under party headings, with a
-    prompt asking for each party's position in turn and then a summary of
-    similarities and differences. Used when the answer should be laid out party
-    by party and the results arrived grouped.
-    \item \textbf{Decomposition}~\citep{rag-from-scratch}: the question is split
-    into three sub-questions, each answered from the same context, and the
-    answers are combined. Used only when a party-by-party answer is wanted but
-    the results arrived as one flat list.
+    prompt asking for each party's position in turn and then the similarities
+    and differences. Used for party-by-party answers, but only when at least two
+    parties have results; a ``comparison'' of one party once closed with a
+    solemn summary that there was nothing to compare.
 \end{itemize}
 
-\paragraph{Revision: what decomposition is for.} Decomposition was first
-triggered whenever a question returned more than eight passages, on the
-theory that large contexts needed breaking down. That theory was wrong.
-Decomposition reuses the same full context for every sub-question, so it
-multiplies LLM calls without ever making a prompt smaller. Since August 2026
-prompt size is handled directly (Section~\ref{subsec:context}), and
-decomposition is kept only for the case it actually addresses.
+\paragraph{Revision: decomposition, retired.} A third strategy, question
+decomposition~\citep{rag-from-scratch}, split a question into sub-questions
+and answered each from the same context. It was first triggered by any
+question with more than eight passages, on the theory that big contexts needed
+breaking down. They did not: decomposition reused the full context every time,
+so it multiplied LLM calls (five per answer) without ever shrinking a prompt.
+It was narrowed in August 2026 and retired in October: grouping the passages by
+party and using the comparison prompt gives the same layout in one call.
 
 \subsection{Fitting the context} \label{subsec:context}
 
@@ -914,30 +961,26 @@ chunks often share a parent, so passages are deduplicated by the text the
 generator will read. Otherwise one section could appear two or three times in
 the same prompt.
 
-The prompt has a budget of 16{,}000 tokens of context. The generation model
+The prompt has a budget of 32{,}000 tokens of context. The generation model
 runs remotely, so its tokenizer is not available locally, and the budget is
-enforced with a deliberately cautious estimate of 3.5 characters per token.
-It overestimates slightly, so trimming happens a little early rather than one
-passage too late. The budget was 8{,}000 tokens until October 2026, when an
-eight-party comparison with only one passage per party was found to overflow
-it. When the context is too long, a flat list loses its lowest-ranked passages.
-A context grouped by party is trimmed differently: passages come off whichever
-party currently contributes most, and every party keeps at least one, even if
-the prompt then exceeds the budget. An over-long prompt is a visible failure;
-an answer that silently omits a party is not.
-%% TODO added by Claude 2026-10-13; data: config.yaml max_prompt_tokens comment, commit a9bd4e3.
-\TODO{Update this subsection: the budget is now 32{,}000 tokens. Measured on
-dev q-33 (all-party minimum wage; same retrieval, three paid-Gemma generations
-per budget): at 16{,}000 the trim dropped 11 of 24 passages and 4 of 9 gold
-chunks, correctness 0.43 (claim recall 0.53); at 32{,}000 nothing was dropped,
-correctness 0.77 (recall 0.89), faithfulness 0.95 against 0.99. One question:
-it justifies the setting, it is not a headline number. That test ran with 3
-passages per party; retrieval now takes 8 (commit b054bf8). 64{,}000 was then
-judged on all 61 gold questions (the \texttt{budget\_64k} ablation) and read no
-better than 32{,}000 (correctness +0.029, within noise) for 18\% more input
-tokens, so the budget stays at 32{,}000 and the trim does the rest. Also: deduplication now merges overlapping parent windows of the same party and
-section, not only identical text (one IRS question: 5 passages to 3, $\sim$5.3k
-to 2.9k tokens).}
+enforced with a deliberately cautious estimate of 3.5 characters per token: it
+overestimates, so trimming happens a little early rather than one passage too
+late. When the context is too long, a flat list loses its lowest-ranked
+passages. A context grouped by party is trimmed differently: passages come off
+whichever party currently contributes most, and every party keeps at least one,
+even if the prompt then exceeds the budget. An over-long prompt is a visible
+failure; an answer that silently omits a party is not.
+
+\paragraph{Revision: how big a budget.} The budget doubled twice. At 8{,}000
+tokens an eight-party comparison overflowed with one passage per party. At
+16{,}000, one all-party question (q-33, minimum wage) lost 11 of its 24
+passages, 4 of them gold, and scored 0.43 on correctness; at 32{,}000 nothing
+was trimmed and it scored 0.77. One question justifies a setting, not a
+headline. 64{,}000 was then judged on all 61 gold questions and read no better
+(correctness +0.029, within noise) for 18\% more input tokens, so the budget
+stays at 32{,}000. Deduplication also grew smarter: overlapping parent windows
+of the same section are now merged, not only identical ones (one tax question
+went from five passages to three, about 5.3k tokens to 2.9k).
 
 \paragraph{Revision: no party lost on the way to the answer.} The per-party
 route of Section~\ref{subsec:routing} guarantees every party is
@@ -945,7 +988,7 @@ route of Section~\ref{subsec:routing} guarantees every party is
 party reaches the \emph{answer}.
 \begin{itemize}
     \item A narrative answer over a per-party search read the router's flat
-    list, which is cut to the top five passages. A verdict claiming to weigh
+    list, then cut to the top five passages. A verdict claiming to weigh
     eight parties was written from five passages, with nothing in the output to
     show it. It now reads the full grouped set (August 2026).
     \item That grouped set was then trimmed to budget as one flat list, which
