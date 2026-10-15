@@ -33,6 +33,17 @@ class RetrievalConfig(BaseModel):
     """
 
     name: str = Field(default="current", description="Human-readable variant name.")
+    use_retrieval: bool = Field(
+        default=True,
+        description="False is the closed-book baseline: no analysis, no search, and "
+        "generation answers from the model's own knowledge. What RQ5 compares "
+        "retrieval against; retrieval and routing metrics do not apply to it.",
+    )
+    generation_model: Optional[str] = Field(
+        default=None,
+        description="Model that writes the answer. None is llm.openrouter.model; set "
+        "per variant to put a stronger model on the ladder, with or without retrieval.",
+    )
 
     # Query understanding
     use_query_analysis: bool = Field(

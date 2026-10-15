@@ -107,9 +107,12 @@ def _call(prompt: str, schema: type, system: str, model: Optional[str], label: s
 
 def extract_claims(question: str, text: str, model: Optional[str] = None) -> Optional[List[str]]:
     """Atomic, self-contained claims made by *text* (an answer or a reference)."""
+    # The claim list restates the text, so its budget grows with it: a 3000-token
+    # answer overran a fixed 4000 and lost its scores (dev 2026-10-15, three of
+    # the strong generator's longest answers, all on broad questions).
     out = _call(
         CLAIMS_EXTRACTION_PROMPT.format(question=question, text=text),
-        _Claims, CLAIMS_SYSTEM_PROMPT, model, "claim extraction", 4000,
+        _Claims, CLAIMS_SYSTEM_PROMPT, model, "claim extraction", max(4000, len(text) // 2),
     )
     if out is None:
         return None

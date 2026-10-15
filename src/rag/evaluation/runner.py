@@ -126,7 +126,10 @@ def run_question(
     run.latency_s = round(time.perf_counter() - start, 3)
 
     # An empty answer (generation failed or skipped) yields no judge scores.
+    # A closed-book rung retrieved and routed nothing, so only generation is scored.
     for metric in metrics:
+        if not config.use_retrieval and metric.name in ("retrieval", "routing"):
+            continue
         try:
             run.metrics.update(metric.score(run, question))
         except Exception as exc:  # noqa: BLE001

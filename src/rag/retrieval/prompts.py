@@ -43,10 +43,14 @@ _topic_list = "\n".join(f'- "{t}": {d}' for t, d in TOPIC_CATEGORIES.items())
 # explicit party list, so this table is what that resolution runs on: keeping it
 # in one visible place makes the mapping auditable and citable — these follow
 # the Chapel Hill Expert Survey's placement of the Portuguese parties — instead
-# of burying a contested judgement in a metadata filter.
+# of burying a contested judgement in a metadata filter. Each party carries its
+# initials (the corpus key): shown full names only, the model resolved a party
+# outside the corpus with similar initials to one inside it (gold q-59).
 _party_positions = "\n".join(
-    f'- "{info["name"]}": {"esquerda" if info["ideology"] == "left" else "direita"}'
-    for info in PARTY_MAP.values()
+    f'- "{info["name"]}"'
+    + (f' ({key.split("-")[0].upper()})' if key.split("-")[0] != info["name"].lower() else "")
+    + f': {"esquerda" if info["ideology"] == "left" else "direita"}'
+    for key, info in PARTY_MAP.items()
 )
 
 QUERY_ANALYSIS_SYSTEM_PROMPT = f"""\
@@ -55,6 +59,10 @@ para as eleições legislativas de 2024.
 
 Partidos disponíveis (e posição no eixo esquerda-direita):
 {_party_positions}
+PSD, CDS-PP e PPM concorreram coligados na Aliança Democrática; PCP e PEV na CDU, \
+cujo programa é o do Partido Comunista Português. Uma pergunta sobre um destes \
+partidos coligados consulta o partido da lista onde concorreu. Qualquer outro partido, ainda \
+que tenha nome ou sigla parecidos com os destes, não está disponível.
 
 Tópicos disponíveis (e o que cada um abrange):
 {_topic_list}
@@ -69,6 +77,9 @@ Analisa esta pergunta e responde em JSON com os seguintes campos:
   Se a pergunta se referir a um bloco em vez de nomear partidos ("os partidos de
   direita", "os conservadores", "a esquerda"), enumera os partidos desse bloco.
   Lista vazia quando a pergunta não restringe a nenhum partido em concreto.
+- "unlisted_parties": partidos nomeados na pergunta que não estão na lista acima.
+  Nunca substituas um partido destes por um da lista, mesmo que o nome ou a sigla
+  se pareçam: vai para aqui, não para "parties". Lista vazia se não houver nenhum.
 - "coverage": "exhaustive" se a resposta tiver de representar todos os partidos
   em causa (por exemplo "o que defende cada partido sobre X", "compara os
   partidos de direita quanto a Y"); "best_match" se bastarem as passagens mais

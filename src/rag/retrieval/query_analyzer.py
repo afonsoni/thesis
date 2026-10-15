@@ -58,6 +58,7 @@ class _QueryAnalysisResponse(BaseModel):
     topics: List[str] = Field(default_factory=list)
     answer_shape: str = ""
     reformulated_query: str = ""
+    unlisted_parties: List[str] = Field(default_factory=list)
 
 
 # ---------------------------------------------------------------------------
@@ -74,7 +75,7 @@ def _strip_accents(s: str) -> str:
 # Coalition members and common abbreviations that are not the canonical name or
 # the corpus file key. The 2024 corpus holds one programme per coalition, so a
 # question about a member party can only be answered from the coalition's
-# document: PSD and CDS-PP ran as Aliança Democrática, PCP and PEV as CDU.
+# document: PSD, CDS-PP and PPM ran as Aliança Democrática, PCP and PEV as CDU.
 _PARTY_ALIAS_EXTRAS: Dict[str, str] = {
     "psd": "Aliança Democrática",
     "partido social democrata": "Aliança Democrática",
@@ -82,6 +83,8 @@ _PARTY_ALIAS_EXTRAS: Dict[str, str] = {
     "cds": "Aliança Democrática",
     "cds-pp": "Aliança Democrática",
     "partido popular": "Aliança Democrática",
+    "ppm": "Aliança Democrática",
+    "partido popular monarquico": "Aliança Democrática",
     "bloco": "Bloco de Esquerda",
     "cdu": "Partido Comunista Português",
     "coligacao democratica unitaria": "Partido Comunista Português",
@@ -140,21 +143,33 @@ def _find_parties(question: str) -> List[str]:
 
 
 def strip_party_mentions(text: str) -> str:
-    """*text*, lowercased, with every party name or alias blanked out.
+    """*text* with every party name or alias blanked out; case and accents kept.
 
     For the lexical query of a party-filtered search: the filter already carries
     the party, and left in, its name is a rare, heavily weighted BM25 term ("ps"
     outweighs "saúde") that ranks a party's self-references above the topic asked
-    about. Accents are kept; matching runs on the accent-stripped copy, whose
-    character offsets are the same for precomposed text.
+    about. Also the dense query under ``strip_party_names``, which is why the
+    case is kept: lowercasing would be a second change in that ablation. Matching
+    runs on a lowercased, accent-stripped copy, whose character offsets are the
+    same for precomposed text.
     """
-    lowered = text.lower()
-    folded = _strip_accents(lowered)
-    if len(folded) != len(lowered):  # decomposed input: offsets would not line up
-        lowered = folded
+    folded = _strip_accents(text.lower())
+    out = text if len(folded) == len(text) else folded  # decomposed input: offsets would not line up
     for m in reversed(list(_PARTY_PATTERN.finditer(folded))):
-        lowered = lowered[: m.start()] + " " + lowered[m.end():]
-    return lowered
+        out = out[: m.start()] + " " + out[m.end():]
+    return out
+
+
+def _coerce_unlisted(raw: Any) -> List[str]:
+    """Named parties outside the corpus, minus any that resolve to a corpus party.
+
+    The guard matters because a refusal follows: "PSD" listed here by mistake
+    would refuse a question the Aliança Democrática programme answers.
+    """
+    if not isinstance(raw, list):
+        return []
+    kept = [p.strip() for p in raw if isinstance(p, str) and p.strip() and not _normalize_parties([p])]
+    return list(dict.fromkeys(kept))
 
 
 def _coerce_topics(raw: Any) -> List[str]:
@@ -255,6 +270,7 @@ def analyze_query(
         topics=_coerce_topics(parsed.topics),
         answer_shape=_coerce_answer_shape(parsed.answer_shape, parties, coverage),
         reformulated_query=parsed.reformulated_query or question,
+        unlisted_parties=_coerce_unlisted(parsed.unlisted_parties),
     )
 
 

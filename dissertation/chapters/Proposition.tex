@@ -767,8 +767,13 @@ system prompt sets the rules the answer must follow:
     excerpts I consulted, but that does not mean the manifestos do not address
     it.}) The sentence reports what retrieval found, not what the manifestos
     hold: a top-$k$ search cannot prove that a manifesto never says something;
-    \item in comparisons, be impartial and factual, and say explicitly when a
-    party's manifesto does not address the topic.
+    \item describe the measures in neutral language, and attribute every
+    justification, diagnosis or value judgement to the party that makes it
+    (``o partido considera que\ldots''), never adopting the manifesto's
+    evaluative terms as the system's own; leave out attacks on other parties
+    unless the question asks for them;
+    \item in comparisons, say explicitly when a party's manifesto does not
+    address the topic.
 \end{itemize}
 Generation runs at a low temperature (0.2), trading variety for stability:
 the same question should produce the same answer.
@@ -785,6 +790,81 @@ assumes something the manifestos do not say. Since October 2026 the prompts
 ask the model to answer the part the context supports and to say what the
 manifestos do not cover. When a question rests on a premise the context does
 not confirm, the model should say so rather than accept it.
+
+%% src: src/rag/generation/prompts.py (_NEUTRALITY_RULE, Oct 2026);
+%% audit of data/eval/results/wide-20261013T032701.json vs the first
+%% current-* run after the rule; memory ledger item 10 ("framing leakage")
+\TODO{Write a ``Revision: framing leakage'' paragraph (October 2026). Grounding
+has a side effect: told to stay close to the text, the generator repeated each
+manifesto's own framing in the system's voice. Examples from the gold set:
+q-08 (PCP) ``a libertação de Portugal da \emph{submissão} à UE'', ``missões de
+\emph{ingerência e agressão}''; q-11/q-32 (IL) ``rejeita \emph{preconceitos}
+sobre os riscos'' of nuclear power; q-15 (CHEGA) immigrants who ``não pretendam
+\emph{viver de subsídios}''; q-18 (IL) the electoral system ``provoca um
+\emph{desrespeito} pela proporcionalidade''. Open attacks were filtered (the AD
+chunk behind q-03 calls the PS record a ``caminho socialista'' that
+``asfixia'' young people's dreams, and none of it reached the answer); subtle
+framing was not. The old comparison rule ``Sê imparcial e factual'' was
+already in force for q-08, q-11 and q-15 and did not stop it: a vague
+instruction does not work, an explicit attribution rule is needed. The line
+the rule draws: \emph{why} a party proposes something stays in the answer, as
+the party's claim. Report the before/after count of leaking answers (same 61
+questions, same retrieval config) once the rerun is audited. Name the
+phenomenon precisely: it is not the language model's own political lean, but
+the sources' framing passing through, and it is uneven across parties ---
+more rhetorical manifestos get more of their framing through.
+First rerun (2026-10-13, \texttt{current-20261013T140724} against
+\texttt{wide-20261013T032701}, same retrieval config, references not yet
+rewritten): q-08, q-11 and q-18 now attribute (``argumenta que'', ``considera
+que''); still bare: q-15 ``viver de subsídios'', q-32 ``preconceitos'', q-26
+``monopolista'', q-45 ``dirigistas'', and one ``submissão ao Euro'' left in
+q-08. Blind hand count (2026-10-15; both runs' 122 answers shuffled and
+annotated against a written rubric without knowing which prompt produced
+which; file \texttt{data/eval/results/framing-handcount-20261015.json}):
+answers with a clear leak 6 of 61 before and 6 of 61 after; with any leak,
+clear or borderline, 18 and 18; clear spans 8 to 6, borderline 24 to 21.
+The rule fixed the cases it was written against (q-08 ``ingerência'', q-11,
+q-18) but others appeared (q-15, q-26, q-45), so at this sample size it
+has no measurable effect: about one answer in ten repeats a party's framing
+either way. The leaks are concentrated in PCP and IL wording. Say this
+plainly: an instruction is not enough, and a check after generation (an
+attribution judge, or a rewriting pass) is future work. The annotator was a
+Claude subagent, not a human: disclose it, and ideally have a person check a
+sample. Side effects: faithfulness 0.946 to 0.976, correctness 0.509 to
+0.491, abstention 1.00 to 0.75 (q-55 gives the refusal sentence, then adds
+that LIVRE calls itself pro-European, so the detector no longer counts it as
+an abstention). Retrieval is not identical between runs (the query analyzer is
+an LLM), so this is not a clean single-factor comparison.}
+
+\TODO{Citations to check before writing the framing-leakage paragraph above
+(and its echoes in Section~\ref{subsec:metrics} and the Limitations). They are
+here for this one reason: to define framing and to separate it from the
+model's own political bias. Verify each reference before adding it to the
+bib.
+\begin{itemize}
+    \item Entman (1993), ``Framing: Toward Clarification of a Fractured
+    Paradigm'', \emph{Journal of Communication} 43(4) --- the definition of
+    framing (problem definition, causal interpretation, moral evaluation,
+    treatment recommendation) maps onto what leaked: diagnoses, causes and
+    value judgements, not the measures themselves.
+    \item Rozado (2024), ``The Political Preferences of LLMs'', \emph{PLOS
+    ONE} --- evidence that LLMs have their own political lean; cite it to
+    say that this is a \emph{different} effect from the one observed here.
+    \item Motoki, Pinho Neto \& Rodrigues (2024), ``More Human than Human:
+    Measuring ChatGPT Political Bias'', \emph{Public Choice} --- same role as
+    Rozado.
+    \item Feng et al.\ (2023), already in the bib as
+    \texttt{pretraining-political-bias} --- bias that comes from
+    \emph{pretraining} data; contrast with bias that comes from the
+    \emph{retrieved context}.
+    \item Es et al.\ (2024), ``RAGAS: Automated Evaluation of Retrieval
+    Augmented Generation'', EACL demos --- the faithfulness definition the
+    judge follows; needed to argue that faithfulness rewards framing leakage
+    (Section~\ref{subsec:metrics}). Not yet in the bib.
+    \item Optional, still to find: a source on neutrality requirements for
+    voting advice applications, the closest existing civic tools to
+    \sysname{}.
+\end{itemize}}
 
 \subsection{Synthesis strategies} \label{subsec:synthesis}
 
@@ -900,10 +980,30 @@ why (isolation of one technique per rung).}
 \TODO{Synthetic-anchored generation, hand-curation ($\sim$30--50 questions),
 routing ground truth for free, content-hash identity across re-indexing.}
 
+\TODO{State the rule the reference answers follow: describe each measure in
+neutral language, give the party's reasons only as attributed claims
+(``argumenta que'', ``por considerar que''), never adopt its evaluative terms,
+and leave out attacks on other parties. Say that it was added during review
+(October 2026), after Claude's draft references were found to carry the
+parties' framing (q-06 ``bloqueios'', q-08 ``submissão'', q-11 ``por ser'',
+q-15, q-18 ``desperdício''), all five already marked reviewed. The
+lesson is that the framing is easy to miss, so it needs a written rule rather
+than vigilance. Good examples to quote: q-04 ``que considera um erro
+civilizacional'', q-27 ``diz não ser contra a imigração'', q-47 ``segundo o
+programa do CHEGA''.}
+
 \subsection{Metrics} \label{subsec:metrics}
 %% src: docs/evaluation.md §3; retrieval (hit@k, recall@k, MRR, nDCG), routing (acc, F1), LLM-judge (faithfulness, relevance, correctness)
 \TODO{Three metric families; judge-model caveat (self-preference bias if judge
 == generator) and how you addressed it.}
+
+\TODO{Add one paragraph: faithfulness is not neutrality. A claim such as ``o PCP
+defende a libertação de Portugal da submissão à UE'' is fully supported by
+its chunk, so the faithfulness judge scores it 1. Correctness rewards it too
+whenever the reference answer carries the same framing. None of the metrics
+can see framing leakage (Section~\ref{subsec:grounding}); it was found by
+reading answers, and is counted by hand. This is why the gold references
+follow an attribution rule (Section~\ref{subsec:goldset}).}
 
 \subsection{Measurement safeguards} \label{subsec:safeguards}
 %% DRAFT (Claude, 2026-10-10): safeguards paragraph, to be rewritten.

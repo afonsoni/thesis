@@ -41,3 +41,9 @@ def test_a_question_is_expanded_once_per_process_but_a_failure_is_retried():
         second = expand_query("Pergunta original", n_queries=2)
     assert first == second == ["Pergunta original", "A", "B"]
     assert gen.call_count == 1
+
+
+def test_expand_query_strict_rejects_a_single_query_run():
+    with patch("src.rag.retrieval.query_expander.generate_text", return_value="Pergunta original\n"):
+        with pytest.raises(ValueError):
+            expand_query("Pergunta original", n_queries=4, strict=True)

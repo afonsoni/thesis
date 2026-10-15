@@ -8,7 +8,7 @@ import functools
 import logging
 from typing import Optional
 
-from src.rag.common.models import RetrievalResult
+from src.rag.common.models import AnalyzedQuery, RetrievalResult
 from src.rag.indexing.store import VectorStore
 from src.rag.retrieval.config import RetrievalConfig
 from src.rag.retrieval.query_analyzer import analyze_query
@@ -66,6 +66,15 @@ def retrieve(
     if overrides:
         config = config.model_copy(update=overrides)
 
+    if not config.use_retrieval:
+        logger.info("Retrieval off: closed-book answer.")
+        return RetrievalResult(
+            query=AnalyzedQuery(original_query=question),
+            closed_book=True,
+            generation_model=config.generation_model,
+            max_prompt_tokens=config.max_prompt_tokens,
+        )
+
     # Step 1: understand the question
     if config.use_query_analysis:
         progress.info("A analisar a pergunta…")
@@ -77,10 +86,21 @@ def retrieve(
         analyzed.topics,
     )
 
+    # Only parties the corpus lacks: nothing to search, and any programme found
+    # would answer for the wrong party. Generation turns this into a refusal.
+    if analyzed.unlisted_parties and not analyzed.parties:
+        logger.info("No programme in the corpus for %s; skipping search.", analyzed.unlisted_parties)
+        return RetrievalResult(
+            query=analyzed,
+            max_prompt_tokens=config.max_prompt_tokens,
+            generation_model=config.generation_model,
+        )
+
     # Step 2: route & search
     searcher = get_searcher(config.table)
     result = route(analyzed, searcher, config=config)
     result.max_prompt_tokens = config.max_prompt_tokens
+    result.generation_model = config.generation_model
     logger.info("Retrieved %d results.", len(result.results))
 
     return result

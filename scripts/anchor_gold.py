@@ -16,6 +16,8 @@ place a human reviews and edits:
               a ticked chunk, a reference answer and ``reviewed: yes``. An
               ``answerable: no`` question (the manifestos do not answer it) has
               no chunk to tick and needs only the reference and the review.
+              Each gold key also gets its aspect (party + manifesto header
+              path, from the classified checkpoints) for ``aspect_recall``.
 
 Labels are seeded from CANDIDATES.md plus the decisions recorded below, and can be
 edited in ANCHORING.md before compiling.
@@ -27,6 +29,7 @@ Usage:
 """
 
 import argparse
+import glob
 import json
 import os
 import re
@@ -40,6 +43,7 @@ from src.rag.common.models import PARTY_MAP  # noqa: E402
 from src.rag.evaluation.dataset import save_dataset  # noqa: E402
 from src.rag.evaluation.keys import chunk_key  # noqa: E402
 from src.rag.evaluation.models import EvalDataset, EvalQuestion  # noqa: E402
+from src.utils.config_loader import config  # noqa: E402
 
 QDIR = "data/eval/questions"
 CANDIDATES_MD = os.path.join(QDIR, "CANDIDATES.md")
@@ -276,8 +280,25 @@ def _question(cur: dict) -> EvalQuestion:
     )
 
 
+def _sections() -> Dict[str, str]:
+    """Content key -> "party > header path", read from the classified checkpoints."""
+    window = {"sub_chunk_index", "total_sub_chunks", "parent_chunk_size"}
+    out: Dict[str, str] = {}
+    for path in glob.glob(os.path.join(str(config.get("paths.processed_data")), "*-classified.json")):
+        for c in json.load(open(path, encoding="utf-8"))["chunks"]:
+            headers = [str(v) for k, v in (c.get("metadata") or {}).items() if k not in window]
+            out[chunk_key(c["content"])] = " > ".join([c["party_name"], *headers])
+    return out
+
+
 def cmd_compile(_args) -> None:
     questions = parse_anchoring()
+    sections = _sections()
+    stale = sorted({k for q in questions for k in q.gold_chunk_keys if k not in sections})
+    if stale:
+        sys.exit(f"{len(stale)} gold keys match no chunk in the checkpoints (re-chunked?): {stale[:5]}")
+    for q in questions:
+        q.gold_aspects = {k: sections[k] for k in q.gold_chunk_keys}
     ds = EvalDataset(created_at=datetime.now().isoformat(timespec="seconds"), questions=questions)
     save_dataset(ds, GOLDEN)
     todo = [q.id for q in questions if not q.curated]

@@ -31,6 +31,31 @@ def recall_at_k(retrieved: Sequence[str], gold: Sequence[str], k: int) -> float:
     return found / len(gold_set)
 
 
+def capped_recall(retrieved: Sequence[str], gold: Sequence[str]) -> float:
+    """Gold keys found over the most the list could hold: min(|gold|, slots).
+
+    A broad question can have more gold chunks than retrieval has slots, which
+    caps plain recall below 1 however good the ranking; this removes that cap.
+    """
+    if not gold or not retrieved:
+        return 0.0
+    gold_set = set(gold)
+    return len(set(retrieved) & gold_set) / min(len(gold_set), len(retrieved))
+
+
+def aspect_recall(retrieved: Sequence[str], aspects: Dict[str, str]) -> float:
+    """Share of the gold set's aspects with at least one gold chunk retrieved.
+
+    Subtopic recall (Zhai et al., 2003) with the manifesto's own sections as
+    subtopics: ten chunks from one section cover less of a broad answer than
+    three chunks from three sections.
+    """
+    if not aspects:
+        return 0.0
+    reached = {aspects[key] for key in set(retrieved) if key in aspects}
+    return len(reached) / len(set(aspects.values()))
+
+
 def mrr(retrieved: Sequence[str], gold: Sequence[str]) -> float:
     """Reciprocal rank of the first gold key in the retrieved list (0 if none)."""
     if not gold:
@@ -73,9 +98,13 @@ class RetrievalMetric:
             return {}
         retrieved: List[str] = run.retrieved_keys
         n = len(retrieved)
-        return {
+        scores = {
             "hit": hit_at_k(retrieved, gold, n),
             "recall": recall_at_k(retrieved, gold, n),
+            "recall_capped": capped_recall(retrieved, gold),
             "mrr": mrr(retrieved, gold),
             "ndcg": ndcg_at_k(retrieved, gold, n),
         }
+        if question.gold_aspects:
+            scores["aspect_recall"] = aspect_recall(retrieved, question.gold_aspects)
+        return scores

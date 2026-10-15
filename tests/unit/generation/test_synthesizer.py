@@ -208,8 +208,38 @@ def test_a_retrieval_can_carry_its_own_prompt_budget():
 
     hits = [SearchResult(id=str(i), content=f"palavra{i} " * 700, party_name="Partido Socialista") for i in range(10)]
     seen = []
-    with patch.object(synthesizer, "direct_answer", side_effect=lambda q, rs, on_token=None: seen.append(len(rs))):
+    with patch.object(synthesizer, "direct_answer", side_effect=lambda q, rs, on_token=None, model=None: seen.append(len(rs))):
         for budget in (2000, 8000):
             synthesizer.synthesize(RetrievalResult(query=AnalyzedQuery(original_query="q"), results=hits,
                                                    max_prompt_tokens=budget))
     assert seen[0] < seen[1]
+
+
+def test_closed_book_answers_without_context_from_the_variant_model():
+    seen = {}
+
+    def fake_generate(prompt, system_prompt=None, label="", on_token=None, model=None, **kw):
+        seen.update(prompt=prompt, system=system_prompt, model=model)
+        return "resposta"
+
+    retrieval = RetrievalResult(query=AnalyzedQuery(original_query="Q?"), closed_book=True,
+                                generation_model="x/strong")
+    with patch.object(synthesizer, "generate_text", fake_generate):
+        out = synthesize(retrieval)
+    assert out.answer == "resposta" and out.context == "" and out.sources == []
+    assert seen["model"] == "x/strong"
+    assert "Contexto" not in seen["prompt"] and "Não tens acesso aos documentos" in seen["system"]
+
+
+def test_the_variant_model_reaches_the_grounded_answer_too():
+    seen = {}
+
+    def fake_generate(prompt, system_prompt=None, label="", on_token=None, model=None, **kw):
+        seen["model"] = model
+        return "resposta"
+
+    retrieval = RetrievalResult(query=AnalyzedQuery(original_query="Q?"), results=[_result("PS")],
+                                generation_model="x/strong")
+    with patch.object(synthesizer, "generate_text", fake_generate):
+        synthesize(retrieval)
+    assert seen["model"] == "x/strong"

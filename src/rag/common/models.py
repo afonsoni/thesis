@@ -204,6 +204,10 @@ class AnalyzedQuery(BaseModel):
     topics: List[str] = Field(default_factory=list)
     answer_shape: AnswerShape = AnswerShape.NARRATIVE
     reformulated_query: str = ""
+    # Parties the question names that have no programme in the corpus. With no
+    # corpus party alongside, the question is refused instead of answered from
+    # whichever programme retrieval finds (gold q-59).
+    unlisted_parties: List[str] = Field(default_factory=list)
 
     @computed_field  # type: ignore[prop-decorator]
     @property
@@ -264,6 +268,12 @@ class RetrievalResult(BaseModel):
     # Context budget the retrieving configuration hands generation
     # (RetrievalConfig.max_prompt_tokens); None is llm.openrouter.max_prompt_tokens.
     max_prompt_tokens: Optional[int] = None
+    # Model that writes the answer (RetrievalConfig.generation_model); None is
+    # llm.openrouter.model.
+    generation_model: Optional[str] = None
+    # True when retrieval was switched off (RetrievalConfig.use_retrieval): the
+    # answer is to come from the model alone, not from an empty context.
+    closed_book: bool = False
 
 
 # ---------------------------------------------------------------------------

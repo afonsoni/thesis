@@ -15,16 +15,17 @@ import json
 import logging
 import os
 from datetime import datetime
-from typing import List
+from typing import Dict, List, Optional, Set
 
 from src.rag.evaluation.models import VariantResult
+from src.utils.config_loader import config
 from src.rag.evaluation.stats import bootstrap_ci, paired_diff, per_question
 
 logger = logging.getLogger(__name__)
 
 # Preferred left-to-right ordering for metric columns; unknown keys go last (sorted).
 _COLUMN_PRIORITY = [
-    "hit", "recall", "mrr", "ndcg",
+    "hit", "recall", "aspect_recall", "mrr", "ndcg",
     "query_type_acc", "coverage_acc", "party_f1", "topic_f1",
     "faithfulness", "correctness", "correctness_recall", "answer_relevance",
     "abstention", "false_refusal",
@@ -92,6 +93,40 @@ def _table(results: List[VariantResult], columns: List[str]) -> Dict[str, Dict[s
     return cells
 
 
+def _table_lines(results: List[VariantResult], columns: List[str]) -> List[str]:
+    table = _table(results, columns)
+    lines = ["| variant | " + " | ".join(columns) + " |", "| --- | " + " | ".join("---" for _ in columns) + " |"]
+    for r in results:
+        cells = [_format_cell(*table[r.variant].get(col, (float("nan"), None))) for col in columns]
+        lines.append(f"| {r.variant} | " + " | ".join(cells) + " |")
+    return lines
+
+
+def _broad_section(results: List[VariantResult], columns: List[str], broad_ids: Set[str]) -> List[str]:
+    """The same table over the broad questions only (run stats left out: they are whole-run)."""
+    sub = [r.model_copy(update={"per_question": [q for q in r.per_question if q.question_id in broad_ids]})
+           for r in results]
+    n = len({q.question_id for r in sub for q in r.per_question})
+    if not n:
+        return []
+    metrics = [c for c in columns if c not in _RUN_STATS]
+    lines = [
+        "## Broad questions",
+        "",
+        f"The {n} questions with more gold chunks than a flat retrieval returns at the",
+        "production depth, so plain `recall` cannot reach 1 on them. Read `recall_capped`,",
+        "`aspect_recall` and `correctness_grounded` here: the reference answers are",
+        "aspect-level, which makes `correctness` precision count true detail as error.",
+        "",
+        *_table_lines(sub, metrics),
+        "",
+    ]
+    if len(sub) > 1:
+        delta = _delta_table(sub, metrics)
+        lines.extend(["#" + delta[0], *delta[1:]])  # a subsection of this one
+    return lines
+
+
 def _leaderboard_stem(results: List[VariantResult]) -> str:
     """``leaderboard``, suffixed by split and curation so a dev run cannot
     overwrite the held-out table."""
@@ -100,6 +135,8 @@ def _leaderboard_stem(results: List[VariantResult]) -> str:
 
 
 def _format_cell(value: float, ci=None) -> str:
+    if isinstance(value, float) and value != value:  # nan: the variant never produced this metric
+        return ""
     cell = f"{value:.3f}" if isinstance(value, float) else str(value)
     return f"{cell} [{ci[0]:.2f}, {ci[1]:.2f}]" if ci else cell
 
@@ -131,8 +168,12 @@ def _delta_table(results: List[VariantResult], columns: List[str]) -> List[str]:
     return lines + [""]
 
 
-def write_leaderboard(results: List[VariantResult], reports_dir: str) -> str:
-    """(Over)write leaderboard[-split][-curated].md + .csv comparing the given variants."""
+def write_leaderboard(results: List[VariantResult], reports_dir: str,
+                      broad_ids: Optional[Set[str]] = None) -> str:
+    """(Over)write leaderboard[-split][-curated].md + .csv comparing the given variants.
+
+    *broad_ids* adds a second table restricted to those questions.
+    """
     os.makedirs(reports_dir, exist_ok=True)
     columns = _ordered_columns(results)
     table = _table(results, columns)
@@ -142,8 +183,6 @@ def write_leaderboard(results: List[VariantResult], reports_dir: str) -> str:
     first = results[0] if results else VariantResult(variant="")
 
     # Markdown
-    header = "| variant | " + " | ".join(columns) + " |"
-    sep = "| --- | " + " | ".join("---" for _ in columns) + " |"
     lines = [
         "# RAG Evaluation Leaderboard",
         "",
@@ -152,26 +191,34 @@ def write_leaderboard(results: List[VariantResult], reports_dir: str) -> str:
         f"{'curated only' if first.curated_only else 'curated and uncurated'}, "
         f"{first.dataset_size} questions_",
         "",
-        header,
-        sep,
+        *_table_lines(results, columns),
     ]
-    for r in results:
-        cells = [_format_cell(*table[r.variant].get(col, (float("nan"), None))) for col in columns]
-        lines.append(f"| {r.variant} | " + " | ".join(cells) + " |")
     lines.extend([
         "",
         "Higher is better for all metrics except `false_refusal`, `avg_latency_s` and `error_rate`.",
         "Cells are means over the questions every variant scored on that metric, with a",
         "95% bootstrap interval over questions; `error_rate` counts the rest.",
         "Retrieval metrics score the full list handed to generation: `top_k` chunks, or",
-        "`top_k_per_party` per party on a per-party fan-out.",
+        "`top_k_per_party` per party on a per-party fan-out. `recall_capped` divides by",
+        "min(gold, slots) instead of gold; `aspect_recall` is the share of the gold",
+        "set's manifesto sections with a gold chunk retrieved.",
         "`faithfulness` and `correctness*` are claim-level (RAGAS-style);",
+        "`correctness_grounded` is the F1 of `faithfulness` and `correctness_recall`;",
         "`answer_relevance` is a 1-5 judgement mapped to [0, 1].",
         "`abstention` is the share of unanswerable questions the system declined;",
         "`false_refusal` the share of answerable ones it declined.",
         "",
     ])
-    used = {r.variant: r.models_used for r in results if len(r.models_used) > 1}
+    # A model outside the ones this run was configured with answered a call,
+    # i.e. the transport fell back. The judge and a variant's own generator
+    # are expected, not fallbacks.
+    expected = {str(config.get("llm.openrouter.model")), str(config.get("evaluation.judge_model"))}
+    used = {
+        r.variant: {m: n for m, n in r.models_used.items()
+                    if m not in expected | {str(r.config.get("generation_model") or "")}}
+        for r in results
+    }
+    used = {v: c for v, c in used.items() if c}
     if used:
         lines.append("**Fallback models answered some LLM calls** (calls per model): " + "; ".join(
             f"`{v}`: " + ", ".join(f"{m} {n}" for m, n in sorted(c.items(), key=lambda kv: -kv[1]))
@@ -179,6 +226,8 @@ def write_leaderboard(results: List[VariantResult], reports_dir: str) -> str:
         lines.append("")
     if len(results) > 1:
         lines.extend(_delta_table(results, columns))
+    if broad_ids:
+        lines.extend(_broad_section(results, columns, broad_ids))
     with open(md_path, "w", encoding="utf-8") as fh:
         fh.write("\n".join(lines))
 

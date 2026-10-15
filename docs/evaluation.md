@@ -40,6 +40,20 @@ expansions (cached per process), so variants differ only in the feature under
 test. Separate runs still drift (providers are not bit-exact at temperature 0):
 two identical runs moved recall by up to ±0.03.
 
+### The closed-book rungs (RQ5)
+
+`no_retrieval` switches retrieval off (`use_retrieval=False`): no analysis, no
+search, and the production generator answers from memory under a prompt with the
+same rules minus citations. `no_retrieval_strong` does the same with
+`evaluation.strong_model`, a frontier model from a third family (the judge is
+Qwen, the generator Gemma), and `current_strong` runs the production pipeline
+with that model. Two paired differences answer the question: does retrieval
+lift the small model past the strong one working from memory, and what does the
+strong model still gain from retrieval. Closed-book rungs have nothing to score
+retrieval, routing or faithfulness on, so those columns are blank for them;
+compare on `correctness_recall`, `answer_relevance` and the call log's cost.
+A closed-book answer also cannot cite a passage, which no column captures.
+
 ### The reranked rung
 
 Reranking is the one rung that changes *how much* is retrieved, not just how it
@@ -121,10 +135,22 @@ pure-Python, needs `gold_chunk_keys`):
 
 - `hit` — any gold chunk retrieved.
 - `recall` — fraction of gold chunks retrieved.
+- `recall_capped` — gold chunks retrieved over `min(|gold|, slots)`. A broad
+  question can have more gold chunks than retrieval has slots (q-42 has 88), so
+  plain `recall` has a ceiling below 1 there however good the ranking.
+- `aspect_recall` — share of the gold set's *aspects* with at least one gold
+  chunk retrieved, an aspect being the manifesto section a gold chunk sits in
+  (`gold_aspects`: party + header path, written by `anchor_gold.py compile`
+  from the checkpoints). Subtopic recall (Zhai et al., SIGIR 2003) with the
+  manifestos' own headers as subtopics: ten chunks of one section cover less of
+  a broad answer than three chunks of three sections. Header depth varies by
+  manifesto (PAN's cleaned file has two levels, PCP's five), so the aspects are
+  coarser for some parties than for others.
 - `mrr` — reciprocal rank of the first gold chunk.
-- `ndcg` — binary-relevance normalized discounted cumulative gain.
+- `ndcg` — binary-relevance normalized discounted cumulative gain (its ideal
+  already counts `min(|gold|, slots)` hits, so it needs no capped variant).
 
-All four score the full list retrieval hands to generation, with no separate
+All of them score the full list retrieval hands to generation, with no separate
 cutoff: `top_k` chunks on a flat route (`eval -k` sets it for every variant),
 `top_k_per_party` per party on a per-party fan-out. A fan-out is scored on every
 party's list, interleaved by rank; scoring its flat cross-party top-k instead
@@ -158,6 +184,12 @@ judge's per-claim verdicts, kept on `QuestionRun.judgements` for auditing.
   answer states. Does not penalise true detail the reference left out.
 - `correctness` — F1 of that recall and the precision of the answer's claims
   against the reference (RAGAS "answer correctness", factual part).
+- `correctness_grounded` — F1 of `faithfulness` and `correctness_recall`. The
+  references of broad questions are aspect-level (one sentence per party and
+  aspect), so a true detail from a gold section that the reference summarised
+  away counts as an error in `correctness` precision. Faithfulness stands in for
+  that precision: it still catches invented claims, but not true claims off the
+  question. No extra judge call.
 - `answer_relevance` — a holistic 1–5 judgement mapped to [0, 1].
 
 A score whose judge calls failed (after waiting out free-tier errors) or that has
@@ -179,6 +211,14 @@ table gives each variant's **paired** difference from the first variant listed,
 with its 95% paired bootstrap interval (bold when it excludes 0). Pairing removes
 the between-question variance both arms share; on ~30 questions an unpaired
 comparison would rarely detect anything.
+
+**Broad questions.** A third table repeats the first over the *broad* questions
+only: those with more gold chunks than a flat retrieval returns at the
+production depth (`RetrievalConfig().top_k`, 10). Their gold follows the
+broad-question rule of the review (every chunk of each party's section on the
+topic, plus explicit measures elsewhere), so whole-set means mix two kinds of
+question; on these, `recall_capped`, `aspect_recall` and `correctness_grounded`
+are the numbers to read.
 
 **Judge validation** ([`scripts/judge_validation.py`](../scripts/judge_validation.py)).
 The judge is Gemma, as is the generator, so self-preference is possible. To

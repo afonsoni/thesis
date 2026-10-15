@@ -16,6 +16,14 @@ NO_INFO_ANSWER = (
     "mas isso não garante que os programas não abordem o tema."
 )
 
+# Fixed answer when the question names only parties with no programme in the
+# corpus (AnalyzedQuery.unlisted_parties): unlike NO_INFO_ANSWER, here absence is
+# certain, so the answer says so and lists what the corpus does hold.
+OUT_OF_CORPUS_ANSWER = (
+    "O corpus não inclui o programa eleitoral destes partidos: {parties}. "
+    "Inclui apenas os de: {corpus}."
+)
+
 # Inline citation rule shared by both answer prompts. "[n]" is the number of the
 # "[Documento n]" block in the context, and GeneratedAnswer.sources carries the
 # same n, so every claim can be traced back to the chunk it came from.
@@ -31,6 +39,17 @@ _CONCISION_RULE = (
     "Cada frase deve trazer informação concreta do contexto (medidas, valores, prazos)."
 )
 
+# Shared by both answer prompts. Grounding makes the generator repeat each
+# manifesto's own framing as fact ("a submissão à UE", "preconceitos" about
+# nuclear risk); a bare "be impartial" did not stop it (gold q-08, q-11, q-15).
+# Reasons stay in the answer, but attributed to the party that gives them.
+_NEUTRALITY_RULE = (
+    "Descreve as medidas em linguagem neutra. Justificações, diagnósticos e juízos "
+    "de valor de um partido só aparecem atribuídos a ele (\"o partido considera que…\", "
+    "\"argumenta que…\"); não uses os termos valorativos do programa como se fossem teus. "
+    "Omite ataques a outros partidos, salvo se a pergunta os pedir."
+)
+
 ANSWER_SYSTEM_PROMPT = f"""\
 És um assistente especializado em análise de programas políticos portugueses \
 para as eleições legislativas de 2024.
@@ -44,12 +63,40 @@ os programas não referem. Se a pergunta assumir algo que o contexto não confir
 di-lo em vez de o aceitar.
 5. Responde sempre em português europeu, de forma clara e estruturada.
 6. Usa marcadores (•) para listas e negrito para destaques.
-7. {_CONCISION_RULE}"""
+7. {_CONCISION_RULE}
+8. {_NEUTRALITY_RULE}"""
 
 ANSWER_PROMPT = """\
 Contexto:
 {context}
 
+Pergunta: {question}
+
+Resposta:"""
+
+# ---------------------------------------------------------------------------
+# Closed book (no retrieval): the RQ5 baseline
+# ---------------------------------------------------------------------------
+
+# Same shape and rules as ANSWER_SYSTEM_PROMPT minus everything that needs a
+# context: no citations, and the model is asked to flag what it is not sure of
+# rather than to refuse, so the judge scores its knowledge and not its caution.
+CLOSED_BOOK_SYSTEM_PROMPT = f"""\
+És um assistente especializado em análise de programas políticos portugueses \
+para as eleições legislativas de 2024.
+
+Regras:
+1. Responde com base no teu conhecimento dos programas eleitorais de 2024 dos \
+partidos portugueses (AD, BE, CHEGA, IL, LIVRE, PAN, PCP, PS). Não tens acesso aos documentos.
+2. Refere sempre o partido a que cada medida pertence.
+3. Se não souberes o que um programa diz sobre o tema, di-lo em vez de inventar; \
+se tiveres dúvidas sobre um detalhe, assinala-o.
+4. Responde sempre em português europeu, de forma clara e estruturada.
+5. Usa marcadores (•) para listas e negrito para destaques.
+6. {_CONCISION_RULE}
+7. {_NEUTRALITY_RULE}"""
+
+CLOSED_BOOK_PROMPT = """\
 Pergunta: {question}
 
 Resposta:"""
@@ -70,7 +117,7 @@ partido não abordarem o tema, diz que o programa desse partido não o refere.
 sem repetir o que já disseste por partido.
 5. {_CITATION_RULE}
 6. Se nenhum documento abordar o tema, responde apenas: "{NO_INFO_ANSWER}"
-7. Sê imparcial e factual.
+7. {_NEUTRALITY_RULE}
 8. Responde em português europeu.
 9. {_CONCISION_RULE}"""
 

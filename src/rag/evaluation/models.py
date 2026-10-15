@@ -37,6 +37,10 @@ class EvalQuestion(BaseModel):
     expected_parties: List[str] = Field(default_factory=list)
     expected_topics: List[str] = Field(default_factory=list)
     gold_chunk_keys: List[str] = Field(default_factory=list)  # sha1: content keys
+    # Gold key -> "party > header path" of the manifesto section it sits in.
+    # Each distinct section is one aspect of the answer, so a broad question can
+    # be scored on how many aspects it reached, not only how many chunks.
+    gold_aspects: Dict[str, str] = Field(default_factory=dict)
     reference_answer: str = ""
     # False when the manifestos do not answer the question (topic never raised,
     # false premise, party not in the corpus). Such a question has no gold
