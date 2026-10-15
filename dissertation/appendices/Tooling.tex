@@ -1,6 +1,115 @@
 \chapter{Tooling} \label{app:tooling}
+%% DRAFT (Claude, 2026-10-13): condensed from README.md, main.py, config/config.yaml
+%% and docker-compose.yml. Values (models, k, budgets) are deliberately left out:
+%% they live in config.yaml and change too often to freeze here.
+\TODO{REVIEW: Claude's draft of this appendix. Read it, rewrite it in your own
+words, and add the repository link once you decide whether it goes public.}
 
-\TODO{Repository structure, CLI usage (index / query / eval commands),
-configuration file layout, and reproduction instructions (Docker, venv,
-pinned dependencies). Most of this can be condensed from the repo README ---
-keep it short; the repo is the source of truth.}
+This appendix is a map, not a manual: enough to find your way around \sysname{}
+and reproduce its numbers. The repository's README is the source of truth.
+
+\section{Repository layout} \label{sec:tooling-layout}
+
+\begin{table}[h]
+    \centering
+    \small
+    \begin{tabularx}{\textwidth}{|l|X|}
+        \hline
+        \textbf{Path} & \textbf{Holds} \\
+        \hline
+        \texttt{main.py} & The command-line entry point (Section~\ref{sec:tooling-cli}). \\
+        \texttt{config/config.yaml} & Every setting, in one file (Section~\ref{sec:tooling-config}). \\
+        \texttt{src/rag/indexing/} & Parse, clean, chunk, classify, contextualise, embed, store. \\
+        \texttt{src/rag/retrieval/} & Query analysis, expansion, routing, hybrid search, reranking. \\
+        \texttt{src/rag/generation/} & Prompts and answer synthesis. \\
+        \texttt{src/rag/evaluation/} & Variant ladder, metrics, LLM judge, leaderboard. \\
+        \texttt{src/rag/common/} & Shared schemas, party and topic tables, the OpenRouter client. \\
+        \texttt{data/} & Manifesto PDFs, their markdown, classified chunks, the gold set and results. \\
+        \texttt{scripts/} & Gold-set anchoring, judge validation, maintenance. \\
+        \texttt{tests/} & Unit, integration and end-to-end tests. \\
+        \hline
+    \end{tabularx}
+    \caption{Top-level layout of the \sysname{} repository.}
+    \label{tab:tooling-layout}
+\end{table}
+
+\section{Setup} \label{sec:tooling-setup}
+
+Two Docker containers run PostgreSQL~17 with pgvector: the main database on
+port 5432 and a throwaway test database on 5433. Python is 3.13, with every
+dependency pinned in \texttt{requirements.txt}. The only secret is an
+OpenRouter key, read from a \texttt{.env} file.
+
+{\small
+\begin{verbatim}
+docker compose up -d
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+echo "OPENROUTER_API_KEY=..." > .env
+\end{verbatim}
+}
+
+Run everything through \texttt{.venv}. macOS ships its own \texttt{python3}
+without any of these packages, and it fails at the first import.
+
+\section{Commands} \label{sec:tooling-cli}
+
+\begin{table}[h]
+    \centering
+    \small
+    \begin{tabularx}{\textwidth}{|l|X|}
+        \hline
+        \textbf{Command} & \textbf{Does} \\
+        \hline
+        \texttt{parse} & Converts the manifesto PDFs to markdown with \texttt{marker}. \\
+        \texttt{clean} & Rebuilds the header structure of the raw markdown with an LLM, rejecting any output that adds a word the source lacks. \\
+        \texttt{index} & Chunks, classifies, contextualises, embeds and stores the corpus. Can stop after classification and resume from that checkpoint. \\
+        \texttt{query} & Answers one question, with numbered citations. \\
+        \texttt{eval} & Runs variants of the ladder over the gold set and refreshes the leaderboard. \\
+        \hline
+    \end{tabularx}
+    \caption{Subcommands of \texttt{main.py}.}
+    \label{tab:tooling-cli}
+\end{table}
+
+The cleaned markdown and the classified chunks are committed, so reproducing
+the results starts at indexing; \texttt{parse} and \texttt{clean} are only
+needed to rebuild the corpus from the PDFs. Four manifestos were cleaned by
+hand and four by \texttt{clean}. \texttt{index --all} classifies every chunk
+again with the LLM; \texttt{--from-classified} loads a party's committed
+checkpoint instead and skips those calls. From the committed corpus to a first
+answer, and from there to a headline number:
+
+{\small
+\begin{verbatim}
+python main.py index --all
+python main.py query "Quais são as propostas do PS para a educação?"
+
+python scripts/anchor_gold.py candidates   # then review ANCHORING.md
+python scripts/anchor_gold.py compile
+python main.py eval --split test --curated-only
+\end{verbatim}
+}
+
+\section{Configuration} \label{sec:tooling-config}
+
+\texttt{config/config.yaml} has seven sections: \texttt{paths},
+\texttt{embeddings}, \texttt{postgresql}, \texttt{llm} (models, fallbacks,
+temperature, output and prompt budgets), \texttt{retrieval} (expansion count,
+RRF constant, $k$, reranker), \texttt{indexing} (chunk sizes, classification and
+context models) and \texttt{evaluation} (gold set, judge, default variants).
+The loader is strict: a key the code reads but the file lacks raises an error,
+instead of falling back to a default buried in the code.
+
+\section{Tests} \label{sec:tooling-tests}
+
+{\small
+\begin{verbatim}
+docker compose up -d postgres_test
+python -m pytest              # unit + integration (test DB only)
+python -m pytest tests/e2e    # live OpenRouter; spends quota
+\end{verbatim}
+}
+
+The first two levels run before every commit. The end-to-end tests call the
+real models, so they run only on request.

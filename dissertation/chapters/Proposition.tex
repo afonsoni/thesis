@@ -925,6 +925,19 @@ A context grouped by party is trimmed differently: passages come off whichever
 party currently contributes most, and every party keeps at least one, even if
 the prompt then exceeds the budget. An over-long prompt is a visible failure;
 an answer that silently omits a party is not.
+%% TODO added by Claude 2026-10-13; data: config.yaml max_prompt_tokens comment, commit a9bd4e3.
+\TODO{Update this subsection: the budget is now 32{,}000 tokens. Measured on
+dev q-33 (all-party minimum wage; same retrieval, three paid-Gemma generations
+per budget): at 16{,}000 the trim dropped 11 of 24 passages and 4 of 9 gold
+chunks, correctness 0.43 (claim recall 0.53); at 32{,}000 nothing was dropped,
+correctness 0.77 (recall 0.89), faithfulness 0.95 against 0.99. One question:
+it justifies the setting, it is not a headline number. That test ran with 3
+passages per party; retrieval now takes 8 (commit b054bf8). 64{,}000 was then
+judged on all 61 gold questions (the \texttt{budget\_64k} ablation) and read no
+better than 32{,}000 (correctness +0.029, within noise) for 18\% more input
+tokens, so the budget stays at 32{,}000 and the trim does the rest. Also: deduplication now merges overlapping parent windows of the same party and
+section, not only identical text (one IRS question: 5 passages to 3, $\sim$5.3k
+to 2.9k tokens).}
 
 \paragraph{Revision: no party lost on the way to the answer.} The per-party
 route of Section~\ref{subsec:routing} guarantees every party is
@@ -988,9 +1001,25 @@ the earlier ``compare 3 separate RAG implementations'' plan (A falar.md) and
 why (isolation of one technique per rung).}
 
 \subsection{Gold set construction} \label{subsec:goldset}
-%% src: docs/evaluation.md §2; dataset.py; content-hash chunk identity (keys.py)
-\TODO{Synthetic-anchored generation, hand-curation ($\sim$30--50 questions),
-routing ground truth for free, content-hash identity across re-indexing.}
+%% src: docs/evaluation.md §2; data/eval/questions/CANDIDATES.md; scripts/anchor_gold.py;
+%% anchoring/ANCHORING.md + proposed-picks.json; golden.json; keys.py (content-hash identity)
+%% TODO rewritten by Claude 2026-10-11: the synthetic generator it named was deleted.
+\TODO{The gold set as a four-step pipeline. (1) Questions hand-written against
+the eight manifestos (CANDIDATES.md), each with a grounding note checked against
+the indexed text, its expected route (parties, topics, coverage), the ladder rung
+it stresses and an expected difficulty. (2) The anchoring script retrieves
+candidate chunks per expected party (dense search plus keyword queries). (3) Gold
+chunks and a reference answer proposed per question by Claude, then reviewed by
+hand in ANCHORING.md; only questions marked reviewed count as curated, and
+proposed-picks.json keeps the proposals so the human edits show as a diff.
+Disclose this AI step here and in the Methodology. (4) Compiling writes
+golden.json and derives each route label from parties and coverage exactly as
+the pipeline does, which gives routing ground truth for free. Final counts once
+the review is done (now 61 questions: 51 hand-written, 9 abstention probes, 8 of
+them unanswerable, and q-61 for incidental mentions; 25 dev / 36 test, test held
+out for headline numbers).
+Content-hash identity across re-indexing. Decision history: the first plan,
+LLM-generated questions anchored on sampled chunks, was dropped; say why.}
 
 \TODO{State the rule the reference answers follow: describe each measure in
 neutral language, give the party's reasons only as attributed claims
