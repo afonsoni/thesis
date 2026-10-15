@@ -1029,7 +1029,25 @@ with the sources, and validates it on WikiEval, built from Wikipedia pages.
 So this blind spot is not one RAGAs acknowledges; say it is an observation of
 this work, not a limitation the authors state. (That Wikipedia follows a
 neutral-point-of-view policy is a plausible reason the issue never arose for
-them, but it is our inference: phrase it as such or leave it out.)}
+them, but it is our inference: phrase it as such or leave it out.)
+It is not an artefact of this implementation: the judge follows the RAGAs
+recipe step for step (split the answer into statements, ask whether each is
+supported by the context, score the supported share); the differences are
+Portuguese, JSON output and a rule for ``the manifesto does not mention X''
+claims, none of which concerns who makes a claim. Test (2026-10-15, the
+production judge, q-08 context from \texttt{wide-20261013T032701}): three
+claims, all judged supported --- (1) framed: ``O PCP defende romper com a
+submissão à União Europeia''; (2) attributed: ``O PCP defende que Portugal
+deixe de estar sujeito às imposições da União Europeia, aquilo a que o
+partido chama submissão''; (3) the framing stated as fact, no party named:
+``Portugal está numa situação de submissão à União Europeia''. The third one
+is the point: faithfulness asks whether the sources say it, never whether it
+is true or who says it. Frame it as an assumption, not a flaw: ``Faithfulness
+assumes the context is a trustworthy reference. In a corpus of party
+manifestos, partisan by design, that assumption fails: a claim faithful to its
+source can still adopt the source's framing, and faithfulness cannot tell the
+two apart. RAGAs does not claim otherwise; the metric was never meant to
+measure neutrality.''}
 
 \subsection{Measurement safeguards} \label{subsec:safeguards}
 %% DRAFT (Claude, 2026-10-10): safeguards paragraph, to be rewritten.
