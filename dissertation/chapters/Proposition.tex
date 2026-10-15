@@ -818,9 +818,19 @@ First rerun (2026-10-13, \texttt{current-20261013T140724} against
 rewritten): q-08, q-11 and q-18 now attribute (``argumenta que'', ``considera
 que''); still bare: q-15 ``viver de subsídios'', q-32 ``preconceitos'', q-26
 ``monopolista'', q-45 ``dirigistas'', and one ``submissão ao Euro'' left in
-q-08. A crude loaded-term scan finds 4 of 13 uses attributed before and 7 of
-11 after; the rule helps but does not remove the leak, so report a hand count,
-not the scan. Side effects: faithfulness 0.946 to 0.976, correctness 0.509 to
+q-08. Blind hand count (2026-10-15; both runs' 122 answers shuffled and
+annotated against a written rubric without knowing which prompt produced
+which; file \texttt{data/eval/results/framing-handcount-20261015.json}):
+answers with a clear leak 6 of 61 before and 6 of 61 after; with any leak,
+clear or borderline, 18 and 18; clear spans 8 to 6, borderline 24 to 21.
+The rule fixed the cases it was written against (q-08 ``ingerência'', q-11,
+q-18) but others appeared (q-15, q-26, q-45), so at this sample size it
+has no measurable effect: about one answer in ten repeats a party's framing
+either way. The leaks are concentrated in PCP and IL wording. Say this
+plainly: an instruction is not enough, and a check after generation (an
+attribution judge, or a rewriting pass) is future work. The annotator was a
+Claude subagent, not a human: disclose it, and ideally have a person check a
+sample. Side effects: faithfulness 0.946 to 0.976, correctness 0.509 to
 0.491, abstention 1.00 to 0.75 (q-55 gives the refusal sentence, then adds
 that LIVRE calls itself pro-European, so the detector no longer counts it as
 an abstention). Retrieval is not identical between runs (the query analyzer is
