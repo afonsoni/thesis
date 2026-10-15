@@ -75,7 +75,7 @@ def _strip_accents(s: str) -> str:
 # Coalition members and common abbreviations that are not the canonical name or
 # the corpus file key. The 2024 corpus holds one programme per coalition, so a
 # question about a member party can only be answered from the coalition's
-# document: PSD and CDS-PP ran as Aliança Democrática, PCP and PEV as CDU.
+# document: PSD, CDS-PP and PPM ran as Aliança Democrática, PCP and PEV as CDU.
 _PARTY_ALIAS_EXTRAS: Dict[str, str] = {
     "psd": "Aliança Democrática",
     "partido social democrata": "Aliança Democrática",
@@ -83,6 +83,8 @@ _PARTY_ALIAS_EXTRAS: Dict[str, str] = {
     "cds": "Aliança Democrática",
     "cds-pp": "Aliança Democrática",
     "partido popular": "Aliança Democrática",
+    "ppm": "Aliança Democrática",
+    "partido popular monarquico": "Aliança Democrática",
     "bloco": "Bloco de Esquerda",
     "cdu": "Partido Comunista Português",
     "coligacao democratica unitaria": "Partido Comunista Português",

@@ -94,12 +94,12 @@ def test_a_party_outside_the_corpus_is_refused_without_searching():
     """Gold q-59: a party with no programme must not be answered from a lookalike's.
 
     The refusal is decided before retrieval, so no programme can leak into it,
-    and a corpus party listed as unlisted by mistake ("PSD") must not trigger it.
+    and a coalition member listed as unlisted by mistake ("PSD", "PPM") must not trigger it.
     """
     from src.rag.generation.pipeline import generate
     from src.rag.retrieval.pipeline import retrieve
 
-    structured = _response(topics=["habitacao"], unlisted_parties=["ADN", "PSD"])
+    structured = _response(topics=["habitacao"], unlisted_parties=["ADN", "PSD", "PPM"])
     with patch("src.rag.retrieval.query_analyzer.generate_structured", return_value=structured), \
          patch("src.rag.retrieval.pipeline.get_searcher", side_effect=AssertionError("searched")):
         result = retrieve("O que propõe o ADN para a habitação?")
@@ -107,3 +107,11 @@ def test_a_party_outside_the_corpus_is_refused_without_searching():
     assert result.query.unlisted_parties == ["ADN"]
     answer = generate(result)
     assert "ADN" in answer.answer and answer.sources == []
+
+
+def test_the_analyzer_sees_each_partys_initials_and_coalition_members():
+    """Shown full names only, the model mapped lookalike initials onto a corpus party."""
+    from src.rag.retrieval.prompts import QUERY_ANALYSIS_SYSTEM_PROMPT
+
+    assert '"Aliança Democrática" (AD)' in QUERY_ANALYSIS_SYSTEM_PROMPT
+    assert "PPM" in QUERY_ANALYSIS_SYSTEM_PROMPT
