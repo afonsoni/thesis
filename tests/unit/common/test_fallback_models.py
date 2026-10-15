@@ -168,3 +168,24 @@ def test_wait_out_retries_only_the_errors_it_is_told_to(monkeypatch):
     assert llm_client.call_with_wait_out(flaky, "judge", attempts=5,
                                          retry_on=(t.OpenRouterTransportError, TimeoutError)) == "ok"
     assert calls["n"] == 3
+
+
+def test_web_search_adds_the_plugin_and_keeps_the_citations(monkeypatch):
+    import json
+
+    monkeypatch.setenv("OPENROUTER_API_KEY", "k")
+    monkeypatch.setattr(t, "_fallback_models", lambda model: [model])
+    monkeypatch.setattr(t.config, "get", lambda key, default=None: 5 if key == "llm.openrouter.web_max_results" else default)
+    sent = []
+    citation = {"type": "url_citation", "url_citation": {"url": "https://ps.pt/programa", "title": "Programa PS"}}
+
+    def post(url, headers, data, timeout, stream=False):
+        sent.append(json.loads(data))
+        return _Resp(200, {"model": "a/1", "choices": [{"message": {"content": "ok", "annotations": [citation]}}]})
+
+    monkeypatch.setattr(t.requests, "post", post)
+    t._call_openrouter_once("p", "a/1", 0.0, 10, None, 5, None, web_search=True)
+    assert sent[0]["plugins"] == [{"id": "web", "max_results": 5}]
+    assert t.last_annotations() == [citation]
+    t._call_openrouter_once("p", "a/1", 0.0, 10, None, 5, None)
+    assert "plugins" not in sent[1]

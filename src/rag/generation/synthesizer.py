@@ -15,8 +15,9 @@ from src.rag.common.models import (
     SearchResult,
 )
 from src.utils.config_loader import config
-from src.rag.common.llm_client import generate_text
+from src.rag.common.llm_client import generate_text, last_annotations
 from src.rag.generation.prompts import (
+    ASSISTANT_SYSTEM_PROMPT,
     CLOSED_BOOK_PROMPT,
     CLOSED_BOOK_SYSTEM_PROMPT,
     ANSWER_PROMPT,
@@ -220,7 +221,7 @@ def direct_answer(query: str, results: List[SearchResult], on_token: OnToken = N
     prompt = ANSWER_PROMPT.format(context=context, question=query)
     progress.info("A redigir a resposta a partir de %d excertos…", len(results))
     answer = generate_text(prompt, system_prompt=ANSWER_SYSTEM_PROMPT, label="answer", on_token=on_token,
-                           model=model)
+                           model=model, fallback_models=_fallbacks_for(model))
     return GeneratedAnswer(
         answer=answer,
         sources=_build_sources(_numbered_flat(results)),
@@ -239,7 +240,7 @@ def comparison_answer(
     prompt = COMPARISON_PROMPT.format(context=context, question=query)
     progress.info("A redigir a comparação entre %d partidos…", len(results_by_party))
     answer = generate_text(prompt, system_prompt=COMPARISON_SYSTEM_PROMPT, label="comparison answer",
-                           on_token=on_token, model=model)
+                           on_token=on_token, model=model, fallback_models=_fallbacks_for(model))
     return GeneratedAnswer(
         answer=answer,
         sources=_build_sources([x for xs in _numbered_grouped(results_by_party).values() for x in xs]),
@@ -247,17 +248,37 @@ def comparison_answer(
     )
 
 
-def closed_book_answer(query: str, on_token: OnToken = None, model: Optional[str] = None) -> GeneratedAnswer:
-    """No context: the model answers from what it knows. The RQ5 baseline.
+def closed_book_answer(query: str, on_token: OnToken = None, model: Optional[str] = None,
+                       web_search: bool = False) -> GeneratedAnswer:
+    """No context: the model answers from what it knows, or finds on the web.
 
-    ``context`` stays empty, so faithfulness is not scored (nothing to be
-    faithful to) and ``sources`` is empty: a closed-book answer cannot cite.
+    The RQ5 baselines. ``context`` stays empty, so faithfulness is not scored
+    (nothing of ours to be faithful to). Without the web, ``sources`` is empty:
+    a closed-book answer cannot cite. With it, ``sources`` carries the URL
+    citations the provider returned, so the demonstration can show what a
+    regular assistant read.
     """
     prompt = CLOSED_BOOK_PROMPT.format(question=query)
-    progress.info("A redigir a resposta sem consultar os programas…")
-    answer = generate_text(prompt, system_prompt=CLOSED_BOOK_SYSTEM_PROMPT, label="closed-book answer",
-                           on_token=on_token, model=model)
-    return GeneratedAnswer(answer=answer, sources=[], context="")
+    if web_search:
+        progress.info("A redigir a resposta com pesquisa na web, sem consultar os programas…")
+        system, label = ASSISTANT_SYSTEM_PROMPT, "assistant answer"
+    else:
+        progress.info("A redigir a resposta sem consultar os programas…")
+        system, label = CLOSED_BOOK_SYSTEM_PROMPT, "closed-book answer"
+    answer = generate_text(prompt, system_prompt=system, label=label, on_token=on_token, model=model,
+                           web_search=web_search, fallback_models=_fallbacks_for(model))
+    sources = [
+        {"n": n, "url": a.get("url_citation", {}).get("url", ""), "title": a.get("url_citation", {}).get("title", "")}
+        for n, a in enumerate(last_annotations(), 1)
+        if a.get("type") == "url_citation"
+    ] if web_search else []
+    return GeneratedAnswer(answer=answer, sources=sources, context="")
+
+
+def _fallbacks_for(model: Optional[str]) -> Optional[List[str]]:
+    """A variant that names its generator gets no fallback chain: a cheaper
+    model answering in its place would score under the strong model's name."""
+    return [] if model else None
 
 
 # ---------------------------------------------------------------------------
@@ -278,7 +299,7 @@ def synthesize(retrieval: RetrievalResult, on_token: OnToken = None) -> Generate
     grouped = retrieval.results_by_party
 
     if retrieval.closed_book:
-        return closed_book_answer(q, on_token, model)
+        return closed_book_answer(q, on_token, model, retrieval.web_search)
 
     if shape == AnswerShape.PER_PARTY:
         # Flat results (no fan-out) are grouped so the answer can still be laid

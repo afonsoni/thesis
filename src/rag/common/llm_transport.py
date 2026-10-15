@@ -55,6 +55,11 @@ def last_answer_truncated() -> bool:
     return getattr(_LAST_ANSWER, "truncated", False)
 
 
+def last_annotations() -> List[Dict[str, Any]]:
+    """URL citations the last answer carried (web search), OpenAI annotation shape."""
+    return list(getattr(_LAST_ANSWER, "annotations", None) or [])
+
+
 def last_usage() -> Dict[str, Any]:
     """That call's ``usage`` block: ``prompt_tokens``, ``completion_tokens`` and
     ``cost`` (USD, 0 on free models), which OpenRouter returns on every response."""
@@ -91,6 +96,7 @@ def call_openrouter_with_retries(
     fallback_models: Optional[List[str]] = None,
     provider_sort: Optional[str] = None,
     reasoning: Optional[bool] = None,
+    web_search: bool = False,
 ) -> str:
     """Call OpenRouter, retrying transient failures with jittered exponential backoff.
 
@@ -117,6 +123,7 @@ def call_openrouter_with_retries(
                 fallback_models=fallback_models,
                 provider_sort=provider_sort,
                 reasoning=reasoning,
+                web_search=web_search,
             )
         except OpenRouterTransportError as exc:
             retriable = _is_retriable_error(exc)
@@ -157,6 +164,7 @@ def _call_openrouter_once(
     fallback_models: Optional[List[str]] = None,
     provider_sort: Optional[str] = None,
     reasoning: Optional[bool] = None,
+    web_search: bool = False,
 ) -> str:
     api_key = os.getenv("OPENROUTER_API_KEY")
     if not api_key:  # 401: not transient, so neither retried nor waited out as one
@@ -181,6 +189,11 @@ def _call_openrouter_once(
         payload["provider"] = {"sort": provider_sort}
     if reasoning is False:
         payload["reasoning"] = {"enabled": False}
+    if web_search:
+        # OpenRouter's web plugin: the provider's own search for OpenAI, Anthropic
+        # and Google models (what their consumer apps do), Exa otherwise. Results
+        # are injected into the prompt; citations come back as annotations.
+        payload["plugins"] = [{"id": "web", "max_results": int(config.get("llm.openrouter.web_max_results"))}]
 
     # OpenRouter model fallbacks: on any error from one model (rate limit,
     # downtime, context length) it tries the next in ``models``. It accepts at
@@ -249,6 +262,7 @@ def _post_chat(payload: Dict[str, Any], api_key: str, timeout_seconds: int, requ
     MODEL_USAGE[answered_by] += 1
     _LAST_ANSWER.model = answered_by
     _LAST_ANSWER.usage = data.get("usage") or {}
+    _LAST_ANSWER.annotations = choice["message"].get("annotations") or []
     # A cut-off answer comes back as a normal 200 with whatever text fit, so it
     # would otherwise pass for a complete one.
     _LAST_ANSWER.truncated = str(choice.get("finish_reason") or "").lower() in ("length", "max_tokens")

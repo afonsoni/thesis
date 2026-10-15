@@ -72,6 +72,7 @@ def retrieve(
             query=AnalyzedQuery(original_query=question),
             closed_book=True,
             generation_model=config.generation_model,
+            web_search=config.web_search,
             max_prompt_tokens=config.max_prompt_tokens,
         )
 
@@ -101,6 +102,7 @@ def retrieve(
     result = route(analyzed, searcher, config=config)
     result.max_prompt_tokens = config.max_prompt_tokens
     result.generation_model = config.generation_model
+    result.web_search = config.web_search
     logger.info("Retrieved %d results.", len(result.results))
 
     return result

@@ -29,3 +29,13 @@ def test_closed_book_rungs_differ_from_current_by_retrieval_and_generator_only()
     assert without("no_retrieval", "use_retrieval") == without("current", "use_retrieval")
     assert VARIANTS["current_strong"].generation_model
     assert without("current_strong", "generation_model") == without("current", "generation_model")
+
+
+def test_assistant_rungs_come_from_config_with_the_web_open_and_the_corpus_closed():
+    from src.utils.config_loader import config
+
+    models = config.get("evaluation.assistant_models")
+    assert models, "config lists no assistant models"
+    for slug, model_id in models.items():
+        v = VARIANTS[f"assistant_{slug}"]
+        assert (v.use_retrieval, v.web_search, v.generation_model) == (False, True, model_id)

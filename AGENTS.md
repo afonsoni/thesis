@@ -121,8 +121,7 @@ Entry point: `main.py`
   presets (`naive`, `multiquery`, `routed`, `dense_only`, `hybrid`, `current`,
   `hybrid_only`, `reranked`, `reranked_only`; every rung below `current` searches the
   plain index `indexing.plain_table`), plus ablations one flag away from `current`:
-  `party_stripped` (`strip_party_names`), `instructed` (`query_instruction` =
-  `embeddings.task_instruction`), `contextual` (headers without the LLM context,
+  `contextual` (headers without the LLM context,
   `indexing.contextual_table`), `topic_filter` (`use_topic_filter=True`), `budget_64k`
   (`max_prompt_tokens=64000`) and `shallow` (`current` before it went to 10 / 8 per
   party without the topic filter); and `lexical_wide` (`lexical_topic_filter=False` +
@@ -130,7 +129,9 @@ Entry point: `main.py`
   For RQ5, three more: `no_retrieval` (`use_retrieval=False`, closed book: the
   production generator answers from memory), `no_retrieval_strong` and
   `current_strong` (`generation_model` = `evaluation.strong_model`, a third model
-  family). Closed-book rungs skip the retrieval, routing and faithfulness metrics.
+  family), and `assistant_<slug>` per `evaluation.assistant_models` (`web_search=True`,
+  corpus unseen: the regular ChatGPT/Gemini/Claude baseline, provider web search on).
+  Closed-book rungs skip the retrieval, routing and faithfulness metrics.
 - `dataset.py`: gold-set load/save (content-hash keys).
 - `metrics/`: retrieval (hit/recall/MRR/nDCG over the full list handed to generation,
   against human-picked gold chunks, plus `recall_capped` = found / min(gold, slots)

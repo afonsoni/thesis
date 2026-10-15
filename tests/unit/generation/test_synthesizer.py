@@ -261,3 +261,22 @@ def test_a_party_outside_the_corpus_named_alongside_others_is_not_passed_over():
     assert answer.answer.startswith("O corpus não inclui") and "ADN" in answer.answer
     assert answer.answer.endswith("resposta")
     assert streamed and "ADN" in streamed[0]
+
+
+def test_the_assistant_rung_searches_the_web_and_cites_urls():
+    seen = {}
+    citation = {"type": "url_citation", "url_citation": {"url": "https://ps.pt/programa", "title": "Programa PS"}}
+
+    def fake_generate(prompt, system_prompt=None, label="", on_token=None, model=None, **kw):
+        seen.update(system=system_prompt, model=model, **kw)
+        return "resposta"
+
+    retrieval = RetrievalResult(query=AnalyzedQuery(original_query="Q?"), closed_book=True,
+                                web_search=True, generation_model="x/frontier")
+    with patch.object(synthesizer, "generate_text", fake_generate), \
+            patch.object(synthesizer, "last_annotations", lambda: [citation]):
+        out = synthesize(retrieval)
+    assert seen["web_search"] is True and seen["model"] == "x/frontier"
+    assert seen["fallback_models"] == []  # a named generator answers or the call fails
+    assert "Podes pesquisar na web" in seen["system"]
+    assert out.context == "" and out.sources == [{"n": 1, "url": "https://ps.pt/programa", "title": "Programa PS"}]

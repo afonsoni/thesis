@@ -86,9 +86,6 @@ VARIANTS: Dict[str, RetrievalConfig] = {
         use_reranker=True,
     ),
 
-    # Dense-retrieval ablations (dissertation/DECISIONS.md, 2026-10-09), each one
-    # flag away from `current`. Run on the dev split before any becomes a default.
-    "party_stripped": RetrievalConfig(name="party_stripped", strip_party_names=True),
     # `current` before it went deeper without the topic filter (results `wide*` of
     # 2026-10-13, judged on all 61 questions): 5 per search and per party, topics
     # filtering. `current` beat it by recall +0.123, correctness +0.041 and
@@ -106,9 +103,6 @@ VARIANTS: Dict[str, RetrievalConfig] = {
     # flags stay off. With the topic filter now off by default, only the
     # expansion flag still changes anything.
     "lexical_wide": RetrievalConfig(name="lexical_wide", lexical_topic_filter=False, expansion_synonyms=True),
-    "instructed": RetrievalConfig(
-        name="instructed", query_instruction=config.get("embeddings.task_instruction"),
-    ),
     # Headers without the LLM context, i.e. half of `current`'s contextual index:
     # recall +0.026 over `hybrid`, against +0.046 with the context. Needs:
     #   main.py index --from-classified <ckpt> --no-llm-context --table <indexing.contextual_table>
@@ -129,6 +123,18 @@ VARIANTS: Dict[str, RetrievalConfig] = {
     "current_strong": RetrievalConfig(
         name="current_strong", generation_model=config.get("evaluation.strong_model"),
     ),
+    # The regular-assistant baselines: a frontier model, corpus unseen, web
+    # open (OpenRouter web plugin, the provider's own search). What a citizen
+    # gets from ChatGPT, Gemini or Claude today, one rung per model in
+    # evaluation.assistant_models. Same rules, temperature and answer cap as
+    # the rest of the ladder; reasoning left at the provider's default, as a
+    # user would have it.
+    **{
+        f"assistant_{slug}": RetrievalConfig(
+            name=f"assistant_{slug}", use_retrieval=False, web_search=True, generation_model=model_id,
+        )
+        for slug, model_id in (config.get("evaluation.assistant_models") or {}).items()
+    },
 }
 
 

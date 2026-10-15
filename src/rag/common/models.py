@@ -274,6 +274,8 @@ class RetrievalResult(BaseModel):
     # True when retrieval was switched off (RetrievalConfig.use_retrieval): the
     # answer is to come from the model alone, not from an empty context.
     closed_book: bool = False
+    # Whether the generator may search the web (RetrievalConfig.web_search).
+    web_search: bool = False
 
 
 # ---------------------------------------------------------------------------

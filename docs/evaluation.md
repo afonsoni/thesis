@@ -54,6 +54,17 @@ retrieval, routing or faithfulness on, so those columns are blank for them;
 compare on `correctness_recall`, `answer_relevance` and the call log's cost.
 A closed-book answer also cannot cite a passage, which no column captures.
 
+The `assistant_<slug>` rungs (one per entry of `evaluation.assistant_models`)
+are the regular-assistant baseline: a frontier model, corpus unseen, web open
+through OpenRouter's web plugin with the provider's own search, i.e. what a
+citizen gets from ChatGPT, Gemini or Claude today. Same rules, temperature and
+answer cap as every other rung; reasoning stays at the provider's default, as a
+user would have it; the URL citations the provider returns land in `sources`.
+The manifestos are public PDFs, so a searching assistant may find and read
+them: the rung measures the assistant's own retrieval too, which is the point.
+A variant that names its generator runs with no fallback chain, so a cheaper
+model can never answer under its name.
+
 ### The reranked rung
 
 Reranking is the one rung that changes *how much* is retrieved, not just how it

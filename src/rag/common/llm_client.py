@@ -17,6 +17,7 @@ from pydantic import BaseModel
 
 from src.rag.common.llm_transport import (
     call_openrouter_with_retries,
+    last_annotations,
     last_answer_truncated,
     last_answering_model,
     last_usage,
@@ -103,6 +104,7 @@ def generate_text(
     fallback_models: Optional[List[str]] = None,
     provider_sort: Optional[str] = None,
     reasoning: Optional[bool] = None,
+    web_search: bool = False,
 ) -> str:
     """Generate text through OpenRouter transport with centralized retries.
 
@@ -111,6 +113,8 @@ def generate_text(
     ``on_token`` streams the text as it is generated (see the transport).
     ``fallback_models`` / ``provider_sort`` / ``reasoning`` override the config
     for this call (see the transport); ``None`` keeps the configured behaviour.
+    ``web_search`` lets the model search the web (OpenRouter web plugin); the
+    citations it returns are readable afterwards via ``last_annotations()``.
     """
     if temperature is None:
         temperature = float(config.get("llm.openrouter.temperature"))
@@ -130,6 +134,7 @@ def generate_text(
         fallback_models=fallback_models,
         provider_sort=provider_sort,
         reasoning=reasoning,
+        web_search=web_search,
     )
     answered_by = last_answering_model() or selected_model
     step = (label or "llm") + (" [truncated]" if last_answer_truncated() else "")
