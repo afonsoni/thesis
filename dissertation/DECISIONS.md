@@ -152,3 +152,40 @@ for the decision-history thread of the Proposition chapter.
   navigation.
 - **Political quiz** is future work, not a deliverable. Revisit only if time
   remains after the main chapters are drafted.
+- **Parties outside the corpus get a refusal, not a lookalike's programme**
+  (2026-10-15; `ec100e3`, `c13d365`, `ee62e67`). Gold q-59 ("O que propõe o
+  ADN para a habitação?") names a real party with no programme in the corpus.
+  `current-20261013T140724` answered with Aliança Democrática's housing
+  measures: the analyzer had mapped ADN to AD. `wide-20261013T032701` named no
+  party and led with AD anyway. The deterministic alias regex was not to blame
+  (it never matches "adn"). The analysis prompt asked for "nomes exactos da
+  lista" and showed only full names, so the model snapped any party onto the
+  nearest listed one.
+  - *Fix.* The analyzer also returns `unlisted_parties`. A question naming
+    only such parties skips the search and gets the fixed
+    `OUT_OF_CORPUS_ANSWER`, which also lists the eight corpus parties. A
+    mixed question ("PS e ADN") is answered for the corpus party and opens
+    with `OUT_OF_CORPUS_NOTE`. A live check after the first fix still found
+    "PS e ADN" read as AD, and PPM sent to PAN. The analyzer's party table now
+    shows each party's initials, plus one sentence on the coalitions: PSD,
+    CDS-PP and PPM ran as AD, and PCP and PEV as CDU.
+  - *Two refusals, two meanings.* `NO_INFO_ANSWER` says retrieval found
+    nothing, and does not claim the manifestos are silent (top-k cannot prove
+    absence, q-61). The out-of-corpus answer is certain: the programme is not
+    in the corpus.
+  - *Rejected: a hand-made list of non-corpus parties.* It needs no LLM, but
+    it refuses good questions: "ADN" is also Portuguese for DNA (a question
+    about criminal DNA databases), and "RIR" and "MAS" are ordinary words.
+  - *No ablation flag* (recommended, to confirm). This is a bug fix, not a
+    retrieval technique under study. Every reported rung is re-run after
+    it, so the paired comparisons stay clean. Report the effect as q-59
+    before and after (abstention 0.857 in `current-20261015T034207` came from
+    q-59 failing).
+  - *Limits.* Detection relies on the LLM recognising a party name. In
+    October 2026 each case was checked live once, and the analyzer varies
+    between calls. The faithfulness judge may count the note in a mixed
+    answer as an unsupported claim; no gold question is mixed today.
+  - *Where it goes.* Proposition §Query analysis (a "Revision: parties
+    outside the corpus" paragraph), §Grounding and neutrality (the two
+    refusals), and Limitations. Not placed as a `\TODO` yet, because
+    `Proposition.tex` had uncommitted edits from another session.

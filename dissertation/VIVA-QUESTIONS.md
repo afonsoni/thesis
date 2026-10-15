@@ -99,5 +99,10 @@ Add them as they come up in meetings. Likely candidates:
 - Why not fine-tuning instead of retrieval? (The pre-thesis raised it; scope
   ruled it out. Have the reasoning ready, not just the outcome.)
 - Why these eight parties, and what about coalitions or smaller parties?
+  Notes: coalition members (PSD, CDS-PP, PPM; PCP, PEV) are answered from
+  their coalition's programme. A party outside the corpus gets a fixed
+  refusal that names it and lists the eight that are covered. Before
+  2026-10-15 the system answered "ADN" with AD's programme (gold q-59); see
+  `DECISIONS.md`, Settled.
 - What stops the system from laundering a party's framing as neutral fact?
 - How would this be kept running, and by whom?
