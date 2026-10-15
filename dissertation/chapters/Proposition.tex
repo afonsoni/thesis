@@ -17,8 +17,9 @@ This chapter presents \sysname{}, the system built in this work to answer
 questions about the 2024 Portuguese electoral manifestos.
 
 \TODO{Chapter lead-in (1--2 paragraphs): state that \sysname{} is presented in
-three parts --- indexing, retrieval and evaluation --- with indexing and
-evaluation running offline and retrieval online, and that each subsection follows the same rhythm: problem, candidates
+four parts --- indexing, retrieval, generation and evaluation --- with
+indexing and evaluation running offline and retrieval and generation online,
+and that each subsection follows the same rhythm: problem, candidates
 researched, choice made, and how/why that choice was later revised.}
 
 %% Figures in this chapter are rendered from the Mermaid diagrams in
@@ -28,9 +29,10 @@ researched, choice made, and how/why that choice was later revised.}
     \centering
     \includegraphics[width=\textwidth]{images/architecture-overview.pdf}
     \caption{Overview of \sysname{}. Indexing builds the vector store that
-    retrieval searches to answer each question; evaluation replays the
-    retrieval pipeline under different feature flags. Indexing and evaluation
-    run offline, retrieval runs online.}
+    retrieval searches for each question, and generation answers from the
+    passages retrieved. Evaluation replays retrieval and generation under
+    different feature flags. Indexing and evaluation run offline; retrieval and
+    generation run online.}
     \label{fig:system-overview}
 \end{figure}
 
@@ -59,7 +61,8 @@ how and why that choice was later revised.
     \includegraphics[width=\textwidth]{images/architecture-indexing.pdf}
     \caption{The indexing pipeline. Document preparation runs once per
     manifesto and its output is reviewed by hand; the indexing pipeline then
-    chunks, classifies and embeds the cleaned Markdown into the vector store.}
+    chunks, classifies, contextualises and embeds the cleaned Markdown into the
+    vector store.}
     \label{fig:indexing}
 \end{figure}
 
@@ -488,12 +491,12 @@ tutorials and blog posts.
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\textwidth]{images/architecture-retrieval.pdf}
+    \includegraphics[width=0.85\textwidth]{images/architecture-retrieval.pdf}
     \caption{The retrieval pipeline. Dashed stages are switched by the feature
     flag in brackets; with the flag off, a stage falls back to its simplest
-    form (Section~\ref{subsec:variants}). A topic filter that matches no chunk
-    is dropped and the search retried. Answer synthesis follows in
-    Figure~\ref{fig:generation}.}
+    form (Section~\ref{subsec:variants}). Reranking and the topic filter are
+    off by default. A question that names only parties outside the corpus
+    skips search. Answer synthesis follows in Figure~\ref{fig:generation}.}
     \label{fig:retrieval}
 \end{figure}
 
@@ -758,9 +761,10 @@ a manifesto.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.9\textwidth]{images/architecture-generation.pdf}
-    \caption{Answer synthesis. The context is fitted to the prompt budget first;
-    the strategy then follows from the answer shape set by query analysis and
-    from whether the results arrived grouped by party.}
+    \caption{Answer synthesis. With no passages to answer from, a fixed reply
+    is returned without calling the LLM. Otherwise the context is fitted to the
+    prompt budget, and the answer shape set by query analysis picks the
+    strategy.}
     \label{fig:generation}
 \end{figure}
 
