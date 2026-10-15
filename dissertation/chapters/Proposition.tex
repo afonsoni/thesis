@@ -535,6 +535,24 @@ citations that looked correct. Names are now matched as whole words, and
 coalition members resolve to the programme actually published (PSD and CDS-PP
 to AD, CDU to PCP).
 
+%% src: dissertation/DECISIONS.md (Settled, "Parties outside the corpus");
+%% commits ec100e3, c13d365, 26b7718; q-59 in
+%% data/eval/results/current-20261013T140724.json and wide-20261013T032701.json
+\TODO{Write a ``Revision: parties outside the corpus'' paragraph (October
+2026). Gold q-59 asks what ADN proposes for housing; ADN is a real party with
+no programme in the corpus. Told to use the exact names on the list, and shown
+only full names, the analyser mapped ADN to AD, and the answer presented AD's
+housing measures as ADN's. The fix: a sixth field, \textit{unlisted parties}.
+A question naming only such parties skips the search and gets a fixed answer
+that names them and lists the eight covered; a mixed question (``PS e ADN'')
+is answered for the corpus party and opens with a one-line note. A live check
+after the first fix still read ``PS e ADN'' as AD and sent PPM to PAN, so the
+party table now shows initials and the coalition members (PSD, CDS-PP, PPM in
+AD; PCP, PEV in CDU). Say why not a hand-made list of non-corpus parties:
+``ADN'' is also Portuguese for DNA. Then update the ``five fields'' list above
+and the coalition sentence (add PPM), and contrast the two refusals in
+Section~\ref{subsec:grounding}.}
+
 \paragraph{Fallback.} If the analysis call fails after its retries, a
 deterministic fallback takes over. It extracts only what needs no
 interpretation: party names, matched exactly against a list of aliases. Every
