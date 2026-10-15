@@ -836,34 +836,36 @@ that LIVRE calls itself pro-European, so the detector no longer counts it as
 an abstention). Retrieval is not identical between runs (the query analyzer is
 an LLM), so this is not a clean single-factor comparison.}
 
-\TODO{Citations to check before writing the framing-leakage paragraph above
-(and its echoes in Section~\ref{subsec:metrics} and the Limitations). They are
-here for this one reason: to define framing and to separate it from the
-model's own political bias. Verify each reference before adding it to the
-bib.
+\TODO{Citations for the framing-leakage paragraph above (and its echoes in
+Section~\ref{subsec:metrics} and the Limitations). They are here for this one
+reason: to define framing and to separate it from the model's own political
+bias. All verified on 2026-10-15 against publisher or ACL Anthology records and
+added to the bib; cite them by these keys.
 \begin{itemize}
-    \item Entman (1993), ``Framing: Toward Clarification of a Fractured
-    Paradigm'', \emph{Journal of Communication} 43(4) --- the definition of
-    framing (problem definition, causal interpretation, moral evaluation,
-    treatment recommendation) maps onto what leaked: diagnoses, causes and
-    value judgements, not the measures themselves.
-    \item Rozado (2024), ``The Political Preferences of LLMs'', \emph{PLOS
-    ONE} --- evidence that LLMs have their own political lean; cite it to
-    say that this is a \emph{different} effect from the one observed here.
-    \item Motoki, Pinho Neto \& Rodrigues (2024), ``More Human than Human:
-    Measuring ChatGPT Political Bias'', \emph{Public Choice} --- same role as
-    Rozado.
-    \item Feng et al.\ (2023), already in the bib as
-    \texttt{pretraining-political-bias} --- bias that comes from
+    \item \texttt{entman1993framing} --- the definition of framing (problem
+    definition, causal interpretation, moral evaluation, treatment
+    recommendation) maps onto what leaked: diagnoses, causes and value
+    judgements, not the measures themselves.
+    \item \texttt{rozado2024political} --- 24 conversational LLMs, most score
+    left of centre on political orientation tests; base models do not, and
+    fine-tuning shifts the lean. The model's \emph{own} lean, measured with no
+    context: a different effect from the one observed here.
+    \item \texttt{motoki2024more} --- same role as Rozado, for ChatGPT.
+    \item \texttt{pretraining-political-bias} (Feng et al., ACL 2023; the entry
+    now points to the ACL version, not arXiv) --- bias that comes from
     \emph{pretraining} data; contrast with bias that comes from the
     \emph{retrieved context}.
-    \item Es et al.\ (2024), ``RAGAS: Automated Evaluation of Retrieval
-    Augmented Generation'', EACL demos --- the faithfulness definition the
-    judge follows; needed to argue that faithfulness rewards framing leakage
-    (Section~\ref{subsec:metrics}). Not yet in the bib.
-    \item Optional, still to find: a source on neutrality requirements for
-    voting advice applications, the closest existing civic tools to
-    \sysname{}.
+    \item \texttt{es2024ragas} --- the faithfulness definition the judge
+    follows (claims checked against the context); needed to argue that
+    faithfulness rewards framing leakage.
+    \item \texttt{walgrave2009voting} and \texttt{vancamp2014content} --- voting
+    advice applications, the closest existing civic tools to \sysname{}: the
+    selection and the formulation of statements alone change the advice voters
+    get. Van Camp et al.\ check statements against the builders' own criteria
+    and survey practice (clear, one issue at a time, not vague or
+    double-barrelled), not against neutrality as such; do not cite them for a
+    neutrality requirement. The parallel: wording alone moves the outcome. Optional; cite only if the
+    paragraph makes that comparison.
 \end{itemize}}
 
 \subsection{Synthesis strategies} \label{subsec:synthesis}
