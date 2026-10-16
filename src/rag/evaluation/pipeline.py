@@ -8,6 +8,8 @@ persists per-variant results, and refreshes the comparison leaderboard.
 from __future__ import annotations
 
 import logging
+import os
+import subprocess
 from collections import Counter
 from typing import List, Optional
 
@@ -24,6 +26,23 @@ from src.rag.retrieval.config import RetrievalConfig
 from src.utils.config_loader import config
 
 logger = logging.getLogger(__name__)
+
+_REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+
+
+def code_version() -> str:
+    """Short HEAD commit, "-dirty" if the code or config differs from it; "" outside git.
+
+    Only src/, config/ and main.py count: thesis edits do not change a number.
+    """
+    def git(*args: str) -> str:
+        return subprocess.run(["git", *args], cwd=_REPO, capture_output=True, text=True, check=True).stdout.strip()
+
+    try:
+        dirty = git("status", "--porcelain", "--", "src", "config", "main.py")
+        return git("rev-parse", "--short", "HEAD") + ("-dirty" if dirty else "")
+    except (OSError, subprocess.CalledProcessError):
+        return ""
 
 
 def _build_metrics(use_judge: bool, judge_model: Optional[str]) -> List[Metric]:
@@ -91,12 +110,14 @@ def evaluate(
         variant_names, len(dataset.questions), k or "per variant", use_judge,
     )
 
+    version = code_version()  # at start: the code loaded, whatever is edited mid-run
     results: List[VariantResult] = []
     for cfg in configs:
         before = Counter(MODEL_USAGE)
         result = run_variant(cfg, dataset, metrics, k=cfg.top_k, generate=use_judge,
                              wait_out_attempts=wait_out_attempts)
         result.models_used = dict(MODEL_USAGE - before)
+        result.code_version = version
         calls = [c for run in result.per_question for c in run.llm_calls]
         logger.info(
             "[%s] %d LLM calls, %d tokens in / %d out, $%.4f.", cfg.name, len(calls),

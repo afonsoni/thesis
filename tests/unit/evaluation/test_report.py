@@ -77,3 +77,18 @@ def test_a_metric_a_variant_never_produced_is_a_blank_cell_not_nan(tmp_path):
     content = open(write_leaderboard([with_hit, closed], str(tmp_path)), encoding="utf-8").read()
     assert "| nan" not in content and " nan " not in content
     assert "| no_retrieval |  |" in content
+
+
+def test_leaderboard_names_the_code_its_numbers_came_from(tmp_path):
+    a, b = _make_result("naive", 0.4, 0.5), _make_result("current", 0.8, 0.9)
+    a.code_version, b.code_version = "abc1234", "abc1234-dirty"
+    content = open(write_leaderboard([a, b], str(tmp_path)), encoding="utf-8").read()
+    assert "_Code: `abc1234, abc1234-dirty`_" in content
+
+
+def test_code_version_is_a_short_commit_with_an_optional_dirty_mark():
+    import re
+
+    from src.rag.evaluation.pipeline import code_version
+
+    assert re.fullmatch(r"[0-9a-f]{7,}(-dirty)?", code_version())

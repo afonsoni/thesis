@@ -147,8 +147,11 @@ class VariantResult(BaseModel):
     aggregate: Dict[str, float] = Field(default_factory=dict)
     per_question: List[QuestionRun] = Field(default_factory=list)
     # LLM calls per answering model during this run (generation, analysis and
-    # judge alike); more than one entry means OpenRouter fallbacks were used.
+    # judge alike); a model outside the configured ones means an OpenRouter fallback.
     models_used: Dict[str, int] = Field(default_factory=dict)
+    # The commit the numbers came from (``git rev-parse --short HEAD``), with
+    # "-dirty" if src/, config/ or main.py had uncommitted changes.
+    code_version: str = ""
     # Which questions were scored, so a result can be tied to its gold set and
     # a dev-split number cannot pass for a held-out one.
     dataset_path: str = ""

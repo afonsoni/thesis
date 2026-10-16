@@ -189,7 +189,8 @@ def write_leaderboard(results: List[VariantResult], reports_dir: str,
         f"_Generated: {datetime.now().isoformat(timespec='seconds')}_  ",
         f"_Dataset: `{first.dataset_path or '?'}`, split `{first.split or 'all'}`, "
         f"{'curated only' if first.curated_only else 'curated and uncurated'}, "
-        f"{first.dataset_size} questions_",
+        f"{first.dataset_size} questions_  ",
+        f"_Code: `{', '.join(sorted({r.code_version or '?' for r in results}))}`_",
         "",
         *_table_lines(results, columns),
     ]
