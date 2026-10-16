@@ -148,10 +148,8 @@ def strip_party_mentions(text: str) -> str:
     For the lexical query of a party-filtered search: the filter already carries
     the party, and left in, its name is a rare, heavily weighted BM25 term ("ps"
     outweighs "saúde") that ranks a party's self-references above the topic asked
-    about. Also the dense query under ``strip_party_names``, which is why the
-    case is kept: lowercasing would be a second change in that ablation. Matching
-    runs on a lowercased, accent-stripped copy, whose character offsets are the
-    same for precomposed text.
+    about. Matching runs on a lowercased, accent-stripped copy, whose character
+    offsets are the same for precomposed text.
     """
     folded = _strip_accents(text.lower())
     out = text if len(folded) == len(text) else folded  # decomposed input: offsets would not line up

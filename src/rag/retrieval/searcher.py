@@ -73,11 +73,9 @@ class Searcher:
         top_k: int = 5,
         party_name: Optional[str] = None,
         topics: Optional[List[str]] = None,
-        instruction: Optional[str] = None,
     ) -> List[SearchResult]:
-        """Dense search for one query (encoded with the model's query prompt, or
-        *instruction* in its place)."""
-        vec = self.embedder.encode_query(query, instruction=instruction)
+        """Dense search for one query, encoded with the model's query prompt."""
+        vec = self.embedder.encode_query(query)
         return self.store.similarity_search(query_embedding=vec, top_k=top_k, party_name=party_name, topics=topics)
 
     def multi_query_search(
@@ -95,9 +93,8 @@ class Searcher:
         dense and lexical lists are fused in a *single* RRF pass, so every list
         weighs the same.
 
-        With a party filter the party name is redundant in the query: the lexical
-        query always drops it (as a rare term it would outweigh the topic), the
-        dense one only under ``config.strip_party_names``.
+        With a party filter the lexical query drops the party name: the filter
+        already carries it, and as a rare term it would outweigh the topic.
 
         With ``config.use_reranker`` every sub-query fetches
         ``rerank_candidates`` instead of *top_k*, and a cross-encoder re-orders
@@ -109,15 +106,11 @@ class Searcher:
 
         all_lists: List[List[SearchResult]] = []
         for q in queries:
-            stripped = strip_party_mentions(q) if party_name else q
-            dense_q = stripped if config.strip_party_names else q
-            all_lists.append(self.search(
-                dense_q, top_k=fetch_k, party_name=party_name, topics=topics,
-                instruction=config.query_instruction,
-            ))
+            all_lists.append(self.search(q, top_k=fetch_k, party_name=party_name, topics=topics))
             if config.use_hybrid:
                 all_lists.append(
-                    self.store.lexical_search(stripped, top_k=fetch_k, party_name=party_name,
+                    self.store.lexical_search(strip_party_mentions(q) if party_name else q,
+                                              top_k=fetch_k, party_name=party_name,
                                               topics=topics if config.lexical_topic_filter else None)
                 )
 

@@ -109,7 +109,6 @@ class RecordingSearcher(Searcher):
         top_k: int = 5,
         party_name: Optional[str] = None,
         topics: Optional[List[str]] = None,
-        instruction: Optional[str] = None,
     ) -> List[SearchResult]:
         self.requested_top_k.append(top_k)
         return [

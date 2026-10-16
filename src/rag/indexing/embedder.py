@@ -58,15 +58,9 @@ class Embedder:
             sorted(k for k, v in self.model.prompts.items() if v) or "none",
         )
 
-    def encode_query(self, text: str, instruction: Optional[str] = None) -> List[float]:
-        """Encode search text, with the model's query instruction when it has one.
-
-        *instruction* replaces the shipped task sentence, in Qwen3-Embedding's
-        ``Instruct: <task>\\nQuery:`` format (the model card recommends a
-        task-specific one, written in English).
-        """
-        prompt = f"Instruct: {instruction}\nQuery:" if instruction else None
-        return self.model.encode_query(text, prompt=prompt, normalize_embeddings=True).tolist()
+    def encode_query(self, text: str) -> List[float]:
+        """Encode search text, with the model's query instruction when it has one."""
+        return self.model.encode_query(text, normalize_embeddings=True).tolist()
 
     def embed_chunks(
         self, chunks: List[Chunk], batch_size: int = 64, contextual: bool = False,
