@@ -1,30 +1,27 @@
 \chapter{Introduction} \label{ch:introduction}
 
-%% DRAFT (Claude, 2026-10-16): tense pass, Objectives, Research Questions lead-in,
-%% Research Methods and Structure redrafted from the settled decisions in
-%% dissertation/DECISIONS.md. To be read and rewritten in the author's own words.
-
-This chapter sets out the context and motivation of this work, its objectives, hypothesis and research questions, the method followed, and how the rest of the document is organised.
+This chapter sets out the context and motivation of this work, its objectives, hypothesis and research questions, the method followed, and where the work begins.
 
 \section{Context}
 
-In recent years, Large Language Models (LLMs) have transformed natural language processing (NLP) \cite{openai2024gpt4technicalreport, yang2023harnessingpowerllmspractice, NEURIPS2022_b1efde53}, excelling in tasks like chatbots, summarization, and content analysis. However, they often struggle with domain-specific questions, producing inaccurate or irrelevant results, especially when data is outdated or sparse \cite{kandpal2023largelanguagemodelsstruggle, rag-survey}. This is particularly problematic in political discourse, where positions evolve over time.
+In recent years, Large Language Models (LLMs) have transformed natural language processing (NLP). Once instruction tuning turned them into chatbots \cite{NEURIPS2022_b1efde53}, they became capable of summarising, answering questions and analysing text \cite{openai2024gpt4technicalreport, yang2023harnessingpowerllmspractice}. They also have a well-known limitation: what a model knows comes from its training data, and it learns popular facts well and rare ones poorly \cite{kandpal2023largelanguagemodelsstruggle}. Asked about something outside that data, or more recent than it, a model still answers, fluently and sometimes wrongly \cite{rag-survey}. The manifestos of Portuguese parties for the 2024 election are exactly this kind of niche, recent knowledge that a model is unlikely to have seen.
 
-Political party manifestos are crucial documents that outline a party's policy positions and ideological stances. These texts play a significant role in shaping public discourse and informing policy decisions \cite{manifestos-nz}. In the case of Portugal, like many other countries, understanding the nuances within these documents is crucial for informed civic participation \cite{marino-etal-2024-decoding}. However, the complexity and length of these documents can make them difficult for the average citizen and even researchers to navigate and fully understand.
-
+This matters because manifestos matter. They are the documents in which a party sets out its policy positions and ideological stances \cite{eder2017manifesto}. Nor are they empty words: parties that reach government keep a large share of their pledges \cite{thomson2017pledges}. They are also long: the eight manifestos of the 2024 Portuguese legislative election add up to almost 1{,}400 pages, from 94 for the shortest to 275 for the longest. A voter who wants to compare what each party proposes for housing has to read through eight of them.
 
 \section{Motivation}
 
-Citizens and researchers often struggle to navigate and compare political party programs, especially during elections. Existing tools either lack interpretability or require significant manual effort \cite{laver_benoit_garry, manifestos-nz}. This work addresses that gap with \sysname{}, a system that uses Retrieval-Augmented Generation (RAG) to retrieve and synthesise what the party manifestos say, in European Portuguese, a language in which research on this problem remains limited.
+Tools to navigate and compare party manifestos already exist, but each has a limitation. Political-science methods turn a manifesto into a position on a scale or a set of topic labels \cite{laver_benoit_garry, manifestos-nz}: useful to a researcher, impossible for a voter to check. Newspaper comparators put the parties side by side \cite{expresso-comparador, politicaativa-comparar}, but someone wrote every cell by hand, so they answer only the questions their editors thought of. A general-purpose chatbot takes any question and answers it from memory, which, as seen above, is where the manifestos are least likely to be.
 
-Moreover, political divisions are deepening, often fueled by a lack of accessible information \cite{eleitorado}. A tool that helps citizens better understand party positions could contribute to a more informed electorate and mitigate misinformation.
+This work proposes \sysname{}, a system that uses Retrieval-Augmented Generation (RAG) \cite{rag-nlp} to find what the manifestos actually say and answer from that text, with every claim pointing back to the passage it came from. It does so in European Portuguese, which has fewer resources than English: a Portuguese benchmark for embedding models appeared only in 2026 \cite{okamura2026mtebpt}, and earlier work on Portuguese manifestos measured sentiment rather than answering questions \cite{marino-etal-2024-decoding}.
+
+The political context adds to the case. The Portuguese voting attitude has become more volatile over the last two decades \cite{eleitorado}, and the 2024 election reflected it: eight parties won seats, and far-right party Chega went from 12 to 50 members of parliament \cite{cne2024mapa}, challenging the long dominance of PS and PSD. More parties means more manifestos to read, and more reliance on second-hand summaries of them. A tool that grounds its answers in the parties' own words can contribute to a better-informed electorate. And because a manifesto does not change after the election, it lets anyone check, years later, whether a party's claims about what it always stood for match what it actually wrote.
 
 \section{Objectives}
 
-The primary objective was to find out how well RAG retrieves and synthesises political content, using the manifestos of the 2024 Portuguese legislative election as the case. It broke down into three goals:
+The main objective was to find out how well RAG retrieves and synthesises political content, using the manifestos of the 2024 Portuguese legislative election as the test case. It broke down into three goals:
 
 \begin{itemize}
-    \item \textbf{RAG implementations:} survey RAG techniques and test which of them work for political manifestos.
+    \item \textbf{RAG implementations:} survey RAG techniques and test which of them work on political manifestos.
     \item \textbf{Challenges of RAG:} identify what makes Portuguese manifestos hard for a RAG system.
     \item \textbf{Solutions to challenges:} apply and measure techniques that address those challenges, such as token-sized chunking, contextual retrieval, hybrid dense and lexical search, and reranking.
 \end{itemize}
@@ -33,12 +30,12 @@ The work delivered four things:
 
 \begin{itemize}
     \item \textbf{\sysname{}}, a working prototype that answers questions about the eight manifestos, citing the passages each claim comes from (Chapters~\ref{ch:proposition} and~\ref{ch:prototype-demonstration}).
-    \item \textbf{A variant ladder}: every retrieval technique sits behind a feature flag, so each one can be switched on alone and its contribution measured (Section~\ref{subsec:variants}).
+    \item \textbf{A step-by-step evaluation}: retrieval techniques are added one at a time, each behind its own switch, so each one's contribution can be measured on its own (Section~\ref{subsec:variants}).
     \item \textbf{An evaluation harness and gold set}: 61 questions written and reviewed by hand, each anchored to the manifesto passages that answer it, scored with retrieval, routing and generation metrics (Sections~\ref{subsec:goldset} and~\ref{subsec:metrics}).
-    \item \textbf{A decision history}: each component records the options considered, the choice made and, where it happened, why the choice was later reversed (Chapter~\ref{ch:proposition}).
+    \item \textbf{A decision history}: for each component, the options considered, the one picked and, when a choice was later overturned, why (Chapter~\ref{ch:proposition}).
 \end{itemize}
 
-A RAG-powered political quiz, to improve the quizzes that appear in every election campaign, was set as an optional goal. It was not built; it is discussed as future work (Chapter~\ref{ch:conclusion}).
+A RAG-powered political quiz, to improve on the quizzes that appear in every election campaign, was an optional goal. It was not built and is discussed as future work (Chapter~\ref{ch:conclusion}).
 
 \section{Research Hypothesis}
 
@@ -46,11 +43,11 @@ The main hypothesis of this project is:
 
 “RAG-based retrieval and synthesis can effectively improve the accessibility and interpretability of Portuguese political manifestos.”
 
-This hypothesis suggests that RAG implementations can accurately retrieve and summarize relevant political content, providing a structured overview of party positions.
+Put simply: given the manifestos, a RAG system should find the passages that matter and summarise them faithfully enough to give a voter a structured, checkable overview of where each party stands.
 
 \section{Research Questions} \label{sec:research-questions}
 
-The hypothesis is too broad to test directly, so it is split into five questions that the evaluation harness can answer. Each one maps to a part of \sysname{}: RQ1 to indexing, RQ2 to retrieval, RQ3 to generation, and RQ4 and RQ5 to the system as a whole.
+The hypothesis is too broad to test directly, so it is split into five questions the evaluation harness can answer. Each maps to a part of \sysname{}: RQ1 to indexing, RQ2 to retrieval, RQ3 to generation, and RQ4 and RQ5 to the system as a whole.
 
 \begin{description}
     \item[RQ1 --- Representation.] How do representation choices --- measuring
@@ -78,17 +75,14 @@ The hypothesis is too broad to test directly, so it is split into five questions
     match or beat a stronger model without them?
 \end{description}
 
-\TODO{RQ2 names routing and multi-query expansion, whose rungs
-(\texttt{routed}, \texttt{multiquery}) are not in the planned test run. Either
-add them to that run (no code needed) or drop them from the wording. If the
-web-search assistant rungs (\texttt{assistant\_*}) stay in the headline run,
-add ``or a commercial assistant with web search'' to RQ5.}
-
-Two questions were deliberately left out. Whether a hand-curated gold set can stand in for a human-authored benchmark is treated as methodology (Section~\ref{subsec:goldset}), not as a research question. And whether retrieval in European Portuguese reaches the quality reported for English cannot be measured without a parallel English corpus; it is discussed as a limitation (Chapter~\ref{ch:conclusion}).
+\TODO{Reminder: the final test run must include the \texttt{routed} and
+\texttt{multiquery} rungs (RQ2 depends on them) and the web-search assistant
+rungs (\texttt{assistant\_*}). Once they are in, add ``or a commercial
+assistant with web search'' to RQ5.}
 
 \section{Research Methods}
 
-This research followed an experimental and analytical approach to assess the effectiveness of RAG-based retrieval for Portuguese political manifestos. The plan had the following steps:
+The research followed an experimental approach: build, measure, change one component, measure again. The plan had the following steps:
 
 \begin{itemize}
     \item \textbf{Literature review:} a review of research on RAG pipelines, political text analysis, and the related challenges in NLP.
@@ -100,29 +94,19 @@ This research followed an experimental and analytical approach to assess the eff
     \end{itemize}
     \item \textbf{Testing and evaluation:}
     \begin{itemize}
-        \item \textbf{Quantitative methods:} retrieval metrics (hit rate, recall, mean reciprocal rank, nDCG) against hand-picked gold passages, and claim-level answer metrics scored by an LLM judge.
+        \item \textbf{Quantitative methods:} retrieval metrics (hit rate, recall, mean reciprocal rank, nDCG) against hand-picked gold passages, and claim-level answer metrics scored by an LLM judge \cite{es2024ragas, zheng2023judging}.
         \item \textbf{Qualitative methods:} reading answers for errors the metrics cannot see, such as political framing passing from the sources into the answer (Section~\ref{subsec:grounding}).
     \end{itemize}
     \item \textbf{Refinement:} improving \sysname{} based on the evaluation results.
 \end{itemize}
 
-The plan held, but the process was not linear. The field moved fast while this work ran (Section~\ref{subsec:sota-recent}), and several early choices were revisited: the embedding model, the vector store, and the unit in which chunks are measured. Revisiting a choice when better evidence arrived was part of the method, not a departure from it. Chapter~\ref{ch:proposition} records each reversal and its reason, and the variant ladder keeps every technique measurable on its own, so a reversal is a measured change rather than a guess.
+The plan held, but the process was not linear. The field moved fast while this work ran (Section~\ref{subsec:sota-recent}), and several early choices were revisited: the embedding model, the vector database, and the unit in which chunks are measured. Even the research question changed along the way, from classifying political bias in Portuguese text to answering questions over manifestos (see the Preamble). Changing course when better evidence came up was part of the method, not a departure from it. Chapter~\ref{ch:proposition} records every reversal and its reason, and because each technique can be switched on and off on its own, every reversal is a measured change rather than a guess.
 
-\TODO{AI-assistance disclosure, to confirm and rewrite: AI assistants were
-used for code (first ChatGPT, later Claude Code) and for drafting text, which
-the author reviewed and rewrote; the gold set's draft reference answers and
-gold passages were proposed by Claude and reviewed by hand
-(Section~\ref{subsec:goldset}). Check whether the university has a required
-wording or a separate declaration for this.}
+\TODO{Pergunta para o orientador: usei assistentes de IA no código (primeiro
+o ChatGPT, depois o Claude Code), na redação de rascunhos de texto, que revi e
+reescrevi, e na proposta das respostas de referência e passagens do conjunto
+de referência (gold set), todas revistas à mão (Secção~\ref{subsec:goldset}).
+Acha que devo declarar isto aqui, numa declaração à parte, ou em ambos? A
+faculdade exige alguma formulação específica?}
 
-\section{Structure}
-
-The Preamble, before this chapter, tells how the research question changed: from classifying political bias in Portuguese text to answering questions over party manifestos. The rest of the document is organised as follows:
-
-\begin{itemize}
-    \item \textbf{Chapter~\ref{ch:sota}, State of the Art,} surveys RAG, its recent developments, political text analysis and RAG evaluation.
-    \item \textbf{Chapter~\ref{ch:problem}, The Problem and its Challenges,} states the problem and the challenges that shaped the system before it was built.
-    \item \textbf{Chapter~\ref{ch:proposition}, \sysname{} Proposal,} presents the system in four parts --- indexing, retrieval, generation and evaluation --- with the decisions behind each component and the evaluation results.
-    \item \textbf{Chapter~\ref{ch:prototype-demonstration}, \sysname{} in Practice,} shows the system answering real questions end to end.
-    \item \textbf{Chapter~\ref{ch:conclusion}, Conclusions and Future Work,} answers the research questions, states the limitations and outlines future work.
-\end{itemize}
+Like the research, this document starts with the literature. Chapter~\ref{ch:sota} reviews how RAG works, how it has changed in the last two years, and what has been done with political texts so far.
