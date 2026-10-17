@@ -107,9 +107,14 @@ for the decision-history thread of the Proposition chapter.
   and its Challenges, Proposition (indexing / query time / evaluation),
   PoliRAG in Practice, Conclusions and Future Work. The Work Plan section
   is already gone.
-- **Preamble is kept, unnumbered** (2026-10-08, reverses the 2026-08-16 plan
-  to drop it). It opens the main matter as a starred chapter listed in the
-  table of contents without a number, so the Introduction is Chapter 1.
+- **No Preamble chapter** (2026-10-18, reverses the 2026-10-08 decision to
+  keep it unnumbered). It was a checkpoint-era account of the abandoned
+  bias-classification idea, mostly a literature list for that idea, and its
+  political-bias thread already runs through the State of the Art, the
+  Problem chapter and the framing-leakage revision. The pivot is now one
+  paragraph in Introduction > Research Methods. Its four orphan sources
+  (Helgesson Hallström, Lang et al., Tavares, The Bipartisan Press) were
+  dropped; `pretraining-political-bias` stays, cited elsewhere.
 - **The system is named PoliRAG, provisionally** (2026-10-08). The name sits
   in one macro, `\sysname` in `dissertation.tex`, so a later rename is a
   one-line change. It is introduced in the Abstract, Resumo, Introduction
