@@ -16,11 +16,25 @@
 This chapter presents \sysname{}, the system built in this work to answer
 questions about the 2024 Portuguese electoral manifestos.
 
-\TODO{Chapter lead-in (1--2 paragraphs): state that \sysname{} is presented in
-four parts --- indexing, retrieval, generation and evaluation --- with
-indexing and evaluation running offline and retrieval and generation online,
-and that each subsection follows the same rhythm: problem, candidates
-researched, choice made, and how/why that choice was later revised.}
+%% DRAFT (Claude, 2026-10-16): chapter lead-in, to be rewritten.
+It is presented in four parts, in the order a question meets them
+(Figure~\ref{fig:system-overview}). Indexing (Section~\ref{sec:indexing})
+turns the manifestos into a searchable store; retrieval
+(Section~\ref{sec:retrieval}) finds the passages that answer a question;
+generation (Section~\ref{sec:generation}) writes the answer from them; and
+evaluation (Section~\ref{sec:evaluation}) measures every step. Indexing and
+evaluation run offline, ahead of time; retrieval and generation run online,
+every time someone asks.
+
+Each component follows the same rhythm: the problem it solves, the candidates
+researched, the choice made and, where it happened, how and why that choice
+was later revised. The revisions are not tidied away. Several are the most
+instructive results of this work, and two of them were failures that raised no
+error at all (Sections~\ref{subsec:chunking} and~\ref{subsec:search}).
+
+One constraint holds throughout: every model and library in \sysname{} is open
+source or has open weights. Proprietary models appear only in the evaluation,
+as yardsticks to measure \sysname{} against (Section~\ref{subsec:variants}).
 
 %% Figures in this chapter are rendered from the Mermaid diagrams in
 %% docs/architecture.md by scripts/render_diagrams.sh; edit them there.
@@ -401,8 +415,7 @@ benchmark published after the switch, it scores 78.9 on
 retrieval~\citep{okamura2026mtebpt}. That benchmark evaluates only the
 general-purpose Serafim sentence encoder (54.9 on retrieval, 86.7 on semantic
 similarity), not the retrieval-tuned variant used here, so it offers no
-like-for-like comparison. The encoder comparison planned on this corpus is
-what will provide one.
+like-for-like comparison, and none was run on this corpus.
 
 The replacement also brought a change in how the model is used. Like most
 current retrieval encoders, Qwen3-Embedding is \emph{asymmetric}: queries are
@@ -417,8 +430,9 @@ represent the language's ambiguities less well, for example homonyms such as
 laugh''). Whether a long-window Portuguese encoder would outperform Qwen3 on
 this corpus is an empirical question. The evaluation harness can answer it by
 re-indexing the corpus once per encoder and comparing retrieval metrics on the
-same gold set (Section~\ref{sec:evaluation}). \TODO{Report the encoder
-comparison once run, or move it to future work.}
+same gold set (Section~\ref{sec:evaluation}). It was not run before the code
+was frozen for the final evaluation, and is left as future work
+(Chapter~\ref{ch:conclusion}).
 
 \subsection{Vector store} \label{subsec:vectorstore}
 
@@ -726,22 +740,25 @@ same score.
 result. That runs against the published experience, where reranking on top of
 contextual retrieval cut failed retrievals further, from 49\% to 67\%
 fewer~\citep{anthropic2024contextual}.
-\TODO{Say why, if you have a view: a general multilingual reranker on European
-Portuguese manifesto prose, short child chunks scored without their section,
-or simply that hybrid fusion had already done the reranker's job.}
+%% DRAFT (Claude, 2026-10-16): hypotheses only; replace with your own view if you have one.
+Why it lost was not investigated, and three explanations fit. The reranker is
+a general multilingual model, not trained on European Portuguese policy prose.
+It scores each small chunk without the section around it, which is exactly the
+context contextual retrieval adds to the index. And hybrid fusion over five
+query versions may already have done the reranker's job, leaving it only good
+candidates to reshuffle, sometimes for the worse.
 
 \subsection{Agentic retrieval} \label{subsec:agentic}
-%% src: not built yet; DECISIONS.md "Agentic rung -- decided, to build" (2026-10-06)
-\TODO{BLOCKED until built. An LLM-driven loop over the existing retrieval
-pipeline: decide whether and what to retrieve, re-query when the results fall
-short, and self-check the evidence before synthesis. Build it behind a feature
-flag as a new rung of the variant ladder (Section~\ref{subsec:variants}), so
-``agentic vs hybrid + reranking'' is measured, not assumed. Cover: the loop
-and its stopping rule; the history (empty agentic/corrective stubs from May
-2025, deleted in March 2026, revived here); why Corrective RAG stays out (its
-fallback is web search, and answers must come from the manifestos); LLM calls
-per query against free-tier rate limits; and the update to
-Figure~\ref{fig:retrieval}.}
+%% DRAFT (Claude, 2026-10-16), from DECISIONS.md (code freeze, 2026-10-15).
+The last rung planned for the ladder was agentic
+retrieval~\citep{agentic-rag}: an LLM loop over the existing pipeline that
+decides whether and what to retrieve, searches again when the results fall
+short, and checks the evidence before an answer is written. It was not built
+before the code freeze, and is left as future work. Its history is short:
+empty agentic and corrective modules were created in May 2025 and deleted,
+still empty, in March 2026. Corrective RAG~\citep{crag} would stay out even
+then. When retrieval falls short its fallback is web search, and \sysname{}
+must answer from the manifestos alone.
 
 % ============================================================
 \section{Generation} \label{sec:generation}
@@ -776,9 +793,14 @@ GPT-4 and Google's Gemini~2.0 Flash. None of them is used today. Within a
 year all four had been overtaken by newer models that were stronger, cheaper
 and able to read far longer inputs, which is one face of the moving-target
 challenge of Section~\ref{subsec:challenge-obsolescence}.
-\TODO{Add the current candidates you considered or plan to use (the paid
-Gemma/Qwen models, the free fallbacks), so the paragraph reads as a then/now
-comparison.}
+%% DRAFT (Claude, 2026-10-16), from config/config.yaml.
+Today every LLM role in \sysname{} runs on Google's open-weights Gemma~4:
+the 26B mixture-of-experts model (\texttt{gemma-4-26b-a4b-it}, about 4B
+parameters active per token) analyses, expands and answers, and the 31B dense
+model writes the chunk contexts of Section~\ref{subsec:contextual}. If a call
+fails, free endpoints are tried in order (Gemma~4 31B, then two NVIDIA
+Nemotron models). The judge is Qwen; the only proprietary models are the
+yardsticks of the evaluation (Section~\ref{subsec:variants}).
 
 The language model changed four times, and each change was forced by
 something outside the system rather than by its answers.
@@ -815,8 +837,9 @@ The free tier carried the project for months and shaped the code: retries with
 backoff, fallbacks, and the fail-fast-then-resume design of indexing. The move
 to a paid endpoint changed the bill, not the model: everything here still runs
 on an open model.
-\TODO{Say why you moved to the paid endpoint in October 2026, and roughly what
-the evaluation runs cost.}
+A judged run of the production variant over all 61 gold questions, judge
+included, costs about \$0.70.
+\TODO{Say why you moved to the paid endpoint in October 2026.}
 
 \subsection{Grounding and neutrality} \label{subsec:grounding}
 
@@ -862,74 +885,52 @@ ask the model to answer the part the context supports and to say what the
 manifestos do not cover. When a question rests on a premise the context does
 not confirm, the model should say so rather than accept it.
 
-%% src: src/rag/generation/prompts.py (_NEUTRALITY_RULE, Oct 2026);
-%% audit of data/eval/results/wide-20261013T032701.json vs the first
-%% current-* run after the rule; memory ledger item 10 ("framing leakage")
-\TODO{Write a ``Revision: framing leakage'' paragraph (October 2026). Grounding
-has a side effect: told to stay close to the text, the generator repeated each
-manifesto's own framing in the system's voice. Examples from the gold set:
-q-08 (PCP) ``a libertação de Portugal da \emph{submissão} à UE'', ``missões de
-\emph{ingerência e agressão}''; q-11/q-32 (IL) ``rejeita \emph{preconceitos}
-sobre os riscos'' of nuclear power; q-15 (CHEGA) immigrants who ``não pretendam
-\emph{viver de subsídios}''; q-18 (IL) the electoral system ``provoca um
-\emph{desrespeito} pela proporcionalidade''. Open attacks were filtered (the AD
-chunk behind q-03 calls the PS record a ``caminho socialista'' that
-``asfixia'' young people's dreams, and none of it reached the answer); subtle
-framing was not. The old comparison rule ``Sê imparcial e factual'' was
-already in force for q-08, q-11 and q-15 and did not stop it: a vague
-instruction does not work, an explicit attribution rule is needed. The line
-the rule draws: \emph{why} a party proposes something stays in the answer, as
-the party's claim. Report the before/after count of leaking answers (same 61
-questions, same retrieval config) once the rerun is audited. Name the
-phenomenon precisely: it is not the language model's own political lean, but
-the sources' framing passing through, and it is uneven across parties ---
-more rhetorical manifestos get more of their framing through.
-First rerun (2026-10-13, \texttt{current-20261013T140724} against
-\texttt{wide-20261013T032701}, same retrieval config, references not yet
-rewritten): q-08, q-11 and q-18 now attribute (``argumenta que'', ``considera
-que''); still bare: q-15 ``viver de subsídios'', q-32 ``preconceitos'', q-26
-``monopolista'', q-45 ``dirigistas'', and one ``submissão ao Euro'' left in
-q-08. Blind hand count (2026-10-15; both runs' 122 answers shuffled and
-annotated against a written rubric without knowing which prompt produced
-which; file \texttt{data/eval/results/framing-handcount-20261015.json}):
-answers with a clear leak 6 of 61 before and 6 of 61 after; with any leak,
-clear or borderline, 18 and 18; clear spans 8 to 6, borderline 24 to 21.
-The rule fixed the cases it was written against (q-08 ``ingerência'', q-11,
-q-18) but others appeared (q-15, q-26, q-45), so at this sample size it
-has no measurable effect: about one answer in ten repeats a party's framing
-either way. The leaks are concentrated in PCP and IL wording. Say this
-plainly: an instruction is not enough, and a check after generation (an
-attribution judge, or a rewriting pass) is future work. The annotator was a
-Claude subagent, not a human: disclose it, and ideally have a person check a
-sample. Side effects: faithfulness 0.946 to 0.976, correctness 0.509 to
-0.491, abstention 1.00 to 0.75 (q-55 gives the refusal sentence, then adds
-that LIVRE calls itself pro-European, so the detector no longer counts it as
-an abstention). Retrieval is not identical between runs (the query analyzer is
-an LLM), so this is not a clean single-factor comparison.}
+%% DRAFT (Claude, 2026-10-16) from the framing-leakage TODO and the blind
+%% hand count (data/eval/results/framing-handcount-20261015.json).
+%% src: src/rag/generation/prompts.py (_NEUTRALITY_RULE, Oct 2026)
+\paragraph{Revision: framing leakage.} Grounding has a side effect. Told to
+stay close to the text, the generator repeated each manifesto's framing in the
+system's own voice. PCP's programme became ``a libertação de Portugal da
+\emph{submissão} à UE''; IL ``rejeita \emph{preconceitos}'' about nuclear
+power; CHEGA's immigrants should not ``\emph{viver de subsídios}''. None of
+this is invented: every phrase is in the cited chunk. Framing, in Entman's
+sense, is the selection of a problem definition, a causal reading and a moral
+judgement~\citep{entman1993framing}, and that is exactly what leaked:
+diagnoses and value words, not the measures themselves. Open attacks did not
+survive (AD's ``caminho socialista'' that ``asfixia'' the young never reached
+an answer); subtle framing did.
 
-\TODO{Citations for the framing-leakage paragraph above (and its echoes in
-Section~\ref{subsec:metrics} and the Limitations). They are here for this one
-reason: to define framing and to separate it from the model's own political
-bias. All verified on 2026-10-15 against publisher or ACL Anthology records and
-added to the bib; cite them by these keys.
-\begin{itemize}
-    \item \texttt{entman1993framing} --- the definition of framing (problem
-    definition, causal interpretation, moral evaluation, treatment
-    recommendation) maps onto what leaked: diagnoses, causes and value
-    judgements, not the measures themselves.
-    \item \texttt{rozado2024political} --- 24 conversational LLMs, most score
-    left of centre on political orientation tests; base models do not, and
-    fine-tuning shifts the lean. The model's \emph{own} lean, measured with no
-    context: a different effect from the one observed here.
-    \item \texttt{motoki2024more} --- same role as Rozado, for ChatGPT.
-    \item \texttt{pretraining-political-bias} (Feng et al., ACL 2023; the entry
-    now points to the ACL version, not arXiv) --- bias that comes from
-    \emph{pretraining} data; contrast with bias that comes from the
-    \emph{retrieved context}.
-    \item \texttt{es2024ragas} --- the faithfulness definition the judge
-    follows (claims checked against the context); needed to argue that
-    faithfulness rewards framing leakage.
-\end{itemize}}
+This is not the model's own political lean, which studies measure with no
+context at all~\citep{rozado2024political,motoki2024more} and trace to
+pretraining data~\citep{pretraining-political-bias}. It is the sources'
+framing passing through, and it is uneven: the more rhetorical a manifesto,
+the more of its framing gets through.
+
+The comparison prompt already said ``Sê imparcial e factual'', and it did not
+help. In October 2026 it was replaced by an explicit attribution rule, the fourth in the
+list above: measures in neutral
+language, and every reason, diagnosis or judgement attributed to the party
+that makes it. The rule fixed the answers it was written against. A blind
+count of 122 answers (all 61 gold questions, before and after the rule,
+shuffled and marked against a written rubric) found a clear leak in 6 of 61
+answers both times, and any leak, clear or borderline, in 18 of 61 both
+times. Old leaks disappeared and new ones appeared, mostly in PCP and IL
+wording. Retrieval was not identical between the runs, since query analysis is
+itself an LLM call, so this is not a clean single-factor comparison; but at
+this sample size the rule has no measurable effect. About one answer in ten
+repeats a party's framing either way. An instruction is not enough, and a
+check after generation (an attribution judge, or a rewriting pass) is future
+work. None of the automatic metrics sees the problem
+(Section~\ref{subsec:metrics}).
+
+\TODO{Disclosure and check: the blind count was annotated by a Claude
+subagent, not a person. Say so here, and report the human check of 20 of the
+122 answers (data/eval/results/framing-human-check.md, not yet filled in).
+Side effects of the rule to mention if wanted: faithfulness 0.946 to 0.976,
+correctness 0.509 to 0.491, abstention 1.00 to 0.75 (q-55 adds a sentence
+after the refusal, so the detector stops counting it). Optional VAA parallel
+(Walgrave et al.\ 2009; Van Camp et al.\ 2014): those two entries are NOT in
+dissertation.bib yet, so add them before citing.}
 
 \subsection{Synthesis strategies} \label{subsec:synthesis}
 
@@ -1043,87 +1044,180 @@ that differ by one flag can be attributed to that one technique.
 
 \subsection{Variant ladder} \label{subsec:variants}
 %% src: docs/evaluation.md §1; variants.py; naive -> multiquery -> routed -> current (+ reserved reranked/hybrid)
-\TODO{The ladder and its philosophy; also state explicitly that this replaced
-the earlier ``compare 3 separate RAG implementations'' plan (A falar.md) and
-why (isolation of one technique per rung).}
+%% DRAFT (Claude, 2026-10-16) from docs/evaluation.md §1 and variants.py.
+The original plan was to build three separate RAG systems (a naive one, an
+agentic one and a third in between) and compare them. It was dropped for a
+simple reason: two systems that differ in five ways can be ranked, but the
+difference cannot be explained. \sysname{} instead has one pipeline, and every
+technique beyond plain dense search is a feature flag. A \emph{variant} is a
+set of flags, and the variants form a ladder in which each rung adds one
+technique to the rung below (Table~\ref{tab:ladder}). Every rung runs the same
+production code over the same gold questions, so the difference between two
+adjacent rungs is the contribution of one technique, and nothing else.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabular}{|l|p{0.62\textwidth}|}
+        \hline
+        \textbf{Variant} & \textbf{What it adds} \\
+        \hline
+        \texttt{naive} & One dense search with the question as typed; direct answer \\
+        \texttt{multiquery} & Multi-query expansion and RRF fusion \\
+        \texttt{routed} & Query analysis and routing, without expansion \\
+        \texttt{dense\_only} & Analysis, routing and expansion together \\
+        \texttt{hybrid} & BM25 lists fused with the dense ones \\
+        \texttt{current} & Contextual retrieval: the production system \\
+        \texttt{reranked} & A cross-encoder over 30 candidates \\
+        \hline
+        \texttt{no\_retrieval} & The production model answering from memory \\
+        \texttt{no\_retrieval\_strong} & A frontier model (GPT-5.4) from memory \\
+        \texttt{current\_strong} & \texttt{current} with the frontier model \\
+        \texttt{assistant\_*} & ChatGPT, Gemini and Claude with web search \\
+        \hline
+    \end{tabular}
+    \caption{The variant ladder. Above the line, each rung adds one technique to
+    the one before; below it, the yardsticks for RQ5. Further single-flag
+    ablations (topic filter, prompt budget, index without LLM context) are
+    listed in Appendix~\ref{app:results}.}
+    \label{tab:ladder}
+\end{table}
+
+The yardsticks below the line answer RQ5. They switch retrieval off and let a
+model answer from what it already knows, with the same rules and the same
+answer length. The \texttt{assistant\_*} rungs are what a citizen gets today
+by asking a commercial chatbot: a frontier model with web search on, free to
+find the manifestos itself. A closed-book answer has no retrieved context, so
+these rungs are scored on correctness, relevance, abstention and cost only.
 
 \subsection{Gold set construction} \label{subsec:goldset}
 %% src: docs/evaluation.md §2; data/eval/questions/CANDIDATES.md; scripts/anchor_gold.py;
 %% anchoring/ANCHORING.md + proposed-picks.json; golden.json; keys.py (content-hash identity)
 %% TODO rewritten by Claude 2026-10-11: the synthetic generator it named was deleted.
-\TODO{The gold set as a four-step pipeline. (1) Questions hand-written against
-the eight manifestos (CANDIDATES.md), each with a grounding note checked against
-the indexed text, its expected route (parties, topics, coverage), the ladder rung
-it stresses and an expected difficulty. (2) The anchoring script retrieves
-candidate chunks per expected party (dense search plus keyword queries). (3) Gold
-chunks and a reference answer proposed per question by Claude, then reviewed by
-hand in ANCHORING.md; only questions marked reviewed count as curated, and
-proposed-picks.json keeps the proposals so the human edits show as a diff.
-Disclose this AI step here and in the Methodology. (4) Compiling writes
-golden.json and derives each route label from parties and coverage exactly as
-the pipeline does, which gives routing ground truth for free. Final counts once
-the review is done (now 61 questions: 51 hand-written, 9 abstention probes, 8 of
-them unanswerable, and q-61 for incidental mentions; 25 dev / 36 test, test held
-out for headline numbers).
-Content-hash identity across re-indexing. Decision history: the first plan,
-LLM-generated questions anchored on sampled chunks, was dropped; say why.}
+%% DRAFT (Claude, 2026-10-16) from docs/evaluation.md §2 and golden.json.
+No question-answering dataset exists for Portuguese manifestos, so one was
+built. It has 61 questions, and each one carries the passages that answer it
+(the \emph{gold chunks}) and a reference answer. It was built in four steps:
+\begin{enumerate}
+    \item \textbf{Questions, by hand.} 51 questions were written against the
+    eight manifestos, each with a note on where the answer lies, checked
+    against the indexed text, the route it should take (parties, topics,
+    coverage), the rung of the ladder it is meant to stress, and an expected
+    difficulty. Ten probes follow: seven questions the manifestos cannot
+    answer, to test abstention (q-59, on a party outside the corpus, among
+    them); two that the manifestos answer only in part; and q-61, a question
+    about a single incidental mention.
+    \item \textbf{Candidates, by search.} A script retrieves candidate chunks
+    for each question, per expected party, by dense search and by short keyword
+    queries.
+    \item \textbf{Gold, by LLM proposal and human review.} Claude proposed the
+    gold chunks and a reference answer for each question from the candidates
+    and the note. Every proposal was then reviewed by hand: picks fixed,
+    references rewritten, and the question marked as reviewed. All 61 were
+    reviewed. The proposals are kept, so every human edit shows as a diff.
+    \item \textbf{Compilation.} The reviewed set is compiled into one file. Each
+    question's route is derived from its parties and coverage by the same rule
+    the pipeline uses (Section~\ref{subsec:queryanalysis}), which gives routing
+    ground truth for free.
+\end{enumerate}
 
-\TODO{State the rule the reference answers follow: describe each measure in
-neutral language, give the party's reasons only as attributed claims
-(``argumenta que'', ``por considerar que''), never adopt its evaluative terms,
-and leave out attacks on other parties. Say that it was added during review
-(October 2026), after Claude's draft references were found to carry the
-parties' framing (q-06 ``bloqueios'', q-08 ``submissão'', q-11 ``por ser'',
-q-15, q-18 ``desperdício''), all five already marked reviewed. The
-lesson is that the framing is easy to miss, so it needs a written rule rather
-than vigilance. Good examples to quote: q-04 ``que considera um erro
-civilizacional'', q-27 ``diz não ser contra a imigração'', q-47 ``segundo o
-programa do CHEGA''.}
+Broad questions stay broad. ``What does PS propose for health?'' has dozens of
+right passages, and narrowing the question to fit the system would hide
+exactly the questions users ask. Their gold is every chunk in the section the
+party dedicates to the topic, plus explicit proposals on it elsewhere; pure
+diagnosis, past achievements and budget tables are left out.
+
+Gold chunks are identified by a hash of their content, not by a database id,
+so the gold set survives re-indexing as long as the chunking does not change.
+Questions are split into 25 development questions and 36 test questions,
+balanced across route, party and difficulty: 26 single-party questions, 20
+comparisons, 10 topic explorations and 5 general ones overall.
+
+\TODO{Decision history: the first plan, LLM-generated questions anchored on
+sampled chunks, was dropped. Confirm the reason. Candidate wording: questions
+generated from a chunk reuse its words, which flatters both dense and lexical
+search, and an LLM-written test grades LLMs against themselves.}
+
+%% Added by Claude 2026-10-16 (secretary). Keep every sentence true: the
+%% revisions in this chapter cite numbers on all 61 questions (e.g. the 64k
+%% budget) and q-59 (a test question) motivated the out-of-corpus revision, so
+%% do NOT claim tuning used dev questions only or that test was never seen.
+\paragraph{Protocol.} The system was built against the gold set while the
+gold set itself was being written, and each revision in this chapter reports
+the questions it was measured on. The split into development and test
+questions was fixed when the gold set was finalised. The numbers in
+Section~\ref{subsec:results} come from a single run of every variant on the 36
+test questions, on code frozen before that run and not changed afterwards;
+development numbers appear only to explain individual revisions.
+\TODO{Name the frozen commit (the \texttt{code\_version} each result records)
+once the test run is done.}
+
+\paragraph{Neutral references.} The reference answers follow a written
+rule: describe each measure in neutral language, give a party's reasons only
+as its own claims (``argumenta que'', ``por considerar que''), never adopt its
+evaluative terms, and leave out attacks on other parties. The rule was added
+during the review, in October 2026, after five references already marked as
+reviewed turned out to carry the parties' framing: q-08 had PCP's
+``submissão'' to the EU, q-18 IL's ``desperdício'' of votes. Framing is easy to
+miss, so it needs a written rule rather than vigilance. Correct references
+read like q-04, ``que considera um erro civilizacional'', or q-47, ``segundo o
+programa do CHEGA''.
 
 \subsection{Metrics} \label{subsec:metrics}
 %% src: docs/evaluation.md §3; retrieval (hit@k, recall@k, MRR, nDCG), routing (acc, F1), LLM-judge (faithfulness, relevance, correctness)
-\TODO{Three metric families; judge-model caveat (self-preference bias if judge
-== generator) and how you addressed it.}
+%% DRAFT (Claude, 2026-10-16) from docs/evaluation.md §3.
+Three families of metrics score each run, one per stage of the pipeline.
 
-\TODO{Add one paragraph: faithfulness is not neutrality. A claim such as ``o PCP
-defende a libertação de Portugal da submissão à UE'' is fully supported by
-its chunk, so the faithfulness judge scores it 1. Correctness rewards it too
-whenever the reference answer carries the same framing. None of the metrics
-can see framing leakage (Section~\ref{subsec:grounding}); it was found by
-reading answers, and is counted by hand. This is why the gold references
-follow an attribution rule (Section~\ref{subsec:goldset}).
-Draft to rewrite in your own words:
-``Faithfulness counts the answer's claims that the retrieved context supports
-\cite{es2024ragas}. It guards against invention, not against framing: a claim
-that repeats a manifesto's own evaluative wording is supported by definition,
-so framing leakage scores as perfect faithfulness. None of the metrics in this
-chapter detects it; Section~\ref{subsec:grounding} measures it by hand.''
-Optional extra sentence, checked against the RAGAs paper (2026-10-15): the
-paper has no limitations section and never discusses biased or one-sided
-context; it motivates faithfulness by hallucination and factual consistency
-with the sources, and validates it on WikiEval, built from Wikipedia pages.
-So this blind spot is not one RAGAs acknowledges; say it is an observation of
-this work, not a limitation the authors state. (That Wikipedia follows a
-neutral-point-of-view policy is a plausible reason the issue never arose for
-them, but it is our inference: phrase it as such or leave it out.)
-It is not an artefact of this implementation: the judge follows the RAGAs
-recipe step for step (split the answer into statements, ask whether each is
-supported by the context, score the supported share); the differences are
-Portuguese, JSON output and a rule for ``the manifesto does not mention X''
-claims, none of which concerns who makes a claim. Test (2026-10-15, the
-production judge, q-08 context from \texttt{wide-20261013T032701}): three
-claims, all judged supported --- (1) framed: ``O PCP defende romper com a
-submissão à União Europeia''; (2) attributed: ``O PCP defende que Portugal
-deixe de estar sujeito às imposições da União Europeia, aquilo a que o
-partido chama submissão''; (3) the framing stated as fact, no party named:
-``Portugal está numa situação de submissão à União Europeia''. The third one
-is the point: faithfulness asks whether the sources say it, never whether it
-is true or who says it. Frame it as an assumption, not a flaw: ``Faithfulness
-assumes the context is a trustworthy reference. In a corpus of party
-manifestos, partisan by design, that assumption fails: a claim faithful to its
-source can still adopt the source's framing, and faithfulness cannot tell the
-two apart. RAGAs does not claim otherwise; the metric was never meant to
-measure neutrality.''}
+\paragraph{Retrieval.} Retrieval is scored against the human-picked gold
+chunks with standard IR metrics (Section~\ref{subsec:sota-metrics}): hit rate,
+recall, MRR and nDCG, over the full list handed to generation. Broad questions
+need two more. A question can have more gold chunks than the system has slots
+(q-42 has 88), so \emph{capped recall} divides by whichever is smaller; and
+\emph{aspect recall} counts the manifesto sections the gold chunks come from,
+since ten chunks from one section cover less of a broad answer than three
+chunks from three. Unlike RAGAs' context metrics, these need no judge: they are
+deterministic, free, and rank-aware.
+
+\paragraph{Routing.} Query analysis is scored against each question's
+expected route: the accuracy of the derived query type, F1 over the parties
+and topics extracted, and \emph{coverage accuracy}, which catches the costliest
+failure, an ``each party'' question answered from a single search that omits
+half of them.
+
+\paragraph{Generation.} Answers are scored claim by claim, following
+RAGAs~\citep{es2024ragas}. \emph{Faithfulness} is the share of the answer's
+claims supported by the context the generator read. \emph{Correctness} compares
+the answer's claims with the reference answer's, as an F1 of precision and
+recall; its recall half alone says how much of the reference the answer
+covers. A 1--5 \emph{relevance} judgement asks whether the answer addresses the
+question, and it also records whether the answer declined to answer, which
+gives \emph{abstention} on the unanswerable questions and \emph{false refusal}
+on the rest.
+
+\paragraph{The judge.} Every generation metric is computed by an LLM judge,
+and LLM judges favour answers from their own model family~\citep{zheng2023judging}.
+The judge is therefore Qwen (\texttt{qwen3.8-27b}), a different family from
+the Gemma generator, and from the GPT model of the RQ5 yardsticks. A judge call
+that fails leaves its score out rather than recording a zero.
+\TODO{Report judge--human agreement (claim-level Cohen's kappa, answer-level
+Spearman) from scripts/judge\_validation.py once the sheet is rated.}
+
+\paragraph{Faithfulness is not neutrality.} Faithfulness asks whether the
+sources say a claim, never whether it is true or who says it. The production
+judge was given three claims against the q-08 context: PCP ``defende romper com
+a submissão à União Europeia''; the same, attributed (``aquilo a que o partido
+chama submissão''); and ``Portugal está numa situação de submissão à União
+Europeia'', with no party named at all. It accepted all three. Faithfulness
+assumes the context is a trustworthy reference. In a corpus of manifestos,
+partisan by design, that assumption fails: a claim faithful to its source can
+still adopt the source's framing, and the metric cannot tell the two apart.
+This is not an artefact of this implementation, which follows the RAGAs
+recipe step by step, nor a flaw RAGAs claims to cover: it was never meant to
+measure neutrality, and the paper validates it on Wikipedia pages. Correctness
+inherits the blind spot whenever the reference carries the same framing,
+which is why the references follow an attribution rule
+(Section~\ref{subsec:goldset}). Framing leakage is therefore counted by hand
+(Section~\ref{subsec:grounding}).
 
 \subsection{Measurement safeguards} \label{subsec:safeguards}
 %% DRAFT (Claude, 2026-10-10): safeguards paragraph, to be rewritten.
@@ -1153,8 +1247,8 @@ repository's test suite.
     \item \textbf{Exact filtered search.} pgvector applies metadata filters
     after the approximate (HNSW) index scan, so a filtered query can return
     fewer rows than requested; measured here, a party filter under an HNSW plan
-    returned 3 of 30 requested rows \TODO{cite the pgvector documentation on
-    filtering}. A test on a table shaped like the real one (same per-party
+    returned 3 of 30 requested rows, as the pgvector documentation
+    warns~\citep{pgvector}. A test on a table shaped like the real one (same per-party
     sizes and vector dimension) checks that a party-filtered search returns the
     full top-$k$, so retrieval would not be silently starved if the query plan
     changed as the corpus grows.
@@ -1169,9 +1263,19 @@ repository's test suite.
     which a fallback model answered some of the calls.
 \end{itemize}
 
+\paragraph{Noise without repeated runs.} Hosted models are not bit-exact,
+even at temperature zero: two identical runs moved recall by up to 0.03.
+Repeating every run several times would multiply a cost already counted in
+dollars, so two safeguards stand in for it. Within one evaluation run, every
+variant reuses each question's query analysis and expansions, so variants
+differ only in the feature under test; this is why the headline ladder runs in
+a single invocation. And every difference between two variants is reported
+with a paired bootstrap 95\% interval over questions, so a difference inside
+the noise does not read as a result.
+
 \subsection{Results and discussion} \label{subsec:results}
 %% src: data/eval/reports/leaderboard.md (once curated runs exist)
 \TODO{BLOCKED until curated gold-set runs are done. Leaderboard table +
 per-technique deltas + discussion.}
-\TODO{Decide and state scope: reranker in or out (future work?); hybrid's
-verdict.}
+%% Scope (settled, DECISIONS.md): hybrid is the default (dev nDCG +0.064 over
+%% dense_only); the reranker is reported as a negative result (Section subsec:reranking).

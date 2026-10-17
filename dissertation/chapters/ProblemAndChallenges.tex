@@ -39,8 +39,8 @@ exist but are few, and the language adds its own traps: homonyms
 scatters one concept across many word forms. The options were a native
 encoder, a multilingual one, or translating everything into English and
 working there. Translation was ruled out, since wording matters too much in
-this domain. The encoder went from native to multilingual, and that choice is
-measured rather than trusted (Section~\ref{subsec:embeddings}).
+this domain. The encoder went from native to multilingual, for reasons that had more to
+do with input length than with language (Section~\ref{subsec:embeddings}).
 
 \subsection{Documents built for print} \label{subsec:challenge-documents}
 
@@ -83,8 +83,8 @@ needs all eight but wants a single verdict, and ``What do the right-wing
 parties say on immigration?'' names a group rather than parties. One fixed
 pipeline serves some of these well and the rest badly. An LLM therefore reads
 each question first, and its reading decides how to search and how to lay out
-the answer. Letting an agent plan the whole retrieval is kept as a separate
-variant to measure (Sections~\ref{subsec:queryanalysis}--\ref{subsec:agentic}
+the answer. Letting an agent plan the whole retrieval is left as future work
+(Sections~\ref{subsec:queryanalysis}--\ref{subsec:agentic}
 and~\ref{subsec:synthesis}).
 
 % ============================================================
@@ -97,19 +97,21 @@ No question-answering dataset exists for Portuguese manifestos, and without one
 every design choice rests on a few hand-picked examples. That is exactly how
 the failures in Chapter~\ref{ch:proposition} hid for months. Writing a dataset
 entirely by hand is slow, while generating it with an LLM risks grading the
-model against itself. The middle road was taken: drafted questions, checked by
-hand and anchored to the passages that answer them, scored by an LLM judge
-whose agreement with human judgement is itself measured
-(Sections~\ref{subsec:goldset} and~\ref{subsec:metrics}).
+model against itself. The middle road was taken. The questions are written by hand; an LLM
+proposes the passages that answer each one and a reference answer, and every
+proposal is reviewed by hand. Answers are scored by an LLM judge from a
+different model family from the generator, with a sample of its verdicts rated
+by hand (Sections~\ref{subsec:goldset} and~\ref{subsec:metrics}).
 
 \subsection{A student budget} \label{subsec:challenge-resources}
 
-The thesis had no budget for paid APIs, a laptop instead of a GPU server, and
-free-tier services with strict rate limits, while classification and
-evaluation each need hundreds of LLM calls. The encoder and reranker therefore
-run locally, generation uses free hosted models with fallbacks, and every long
-job can resume where it stopped (Sections~\ref{subsec:classification}
-and~\ref{subsec:llm}). A side effect worth keeping: anyone can run the system.
+The thesis had a laptop instead of a GPU server, free-tier services with
+strict rate limits for most of its life, and a ten-dollar API key at the end,
+while classification and evaluation each need hundreds of LLM calls. The
+encoder and reranker therefore run locally, generation uses small open-weight
+models served cheaply (free at first, a low-cost paid endpoint from October
+2026), every call's cost is logged, and every long job can resume where it
+stopped (Sections~\ref{subsec:classification} and~\ref{subsec:llm}). A side effect worth keeping: anyone can run the system.
 
 % ============================================================
 \section{A moving target} \label{sec:challenges-moving}
@@ -152,13 +154,13 @@ puts it to the test (Section~\ref{sec:research-questions}).
         \hline
         \textbf{Challenge} & \textbf{Approach chosen} & \textbf{Section} \\
         \hline
-        European Portuguese & Work in Portuguese; measure native vs.\ multilingual encoders & \ref{subsec:embeddings} \\
+        European Portuguese & Work in Portuguese, no translation; a long-window multilingual encoder & \ref{subsec:embeddings} \\
         Documents built for print & Layout-aware parser to Markdown, then checked cleaning & \ref{subsec:parsing}, \ref{subsec:cleaning} \\
         Political stakes & Grounded answers, per-claim citations, fixed abstention, cited party placement & \ref{sec:generation} \\
         Fairness between parties & Per-party search with equal slots; no party dropped in synthesis & \ref{subsec:routing}, \ref{subsec:context} \\
-        Many kinds of question & Query analysis, derived routes, answer shapes; agentic variant & \ref{subsec:queryanalysis}--\ref{subsec:agentic} \\
-        No ground truth & Hand-checked, passage-anchored gold set; validated LLM judge & \ref{subsec:goldset}, \ref{subsec:metrics} \\
-        A student budget & Local encoder and reranker; free-tier LLMs with fallbacks; resumable jobs & \ref{subsec:llm} \\
+        Many kinds of question & Query analysis, derived routes, answer shapes & \ref{subsec:queryanalysis}--\ref{subsec:routing} \\
+        No ground truth & Hand-written, passage-anchored gold set; cross-family LLM judge, sampled by hand & \ref{subsec:goldset}, \ref{subsec:metrics} \\
+        A student budget & Local encoder and reranker; cheap open-weight LLMs; logged cost; resumable jobs & \ref{subsec:llm} \\
         No settled best practice & Feature flags, a variant ladder, recorded decisions & \ref{subsec:variants} \\
         Models that outpace the system & Test retrieval against no retrieval (RQ5) & \ref{sec:research-questions} \\
         \hline

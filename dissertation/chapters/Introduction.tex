@@ -1,10 +1,10 @@
 \chapter{Introduction} \label{ch:introduction}
 
-This chapter introduces the project by outlining its context and motivation, focusing on political discourse and the use of LLMs and RAG pipelines to analyze political stances. It also defines the main objectives, research hypothesis, and methods, concluding with an overview of the document's structure.
+%% DRAFT (Claude, 2026-10-16): tense pass, Objectives, Research Questions lead-in,
+%% Research Methods and Structure redrafted from the settled decisions in
+%% dissertation/DECISIONS.md. To be read and rewritten in the author's own words.
 
-\TODO{Chapter-wide tense pass: pre-thesis text speaks in future tense ("this
-project aims", "will cover") --- convert to the completed-work voice of a
-final dissertation.}
+This chapter sets out the context and motivation of this work, its objectives, hypothesis and research questions, the method followed, and how the rest of the document is organised.
 
 \section{Context}
 
@@ -15,29 +15,30 @@ Political party manifestos are crucial documents that outline a party's policy p
 
 \section{Motivation}
 
-Citizens and researchers often struggle to navigate and compare political party programs, especially during elections. Existing tools either lack interpretability or require significant manual effort \cite{laver_benoit_garry, manifestos-nz}. This project aims to bridge this gap with \sysname{}, a system that uses RAG-based LLMs to retrieve and synthesize relevant information from party manifestos, particularly in Portuguese, where research on this issue remains limited.
+Citizens and researchers often struggle to navigate and compare political party programs, especially during elections. Existing tools either lack interpretability or require significant manual effort \cite{laver_benoit_garry, manifestos-nz}. This work addresses that gap with \sysname{}, a system that uses Retrieval-Augmented Generation (RAG) to retrieve and synthesise what the party manifestos say, in European Portuguese, a language in which research on this problem remains limited.
 
 Moreover, political divisions are deepening, often fueled by a lack of accessible information \cite{eleitorado}. A tool that helps citizens better understand party positions could contribute to a more informed electorate and mitigate misinformation.
 
 \section{Objectives}
 
-\TODO{Update objectives to match what was actually delivered: the three
-bullets below survive, but "Expected results" must become actual results ---
-the feature-flagged variant ladder, the evaluation harness, and the working
-prototype. Decide how to present the optional political-quiz idea: keep as a
-stated stretch goal that moved to future work.}
-
-The primary objective of this research is to investigate the effectiveness of RAG in retrieving and synthesizing political text content, focusing on Portuguese electoral programs. Specifically, the main objectives will cover:
+The primary objective was to find out how well RAG retrieves and synthesises political content, using the manifestos of the 2024 Portuguese legislative election as the case. It broke down into three goals:
 
 \begin{itemize}
-    \item \textbf{RAG Implementations:} Explore existing RAG implementations and their effectiveness for political manifesto analysis.
-    \item \textbf{Challenges of RAG:} Identify challenges in applying RAG, particularly to Portuguese manifestos.
-    \item \textbf{Solutions to Challenges:} Examine techniques to improve retrieval accuracy and relevance, such as optimized chunking strategies, hybrid search methodologies, and reranking retrieved content based on contextual importance and semantic coherence.
+    \item \textbf{RAG implementations:} survey RAG techniques and test which of them work for political manifestos.
+    \item \textbf{Challenges of RAG:} identify what makes Portuguese manifestos hard for a RAG system.
+    \item \textbf{Solutions to challenges:} apply and measure techniques that address those challenges, such as token-sized chunking, contextual retrieval, hybrid dense and lexical search, and reranking.
 \end{itemize}
 
-Expected results include a comprehensive comparison between different RAG implementations, insights into optimizing retrieval for complex political documents, and recommendations for integrating AI-driven techniques into political text analysis frameworks. Additionally, this research will also provide \sysname{} as an experimental prototype demonstrating the retrieval and synthesis of political program content.
+The work delivered four things:
 
-Given the time constraints, the development of a RAG-powered political quiz could serve as an additional feature to improve the quality of political quizzes that emerge during electoral periods, which often lack depth and accuracy. While this remains an optional objective rather than a core requirement, it could contribute to a better-informed political decision-making by offering a more reliable and nuanced analysis of party positions.
+\begin{itemize}
+    \item \textbf{\sysname{}}, a working prototype that answers questions about the eight manifestos, citing the passages each claim comes from (Chapters~\ref{ch:proposition} and~\ref{ch:prototype-demonstration}).
+    \item \textbf{A variant ladder}: every retrieval technique sits behind a feature flag, so each one can be switched on alone and its contribution measured (Section~\ref{subsec:variants}).
+    \item \textbf{An evaluation harness and gold set}: 61 questions written and reviewed by hand, each anchored to the manifesto passages that answer it, scored with retrieval, routing and generation metrics (Sections~\ref{subsec:goldset} and~\ref{subsec:metrics}).
+    \item \textbf{A decision history}: each component records the options considered, the choice made and, where it happened, why the choice was later reversed (Chapter~\ref{ch:proposition}).
+\end{itemize}
+
+A RAG-powered political quiz, to improve the quizzes that appear in every election campaign, was set as an optional goal. It was not built; it is discussed as future work (Chapter~\ref{ch:conclusion}).
 
 \section{Research Hypothesis}
 
@@ -49,109 +50,79 @@ This hypothesis suggests that RAG implementations can accurately retrieve and su
 
 \section{Research Questions} \label{sec:research-questions}
 
-% DRAFT — these are proposals, phrased to be answerable by the evaluation
-% harness and mapped onto the three parts of Chapter \ref{ch:proposition}
-% (indexing, retrieval, evaluation). Rewrite the wording in your own voice;
-% cut or merge any that the final results cannot support.
-
-\TODO{Add concrete research questions under the hypothesis, derived from the
-variant ladder --- one per technique family, answerable by the evaluation chapter.
-Shape: does query analysis + routing improve retrieval over a naive baseline? does
-multi-query + RRF? does hybrid dense+lexical retrieval? does grounding reduce
-unfaithful answers?}
-
-\TODO{One short paragraph introducing the questions: say that the hypothesis
-is decomposed into questions that the evaluation harness can answer, and that
-each maps to one part of the system.}
+The hypothesis is too broad to test directly, so it is split into five questions that the evaluation harness can answer. Each one maps to a part of \sysname{}: RQ1 to indexing, RQ2 to retrieval, RQ3 to generation, and RQ4 and RQ5 to the system as a whole.
 
 \begin{description}
-    \item[RQ1 --- Indexing.] How do document representation choices ---
-    parsing fidelity, chunk granularity, the unit in which chunk size is
-    measured, and the choice of embedding model --- affect retrieval quality
-    over Portuguese electoral manifestos?
+    \item[RQ1 --- Representation.] How do representation choices --- measuring
+    chunk size in the encoder's own tokens, and enriching each chunk with its
+    section path and an LLM-written context --- affect retrieval quality over
+    Portuguese electoral manifestos?
 
     \item[RQ2 --- Retrieval.] Which retrieval techniques (structured query
-    analysis with logical routing, multi-query expansion with rank fusion,
-    hybrid dense and lexical search, cross-encoder reranking) improve
-    retrieval effectiveness over a naive baseline, and how much does each
-    contribute in isolation?
+    analysis with routing, multi-query expansion with rank fusion, hybrid
+    dense and lexical search, cross-encoder reranking) improve retrieval over
+    a naive baseline, and how much does each contribute on its own?
 
     \item[RQ3 --- Generation.] Do retrieval improvements translate into
     better answers, measured as faithfulness to the retrieved manifesto
     content, relevance to the question, and correctness against a reference
     answer?
 
-    \item[RQ4 --- Cost.] What do these improvements cost in latency and
-    computation, and which of them are worth that cost for a tool intended
-    for public use?
+    \item[RQ4 --- Cost.] What do these improvements cost in latency, tokens
+    and money, and which of them are worth that cost for a tool intended for
+    public use?
 
     \item[RQ5 --- Retrieval versus scale.] How does \sysname{} compare with
-    asking a language model the same question without retrieval, both in
-    answer quality and in resources consumed? Specifically, does a smaller
-    model with retrieval match or beat a stronger model without it, and at
-    what cost in latency and tokens?
+    asking a language model the same question without retrieval, in answer
+    quality and in resources consumed? Does a small model with the manifestos
+    match or beat a stronger model without them?
 \end{description}
 
-\TODO{Decide how the open-source constraint is framed. Every component of the
-built system has an open licence or open weights, which is a defensible claim
-about reproducibility and about who can run a civic tool. It becomes a
-research question only if a proprietary comparison is actually run; otherwise
-state it as a design constraint in Chapter~\ref{ch:proposition} and revisit it
-in the discussion.}
+\TODO{RQ2 names routing and multi-query expansion, whose rungs
+(\texttt{routed}, \texttt{multiquery}) are not in the planned test run. Either
+add them to that run (no code needed) or drop them from the wording. If the
+web-search assistant rungs (\texttt{assistant\_*}) stay in the headline run,
+add ``or a commercial assistant with web search'' to RQ5.}
 
-\TODO{Decide whether RQ4 stays. It is well supported --- the harness records
-latency and error rate, and the hybrid and reranking results already raise
-the question --- but it is the one most easily cut if the chapter runs long.}
-
-\TODO{Consider a further question on evaluation methodology: whether a
-synthetic-anchored, hand-curated gold set is a reliable substitute for a
-human-authored one, given that no Portuguese manifesto QA dataset exists.
-This is arguably a contribution in its own right; decide whether it is a
-research question or simply part of the methodology.}
+Two questions were deliberately left out. Whether a hand-curated gold set can stand in for a human-authored benchmark is treated as methodology (Section~\ref{subsec:goldset}), not as a research question. And whether retrieval in European Portuguese reaches the quality reported for English cannot be measured without a parallel English corpus; it is discussed as a limitation (Chapter~\ref{ch:conclusion}).
 
 \section{Research Methods}
 
-This research follows an experimental and analytical approach to assess the effectiveness of RAG-based retrieval for Portuguese political manifestos. The methodology consists of the following key steps:
+This research followed an experimental and analytical approach to assess the effectiveness of RAG-based retrieval for Portuguese political manifestos. The plan had the following steps:
 
 \begin{itemize}
-    \item \textbf{Literature Review:} Conduct a systematic review of existing research on RAG pipelines, political text analysis, and related challenges in NLP.
-    \item \textbf{Dataset Compilation:} Collect and preprocess the latest Portuguese political manifestos, ensuring consistency for retrieval.
+    \item \textbf{Literature review:} a review of research on RAG pipelines, political text analysis, and the related challenges in NLP.
+    \item \textbf{Dataset compilation:} collecting and preprocessing the 2024 Portuguese legislative manifestos.
     \item \textbf{Development:}
     \begin{itemize}
-        \item \textbf{RAG Experimentation:} Experiment with different RAG configurations, such as chunking strategies, hybrid search techniques, and reranking methods, to optimize retrieval accuracy.
-        \item \textbf{Prototype Development:} Develop \sysname{}, a functional prototype demonstrating the retrieval and synthesis of political content.
+        \item \textbf{RAG experimentation:} testing RAG configurations, such as chunking strategies, hybrid search and reranking.
+        \item \textbf{Prototype development:} building \sysname{}, a working prototype that retrieves and synthesises manifesto content.
     \end{itemize}
-    \item \textbf{Testing \& Evaluation:}
+    \item \textbf{Testing and evaluation:}
     \begin{itemize}
-        \item \textbf{Quantitative methods:} Measure performance using evaluation metrics (e.g., hit rate, mean reciprocal rank or relevancy)
-        \item \textbf{Qualitative methods:} Evaluate the interpretability and accuracy of generated summaries.
+        \item \textbf{Quantitative methods:} retrieval metrics (hit rate, recall, mean reciprocal rank, nDCG) against hand-picked gold passages, and claim-level answer metrics scored by an LLM judge.
+        \item \textbf{Qualitative methods:} reading answers for errors the metrics cannot see, such as political framing passing from the sources into the answer (Section~\ref{subsec:grounding}).
     \end{itemize}
-    \item \textbf{Refinement:} Improve \sysname{} based on evaluation results, addressing identified issues and enhancing usability. This phase may also explore the integration of a political quiz feature.
+    \item \textbf{Refinement:} improving \sysname{} based on the evaluation results.
 \end{itemize}
 
-By following this methodology, the study aims to validate the proposed hypothesis and provide actionable insights for improving AI-driven political text analysis.
+The plan held, but the process was not linear. The field moved fast while this work ran (Section~\ref{subsec:sota-recent}), and several early choices were revisited: the embedding model, the vector store, and the unit in which chunks are measured. Revisiting a choice when better evidence arrived was part of the method, not a departure from it. Chapter~\ref{ch:proposition} records each reversal and its reason, and the variant ladder keeps every technique measurable on its own, so a reversal is a measured change rather than a guess.
 
-\TODO{Align the methodology with what actually happened: the plan above held
-up overall, but the real process was iterative with documented reversals
-(embedding model, vector store, chunking) --- say that the methodology
-included revisiting earlier choices as the field evolved, which
-Chapter~\ref{ch:proposition} documents per component.}
+\TODO{AI-assistance disclosure, to confirm and rewrite: AI assistants were
+used for code (first ChatGPT, later Claude Code) and for drafting text, which
+the author reviewed and rewrote; the gold set's draft reference answers and
+gold passages were proposed by Claude and reviewed by hand
+(Section~\ref{subsec:goldset}). Check whether the university has a required
+wording or a separate declaration for this.}
 
 \section{Structure}
 
-\TODO{Rewrite this section for the final chapter layout: Introduction,
-State of the Art, The Problem and its Challenges, \sysname{} Proposal (indexing /
-retrieval / evaluation), \sysname{} in Practice, Conclusions \& Future
-Work. The unnumbered Preamble before Chapter 1 tells the pivot story
-(original bias-classification idea, why it was infeasible, how it led to RAG
-over manifestos); mention it in one line here rather than as a numbered
-chapter.}
-
-This chapter outlines the organization of the dissertation, providing an overview of each chapter and its role in the research. The dissertation is divided into five chapters:
+The Preamble, before this chapter, tells how the research question changed: from classifying political bias in Portuguese text to answering questions over party manifestos. The rest of the document is organised as follows:
 
 \begin{itemize}
-    \item \textbf{Introduction:} In chapter \ref{ch:introduction}, the project is introduced, outlining its context, motivation, objectives, research hypothesis, and methodology.
-    \item \textbf{State of the Art:} Chapter \ref{ch:sota} provides a review of existing literature, covering related work on RAG pipelines, political text analysis, and key challenges in the field.
-    \item \textbf{The Problem and Its Challenges:} Chapter \ref{ch:problem} defines the research problem, detailing the main challenges associated with RAG-based retrieval.
-    \item \textbf{Conclusion \& Work Plan:} Chapter \ref{ch:conclusion} summarizes the findings, discusses potential future work, and presents the planned next steps for the research.
+    \item \textbf{Chapter~\ref{ch:sota}, State of the Art,} surveys RAG, its recent developments, political text analysis and RAG evaluation.
+    \item \textbf{Chapter~\ref{ch:problem}, The Problem and its Challenges,} states the problem and the challenges that shaped the system before it was built.
+    \item \textbf{Chapter~\ref{ch:proposition}, \sysname{} Proposal,} presents the system in four parts --- indexing, retrieval, generation and evaluation --- with the decisions behind each component and the evaluation results.
+    \item \textbf{Chapter~\ref{ch:prototype-demonstration}, \sysname{} in Practice,} shows the system answering real questions end to end.
+    \item \textbf{Chapter~\ref{ch:conclusion}, Conclusions and Future Work,} answers the research questions, states the limitations and outlines future work.
 \end{itemize}
