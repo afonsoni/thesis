@@ -1,20 +1,18 @@
 \chapter{Introduction} \label{ch:introduction}
 
-This chapter sets out the context and motivation of this work, its objectives, hypothesis and research questions, the method followed, and where the work begins.
-
 \section{Context}
 
-In recent years, Large Language Models (LLMs) have transformed natural language processing (NLP). Once instruction tuning turned them into chatbots \cite{NEURIPS2022_b1efde53}, they became capable of summarising, answering questions and analysing text \cite{openai2024gpt4technicalreport, yang2023harnessingpowerllmspractice}. They also have a well-known limitation: what a model knows comes from its training data, and it learns popular facts well and rare ones poorly \cite{kandpal2023largelanguagemodelsstruggle}. Asked about something outside that data, or more recent than it, a model still answers, fluently and sometimes wrongly \cite{rag-survey}. The manifestos of Portuguese parties for the 2024 election are exactly this kind of niche, recent knowledge that a model is unlikely to have seen.
+In recent years, Large Language Models (LLMs) have transformed natural language processing (NLP). Once instruction tuning turned them into chatbots \citep{NEURIPS2022_b1efde53}, they became capable of summarising, answering questions and analysing text \citep{openai2024gpt4technicalreport, yang2023harnessingpowerllmspractice}. They also have a well-known limitation: what a model knows comes from its training data, and it learns popular facts well and rare ones poorly \citep{kandpal2023largelanguagemodelsstruggle}. Asked about something outside that data, or more recent than it, a model still answers, fluently and sometimes wrongly \citep{rag-survey}. The manifestos of Portuguese parties for the 2024 election are exactly this kind of niche, recent knowledge that a model is unlikely to have seen.
 
-This matters because manifestos matter. They are the documents in which a party sets out its policy positions and ideological stances \cite{eder2017manifesto}. Nor are they empty words: parties that reach government keep a large share of their pledges \cite{thomson2017pledges}. They are also long: the eight manifestos of the 2024 Portuguese legislative election add up to almost 1{,}400 pages, from 94 for the shortest to 275 for the longest. A voter who wants to compare what each party proposes for housing has to read through eight of them.
+This matters because manifestos matter. They are the documents in which a party sets out its policy positions and ideological stances \citep{eder2017manifesto}. Nor are they empty words: parties that reach government keep a large share of their pledges \citep{thomson2017pledges}. They are also long: the eight manifestos of the 2024 Portuguese legislative election add up to almost 1{,}400 pages, from 94 for the shortest to 275 for the longest. A voter who wants to compare what each party proposes for housing has to read through eight of them.
 
 \section{Motivation}
 
-Tools to navigate and compare party manifestos already exist, but each has a limitation. Political-science methods turn a manifesto into a position on a scale or a set of topic labels \cite{laver_benoit_garry, manifestos-nz}: useful to a researcher, impossible for a voter to check. Newspaper comparators put the parties side by side \cite{expresso-comparador, politicaativa-comparar}, but someone wrote every cell by hand, so they answer only the questions their editors thought of. A general-purpose chatbot takes any question and answers it from memory, which, as seen above, is where the manifestos are least likely to be.
+Tools to navigate and compare party manifestos already exist, but each has a limitation. Political-science methods turn a manifesto into a position on a scale or a set of topic labels \citep{laver_benoit_garry, manifestos-nz}: useful to a researcher, impossible for a voter to check. Newspaper comparators put the parties side by side \citep{expresso-comparador, politicaativa-comparar}, but someone wrote every cell by hand, so they answer only the questions their editors thought of. A general-purpose chatbot takes any question and answers it from memory, which, as seen above, is where the manifestos are least likely to be.
 
-This work proposes \sysname{}, a system that uses Retrieval-Augmented Generation (RAG) \cite{rag-nlp} to find what the manifestos actually say and answer from that text, with every claim pointing back to the passage it came from. It does so in European Portuguese, which has fewer resources than English: a Portuguese benchmark for embedding models appeared only in 2026 \cite{okamura2026mtebpt}, and earlier work on Portuguese manifestos measured sentiment rather than answering questions \cite{marino-etal-2024-decoding}.
+This work proposes \sysname{}, a system that uses Retrieval-Augmented Generation (RAG) \citep{rag-nlp} to find what the manifestos actually say and answer from that text, with every claim pointing back to the passage it came from. It does so in European Portuguese, which has fewer resources than English: a Portuguese benchmark for embedding models appeared only in 2026 \citep{okamura2026mtebpt}, and earlier work on Portuguese manifestos measured sentiment rather than answering questions \citep{marino-etal-2024-decoding}.
 
-The political context adds to the case. The Portuguese voting attitude has become more volatile over the last two decades \cite{eleitorado}, and the 2024 election reflected it: eight parties won seats, and far-right party Chega went from 12 to 50 members of parliament \cite{cne2024mapa}, challenging the long dominance of PS and PSD. More parties means more manifestos to read, and more reliance on second-hand summaries of them. A tool that grounds its answers in the parties' own words can contribute to a better-informed electorate. And because a manifesto does not change after the election, it lets anyone check, years later, whether a party's claims about what it always stood for match what it actually wrote.
+The political context adds to the case. The Portuguese voting attitude has become more volatile over the last two decades \citep{eleitorado}, and the 2024 election reflected it: eight parties won seats, and far-right party Chega went from 12 to 50 members of parliament \citep{cne2024mapa}, challenging the long dominance of PS and PSD. More parties means more manifestos to read, and more reliance on second-hand summaries of them. A tool that grounds its answers in the parties' own words can contribute to a better-informed electorate. And because a manifesto does not change after the election, it lets anyone check, years later, whether a party's claims about what it always stood for match what it actually wrote.
 
 \section{Objectives}
 
@@ -87,26 +85,21 @@ The research followed an experimental approach: build, measure, change one compo
 \begin{itemize}
     \item \textbf{Literature review:} a review of research on RAG pipelines, political text analysis, and the related challenges in NLP.
     \item \textbf{Dataset compilation:} collecting and preprocessing the 2024 Portuguese legislative manifestos.
-    \item \textbf{Development:}
-    \begin{itemize}
-        \item \textbf{RAG experimentation:} testing RAG configurations, such as chunking strategies, hybrid search and reranking.
-        \item \textbf{Prototype development:} building \sysname{}, a working prototype that retrieves and synthesises manifesto content.
-    \end{itemize}
+    \item \textbf{Development:} building \sysname{} and testing RAG configurations on it.
     \item \textbf{Testing and evaluation:}
     \begin{itemize}
-        \item \textbf{Quantitative methods:} retrieval metrics (hit rate, recall, mean reciprocal rank, nDCG) against hand-picked gold passages, and claim-level answer metrics scored by an LLM judge \cite{es2024ragas, zheng2023judging}.
+        \item \textbf{Quantitative methods:} retrieval metrics (hit rate, recall, mean reciprocal rank, nDCG) against hand-picked gold passages, and claim-level answer metrics scored by an LLM judge \citep{es2024ragas, zheng2023judging}.
         \item \textbf{Qualitative methods:} reading answers for errors the metrics cannot see, such as political framing passing from the sources into the answer (Section~\ref{subsec:grounding}).
     \end{itemize}
     \item \textbf{Refinement:} improving \sysname{} based on the evaluation results.
 \end{itemize}
 
-The plan held, but the process was not linear. The field moved fast while this work ran (Section~\ref{subsec:sota-recent}), and several early choices were revisited: the embedding model, the vector database, and the unit in which chunks are measured. Even the research question changed along the way, from classifying political bias in Portuguese text to answering questions over manifestos (see the Preamble). Changing course when better evidence came up was part of the method, not a departure from it. Chapter~\ref{ch:proposition} records every reversal and its reason, and because each technique can be switched on and off on its own, every reversal is a measured change rather than a guess.
+The plan held, but the process was not linear. The field moved fast while this work ran (Section~\ref{sec:sota-rag}), and several early choices were revisited: the embedding model, the vector database, and the unit in which chunks are measured. Even the research question changed along the way, from classifying political bias in Portuguese text to answering questions over manifestos (see the Preamble). Changing course when better evidence came up was part of the method, not a departure from it. Chapter~\ref{ch:proposition} records every reversal and its reason, and because each technique can be switched on and off on its own, every reversal is a measured change rather than a guess.
 
-\TODO{Pergunta para o orientador: usei assistentes de IA no código (primeiro
-o ChatGPT, depois o Claude Code), na redação de rascunhos de texto, que revi e
-reescrevi, e na proposta das respostas de referência e passagens do conjunto
-de referência (gold set), todas revistas à mão (Secção~\ref{subsec:goldset}).
-Acha que devo declarar isto aqui, numa declaração à parte, ou em ambos? A
-faculdade exige alguma formulação específica?}
+\TODO{Pergunta para o professor: utilizei assistentes de IA no código (ChatGPT, depois Claude Code),
+na redação de rascunhos de texto, que revi e reescrevi, e para me ajudar nas questões do gold set,
+todas revistas à mão (Secção~\ref{subsec:goldset}).
+Devia explicar isto aqui, numa declaração à parte, ou em ambos? A
+universidade exige alguma formulação específica?}
 
 Like the research, this document starts with the literature. Chapter~\ref{ch:sota} reviews how RAG works, how it has changed in the last two years, and what has been done with political texts so far.

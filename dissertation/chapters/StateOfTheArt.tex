@@ -1,29 +1,16 @@
-% ============================================================
-%  RESTRUCTURED 2026-08-16. Survey-only chapter:
-%  - "RAG Challenges and Solutions" moved to ProblemAndChallenges.tex
-%    (challenges are part of the problem statement, not the survey).
-%  - Bold-paragraph headers promoted to real sections.
-%  - "Recent developments" subsection for post-2025 developments.
-% ============================================================
-
 \chapter{State of the Art} \label{ch:sota}
 
-Recent advancements in Natural Language Processing (NLP) have seen the emergence of Retrieval-Augmented Generation (RAG) models, which combine the strengths of retrieval-based and generative approaches \cite{rag-nlp}. RAG has demonstrated significant potential in tasks requiring domain-specific knowledge and up-to-date information, addressing key limitations of traditional Large Language Models (LLMs), such as their tendency to generate inaccurate or irrelevant outputs. However, despite its growing adoption in various domains, the application of RAG to political texts—particularly in low-resource languages like Portuguese—remains underexplored.
+Retrieval-Augmented Generation (RAG) gives a language model something to read before it answers \citep{rag-nlp}. Instead of relying solely on what it absorbed in training, the model is handed passages fetched from an external collection, which helps with domain-specific and recent questions and makes it less prone to inventing content \citep{rag-survey, zhang2023sirenssongaiocean}. RAG has spread to many domains. However, political text, and in particular European Portuguese political text, is not yet one of them.
 
-%% DRAFT (Claude, 2026-10-16): framing sentence and the Recent developments,
-%% related-work and Metrics passages below. To be rewritten in the author's own words.
-This chapter surveys that ground. Its first version was written in early 2025,
-before \sysname{} existed, and it shaped the first design choices; the field
-then moved under the project's feet, so the survey is extended with what
-appeared while the system was being built (Section~\ref{subsec:sota-recent}).
+This chapter covers three areas. Section~\ref{sec:sota-rag} explains how RAG works, stage by stage, and how each stage has improved in recent years. Section~\ref{sec:sota-political} looks at what has been done with political texts so far, and Section~\ref{sec:sota-evaluate} at how RAG systems are evaluated.
 
 \section{The RAG framework} \label{sec:sota-rag}
 
-Retrieval-Augmented Generation (RAG) is a hybrid framework that enhances the capabilities of LLMs by integrating external data retrieval into the text generation process. Unlike traditional LLMs, which rely solely on pre-trained knowledge, RAG dynamically retrieves relevant document chunks from an external knowledge base using techniques such as dense vector retrieval and semantic similarity. This retrieval mechanism ensures that the generated outputs are grounded in factual and contextually appropriate information, significantly reducing the risk of hallucinations or inaccuracies commonly associated with standalone LLMs \cite{rag-nlp, zhang2023sirenssongaiocean}. By combining the generative power of LLMs with the ability to access and incorporate external knowledge, RAG represents a significant advancement in knowledge-intensive NLP tasks.
+A plain LLM answers from its parameters, which means that whatever it learned in training is all it has. RAG adds a second source. Before generating, the system retrieves relevant passages from an external collection, usually by comparing vector representations of the question and of the passages, and gives the text of those passages to the model along with the question. The answer can then rest on text the model can see rather than on what it remembers, which substantially reduces hallucinated content, though it does not completely eliminate it \citep{rag-nlp, zhang2023sirenssongaiocean}.
 
 \subsection{The RAG pipeline} \label{subsec:sota-pipeline}
 
-A RAG pipeline consists of several key components, each playing a critical role in the retrieval and generation process. At its core, the pipeline integrates two main stages: \textbf{retrieval}, where relevant documents are fetched from an external knowledge base, and \textbf{generation}, where a language model synthesizes the retrieved information into a coherent response. See Figure \ref{fig:rag-diagram} for an overview of a simple RAG process.
+A basic RAG pipeline has three stages \citep{rag-survey}. \textbf{Indexing}, done once and offline, splits the documents into chunks, encodes each chunk as a vector and stores it. \textbf{Retrieval}, at question time, encodes the question the same way and fetches the closest chunks. \textbf{Generation} gives those chunks and the question to a language model, which writes the answer. Figure~\ref{fig:rag-diagram} shows the flow.
 
 \begin{figure}[h]
 \begin{center}
@@ -33,197 +20,80 @@ A RAG pipeline consists of several key components, each playing a critical role 
 \label{fig:rag-diagram}
 \end{figure}
 
+\sysname{} keeps this skeleton, and most of Chapter~\ref{ch:proposition} is about making each stage work better on manifestos. The rest of this section goes through the stages in turn, covering what each one does, why it matters and how it has changed. Much of that change happened between 2024 and 2026, while this work was under way, and several of the choices described in Chapter~\ref{ch:proposition} were revised because of it.
+
+\subsection{Indexing} \label{subsec:sota-indexing}
+
+\paragraph{Chunking.} A manifesto is far too long to be compared with a question as a single unit, so indexing first splits each document into smaller pieces called chunks. These are the units that retrieval later finds and passes on to the model. Choosing their size is a trade-off. A small chunk is precise but may lose the context that gives it meaning, while a large one keeps that context but may mix several topics, which weakens its match with any single question. No size suits every corpus, and for a long time the choice was made by rule of thumb, with chunks growing larger as models became able to read longer inputs. Systematic studies only appeared in 2025. One found page-sized chunks best on average~\citep{nvidia-chunking}, and another found that the best size depends on the question, with small chunks suiting short factual answers and large ones helping only when the answer needs context~\citep{bhat2025rethinkingchunksize}.
+
+\paragraph{Embeddings.} Each chunk is then turned into an embedding, a vector of numbers produced by an encoder model so that texts with similar meanings end up close together. Retrieval compares the question's embedding with the chunks' embeddings, so the encoder largely decides what the system can find. Like other language models, encoders do not read words but tokens, short fragments of text that can be a whole word or part of one, and each encoder can only read a limited number of tokens at once. Early sentence encoders, such as Sentence-BERT~\citep{reimers2019sentencebert}, read a few hundred tokens at most and were trained to compare sentences of similar length, so anything longer was cut off. Newer encoders are built on LLMs, are trained specifically to match a short question to a longer passage, and read tens of thousands of tokens. Qwen3-Embedding, for example, reads up to 32 thousand~\citep{zhang2025qwen3embedding}. Encoders are usually compared on benchmarks such as MTEB~\citep{mtebmassivetextembedding}, which averages results over many languages. A benchmark for Portuguese alone, MTEB-PT, appeared only in 2026~\citep{okamura2026mtebpt}, and until then a Portuguese system had to choose its encoder from a multilingual average.
+
+\paragraph{Context.} One recent addition to indexing deals with chunks that lose their context. A chunk cut from the middle of a section often lacks the information that would make it findable, such as which party wrote it or which topic it belongs to. Contextual retrieval~\citep{anthropic2024contextual} addresses this by asking an LLM to write a short description of where each chunk sits in its document and storing that description with the chunk before it is embedded. The step is optional and costs one LLM call per chunk, but its authors report that it cut failed retrievals by almost half.
+
+\paragraph{Storage.} The embeddings are kept in a vector database, together with the text of each chunk, which is what the model will later read. To avoid comparing every question with every chunk, the database builds an approximate nearest-neighbour index, such as HNSW~\citep{malkov2020hnsw}, which finds the closest embeddings quickly at the cost of occasionally missing one.
+
+\subsection{Retrieval} \label{subsec:sota-retrieval}
+
+\paragraph{Dense search.} At question time, the question is encoded with the same model, and the chunks whose embeddings are closest to it are returned. This is called dense retrieval. It finds passages that express the same idea in different words, but it tends to blur exact terms that look alike in meaning. A question about the IRC, the Portuguese corporate income tax, may retrieve passages about the IRS, the personal income tax, because both are taxes. A proposal to set the minimum wage at one amount can look almost identical to a proposal that sets a different one, and the name of a specific programme, such as \textit{IRS Jovem}, can be lost among passages about taxes for young people in general.
+
+\paragraph{Lexical search.} Lexical search works the other way, by matching the words themselves. BM25~\citep{robertson2009bm25}, the standard method, scores a passage by how many of the question's words it contains, giving more weight to words that are rare across the collection. It did not disappear with dense retrieval, because it catches exactly what embeddings blur. A passage that contains ``IRC'' matches a question about the IRC, whatever an encoder makes of it.
+
+\paragraph{Fusion.} Running both searches produces two ranked lists, and their scores cannot be compared directly. A dense score measures how close two embeddings are on a fixed scale, while a BM25 score has no upper limit and depends on the question and the collection. Reciprocal Rank Fusion (RRF)~\citep{cormack2009rrf} avoids the problem by ignoring the scores and using only each passage's rank. A passage at rank $r$ in a list receives $1/(k + r)$ from that list, where $k$ is a constant (60 in the original paper), and its contributions from all lists are added up. A passage that is first in one list and missing from the other still scores well, and one that is fairly high in both scores better still. Combining dense and lexical search in this way became a common default~\citep{rag-survey}. The same idea can be applied to the question itself. RAG-Fusion~\citep{rackauckas2024ragfusion} asks an LLM to rewrite the question in several ways, searches with each version and fuses the results with RRF, so that a single unlucky wording no longer decides what is found.
+
+\paragraph{Query planning.} Some questions are better served by more than one search. A question comparing two parties, for instance, is better answered by searching each party's manifesto separately than by one search over all of them. Techniques of this kind, such as query routing, query rewriting and multi-query expansion, were rarely introduced in a single paper. They became widely used through blog posts, tutorials and open-source code. The \textit{RAG from Scratch} series~\citep{rag-from-scratch} collects them as short, runnable examples, and most of the query-time techniques in \sysname{} were first found there.
+
+\paragraph{Reranking.} The encoders used for search are bi-encoders, which turn the question and each passage into embeddings separately. The passages can therefore be encoded once, in advance, and each new question needs only one encoding and a fast comparison of vectors. The price is that the question and the passage never meet inside the model, so subtle differences in meaning can be missed. A cross-encoder reranker reads the question and a passage together, as a single input, and scores how well they match. This is more accurate but far slower, since every passage has to be processed again for every question. \citet{reimers2019sentencebert} illustrate the gap, as finding the most similar pair among 10,000 sentences takes about 65 hours with a cross-encoder and about 5 seconds with a bi-encoder. Reranking is therefore applied only to the shortlist that search returns, usually as the last step before generation~\citep{nogueira2019passagererankingbert,bge-reranker-v2-m3}.
+
+\subsection{Generation} \label{subsec:sota-generation}
+
+The retrieved passages are placed in the prompt together with the question and an instruction to answer from them. Two things matter at this stage. The model has to actually use the passages it is given, and how well it does so depends on how many there are and where they sit in the prompt (Section~\ref{subsec:sota-why-rag}). The answer should also say where each claim came from, so that a reader can check it against the source. This grounding is what separates a RAG answer from a model's unsupported recollection.
+
 \subsection{Advanced RAG variants} \label{subsec:sota-variants}
 
-The Retrieval-Augmented Generation (RAG) framework, introduced by \cite{rag-nlp}, combines a pre-trained retriever with a sequence-to-sequence (seq2seq) model, fine-tuned end-to-end. This integration enables the model to generate accurate, contextually grounded responses by leveraging external knowledge.
-
-Building on this, Self-RAG \cite{asai2024selfrag} introduces a self-reflective mechanism to dynamically assess retrieval and generation quality, improving efficiency and accuracy. Similarly, Corrective RAG (CRAG) \cite{crag} adds a lightweight retrieval evaluator to assess the overall quality of retrieved documents for a query, returning a confidence degree based on which different knowledge retrieval actions can be triggered. More recently, Agentic RAG \cite{agentic-rag} has emerged as an advanced paradigm by embedding autonomous AI agents into the RAG pipeline. These agents leverage agentic design patterns reflection, planning, tool use, and multiagent collaboration to dynamically manage retrieval strategies, iteratively refine contextual understanding, and adapt workflows to meet complex task requirements.
-
-\subsection{Recent developments} \label{subsec:sota-recent}
-
-The survey above was written in early 2025. By the time \sysname{} was
-evaluated, in late 2026, most of its practical advice had been revised. Five
-shifts mattered for this work; Chapter~\ref{ch:proposition} shows where each
-one overturned an earlier choice.
-
-\paragraph{Encoders trained for retrieval, with long windows.} Early
-sentence encoders were trained for similarity between sentences of similar
-length and read a few hundred tokens at most. The newer families are built on
-LLM backbones, trained specifically to match a short query to a longer
-passage, and read tens of thousands of tokens. Qwen3-Embedding is one, with a
-32-thousand-token window~\citep{zhang2025qwen3embedding}. Benchmarks moved
-too: MTEB~\citep{mtebmassivetextembedding} averages over many languages, and a
-Portuguese-specific benchmark, MTEB-PT, appeared only in
-2026~\citep{okamura2026mtebpt}. Until then, choosing a Portuguese encoder
-meant reading a multilingual average.
-
-\paragraph{Chunking measured, not guessed.} Chunk size was long set by rule
-of thumb, and the rule kept growing with LLM context windows. Systematic
-studies arrived in 2025: one found page-sized chunks best on
-average~\citep{nvidia-chunking}, another that the best size depends on the
-question, small for short factual answers and large only where the answer
-needs context~\citep{bhat2025rethinkingchunksize}.
-
-\paragraph{Hybrid search and fusion as standard.} Keyword search did not die
-with dense retrieval. BM25~\citep{robertson2009bm25} catches exact strings
-that embeddings blur, such as acronyms and programme names, and Reciprocal
-Rank Fusion~\citep{cormack2009rrf} merges lexical and dense rankings without
-calibrating their scores. RAG-Fusion~\citep{rackauckas2024ragfusion} applies
-the same fusion to several reformulations of one question. Contextual
-retrieval~\citep{anthropic2024contextual} goes one step earlier: an LLM writes
-a short context for each chunk before it is indexed, so a passage cut from the
-middle of a section still says what it is about. Rescoring the fused shortlist with a cross-encoder
-reranker~\citep{nogueira2019passagererankingbert,bge-reranker-v2-m3} became
-the usual last step.
-
-\paragraph{Evaluation by LLM judges.} Hand-rated answers do not scale, and
-reference-based scores such as BLEU reward wording, not facts. Frameworks such
-as RAGAs~\citep{es2024ragas} split an answer into claims and ask an LLM whether
-each is supported, while LLM-as-a-judge studies measured both the agreement of
-such judges with humans and their biases~\citep{zheng2023judging}
-(Section~\ref{sec:sota-evaluate}).
-
-\paragraph{Techniques as recipes.} Many of these techniques reached
-practitioners not through papers but through tutorials and code. The
-\textit{RAG from Scratch} series~\citep{rag-from-scratch} collects query
-translation, routing, multi-query expansion and fusion as runnable recipes,
-and is where most of \sysname{}'s query-time techniques were first met.
+The original RAG framework, introduced by \citet{rag-nlp}, combines a pre-trained retriever with a sequence-to-sequence (seq2seq) model, fine-tuned end-to-end. Much of the work since then leaves the core components frozen and improves what happens between them \citep{rag-survey}, and several variants add a step that checks the retrieval before trusting it. Self-RAG \citep{asai2024selfrag}, for example, trains the model to decide when to retrieve and to critique both the passages it receives and its own output. Corrective RAG (CRAG) \citep{crag} places a small evaluator after retrieval, and when the passages look unreliable, the system discards or refines them and searches elsewhere, such as the web, before generating. Agentic RAG \citep{agentic-rag} goes furthest, handing the pipeline to LLM agents that plan, call tools, reflect on intermediate results and try again, so that retrieval becomes a loop rather than a single step.
 
 \subsection{Is retrieval still worth it?} \label{subsec:sota-why-rag}
-%% DRAFT (Claude, 2026-10-10): to be read and rewritten in the author's own words.
-\TODO{REVIEW: Claude's draft of this subsection (2026-10-10). Read it, trim
-and sharpen it, and rewrite it in your own voice. The 750k-token corpus size
-was measured with the Qwen3-Embedding tokenizer; other tokenizers will differ
-somewhat.}
 
-Every jump in context length revives the same obituary: why retrieve a few
-passages when the model can simply read everything? The windows went from
-thousands of tokens to a million, and ``RAG is dead'' became a recurring
-industry refrain. For a corpus like this one, the obituary is premature.
-Six reasons:
+Between the start of this project in 2024 and its end in October 2026, one question kept coming back in industry discussions, usually phrased as ``Is RAG dead?''. The argument behind it is simple. Context windows grew from thousands of tokens to a million, so why retrieve a few passages when the model can read everything? For a project like this one, retrieval still earns its place, for six reasons.
 
-\begin{description}
-    \item[Reading everything is not reading well.] Long-context models use
-    their input unevenly. Information in the middle of a long prompt is used
-    worse than information at its edges~\citep{liu2024lostinthemiddle}, and
-    performance grows less reliable as the input grows, even on simple
-    tasks~\citep{hong2025contextrot}. A shortlist of relevant passages gives
-    the model less to get lost in.
-    \item[Reading everything is expensive.] The eight manifestos come to
-    roughly 750 thousand tokens. Sending them with every question means paying
-    for the whole corpus every time; \sysname{} sends at most 32 thousand,
-    over twenty times less. A controlled comparison found that long-context
-    models outperform RAG on average when resources are unlimited, while RAG
-    costs far less~\citep{li2024ragorlongcontext}. A civic tool meant to be
-    free does not have unlimited resources.
-    \item[The long tail is not in the weights.] Models remember popular facts
-    well and rare ones badly~\citep{kandpal2023largelanguagemodelsstruggle}.
-    A small party's housing proposal, written in European Portuguese, is about
-    as long-tail as knowledge gets.
-    \item[Receipts.] Every claim in a RAG answer can cite the passage it came
-    from. For political information the citation is the product: a reader who
-    doubts an answer can check it in seconds.
-    \item[The parties' words, not the model's.] Language models absorb
-    political leanings from their training
-    data~\citep{pretraining-political-bias}. Grounding answers in the
-    manifestos keeps the model reporting positions rather than holding them,
-    and makes ``the manifestos do not say'' a legitimate answer instead of an
-    invitation to improvise.
-    \item[New election, same model.] Updating a RAG system means indexing new
-    documents, not retraining a model. Adding a party outside parliament or a
-    past election is a data task, and no answer depends on a training cutoff.
-\end{description}
+\paragraph{Quality.} Long-context models do not use their input evenly. Information in the middle of a long prompt is used worse than information at its start or end~\citep{liu2024lostinthemiddle}, and performance becomes less reliable as the input grows, even on simple tasks~\citep{hong2025contextrot}. A shortlist of relevant passages gives the model less to get lost in.
 
-To be fair to the other side: retrieval brings failure modes of its own. A
-passage that is never retrieved can never be cited, and
-Chapter~\ref{ch:proposition} documents two failures that went unnoticed for
-months. Hybrid designs such as Self-Route~\citep{li2024ragorlongcontext},
-which answer from retrieved passages and fall back to the full context only
-when those fall short, suggest the real answer is ``both, routed well''.
-Whether \sysname{} earns its keep against a strong model with no retrieval at
-all is not argued here but measured: it is RQ5
-(Section~\ref{sec:research-questions}).
+\paragraph{Cost.} The eight manifestos come to roughly 750 thousand tokens.\footnote{Counted with the Qwen3-Embedding tokenizer. Other tokenizers give somewhat different counts.} Sending all of them with every question means paying for the whole corpus every time, while \sysname{} sends at most 32 thousand, over twenty times less. A controlled comparison found that long-context models outperform RAG on average when resources are unlimited, but at a much higher cost~\citep{li2024ragorlongcontext}. A civic tool meant to be free does not have unlimited resources.
 
-%% Decision (Claude's proposal, 2026-10-16): no separate embeddings survey here.
-%% Encoder families and benchmarks are covered in Recent developments; the
-%% specific candidates live in the Proposition (subsec:embeddings).
-\begin{comment}
-\subsection{Embeddings}
+\paragraph{Coverage.} Models remember popular facts well and rare ones poorly~\citep{kandpal2023largelanguagemodelsstruggle}. A small party's housing proposal, written in European Portuguese, is exactly the kind of long-tail knowledge a model is unlikely to have seen.
 
-% Tem de ser melhorado
+\paragraph{Traceability.} Every claim in a RAG answer can point to the passage it came from. For political information, that citation is the product itself, since a reader who doubts an answer can check it in seconds.
 
-Embeddings play a crucial role in the RAG pipeline, as they encode the semantic meaning of words, phrases, or documents into numerical representations that machines can process. By transforming text into dense vector spaces, embeddings enable tasks such as semantic similarity calculation, which is essential for retrieving relevant documents and generating contextually appropriate responses.
-\end{comment}
+\paragraph{Neutrality.} Language models absorb political leanings from their training data~\citep{pretraining-political-bias}. Grounding answers in the manifestos keeps the model reporting positions rather than holding them, and makes ``there is no information in the manifestos about this'' a legitimate answer instead of an invitation to improvise.
+
+\paragraph{Maintenance.} Updating a RAG system means indexing new documents, not retraining a model. Adding a party outside parliament or a past election is a data task, and no answer depends on a training cutoff.
+
+Retrieval has failure modes of its own, of course. A passage that is never retrieved can never be cited, and Chapter~\ref{ch:proposition} documents two such failures that went unnoticed for months. Hybrid designs such as Self-Route~\citep{li2024ragorlongcontext} answer from the retrieved passages and fall back to the full context only when those fall short, which suggests that the best answer is to use both and route well between them. Whether \sysname{} earns its keep against a strong model with no retrieval at all is not argued here but measured, as research question RQ5 (Section~\ref{sec:research-questions}).
 
 \section{NLP for political text analysis} \label{sec:sota-political}
 
-The analysis of political texts, such as electoral programs and manifestos, has been a growing area of interest in NLP. Studies have applied various techniques, including topic modeling, sentiment analysis, and semantic similarity, to analyze electoral programs in multiple languages \cite{manifestos-central-eastern, manifestos-nz}.
+Party manifestos have been studied in two ways, and neither answers a citizen's question.
 
-In the context of the Portuguese language, \cite{rag-chatbot} demonstrated the application of RAG in developing conversational agents, while \cite{paula-etal-2024-evaluation} applied two Question Answering Generation (QAG) approaches to generate question-answer pairs for three domains in Portuguese using different decoding methods. The recent work by \cite{marino-etal-2024-decoding} has explored the decoding of political discourse, highlighting the unique linguistic and cultural nuances of Portuguese electoral programs. However, these studies have primarily relied on traditional NLP methods or have focused on applying RAG to domains other than political text analysis.
+Political science treats manifestos as data. Wordscores, an early and influential method, places parties on policy scales by comparing the words they use~\citep{laver_benoit_garry}. Later studies added topic models, sentiment analysis and classifiers, and applied them to manifestos in several languages~\citep{manifestos-nz,manifestos-central-eastern}. Portuguese manifestos have been studied in the same way, with \citet{marino-etal-2024-decoding} measuring the sentiment towards migration in the manifestos of 2011, 2015 and 2019 with a multilingual BERT model. What these methods produce is a position, a score or a label, which is useful to a researcher but is not an answer a voter can check.
 
-Work on manifestos themselves follows two traditions, and neither answers
-a citizen's question. Political science treats them as data: Wordscores
-places parties on policy scales from their word
-frequencies~\citep{laver_benoit_garry}, and later work adds topic models and
-classifiers~\citep{manifestos-nz,manifestos-central-eastern}. The output is a
-position or a label for researchers, not an answer a voter can check. Civic
-tools go the other way. Comparators such as the \textit{Expresso} programme
-comparator~\citep{expresso-comparador} and
-\textit{PolíticaAtivaPT}~\citep{politicaativa-comparar} put the parties side by
-side on a fixed list of issues, written and curated by hand: readable, but
-limited to the questions their editors chose.
+Civic tools start from the voter instead. Comparators such as the \textit{Expresso} programme comparator~\citep{expresso-comparador} and \textit{PolíticaAtivaPT}~\citep{politicaativa-comparar} place the parties side by side on a fixed list of issues, written and curated by hand. They are easy to read, but they only answer the questions their editors chose.
 
-RAG sits between the two. Political-RAG~\citep{political-rag} applies it to
-extract political information from media content, and the IR community expects
-LLMs to reshape how such information is searched~\citep{llm-future}. Portuguese
-RAG work so far targets other domains~\citep{rag-chatbot}. \sysname{} takes
-the open question of a chatbot, the grounding of a comparator and the
-manifestos as its only source: any question, answered from the parties' own
-text, with every claim traceable to the page it came from.
+Voting advice applications (VAAs) go a step further. The user rates a set of statements and is told which party is closest. These tools are popular, but their result depends heavily on which statements are chosen and how they are worded~\citep{walgrave2009statement}.\footnote{A personal aside, written as a voter rather than from the NLP literature. The \textit{Votómetro} published by Observador for the 2025 legislative election~\citep{observador2025votometro} reduces the campaign to 19 statements, and healthcare gets only one of them, ``O Estado deve garantir os meios para que todos os cidadãos tenham acesso a cuidados de saúde, independentemente do prestador de serviços (público, privado ou social)''. That statement asks two questions at once, so a voter who wants universal access with the public service first has no answer that fits. The tool was designed by political scientists and does not claim to recommend a vote, but examples like this are part of what motivated a tool in which voters ask their own questions.} Like comparators, they fix the questions in advance, and they show the user a result without the text behind it.
+
+RAG can combine the strengths of both approaches. Political-RAG~\citep{political-rag} already uses it to extract political information from media content. In Portuguese, RAG has been used to reduce hallucination in a chatbot~\citep{rag-chatbot}, and question-answer generation has been evaluated in three domains~\citep{paula-etal-2024-evaluation}, but neither work deals with political text. LLMs are expected to change how people search for information in general~\citep{llm-future}, yet for manifestos that change has not happened. \sysname{} aims to fill this gap. Like a chatbot, it accepts any question. Like a comparator, it answers only from what the parties wrote. Unlike either, every claim in its answers points to the page it came from.
 
 \section{Evaluating RAG systems} \label{sec:sota-evaluate}
 
-A RAG system can fail in two places: retrieval can miss the passage that
-answers the question, and generation can misuse the passage it was given. The
-two are evaluated separately, because a good score on one hides a failure in
-the other.
+A RAG system can fail in two places. Retrieval can miss the passage that answers the question, and generation can misuse the passage it was given. The two are evaluated separately, because a good score on one can hide a failure in the other.
 
 \subsection{Metrics} \label{subsec:sota-metrics}
 
-\paragraph{Retrieval.} Given the passages known to answer a question, the
-classic IR metrics ask whether the system found them and how high it ranked
-them. Hit rate counts questions with at least one relevant passage retrieved;
-recall@$k$ is the share of relevant passages in the top $k$; mean reciprocal
-rank (MRR) rewards putting the first relevant passage near the top; and nDCG
-discounts every relevant passage by its rank~\citep{jarvelin2002ndcg}. All of
-them need a gold set of relevant passages per question, which for a new
-corpus someone has to build.
+\paragraph{Retrieval.} Retrieval is judged with metrics from information retrieval (IR), the field that studies search systems. They all start from a gold set, a list of the passages known to answer each question, which for a new corpus has to be built by hand. The system returns a ranked list of passages, usually cut at the first $k$, and each metric asks a different question about that list. \emph{Hit rate} asks the simplest one, whether at least one relevant passage appears in the list, and reports the share of questions for which it does. \emph{Recall@$k$} asks how many of the relevant passages were found, as a share of all of them. \emph{Mean reciprocal rank} (MRR) looks at where the first relevant passage appears. A question scores 1 if that passage is first, 1/2 if it is second, 1/3 if it is third, and so on, and the scores are averaged over all questions. \emph{Normalised discounted cumulative gain} (nDCG) considers every relevant passage, not only the first, and gives each one less credit the lower it is ranked. The total is divided by the best score possible, so that 1 means a perfect ordering~\citep{jarvelin2002ndcg}. Recall says whether the right passages were found at all, while MRR and nDCG say whether they were placed where the generator is most likely to use them.
 
-\paragraph{Generation.} RAGAs~\citep{es2024ragas} defines the metrics most
-RAG evaluations now borrow. \emph{Faithfulness} splits the answer into claims
-and counts the share that the retrieved context supports; \emph{answer
-relevancy} asks whether the answer addresses the question; \emph{context
-precision} and \emph{context recall} judge the retrieved passages themselves.
-Correctness against a reference answer can be scored the same way, claim by
-claim.
+\paragraph{Generation.} Judging an answer is harder than judging a ranked list, because a correct answer can be worded in many ways. There are two things to compare it with. The retrieved passages show what the system had available, and a reference answer, written by hand for each question, shows what a good answer should contain. Older reference-based scores, such as BLEU, count the words an answer shares with the reference, and so reward phrasing rather than facts. RAGAs~\citep{es2024ragas} instead breaks the answer into claims, single statements of fact such as ``party X proposes lowering the corporate tax rate'', and judges each claim separately. RAGAs and the library built around it define the metrics most RAG evaluations now use. \emph{Faithfulness} is the share of the answer's claims that the retrieved passages support, so it catches content the model added on its own. \emph{Answer relevancy} measures whether the answer addresses the question that was asked, whether or not it is correct. \emph{Context precision} checks whether the relevant passages are ranked above the irrelevant ones, and \emph{context recall} checks how much of the reference answer can be found in the retrieved passages. Correctness can be scored in the same way, by comparing the answer's claims with those of the reference answer, which shows both what the answer got wrong and what it left out.
 
-\paragraph{LLM judges.} Each of these steps is done by an LLM. Strong judges
-agree with human raters about as often as humans agree with each other, but
-they carry biases of their own: they favour the first answer shown, longer
-answers, and answers written by their own model
-family~\citep{zheng2023judging}. Two precautions follow, and both are used in
-this work (Section~\ref{subsec:metrics}): the judge comes from a different
-model family from the generator, and a sample of its verdicts is rated by
-hand.
+\paragraph{LLM judges.} Each of these judgements is made by an LLM, an approach known as LLM-as-a-judge. Strong judges agree with human raters about as often as humans agree with each other, but they have biases of their own. They favour the first answer shown, longer answers, and answers written by models of their own family~\citep{zheng2023judging}. This work takes two precautions against these biases (Section~\ref{subsec:metrics}). The judge comes from a different model family from the generator, and a sample of its verdicts is checked by hand.
 
-\begin{comment}
-\section{Index}
+\section*{Summary}
 
-In this example, several keywords\index{keywords} will be used
-which are important and deserve to appear in the Index\index{Index}.
-
-Terms like generate\index{generate} and some\index{others} will also
-show up. Terms in the index can also be nested \index{Index!nested}.
-
-Cf. the \texttt{dissertation.bib} file to see some index definitions like \uminho{UMinho}.
-\end{comment}
+This review shows that the building blocks are in place. RAG is mature enough to build on, and there are workable tools for evaluating it. What is missing is its use for this problem. Manifestos have been studied as data and summarised by hand, but no tool lets a voter ask them any question and check the answer against the text, and none does so in European Portuguese. Chapter~\ref{ch:problem} turns from what exists to what makes this particular corpus hard.
