@@ -48,26 +48,26 @@ Put simply: given the manifestos, a RAG system should find the passages that mat
 The hypothesis is too broad to test directly, so it is split into five questions the evaluation harness can answer. Each maps to a part of \sysname{}: RQ1 to indexing, RQ2 to retrieval, RQ3 to generation, and RQ4 and RQ5 to the system as a whole.
 
 \begin{description}
-    \item[RQ1 --- Representation.] How do representation choices --- measuring
-    chunk size in the encoder's own tokens, and enriching each chunk with its
-    section path and an LLM-written context --- affect retrieval quality over
+    \item[RQ1 (Representation).] How do representation choices, such as measuring
+    chunk size in the encoder's own tokens and enriching each chunk with its
+    section path and an LLM-written context, affect retrieval quality over
     Portuguese electoral manifestos?
 
-    \item[RQ2 --- Retrieval.] Which retrieval techniques (structured query
+    \item[RQ2 (Retrieval).] Which retrieval techniques (structured query
     analysis with routing, multi-query expansion with rank fusion, hybrid
     dense and lexical search, cross-encoder reranking) improve retrieval over
     a naive baseline, and how much does each contribute on its own?
 
-    \item[RQ3 --- Generation.] Do retrieval improvements translate into
+    \item[RQ3 (Generation).] Do retrieval improvements translate into
     better answers, measured as faithfulness to the retrieved manifesto
     content, relevance to the question, and correctness against a reference
     answer?
 
-    \item[RQ4 --- Cost.] What do these improvements cost in latency, tokens
+    \item[RQ4 (Cost).] What do these improvements cost in latency, tokens
     and money, and which of them are worth that cost for a tool intended for
     public use?
 
-    \item[RQ5 --- Retrieval versus scale.] How does \sysname{} compare with
+    \item[RQ5 (Retrieval versus scale).] How does \sysname{} compare with
     asking a language model the same question without retrieval, in answer
     quality and in resources consumed? Does a small model with the manifestos
     match or beat a stronger model without them?

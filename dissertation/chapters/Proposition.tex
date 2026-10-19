@@ -380,6 +380,14 @@ must be trained for \emph{retrieval} (matching a short question to a longer
 passage that answers it) rather than for sentence similarity, and its input
 window must fit the chunk budget.
 
+\paragraph{Language.} One option came before any model. Early in the work,
+Portuguese models were scarce enough that translating the corpus into English,
+where stronger encoders and LLMs existed, looked like a way around the problem.
+It was ruled out for three reasons. In political text the exact wording
+matters, a translation would add a layer of interpretation between the voter
+and the party, and studying RAG in European Portuguese is part of what this
+work set out to do.
+
 \paragraph{Candidates.} The preliminary research used the Massive Text
 Embedding Benchmark (MTEB)~\cite{mtebmassivetextembedding} to shortlist
 models supporting Portuguese: BERTimbau~\citep{souza2020bertimbau}, Sentence-BERT~\citep{reimers2019sentencebert},

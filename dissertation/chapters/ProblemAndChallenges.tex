@@ -1,171 +1,82 @@
-% ============================================================
-%  RESTRUCTURED 2026-10-10, TRIMMED the same day. Problem statement +
-%  the challenges faced before implementation: each one names the
-%  challenge, the options, and the choice, with a pointer to the
-%  Proposition section that develops it.
-% ============================================================
-
 \chapter{The problem and its challenges} \label{ch:problem}
-%% DRAFT (Claude, 2026-10-10). To be read and rewritten in the author's own words.
-\TODO{REVIEW: Claude's draft of this chapter (2026-10-10). Read it, check the
-facts and the framing, and rewrite it in your own words.}
 
 \section{Problem statement} \label{sec:problem-statement}
 
-Manifestos are the fullest public statement of what each party would do in
-government, and almost nobody reads them. The eight from the 2024 Portuguese
-legislative election run to roughly 1{,}400 pages between them, each with its
-own structure, vocabulary and level of detail, all in European Portuguese. A
-voter who wants to compare housing proposals has eight long documents and an
-afternoon to lose.
+Manifestos are the most complete public statement of what each party would do in government, yet few voters read them. As Chapter~\ref{ch:introduction} showed, the eight manifestos of the 2024 Portuguese legislative election add up to almost 1{,}400 pages, and each has its own structure, vocabulary and level of detail.
 
-This thesis asks whether Retrieval-Augmented Generation can close that gap:
-answer a citizen's question with what the manifestos actually say, attributed
-to the right party, traceable to its source, and fair to every party.
-\sysname{} (Chapter~\ref{ch:proposition}) is the instrument for answering
-that question, not the goal. The challenges below shaped it before a line of
-code was written.
+This work asks whether Retrieval-Augmented Generation can close that gap, by answering a citizen's question with what the manifestos actually say. A good answer has to meet four conditions. It must be attributed to the right party, it must be fair to every party in scope, it must be traceable to its source, and it must work in European Portuguese. \sysname{} (Chapter~\ref{ch:proposition}) is the instrument used to study this question rather than the goal in itself.
 
-% ============================================================
-\section{Challenges of the domain} \label{sec:challenges-domain}
-% ============================================================
+Meeting these conditions raises a number of challenges, which this chapter groups in three parts. The first concerns the manifestos themselves and the questions people ask about them (Section~\ref{sec:challenges-domain}). The second concerns the conditions under which the work was carried out, in particular the absence of an evaluation dataset and limited computational and financial resources (Section~\ref{sec:challenges-setting}). The third concerns the pace at which the field changed during the work (Section~\ref{sec:challenges-moving}). Each challenge is presented here as a problem, together with the section of Chapter~\ref{ch:proposition} in which it is addressed.
+
+\section{What makes manifestos hard} \label{sec:challenges-domain}
 
 \subsection{European Portuguese} \label{subsec:challenge-language}
 
-Most encoders, rerankers and benchmarks are built for English. Where
-Portuguese is covered, it is usually Brazilian. Portuguese-native models
-exist but are few, and the language adds its own traps: homonyms
-(\textit{canto} is ``corner'' or ``I sing''), and rich inflection that
-scatters one concept across many word forms. The options were a native
-encoder, a multilingual one, or translating everything into English and
-working there. Translation was ruled out, since wording matters too much in
-this domain. The encoder went from native to multilingual, for reasons that had more to
-do with input length than with language (Section~\ref{subsec:embeddings}).
+Most encoders, rerankers and benchmarks are built for English, and where Portuguese is covered, it is usually the Brazilian variety. BERTimbau, one of the best-known Portuguese models, was trained on Brazilian text~\citep{souza2020bertimbau}, and models built specifically for European Portuguese, such as Serafim~\citep{gomes2024serafim}, are few. The two varieties differ in more than spelling, and some of the differences fall right on political vocabulary. In Portugal, \textit{propinas} are university tuition fees, a recurring topic in education policy, while in Brazil the same word means a bribe. \textit{Renda} is the rent paid for a home in Portugal, but income in Brazil. The language also changes the form of its words far more than English does. A verb such as \textit{reduzir} (to reduce) appears as \textit{reduz}, \textit{reduzimos}, \textit{reduzirá} or \textit{reduzida}, depending on who does the reducing, when, and what is being reduced, and a search for one form can miss the others. Whether to work with a Portuguese model, a multilingual one, or to translate the whole corpus into English was therefore one of the first decisions of this work (Section~\ref{subsec:embeddings}).
 
-\subsection{Documents built for print} \label{subsec:challenge-documents}
+\subsection{Documents written for people} \label{subsec:challenge-documents}
 
-Manifestos are designed to be read on paper: multiple columns, decorative
-covers, running headers, infographics, and a heading structure that exists
-only visually. Retrieval needs clean text in reading order, plus the section
-structure that says what each passage is about. Plain-text extractors lose
-the structure, and cloud parsers cost money. The choice was a local,
-layout-aware parser that outputs Markdown, followed by cleaning: by hand at
-first, later automated and checked (Sections~\ref{subsec:parsing}
-and~\ref{subsec:cleaning}).
+Manifestos are written for people, not for computers. Few are printed today, and parties expect them to be read as PDFs or, in some cases, chapter by chapter on their websites. They still keep the conventions of print, with multiple columns, decorative covers, running headers and infographics. A PDF also stores its text as characters placed on a page, without recording which line is a title, which is a section heading and which is ordinary text. A reader sees the structure through font size and weight, but a program sees only a stream of characters. Retrieval, however, needs clean text in reading order, together with the section structure that says what each passage is about. Turning eight manifestos into text of that kind, without losing their structure, is the first step of the pipeline (Sections~\ref{subsec:parsing} and~\ref{subsec:cleaning}).
 
 \subsection{Political stakes} \label{subsec:challenge-stakes}
 
-Elsewhere, a slightly wrong answer is an inconvenience. Here it is
-misinformation about an election, and a fluent wrong answer is worse than none.
-Language models also bring political leanings of their
-own~\citep{pretraining-political-bias}. The answer is to keep the model on a
-short leash. It answers only from the retrieved text, cites every claim, and
-has a fixed way to say ``the manifestos do not answer this''. The one
-political judgement the system cannot avoid, which parties ``the right'' means,
-comes from a cited source rather than the model's opinion
-(Sections~\ref{subsec:queryanalysis} and~\ref{sec:generation}).
+In most domains, a slightly wrong answer is an inconvenience. Here it is misinformation about an election, and a fluent wrong answer is worse than no answer at all. Language models also carry political leanings of their own~\citep{pretraining-political-bias}, which could colour how they summarise a party. Some political judgements cannot be avoided altogether. A question about ``the right-wing parties'' requires deciding which parties that phrase covers, and that decision should not rest on the model's own view of Portuguese politics.
+
+Grounding the answer in the manifestos removes one source of bias but brings in another. Manifestos are persuasive texts, and parties often present their proposals through a critique of their opponents or of the current state of affairs, as when a party argues for a smaller State by describing it as wasteful. A model that summarises such passages can carry that framing into its answer and present a party's diagnosis as fact. The system has to keep the model's opinions out of the answer without letting the parties' opinions in as facts. Sections~\ref{subsec:queryanalysis} and~\ref{subsec:grounding} describe how it tries, and Chapter~\ref{ch:conclusion} discusses what remains unsolved.
 
 \subsection{Fairness between parties} \label{subsec:challenge-fairness}
 
-Standard retrieval returns the passages that score highest, wherever they come
-from, which rewards the parties that write the most. For ``what does each
-party propose on housing?'', an answer that quietly covers five parties while
-appearing to cover eight is bias by omission. So questions about several
-parties search each party separately, with equal slots, and the answer stage
-is built not to drop a party once it has been found
-(Sections~\ref{subsec:routing} and~\ref{subsec:context}).
+Standard retrieval returns the passages that score highest, wherever they come from, which favours the parties that write the most. For a question such as ``what does each party propose on housing?'', an answer that quietly covers five parties while appearing to cover eight is bias by omission. A system that answers questions about several parties has to give each of them a fair chance of being found, and has to keep every party it finds in the final answer (Sections~\ref{subsec:routing} and~\ref{subsec:context}).
 
 \subsection{Many kinds of question} \label{subsec:challenge-questions}
 
-``What does PAN propose on bullfighting?'' concerns one party. ``How do PS and
-AD differ on taxes?'' compares two. ``Which party proposes most on housing?''
-needs all eight but wants a single verdict, and ``What do the right-wing
-parties say on immigration?'' names a group rather than parties. One fixed
-pipeline serves some of these well and the rest badly. An LLM therefore reads
-each question first, and its reading decides how to search and how to lay out
-the answer. Letting an agent plan the whole retrieval is left as future work
-(Sections~\ref{subsec:queryanalysis}--\ref{subsec:agentic}
-and~\ref{subsec:synthesis}).
+Questions differ in shape. ``What does PAN propose on bullfighting?'' concerns one party, while ``How do PS and AD differ on taxes?'' compares two. ``Which party proposes most on housing?'' needs all eight but asks for a single verdict, and ``What do the right-wing parties say on immigration?'' names a group rather than parties. Some questions ask about absence, such as whether a party ever mentions a topic, and a search that returns the closest passages cannot prove that something is missing. A single fixed pipeline serves some of these shapes well and the rest badly, so the system has to recognise what kind of question it is facing before it searches (Sections~\ref{subsec:queryanalysis} to~\ref{subsec:agentic} and~\ref{subsec:synthesis}).
 
-% ============================================================
-\section{Challenges of the setting} \label{sec:challenges-setting}
-% ============================================================
+\section{Working with little} \label{sec:challenges-setting}
 
 \subsection{No ground truth} \label{subsec:challenge-groundtruth}
 
-No question-answering dataset exists for Portuguese manifestos, and without one
-every design choice rests on a few hand-picked examples. That is exactly how
-the failures in Chapter~\ref{ch:proposition} hid for months. Writing a dataset
-entirely by hand is slow, while generating it with an LLM risks grading the
-model against itself. The middle road was taken. The questions are written by hand; an LLM
-proposes the passages that answer each one and a reference answer, and every
-proposal is reviewed by hand. Answers are scored by an LLM judge from a
-different model family from the generator, with a sample of its verdicts rated
-by hand (Sections~\ref{subsec:goldset} and~\ref{subsec:metrics}).
+No question-answering dataset exists for Portuguese manifestos. Without one, every design choice rests on a few hand-picked examples, which is how the failures described in Chapter~\ref{ch:proposition} went unnoticed for months. Writing a full dataset by hand is slow, while generating it with an LLM risks grading models against material written by a model, and LLM judges are known to favour answers from their own model family~\citep{zheng2023judging}. Building a test set that can be trusted, and scoring answers without trusting a single model, are the subject of Sections~\ref{subsec:goldset} and~\ref{subsec:metrics}.
 
 \subsection{A student budget} \label{subsec:challenge-resources}
 
-The thesis had a laptop instead of a GPU server, free-tier services with
-strict rate limits for most of its life, and a ten-dollar API key at the end,
-while classification and evaluation each need hundreds of LLM calls. The
-encoder and reranker therefore run locally, generation uses small open-weight
-models served cheaply (free at first, a low-cost paid endpoint from October
-2026), every call's cost is logged, and every long job can resume where it
-stopped (Sections~\ref{subsec:classification} and~\ref{subsec:llm}). A side effect worth keeping: anyone can run the system.
+The thesis had a laptop rather than a GPU server, free-tier services with strict rate limits for most of its life, and a ten-dollar API key at the end, while topic classification and evaluation each need hundreds of LLM calls. Every component had to fit within those limits, and every long job had to survive being interrupted halfway (Sections~\ref{subsec:classification} and~\ref{subsec:llm}).
 
-% ============================================================
 \section{A moving target} \label{sec:challenges-moving}
-% ============================================================
 
-This work ran from 2024 to 2026, while the field changed faster than ever.
-That speed was a challenge in its own right, and the one most specific to this
-thesis.
+This work ran from 2024 to 2026, a period in which RAG practice and the models behind it changed quickly. That pace was a challenge in its own right, and the one most specific to this work.
 
 \subsection{No settled best practice} \label{subsec:challenge-practices}
 
-How big should a chunk be, and measured in what? Which encoder suits a
-non-English retrieval task? Is keyword search still worth keeping? How do you
-even evaluate a RAG system? The advice on each changed within months, and a
-new technique arrived roughly every other month. More than one choice in this
-work followed the best guidance of its day and was outdated by the time it
-shipped (Section~\ref{sec:sota-rag}). Rather than freeze the design or
-chase every trend, the system was built for change. Every technique sits behind
-a feature flag, a ladder of variants measures what each one adds, and every
-reversal is recorded with its reason (Section~\ref{subsec:variants}).
+How big should a chunk be, and in what unit should it be measured? Which encoder suits retrieval in a language other than English? Is keyword search still worth keeping? How should a RAG system be evaluated at all? The advice on each of these questions changed within months (Section~\ref{sec:sota-rag}), and more than one choice in this work followed the best guidance of its day and was outdated by the time it was built. A design fixed at the start would have aged before it was finished, so the question became how to build a system that could change without losing track of why each change was made (Section~\ref{subsec:variants}).
 
 \subsection{Models that outpace the system} \label{subsec:challenge-obsolescence}
 
-The models moved even faster. Within a year, the candidates surveyed at the
-start had been overtaken by models that were better, cheaper, and able to read
-far longer inputs (Section~\ref{subsec:llm}). Each release raised the same
-uncomfortable question: if a frontier model can read every manifesto at once,
-why retrieve at all? This thesis treats that as a hypothesis, not a threat.
-The case for retrieval is made in Section~\ref{subsec:sota-why-rag}, and RQ5
-puts it to the test (Section~\ref{sec:research-questions}).
+The models moved even faster. Within a year, the language models considered at the start had been overtaken by models that were better, cheaper and able to read far longer inputs (Section~\ref{subsec:llm}). Each release raised the same question, which is why anyone should retrieve at all if a frontier model can read every manifesto at once. This work treats that question as a hypothesis to test rather than a threat. Section~\ref{subsec:sota-why-rag} sets out the case for retrieval, and research question RQ5 puts it to the test (Section~\ref{sec:research-questions}).
 
-% ============================================================
 \section{Summary} \label{sec:challenges-summary}
-% ============================================================
+
+Table~\ref{tab:challenges} gathers the challenges, the question each one raises and the section in which it is answered. Together they define what \sysname{} has to be. It must give grounded, cited and balanced answers in European Portuguese, run on modest means, be evaluated honestly, and be able to change as the field does. Chapter~\ref{ch:proposition} describes how it was built to meet these demands.
 
 \begin{table}[htbp]
     \centering
     \small
     \begin{tabular}{|p{0.27\textwidth}|p{0.47\textwidth}|p{0.14\textwidth}|}
         \hline
-        \textbf{Challenge} & \textbf{Approach chosen} & \textbf{Section} \\
+        \textbf{Challenge} & \textbf{Question it raises} & \textbf{Section} \\
         \hline
-        European Portuguese & Work in Portuguese, no translation; a long-window multilingual encoder & \ref{subsec:embeddings} \\
-        Documents built for print & Layout-aware parser to Markdown, then checked cleaning & \ref{subsec:parsing}, \ref{subsec:cleaning} \\
-        Political stakes & Grounded answers, per-claim citations, fixed abstention, cited party placement & \ref{sec:generation} \\
-        Fairness between parties & Per-party search with equal slots; no party dropped in synthesis & \ref{subsec:routing}, \ref{subsec:context} \\
-        Many kinds of question & Query analysis, derived routes, answer shapes & \ref{subsec:queryanalysis}--\ref{subsec:routing} \\
-        No ground truth & Hand-written, passage-anchored gold set; cross-family LLM judge, sampled by hand & \ref{subsec:goldset}, \ref{subsec:metrics} \\
-        A student budget & Local encoder and reranker; cheap open-weight LLMs; logged cost; resumable jobs & \ref{subsec:llm} \\
-        No settled best practice & Feature flags, a variant ladder, recorded decisions & \ref{subsec:variants} \\
-        Models that outpace the system & Test retrieval against no retrieval (RQ5) & \ref{sec:research-questions} \\
+        European Portuguese & Which models, and in which language should the system work? & \ref{subsec:embeddings} \\
+        Documents written for people & How does a PDF become clean, structured text? & \ref{subsec:parsing}, \ref{subsec:cleaning} \\
+        Political stakes & How do answers stay neutral when both the model and the sources hold views? & \ref{subsec:queryanalysis}, \ref{subsec:grounding} \\
+        Fairness between parties & How does every party get a fair chance to appear in the answer? & \ref{subsec:routing}, \ref{subsec:context} \\
+        Many kinds of question & How does the system tell what kind of question it faces? & \ref{subsec:queryanalysis}--\ref{subsec:routing} \\
+        No ground truth & How can the system be evaluated without an existing dataset? & \ref{subsec:goldset}, \ref{subsec:metrics} \\
+        A student budget & How can the system run on a laptop and a few dollars? & \ref{subsec:llm} \\
+        No settled best practice & How can the design change without losing track of why? & \ref{subsec:variants} \\
+        Models that outpace the system & Is retrieval still worth it? & \ref{sec:research-questions} \\
         \hline
     \end{tabular}
-    \caption{Challenges, the approach chosen for each, and where it is
-    developed.}
+    \caption{Challenges, the question each one raises, and where it is
+    answered.}
     \label{tab:challenges}
 \end{table}
