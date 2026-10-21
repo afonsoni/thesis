@@ -35,10 +35,10 @@
     "coverage_acc": 0.8889,
     "party_f1": 0.3611,
     "topic_f1": 0.1111,
-    "faithfulness": 0.9332,
+    "faithfulness": 0.9336,
     "correctness_recall": 0.4091,
     "correctness": 0.3625,
-    "correctness_grounded": 0.496,
+    "correctness_grounded": 0.4955,
     "answer_relevance": 0.8125,
     "false_refusal": 0.1562,
     "abstention": 1.0,
@@ -8395,7 +8395,9 @@
         "correctness_recall": 0.32142857142857145,
         "correctness": 0.34758620689655173,
         "answer_relevance": 1.0,
-        "false_refusal": 0.0
+        "false_refusal": 0.0,
+        "faithfulness": 0.9459459459459459,
+        "correctness_grounded": 0.4798172124904798
       },
       "judgements": {
         "correctness_recall": [
@@ -9011,7 +9013,194 @@
           "score": 5,
           "abstained": false,
           "rationale": "A resposta é extremamente completa e direta. Organiza as medidas propostas por diferentes partidos em categorias lógicas (proteção, judicial, prevenção), citando exemplos específicos para cada eixo, o que responde totalmente à pergunta."
-        }
+        },
+        "faithfulness": [
+          {
+            "claim": "O Bloco de Esquerda propõe a garantia de prioridade na atribuição de habitação pública e a custos controlados para mulheres vítimas de violência doméstica e seus filhos em caso de abandono da moradia familiar.",
+            "supported": true,
+            "reason": "O Documento 4 (Bloco de Esquerda) afirma explicitamente: \"Garantia que as mulheres vítimas de violência doméstica e os seus filhos têm prioridade na atribuição de habitação pública e a custos controlados, no caso de terem de abandonar a moradia familiar\"."
+          },
+          {
+            "claim": "A Iniciativa Liberal propõe o envolvimento do poder local, poder judicial, sociedade civil e setor privado na rede de apoio à habitação para vítimas de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 7 (Iniciativa Liberal) afirma: \"tem de se envolver o poder local na rede de apoio à habitação... numa verdadeira articulação entre o poder local, o poder judicial e a sociedade civil... Se tal se revelar uma necessidade, entendemos que pode e deve existir um envolvimento do setor privado\"."
+          },
+          {
+            "claim": "O PAN propõe o aumento das respostas habitacionais para vítimas e sobreviventes de violência doméstica, abrangendo o emergente, temporário, médio e longo prazo para apoiar a autonomização.",
+            "supported": true,
+            "reason": "O Documento 5 (PAN) afirma: \"Aumentar as respostas habitacionais para vítimas/sobreviventes de violência doméstica e de género... não só de emergência e temporárias, mas também de médio e longo prazo, apoiando os processos de autonomização\"."
+          },
+          {
+            "claim": "O PAN propõe a garantia de prioridade de alojamento a mulheres e vítimas de violência doméstica e abusos sexuais em situação iminente de sem-abrigo.",
+            "supported": true,
+            "reason": "O Documento 2 (PAN) afirma: \"Garantir a prioridade de alojamento a mulheres e a vítimas e sobreviventes de violência doméstica e de abusos sexuais em situação iminente de ficarem em situação de sem-abrigo\"."
+          },
+          {
+            "claim": "O PAN propõe a criação de casas de transição para vítimas de violência doméstica e seus filhos após a saída das casas-abrigo.",
+            "supported": true,
+            "reason": "O Documento 2 (PAN) afirma: \"Criar casas de transição, destinadas às vítimas de violência doméstica e aos seus filhos, após saída das casas-abrigo\"."
+          },
+          {
+            "claim": "O Bloco de Esquerda propõe a criação de uma bolsa pública de renda acessível para famílias monoparentais.",
+            "supported": true,
+            "reason": "O Documento 4 (Bloco de Esquerda) afirma: \"Criação de uma bolsa pública, de renda acessível, para famílias monoparentais\"."
+          },
+          {
+            "claim": "O PAN propõe a criação de equipas multidisciplinares, incluindo assistentes sociais e psicólogos, nas esquadras da PSP e postos da GNR, com atendimento 24/24h.",
+            "supported": true,
+            "reason": "O Documento 2 (PAN) afirma: \"Criar equipas multidisciplinares, compostas nomeadamente por assistentes sociais e psicólogos especializadas no atendimento a vítimas de violência doméstica, nas esquadras da PSP e postos da GNR, que possam ser acionadas 24/24h\"."
+          },
+          {
+            "claim": "O PAN propõe a garantia de consultas de psicologia gratuitas para a vítima e para os filhos de vítimas de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 2 (PAN) afirma: \"Garantir a prestação de consultas de psicologia gratuitas para a vítima e para os/as filhos/as... desde que tenham presenciado de alguma forma a prática dos crimes\"."
+          },
+          {
+            "claim": "O PS propõe a expansão da Rede Nacional de Apoio às Vítimas de Violência Doméstica para garantir cobertura integral do território.",
+            "supported": true,
+            "reason": "O Documento 3 (PS) afirma: \"Proceder à expansão da Rede Nacional de Apoio às Vítimas de Violência Doméstica, de modo a garantir a cobertura integral do território nacional\"."
+          },
+          {
+            "claim": "O AD propõe a expansão da Rede Nacional de Apoio às Vítimas de Violência Doméstica para garantir cobertura integral do território.",
+            "supported": false,
+            "reason": "O Documento 6 (AD) propõe \"Expandir a Rede Nacional de Apoio à Vítima por forma a abranger todo o território nacional\", mas não usa a expressão exata \"Rede Nacional de Apoio às Vítimas de Violência Doméstica\" nem a frase \"garantir cobertura integral do território\" de forma idêntica ao PS, embora o sentido seja similar. No entanto, a afirmação atribui ao AD a expansão da \"Rede Nacional de Apoio às Vítimas de Violência Doméstica\". O texto do AD diz \"Rede Nacional de Apoio à Vítima\". A diferença de nomenclatura e a falta da frase exata \"cobertura integral\" (diz \"abranger todo o território\") podem levar a um false rigoroso, mas geralmente \"abranger todo o território\" implica cobertura integral. Vamos verificar se há outra razão. A afirmação diz \"expansão da Rede Nacional de Apoio às Vítimas de Violência Doméstica\". O AD diz \"Expandir a Rede Nacional de Apoio à Vítima\". É uma referência à mesma rede. A afirmação é suportada pelo sentido. Contudo, olhando para o rigor, o AD não menciona especificamente \"Vítimas de Violência Doméstica\" no nome da rede, apenas \"Apoio à Vítima\". Mas o contexto é \"VIOLÊNCIA DOMÉSTICA E DE GÉNERO\". Considero suportado. Espera, vou reler. O AD diz \"Expandir a Rede Nacional de Apoio à Vítima\". A afirmação diz \"expansão da Rede Nacional de Apoio às Vítimas de Violência Doméstica\". É a mesma entidade. Suportado."
+          },
+          {
+            "claim": "O PAN propõe a criação de carreiras profissionais e tabelas salariais condignas nas estruturas da Rede Nacional de Apoio a Vítimas de Violência Doméstica.",
+            "supported": true,
+            "reason": "O Documento 5 (PAN) afirma: \"Criar carreiras profissionais e correspondente tabela salarial condigna no âmbito das estruturas da Rede Nacional de Apoio a Vítimas de Violência Doméstica\"."
+          },
+          {
+            "claim": "A Iniciativa Liberal propõe a garantia de que a Segurança Social e o apoio judiciário atribuam apenas um único mandatário para todos os processos conexos com o crime da vítima de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 7 (Iniciativa Liberal) afirma: \"importa garantir que a Segurança Social e o apoio judiciário, quando existe, atribui apenas um único mandatário para todos os processos em que a vítima esteja envolvida e que sejam conexos com o crime de violência doméstica\"."
+          },
+          {
+            "claim": "O Bloco de Esquerda propõe a criação de uma bolsa pública de fogos para vítimas de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 4 (Bloco de Esquerda) afirma: \"Alargamento da bolsa pública de fogos para vítimas de violência doméstica\"."
+          },
+          {
+            "claim": "O CHEGA propõe a promoção da utilização de meios técnicos de controlo à distância para vítimas de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 1 (CHEGA) afirma no ponto 43: \"Promover uma maior utilização dos meios técnicos de controlo à distância\" no contexto de combater a violência doméstica."
+          },
+          {
+            "claim": "O PAN propõe a promoção da utilização de meios técnicos de controlo à distância para vítimas de violência doméstica.",
+            "supported": false,
+            "reason": "O Documento 2 (PAN) menciona \"Eliminar a necessidade de obtenção do consentimento do arguido para a utilização de pulseira eletrónica, garantindo a aplicação eficaz das ordens de restrição e/ou de proteção\". Não menciona explicitamente \"promover a utilização de meios técnicos de controlo à distância\" como uma medida genérica de promoção, mas sim a eliminação do consentimento para a pulseira. A afirmação 15 é mais genérica. O CHEGA (Doc 1) usa a frase \"Promover uma maior utilização dos meios técnicos de controlo à distância\". O PAN fala em \"pulseira eletrónica\". Embora a pulseira seja um meio técnico, a afirmação específica de \"promover a utilização\" não é a formulação do PAN, que foca na eliminação do consentimento. No entanto, a pulseira é um meio técnico. Mas a afirmação 14 para o CHEGA é literal. Para o PAN, a afirmação 16 cobre a pulseira. A afirmação 15 atribui ao PAN a \"promoção da utilização\". O texto do PAN não usa essa frase. Usa \"garantindo a aplicação eficaz\". Considero false por falta de correspondência direta com a ação de \"promover a utilização\" como medida autónoma, sendo a medida específica a eliminação do consentimento."
+          },
+          {
+            "claim": "O PAN propõe a eliminação da necessidade de consentimento do arguido para a utilização de pulseira eletrónica para garantir a aplicação de ordens de restrição ou proteção.",
+            "supported": true,
+            "reason": "O Documento 2 (PAN) afirma: \"Eliminar a necessidade de obtenção do consentimento do arguido para a utilização de pulseira eletrónica, garantindo a aplicação eficaz das ordens de restrição e/ou de proteção\"."
+          },
+          {
+            "claim": "O AD propõe a instalação de salas de apoio à vítima em todas as esquadras da PSP e postos da GNR para acolhimento de casos de violência doméstica e maus-tratos a crianças.",
+            "supported": true,
+            "reason": "O Documento 6 (AD) afirma: \"Instalar salas de apoio à vítima em todas as esquadras da Polícia de Segurança Pública e postos da Guarda Nacional Republicana, destinadas ao acolhimento de casos de maus-tratos a crianças e vítimas de violência doméstica\"."
+          },
+          {
+            "claim": "O CHEGA propõe a inversão da lógica de afastamento da vítima, priorizando o afastamento do criminoso da residência.",
+            "supported": true,
+            "reason": "O Documento 1 (CHEGA) afirma no ponto 43: \"Inverter a ideia de que a vítima, normalmente mulher, é que tem que ser afastada de casa... ao invés do criminoso ser afastado\"."
+          },
+          {
+            "claim": "O PAN propõe a inversão da lógica de afastamento da vítima, priorizando o afastamento do criminoso da residência.",
+            "supported": true,
+            "reason": "O Documento 2 (PAN) afirma: \"Em processos-crime de violência doméstica, priorizar o afastamento do agressor da residência da vítima... em detrimento da saída desta da sua residência\"."
+          },
+          {
+            "claim": "O PS propõe a inversão da lógica de afastamento da vítima, priorizando o afastamento do criminoso da residência.",
+            "supported": true,
+            "reason": "O Documento 3 (PS) afirma: \"Adotar medidas robustas e eficazes que assegurem a retirada do agressor da casa de morada de família e o seu afastamento... evitar-se a dupla vitimização\". Isto implica a inversão da lógica de afastar a vítima."
+          },
+          {
+            "claim": "O Bloco de Esquerda propõe a inversão da lógica de afastamento da vítima, priorizando o afastamento do criminoso da residência.",
+            "supported": true,
+            "reason": "O Documento 4 (Bloco de Esquerda) afirma: \"Reforço do apoio às vítimas... de modo a afastar os agressores e não as vítimas\"."
+          },
+          {
+            "claim": "O PS propõe a adoção de medidas que assegurem a retirada do agressor da casa de morada de família.",
+            "supported": true,
+            "reason": "O Documento 3 (PS) afirma: \"Adotar medidas robustas e eficazes que assegurem a retirada do agressor da casa de morada de família\"."
+          },
+          {
+            "claim": "O PAN propõe a possibilidade de aplicação de prisão preventiva em todos os casos de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 2 (PAN) afirma: \"Alterar a moldura penal prevista para o crime de violência doméstica... possibilitando, desta forma, a aplicação da prisão preventiva a todos os casos de violência doméstica\"."
+          },
+          {
+            "claim": "O PS propõe a atribuição de apoio judiciário automático às vítimas de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 3 (PS) afirma: \"Garantir assessoria especializada... atribuindo desde logo apoio judiciário automático às vítimas de violência doméstica\"."
+          },
+          {
+            "claim": "O PAN propõe a garantia de que a audição da vítima e do agressor ocorra em dias diferentes.",
+            "supported": true,
+            "reason": "O Documento 2 (PAN) afirma: \"Garantir que a audição da vítima/sobrevivente e do agressor são efetuadas em dias diferentes\"."
+          },
+          {
+            "claim": "O PAN propõe a articulação entre o processo-crime de violência doméstica e o processo de regulação das responsabilidades parentais.",
+            "supported": true,
+            "reason": "O Documento 2 (PAN) afirma: \"Garantir a articulação entre o processo-crime de violência doméstica e o processo de regulação das responsabilidades parentais, quando este existir\"."
+          },
+          {
+            "claim": "O PS propõe a determinação de inquérito obrigatório em todos os casos de morte em contexto de violência doméstica onde tenha havido queixa ou pedido de apoio.",
+            "supported": true,
+            "reason": "O Documento 3 (PS) afirma: \"Determinar que deve ser obrigatoriamente desencadeado um procedimento de inquérito em todos os casos de morte em contexto de violência doméstica cujas vítimas tenham apresentado queixa ou pedido apoio às autoridades\"."
+          },
+          {
+            "claim": "O Bloco de Esquerda propõe o reforço do apoio às vítimas no decurso dos processos judiciais através de ordens de interdição, emergência, restrição ou proteção.",
+            "supported": true,
+            "reason": "O Documento 4 (Bloco de Esquerda) afirma: \"Reforço do apoio às vítimas no decurso dos processos judiciais, nomeadamente através de ordens de interdição, de emergência, de restrição ou de proteção\"."
+          },
+          {
+            "claim": "O PAN propõe a alteração da moldura penal para que as condenações sejam compatíveis com a gravidade da ofensa e tenham função dissuasora.",
+            "supported": true,
+            "reason": "O Documento 2 (PAN) afirma: \"Alterar a moldura penal prevista para o crime de violência doméstica, assegurando que as condenações... são compatíveis com a gravidade da ofensa, de acordo com a função dissuasora das penas\"."
+          },
+          {
+            "claim": "O CHEGA propõe o aumento da formação para todos os envolvidos no combate à violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 1 (CHEGA) afirma no ponto 43: \"Mais formação para todos os envolvidos\" no contexto de combater a violência doméstica."
+          },
+          {
+            "claim": "O PAN propõe a realização de ações de formação para profissionais sobre violência na intimidade, doméstica e de género, e sobre maus-tratos a animais como preditor de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 2 (PAN) afirma: \"Promover... A realização de ações de formação... sobre violência na intimidade, violência doméstica e violência de género; Ações de formação/sensibilização... sobre maus-tratos a animais de companhia como possível preditor de violência doméstica\"."
+          },
+          {
+            "claim": "O Bloco de Esquerda propõe a formação especializada de funcionários públicos das áreas social e judicial em matéria de violência de género.",
+            "supported": true,
+            "reason": "O Documento 4 (Bloco de Esquerda) afirma: \"Formação especializada dos/as funcionários/as públicos/as da área social e judicial em matéria de violência de género\"."
+          },
+          {
+            "claim": "O AD propõe a sensibilização e formação de profissionais que possam entrar em contacto com vítimas e infratores de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 6 (AD) afirma: \"Prevenir a violência de género e a violência doméstica, nomeadamente através da sensibilização e da formação de profissionais suscetíveis de entrar em contacto com as vítimas e com os infratores\"."
+          },
+          {
+            "claim": "O AD propõe a prevenção da violência no namoro e no contexto escolar através de formação especializada.",
+            "supported": true,
+            "reason": "O Documento 6 (AD) afirma: \"Prevenir e combater a violência no namoro, em contexto escolar e com reforço da formação especializada\"."
+          },
+          {
+            "claim": "O PAN propõe a realização de um Inquérito Nacional à Violência Doméstica e de Género.",
+            "supported": true,
+            "reason": "O Documento 5 (PAN) afirma: \"Realizar um Inquérito Nacional à Violência Doméstica e de Género\"."
+          },
+          {
+            "claim": "O AD propõe a avaliação global, monitorização e atualização das medidas em vigor com métricas pré-estabelecidas.",
+            "supported": true,
+            "reason": "O Documento 6 (AD) afirma: \"Avaliar, de forma global, todas as medidas em vigor, monitorização da implementação e atualização das mesmas... com métricas pré-estabelecidas por área\"."
+          },
+          {
+            "claim": "O PS propõe o reforço dos recursos e medidas de prevenção envolvendo o sistema educativo, justiça penal, forças policiais e meios de comunicação.",
+            "supported": true,
+            "reason": "O Documento 3 (PS) afirma: \"Reforçar os recursos e medidas de prevenção e combate à violência contra as mulheres, envolvendo o sistema educativo, o sistema de justiça penal e de família, as forças policiais e os meios de comunicação social\"."
+          }
+        ]
       }
     },
     {

@@ -144,3 +144,14 @@ recall-type scores slightly. One line in the limitations.
 **8. Judging costs more than answering.** `current` costs $0.0011 per answer
 to run and $0.0084 to judge. Relevant if RQ4 discusses the cost of evaluation
 itself.
+
+**9. Two tables, two denominators.** `leaderboard-test.md` (and the appendix)
+averages every variant over the questions *all* variants were scored on;
+`headline-analysis.md` averages each variant over its *own* scored questions.
+After re-judging (DECISIONS.md, 2026-10-22) only two judge omissions remain,
+`naive` q-41 (correctness) and `reranked` q-31 (faithfulness), so the two
+differ by a question at most, e.g. `assistant_gpt` correctness 0.510 over 31
+against 0.518 over 32. Results card: per-run means (n = 32). Comparisons:
+paired differences, which drop a question only when one of the two sides
+lacks it.
+

@@ -35,10 +35,10 @@
     "coverage_acc": 0.6667,
     "party_f1": 1.0,
     "topic_f1": 0.7407,
-    "faithfulness": 0.9954,
+    "faithfulness": 0.9956,
     "correctness_recall": 0.7456,
     "correctness": 0.6014,
-    "correctness_grounded": 0.8356,
+    "correctness_grounded": 0.8379,
     "answer_relevance": 0.9844,
     "false_refusal": 0.0312,
     "abstention": 1.0,
@@ -13031,7 +13031,9 @@
         "correctness_recall": 0.8333333333333334,
         "correctness": 0.5924739791833468,
         "answer_relevance": 1.0,
-        "false_refusal": 0.0
+        "false_refusal": 0.0,
+        "faithfulness": 1.0,
+        "correctness_grounded": 0.9090909090909091
       },
       "judgements": {
         "correctness_recall": [
@@ -14267,7 +14269,814 @@
           "score": 5,
           "abstained": false,
           "rationale": "A resposta é extremamente completa e direta. Enumera detalhadamente as propostas de múltiplos partidos (IL, PCP, CHEGA, PS, AD, LIVRE, BE, PAN) para combater a violência doméstica, cobrindo áreas como apoio às vítimas, habitação, punição de agressores, proteção de crianças e formação de profissionais. Cumpre totalmente o pedido da pergunta."
-        }
+        },
+        "faithfulness": [
+          {
+            "claim": "O Iniciativa Liberal propõe garantir às vítimas de violência doméstica acompanhamento social e processual adequado.",
+            "supported": true,
+            "reason": "O Documento 1 afirma que é importante que as vítimas tenham o 'acompanhamento correto a nível social e processual'."
+          },
+          {
+            "claim": "O Iniciativa Liberal propõe que a Segurança Social e o apoio judiciário atribuam um único mandatário para todos os processos conexos com o crime de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 1 propõe garantir que a Segurança Social e o apoio judiciário 'atribui apenas um único mandatário para todos os processos em que a vítima esteja envolvida e que sejam conexos com o crime de violência doméstica'."
+          },
+          {
+            "claim": "O Iniciativa Liberal propõe envolver o poder local numa rede de apoio à habitação para vítimas de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 1 afirma que 'tem de se envolver o poder local na rede de apoio à habitação para vítimas de violência doméstica'."
+          },
+          {
+            "claim": "O Iniciativa Liberal propõe articular a rede de apoio à habitação com o poder judicial e associações de apoio à vítima.",
+            "supported": true,
+            "reason": "O Documento 1 menciona 'uma verdadeira articulação entre o poder local, o poder judicial e a sociedade civil nas suas associações de apoio à vítima'."
+          },
+          {
+            "claim": "O Iniciativa Liberal admite o envolvimento do setor privado na rede de apoio à habitação para vítimas de violência doméstica se necessário.",
+            "supported": true,
+            "reason": "O Documento 1 afirma que 'Se tal se revelar uma necessidade, entendemos que pode e deve existir um envolvimento do setor privado'."
+          },
+          {
+            "claim": "O Iniciativa Liberal defende continuar a lutar pela autonomização do crime de exposição de menor a situações de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 1 afirma que 'importa continuar a lutar pela autonomização do crime de exposição de menor a situações de violência doméstica'."
+          },
+          {
+            "claim": "O PCP propõe ampliar a informação e os apoios diversificados às mulheres no âmbito da violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 2 lista como prioridade 'ampliar a informação e apoios diversificados às mulheres no âmbito da violência doméstica'."
+          },
+          {
+            "claim": "O PCP propõe criar uma estrutura descentralizada geograficamente, pública e social, para apoiar as mulheres no âmbito da violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 2 propõe 'criando uma estrutura descentralizada geograficamente, (pública e social)'."
+          },
+          {
+            "claim": "O PCP propõe dotar a estrutura de apoio à violência doméstica com meios humanos, técnicos e financeiros para assegurar intervenção continuada.",
+            "supported": true,
+            "reason": "O Documento 2 menciona que a estrutura deve estar 'devidamente articulada com meios humanos,técnicos e financeiros que assegure uma intervenção continuada'."
+          },
+          {
+            "claim": "O PCP propõe implementar equipas multidisciplinares de apoio às vítimas de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 2 propõe 'implementar a intervenção de equipas multidisciplinares... de apoio às vítimas de violência doméstica'."
+          },
+          {
+            "claim": "O PCP propõe que as equipas multidisciplinares de apoio às vítimas de violência doméstica incluam advogados, psicólogos e técnicos.",
+            "supported": true,
+            "reason": "O Documento 2 especifica que as equipas multidisciplinares incluem '(advogados, psicólogos e técnicos)'."
+          },
+          {
+            "claim": "O PCP propõe ampliar os programas de apoio e recuperação dirigidos aos agressores de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 2 propõe 'ampliarosProgramasde apoioe recuperaçãodirigidos aos agressores'."
+          },
+          {
+            "claim": "O PCP propõe a ampliação dos programas de apoio e recuperação para agressores com o objetivo de prevenir a reincidência.",
+            "supported": true,
+            "reason": "O Documento 2 indica que o objetivo é 'visando a prevenção da re-incidência da violência doméstica'."
+          },
+          {
+            "claim": "O CHEGA propõe aumentar os meios disponíveis para a investigação do crime de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 3, ponto 43, propõe 'Do aumento dos meios disponíveis para a investigação deste tipo de crime'."
+          },
+          {
+            "claim": "O CHEGA propõe mais formação para todos os envolvidos no combate à violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 3, ponto 43, propõe 'Mais formação para todos os envolvidos'."
+          },
+          {
+            "claim": "O CHEGA propõe o aumento das penas para o crime de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 3, ponto 43, propõe 'Aumento das penas'."
+          },
+          {
+            "claim": "O CHEGA propõe a revisão e endurecimento das penas para o crime de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 3, ponto 40, propõe 'Proceder à revisão e endurecimento das penas relativamente a crimes como violência doméstica'."
+          },
+          {
+            "claim": "O CHEGA propõe afastar o agressor da casa em vez de afastar a vítima para casa-abrigo.",
+            "supported": true,
+            "reason": "O Documento 3, ponto 43, propõe 'Inverter a ideia de que a vítima... é que tem que ser afastada de casa... ao invés do criminoso ser afastado'."
+          },
+          {
+            "claim": "O CHEGA propõe a maior utilização de meios técnicos de controlo à distância para a violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 3, ponto 43, propõe 'Promover uma maior utilização dos meios técnicos de controlo à distância'."
+          },
+          {
+            "claim": "O CHEGA propõe rever as fichas de risco para a violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 3, ponto 43, propõe 'Proceder à revisão das fichas de risco'."
+          },
+          {
+            "claim": "O CHEGA propõe aumentar o número de casas-abrigo para vítimas de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 3, ponto 43, propõe 'Aumentar o número de casas-abrigo'."
+          },
+          {
+            "claim": "O CHEGA propõe assegurar uma rede nacional de casas-abrigo com implementação em todo o território.",
+            "supported": true,
+            "reason": "O Documento 3, ponto 43, propõe 'assegurar a existência de uma rede nacional com implementação em todo o território'."
+          },
+          {
+            "claim": "O CHEGA propõe melhorar o financiamento das entidades que prestam apoio às vítimas de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 3, ponto 43, propõe 'Melhorar o financiamento das entidades que prestam apoio às vítimas'."
+          },
+          {
+            "claim": "O CHEGA propõe melhorar os mecanismos de proteção das crianças em casos de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 19, ponto 309, propõe 'Melhorar os mecanismos de protecção das crianças em casos de violência doméstica'."
+          },
+          {
+            "claim": "O CHEGA propõe assegurar a comunicação entre processos para evitar que a criança fique sujeita ao agressor em casos de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 19, ponto 309, propõe 'assegurando a comunicação entre os vários processos... accionar os mecanismos necessários para que a criança não fique sujeita ao agressor'."
+          },
+          {
+            "claim": "O CHEGA propõe que, se a vítima beneficiar do acesso ao direito, tenha um só advogado para todos os processos de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 19, ponto 309, propõe que a vítima beneficiária do acesso ao direito 'não precisa de ter um advogado distinto para cada processo, mas apenas um para todos'."
+          },
+          {
+            "claim": "O PS propõe reforçar recursos e medidas de prevenção e combate à violência contra as mulheres e violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 4 propõe 'Reforçar os recursos e medidas de prevenção e combate à violência contra as mulheres'."
+          },
+          {
+            "claim": "O PS propõe envolver o sistema educativo, a justiça penal e de família, as forças policiais e os meios de comunicação social no combate à violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 4 menciona o envolvimento do 'sistema educativo, o sistema de justiça penal e de família, as forças policiais e os meios de comunicação social'."
+          },
+          {
+            "claim": "O PS propõe sujeitar imediatamente a pessoa agressora a um quadro coativo capaz de pôr termo ao perigo de continuação da atividade criminosa.",
+            "supported": true,
+            "reason": "O Documento 4 propõe 'Sujeitar imediatamente a pessoa agressora a um quadro coativo capaz e suficiente de colocar termo a um intenso e permanente perigo de continuação da atividade criminosa'."
+          },
+          {
+            "claim": "O PS propõe retirar o agressor da casa de morada de família.",
+            "supported": true,
+            "reason": "O Documento 4 propõe 'medidas robustas e eficazes que assegurem a retirada do agressor da casa de morada de família'."
+          },
+          {
+            "claim": "O PS propõe afastar o agressor após avaliação do risco para evitar dupla vitimização.",
+            "supported": true,
+            "reason": "O Documento 4 propõe o afastamento 'para, depois de devidamente avaliada a situação de risco, evitar-se a dupla vitimização'."
+          },
+          {
+            "claim": "O PS propõe a expansão da Rede Nacional de Apoio às Vítimas de Violência Doméstica.",
+            "supported": true,
+            "reason": "O Documento 4 propõe 'Proceder à expansão da Rede Nacional de Apoio às Vítimas de Violência Doméstica'."
+          },
+          {
+            "claim": "O PS propõe garantir cobertura integral do território nacional com a Rede Nacional de Apoio às Vítimas de Violência Doméstica.",
+            "supported": true,
+            "reason": "O Documento 4 indica o objetivo de 'garantir a cobertura integral do território nacional'."
+          },
+          {
+            "claim": "O PS propõe garantir assessoria especializada nos Gabinetes de Apoio e Atendimento a Vítimas em todos os DIAP.",
+            "supported": true,
+            "reason": "O Documento 4 propõe 'Garantir assessoria especializada nos Gabinetes de Apoio e Atendimento a Vítimas em todos os Departamentos de Investigação e Ação Penal'."
+          },
+          {
+            "claim": "O PS propõe atribuir apoio judiciário automático às vítimas de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 4 propõe 'atribuindo desde logo apoio judiciário automático às vítimas de violência doméstica'."
+          },
+          {
+            "claim": "O PS propõe tornar obrigatório um procedimento de inquérito em todos os casos de morte em contexto de violência doméstica quando tenha existido queixa ou pedido de apoio às autoridades.",
+            "supported": true,
+            "reason": "O Documento 4 propõe 'Determinar que deve ser obrigatoriamente desencadeado um procedimento de inquérito em todos os casos de morte em contexto de violência doméstica cujas vítimas tenham apresentado queixa ou pedido apoio às autoridades'."
+          },
+          {
+            "claim": "O PS propõe criar um regime jurídico específico para crianças vítimas de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 4 propõe 'Criar um regime jurídico específico para crianças vítimas de violência doméstica'."
+          },
+          {
+            "claim": "O PS propõe criar um Fundo de Garantia para assegurar segurança, apoio psicológico, abrigo e educação continuada a crianças órfãs de mãe por homicídio cometido por parceiro ou ex-parceiro.",
+            "supported": true,
+            "reason": "O Documento 4 propõe 'Criar um Fundo de Garantia de forma a assegurar as necessidades e os direitos básicos de segurança, apoio psicológico, abrigo, educação... para todas as crianças órfãs de mãe devido ao assassinato cometido por parceiro/a ou ex-parceiro/a'."
+          },
+          {
+            "claim": "O PS propõe que o Fundo de Garantia para crianças órfãs de mãe por homicídio seja atribuído até à maioridade.",
+            "supported": true,
+            "reason": "O Documento 4 especifica que o fundo é 'até à sua maioridade'."
+          },
+          {
+            "claim": "O PS propõe uma medida vinculativa para remoção imediata das responsabilidades parentais de homicidas.",
+            "supported": true,
+            "reason": "O Documento 4 propõe 'Adotar uma medida vinculativa que garanta a remoção imediata das responsabilidades parentais de homicidas'."
+          },
+          {
+            "claim": "O PS propõe assegurar a cooperação entre juízos de família e juízos criminais para proteger as vítimas de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 4 propõe 'Assegurar a efetiva cooperação entre os juízos de família e juízos criminais, de modo a assegurar a proteção das vítimas'."
+          },
+          {
+            "claim": "O PS propõe reforçar a resposta e o apoio às vítimas de crimes.",
+            "supported": true,
+            "reason": "O Documento 23 propõe 'Reforçar a resposta e o apoio oferecido às vítimas de crimes'."
+          },
+          {
+            "claim": "O PS propõe implementar a estratégia nacional para os direitos das vítimas de crime, incluindo vítimas mais vulneráveis, numa perspetiva de género.",
+            "supported": true,
+            "reason": "O Documento 23 propõe 'Implementar a estratégia nacional para os direitos das vítimas de crime, considerando as vítimas mais vulneráveis... numa perspetiva de género'."
+          },
+          {
+            "claim": "A Aliança Democrática propõe avaliar globalmente as medidas em vigor contra a violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 5 propõe 'Avaliar, de forma global, todas as medidas em vigor'."
+          },
+          {
+            "claim": "A Aliança Democrática propõe monitorizar a implementação das medidas contra a violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 5 propõe 'monitorização da implementação'."
+          },
+          {
+            "claim": "A Aliança Democrática propõe atualizar e consolidar a legislação aplicável à violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 5 propõe 'atualização das mesmas e consolidação de toda a legislação aplicável'."
+          },
+          {
+            "claim": "A Aliança Democracia propõe estabelecer métricas pré-estabelecidas por área para a avaliação das medidas contra a violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 5 menciona 'com métricas pré-estabelecidas por área'."
+          },
+          {
+            "claim": "A Aliança Democracia propõe transpor efetivamente a diretiva europeia aplicável à violência contra as mulheres.",
+            "supported": true,
+            "reason": "O Documento 5 propõe 'Transpor efetivamente a Proposta de Diretiva'."
+          },
+          {
+            "claim": "A Aliança Democracia propõe antecipar a revisão da legislação existente para maior equidade no tratamento das vítimas das várias formas de violência identificadas.",
+            "supported": true,
+            "reason": "O Documento 5 propõe 'antecipação da revisão da legislação existente com vista à maior equidade no tratamento das vítimas'."
+          },
+          {
+            "claim": "A Aliança Democracia propõe criminalizar o assédio sexual.",
+            "supported": true,
+            "reason": "O Documento 5 propõe 'Criminalizar determinadas formas de violência: tipificação especial e específica do crime de assédio sexual'."
+          },
+          {
+            "claim": "A Aliança Democracia propõe criminalizar a ciberperseguição.",
+            "supported": true,
+            "reason": "O Documento 5 propõe a criminalização do crime de 'ciberperseguição'."
+          },
+          {
+            "claim": "A Aliança Democracia propõe criminalizar o ciberassédio.",
+            "supported": true,
+            "reason": "O Documento 5 propõe a criminalização do crime de 'ciberassédio'."
+          },
+          {
+            "claim": "A Aliança Democracia propõe criminalizar o incitamento à violência e ao ódio online.",
+            "supported": true,
+            "reason": "O Documento 5 propõe a criminalização do 'incitamento à violência e ao ódio online'."
+          },
+          {
+            "claim": "A Aliança Democracia propõe um plano integrado entre áreas e intervenientes no combate à violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 5 propõe 'Adotar um plano integrado entre as diversas áreas e intervenientes'."
+          },
+          {
+            "claim": "A Aliança Democracia propõe um fluxo de informação célere entre autoridades policiais, judiciais e entidades de apoio.",
+            "supported": true,
+            "reason": "O Documento 5 menciona 'com fluxo de informação célere entre todas as autoridades policiais, judiciais e que prestam apoio'."
+          },
+          {
+            "claim": "A Aliança Democracia propõe expandir a Rede Nacional de Apoio à Vítima para abranger todo o território nacional.",
+            "supported": true,
+            "reason": "O Documento 5 propõe 'Expandir a Rede Nacional de Apoio à Vítima por forma a abranger todo o território nacional'."
+          },
+          {
+            "claim": "A Aliança Democracia propõe instalar salas de apoio à vítima em todas as esquadras da PSP.",
+            "supported": true,
+            "reason": "O Documento 5 propõe 'Instalar salas de apoio à vítima em todas as esquadras da Polícia de Segurança Pública'."
+          },
+          {
+            "claim": "A Aliança Democracia propõe instalar salas de apoio à vítima em todos os postos da GNR.",
+            "supported": true,
+            "reason": "O Documento 5 propõe 'Instalar salas de apoio à vítima em... postos da Guarda Nacional Republicana'."
+          },
+          {
+            "claim": "A Aliança Democracia propõe que as salas de apoio à vítima acolham casos de maus-tratos a crianças e vítimas de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 5 indica que as salas são 'destinadas ao acolhimento de casos de maus-tratos a crianças e vítimas de violência doméstica'."
+          },
+          {
+            "claim": "A Aliança Democracia propõe assegurar a interoperabilidade das plataformas existentes num sistema integrado de registo e referenciação multilingue.",
+            "supported": true,
+            "reason": "O Documento 5 propõe 'Assegurar a interoperabilidade das plataformas existentes, tendo em vista um sistema integrado que permita o registo e referenciação multilingue'."
+          },
+          {
+            "claim": "A Aliança Democracia propõe envolver a Segurança Social, a saúde e o emprego no sistema integrado de registo e referenciação multilingue.",
+            "supported": true,
+            "reason": "O Documento 5 afirma que o sistema 'sirva não só as autoridades policiais e judiciárias, mas também os serviços de Segurança Social, de saúde e de emprego'."
+          },
+          {
+            "claim": "A Aliança Democracia propõe reforçar o acesso das vítimas à justiça.",
+            "supported": true,
+            "reason": "O Documento 5 propõe 'Reforçar o acesso das vítimas à justiça'."
+          },
+          {
+            "claim": "A Aliança Democracia propõe reforçar o direito a proteção adequada das vítimas.",
+            "supported": true,
+            "reason": "O Documento 5 propõe 'o direito a uma proteção adequada'."
+          },
+          {
+            "claim": "A Aliança Democracia propõe prestar apoio adaptado às necessidades específicas das vítimas de violência de género ou doméstica.",
+            "supported": true,
+            "reason": "O Documento 5 propõe 'Prestar um apoio adaptado às necessidades específicas das vítimas de violência de género ou de violência doméstica'."
+          },
+          {
+            "claim": "A Aliança Democracia propõe prevenir a violência de género e doméstica com sensibilização e formação de profissionais.",
+            "supported": true,
+            "reason": "O Documento 5 propõe 'Prevenir a violência de género e a violência doméstica, nomeadamente através da sensibilização e da formação de profissionais'."
+          },
+          {
+            "claim": "A Aliança Democracia propõe prevenir e combater a violência no namoro em contexto escolar.",
+            "supported": true,
+            "reason": "O Documento 5 propõe 'Prevenir e combater a violência no namoro, em contexto escolar'."
+          },
+          {
+            "claim": "A Aliança Democracia propõe reforço da formação especializada para prevenir e combater a violência no namoro.",
+            "supported": true,
+            "reason": "O Documento 5 menciona 'com reforço da formação especializada' no contexto da violência no namoro."
+          },
+          {
+            "claim": "A Aliança Democracia propõe alargar os programas de reabilitação para agressores de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 5 propõe 'Alargar os programas de reabilitação para agressores de violência doméstica'."
+          },
+          {
+            "claim": "A Aliança Democracia propõe prevenir e combater a violência doméstica contra pessoas idosas.",
+            "supported": true,
+            "reason": "O Documento 5 propõe 'Prevenir e combater a violência doméstica contra pessoas idosas'."
+          },
+          {
+            "claim": "O LIVRE propõe realizar um inquérito representativo anual para disponibilizar dados concretos que permitam combater e prevenir a violência de género.",
+            "supported": true,
+            "reason": "O Documento 6 propõe 'realizar um inquérito representativo anualmente, de modo a que o Estado... disponham de dados concretos que permitam melhor combater e prevenir a violência de género'."
+          },
+          {
+            "claim": "O LIVRE propõe reforçar conteúdos educativos sobre igualdade de género no currículo escolar.",
+            "supported": true,
+            "reason": "O Documento 6 propõe 'reforçar conteúdos educativos sobre a igualdade de género... no currículo escolar'."
+          },
+          {
+            "claim": "O LIVRE propõe reforçar conteúdos educativos sobre não discriminação no currículo escolar.",
+            "supported": true,
+            "reason": "O Documento 6 propõe 'reforçar conteúdos educativos sobre... não discriminação... no currículo escolar'."
+          },
+          {
+            "claim": "O LIVRE propõe reforçar conteúdos educativos sobre direitos sexuais e reprodutivos no currículo escolar.",
+            "supported": true,
+            "reason": "O Documento 6 propõe 'reforçar conteúdos educativos sobre... direitos sexuais e reprodutivos no currículo escolar'."
+          },
+          {
+            "claim": "O LIVRE propõe reforçar o apoio às ONG que trabalham no apoio às vítimas de violência de género, doméstica e sexual.",
+            "supported": true,
+            "reason": "O Documento 6 propõe 'reforçar o apoio às organizações não governamentais que trabalham no apoio às vítimas'."
+          },
+          {
+            "claim": "O LIVRE propõe reforçar o apoio às ONG que trabalham na prevenção e combate da violência de género, doméstica e sexual.",
+            "supported": true,
+            "reason": "O Documento 6 propõe 'reforçar o apoio às organizações não governamentais que trabalham... na prevenção e combate de violência de género, de violência doméstica, da violência sexual'."
+          },
+          {
+            "claim": "O LIVRE propõe implementar uma rede de serviços de apoio a vítimas e sobreviventes de violência segundo padrões internacionais.",
+            "supported": true,
+            "reason": "O Documento 6 propõe 'implementar uma rede de serviços de apoio a vítimas e sobreviventes de violência que siga os padrões internacionais'."
+          },
+          {
+            "claim": "O LIVRE propõe incluir uma bolsa especializada de tradução e interpretação na rede de serviços de apoio a vítimas de violência.",
+            "supported": true,
+            "reason": "O Documento 6 menciona 'incluindo a criação de uma bolsa especializada de tradução e interpretação'."
+          },
+          {
+            "claim": "O LIVRE propõe estabelecer em meio hospitalar procedimentos e orientações para identificação e assistência a vítimas de violência física e sexual.",
+            "supported": true,
+            "reason": "O Documento 6 propõe 'estabelecer em meio hospitalar procedimentos e orientações... para a identificação e assistência a vítimas de violência física e sexual'."
+          },
+          {
+            "claim": "O LIVRE propõe que os procedimentos hospitalares incluam a violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 6 especifica 'incluindo violência doméstica'."
+          },
+          {
+            "claim": "O LIVRE propõe formar profissionais da saúde para prevenção, identificação, atuação e encaminhamento de vítimas de violência.",
+            "supported": true,
+            "reason": "O Documento 6 propõe 'formar profissionais de setores prioritários, como da saúde... para a prevenção, identificação e atuação... e para o correto encaminhamento de vítimas'."
+          },
+          {
+            "claim": "O LIVRE propõe formar profissionais da educação para prevenção, identificação, atuação e encaminhamento de vítimas de violência.",
+            "supported": true,
+            "reason": "O Documento 6 propõe 'formar profissionais de setores prioritários, como... educação... para a prevenção, identificação e atuação... e para o correto encaminhamento de vítimas'."
+          },
+          {
+            "claim": "O LIVRE propõe formar profissionais da justiça para prevenção, identificação, atuação e encaminhamento de vítimas de violência.",
+            "supported": true,
+            "reason": "O Documento 6 propõe 'formar profissionais de setores prioritários, como... justiça... para a prevenção, identificação e atuação... e para o correto encaminhamento de vítimas'."
+          },
+          {
+            "claim": "O LIVRE propõe formar profissionais da administração local para prevenção, identificação, atuação e encaminhamento de vítimas de violência.",
+            "supported": true,
+            "reason": "O Documento 6 propõe 'formar profissionais de setores prioritários, como... administração local... para a prevenção, identificação e atuação... e para o correto encaminhamento de vítimas'."
+          },
+          {
+            "claim": "O LIVRE propõe formar profissionais das forças de segurança para prevenção, identificação, atuação e encaminhamento de vítimas de violência.",
+            "supported": true,
+            "reason": "O Documento 6 propõe 'formar profissionais de setores prioritários, como... forças e serviços de segurança... para a prevenção, identificação e atuação... e para o correto encaminhamento de vítimas'."
+          },
+          {
+            "claim": "O LIVRE propõe formar profissionais da Segurança Social para prevenção, identificação, atuação e encaminhamento de vítimas de violência.",
+            "supported": true,
+            "reason": "O Documento 6 propõe 'formar profissionais de setores prioritários, como... da Segurança Social... para a prevenção, identificação e atuação... e para o correto encaminhamento de vítimas'."
+          },
+          {
+            "claim": "O LIVRE propõe criar programas de formação obrigatória e regular para profissionais das forças e serviços de segurança.",
+            "supported": true,
+            "reason": "O Documento 6 propõe 'criar programas de formação obrigatória e regular para profissionais das forças e serviços de segurança'."
+          },
+          {
+            "claim": "O LIVRE propõe criar programas de formação obrigatória e regular para profissionais do direito e da justiça.",
+            "supported": true,
+            "reason": "O Documento 6 propõe 'criar programas de formação obrigatória e regular para profissionais... do direito e da justiça'."
+          },
+          {
+            "claim": "O LIVRE propõe reforçar programas e medidas obrigatórias de intervenção e reabilitação para pessoas agressoras.",
+            "supported": true,
+            "reason": "O Documento 6 propõe 'reforçar e dotar de orçamento adequado programas e medidas obrigatórias de intervenção e reabilitação para pessoas agressoras'."
+          },
+          {
+            "claim": "O LIVRE propõe focar a intervenção e reabilitação de agressores na redução da reincidência.",
+            "supported": true,
+            "reason": "O Documento 6 indica 'com foco na diminuição de reincidência'."
+          },
+          {
+            "claim": "O LIVRE propõe focar a intervenção e reabilitação de agressores na prevenção da revitimização.",
+            "supported": true,
+            "reason": "O Documento 6 indica 'e prevenção da revitimização'."
+          },
+          {
+            "claim": "O LIVRE propõe garantir aconselhamento jurídico gratuito para todas as pessoas com estatuto de vítima especialmente vulnerável.",
+            "supported": true,
+            "reason": "O Documento 6 propõe 'garantir aconselhamento jurídico... gratuito para todas as pessoas a quem tenha sido atribuído o estatuto de vítima especialmente vulnerável'."
+          },
+          {
+            "claim": "O LIVRE propõe garantir apoio judiciário gratuito para todas as pessoas com estatuto de vítima especialmente vulnerável.",
+            "supported": true,
+            "reason": "O Documento 6 propõe 'apoio judiciário gratuito para todas as pessoas a quem tenha sido atribuído o estatuto de vítima especialmente vulnerável'."
+          },
+          {
+            "claim": "O LIVRE propõe que o aconselhamento jurídico e apoio judiciário sejam independentes da capacidade económica.",
+            "supported": true,
+            "reason": "O Documento 6 especifica 'independentemente da sua capacidade económica'."
+          },
+          {
+            "claim": "O LIVRE propõe continuar a expansão da rede de casas-abrigo para vítimas de violência.",
+            "supported": true,
+            "reason": "O Documento 6 propõe 'continuar a expansão da rede de casas-abrigo'."
+          },
+          {
+            "claim": "O LIVRE propõe continuar a expansão da rede de acolhimento de emergência para vítimas de violência.",
+            "supported": true,
+            "reason": "O Documento 6 propõe 'continuar a expansão da rede de... acolhimento de emergência'."
+          },
+          {
+            "claim": "O LIVRE propõe continuar a expansão das soluções habitacionais que promovam a autonomização das vítimas de violência.",
+            "supported": true,
+            "reason": "O Documento 6 propõe 'continuar a expansão da rede de... soluções habitacionais que promovam a autonomização das vítimas'."
+          },
+          {
+            "claim": "O LIVRE propõe maior cobertura nacional para a rede de casas-abrigo, acolhimento de emergência e soluções habitacionais.",
+            "supported": true,
+            "reason": "O Documento 6 propõe 'garantindo uma maior cobertura nacional'."
+          },
+          {
+            "claim": "O LIVRE propõe promover a coordenação entre secções de família e menores e secções criminais.",
+            "supported": true,
+            "reason": "O Documento 6 propõe 'promover a coordenação entre as secções de família e menores e as secções criminais'."
+          },
+          {
+            "claim": "O LIVRE propõe que a coordenação entre secções de família e menores e secções criminais vise a proteção rápida das vítimas e das suas famílias.",
+            "supported": true,
+            "reason": "O Documento 6 indica o objetivo 'para proteção rápida das vítimas e das suas famílias'."
+          },
+          {
+            "claim": "O LIVRE propõe reforçar campanhas de sensibilização contra a violência no namoro.",
+            "supported": true,
+            "reason": "O Documento 6 propõe 'reforçar as campanhas de sensibilização contra a violência no namoro'."
+          },
+          {
+            "claim": "O LIVRE propõe reforçar campanhas de sensibilização contra a violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 6 propõe 'reforçar as campanhas de sensibilização contra... violência doméstica'."
+          },
+          {
+            "claim": "O LIVRE propõe reforçar campanhas de sensibilização contra a mutilação genital feminina.",
+            "supported": true,
+            "reason": "O Documento 6 propõe 'reforçar as campanhas de sensibilização contra... mutilação genital feminina'."
+          },
+          {
+            "claim": "O LIVRE propõe reforçar campanhas de sensibilização contra o assédio moral e sexual.",
+            "supported": true,
+            "reason": "O Documento 6 propõe 'reforçar as campanhas de sensibilização contra... assédio moral e sexual'."
+          },
+          {
+            "claim": "O Bloco de Esquerda propõe o alargamento da bolsa pública de fogos para vítimas de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 8 propõe 'Alargamento da bolsa pública de fogos para vítimas de violência doméstica'."
+          },
+          {
+            "claim": "O Bloco de Esquerda propõe garantir que mulheres vítimas de violência doméstica têm prioridade na atribuição de habitação pública.",
+            "supported": true,
+            "reason": "O Documento 8 propõe 'Garantia que as mulheres vítimas de violência doméstica... têm prioridade na atribuição de habitação pública'."
+          },
+          {
+            "claim": "O Bloco de Esquerda propõe garantir que os filhos de mulheres vítimas de violência doméstica têm prioridade na atribuição de habitação pública.",
+            "supported": true,
+            "reason": "O Documento 8 propõe 'Garantia que... os seus filhos têm prioridade na atribuição de habitação pública'."
+          },
+          {
+            "claim": "O Bloco de Esquerda propõe que a prioridade na atribuição de habitação pública para vítimas de violência doméstica seja a custos controlados.",
+            "supported": true,
+            "reason": "O Documento 8 especifica 'a custos controlados'."
+          },
+          {
+            "claim": "O Bloco de Esquerda propõe que a prioridade na habitação pública se aplique se as vítimas tiverem de abandonar a moradia familiar.",
+            "supported": true,
+            "reason": "O Documento 8 especifica 'no caso de terem de abandonar a moradia familiar'."
+          },
+          {
+            "claim": "O Bloco de Esquerda propõe o reforço das Secções Especializadas Integradas de Violência Doméstica (SEIVD).",
+            "supported": true,
+            "reason": "O Documento 8 propõe 'Reforço... das Secções Especializadas Integradas de Violência Doméstica (SEIVD)'."
+          },
+          {
+            "claim": "O Bloco de Esquerda propõe a expansão das Secções Especializadas Integradas de Violência Doméstica (SEIVD).",
+            "supported": true,
+            "reason": "O Documento 8 propõe 'Reforço e expansão das Secções Especializadas Integradas de Violência Doméstica (SEIVD)'."
+          },
+          {
+            "claim": "O Bloco de Esquerda propõe formação especializada dos funcionários públicos das áreas social e judicial em matéria de violência de género.",
+            "supported": true,
+            "reason": "O Documento 8 propõe 'Formação especializada dos/as funcionários/as públicos/as da área social e judicial em matéria de violência de género'."
+          },
+          {
+            "claim": "O Bloco de Esquerda propõe reforçar o apoio às vítimas de violência doméstica durante os processos judiciais.",
+            "supported": true,
+            "reason": "O Documento 8 propõe 'Reforço do apoio às vítimas no decurso dos processos judiciais'."
+          },
+          {
+            "claim": "O Bloco de Esquerda propõe utilizar ordens de interdição para afastar os agressores e não as vítimas.",
+            "supported": true,
+            "reason": "O Documento 8 propõe 'nomeadamente através de ordens de interdição... de modo a afastar os agressores e não as vítimas'."
+          },
+          {
+            "claim": "O Bloco de Esquerda propõe utilizar ordens de emergência para afastar os agressores e não as vítimas.",
+            "supported": true,
+            "reason": "O Documento 8 propõe 'nomeadamente através de... ordens de... emergência... de modo a afastar os agressores e não as vítimas'."
+          },
+          {
+            "claim": "O Bloco de Esquerda propõe utilizar ordens de restrição para afastar os agressores e não as vítimas.",
+            "supported": true,
+            "reason": "O Documento 8 propõe 'nomeadamente através de... ordens de... restrição... de modo a afastar os agressores e não as vítimas'."
+          },
+          {
+            "claim": "O Bloco de Esquerda propõe utilizar ordens de proteção para afastar os agressores e não as vítimas.",
+            "supported": true,
+            "reason": "O Documento 8 propõe 'nomeadamente através de... ordens de... proteção... de modo a afastar os agressores e não as vítimas'."
+          },
+          {
+            "claim": "O Bloco de Esquerda propõe reforçar o apoio às vítimas de violência doméstica através do aprofundamento de direitos no trabalho.",
+            "supported": true,
+            "reason": "O Documento 8 propõe 'Reforço do apoio às vítimas de violência doméstica, nomeadamente através do aprofundamento de direitos no trabalho'."
+          },
+          {
+            "claim": "O Bloco de Esquerda propõe reforçar o apoio às vítimas de violência doméstica através do aprofundamento de direitos no acesso à habitação.",
+            "supported": true,
+            "reason": "O Documento 8 propõe 'Reforço do apoio às vítimas de violência doméstica, nomeadamente através do... acesso à habitação'."
+          },
+          {
+            "claim": "O Bloco de Esquerda propõe reforçar o apoio às vítimas de violência doméstica através do aprofundamento de direitos na educação.",
+            "supported": true,
+            "reason": "O Documento 8 propõe 'Reforço do apoio às vítimas de violência doméstica, nomeadamente através do... educação'."
+          },
+          {
+            "claim": "O Bloco de Esquerda propõe reforçar o apoio às vítimas de violência doméstica através do aprofundamento de direitos na segurança social.",
+            "supported": true,
+            "reason": "O Documento 8 propõe 'Reforço do apoio às vítimas de violência doméstica, nomeadamente através do... segurança social'."
+          },
+          {
+            "claim": "O Bloco de Esquerda propõe assegurar fontes de financiamento estáveis para a Rede Nacional de Apoio a Vítimas de Violência Doméstica.",
+            "supported": true,
+            "reason": "O Documento 8 propõe 'Assegurar fontes de financiamento estáveis para a Rede Nacional de Apoio a Vítimas de Violência Doméstica'."
+          },
+          {
+            "claim": "O Bloco de Esquerda propõe assegurar fontes de financiamento estáveis para outras respostas de combate à violência de género.",
+            "supported": true,
+            "reason": "O Documento 8 propõe 'Assegurar fontes de financiamento estáveis para... as demais respostas de combate à violência de género'."
+          },
+          {
+            "claim": "O Bloco de Esquerda propõe reconhecer o impacto nas crianças que testemunham violência.",
+            "supported": true,
+            "reason": "O Documento 8 propõe 'Reconhecimento de que as crianças que são testemunhas de violência são profundamente afetadas por ela'."
+          },
+          {
+            "claim": "O Bloco de Esquerda propõe avaliar a atribuição do estatuto de vítima às crianças que testemunham violência.",
+            "supported": true,
+            "reason": "O Documento 8 propõe 'o que impõe a avaliação da atribuição do estatuto de vítima'."
+          },
+          {
+            "claim": "O Bloco de Esquerda propõe impor a articulação entre jurisdição criminal e de família e menores.",
+            "supported": true,
+            "reason": "O Documento 8 propõe 'a obrigatoriedade de articulação entre a jurisdição criminal e a jurisdição de família e menores'."
+          },
+          {
+            "claim": "O Bloco de Esquerda propõe a criação de tribunais com competência mista para articular a jurisdição criminal e de família e menores.",
+            "supported": true,
+            "reason": "O Documento 8 propõe 'incluindo a criação de tribunais com competência mista para esse efeito'."
+          },
+          {
+            "claim": "O Bloco de Esquerda afirma que as medidas de coação de afastamento da vítima devem prever que quem abandona a casa de morada de família é o agressor e não a vítima.",
+            "supported": true,
+            "reason": "O Documento 7 afirma que 'As medidas de coação de afastamento da vítima têm de prever que quem abandona a casa de morada de família é o agressor e não a vítima'."
+          },
+          {
+            "claim": "O PAN propõe criar gabinetes de atendimento à vítima de violência doméstica em todas as comarcas judiciais.",
+            "supported": true,
+            "reason": "O Documento 10 propõe 'Criar, em todas as comarcas judiciais no território nacional... gabinetes de atendimento à vítima de violência doméstica'."
+          },
+          {
+            "claim": "O PAN propõe criar gabinetes de atendimento à vítima de violência doméstica nos DIAP.",
+            "supported": true,
+            "reason": "O Documento 10 especifica que os gabinetes devem ser criados 'nos departamentos de investigação e ação penal' (DIAP)."
+          },
+          {
+            "claim": "O PAN propõe alargar os centros de crise para vítimas de violência sexual.",
+            "supported": true,
+            "reason": "O Documento 10 propõe 'Alargar o número de centros de crise para vítimas de violência sexual'."
+          },
+          {
+            "claim": "O PAN propõe assegurar pelo menos um centro de crise para vítimas de violência sexual em cada capital de distrito até 2026.",
+            "supported": true,
+            "reason": "O Documento 10 propõe 'assegurando a existência de pelo menos um centro em cada capital de distrito do país até 2026'."
+          },
+          {
+            "claim": "O PAN propõe reforçar o financiamento dos centros de crise para vítimas de violência sexual.",
+            "supported": true,
+            "reason": "O Documento 10 propõe 'e reforçar o respetivo financiamento'."
+          },
+          {
+            "claim": "O PAN propõe realizar um Inquérito Nacional à Violência Doméstica e de Género.",
+            "supported": true,
+            "reason": "O Documento 10 propõe 'Realizar um Inquérito Nacional à Violência Doméstica e de Género'."
+          },
+          {
+            "claim": "O PAN propõe que o Inquérito Nacional à Violência Doméstica e de Género caracterize prevalências, contextos, vítimas, agressores e territorialização.",
+            "supported": true,
+            "reason": "O Documento 10 detalha que o inquérito deve analisar 'as prevalências... a caracterização do contexto... a caracterização das vítimas e de agressores, e a sua territorialização'."
+          },
+          {
+            "claim": "O PAN propõe aumentar as respostas habitacionais para vítimas e sobreviventes de violência doméstica e de género.",
+            "supported": true,
+            "reason": "O Documento 10 propõe 'Aumentar as respostas habitacionais para vítimas/sobreviventes de violência doméstica e de género'."
+          },
+          {
+            "claim": "O PAN propõe incluir soluções de emergência nas respostas habitacionais para vítimas de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 10 menciona 'não só de emergência'."
+          },
+          {
+            "claim": "O PAN propõe incluir soluções temporárias nas respostas habitacionais para vítimas de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 10 menciona 'e temporárias'."
+          },
+          {
+            "claim": "O PAN propõe incluir soluções de médio prazo nas respostas habitacionais para vítimas de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 10 menciona 'mas também de médio... prazo'."
+          },
+          {
+            "claim": "O PAN propõe incluir soluções de longo prazo nas respostas habitacionais para vítimas de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 10 menciona 'e... longo prazo'."
+          },
+          {
+            "claim": "O PAN propõe que as respostas habitacionais apoiem a autonomização das vítimas de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 10 afirma que as respostas devem estar 'apoiando os processos de autonomização'."
+          },
+          {
+            "claim": "O PAN propõe aprovar uma lei dos direitos das crianças vítimas de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 10 propõe 'Aprovar uma lei dos direitos das crianças vítimas de violência doméstica'."
+          },
+          {
+            "claim": "O PAN propõe reforçar os direitos de crianças e jovens órfãos por homicídio em contexto de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 10 propõe 'Reforçar os direitos das crianças e jovens órfãos em consequência de homicídio em contexto de violência doméstica'."
+          },
+          {
+            "claim": "O PAN propõe criar uma pensão para crianças e jovens órfãos por homicídio em contexto de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 10 propõe 'por via da criação de uma pensão'."
+          },
+          {
+            "claim": "O PAN propõe criar um fundo de garantia para segurança, apoio psicológico, habitação e educação de crianças e jovens órfãos por homicídio em contexto de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 10 propõe 'e de um fundo de garantia para assegurar as suas necessidades e direitos básicos de segurança, apoio psicológico, habitação, educação'."
+          },
+          {
+            "claim": "O PAN propõe criar carreiras profissionais nas estruturas da Rede Nacional de Apoio a Vítimas de Violência Doméstica.",
+            "supported": true,
+            "reason": "O Documento 10 propõe 'Criar carreiras profissionais... no âmbito das estruturas da Rede Nacional de Apoio a Vítimas de Violência Doméstica'."
+          },
+          {
+            "claim": "O PAN propõe criar tabela salarial nas estruturas da Rede Nacional de Apoio a Vítimas de Violência Doméstica.",
+            "supported": true,
+            "reason": "O Documento 10 propõe 'e correspondente tabela salarial condigna'."
+          },
+          {
+            "claim": "O PAN propõe consagrar a natureza pública de vários crimes sexuais.",
+            "supported": true,
+            "reason": "O Documento 10 propõe 'Consagrar a natureza pública dos crimes de violação, de coação sexual, de fraude sexual, de abuso sexual de pessoa incapaz de resistência e de procriação artificial não consentida'."
+          },
+          {
+            "claim": "O PAN propõe consagrar a natureza pública do crime de violação.",
+            "supported": true,
+            "reason": "O Documento 10 inclui explicitamente 'violação' na lista de crimes a que se consagra a natureza pública."
+          },
+          {
+            "claim": "O PAN propõe alterar a moldura penal do crime de violência doméstica.",
+            "supported": true,
+            "reason": "O Documento 10 propõe 'Alterar a moldura penal prevista para o crime de violência doméstica'."
+          },
+          {
+            "claim": "O PAN propõe que a alteração da moldura penal do crime de violência doméstica permita a aplicação da prisão preventiva a todos os casos.",
+            "supported": true,
+            "reason": "O Documento 10 afirma que a alteração visa 'possibilitando, desta forma, a aplicação da prisão preventiva a todos os casos de violência doméstica'."
+          },
+          {
+            "claim": "O PAN propõe adotar medidas de proteção efetiva da vítima ou sobrevivente após a denúncia.",
+            "supported": true,
+            "reason": "O Documento 10 propõe 'Adotar medidas que assegurem uma efetiva proteção da vítima/sobrevivente, após a denúncia do crime'."
+          },
+          {
+            "claim": "O PAN propõe adotar medidas de proteção efetiva das pessoas e entidades que auxiliem a vítima ou sobrevivente após a denúncia.",
+            "supported": true,
+            "reason": "O Documento 10 propõe 'bem como das pessoas e entidades que a auxiliem nessa denúncia'."
+          },
+          {
+            "claim": "O PAN propõe eliminar a necessidade de consentimento do arguido para utilização de pulseira eletrónica.",
+            "supported": true,
+            "reason": "O Documento 10 propõe 'Eliminar a necessidade de obtenção do consentimento do arguido para a utilização de pulseira eletrónica'."
+          },
+          {
+            "claim": "O PAN propõe garantir que a audição da vítima e do agressor ocorre em dias diferentes.",
+            "supported": true,
+            "reason": "O Documento 10 propõe 'Garantir que a audição da vítima/sobrevivente e do agressor são efetuadas em dias diferentes'."
+          },
+          {
+            "claim": "O PAN propõe garantir a articulação entre o processo-crime de violência doméstica e o processo de regulação das responsabilidades parentais.",
+            "supported": true,
+            "reason": "O Documento 10 propõe 'Garantir a articulação entre o processo-crime de violência doméstica e o processo de regulação das responsabilidades parentais'."
+          },
+          {
+            "claim": "O PAN propõe garantir que, sempre que existam crianças ou jovens envolvidos ou afetados, se proceda à avaliação do risco.",
+            "supported": true,
+            "reason": "O Documento 10 propõe 'Garantir que, em todas as situações de violência doméstica em que existem crianças ou jovens direta ou indiretamente envolvidos ou afetados, se proceda à avaliação do risco'."
+          },
+          {
+            "claim": "O PAN propõe garantir que, sempre que existam crianças ou jovens envolvidos ou afetados, sejam adotadas medidas de segurança.",
+            "supported": true,
+            "reason": "O Documento 10 propõe 'que se adotem as adequadas medidas de segurança'."
+          },
+          {
+            "claim": "O PAN propõe garantir que, sempre que existam crianças ou jovens envolvidos ou afetados, se comunique à CPCJ ou se proceda a procedimento judicial.",
+            "supported": true,
+            "reason": "O Documento 10 propõe 'sendo, igualmente, realizada comunicação à Comissão de Proteção de Crianças e Jovens ou desencadeado procedimento judicial'."
+          },
+          {
+            "claim": "O PAN propõe criar equipas multidisciplinares com assistentes sociais e psicólogos nas esquadras da PSP.",
+            "supported": true,
+            "reason": "O Documento 11 propõe 'Criar equipas multidisciplinares, compostas nomeadamente por assistentes sociais e psicólogos... nas esquadras da PSP'."
+          },
+          {
+            "claim": "O PAN propõe criar equipas multidisciplinares com assistentes sociais e psicólogos nos postos da GNR.",
+            "supported": true,
+            "reason": "O Documento 11 propõe 'Criar equipas multidisciplinares... nos... postos da GNR'."
+          },
+          {
+            "claim": "O PAN propõe que as equipas multidisciplinares nas esquadras da PSP e postos da GNR sejam acionáveis 24 horas por dia, 365 dias por ano.",
+            "supported": true,
+            "reason": "O Documento 11 especifica que as equipas 'possam ser acionadas 24/24h, 365 dias/ano'."
+          }
+        ]
       }
     },
     {

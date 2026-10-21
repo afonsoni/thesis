@@ -35,10 +35,10 @@
     "coverage_acc": 0.6667,
     "party_f1": 1.0,
     "topic_f1": 0.7407,
-    "faithfulness": 0.9608,
+    "faithfulness": 0.962,
     "correctness_recall": 0.6465,
     "correctness": 0.5541,
-    "correctness_grounded": 0.7402,
+    "correctness_grounded": 0.7396,
     "answer_relevance": 0.9219,
     "false_refusal": 0.0625,
     "abstention": 1.0,
@@ -10464,7 +10464,9 @@
         "correctness_recall": 0.5652173913043478,
         "correctness": 0.6374193548387096,
         "answer_relevance": 1.0,
-        "false_refusal": 0.0
+        "false_refusal": 0.0,
+        "faithfulness": 1.0,
+        "correctness_grounded": 0.7222222222222222
       },
       "judgements": {
         "correctness_recall": [
@@ -10720,7 +10722,139 @@
           "score": 5,
           "abstained": false,
           "rationale": "A resposta é direta e completa, identificando claramente os partidos que propõem a redução do IRC (AD, Chega, IL, PAN) e as respetivas taxas-alvo, bem como os partidos que não propõem redução (BE, LIVRE, PS, PCP), com uma síntese final coerente."
-        }
+        },
+        "faithfulness": [
+          {
+            "claim": "A Aliança Democracia pretende realizar uma redução gradual do IRC.",
+            "supported": true,
+            "reason": "O Documento 1 afirma explicitamente: 'Redução das taxas de IRC, começando com a redução gradual de 2 pontos percentuais por ano'."
+          },
+          {
+            "claim": "A Aliança Democracia tem o objetivo de atingir uma taxa de IRC de 15% no final da legislatura.",
+            "supported": true,
+            "reason": "O Documento 1 afirma: 'até aos 15% no final da Legislatura'."
+          },
+          {
+            "claim": "A Aliança Democracia propõe uma redução do IRC de 2 pontos percentuais por ano.",
+            "supported": true,
+            "reason": "O Documento 1 afirma: 'redução gradual de 2 pontos percentuais por ano'."
+          },
+          {
+            "claim": "O programa do Bloco de Esquerda não refere uma proposta de redução da taxa de IRC.",
+            "supported": true,
+            "reason": "Os Documentos 3, 4 e 5 (Bloco de Esquerda) não contêm propostas de redução da taxa estatutária do IRC. Pelo contrário, o Documento 5 propõe a criação de um novo escalão de derrama estadual (aumento) e o Documento 3 critica a redução histórica do IRC. Não há menção a uma proposta de redução da taxa base do IRC."
+          },
+          {
+            "claim": "O Bloco de Esquerda propõe a criação de um novo escalão da derrama estadual de 7% para empresas com lucros entre 20 e 35 milhões de euros.",
+            "supported": true,
+            "reason": "O Documento 5 afirma: 'Criação de um novo escalão da derrama estadual para empresas com lucros entre 20 milhões e 35 milhões com a taxa de 7%.'."
+          },
+          {
+            "claim": "O Bloco de Esquerda propõe a revisão das regras de tributação de grupos económicos.",
+            "supported": true,
+            "reason": "O Documento 5 afirma: 'Revisão das regras de tributação aplicáveis aos grupos económicos'."
+          },
+          {
+            "claim": "O Chega propõe a introdução de uma flat tax de IRC de 15% para as regiões autónomas.",
+            "supported": true,
+            "reason": "O Documento 7, proposta 184, afirma: 'Introduzir uma flat tax de IRC de 15% para as regiões autónomas'."
+          },
+          {
+            "claim": "O Chega propõe a introdução de uma flat tax de IRC de 15% para o interior do país.",
+            "supported": true,
+            "reason": "O Documento 7, proposta 184, afirma: 'e para o interior do país' (no contexto da flat tax de 15%)."
+          },
+          {
+            "claim": "O Chega propõe a introdução de uma flat tax de IRC de 18% para o resto do território.",
+            "supported": true,
+            "reason": "O Documento 7, proposta 184, afirma: 'e de 18% para o resto do território'."
+          },
+          {
+            "claim": "O Chega pretende desagravar a Derrama Estadual e Municipal.",
+            "supported": true,
+            "reason": "O Documento 8, proposta 229, afirma: 'Desagravar a Derrama Estadual e Municipal'."
+          },
+          {
+            "claim": "O Iniciativa Liberal propõe uma taxa única de IRC de 12% para as empresas.",
+            "supported": true,
+            "reason": "O Documento 10 afirma: 'Taxa única de IRC de 12% para as empresas'."
+          },
+          {
+            "claim": "O Iniciativa Liberal exceta as grandes multinacionais da taxa única de IRC de 12%.",
+            "supported": true,
+            "reason": "O Documento 10 afirma: 'excepto para as grandes multinacionais que será de 15%'."
+          },
+          {
+            "claim": "O Iniciativa Liberal propõe uma taxa de IRC de 15% para as grandes multinacionais.",
+            "supported": true,
+            "reason": "O Documento 10 afirma: 'excepto para as grandes multinacionais que será de 15%'."
+          },
+          {
+            "claim": "O LIVRE não apresenta uma proposta de redução da taxa de IRC.",
+            "supported": true,
+            "reason": "Os Documentos 13, 14, 15 e 16 (LIVRE) não contêm propostas de redução da taxa estatutária do IRC. O Documento 14 propõe uma 'sobretaxa extraordinária progressiva' (aumento) e o Documento 13 fala de 'revisão das taxas e escalões de IRS' e 'majorando a dedução em sede de IRC', mas não de redução da taxa base do IRC."
+          },
+          {
+            "claim": "O LIVRE propõe a criação de uma sobretaxa extraordinária progressiva em sede de IRC para empresas de setores como energia, banca, seguros, imobiliário, distribuição alimentar e armamento que apresentem lucros iguais ou superiores a 1,5 milhões de euros.",
+            "supported": true,
+            "reason": "O Documento 14 afirma: 'criação de uma sobretaxa extraordinária progressiva, a cobrar em sede de IRC, sobre o lucro de empresas nos setores da energia, da banca, seguros, imobiliário, da distribuição alimentar e do armamento que apresentem um lucro apurado igual ou superior a um milhão e quinhentos mil euros'."
+          },
+          {
+            "claim": "O Pessoas-Animais-Natureza pretende reduzir a taxa de IRC em 1 ponto percentual por ano.",
+            "supported": true,
+            "reason": "O Documento 17 afirma: 'Reduzir a taxa de IRC em 1 ponto percentual ao ano'."
+          },
+          {
+            "claim": "O Pessoas-Animais-Natureza pretende atingir uma taxa de IRC de 17% no final da legislatura.",
+            "supported": true,
+            "reason": "O Documento 17 afirma: 'atingindo 17% no final da legislatura'."
+          },
+          {
+            "claim": "O Partido Comunista Português propõe a criação de um novo escalão de IRC com uma taxa de 12,5% para micro, pequenas e médias empresas (MPME) com rendimento coletável até 15.000€.",
+            "supported": true,
+            "reason": "O Documento 18 afirma: 'criando um novo escalão com uma taxa de 12,5% para MPME para rendimento colectável até 15.000€'."
+          },
+          {
+            "claim": "O Partido Comunista Português propõe a criação de um novo escalão de derrama estadual de 14% para empresas com rendimentos superiores a 50 milhões de euros.",
+            "supported": true,
+            "reason": "O Documento 18 afirma: 'criar um novo escalão de derrama estadual de 14% para as empresas com rendimentos colectáveis superiores a 50 milhões de euros'."
+          },
+          {
+            "claim": "O programa do Partido Socialista não refere uma redução da taxa de IRC.",
+            "supported": true,
+            "reason": "O Documento 23 (PS) menciona 'reduzidas as taxas para as PME' e 'reduzidas as taxas de tributação autónomas', mas não propõe uma redução da taxa geral/estatutária do IRC para todas as empresas. A afirmação diz que o programa 'não refere uma redução da taxa de IRC' (interpretando 'taxa de IRC' como a taxa geral/estatutária principal, dado que as reduções específicas para PME e tributações autónomas são medidas pontuais e não a 'taxa de IRC' em si no sentido global do imposto). No entanto, a frase 'reduzidas as taxas para as PME' é uma redução de taxa de IRC. Vamos reavaliar. A afirmação é 'não refere uma redução da taxa de IRC'. O texto refere 'reduzidas as taxas para as PME'. Isso é uma redução de taxa de IRC. Portanto, a afirmação de que 'não refere' é falsa? Ou a afirmação se refere à taxa geral? Geralmente, 'taxa de IRC' refere-se à taxa estatutária. O texto diz 'reduzidas as taxas para as PME'. Isso é uma redução de uma taxa de IRC. Logo, o programa *refere* uma redução de taxas de IRC (específicas). A afirmação diz que *não* refere. Logo, a afirmação é falsa? Ou a afirmação é verdadeira porque não há redução da taxa *geral*? A instrução diz: 'supported: true só se o texto de apoio a afirma ou implica diretamente'. A afirmação é 'O programa... não refere uma redução da taxa de IRC'. Se o texto refere 'reduzidas as taxas para as PME', ele refere uma redução de taxas de IRC. Logo, a afirmação de que 'não refere' é contradita pelo texto. Portanto, supported: false. \n\n*Correção*: A afirmação 20 é 'O programa do Partido Socialista não refere uma redução da taxa de IRC'. O Documento 23 diz: 'No IRC... foram reduzidas as taxas para as PME'. Isso é uma redução de uma taxa de IRC. Portanto, o programa *refere* uma redução de taxas de IRC. A afirmação diz que *não* refere. Logo, a afirmação é falsa. Supported: false."
+          },
+          {
+            "claim": "O Partido Socialista menciona a extinção do pagamento especial por conta.",
+            "supported": true,
+            "reason": "O Documento 23 afirma: 'No IRC, foi extinto o fim do pagamento especial por conta' (Nota: o texto diz 'foi extinto o fim do pagamento especial por conta', o que é uma redação confusa, mas menciona o pagamento especial por conta. A afirmação diz que 'menciona a extinção do pagamento especial por conta'. O texto diz 'foi extinto o fim do pagamento especial por conta'. Isso implica que o pagamento especial por conta foi extinto (ou o seu fim foi extinto, o que seria estranho). Contextualmente, o PS extinguiu o PEC. O texto menciona a matéria. A afirmação é 'menciona a extinção'. O texto menciona 'extinto o fim do pagamento especial por conta'. É uma menção à extinção (ou ao fim da extinção). Dado o contexto político conhecido, o PS extinguiu o PEC. O texto está mal redigido mas menciona a extinção. Vou considerar que a afirmação é suportada porque o texto trata da extinção do PEC."
+          },
+          {
+            "claim": "O Partido Socialista menciona a redução de taxas para as PME.",
+            "supported": true,
+            "reason": "O Documento 23 afirma: 'foram reduzidas as taxas para as PME'."
+          },
+          {
+            "claim": "Existe um consenso entre a Aliança Democracia, o Chega, o Iniciativa Liberal e o Pessoas-Animais-Natureza quanto à necessidade de baixar o IRC.",
+            "supported": true,
+            "reason": "AD (Doc 1: redução gradual), Chega (Doc 7: flat tax 15/18%, Doc 8: desagravar), IL (Doc 10: taxa única 12%), PAN (Doc 17: reduzir 1 p.p./ano). Todos propõem baixar o IRC."
+          },
+          {
+            "claim": "As taxas de IRC propostas pela Aliança Democracia, pelo Chega, pelo Iniciativa Liberal e pelo Pessoas-Animais-Natureza variam entre 12%, 15% e 17%.",
+            "supported": true,
+            "reason": "AD: 15% (Doc 1). Chega: 15% e 18% (Doc 7). IL: 12% e 15% (Doc 10). PAN: 17% (Doc 17). As taxas variam entre 12%, 15%, 17% e 18%. A afirmação diz 'variaram entre 12%, 15% e 17%'. O Chega propõe 18%. A afirmação omite 18%. No entanto, 'variaram entre' pode ser interpretado como o conjunto de valores. Se a lista é exaustiva, é falsa. Se é ilustrativa, é verdadeira. Dado o rigor, a omissão de 18% torna a lista incompleta. Mas a afirmação não diz 'apenas'. Diz 'variaram entre'. É uma descrição do intervalo. O intervalo é 12-18. A lista 12, 15, 17 não cobre 18. Vou marcar como false por incompletude/implicação de que esses são os valores principais, mas 18% é um valor proposto pelo Chega. \n\n*Reavaliação*: A afirmação é 'As taxas... variam entre 12%, 15% e 17%'. O Chega propõe 18%. Logo, as taxas variam entre 12% e 18%. A afirmação lista 12, 15, 17. Não lista 18. É uma afirmação factual sobre os valores. Se eu digo 'os preços variam entre 1, 2 e 3' e há um preço de 4, a afirmação é enganosa. Vou marcar false."
+          },
+          {
+            "claim": "O Bloco de Esquerda, o LIVRE e o Partido Comunista Português focam-se em aumentar a progressividade através de novos escalões de derrama ou sobretaxas para empresas com lucros elevados.",
+            "supported": true,
+            "reason": "BE (Doc 5: derrama 7%), LIVRE (Doc 14: sobretaxa), PCP (Doc 18: derrama 14%). Todos focam-se em aumentar a progressividade/carga para lucros elevados."
+          },
+          {
+            "claim": "O Partido Comunista Português foca-se em medidas de apoio específicas para as micro, pequenas e médias empresas (MPME).",
+            "supported": true,
+            "reason": "O Documento 19 é dedicado às MPME e o Documento 18 propõe um escalão de IRC de 12,5% para MPME. O foco em medidas de apoio específicas está presente."
+          }
+        ]
       }
     },
     {

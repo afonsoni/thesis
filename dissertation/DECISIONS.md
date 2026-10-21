@@ -52,6 +52,19 @@ for the decision-history thread of the Proposition chapter.
 
 ## Settled
 
+- **Omitted judge scores re-judged** (2026-10-22,
+  `scripts/eval_extras/rejudge_missing.py`). The judge left 5 (variant,
+  question) pairs unscored on test. Re-running the same judge on the stored
+  answers filled 3 (faithfulness for `contextual` q-36, `current_strong` q-44,
+  `naive` q-44). The other 2 (`naive` q-41 correctness, `reranked` q-31
+  faithfulness) fail deterministically: at temperature 0 the judge repeats its
+  reply token for token, and that reply yields no verdicts for 34 and 19
+  claims. They stay omitted, by design never a 0. So `leaderboard-test.md`,
+  which averages every variant over the questions all of them were scored on,
+  uses 31 questions for correctness and faithfulness and 30 for grounded
+  correctness, while `headline-analysis.md` uses each run's own questions (32,
+  or 31 where one is missing). Quote one source per table and state its n.
+  Repair calls are not added to the runs' cost records.
 - **Final test run done** (2026-10-20, code `0293a0b`, tagged `code-freeze`).
   Every reported rung judged once on the 36 test questions, 0 errors in the
   runs the leaderboard uses (`data/eval/reports/leaderboard-test.md`). What
