@@ -9,10 +9,6 @@ chapter is built from.
 
 ## Structural
 
-- **Evaluation chapter structure and RQ wording** (proposal 2026-10-16, in
-  `EVALUATION-CHAPTER.md`). Results card first, RQ5 second, the ladder third,
-  cost as columns. RQ1 needs rewording to what was measured (representation),
-  since granularity and encoder comparisons are not run.
 - **Open-source framing.** Whether "built entirely from open components" is
   a research question (needs a proprietary comparison run) or a stated design
   constraint (needs no extra work). See `VIVA-QUESTIONS.md` item 1.
@@ -40,7 +36,9 @@ chapter is built from.
   this corpus. `scripts/judge_validation.py` exports a blind sheet of about 25
   answers' claims; rating it (about an hour) gives claim-level Cohen's kappa
   and answer-level Spearman for the Methodology chapter. Decided 2026-10-16:
-  the user rates the sheet.
+  the user rates the sheet. Include assistant and deep-research answers: the
+  test run showed the judge marks true extra detail as unsupported
+  (`EVALUATION-CHAPTER.md` → Findings 1).
 - **AD classification spot check, after.** AD was re-classified with the
   tightened prompt on 2026-10-07 (`54808b6`). The 30-chunk spot check
   (`HISTORY-GAPS.md` §7) has not been re-run for the before/after figure the
@@ -54,6 +52,15 @@ for the decision-history thread of the Proposition chapter.
 
 ## Settled
 
+- **Final test run done** (2026-10-20, code `0293a0b`, tagged `code-freeze`).
+  Every reported rung judged once on the 36 test questions, 0 errors in the
+  runs the leaderboard uses (`data/eval/reports/leaderboard-test.md`). What
+  the numbers say, and the judge caveat for RQ5, are in
+  `EVALUATION-CHAPTER.md` → Findings.
+- **Evaluation chapter structure** (2026-10-21): results card first, then
+  retrieval versus scale, the ladder, cost as columns
+  (`EVALUATION-CHAPTER.md`). RQ1 reworded to representation; RQ5 now names
+  commercial assistants with web search.
 - **Code freeze** (2026-10-15). No new code unless something is needed for
   the thesis. Left as future work, never run: the chunk-size sweep (needs
   span-based gold matching, an equal token budget per size and one index per

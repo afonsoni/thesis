@@ -11,10 +11,12 @@ the card; they are not the point.
 - **Choose on dev, report on test.** Gold set: 61 questions. Test: 36 (32
   answerable, 4 unanswerable). Dev: 25 (22 + 3). Every design decision so far
   was taken on dev or on all 61.
-- **No run on the test split exists yet.** The headline numbers need one judged
-  test run per reported rung. Runs over all 61 include the dev questions the
-  system was tuned on; if one is quoted, say so.
-- `eval` estimates a run's cost before paying for it.
+- **The test run is done** (2026-10-20, code `0293a0b`, tag `code-freeze`):
+  every reported rung judged once on the 36 test questions. Tables:
+  `data/eval/reports/leaderboard-test.md` (everything, paired against `naive`)
+  and `data/eval/extras/headline-analysis.md` (RQ5 against `current`, the
+  results card by question type, cost per answer). Runs over all 61 include
+  the dev questions the system was tuned on; if one is quoted, say so.
 
 ## Sections
 
@@ -64,16 +66,80 @@ the card; they are not the point.
    granularity and encoders were not compared; 61 questions give wide
    intervals (report the bootstrap CIs).
 
-## Research questions to reword
+## Research questions
 
-- **RQ1** promises parsing fidelity, chunk granularity, the size unit and the
-  embedding model. The evidence covers the unit (character-sized chunks left
-  62.7% of the corpus unembedded) and representation (plain, headers, LLM
-  context). Suggested: *How do representation choices (measuring chunk size in
-  the encoder's own tokens, and enriching each chunk with its section path and
-  an LLM-written context) affect retrieval quality over Portuguese electoral
-  manifestos?* Granularity and the encoder go to future work.
-- **RQ2** names routing and multi-query expansion. The rungs exist
-  (`multiquery`, `routed`) but have never been run. Either run them (no code
-  needed) or drop them from the wording.
-- **RQ3, RQ4, RQ5** stand as written.
+Done 2026-10-21: RQ1 reworded to representation (granularity and the encoder
+are future work), RQ2's `multiquery` and `routed` rungs ran on test, and RQ5
+names commercial assistants with web search.
+
+## Findings from the test run (2026-10-21)
+
+Paired differences per question with 95% bootstrap intervals; `*` means the
+interval excludes zero. n = 36 (32 answerable, 4 unanswerable).
+
+**1. The judge's `correctness` penalises true extra detail. Read RQ5 with this.**
+`correctness` is an F1 whose precision half marks a claim unsupported when it
+adds anything the reference lacks. q-02, `assistant_gpt`: "PCP… 1 000 euros
+mensais em 2024" is right, but the claim failed because the reference does not
+say "mensais" or "programa eleitoral de 2024", so `correctness` = 0.0 while
+`correctness_recall` = 0.33. Long and web-sourced answers lose most:
+`deep_research_claude` matches `current` on `correctness_recall` (−0.005) but
+trails by −0.236* on `correctness`. So lead comparisons across systems with
+`correctness_recall` (and `correctness_grounded` for PoliRAG's own rungs),
+report the F1 second, and put assistant and deep-research answers in the
+judge–human rating sample so the agreement figure covers this case.
+
+**2. The ladder: routing and hybrid search carry the gains.** One step at a time:
+
+| Step | recall | nDCG | correctness_recall |
+|---|---|---|---|
+| + multi-query (`naive` → `multiquery`) | +0.042 | +0.053 | −0.005 |
+| + analysis and routing (`naive` → `routed`) | **+0.209*** | **+0.092*** | **+0.113*** |
+| + multi-query on top of routing (`routed` → `dense_only`) | +0.046 | +0.013 | −0.003 |
+| + lexical BM25 (`dense_only` → `hybrid`) | **+0.121*** | **+0.140*** | **+0.102*** |
+| + section headers in the index (`hybrid` → `contextual`) | +0.008 | +0.007 | +0.020 |
+| + LLM context in the index (`contextual` → `current`) | +0.035 | **+0.040*** | −0.012 |
+
+Multi-query expansion did nothing measurable on test, alone or after routing.
+Headers alone did nothing. The LLM context improves ranking (nDCG) but not the
+answers: `current` against `hybrid` is recall +0.043*, nDCG +0.047*, but
+`correctness` +0.004 and `correctness_recall` +0.008. Dev had suggested more
+(recall +0.046 for contextual retrieval); test shrinks it. Say so.
+
+**3. The reranker lost again.** On top of `current`: recall −0.111*,
+`correctness_recall` −0.074 (interval reaches 0), latency 9.5 s against 3.5 s.
+Consistent with dev (−0.055). A clean negative result.
+
+**4. RQ5: retrieval beats scale, and the assistants do not beat PoliRAG.**
+- Closed book is hopeless on manifesto detail: `correctness_recall` −0.550*
+  for the same Gemma, −0.508* for GPT-5.4 without retrieval.
+- A stronger model with the same retrieval helps: `current_strong` +0.111*
+  `correctness_recall`, at 37× the pipeline cost ($0.041 against $0.0011 per
+  answer) and 3.6× the latency.
+- GPT and Gemini assistants with web search: `correctness_recall` −0.084 and
+  −0.078, both intervals crossing zero, so "no better than PoliRAG" at roughly
+  60–80× the cost ($0.07–0.09 per answer) and 7–26× the latency.
+- The Claude assistant trails clearly (−0.283*). Its answers often say it
+  could not reach the programme and fall back on press and parliamentary
+  sources (q-04, q-12). That is honest behaviour that scores badly here; worth
+  one sentence.
+
+**5. Results card (`current`, test).** Recall 0.870, nDCG 0.767, faithfulness
+0.952, `correctness_recall` 0.634, `correctness_grounded` 0.720, relevance
+0.922, false refusal 6% (2 of 32). Strongest on comparisons (`correctness_recall`
+0.709), weakest on topic explorations (0.296, n = 4) and general questions
+(0.438, n = 4, faithfulness 0.75). Per-type groups are small, so their
+intervals are wide.
+
+**6. Abstention rests on four questions.** `current` refused all 4
+unanswerable ones. With n = 4 one miss moves the rate by 0.25, and the
+assistants' 0.750 has an interval of [0.25, 1]. Report counts ("4 of 4"), not
+rates.
+
+**7. Truncated answers.** The 3,000-token answer cap cut 3 `current_strong`,
+2 `assistant_gemini` and 5 `assistant_claude` answers, which may lower their
+recall-type scores slightly. One line in the limitations.
+
+**8. Judging costs more than answering.** `current` costs $0.0011 per answer
+to run and $0.0084 to judge. Relevant if RQ4 discusses the cost of evaluation
+itself.
