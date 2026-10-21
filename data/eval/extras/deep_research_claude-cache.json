@@ -1,0 +1,1406 @@
+{
+ "q-01": {
+  "answer": "A **Iniciativa Liberal (IL)** propôs no programa de 2024 uma **taxa única de IRS de 15%**.\n\n**A proposta (IL, legislativas 2024)**\n• **Taxa:** 15% para todos os contribuintes, aplicada apenas ao rendimento **acima do salário mínimo nacional anualizado**. Na prática, o valor até ao salário mínimo não paga imposto.\n• **Deduções à coleta:** mantinham-se.\n• **Regimes especiais:** acabariam os regimes que tratam de forma diferente **jovens e não jovens** e **residentes e não residentes**.\n• **Justificação:** a IL defende que o IRS atual tem **progressividade excessiva** e que deve ser reduzida.\n\n**Pontos que não confirmei**\n• Não li o programa da IL diretamente; estes dados vêm de notícias de fevereiro de 2024. Também não encontrei se o programa previa uma passagem gradual para a taxa única.\n• **Outras propostas da IL com taxas de 15% e 28%:**\n  • **2022:** o programa propunha chegar à taxa única aos poucos, começando com duas taxas (15% e 28%).\n  • **Depois das eleições de 2024:** um artigo do DN diz que a IL quer só esses dois escalões no Orçamento seguinte. Não consegui ver a data do artigo.\n  • **2025:** o programa deixa cair a taxa única. Propõe isenção até ao salário mínimo, 15% até 26.768 € de rendimento bruto e 28% acima disso.\n\n**Fontes**\n• [DN – O que propõem os partidos em termos de medidas fiscais (15/02/2024)](https://www.dn.pt/o-que-propoem-os-partidos-em-termos-de-medidas-fiscais)\n• [Sábado – Iniciativa Liberal quer taxa única de IRS a 15% para todos](https://www.sabado.pt/ultima-hora/detalhe/iniciativa-liberal-quer-taxa-unica-de-irs-a-15-para-todos)\n• [Idealista – Eleições legislativas 2024: que medidas fiscais propõem os partidos?](https://www.idealista.pt/news/node/61492)\n• [DN – IL vota agora a favor de proposta de IRS mas quer só dois escalões no próximo Orçamento](https://www.dn.pt/il-vota-agora-favor-de-proposta-de-irs-mas-quer-so-dois-escaloes-no-proximo-orcamento)\n• [Postal – Legislativas: o programa da Iniciativa Liberal em sete áreas (2022)](https://postal.pt/politica/legislativas2022/legislativas-o-programa-da-iniciativa-liberal-em-sete-areas/)\n• [RTP – Iniciativa Liberal em 2025](https://www.rtp.pt/noticias/eleicoes-legislativas-2025/iniciativa-liberal-em-2025-privatizar-investir-na-defesa-e-liberalizar-saude-e-educacao_es1651860)",
+  "error": null,
+  "secs": 40.9,
+  "num_turns": 5,
+  "cost_usd": 0.128975,
+  "prompt_tokens": 22411,
+  "completion_tokens": 1984,
+  "web_searches": 2,
+  "web_fetches": 2,
+  "init_tools": [
+   "WebFetch",
+   "WebSearch"
+  ],
+  "init_mcp": [],
+  "init_plugins": [
+   {
+    "name": "cc-plugin-sec-default",
+    "path": "builtin",
+    "source": "cc-plugin-sec-default@builtin"
+   },
+   {
+    "name": "cc-plugin-agents-md",
+    "path": "builtin",
+    "source": "cc-plugin-agents-md@builtin"
+   },
+   {
+    "name": "cc-plugin-telemetry",
+    "path": "builtin",
+    "source": "cc-plugin-telemetry@builtin"
+   },
+   {
+    "name": "cc-plugin-plugin-authoring",
+    "path": "builtin",
+    "source": "cc-plugin-plugin-authoring@builtin"
+   }
+  ],
+  "init_model": "claude-opus-5-5"
+ },
+ "q-02": {
+  "answer": "**O PCP (que concorreu nas legislativas de 2024 integrado na coligação CDU, com o PEV) propõe subir o Salário Mínimo Nacional (SMN) para 1000 euros ainda em 2024.**\n\n• **Valor:** de 820 € (o valor em vigor em 2024) para **1000 €**, uma subida de 180 €, cerca de 22%.\n• **Prazo:** **em 2024**. O secretário-geral Paulo Raimundo defendeu que o aumento devia acontecer logo depois das eleições de 10 de março. Quando lhe perguntaram por metas para o resto da legislatura, recusou falar delas.\n• **Proposta associada:** um **aumento imediato de todos os salários de pelo menos 15%, nunca inferior a 150 €**.\n• **Depois das eleições:** o PCP voltou a apresentar no Parlamento a proposta dos 1000 € através de um projeto de resolução.\n\n**Nota:** Não consegui consultar o texto integral do programa eleitoral da CDU. Os dados vêm de notícias da apresentação do programa e de declarações de Paulo Raimundo. A DN refere a data de \"maio\", o que não bate com o resto do artigo. Por isso o mês exato para os 1000 € fica por confirmar, mas o ano de 2024 aparece em todas as fontes.\n\n**Fontes:**\n• [Observador – PCP apresenta programa de rutura…](https://observador.pt/especiais/pcp-apresenta-programa-de-rutura-com-ataques-duros-ao-ps-e-aposta-nos-rendimentos/)\n• [DN – Propostas dos partidos para aumentar o salário mínimo nacional](https://www.dn.pt/propostas-dos-partidos-para-aumentar-o-salario-minimo-nacional)\n• [Renascença – CDU propõe reforma aos 65 anos e 50 mil novas habitações públicas](https://rr.pt/noticia/politica/2024/01/25/cdu-propoe-reforma-aos-65-anos-e-50-mil-novas-habitacoes-publicas/364193/)\n• [Notícias ao Minuto – PCP apresenta programa](https://www.noticiasaominuto.com/politica/2488388/pcp-apresenta-programa-queremos-e-temos-direito-a-viver-com-dignidade)\n• [DN – PCP vai propor limite ao aumento das rendas e salário mínimo nos 1000 euros](https://www.dn.pt/política/no-1º-dia-da-nova-legislatura-pcp-vai-propor-limite-a-aumento-das-rendas-e-salário-mínimo-nos-1000-euros)",
+  "error": null,
+  "secs": 42.1,
+  "num_turns": 5,
+  "cost_usd": 0.0838078,
+  "prompt_tokens": 22886,
+  "completion_tokens": 1727,
+  "web_searches": 1,
+  "web_fetches": 3,
+  "init_tools": [
+   "WebFetch",
+   "WebSearch"
+  ],
+  "init_mcp": [],
+  "init_plugins": [
+   {
+    "name": "cc-plugin-sec-default",
+    "path": "builtin",
+    "source": "cc-plugin-sec-default@builtin"
+   },
+   {
+    "name": "cc-plugin-agents-md",
+    "path": "builtin",
+    "source": "cc-plugin-agents-md@builtin"
+   },
+   {
+    "name": "cc-plugin-telemetry",
+    "path": "builtin",
+    "source": "cc-plugin-telemetry@builtin"
+   },
+   {
+    "name": "cc-plugin-plugin-authoring",
+    "path": "builtin",
+    "source": "cc-plugin-plugin-authoring@builtin"
+   }
+  ],
+  "init_model": "claude-opus-5-5"
+ },
+ "q-03": {
+  "answer": "**AD (PSD/CDS-PP), programa eleitoral das legislativas de 2024**\n\n• **Medida:** a AD propõe criar *\"um regime fiscal para as novas gerações com uma taxa máxima de IRS de 15% (excluindo o último escalão) para os jovens até aos 35 anos\"*.\n• **Taxas:** as taxas de IRS aplicadas aos jovens ficariam reduzidas a **um terço** das taxas em vigor, até um **máximo de 15%**. No debate com Rui Tavares (LIVRE), Luís Montenegro resumiu a medida assim: os jovens pagariam *\"⅓ do IRS que se paga hoje\"*.\n• **Escalões:** a medida aplica-se até ao **8.º escalão**, ou seja, a rendimentos coletáveis até cerca de **80 mil euros por ano**. O **9.º e último escalão fica de fora**.\n• **Quem beneficia:** todos os jovens **até aos 35 anos**, **qualquer que seja a escolaridade**. O IRS Jovem que existia em 2024 tinha limites mais baixos de idade e de escolaridade (o Observador indica 30 anos e limitação a quem tinha curso superior).\n\n**Atenção a dois pontos:**\n• Não consegui abrir o PDF original do programa. A frase citada acima vem de um artigo de opinião do Observador que reproduz o texto, e os restantes detalhes vêm da imprensa. O programa pode não indicar o **custo** nem a **duração** do regime, e não confirmei se o faz.\n• A medida mudou depois das eleições:\n  • Em **maio de 2024**, o Governo aprovou a versão do programa (máximo de 15%, até ao 8.º escalão) para entrar em vigor em 2025, com um custo líquido estimado em **cerca de mil milhões de euros**.\n  • Em **setembro e outubro de 2024**, nas negociações do Orçamento do Estado para 2025, o Governo reduziu o alcance da medida (até ao 6.º escalão, com um custo de cerca de 645 milhões de euros).\n  • A versão que acabou por ser aprovada assenta sobretudo em **isenções parciais que diminuem com os anos de trabalho**. Isto é de memória e não o confirmei nestas fontes: 100% de isenção no 1.º ano, a descer até 25% entre o 8.º e o 10.º ano, com um teto de rendimento. Deve ser confirmado no Diário da República.\n\n**Fontes:**\n• [Observador – \"5 motivos para votares AD\" (opinião, cita o programa)](https://observador.pt/opiniao/5-motivos-para-votares-ad/)\n• [Observador – Debate Montenegro vs. Tavares (fev. 2024)](https://observador.pt/2024/02/17/do-irs-jovem-a-heranca-social-montenegro-e-tavares-concordaram-em-discordar-em-quase-tudo/)\n• [Observador – Simulações do IRS Jovem da AD](https://observador.pt/especiais/simulacoes-irs-jovem-da-ad-e-o-novo-modelo-de-montenegro-no-final-vai-dar-praticamente-ao-mesmo/)\n• [Observador – O que separa o IRS Jovem \"do PS\" da proposta do Governo](https://observador.pt/2024/10/03/o-que-separa-o-atual-irs-jovem-do-ps-do-que-quer-o-governo/)\n• [ECO – Governo aprova IRS máximo de 15% para jovens até aos 35 anos](https://eco.sapo.pt/2024/05/23/governo-aprova-irs-maximo-de-15-para-jovens-ate-aos-35-anos/)\n• [Idealista – IRS Jovem: taxa máxima até 15% até aos 35 anos](https://www.idealista.pt/news/node/64128)\n• [Público – Novo IRS Jovem arranca em 2025](https://www.publico.pt/2024/05/23/economia/noticia/novo-irs-jovem-arranca-2025-traz-descida-mil-milhoes-promete-montenegro-2091567)\n• [DN – Montenegro propõe IRS Jovem mais próximo do modelo do PS](https://www.dn.pt/3504692084/proposta-irrecusavel-montenegro-apresenta-reducao-do-irc-de-apenas-1-e-propoe-irs-jovem-mais-proximo-do-modelo-do-ps)",
+  "error": null,
+  "secs": 69.0,
+  "num_turns": 7,
+  "cost_usd": 0.1894727,
+  "prompt_tokens": 47950,
+  "completion_tokens": 3133,
+  "web_searches": 4,
+  "web_fetches": 2,
+  "init_tools": [
+   "WebFetch",
+   "WebSearch"
+  ],
+  "init_mcp": [],
+  "init_plugins": [
+   {
+    "name": "cc-plugin-sec-default",
+    "path": "builtin",
+    "source": "cc-plugin-sec-default@builtin"
+   },
+   {
+    "name": "cc-plugin-agents-md",
+    "path": "builtin",
+    "source": "cc-plugin-agents-md@builtin"
+   },
+   {
+    "name": "cc-plugin-telemetry",
+    "path": "builtin",
+    "source": "cc-plugin-telemetry@builtin"
+   },
+   {
+    "name": "cc-plugin-plugin-authoring",
+    "path": "builtin",
+    "source": "cc-plugin-plugin-authoring@builtin"
+   }
+  ],
+  "init_model": "claude-opus-5-5"
+ },
+ "q-04": {
+  "answer": "O programa do **PAN** para as legislativas de 10 de março de 2024 propõe **acabar com as touradas** e, até lá, **cortar todo o financiamento público** a esses espetáculos.\n\n**No programa eleitoral de 2024**\n• **Abolição:** o programa propõe \"abolir os espetáculos tauromáquicos\" (citado pela RTP).\n• **Até à abolição:** \"eliminar todos os apoios públicos, diretos ou indiretos, a tais espetáculos\".\n• Na apresentação do programa, no Porto, a 17 de fevereiro de 2024, Inês Sousa Real disse que o partido quer um país \"em que não há touradas\".\n\n**Na campanha**\n• A 23 de fevereiro de 2024, o PAN pôs um cartaz junto à praça do Campo Pequeno, em Lisboa, a pedir o fim das touradas.\n• Segundo o resumo da pesquisa, o partido disse que a tauromaquia recebe **19 milhões de euros por ano** do Estado e que esse dinheiro devia ir para a cultura ou para o bem-estar animal. Não consegui abrir o artigo do Público, por isso **não confirmei este valor**.\n\n**Posições anteriores do partido**\n• Em julho de 2020, o PAN apresentou no Parlamento um projeto de lei para acabar com o dinheiro público na tauromaquia. Foi chumbado com votos contra do PS, PSD, PCP, CDS-PP e CH.\n• Na página dessa campanha, o PAN fala de cerca de **16 milhões de euros por ano** em apoios públicos diretos e indiretos. Refere também cerca de **6 milhões de euros** em isenção de IVA em 2018 e a isenção de IMI do Campo Pequeno.\n• O partido argumenta que ninguém deve pagar espetáculos que não quer ver e que este dinheiro não se justifica perante as necessidades na saúde, educação e habitação.\n\n**Depois das eleições de 2024**\n• Em setembro de 2024, o PAN entregou na Assembleia da República uma proposta de **referendo à abolição das touradas**.\n• A 4 de outubro de 2024 a proposta foi chumbada:\n  • **Contra:** Chega, CDS-PP, IL, PSD, PS e PCP.\n  • **A favor:** BE e LIVRE.\n  • **Abstenção:** três deputados do PS.\n\n**Limitações:** encontrei o PDF do programa de 2024, mas não consegui ler o texto. As duas medidas acima vêm do resumo da RTP. Não sei se o programa diz mais alguma coisa sobre a tauromaquia, como a presença de menores, a transmissão na televisão ou o IVA.\n\n**Fontes:**\n• [RTP – PAN: as propostas para um futuro verde (Legislativas 2024)](https://www.rtp.pt/noticias/politica/pan-as-propostas-para-um-futuro-verde-que-cuide-das-pessoas-animais-e-natureza_es1552428)\n• [Programa eleitoral PAN 2024 (PDF publicado pela RTP)](https://cdn-images.rtp.pt/icm/noticias/docs/65/65c3e8cdf446ecade1136d07b548b6bc_efaeeafa39b3ac0c6348c34b57d56a91.pdf)\n• [Observador – \"Este é o efeito PAN\" (apresentação do programa, 17/02/2024)](https://observador.pt/especiais/este-e-o-efeito-pan-um-programa-com-as-causas-de-sempre-e-a-aposta-no-combate-a-corrupcao/)\n• [Público – Cartaz do PAN no Campo Pequeno (23/02/2024)](https://www.publico.pt/2024/02/23/p3/noticia/ole-touradas-so-cama-consentimento-pan-cartaz-campo-2081420)\n• [PAN – Fim do financiamento público às touradas](https://www.pan.com.pt/campanhas/fim-do-financiamento-publico-as-touradas/)\n• [Renascença – PAN entrega proposta de referendo (14/09/2024)](https://rr.pt/noticia/politica/2024/09/14/pan-entrega-no-parlamento-proposta-de-referendo-para-abolicao-das-touradas/393680/)\n• [Observador – Parlamento chumba referendo sobre abolição das touradas (04/10/2024)](https://observador.pt/2024/10/04/parlamento-chumba-referendo-sobre-abolicao-das-touradas/)",
+  "error": null,
+  "secs": 84.1,
+  "num_turns": 13,
+  "cost_usd": 0.2625796,
+  "prompt_tokens": 75490,
+  "completion_tokens": 3867,
+  "web_searches": 5,
+  "web_fetches": 7,
+  "init_tools": [
+   "WebFetch",
+   "WebSearch"
+  ],
+  "init_mcp": [],
+  "init_plugins": [
+   {
+    "name": "cc-plugin-sec-default",
+    "path": "builtin",
+    "source": "cc-plugin-sec-default@builtin"
+   },
+   {
+    "name": "cc-plugin-agents-md",
+    "path": "builtin",
+    "source": "cc-plugin-agents-md@builtin"
+   },
+   {
+    "name": "cc-plugin-telemetry",
+    "path": "builtin",
+    "source": "cc-plugin-telemetry@builtin"
+   },
+   {
+    "name": "cc-plugin-plugin-authoring",
+    "path": "builtin",
+    "source": "cc-plugin-plugin-authoring@builtin"
+   }
+  ],
+  "init_model": "claude-opus-5-5"
+ },
+ "q-05": {
+  "answer": "O programa do **LIVRE** para as legislativas de 2024 previa duas alterações à lei do aborto (interrupção voluntária da gravidez, IVG). Não consegui abrir o documento final de 2024, por isso estas duas medidas vêm de notícias da época.\n\n**Medidas do programa de 2024 (confirmadas na imprensa)**\n• **Alargar o prazo da IVG a pedido da mulher de 10 para 14 semanas.** Esta medida já constava da primeira versão do programa, discutida no congresso do partido em janeiro de 2024. A deputada municipal Isabel Mendes Lopes argumentou que, com o prazo de 10 semanas, \"a pessoa nem sequer sabe que pode estar grávida\".\n• **Acabar com o período de reflexão obrigatório de três dias** entre a consulta médica e a IVG.\n\n**Objeção de consciência (por confirmar)**\n• No congresso, Isabel Mendes Lopes apresentou uma emenda para **rever o alcance das declarações de objeção de consciência**. Defendeu que um médico objetor não tem de ficar afastado de todo o processo, porque atos como as ecografias não são a IVG em si. Considerou que a objeção de consciência \"não pode significar a negação do direito à IVG consagrado na lei\".\n• **Não sei se esta emenda foi aprovada** e entrou no texto final de 2024.\n\n**Outras medidas (programa de 2025, que pode retomar o de 2024)**\nA página oficial do programa do LIVRE, na proposta D.16, já corresponde às legislativas de 2025. Mantém as 14 semanas e o fim do período de reflexão, que o partido considera \"moralista e opressivo\", e acrescenta:\n• rever e organizar o alcance das declarações de objeção de consciência;\n• mobilizar meios a nível nacional quando os objetores impedirem a IVG numa região ou num período;\n• voltar a publicar todos os anos os relatórios sobre as IVG, com dados sobre a capacidade de resposta do SNS e sobre os objetores de consciência;\n• permitir que a mulher esteja acompanhada durante todo o processo;\n• pagar o transporte, a deslocação e a estadia quando há transferência entre hospitais;\n• reforçar o apoio psicológico depois da IVG;\n• fazer com que a declaração de presença entregue à entidade patronal não identifique o hospital ou clínica.\n\nNão confirmei se estas medidas já estavam no programa de 2024.\n\n**O que aconteceu depois**\nEm janeiro de 2025, o LIVRE apresentou um projeto de lei com as 14 semanas, o fim do período de reflexão e a garantia de que a IVG pode ser feita em qualquer hospital do país. O Parlamento rejeitou-o a 10 de janeiro de 2025, juntamente com as propostas do BE, do PCP e do PS.\n\n**Fontes:**\n• [DN – Livre propõe alargar IVG para as 14 semanas e 1% do PIB para a Cultura (27/01/2024)](https://www.dn.pt/politica/livre-propoe-alargar-ivg-para-as-14-semanas-e-1-do-pib-para-a-cultura)\n• [ZAP – Afinal, o que defende a AD quanto ao aborto? E o que propõem os outros partidos? (29/02/2024)](https://zap.aeiou.pt/ad-aborto-partidos-586661)\n• [Visão – Rui Tavares encerra reunião magna que vai aprovar programa eleitoral do Livre](https://visao.pt/atualidade/politica/2024-01-28-rui-tavares-encerra-hoje-reuniao-magna-que-vai-aprovar-programa-eleitoral-do-livre/)\n• [Programa do LIVRE – proposta D.16, Saúde (legislativas 2025)](https://programa.partidolivre.pt/propostas/D.16/)\n• [Observador – Livre propõe alargar prazo do aborto para 14 semanas e eliminar período de reflexão (06/01/2025)](https://observador.pt/2025/01/06/livre-propoe-alargar-prazo-do-aborto-para-14-semanas-e-eliminar-periodo-de-reflexao/)\n• [Público – Livre também defende alargamento do prazo para IVG até às 14 semanas](https://www.publico.pt/2025/01/06/politica/noticia/livre-tambem-defende-alargamento-prazo-ivg-ate-14-semanas-2117682)\n• [Euronews – Parlamento chumba projetos para mudar lei do aborto (10/01/2025)](https://pt.euronews.com/my-europe/2025/01/10/parlamento-chumba-projetos-para-mudar-lei-do-aborto)",
+  "error": null,
+  "secs": 81.7,
+  "num_turns": 11,
+  "cost_usd": 0.23453430000000003,
+  "prompt_tokens": 58830,
+  "completion_tokens": 3614,
+  "web_searches": 5,
+  "web_fetches": 5,
+  "init_tools": [
+   "WebFetch",
+   "WebSearch"
+  ],
+  "init_mcp": [],
+  "init_plugins": [
+   {
+    "name": "cc-plugin-sec-default",
+    "path": "builtin",
+    "source": "cc-plugin-sec-default@builtin"
+   },
+   {
+    "name": "cc-plugin-agents-md",
+    "path": "builtin",
+    "source": "cc-plugin-agents-md@builtin"
+   },
+   {
+    "name": "cc-plugin-telemetry",
+    "path": "builtin",
+    "source": "cc-plugin-telemetry@builtin"
+   },
+   {
+    "name": "cc-plugin-plugin-authoring",
+    "path": "builtin",
+    "source": "cc-plugin-plugin-authoring@builtin"
+   }
+  ],
+  "init_model": "claude-opus-5-5"
+ },
+ "q-06": {
+  "answer": "O programa do **CHEGA** para as legislativas de 2024 (\"Limpar Portugal\") propõe para estes casos sobretudo **prisão perpétua revisível**, **\"castração química\" temporária para reincidentes** e penas mais pesadas para vários tipos de crime. Li as medidas numa reprodução do programa no elege.pt. O PDF oficial no site do partido não abriu (acesso bloqueado), por isso não comparei os dois textos.\n\n**Prisão perpétua e \"castração química\" (Cap. II, \"Justiça Que Funcione\")**\n• **Medida 42:** criar a **pena de prisão perpétua**, que pode ser **revista depois de cumprida uma parte da pena**. Na parte que li, o programa de 2024 não diz a que crimes se aplicaria nem que parte da pena teria de ser cumprida.\n  – Em 2022, segundo a imprensa, o programa do partido falava em homicídio, terrorismo e crimes sexuais, e também em corrupção. Não confirmei que essa lista se mantenha em 2024.\n  – O artigo 30.º da Constituição proíbe hoje penas perpétuas, por isso esta medida exigiria uma revisão constitucional.\n• **Medida 41:** criar uma **sanção acessória** que consiste num **tratamento temporário para inibir a libido** (a chamada \"castração química\"), **aplicável a reincidentes**. Pelo contexto (vem logo depois da medida sobre crimes sexuais), deve referir-se a crimes sexuais, mas o resumo que li não o diz claramente.\n\n**Penas mais pesadas por tipo de crime**\n• **Violência doméstica, crimes sexuais e crimes contra crianças (medidas 40, 43 e 44):** rever e endurecer as penas.\n  – A violência sexual passaria a **crime público**, ou seja, o processo avança mesmo sem queixa da vítima.\n  – Na violência doméstica, propõe também afastar o agressor (e não a vítima) e usar vigilância eletrónica.\n• **Prescrição (medidas 39 e 212):** rever os prazos de prescrição das penas, sobretudo nos crimes contra crianças, nos crimes económicos e nos crimes sexuais contra menores.\n• **Corrupção (medidas 7 e 8):**\n  – penas mais altas para corrupção e tráfico de influência;\n  – **penas mínimas que não possam ser suspensas** nos casos mais graves e prazos de prescrição mais longos;\n  – **proibição de exercer funções públicas durante 10 anos** e perda do direito de ser eleito para cargos públicos;\n  – criação do crime de enriquecimento ilícito (medida 2).\n• **Partilha de imagens íntimas sem consentimento (medida 50):** pena mais alta, crime próprio e crime público.\n• **Agentes de autoridade (medidas 27 e 64):**\n  – criminalizar o incitamento ao ódio contra guardas prisionais, polícias e funcionários judiciais;\n  – penas mais pesadas para agressões a guardas prisionais;\n  – processo sumário (julgamento rápido) para os crimes de resistência e coação sobre funcionário.\n• **Outros crimes:**\n  – incêndios florestais e pirómanos: penas mais altas (medida 360);\n  – maus-tratos a animais de companhia: penas mais altas e proibição de ter animais (medida 335);\n  – tráfico de seres humanos e auxílio à imigração ilegal: penas mais altas (medida 178).\n\n**Estrangeiros e dupla nacionalidade (Cap. VII, \"Fronteiras Controladas\")**\n• **Medida 177:** retirar a nacionalidade portuguesa a quem tenha **dupla nacionalidade** e cometa **crimes violentos, como terrorismo ou homicídio**.\n• **Medida 170:** devolver ao país de origem os estrangeiros que violem a lei penal.\n• **Medida 175:** criar o **crime de residência ilegal**, com proibição de regressar durante cinco anos.\n\n**O que não encontrei**\n• Não encontrei uma regra geral de agravamento para reincidentes. A única medida que fala expressamente de reincidência é a \"castração química\" (medida 41).\n• Também não encontrei propostas sobre liberdade condicional. Como li o programa através de resumos por partes, pode haver pormenores que me escaparam.\n\n**Fontes:**\n• [Programa Eleitoral Legislativas 2024 do CHEGA – elege.pt](https://elege.pt/documento/ch-programa-eleitoral-legislativas-2024)\n• [Programa Eleitoral \"Limpar Portugal\" – PDF oficial, partidochega.pt](https://partidochega.pt/wp-content/uploads/2025/10/Programa_Eleitoral_CHEGA_2024_LQ.pdf) (não abriu)\n• [Renascença – Ventura defende prisão perpétua (4/3/2024)](https://rr.pt/noticia/politica/2024/03/04/ventura-defende-prisao-perpetua-estamos-a-gerar-vitimas-atras-de-vitimas/369400/)\n• [DN – programa de 2022: prisão perpétua para homicídio, terrorismo e crimes sexuais](https://www.dn.pt/politica/chega-propoe-taxa-unica-de-irs-prisao-perpetua-e-quotas-de-imigrantes-14437452.html)\n• [Executive Digest – programa de 2022 em sete áreas](https://executivedigest.sapo.pt/legislativas-o-programa-do-chega-em-sete-areas/)\n• [Renascença – artigo 30.º da Constituição e revisão constitucional do CHEGA](https://rr.pt/especial/politica/2026/04/14/chega-prepara-revisao-da-constituicao-para-o-fim-de-abril-afinal-o-que-quer-mudar/466853/)",
+  "error": null,
+  "secs": 180.6,
+  "num_turns": 27,
+  "cost_usd": 0.5888104999999999,
+  "prompt_tokens": 231025,
+  "completion_tokens": 7851,
+  "web_searches": 10,
+  "web_fetches": 16,
+  "init_tools": [
+   "WebFetch",
+   "WebSearch"
+  ],
+  "init_mcp": [],
+  "init_plugins": [
+   {
+    "name": "cc-plugin-sec-default",
+    "path": "builtin",
+    "source": "cc-plugin-sec-default@builtin"
+   },
+   {
+    "name": "cc-plugin-agents-md",
+    "path": "builtin",
+    "source": "cc-plugin-agents-md@builtin"
+   },
+   {
+    "name": "cc-plugin-telemetry",
+    "path": "builtin",
+    "source": "cc-plugin-telemetry@builtin"
+   },
+   {
+    "name": "cc-plugin-plugin-authoring",
+    "path": "builtin",
+    "source": "cc-plugin-plugin-authoring@builtin"
+   }
+  ],
+  "init_model": "claude-opus-5-5"
+ },
+ "q-09": {
+  "answer": "O Bloco de Esquerda propõe, no programa das legislativas de 2024, **acabar com as propinas na licenciatura, nos CTeSP e nos mestrados integrados**. Para mestrados e doutoramentos propõe **baixar as propinas**, e não eliminá-las. As medidas estão no capítulo 12, \"Ensino Superior e Investigação Científica\".\n\n**Fim das propinas (secção 12.3)**\n• **\"Eliminação das propinas na licenciatura, CTeSP e mestrados integrados\"**.\n• **Bolsas:** mais alunos com bolsa e bolsas de valor mais alto.\n• **Transportes gratuitos até aos 25 anos**.\n• **Alojamento estudantil público para todos os estudantes deslocados**.\n• Esta secção não indica prazos nem valores para o fim das propinas.\n\n**Mestrados, doutoramentos e estudantes internacionais (secção 12.4)**\n• **Mestrados e doutoramentos:** baixar as propinas \"desde já através da fixação de um teto máximo nacional\". Segundo a página, no 2.º ciclo esse teto não pode ultrapassar o valor das bolsas de ação social. ⚠️ Não consegui confirmar a frase exata deste critério.\n• **Estudantes internacionais:** propinas mais baixas e revisão do Estatuto do Estudante Internacional, com um modelo de apoio aos estudantes da CPLP.\n• **\"Cancelamento da dívida estudantil\"**.\n• **Financiamento:** financiamento público plurianual contratado com as instituições e meta de **3% do PIB** em ciência e investigação na legislatura.\n\n**Justificação apresentada pelo partido**\n• O Bloco argumenta que em Portugal \"o fardo recai essencialmente sobre a família e sobre o estudante\". Dá como exemplo outros países onde os estudantes não pagam propinas na licenciatura.\n• O partido considera que as instituições dependem demasiado de receitas próprias, como propinas, emolumentos e contratos com empresas. Diz também que a despesa pública com o ensino superior não chega a 1,5% do PIB.\n\n**Depois das eleições (não faz parte do programa)**\n• Em **setembro de 2024**, o Bloco apresentou um projeto de lei para acabar com as propinas na licenciatura, nos CTeSP e nos mestrados integrados a partir de **2025/2026**. O projeto fixa um máximo anual de **um salário mínimo nacional** para mestrados e doutoramentos e prevê perdoar as dívidas de propinas. Em **janeiro de 2026**, o tema voltou a ser debatido no Parlamento.\n\nFontes:\n• [Programa BE 2024 – 12. Ensino Superior e Investigação Científica](https://programa2024.bloco.org/capitulo-3/c-servicos-publicos/12-ensino-superior-e-investigacao-cientifica/)\n• [Programa BE 2024 – 12.3. Por um novo modelo de acesso ao ensino superior](https://programa2024.bloco.org/capitulo-3/12-3-por-um-novo-modelo-de-acesso-ao-ensino-superior/)\n• [Programa BE 2024 – 12.4. As propostas do Bloco para um Ensino Superior democrático e participado](https://programa2024.bloco.org/capitulo-3/12-4-as-propostas-do-bloco-para-um-ensino-superior-democratico-e-participado/)\n• [Programa completo (PDF)](https://programa2024.bloco.org/wp-content/uploads/2024/02/programa-bloco-esquerda-legislativas-2024.pdf)\n• [Observador – BE propõe fim das propinas (set. 2024)](https://observador.pt/2024/09/06/be-propoe-fim-das-propinas-em-licenciaturas-cursos-tecnicos-e-mestrados-integrados/)\n• [Esquerda.net – Bloco avança novamente com projeto de lei para pôr fim às propinas](https://www.esquerda.net/artigo/bloco-avanca-novamente-com-projeto-de-lei-para-por-fim-propinas/92141)\n• [Renascença – Parlamento discute propinas (jan. 2026)](https://rr.pt/noticia/pais/2026/01/09/parlamento-discute-esta-sexta-feira-propinas-no-ensino-superior/454572/)",
+  "error": null,
+  "secs": 86.2,
+  "num_turns": 12,
+  "cost_usd": 0.22174940000000004,
+  "prompt_tokens": 59761,
+  "completion_tokens": 3820,
+  "web_searches": 3,
+  "web_fetches": 8,
+  "init_tools": [
+   "WebFetch",
+   "WebSearch"
+  ],
+  "init_mcp": [],
+  "init_plugins": [
+   {
+    "name": "cc-plugin-sec-default",
+    "path": "builtin",
+    "source": "cc-plugin-sec-default@builtin"
+   },
+   {
+    "name": "cc-plugin-agents-md",
+    "path": "builtin",
+    "source": "cc-plugin-agents-md@builtin"
+   },
+   {
+    "name": "cc-plugin-telemetry",
+    "path": "builtin",
+    "source": "cc-plugin-telemetry@builtin"
+   },
+   {
+    "name": "cc-plugin-plugin-authoring",
+    "path": "builtin",
+    "source": "cc-plugin-plugin-authoring@builtin"
+   }
+  ],
+  "init_model": "claude-opus-5-5"
+ },
+ "q-10": {
+  "answer": "O programa do LIVRE para as legislativas de 2024 (\"Contrato com o Futuro\", publicado a 16/02/2024) inclui um eixo próprio, **\"Investir na Saúde Mental\"**, no capítulo da Saúde (medidas 34 a 43), e outras medidas espalhadas por outros capítulos. O partido argumenta que Portugal tem falta de profissionais especializados em saúde mental, que a pandemia piorou a saúde mental da população e que estas políticas devem envolver vários setores.\n\n## Acesso a consultas no SNS\n• **Pelo menos um psicólogo clínico em cada centro de saúde**. Psicólogos clínicos e nutricionistas passam a fazer parte das equipas dos cuidados de saúde primários.\n• **Acabar com a exigência de referenciação do médico de família** para consultas de psicologia no SNS.\n• Cartas de referenciação de psicólogos clínicos e enfermeiros especialistas passam a agilizar a triagem nas urgências.\n• A linha SNS 24 serve também para sinalizar casos, e é feito um mapa dos serviços gratuitos ou de baixo custo.\n• A **ADSE comparticipa consultas de psicologia sem prescrição médica**.\n\n## Organização dos serviços\n• Adoção de um modelo de cuidados por níveis (*stepped care*).\n• **Mais equipas comunitárias de saúde mental** para crianças, jovens e adultos.\n• Centros de Responsabilidade Integrados, com incentivos ligados a indicadores.\n• Mais vagas na Rede Nacional de Cuidados Continuados Integrados de Saúde Mental.\n• Execução dos planos nacionais e regionais para as demências.\n\n## Financiamento, medicamentos e casos graves\n• Mais investimento público, com **dotação própria no Orçamento do Estado**. Há também uma verba específica para promover a saúde mental noutros setores (ensino, justiça, segurança social).\n• Mais programas para deixar ou substituir as benzodiazepinas, nos agrupamentos de centros de saúde e nos hospitais centrais.\n• **Comparticipação a 100% dos antipsicóticos** também quando receitados fora do hospital.\n• Mais urgências e internamento para doença mental grave e aguda, com prioridade para crianças e adolescentes.\n• Reforço do Programa de Apoio Financeiro do Programa Nacional de Saúde Mental (DGS) a instituições privadas e do setor social.\n\n## Direitos e promoção da saúde mental\n• **Desinstitucionalização gradual** das pessoas com doença mental grave, com respeito pelos direitos humanos e pelo consentimento informado, e apoio na passagem para a vida na comunidade.\n• Combate ao estigma e participação de utentes e familiares.\n• Observatório Nacional de Literacia em Saúde (incluindo saúde mental), campanhas no Dia Mundial da Saúde Mental e mais prescrição de atividades culturais.\n\n## Suicídio e dependências\n• **Linha nacional de prevenção do suicídio** e dos comportamentos autolesivos, e **reativação do Plano Nacional de Prevenção do Suicídio**.\n• Mais cuidados primários nas zonas de risco, formação das comunidades locais e formação dos meios de comunicação sobre como noticiar o suicídio, incluindo nas redes sociais.\n• Prevenção das dependências (álcool, drogas, medicamentos, tabaco, jogo) e acompanhamento da reestruturação do Instituto para os Comportamentos Aditivos e as Dependências (ICAD).\n• **Limites fortes ao acesso e à publicidade dos jogos de azar**, incluindo na internet e na televisão.\n• Legalização da canábis, com um programa público de informação centrado na redução de riscos.\n\n## Escolas e ensino superior\n• **Mais psicólogos escolares** nos agrupamentos públicos, com melhor progressão na carreira e fim dos vínculos precários.\n• Reforço dos Serviços de Saúde Mental e Bem-Estar no ensino superior.\n• **Gabinetes de Apoio Psicológico obrigatórios** em todas as unidades orgânicas do ensino superior.\n• Mais respostas de apoio psicológico para vítimas de assédio e violência sexual no ensino superior.\n\n## Trabalho\n• **Perturbações mentais comuns na Lista de Doenças Profissionais**.\n• **Contratação obrigatória de psicólogos de saúde ocupacional**, e formação em saúde mental no trabalho.\n• **\"Licença para Saúde\"**: dias pagos pelo empregador para tratar de questões de saúde física ou mental.\n• O direito a desligar é defendido também como proteção da saúde mental.\n• Na Administração Pública: formação em bem-estar e saúde mental, e meios para detetar cedo situações de *burnout* e assédio.\n• Para os profissionais de saúde: prevenção do *burnout* (incluindo nos médicos internos), **gabinetes de apoio psicológico em todas as Unidades Locais de Saúde** e uma carreira de psicólogo no SNS mais valorizada.\n\n## Justiça e outras áreas\n• **Plano Nacional de Saúde Mental em Centros Educativos e Estabelecimentos Prisionais**. Há rácios de psicólogos por recluso: **1 para 50** nos casos de abuso de substâncias ou doença mental grave e **1 para 180** na restante população prisional. Não consegui confirmar estes rácios na página original.\n• Mais acompanhamento psicológico de vítimas, arguidos e condenados.\n• Apoio psicológico imediato e gratuito a vítimas de violência e às famílias.\n• Apoio à saúde mental de pessoas LGBTQIA+.\n• Apoio a cuidadores informais de doentes físicos e mentais.\n• Apoio psicológico especializado na morte medicamente assistida.\n\n**Notas:**\n• O PDF oficial está cifrado, por isso li o texto através de uma ferramenta de extração. A numeração das medidas pode não coincidir exatamente com a do documento.\n• Quase nenhuma destas medidas tem prazos ou valores, à exceção dos rácios nas prisões e da comparticipação a 100%.\n• Não confundir com o programa de 2025, que ainda está no site programa.partidolivre.pt. Esse alarga a comparticipação a 100% também a antidepressivos e estimulantes e acrescenta um Conselho Nacional do Autismo. Não encontrei nenhuma das duas medidas no programa de 2024.\n\n**Fontes:**\n• [Programa do LIVRE 2024 – PDF oficial](https://partidolivre.pt/wp-content/uploads/2024/02/Programa2024_LIVRE.pdf)\n• [Texto extraído do PDF (r.jina.ai)](https://r.jina.ai/https://partidolivre.pt/wp-content/uploads/2024/02/Programa2024_LIVRE.pdf)\n• [Página do LIVRE – Legislativas 2024](https://partidolivre.pt/legislativas2024/)\n• [Cópia alternativa do programa 2024 (et-al.pt)](https://et-al.pt/wp-content/uploads/2024/03/Programa_LIVRE_2024_FINAL.pdf)\n• [Programa de 2025 – Capítulo D, Saúde (para comparação)](https://programa.partidolivre.pt/capitulos/D)",
+  "error": null,
+  "secs": 289.5,
+  "num_turns": 32,
+  "cost_usd": 0.7612223,
+  "prompt_tokens": 424520,
+  "completion_tokens": 9213,
+  "web_searches": 11,
+  "web_fetches": 20,
+  "init_tools": [
+   "WebFetch",
+   "WebSearch"
+  ],
+  "init_mcp": [],
+  "init_plugins": [
+   {
+    "name": "cc-plugin-sec-default",
+    "path": "builtin",
+    "source": "cc-plugin-sec-default@builtin"
+   },
+   {
+    "name": "cc-plugin-agents-md",
+    "path": "builtin",
+    "source": "cc-plugin-agents-md@builtin"
+   },
+   {
+    "name": "cc-plugin-telemetry",
+    "path": "builtin",
+    "source": "cc-plugin-telemetry@builtin"
+   },
+   {
+    "name": "cc-plugin-plugin-authoring",
+    "path": "builtin",
+    "source": "cc-plugin-plugin-authoring@builtin"
+   }
+  ],
+  "init_model": "claude-opus-5-5"
+ },
+ "q-12": {
+  "answer": "O programa do PS para as legislativas de 10 de março de 2024 (\"Plano de Ação para Portugal Inteiro\") **apoia a regionalização, mas não fixa datas nem compromete o partido com um referendo.** Não consegui ler o PDF oficial do programa. O que se segue vem do resumo publicado no site do PS e de uma peça da Lusa sobre os programas, por isso estas citações não foram confirmadas no texto original.\n\n**O que diz o programa**\n• **Roteiro com análise custo-benefício:** o PS compromete-se a \"estabelecer um roteiro para a regionalização de Portugal continental, promovendo a análise custo-benefício\". Não indica prazo.\n• **Descentralização como passo para a regionalização:** na terceira missão do programa, \"Território Inteiro\", o PS propõe aprofundar a descentralização \"visando o arranque da regionalização\". O partido liga este processo à coesão territorial.\n• **CCDR:** quer acompanhar \"o processo de democratização e de integração de serviços desconcentrados nas novas CCDR\" (Comissões de Coordenação e Desenvolvimento Regional). Segundo a Lusa, as CCDR vão ter um papel central na gestão dos futuros fundos europeus.\n• **Administração intermédia:** propõe dar-lhe mais poderes, com mais autonomia por setor na ação do Governo.\n\n**Referendo: o programa e a campanha não coincidem**\n• O resumo do programa no site do PS não fala em referendo. O programa de 2022 marcava um referendo para 2024, e o de 2024 deixou cair essa data.\n• Mesmo assim, em 25 de fevereiro de 2024, num comício em Angeiras (Matosinhos), Pedro Nuno Santos repetiu o compromisso de **referendar a regionalização na legislatura seguinte**, segundo a Lusa.\n• **Dúvida:** sem o texto integral, não posso garantir que o programa não mencione o referendo noutra passagem.\n\n**Atenção às datas das fontes:** algumas análises referem a eleição direta dos presidentes das CCDR e um referendo \"durante a legislatura\". Essas análises são de 2025 e falam do programa de 2025, não do de 2024.\n\n**Fontes:**\n• [PS – Plano de Ação para Portugal Inteiro (PDF do programa 2024)](https://ps.pt/wp-content/uploads/2024/02/PS-Portugal_Inteiro_2024-6.pdf)\n• [PS – \"Plano de Ação para Portugal Inteiro renova compromisso com a ambição do país\"](https://ps.pt/plano-de-acao-para-portugal-inteiro-renova-compromisso-com-a-ambicao-do-pais/)\n• [DNoticias/Lusa – \"Regionalização defendida apenas nos programas eleitorais da esquerda\" (16/02/2024)](https://www.dnoticias.pt/2024/2/16/394262-regionalizacao-defendida-apenas-nos-programas-eleitorais-da-esquerda/)\n• [Correio da Manhã – mesma peça da Lusa](https://www.cmjornal.pt/politica/detalhe/regionalizacao-defendida-apenas-nos-programas-eleitorais-da-esquerda)\n• [Notícias ao Minuto/Lusa – campanha, 25/02/2024](https://www.noticiasaominuto.com/politica/2509066/campanha-eleitoral-arranca-com-muitas-acusacoes-e-poucas-propostas)\n• [Postal do Algarve – programas de 2022 (para comparação)](https://postal.pt/politica/regionalizacao-saiba-o-posicionamento-dos-partidos-segundo-os-seus-programas-as-legislativas/)\n• [Dinheiro Vivo – análise de 2025 (programa de 2025, não o de 2024)](https://dinheirovivo.dn.pt/opiniao/interior-litoral-e-o-territ%C3%B3rio-desigual-o-que-dizem-os-programas-de-ps-e-ad)",
+  "error": null,
+  "secs": 97.2,
+  "num_turns": 13,
+  "cost_usd": 0.2669074,
+  "prompt_tokens": 72621,
+  "completion_tokens": 3653,
+  "web_searches": 5,
+  "web_fetches": 7,
+  "init_tools": [
+   "WebFetch",
+   "WebSearch"
+  ],
+  "init_mcp": [],
+  "init_plugins": [
+   {
+    "name": "cc-plugin-sec-default",
+    "path": "builtin",
+    "source": "cc-plugin-sec-default@builtin"
+   },
+   {
+    "name": "cc-plugin-agents-md",
+    "path": "builtin",
+    "source": "cc-plugin-agents-md@builtin"
+   },
+   {
+    "name": "cc-plugin-telemetry",
+    "path": "builtin",
+    "source": "cc-plugin-telemetry@builtin"
+   },
+   {
+    "name": "cc-plugin-plugin-authoring",
+    "path": "builtin",
+    "source": "cc-plugin-plugin-authoring@builtin"
+   }
+  ],
+  "init_model": "claude-opus-5-5"
+ },
+ "q-15": {
+  "answer": "O programa do CHEGA para as legislativas de 10 de março de 2024 trata a imigração no **Capítulo VII – «Fronteiras Controladas»**, nas **propostas 166 a 180**. O resumo abaixo foi feito a partir da cópia do programa no elege.pt. A redação é paráfrase minha, não citação literal.\n\n**Prioridades que o partido indica**\n• Dar ao Estado meios para fiscalizar o tráfico de seres humanos e o auxílio à imigração ilegal.\n• Atribuir a nacionalidade a quem tenha ligação efetiva ao país, conheça a sua história e fale a língua.\n• Garantir que quem se fixa em Portugal não tem cadastro criminal, não comete crimes no país e não pretende viver de subsídios.\n• Ajustar a entrada de mão de obra às necessidades do país e promover a integração cultural e linguística.\n\n**Entrada e permanência**\n• **Reverter a extinção do SEF**, repondo a sua estrutura, atribuições e estatuto (proposta 166).\n• **Quotas anuais de imigração** definidas pelas qualificações, pelas necessidades do mercado de trabalho e pelo contributo para o país (167).\n• **Revogar o acordo de mobilidade da CPLP** e acabar com a autorização de residência automática para cidadãos desses países (168).\n• **Criar o crime de residência ilegal**. Quem for encontrado nessa situação fica impedido de regressar ao país e de regularizar a sua situação durante **5 anos** (175).\n• **Requerentes de asilo** ficam nos Centros de Acolhimento Temporários enquanto o pedido estiver pendente (179).\n\n**Afastamento e regresso**\n• **Reconduzir ao país de origem** os estrangeiros que violem a lei penal portuguesa (170).\n• Reconduzir também quem não mostre capacidade de se sustentar num prazo de **6 a 12 meses** (171). Este prazo vem da cópia do elege.pt. Não o confirmei no PDF oficial.\n• **Programa «Bom Regresso»**: apoio a quem quer voltar ao país de origem e não tem meios para isso (172).\n\n**Nacionalidade**\n• A nacionalidade só seria atribuída a quem **conheça a língua e a cultura portuguesas** (169).\n• **Perda da nacionalidade portuguesa** para binacionais condenados por crimes violentos graves, como terrorismo, homicídio, violação ou violência doméstica (177).\n\n**Prestações sociais**\n• Exigir **pelo menos 5 anos de contribuições** antes de dar acesso a qualquer apoio social (176).\n\n**Fiscalização e criminalidade**\n• **Penas mais pesadas** para o tráfico de seres humanos e o auxílio à imigração ilegal, e mais meios de investigação (178).\n• **Relatórios anuais sobre imigração**, com número de imigrantes, emprego, apoios recebidos, criminalidade, contributo económico, nascimentos e distribuição pelo território (173).\n\n**Integração**\n• Acompanhar os recém-chegados em sustento, habitação, emprego e formação, com **ensino de português como língua não materna** e de História e Cultura de Portugal (174).\n• O programa propõe **«impedir o avanço do fundamentalismo islâmico»** e garantir que as novas comunidades respeitam a lei da liberdade religiosa e os direitos humanos, incluindo os das mulheres e das crianças (180).\n\n**Notas**\n• Li o capítulo através de uma cópia no elege.pt, não do PDF no site do partido. As medidas coincidem com as notícias da Renascença (cujo artigo não consegui abrir; usei só o resumo da pesquisa) e da Poder360.\n• Há notícias de 2025 com medidas parecidas, mas diferentes. Uma delas é limitar o número de atestados de residência por habitação. Essas medidas pertencem ao **programa de 2025**, não ao de 2024.\n\n**Fontes**\n• [Programa Eleitoral Legislativas 2024 do Chega – elege.pt](https://elege.pt/documento/ch-programa-eleitoral-legislativas-2024)\n• [Renascença – «Chega quer criar crime de \"residência ilegal\" em Portugal» (12/02/2024)](https://rr.pt/noticia/politica/2024/02/12/programa-eleitoral-chega-quer-criar-crime-de-residencia-ilegal-em-portugal/366074/)\n• [Poder360 – «Campanhas eleitorais em Portugal dão destaque à imigração» (10/03/2024)](https://www.poder360.com.br/internacional/campanhas-eleitorais-em-portugal-dao-destaque-a-imigracao/)\n• [DN – «Chega quer acabar com título de residência CPLP»](https://www.dn.pt/pol%C3%ADtica/chega-quer-acabar-com-t%C3%ADtulo-de-resid%C3%AAncia-cplp)\n• [Executive Digest – programas de 2025, usado só para distinguir](https://executivedigest.sapo.pt/legislativas-o-que-propoe-cada-um-dos-partidos-para-a-imigracao/)",
+  "error": null,
+  "secs": 79.3,
+  "num_turns": 10,
+  "cost_usd": 0.2238957,
+  "prompt_tokens": 41618,
+  "completion_tokens": 3693,
+  "web_searches": 3,
+  "web_fetches": 6,
+  "init_tools": [
+   "WebFetch",
+   "WebSearch"
+  ],
+  "init_mcp": [],
+  "init_plugins": [
+   {
+    "name": "cc-plugin-sec-default",
+    "path": "builtin",
+    "source": "cc-plugin-sec-default@builtin"
+   },
+   {
+    "name": "cc-plugin-agents-md",
+    "path": "builtin",
+    "source": "cc-plugin-agents-md@builtin"
+   },
+   {
+    "name": "cc-plugin-telemetry",
+    "path": "builtin",
+    "source": "cc-plugin-telemetry@builtin"
+   },
+   {
+    "name": "cc-plugin-plugin-authoring",
+    "path": "builtin",
+    "source": "cc-plugin-plugin-authoring@builtin"
+   }
+  ],
+  "init_model": "claude-opus-5-5"
+ },
+ "q-19": {
+  "answer": "# IRS nos programas de 2024: Iniciativa Liberal vs. CHEGA\n\n## Comparação rápida\n\n| | **Iniciativa Liberal (IL)** | **CHEGA** |\n|---|---|---|\n| **Estrutura das taxas** | Objetivo final de **uma taxa única de 15%**, introduzida aos poucos com **duas taxas, de 15% e 28%** | **Duas taxas marginais**: **15% até 39.999 €** e **30% a partir de 40.000 €** |\n| **Isenção de base** | O imposto só incide sobre o que **excede o salário mínimo nacional anualizado** | **Isenção para quem recebe até 1.000 € por mês** |\n| **Jovens** | **Revogar os regimes que distinguem jovens de não jovens**, e também residentes de não residentes | **Isenção de IRS para quem tem até 35 anos**, até somar **100.000 €** de rendimentos desde o início da carreira (o limite não é anual) |\n| **Outras medidas** | **Manter as deduções à coleta**; baixar a carga fiscal sobre profissionais liberais e trabalhadores independentes | **Isentar de IRS o \"15.º salário\"**, sem condições |\n\n## Iniciativa Liberal\n• **Taxa única de 15%** sobre a parte do rendimento acima do salário mínimo nacional, começando de forma gradual com **duas taxas, de 15% e 28%**.\n• A IL justifica a medida com a necessidade de reduzir a **\"progressividade excessiva\"** do imposto, nas palavras do partido.\n• **Mantém as deduções à coleta.**\n• **Acaba com os regimes diferenciados**, como os que separam jovens de não jovens e residentes de não residentes.\n• **Não confirmei** o rendimento a partir do qual se aplicaria a taxa de 28% em 2024, nem o calendário da passagem para a taxa única. As fontes de 2024 não o indicam.\n• No programa de **2025**, a IL deixou cair a taxa única e passou a propor dois escalões fixos (15% até 26.768 € e 28% acima). Isso não faz parte do programa de 2024.\n\n## CHEGA\n• **Acabar com o sistema atual de escalões** e substituí-lo por **duas taxas marginais**: **15% até 39.999 €** e **30% a partir de 40.000 €**.\n  • Há uma dúvida neste ponto: o ECO situa a taxa de 30% a partir dos **40.000 €**, mas o DN escreve **\"30.000 €\"**. Como o primeiro escalão vai até 39.999 €, o valor do DN parece ser uma gralha.\n• **Isenção para rendimentos até 1.000 € por mês.**\n• **Isenção de IRS para jovens até aos 35 anos**, até somarem 100.000 € de rendimentos.\n• **Isenção do \"15.º salário\"**, sem condições.\n• As fontes **não indicam prazos** para aplicar estas medidas.\n\n## Principais diferenças\n• **Taxa máxima:** a IL propõe **28%** na fase de transição e **15%** no fim. O CHEGA propõe **30%** acima dos 40.000 €.\n• **Jovens:** as propostas vão em sentidos opostos. A IL quer **acabar com regimes próprios para jovens**, enquanto o CHEGA cria uma **isenção específica** para quem tem até 35 anos.\n• **Isenção de base:** a IL usa o **salário mínimo anualizado** como limiar. O CHEGA fixa **1.000 € por mês**.\n• **Ponto em comum:** os dois partidos propõem **simplificar o imposto para duas taxas** e baixar a taxa marginal máxima.\n\nNão consegui abrir os PDFs originais dos programas. A informação vem de imprensa que os resumiu no início da campanha, em fevereiro de 2024.\n\n**Fontes:**\n• [ECO – Como os partidos querem ver o país a crescer (15/02/2024)](https://eco.sapo.pt/2024/02/15/mais-investimento-menos-impostos-e-reforco-dos-salarios-como-os-partidos-querem-ver-o-pais-a-crescer/)\n• [DN – O que propõem os partidos em termos de medidas fiscais (15/02/2024)](https://www.dn.pt/o-que-propoem-os-partidos-em-termos-de-medidas-fiscais)\n• [Renascença – Chega propõe isenção de IRS até 100 mil euros para jovens até aos 35 anos (18/01/2024)](https://rr.pt/noticia/politica/2024/01/18/chega-propoe-isencao-de-irs-ate-100-mil-euros-para-jovens-ate-aos-35-anos/363317/)\n• [Renascença – Programa eleitoral do Chega (fevereiro de 2024)](https://rr.pt/noticia/politica/2024/02/12/programa-eleitoral-chega-quer-criar-crime-de-residencia-ilegal-em-portugal/366074/)\n• [Observador – IL deixa cair taxa única de IRS (2025, apenas para contexto)](https://observador.pt/2025/04/10/legislativas-il-deixa-cair-taxa-unica-de-irs-e-quer-reduzir-irc-em-cinco-pontos-percentuais/)",
+  "error": null,
+  "secs": 99.7,
+  "num_turns": 14,
+  "cost_usd": 0.3356686,
+  "prompt_tokens": 90902,
+  "completion_tokens": 4843,
+  "web_searches": 7,
+  "web_fetches": 6,
+  "init_tools": [
+   "WebFetch",
+   "WebSearch"
+  ],
+  "init_mcp": [],
+  "init_plugins": [
+   {
+    "name": "cc-plugin-sec-default",
+    "path": "builtin",
+    "source": "cc-plugin-sec-default@builtin"
+   },
+   {
+    "name": "cc-plugin-agents-md",
+    "path": "builtin",
+    "source": "cc-plugin-agents-md@builtin"
+   },
+   {
+    "name": "cc-plugin-telemetry",
+    "path": "builtin",
+    "source": "cc-plugin-telemetry@builtin"
+   },
+   {
+    "name": "cc-plugin-plugin-authoring",
+    "path": "builtin",
+    "source": "cc-plugin-plugin-authoring@builtin"
+   }
+  ],
+  "init_model": "claude-opus-5-5"
+ },
+ "q-20": {
+  "answer": "Já tenho fontes suficientes e vou agora escrever a resposta.\n\nOs dois partidos propõem **35 horas semanais**, **sem perda de salário** e **25 dias úteis de férias**. O **PCP** quer as 35 horas para todos, com um teto de 7 horas por dia, e o fim do banco de horas e da adaptabilidade. O **BE** acrescenta a **semana de 4 dias**, que o trabalhador também poderia pedir, com um horário que desceria até às 32 horas.\n\n## PCP (Programa Eleitoral – Legislativas 2024, ponto 3.4 \"Reduzir o tempo de trabalho, combater a desregulação dos horários\")\n\n**Duração do trabalho**\n• **35 horas semanais** no máximo para todos os trabalhadores, sem perder salário nem outros direitos.\n• **7 horas por dia** no máximo.\n• Continuar a reduzir o horário onde as 35 horas já se aplicam.\n• A **semana de 4 dias** não pode servir para aumentar o horário diário, baixar o salário ou retirar direitos.\n\n**Férias**\n• **25 dias úteis de férias** para todos os trabalhadores, de imediato.\n• Repor na Administração Pública os dias extra de férias que antes se ganhavam com a idade e a antiguidade.\n\n**Horários irregulares e horas extra**\n• **Revogar o banco de horas e a adaptabilidade.**\n• Cumprir os limites diários e semanais e garantir **dois dias seguidos de descanso** por semana.\n• Proibir a abertura ao público de lojas, incluindo centros comerciais e grandes superfícies, aos domingos e feriados.\n• Combater os dias de trabalho prolongados, o abuso das horas extra e o trabalho não pago (3.4). Pagar as horas extra, também em dias de descanso e feriados (3.6).\n\n**Turnos, trabalho noturno e profissões de desgaste rápido**\n• Limitar por lei os **turnos e a laboração contínua** às atividades de que a sociedade não pode prescindir.\n• Para quem trabalha por turnos:\n  • **reforma antecipada sem penalização**, proporcional ao tempo passado em turnos;\n  • **contribuição acrescida dos patrões** para a Segurança Social.\n• Voltar a pagar como trabalho noturno o período **das 20h às 7h** (3.6).\n• Aplicar as mesmas regras às **profissões de desgaste rápido** (3.4 e 3.8).\n\nNas 30 medidas prioritárias da CDU, o resumo é \"35 horas para todos\", combater os horários irregulares e compensar e limitar os turnos. O PCP cita o INE para dizer que **1,8 milhões de trabalhadores** têm horários fora do padrão. Em abril de 2024, já no Parlamento, o PCP apresentou um projeto de lei com as 35 horas no público e no privado e a revogação do banco de horas e da adaptabilidade.\n\n## Bloco de Esquerda (Programa \"Fazer o que nunca foi feito\", secção \"Tempo para viver: semana de quatro dias, 35 horas, desconexão\")\n\n**Duração do trabalho**\n• Fixar na lei, **durante a legislatura**, um máximo de **35 horas semanais**, a atingir aos poucos.\n• O texto também descreve este calendário, que seria obrigatório por lei para todas as empresas:\n  • **2025:** 38 horas;\n  • **2026:** 36 horas;\n  • **2027:** 34 horas;\n  • **a partir de 2028:** **32 horas** nas empresas que adiram à semana de 4 dias.\n• **Dúvida:** esta descida até às 34 horas em 2027 não bate certo com o objetivo de \"35 horas no máximo\" na mesma legislatura. Pelo resumo a que tive acesso, não consegui perceber se é uma meta firme ou um cenário de exemplo.\n\n**Semana de 4 dias**\n• Prever na lei a **opção pela semana de 4 dias**, que o trabalhador também poderia pedir. Viria com menos horas por semana e **sem perda de rendimento**.\n• As empresas aderiam primeiro de forma voluntária e a medida seria depois alargada por lei. O programa não fala em apoios públicos às empresas.\n• O folheto de campanha resume assim: \"35 horas semanais de trabalho, semana de 4 dias e 25 dias de férias/ano no público e no privado\".\n\n**Férias e horas extra**\n• **25 dias de férias**: repor os três dias retirados (o programa não diz quando foram retirados).\n• Repor por inteiro o valor pago pelas **horas extra**, que o partido diz ter sido cortado para metade em 2012 e só em parte recuperado. Repor também o descanso compensatório.\n• Combater o abuso das horas extra, em especial as que não são pagas.\n• Limitar a **isenção de horário** e o alargamento da laboração contínua.\n\n**Banco de horas, turnos e desconexão**\n• Fazer um **livro verde sobre o tempo de trabalho**, para saber quanto se usa a adaptabilidade, o banco de horas e os turnos e o trabalho noturno em cada setor. Ao contrário do PCP, não propõe acabar já com o banco de horas.\n• Para quem trabalha por turnos:\n  • **subsídio de turno obrigatório**;\n  • mais acompanhamento médico, pausas e fins de semana de descanso;\n  • participação dos trabalhadores na definição das escalas;\n  • menos horas de trabalho e mais dias de férias;\n  • **reforma antecipada** proporcional ao tempo passado em turnos.\n• **Desconexão**: o programa lembra o dever dos patrões de não contactar os trabalhadores fora do horário, que já está no Código do Trabalho desde 2021. Não traz propostas novas sobre isto.\n\n**Nota sobre as fontes:** os PDF oficiais não deixaram extrair o texto. Li o programa do PCP na página HTML do pcp.pt e o do BE pela versão no elege.pt e pelo folheto oficial do partido.\n\n**Fontes:**\n• [PCP – Programa Eleitoral Legislativas 2024 (pcp.pt)](https://www.pcp.pt/programa-eleitoral-do-pcp-legislativas-2024)\n• [PCP – Programa (PDF)](https://www.pcp.pt/sites/default/files/documentos/2024_programa_eleitoral_pcp.pdf)\n• [CDU – 30 medidas prioritárias](https://www.cdu.pt/legislativas2024/30-medidas-prioritarias)\n• [Observador – PCP apresenta programa (25/01/2024)](https://observador.pt/especiais/pcp-apresenta-programa-de-rutura-com-ataques-duros-ao-ps-e-aposta-nos-rendimentos/)\n• [Observador – PCP propõe semana de 35 horas (30/04/2024)](https://observador.pt/2024/04/30/pcp-propoe-semana-de-35-horas-para-todos-os-trabalhadores/)\n• [BE – Programa 2024 no elege.pt](https://elege.pt/documento/be-programa-eleitoral-legislativas-2024)\n• [BE – Programa 2024 (PDF)](https://bloco.org/media/PROGRAMA_BLOCO_2024.pdf)\n• [BE – Programa resumido (PDF)](https://programa2024.bloco.org/wp-content/uploads/2024/02/Proposta_Programa_Resumido.pdf)\n• [BE – Folheto Legislativas 2024 (Braga)](https://bloco.org/sites/default/files/media/legislativas2024_BRAGA_250x375mm_v2_PARA%20WEB-min.pdf)",
+  "error": null,
+  "secs": 153.0,
+  "num_turns": 22,
+  "cost_usd": 0.4695915999999999,
+  "prompt_tokens": 165902,
+  "completion_tokens": 6842,
+  "web_searches": 7,
+  "web_fetches": 14,
+  "init_tools": [
+   "WebFetch",
+   "WebSearch"
+  ],
+  "init_mcp": [],
+  "init_plugins": [
+   {
+    "name": "cc-plugin-sec-default",
+    "path": "builtin",
+    "source": "cc-plugin-sec-default@builtin"
+   },
+   {
+    "name": "cc-plugin-agents-md",
+    "path": "builtin",
+    "source": "cc-plugin-agents-md@builtin"
+   },
+   {
+    "name": "cc-plugin-telemetry",
+    "path": "builtin",
+    "source": "cc-plugin-telemetry@builtin"
+   },
+   {
+    "name": "cc-plugin-plugin-authoring",
+    "path": "builtin",
+    "source": "cc-plugin-plugin-authoring@builtin"
+   }
+  ],
+  "init_model": "claude-opus-5-5"
+ },
+ "q-21": {
+  "answer": "**Diferenças principais, segundo análises de imprensa:** não consegui ler diretamente nenhum dos dois programas. O PDF da AD não foi possível extrair e não encontrei o PDF do PS de 2024. Por isso, o que se segue baseia-se em análises de imprensa e de blogues, que podem resumir ou omitir pormenores.\n\n| | **AD (PSD/CDS)** | **PS** |\n|---|---|---|\n| **Objetivo** | Acesso **universal e gratuito** à creche e ao pré-escolar | Continuar a **alargar a gratuitidade** das creches e do pré-escolar |\n| **Quem presta o serviço** | Setor **público, privado e social** | Reforçar a **capacidade instalada** em todo o país; as fontes não falam de setor social ou privado |\n| **Tutela** | Passar a faixa dos **0 aos 3 anos para o Ministério da Educação** | As fontes não indicam nada |\n| **Prazo** | Gratuitidade universal concluída **em 2025** | As fontes não indicam prazo para as creches |\n| **Custo** | **400 milhões de euros**. Segundo a Renascença, a AD foi a única força política a calcular o custo destas medidas | Sem estimativa |\n| **Pré-escolar** | Incluído na meta de acesso universal e gratuito | Pré-escolar **gratuito a partir dos 3 anos** e **obrigatório a partir dos 4**, introduzido de forma gradual |\n\n**AD**\n• O programa diz que quer *\"Integrar a faixa etária dos 0 aos 3 anos no sistema educativo tutelado pelo Ministério da Educação\"*. Ou seja, a creche deixaria de ser vista sobretudo como resposta social.\n• A AD admite contratar vagas no **setor social, privado e cooperativo** para alargar a oferta sem custo para as famílias.\n• **Não está confirmado:** uma pesquisa atribuiu à AD duas medidas que vêm da análise da Renascença. A primeira é um **apoio extraordinário a partir de 1 de setembro de 2024** para crianças que não conseguissem vaga gratuita. A segunda é uma **rede pública de creches até 2026**, feita com as autarquias e o setor social. Outra pesquisa não conseguiu confirmar a que partido pertence o apoio extraordinário, e não consegui abrir o artigo para verificar. Convém ver estas duas medidas no programa da AD antes de as usar.\n\n**PS**\n• Segundo a Renascença, o PS considera \"crucial\" continuar a sua \"política de alargamento da gratuitidade das creches e do pré-escolar\". Para garantir o acesso gratuito a todas as crianças, propõe reforçar a capacidade instalada em todo o país.\n• O PS propõe *\"Garantir a frequência gratuita da educação pré-escolar a todas as crianças a partir dos 3 anos\"*, juntamente com o alargamento da rede de creches.\n• **As fontes não coincidem:** segundo a Executive Digest, o capítulo de Educação do PS não fala de creches. O mais provável é a medida estar noutro capítulo, como o da família ou da natalidade, o que bate certo com a Renascença e com o nascer.pt.\n• O PS parte do programa **Creche Feliz**, criado pelo governo PS, que torna a creche gratuita para as crianças nascidas a partir de 1 de setembro de 2021. Em 2024 o programa passou a incluir também creches de autarquias e de outras entidades públicas.\n\n**Em resumo:** a AD apresenta uma meta com data e custo (universalidade em 2025, 400 milhões de euros) e propõe mudar a tutela para o Ministério da Educação. O PS propõe continuar o modelo atual e reforçar a capacidade, sem prazo nem custo indicados nas fontes, e dá mais detalhe sobre o pré-escolar (gratuito aos 3 anos, obrigatório aos 4).\n\n**Fontes:**\n• [Renascença – O que dizem (e não dizem) os programas eleitorais sobre creches gratuitas?](https://rr.pt/especial/politica/2024/03/01/o-que-dizem-e-nao-dizem-os-programas-eleitorais-sobre-creches-gratuitas/368920/) (só a vi em excertos de pesquisa; a página bloqueou o acesso direto)\n• [Executive Digest – Legislativas: São estas as propostas dos partidos para a Educação](https://executivedigest.sapo.pt/legislativas-sao-estas-as-propostas-dos-partidos-para-a-educacao/)\n• [nascer.pt – Nascimento, parentalidade e família nos programas eleitorais de 2024](https://nascer.pt/2024/03/06/nascimento-parentalidade-e-familia-nos-programas-eleitorais-para-as-eleicoes-legislativas-de-2024/)\n• [Programa eleitoral da AD 2024 (PDF)](https://ad2024.pt/files/pdf/ad-programa-eleitoral.pdf) (não consegui extrair o texto)\n• [RTP – \"Portugal Inteiro\": PS apresenta programa eleitoral](https://www.rtp.pt/noticias/politica/portugal-inteiro-ps-apresenta-programa-eleitoral-com-vista-a-mudanca-e-mais-acao_n1550108)\n• [gov.pt – Creche Feliz: vagas alargadas a creches geridas por entidades públicas](https://www.gov.pt/noticias/creche-feliz-vagas-alargadas-a-creches-geridas-por-entidades-publicas)",
+  "error": null,
+  "secs": 97.2,
+  "num_turns": 17,
+  "cost_usd": 0.3555974999999999,
+  "prompt_tokens": 116415,
+  "completion_tokens": 4923,
+  "web_searches": 8,
+  "web_fetches": 8,
+  "init_tools": [
+   "WebFetch",
+   "WebSearch"
+  ],
+  "init_mcp": [],
+  "init_plugins": [
+   {
+    "name": "cc-plugin-sec-default",
+    "path": "builtin",
+    "source": "cc-plugin-sec-default@builtin"
+   },
+   {
+    "name": "cc-plugin-agents-md",
+    "path": "builtin",
+    "source": "cc-plugin-agents-md@builtin"
+   },
+   {
+    "name": "cc-plugin-telemetry",
+    "path": "builtin",
+    "source": "cc-plugin-telemetry@builtin"
+   },
+   {
+    "name": "cc-plugin-plugin-authoring",
+    "path": "builtin",
+    "source": "cc-plugin-plugin-authoring@builtin"
+   }
+  ],
+  "init_model": "claude-opus-5-5"
+ },
+ "q-22": {
+  "answer": "A **IL** quer anular as regras do pacote \"Mais Habitação\" sobre o Alojamento Local (AL). O **Bloco de Esquerda** quer limitar o AL com quotas por freguesia e licenças temporárias. Não consegui ler os programas originais: o site da IL de 2024 deu erro e os PDF do BE vieram ilegíveis. O que se segue vem da imprensa e da ALEP (a associação do setor do AL), por isso a redação exata deve ser confirmada nos documentos.\n\n## Iniciativa Liberal (IL)\n\n• **Anular as regras do \"Mais Habitação\" sobre o AL:** a ALEP diz que a IL \"propõe a inversão completa de todas as medidas tomadas pelo Governo\" nesta matéria. O pacote incluía a suspensão de novos registos de AL até 31 de dezembro de 2030. O programa também pede a **revogação imediata de todo o pacote**.\n• **IRS:** baixar o **coeficiente fiscal de 0,5 para 0,35**, ou seja, a parte da faturação do AL sobre a qual se paga IRS no regime simplificado. ⚠️ A ALEP escreve \"0,5% para 0,35%\", mas devem ser 50% e 35% da faturação. A RTP fala em \"eliminar a redução do coeficiente fiscal\", que parece dizer o contrário; o sentido da proposta é baixar o imposto.\n• **Fim da Contribuição Extraordinária sobre o AL (CEAL).**\n• **Registos:** \"revogar medidas que alteram normas de registo de Alojamento Local\".\n\nDepois das eleições, em junho de 2024, a CEAL foi revogada com os votos de PSD, CDS-PP, Chega, IL e PAN (Lei n.º 35/2024, de 7 de agosto).\n\n## Bloco de Esquerda (BE)\n\n• **Quotas:** no máximo **5% das casas de cada freguesia** podem ser AL.\n• **Licenças temporárias:** as licenças duram **dois anos** e renovam-se por períodos iguais. Não se renovam se isso fizer a freguesia passar a quota.\n• **Prioridade a quem tem um só registo:** os titulares com um único AL passam à frente, segundo o Observador.\n• **Casas para estudantes:**\n  • **requisição de imóveis de AL** para alojar estudantes, a começar por proprietários com muitos imóveis de AL ou turísticos;\n  • **acordos com hotéis e AL** para disponibilizar quartos a estudantes \"a preços controlados\".\n\nEm 2025, o BE concorreu com o mesmo programa de 2024 e acrescentou um manifesto que pede menos AL nas zonas com turismo excessivo e uma pausa na construção de hotéis.\n\n## Fontes\n• [ALEP – AL e Legislativas 2024](https://www.alep.pt/LEGISLATIVAS2024?r_done=1)\n• [RTP – Iniciativa Liberal: novo presidente, mais e novas propostas](https://www.rtp.pt/noticias/eleicoes-legislativas-2024/iniciativa-liberal-novo-presidente-mais-e-novas-propostas_es1552589)\n• [DN – IL propõe cheque-creche e revogação imediata do Mais Habitação](https://www.dn.pt/il-propoe-cheque-creche-de-480-euros-e-revogacao-imediata-do-pacote-mais-habitacao)\n• [Observador – Fact-check sobre AL na Baixa de Lisboa e Porto (programa do BE)](https://observador.pt/factchecks/baixa-de-lisboa-e-porto-tem-mais-alojamento-local-do-que-populacao-como-diz-mariana-mortagua/)\n• [Programa do BE 2024 (site oficial)](https://programa2024.bloco.org/documento-integral/)\n• [RTP – BE em 2025: mesmo programa de 2024 mais manifesto](https://www.rtp.pt/noticias/eleicoes-legislativas-2025/da-habitacao-a-saude-be-quer-mudar-a-vida-dos-portugueses_es1651968)\n• [ECO – Parlamento aprova revogação da CEAL](https://eco.sapo.pt/2024/06/21/parlamento-aprova-revogacao-da-contribuicao-extraordinaria-sobre-o-alojamento-local/)\n• [Lei n.º 35/2024, Diário da República](https://diariodarepublica.pt/dr/detalhe/lei/35-2024-875716579)",
+  "error": null,
+  "secs": 112.6,
+  "num_turns": 21,
+  "cost_usd": 0.4162170999999999,
+  "prompt_tokens": 147932,
+  "completion_tokens": 5127,
+  "web_searches": 9,
+  "web_fetches": 11,
+  "init_tools": [
+   "WebFetch",
+   "WebSearch"
+  ],
+  "init_mcp": [],
+  "init_plugins": [
+   {
+    "name": "cc-plugin-sec-default",
+    "path": "builtin",
+    "source": "cc-plugin-sec-default@builtin"
+   },
+   {
+    "name": "cc-plugin-agents-md",
+    "path": "builtin",
+    "source": "cc-plugin-agents-md@builtin"
+   },
+   {
+    "name": "cc-plugin-telemetry",
+    "path": "builtin",
+    "source": "cc-plugin-telemetry@builtin"
+   },
+   {
+    "name": "cc-plugin-plugin-authoring",
+    "path": "builtin",
+    "source": "cc-plugin-plugin-authoring@builtin"
+   }
+  ],
+  "init_model": "claude-opus-5-5"
+ },
+ "q-24": {
+  "answer": "# IRC nos programas do PCP e da IL (legislativas de 2024)\n\n**Ponto de partida em 2024:** a taxa geral de IRC era de **21%**. As PME pagavam uma taxa reduzida de 17% sobre os primeiros 50.000 € de matéria coletável. A derrama estadual aplicava taxas de 3%, 5% e 9% a lucros acima de 1,5, 7,5 e 35 milhões de euros. Estes números são contexto meu e não vêm dos programas.\n\n## PCP: menos imposto para as MPME e mais para os grandes grupos\n• **Taxa de 12,5% para MPME:** criar um novo escalão de IRC de **12,5%** para micro, pequenas e médias empresas, aplicado ao **rendimento coletável até 15.000 €**.\n• **Derrama estadual de 14%:** criar um novo escalão de **14%** para empresas com rendimento coletável **acima de 50 milhões de euros**.\n• **Benefícios fiscais:** eliminar vários benefícios fiscais, isenções e majorações que, segundo o PCP, reduzem a base tributária dos grupos económicos. O partido estima que esses benefícios custem cerca de **1.200 milhões de euros por ano em IRC**.\n• **SIFIDE:** substituir o SIFIDE, o incentivo fiscal à investigação e desenvolvimento, por um programa de promoção da I&D com critérios de interesse público.\n• **Taxa extraordinária sobre lucros** da banca, da energia e da grande distribuição.\n• **Tributação no país e planeamento fiscal:** garantir que os lucros obtidos em Portugal são tributados em Portugal e criar mecanismos contra o planeamento fiscal agressivo, a fraude e a evasão.\n• **Paraísos fiscais:** taxa de **35%** sobre transferências para paraísos fiscais, proibição de relações comerciais com jurisdições não cooperantes e fim dos benefícios fiscais na **Zona Franca da Madeira**.\n• **MPME tributadas pelo rendimento real** e IVA de caixa, pago só depois de a fatura ser cobrada.\n\n## IL: corte da taxa geral\n• **Taxa única de 12%** para a generalidade das empresas.\n• **Grandes multinacionais a 15%:** as que faturam **mais de 750 milhões de euros por ano** pagariam **15%**. O partido justifica este valor com o mínimo exigido pela lei europeia.\n• **O que não confirmei:** as fontes sobre o programa de 2024 não indicam um calendário, um custo orçamental nem propostas sobre a derrama estadual ou as tributações autónomas. Não consegui ler o PDF oficial, porque o ficheiro que encontrei só tinha a capa. A IL já tinha defendido o fim da derrama estadual em 2020 e 2022, e o programa de 2025 prevê eliminar a derrama e as tributações autónomas até 2030. Não encontrei confirmação de que isso também estivesse no programa de 2024.\n\n## Comparação\n\n| | **PCP** | **IL** |\n|---|---|---|\n| Taxa geral | Não propõe alterar | 21% → **12%** |\n| PME | **12,5%** até 15.000 € de rendimento coletável | 12%, como as outras empresas |\n| Grandes empresas | Derrama de **14%** acima de 50 M€, menos benefícios fiscais, taxa extraordinária sobre lucros | **15%** para multinacionais com faturação acima de 750 M€ |\n| Abordagem | Imposto diferente consoante a dimensão; mais imposto sobre os lucros mais altos | Uma taxa baixa e igual para quase todas as empresas |\n\n• **O que têm em comum:** os dois partidos baixam o IRC das pequenas empresas para cerca de 12%. Para o PCP o corte só abrange os primeiros 15.000 €; para a IL abrange todo o lucro.\n• **Onde divergem:** nas grandes empresas. O PCP aumenta a carga com a derrama de 14% e o corte de benefícios; a IL desce a taxa para 15% nas multinacionais e para 12% nas restantes.\n\nEm 2025 as posições mudaram: a IL passou a propor 15% até 2028, e o PCP manteve no essencial as propostas de 2024.\n\n**Fontes:**\n• [Programa Eleitoral do PCP – Legislativas 2024 (pcp.pt)](https://www.pcp.pt/programa-eleitoral-do-pcp-legislativas-2024) | [PDF](https://www.pcp.pt/sites/default/files/documentos/2024_programa_eleitoral_pcp.pdf)\n• [IL – página do programa \"Por um Portugal com Futuro\" (2024)](https://iniciativaliberal.pt/ideias/por-um-portugal-com-futuro/)\n• [RTP – Iniciativa Liberal: novo presidente, mais e novas propostas](https://www.rtp.pt/noticias/eleicoes-legislativas-2024/iniciativa-liberal-novo-presidente-mais-e-novas-propostas_es1552589)\n• [ZAP – Programa eleitoral da IL](https://zap.aeiou.pt/programa-eleitoral-il-671389)\n• [Polígrafo – Rui Rocha e a taxa de IRC](https://poligrafo.sapo.pt/fact-check/rui-rocha-diz-que-portugal-tem-a-mais-alta-taxa-de-irc-da-europa-confirma-se/)\n• [Idealista – Medidas fiscais dos partidos (2024)](https://www.idealista.pt/news/financas/economia/2024/02/15/61492-eleicoes-legislativas-2024-que-medidas-fiscais-propoem-os-partidos)\n• [Observador – Condições da IL para coligação (IRC a 12%)](https://observador.pt/2024/02/18/irc-a-12-privatizar-a-tap-e-criar-circulo-de-compensacao-quais-sao-as-condicoes-da-il-para-coligacao-pos-eleitoral-com-o-psd/)\n• [ECO – Propostas fiscais em 2025 (evolução das posições)](https://eco.sapo.pt/especiais/do-iva-ao-irs-e-irc-todos-os-partidos-querem-baixar-impostos-quem-da-mais/)",
+  "error": null,
+  "secs": 134.4,
+  "num_turns": 20,
+  "cost_usd": 0.45756759999999996,
+  "prompt_tokens": 137254,
+  "completion_tokens": 6269,
+  "web_searches": 7,
+  "web_fetches": 12,
+  "init_tools": [
+   "WebFetch",
+   "WebSearch"
+  ],
+  "init_mcp": [],
+  "init_plugins": [
+   {
+    "name": "cc-plugin-sec-default",
+    "path": "builtin",
+    "source": "cc-plugin-sec-default@builtin"
+   },
+   {
+    "name": "cc-plugin-agents-md",
+    "path": "builtin",
+    "source": "cc-plugin-agents-md@builtin"
+   },
+   {
+    "name": "cc-plugin-telemetry",
+    "path": "builtin",
+    "source": "cc-plugin-telemetry@builtin"
+   },
+   {
+    "name": "cc-plugin-plugin-authoring",
+    "path": "builtin",
+    "source": "cc-plugin-plugin-authoring@builtin"
+   }
+  ],
+  "init_model": "claude-opus-5-5"
+ },
+ "q-26": {
+  "answer": "# Bloco de Esquerda e PCP: privatizações e controlo público de sectores estratégicos (programas das legislativas de 2024)\n\n## Bloco de Esquerda (BE)\n\nAs propostas estão no **capítulo 7, \"Controlo público de setores estratégicos\"**. O BE pretende o controlo público da **Galp, EDP, REN, ANA e CTT**. Argumenta que isso permitiria controlar os preços da energia, definir políticas de transportes e \"disciplinar a banca\".\n\n**Energia (Galp, EDP, REN)**\n• O Estado passaria a ter o **controlo acionista** das três empresas.\n• A compra seria paga com os **dividendos que as empresas distribuem, cerca de 1.000 milhões de euros por ano**. O partido descreve isto como \"a operação inversa\" à das privatizações.\n• **O programa não indica preço, percentagem do capital a comprar nem calendário.**\n\n**CTT**\n• **Devolver os CTT à gestão pública.**\n• **Auditoria independente** às decisões da gestão privada que o partido considera lesivas do serviço e do dinheiro público.\n\n**ANA (aeroportos)**\n• **Nacionalização da ANA**, com as infraestruturas aeroportuárias a voltarem à gestão pública.\n• Decisão sem mais adiamentos sobre o **novo aeroporto em Alcochete**.\n\n**TAP**\n• A TAP deve ter **propriedade e gestão públicas permanentes**. O BE **rejeita a reprivatização**.\n\n**Banca**\n• Converter os **ativos por impostos diferidos** dos bancos em capital do Estado.\n• Converter as **dívidas dos bancos ao Fundo de Resolução** em instrumentos que podem passar a capital. O Estado ficaria com direitos de propriedade e de gestão na proporção do que financiou.\n• Rever as **leis de resolução bancária**, para que o Estado fique com controlo público correspondente ao capital que financia.\n• Criar um **programa estratégico para a banca pública**, debatido no Parlamento.\n• O programa refere que quer recuperar o controlo público do **Novo Banco**, mas não indica nenhum mecanismo próprio além das conversões acima.\n\n**Fora do capítulo 7:** não encontrei propostas sobre telecomunicações ou água. Não li o programa todo, por isso não posso confirmar que não existam noutros capítulos.\n\n## PCP\n\n**Princípio geral**\n• **Reverter as privatizações de forma programada** e integrar as empresas no sector público, **\"por nacionalização e/ou negociação adequada\"** (secção 2.2.1).\n• Recuperar ativos vendidos a estrangeiros desde 2011, que o PCP calcula em **cerca de 60 mil milhões de euros** (secção 2.3.2).\n• **Acabar com as Parcerias Público-Privadas (PPP)** e recuperar concessões entregues a privados.\n• Reverter os processos de liberalização ligados à União Europeia (secção 7.1).\n\n**Banca (secção 2.3.2)**\n• **Banca comercial sob controlo público.** A **CGD absorveria o Banco de Fomento**.\n• Controlo público de **todas as instituições intervencionadas pelo Estado**.\n• A supervisão da banca voltaria ao **Banco de Portugal**, e Portugal negociaria a **saída da União Bancária**.\n\n**Energia (secção 2.3.3)**\n• Controlo público das **EDP, GALP e REN**, desde o aprovisionamento e produção até ao transporte e venda.\n• Manter as **tarifas reguladas** de eletricidade e gás e criar **preços máximos** para os vários tipos de energia.\n\n**Transportes (secção 2.3.5)**\n• **ANA:** retomar o controlo público. O novo aeroporto seria construído em terrenos públicos.\n• **TAP:** travar a privatização e reintegrar a **SPDH** (assistência em escala).\n• **NAV:** manter o controlo aéreo nacional.\n• **CP:** reconstruir uma **CP única e pública**, o que inclui:\n  • reverter a privatização da **CP Carga**;\n  • integrar a **Fertagus** quando a concessão terminar, em 2024;\n  • desfazer a fusão REFER/IP.\n• Terminar as concessões do **Metro do Porto** e do **MST**.\n• Resgatar a concessão fluvial do Sado e integrar a Soflusa na Transtejo.\n• Criar um **operador público rodoviário nacional**.\n• Acabar com as **PPP rodoviárias** e eliminar as portagens de forma progressiva.\n• Recriar a empresa pública de dragagens.\n\n**Comunicações e outros sectores**\n• **PT:** recuperar o controlo público.\n• **CTT:** recuperar a propriedade pública e reabrir estações de correio.\n• **Infraestruturas de dados:** as principais ficariam em propriedade pública.\n• **Água:** gestão pública, sem mercantilização, através de uma nova Lei da Água.\n• **Comunicação social:**\n  • reforçar o controlo público da **LUSA**;\n  • criar um jornal diário público ou devolver à esfera pública títulos que foram privatizados.\n\n## Diferenças principais\n\n• **Âmbito:** o BE concentra-se em 5 casos (energia, CTT, ANA, TAP e banca). O PCP propõe reverter as privatizações e PPP de forma geral e abrange também ferrovia, transportes urbanos e fluviais, telecomunicações, água e comunicação social.\n• **Financiamento:** só o BE indica como pagaria, e só para a energia (com os dividendos). O PCP fala em \"nacionalização e/ou negociação adequada\", sem valores.\n• **Banca:** o BE propõe converter créditos do Estado sobre os bancos em capital. O PCP propõe controlo público da banca comercial, com a CGD como instrumento central e saída da União Bancária.\n• **Lacuna comum:** nenhum dos dois programas indica prazos nem o custo total destas operações.\n\n**Nota sobre as fontes:** não consegui ler os PDFs do PCP diretamente. Usei a versão HTML do programa no site da CDU, que li quase toda, mas a parte inicial da secção 2.3.5 apareceu cortada.\n\n**Fontes:**\n• [BE – Programa 2024, Capítulo 7 (introdução)](https://programa2024.bloco.org/capitulo-2/7-controlo-publico-de-setores-estrategicos/)\n• [BE – 7.1 Galp, EDP e REN](https://programa2024.bloco.org/capitulo-2/7-1-galp-edp-e-ren-recuperar-o-controlo-sobre-o-setor-da-energia/)\n• [BE – 7.2 CTT](https://programa2024.bloco.org/capitulo-2/7-2-ctt-o-saque-de-um-servico-publico/)\n• [BE – 7.3 ANA](https://programa2024.bloco.org/capitulo-2/7-3-ana-mais-um-negocio-que-so-teve-em-conta-os-interesses-dos-privados/)\n• [BE – 7.4 TAP](https://programa2024.bloco.org/capitulo-2/7-4-tap/)\n• [BE – 7.5 Banca pública estratégica](https://programa2024.bloco.org/capitulo-2/7-5-uma-banca-publica-estrategica/)\n• [BE – Programa 2024 (PDF)](https://bloco.org/media/PROGRAMA_BLOCO_2024.pdf)\n• [PCP – Programa Eleitoral 2024 (CDU)](https://www.cdu.pt/legislativas2024/programa-eleitoral-do-pcp)\n• [PCP – Programa Eleitoral 2024 (PDF)](https://www.pcp.pt/sites/default/files/documentos/2024_programa_eleitoral_pcp.pdf)",
+  "error": null,
+  "secs": 136.5,
+  "num_turns": 19,
+  "cost_usd": 0.3927819000000001,
+  "prompt_tokens": 125117,
+  "completion_tokens": 6392,
+  "web_searches": 4,
+  "web_fetches": 14,
+  "init_tools": [
+   "WebFetch",
+   "WebSearch"
+  ],
+  "init_mcp": [],
+  "init_plugins": [
+   {
+    "name": "cc-plugin-sec-default",
+    "path": "builtin",
+    "source": "cc-plugin-sec-default@builtin"
+   },
+   {
+    "name": "cc-plugin-agents-md",
+    "path": "builtin",
+    "source": "cc-plugin-agents-md@builtin"
+   },
+   {
+    "name": "cc-plugin-telemetry",
+    "path": "builtin",
+    "source": "cc-plugin-telemetry@builtin"
+   },
+   {
+    "name": "cc-plugin-plugin-authoring",
+    "path": "builtin",
+    "source": "cc-plugin-plugin-authoring@builtin"
+   }
+  ],
+  "init_model": "claude-opus-5-5"
+ },
+ "q-27": {
+  "answer": "O **CHEGA** propõe restringir a entrada e a permanência de imigrantes e endurecer as regras: quotas, crime de residência ilegal, regresso do SEF e fim da residência automática para cidadãos da CPLP. O **PS** não propõe mudar a política de fronteiras em vigor. As suas medidas tratam da entrada regular, da rapidez dos processos e da integração.\n\n**Limitação das fontes:** as medidas do CHEGA vêm do texto do programa de 2024, *Limpar Portugal* (medidas 166 a 180). Não consegui ler o texto do programa do PS de 2024 (*Plano de Ação para Portugal Inteiro*), porque o PDF não deu texto legível. As medidas do PS vêm dos resumos do DN (22/02/2024) e do ECO (08/03/2024). Muitas notícias sobre o PS e a imigração (via AIMA para empresas, canal adicional, IEFP em 30 dias) são de 2025 e **não** fazem parte do programa de 2024.\n\n## CHEGA\n\n**Instituições e fronteiras**\n• **Repor o SEF**, com a estrutura, as funções e o estatuto que tinha (medida 166).\n• **Penas mais pesadas** para tráfico de seres humanos e auxílio à imigração ilegal, com mais meios de investigação (178).\n\n**Entrada**\n• **Quotas anuais de imigração**, definidas pelas qualificações, pelas necessidades do mercado de trabalho e pelo contributo dos imigrantes. O programa não indica números (167).\n• **Revogar o acordo de mobilidade da CPLP** e acabar com a autorização de residência automática para imigrantes destes países (168). O DN escreveu que o partido não respondeu sobre o que aconteceria aos mais de 150 mil imigrantes abrangidos.\n\n**Residência ilegal e regresso ao país de origem**\n• **Criar o crime de residência ilegal.** Quem estiver nessa situação fica impedido de voltar a Portugal e de se legalizar durante **5 anos** (175).\n• **Mandar de volta ao país de origem** quem violar a lei penal (170) e quem não mostrar que se sustenta sozinho ao fim de **6 a 12 meses** (171).\n• **Programa \"Bom Regresso\"**, para apoiar quem quer voltar ao seu país mas não tem meios (172).\n\n**Apoios sociais e asilo**\n• **5 anos de contribuições** como mínimo para ter acesso a qualquer apoio social (176). ⚠️ O DN descreve a regra como 5 anos de *residência*, mas o programa fala em *contribuições*. O DN cita a jurista Ana Rita Gil, que considera a medida contrária à Constituição.\n• **Requerentes de asilo ficam em Centros de Acolhimento Temporários** até o pedido ser aceite (179).\n\n**Nacionalidade e integração**\n• **Nacionalidade só para quem conheça a língua e a cultura portuguesas** (169).\n• **Retirar a nacionalidade a quem tenha dupla nacionalidade** e seja condenado por crimes violentos, como terrorismo, homicídio, violação ou violência doméstica (177).\n• **Relatórios anuais** sobre imigrantes: número, emprego, apoios recebidos, criminalidade, nascimentos e distribuição pelo território (173).\n• **Acompanhamento de quem chega** (habitação, emprego, formação) e ensino de português, história e cultura (174).\n• **Medida contra o \"avanço do fundamentalismo islâmico\"**, com garantia de respeito pela liberdade religiosa e pelos direitos das mulheres e crianças (180).\n\nO partido argumenta que as fronteiras estão \"sem controlo\" e que a imigração de \"culturas e civilizações completamente distintas\" põe em risco a cultura portuguesa.\n\n## PS\n\n• **Política de fronteiras:** segundo o DN, o PS **não propõe alterações**.\n• **Imigração regular desde o país de origem:** melhor cobertura consular, com novas embaixadas na Ásia e em África e mais pessoal.\n• **Processos mais rápidos:** acelerar a regularização e pôr todos os serviços da AIMA online (\"transformação digital da área documental\").\n• **Nacionalidade:** tornar mais rápida a atribuição.\n• **Trabalho:** desincentivar os contratos temporários e reforçar as inspeções da ACT.\n• **Trabalhadores sazonais:** as empresas ficam responsáveis por lhes garantir habitação em condições dignas.\n• **Integração:** generalizar os cursos de português, sobretudo nas escolas e depois do horário de trabalho, e reforçar a qualificação dos imigrantes.\n\nO PS sublinha que os imigrantes deram à Segurança Social um contributo líquido de **mais de 1.600 milhões de euros em 2022**.\n\n## Principais diferenças\n\n• **Quantos entram:** o CHEGA quer quotas anuais. O PS não propõe limites e quer facilitar a entrada regular através dos consulados.\n• **Organismos:** o CHEGA quer repor o SEF, juntando de novo a parte administrativa e a policial. O PS quer manter a AIMA e torná-la digital.\n• **CPLP:** o CHEGA quer revogar o acordo de mobilidade. Nas fontes consultadas, o PS não propõe alterá-lo.\n• **Situação irregular:** o CHEGA quer torná-la crime e mandar as pessoas de volta ao país de origem. O PS quer acelerar a regularização.\n• **Nacionalidade:** o CHEGA quer mais requisitos e a perda de nacionalidade em caso de crime. O PS quer processos mais rápidos.\n• **Apoios sociais:** o CHEGA exige 5 anos antes de qualquer apoio. Não encontrei nenhuma proposta equivalente do PS.\n• **Ponto comum:** os dois querem ensino de português para imigrantes. O CHEGA também quer reforçar o combate ao tráfico de pessoas. Não confirmei se essa medida está no programa do PS de 2024 (em 2025 está).\n\n**Fontes:**\n• [Programa CHEGA 2024 – Limpar Portugal (elege.pt)](https://elege.pt/documento/ch-programa-eleitoral-legislativas-2024) | [PDF oficial](https://partidochega.pt/wp-content/uploads/2025/10/Programa_Eleitoral_CHEGA_2024_LQ.pdf)\n• [Programa PS 2024 – Plano de Ação para Portugal Inteiro (PDF)](https://ps.pt/wp-content/uploads/2024/02/PS-Portugal_Inteiro_2024-6.pdf) (não consegui extrair o texto)\n• [DN – O que os partidos propõem para resolver os problemas dos imigrantes? (22/02/2024)](https://www.dn.pt/6239938885/o-que-os-partidos-propoem-para-resolver-os-problemas-dos-imigrantes)\n• [ECO – Regularização, integração e formação: o que defendem os partidos (08/03/2024)](https://eco.sapo.pt/2024/03/08/regularizacao-integracao-e-formacao-o-que-defendem-os-partidos-em-materia-de-imigracao/)\n• [Renascença – Chega quer criar crime de \"residência ilegal\" (12/02/2024)](https://rr.pt/noticia/politica/2024/02/12/programa-eleitoral-chega-quer-criar-crime-de-residencia-ilegal-em-portugal/366074/)\n• [Público – Chega quer criar \"crime de residência ilegal\" (08/02/2024)](https://www.publico.pt/2024/02/08/politica/noticia/chega-quer-criar-crime-residencia-ilegal-travar-imigracao-2079782)",
+  "error": null,
+  "secs": 173.7,
+  "num_turns": 25,
+  "cost_usd": 0.5573969000000001,
+  "prompt_tokens": 224970,
+  "completion_tokens": 7755,
+  "web_searches": 10,
+  "web_fetches": 14,
+  "init_tools": [
+   "WebFetch",
+   "WebSearch"
+  ],
+  "init_mcp": [],
+  "init_plugins": [
+   {
+    "name": "cc-plugin-sec-default",
+    "path": "builtin",
+    "source": "cc-plugin-sec-default@builtin"
+   },
+   {
+    "name": "cc-plugin-agents-md",
+    "path": "builtin",
+    "source": "cc-plugin-agents-md@builtin"
+   },
+   {
+    "name": "cc-plugin-telemetry",
+    "path": "builtin",
+    "source": "cc-plugin-telemetry@builtin"
+   },
+   {
+    "name": "cc-plugin-plugin-authoring",
+    "path": "builtin",
+    "source": "cc-plugin-plugin-authoring@builtin"
+   }
+  ],
+  "init_model": "claude-opus-5-5"
+ },
+ "q-31": {
+  "answer": "O **BE** e o **LIVRE** defendem os dois a semana de quatro dias sem perda de salário. A diferença está no método: o BE quer pô-la na lei como uma opção, e o LIVRE quer alargá-la através de acordos entre sindicatos e empresas. Os textos dos dois programas foram consultados nas versões online.\n\n## Bloco de Esquerda (BE)\n\nO tema está na secção **3.2. Precariedade** do programa de 2024.\n\n**Semana de quatro dias**\n• **Pôr na lei o direito de escolher a semana de 4 dias**, também por iniciativa do trabalhador. Essa escolha fica ligada a uma redução do horário semanal, **sem perda de rendimento**.\n• **32 horas semanais a partir de 2028** para as empresas que adiram à semana de quatro dias.\n\n**Redução do horário (todas as empresas)**\n• Redução progressiva, por adesão voluntária das empresas e por lei obrigatória para todas: **38 horas em 2025, 36 horas em 2026 e 34 horas em 2027**.\n• Fixar na lei um máximo de **35 horas semanais nesta legislatura**.\n• ⚠️ **Dúvida:** o calendário (34 horas em 2027) vai além do limite de 35 horas na legislatura. O folheto de campanha resume a proposta como \"35 horas semanais, semana de 4 dias e 25 dias de férias/ano no público e no privado\".\n\n**Medidas relacionadas**\n• Voltar aos **25 dias de férias** como regra, sem outros critérios.\n• Limitar e regular a isenção de horário e o uso generalizado da laboração contínua.\n• Fazer um **livro verde sobre o tempo de trabalho**, por setor: adaptabilidade, banco de horas, turnos e trabalho noturno.\n• Repor por completo o pagamento extra das horas suplementares cortado em 2012 e recuperar o descanso compensatório.\n\n**Argumentos do partido**\n• O BE lembra que a última redução do horário no setor privado foi em 1996.\n• Estima que as 35 horas no setor privado poderiam criar **mais de 200 mil empregos**, com base nas leis Aubry em França.\n• Cita o teste português em **41 empresas**, com mais de 1000 trabalhadores e cerca de 34 horas semanais em média. Segundo o partido, 95% das empresas avaliaram o teste positivamente e a exaustão dos trabalhadores caiu 19%.\n\n## LIVRE\n\nO tema está na **Proposta C.6**, no capítulo C, \"Trabalho, Rendimento, Tempo e Proteção Social\". O objetivo declarado é \"aumentar o tempo disponível para todas as pessoas\".\n\n**Semana de quatro dias**\n• **Alargar a experiência da semana de 4 dias ao setor privado e à administração pública**.\n• Fazê-lo através da **contratação coletiva e dos acordos de empresa**, com o objetivo de a aplicar a nível nacional.\n• **Sem perda de remuneração**.\n\n**Redução do horário e férias**\n• **Já: 35 horas semanais e 25 dias de férias**.\n• **Até 2030: 30 horas semanais e 30 dias de férias**, com uma redução gradual até lá.\n\n**Medidas relacionadas**\n• Reduzir o horário a partir de certa idade, sem perda de rendimento, como alternativa voluntária à reforma total. O programa prevê também reformas parciais.\n• Limitar os turnos, o trabalho noturno e a laboração contínua às atividades estritamente necessárias, com compensação no salário e acompanhamento de saúde.\n• Restringir o recurso excessivo a horas extraordinárias.\n• Tornar o Carnaval feriado obrigatório. Quando um feriado calha ao fim de semana, poder gozá-lo num dia útil próximo, se o local de trabalho fechar ao fim de semana.\n\n**Contexto:** em 2022, o LIVRE fez aprovar no Orçamento do Estado o estudo e o projeto-piloto da semana de quatro dias. Rui Tavares considera que o teste teve bons resultados; o Observador verificou essas afirmações num *fact-check*.\n\n## Diferenças principais\n\n| | **BE** | **LIVRE** |\n|---|---|---|\n| Como se aplica | Direito na lei (pode partir do trabalhador) | Contratação coletiva e acordos de empresa, a caminho de aplicação nacional |\n| Horas na semana de 4 dias | 32 horas a partir de 2028 | Não especifica; meta geral de 30 horas até 2030 |\n| Horário geral | 38 → 36 → 34 horas (2025–2027); máximo de 35 horas na lei | 35 horas já; 30 horas até 2030 |\n| Férias | 25 dias | 25 dias já; 30 até 2030 |\n\n**Fontes:**\n• [BE – Programa 2024, 3.2. Precariedade](https://programa2024.bloco.org/capitulo-1/3-2-precariedade/)\n• [BE – Folheto de campanha Legislativas 2024 (Braga)](https://bloco.org/sites/default/files/media/legislativas2024_BRAGA_250x375mm_v2_PARA%20WEB-min.pdf)\n• [LIVRE – Programa 2024, Capítulo C](https://programa.partidolivre.pt/capitulos/C)\n• [LIVRE – Página Legislativas 2024](https://partidolivre.pt/legislativas2024/)\n• [Renascença – Programa do LIVRE aprovado no OE2022 sobre a semana de quatro dias](https://rr.pt/noticia/politica/2022/05/24/deputados-aprovaram-proposta-do-livre-sobre-semana-de-trabalho-de-quatro-dias/285679/)\n• [Observador – Fact-check sobre a semana de 4 dias (Rui Tavares)](https://observador.pt/factchecks/fact-check-semana-de-4-dias-diminuiu-pressao-sobre-o-sns-e-melhorou-a-produtividade-como-diz-rui-tavares/)",
+  "error": null,
+  "secs": 158.3,
+  "num_turns": 19,
+  "cost_usd": 0.3915183,
+  "prompt_tokens": 125020,
+  "completion_tokens": 5479,
+  "web_searches": 5,
+  "web_fetches": 13,
+  "init_tools": [
+   "WebFetch",
+   "WebSearch"
+  ],
+  "init_mcp": [],
+  "init_plugins": [
+   {
+    "name": "cc-plugin-sec-default",
+    "path": "builtin",
+    "source": "cc-plugin-sec-default@builtin"
+   },
+   {
+    "name": "cc-plugin-agents-md",
+    "path": "builtin",
+    "source": "cc-plugin-agents-md@builtin"
+   },
+   {
+    "name": "cc-plugin-telemetry",
+    "path": "builtin",
+    "source": "cc-plugin-telemetry@builtin"
+   },
+   {
+    "name": "cc-plugin-plugin-authoring",
+    "path": "builtin",
+    "source": "cc-plugin-plugin-authoring@builtin"
+   }
+  ],
+  "init_model": "claude-opus-5-5"
+ },
+ "q-32": {
+  "answer": "Nos programas de 2024, **só o Chega defende claramente** pôr energia nuclear em Portugal. A **IL** mostra-se favorável, mas faz depender a decisão de estudos de viabilidade. O **Livre** apenas propõe acompanhar a evolução da tecnologia.\n\n**Chega: defende a adoção**\n• Propõe incluir **energia nuclear no mix de produção nacional**. O partido diz que isso serve a \"independência e estabilidade energética\".\n• Prefere os **pequenos reatores modulares (SMR)**, que considera \"mais baratos e mais rápidos\".\n• Defende que a tecnologia atual permite \"reprocessar e reciclar parte do combustível utilizado\", o que reduziria os resíduos finais.\n• Das três posições, é a mais concreta e entusiasta, segundo o Observador e o DN.\n• Não encontrei calendário, custos nem localização para as centrais.\n\n**Iniciativa Liberal: favorável, com condições**\n• O programa diz que a IL \"vê com bons olhos o renascimento das intenções de investimento em energia nuclear\", incluindo os SMR.\n• Propõe **estudos de viabilidade económica** antes de qualquer decisão.\n• Rejeita o que chama \"preconceitos infundados\" sobre os riscos e os impactos ambientais.\n• Invoca o princípio da **neutralidade tecnológica**.\n• No debate com o PAN, Rui Rocha defendeu que é sempre precisa uma fonte de base (gás ou nuclear) para os momentos em que não há renováveis. Não excluiu o nuclear.\n\n**Livre: acompanha, mas não defende a adoção**\n• Propõe \"seguir atentamente o desenvolvimento de novas tecnologias de produção de energia nuclear\".\n• Não propõe construir centrais. Por isso não conta como defensor do nuclear.\n\n**AD, PS, BE, PCP e PAN**\n• Nos artigos que comparam os programas de 2024, nenhum destes partidos aparece com propostas sobre o nuclear. Não li os programas completos, por isso não posso garantir que o tema esteja totalmente ausente.\n• **PAN:** no debate com a IL, Inês Sousa Real opôs-se ao nuclear. Argumentou que o país vive uma seca estrutural e que o nuclear gasta muita água. Disse também ser \"leviano estar a apostar numa produção que é muito mais cara\". Isto foi dito no debate e não confirmei se está escrito no programa.\n\n**Nota:** em 2025 a IL foi mais longe e defendeu o nuclear como energia \"limpa e barata\". Não se deve confundir com o programa de 2024. A maior parte destas citações vem do Observador; não as confirmei nos PDFs oficiais dos partidos.\n\n**Fontes:**\n• [Observador – \"Três partidos recuperam energia nuclear à boleia dos novos mini-reatores\" (26/02/2024)](https://observador.pt/especiais/uma-medida-por-dia-tres-partidos-recuperam-energia-nuclear-a-boleia-dos-novos-mini-reatores/)\n• [DN – \"Alguns partidos querem Portugal atómico e outros reduzir as emissões\" (02/03/2024)](https://www.dn.pt/sociedade/alguns-partidos-querem-portugal-atomico-e-outros-reduzir-as-emissoes)\n• [Renascença – Debate IL vs PAN (09/02/2024)](https://rr.pt/noticia/politica/2024/02/09/debate-il-vs-pan-os-professores-uniram-o-que-o-nuclear-dividiu/366237/)\n• [Iniciativa Liberal – Programa 2025, Ambiente e Energia (só para comparação)](https://iniciativaliberal.pt/ideias/programa-eleitoral-legislativas-2025/romper-com-a-estagnacao-economica/e-ambiente-e-energia/)",
+  "error": null,
+  "secs": 86.1,
+  "num_turns": 14,
+  "cost_usd": 0.30598990000000004,
+  "prompt_tokens": 87862,
+  "completion_tokens": 3728,
+  "web_searches": 7,
+  "web_fetches": 6,
+  "init_tools": [
+   "WebFetch",
+   "WebSearch"
+  ],
+  "init_mcp": [],
+  "init_plugins": [
+   {
+    "name": "cc-plugin-sec-default",
+    "path": "builtin",
+    "source": "cc-plugin-sec-default@builtin"
+   },
+   {
+    "name": "cc-plugin-agents-md",
+    "path": "builtin",
+    "source": "cc-plugin-agents-md@builtin"
+   },
+   {
+    "name": "cc-plugin-telemetry",
+    "path": "builtin",
+    "source": "cc-plugin-telemetry@builtin"
+   },
+   {
+    "name": "cc-plugin-plugin-authoring",
+    "path": "builtin",
+    "source": "cc-plugin-plugin-authoring@builtin"
+   }
+  ],
+  "init_model": "claude-opus-5-5"
+ },
+ "q-34": {
+  "answer": "# Propostas para as listas de espera no SNS (legislativas de 2024)\n\n**Confirmado nos programas:** o texto do Chega e do BE foi lido diretamente no [elege.pt](https://elege.pt). As medidas dos outros partidos vêm de resumos da imprensa (DN/Lusa e RTP, fevereiro de 2024), porque não consegui abrir os documentos. Vários artigos encontrados são das legislativas de **2025** e ficaram de fora.\n\n## AD (PSD/CDS-PP/PPM)\n• **\"Voucher\" de consulta:** garantir a consulta de especialidade dentro do **Tempo Máximo de Resposta Garantido (TMRG)**. Algumas notícias dizem que o voucher também cobre **cirurgias** e permite ao utente escolher outro prestador, privado ou social.\n• **Plano de Emergência do SNS 2024-2025**, a apresentar nos **primeiros 60 dias** do Governo.\n• **Meta para 2040:** pôr o SNS \"entre os 10 melhores do mundo\", incluindo nos tempos de resposta a consultas e cirurgias.\n• **Prazo de 2025:** Montenegro anunciou que queria acabar até ao fim de 2025 com as esperas acima do TMRG. ⚠️ Esta meta vem da cobertura da convenção da AD; não confirmei que está escrita no programa.\n• **Outras medidas:** equipas multidisciplinares maiores nos centros de saúde e parcerias público-sociais para cuidados paliativos e continuados.\n\n## PS\n• **Exclusividade:** incentivar a **dedicação plena e em exclusividade** ao SNS. O partido quer também estudar, em negociação com os sindicatos, um tempo mínimo no SNS para médicos recém-especialistas.\n• **Setor privado:** cooperação plurianual \"sob o princípio da supletividade\" (o privado só complementa o SNS), com mais transparência nos preços. Prevê ainda reduzir parte da contratação externa e reinvestir no SNS.\n• **Urgências:** rede de atendimento permanente nos centros de saúde e triagem telefónica generalizada.\n• **Gestão:** mais autonomia para as administrações hospitalares.\n• ⚠️ **Sem meta de espera:** não encontrei uma meta numérica para as listas de espera no programa de 2024. A redução de 25% que aparece na imprensa é do programa de 2025.\n\n## CHEGA\n• **Proposta 93:** quando o TMRG se esgota, \"o Estado tem a obrigação de referenciar os utentes\" para o setor privado ou social.\n• **Propostas 90 e 91:** transformar o SNS num **\"Sistema Nacional de Saúde\"** que integre os setores público, privado e social. Isso inclui rever a Lei de Bases para permitir novos modelos de gestão e parcerias público-privadas (PPP).\n• **Proposta 105:** alargar os **Centros de Responsabilidade Integrados**, com contratualização de serviços e incentivos aos profissionais.\n• **Propostas 89 e 103:** Registo Único de Saúde para evitar exames repetidos, mais telemedicina, e \"USF 2.0\" com meios básicos de diagnóstico.\n• **Propostas 111 e 113:**\n  • \"Cheque de Saúde Mental\" quando o SNS não responde.\n  • Consulta especializada em **8 dias** para crianças referenciadas por perturbação do espetro do autismo.\n• **Médicos de família:** garantia de médico de família para todos.\n• O próprio programa não tem metas numéricas para as cirurgias.\n\n## Iniciativa Liberal\n• **Programa Especial de Acesso a Cuidados de Saúde**, para reduzir as listas e garantir \"acesso atempado a consultas e cirurgias\".\n• **Médico de família, público ou privado, para todos até 2028.** Começa em 2025 com os maiores de 65 anos, as grávidas e as crianças até aos 9 anos.\n• **Escolha do prestador:** um sistema que junta os setores público, privado e social e deixa o utente escolher.\n• **Gestão privada:** recuperar as PPP de Braga, Vila Franca de Xira e Loures, e criar USF modelo C (com gestão privada).\n\n## BE\n• **Contratação imediata:** abrir já concursos nas unidades com esperas acima do recomendado ou com horas extraordinárias acima do limite legal.\n• **Menos horas de urgência:** limitar a **12 horas semanais** a urgência exigida aos médicos, \"libertando o restante tempo para consultas e cirurgias\".\n• **Exclusividade:** regime com **mais 40% de salário** e mais 50% nos pontos para progressão na carreira.\n• **Exames:** fazer os exames pedidos pelo médico de família \"no próprio dia ou num prazo muito curto\", com a capacidade instalada nos hospitais.\n• **Diagnóstico público:** rede pública de Centros de Diagnóstico e Terapêutica e equipamento nos centros de saúde (raio X, eletrocardiograma).\n• **Proximidade:** levar pediatria, ginecologia, oftalmologia e dermatologia para mais perto das populações.\n• **Médicos de família:** médico e equipa de família para todos nesta legislatura.\n• **Setor privado:** revogar a legislação que permite novas PPP.\n\n## CDU (PCP-PEV)\n• **Capacidade pública:** aumentar a capacidade hospitalar do SNS, com gestão pública de todas as unidades.\n• **Cuidados primários:** médico e enfermeiro de família para todos e consultas de outras especialidades nos centros de saúde.\n• ⚠️ Não encontrei uma medida dirigida às listas de espera. A dedicação exclusiva com mais 50% de salário só a confirmei no programa de 2025.\n\n## LIVRE\n• **Médicos de família:** menos de **1.500 utentes por médico de família**.\n• **Diagnóstico e terapias:** mais exames de diagnóstico, fisioterapia e saúde mental, para reduzir a procura das urgências.\n• **Avaliação:** objetivos do SNS com métricas claras, e um suplemento para as equipas com base nos resultados.\n• **Gestão:** gestão pública e não renovação das PPP.\n• ⚠️ Não encontrei uma medida concreta sobre listas de espera.\n\n## PAN\n• ⚠️ **Programa não verificado:** não consegui consultar a \"Agenda 24-28\" sobre este tema.\n• **Saúde em geral:** encontrei só o estatuto de profissão de desgaste rápido para os profissionais do SNS, mais psicólogos e médico de família para todos.\n\n## Onde os partidos divergem\n• **Recorrer ao privado/social quando o tempo de espera é ultrapassado:** AD, CHEGA e IL.\n• **Mais capacidade interna e gestão pública, sem PPP:** BE, CDU e LIVRE. O BE e a CDU apostam também na exclusividade.\n• **PS:** exclusividade e reforço do SNS, com o privado só como complemento.\n\n**Fontes:**\n• [DN/Lusa – O que propõem os partidos para a Saúde (fev. 2024)](https://www.dn.pt/o-que-propoem-os-partidos-para-a-saude)\n• [RTP – O que propõem os partidos para a saúde](https://www.rtp.pt/noticias/pais/o-que-propoem-os-partidos-para-a-saude_n1550835)\n• [Programa CHEGA 2024 (elege.pt)](https://elege.pt/documento/ch-programa-eleitoral-legislativas-2024)\n• [Programa CHEGA 2024 (PDF oficial)](https://partidochega.pt/wp-content/uploads/2025/10/Programa_Eleitoral_CHEGA_2024_LQ.pdf)\n• [Programa BE 2024 (elege.pt)](https://elege.pt/documento/be-programa-eleitoral-legislativas-2024)\n• [Sábado – Montenegro promete plano de emergência em 60 dias](https://www.sabado.pt/portugal/detalhe/lider-do-psd-promete-plano-de-emergencia-na-saude-em-60-dias-e-negociacoes-imediatas-com-policias)\n• [RR – Convenção da AD](https://rr.pt/especial/politica/2024/01/21/saude-jovens-e-idosos-o-que-propos-montenegro-na-convencao-da-ad/363623/)\n• [Observador – Compromissos do programa da AD](https://observador.pt/2024/04/09/pontos-essenciais-do-governo-principais-compromissos-do-programa-eleitoral-da-ad-em-dez-areas/)\n• [DN – Programa do PS sobre carreiras no SNS](https://www.dn.pt/programa-do-ps-promete-negociacoes-imediatas-para-valorizar-carreiras-e-salarios-no-sns)\n• [RR – Médico de família nos programas](https://rr.pt/especial/politica/2024/02/23/o-que-dizem-e-nao-dizem-os-programas-eleitorais-todos-vao-ter-medico-de-familia/367580/)\n• [PAN – Agenda 24-28](https://www.pan.com.pt/pan-apresentou-o-programa-eleitoral-agenda-24-28/)\n• [RR – IL sobre o Plano de Emergência](https://rr.pt/noticia/amp/politica/2024/05/29/il-diz-que-plano-de-emergencia-para-a-saude-nao-vai-suficientemente-longe/380355/)",
+  "error": null,
+  "secs": 214.0,
+  "num_turns": 35,
+  "cost_usd": 0.8576243999999998,
+  "prompt_tokens": 361686,
+  "completion_tokens": 10639,
+  "web_searches": 18,
+  "web_fetches": 16,
+  "init_tools": [
+   "WebFetch",
+   "WebSearch"
+  ],
+  "init_mcp": [],
+  "init_plugins": [
+   {
+    "name": "cc-plugin-sec-default",
+    "path": "builtin",
+    "source": "cc-plugin-sec-default@builtin"
+   },
+   {
+    "name": "cc-plugin-agents-md",
+    "path": "builtin",
+    "source": "cc-plugin-agents-md@builtin"
+   },
+   {
+    "name": "cc-plugin-telemetry",
+    "path": "builtin",
+    "source": "cc-plugin-telemetry@builtin"
+   },
+   {
+    "name": "cc-plugin-plugin-authoring",
+    "path": "builtin",
+    "source": "cc-plugin-plugin-authoring@builtin"
+   }
+  ],
+  "init_model": "claude-opus-5-5"
+ },
+ "q-35": {
+  "answer": "Esta comparação baseia-se em resumos da imprensa publicados em março de 2024, e não nos programas completos. Por isso, alguns valores e prazos podem estar incompletos.\n\n## AD (PSD/CDS-PP/PPM)\n• **Rendas:** **subsídio dinâmico de renda** para famílias com taxa de esforço elevada e apoio público a inquilinos vulneráveis. Resolução mais rápida de litígios por incumprimento de contratos.\n• **Compra:** **isenção de IMT e Imposto do Selo para jovens até aos 35 anos** e **garantia pública** para financiar a totalidade do preço da casa.\n• **Oferta:** **IVA de 6%** na construção e reabilitação, **parcerias público-privadas** para construir e reabilitar em larga escala, e colocação no mercado de imóveis e terrenos públicos devolutos.\n• **Revogar** o congelamento de rendas, o arrendamento forçado e as penalizações ao Alojamento Local.\n• **Por confirmar:** uma pesquisa atribui à AD a meta de 59 mil casas acessíveis até 2029, mas esse número aparece sobretudo em notícias sobre 2025.\n\n## PS\n• **Rendas:** mudar a fórmula de atualização das rendas para **contar com a evolução dos salários quando a inflação passa os 2%**. Alargar o Porta 65 e **subir a dedução das rendas no IRS em 50 € por ano, até 800 €**.\n• **Compra:** **garantia pública ao crédito para quem tem até 40 anos** e não tem casa em seu nome.\n• **Crédito à habitação:** o Estado compraria casas hipotecadas à banca. O antigo dono ficaria com arrendamento vitalício, ou a casa passaria para arrendamento acessível.\n• **Oferta:** chegar a **5% de habitação pública** a médio prazo, sem data definida. Incluir habitação a custos controlados nos novos licenciamentos e **agravar o imposto sobre as mais-valias** de imóveis vendidos sem terem sido habitados ou recuperados.\n\n## CHEGA\n• **Rendas:** alargar o Porta 65 Jovem e anular o arrendamento forçado de casas devolutas previsto no Mais Habitação.\n• **Compra:** **isenção de IMI, IMT e Imposto do Selo na habitação própria e permanente** e revogação do AIMI. Também propõe a garantia do Estado para a entrada da casa e o regresso do **crédito jovem bonificado** (juros bonificados até aos 35 anos).\n• **Oferta:** **ceder terrenos públicos a privados por 90 anos** para construir habitação acessível. Revogar as limitações ao Alojamento Local.\n\n## Iniciativa Liberal\n• **Rendas:** **taxa máxima de 14,5%** sobre os rendimentos de rendas. Acabar com o congelamento de rendas e o arrendamento forçado. Criar um regime de incentivo à construção para arrendar (*build-to-rent*).\n• **Compra:** **acabar com o IMT na habitação própria e permanente**.\n• **Oferta:** **IVA da construção nova de 23% para 6%**, mais terrenos para construir, construção em altura e imóveis vazios do Estado colocados no mercado.\n• O resumo consultado não refere medidas de habitação pública da IL.\n\n## Bloco de Esquerda\n• **Rendas:** **tetos máximos às rendas**, que variam com a localização, a área, a qualidade, a eficiência energética e a tipologia. Os tetos ficariam abaixo dos valores da Portaria 277‑A/2010. Propõe ainda **limitar as subidas legais das rendas à evolução do poder de compra** e repor o **prazo mínimo de 5 anos** nos contratos.\n• **Oferta:** **25% da construção nova** reservada a renda condicionada, construção pública para arrendamento acessível e uso de imóveis devolutos.\n• **Compra:** **IMT 50% mais baixo** na habitação própria e permanente, compensado por mais IMT nas segundas casas. A Caixa Geral de Depósitos serviria para baixar os juros.\n• **Outras:** **proibir a venda de casas a não residentes**, com exceções. Quotas de Alojamento Local por freguesia e licenças de 2 anos.\n\n## PCP (CDU)\n• **Rendas:** revogar a chamada \"lei dos despejos\" (designação do partido) e limitar as subidas das rendas e os despejos. Na renda apoiada, **a renda não passaria de 15% do rendimento líquido** da família.\n• **Oferta:** **50 mil casas públicas** e **investimento de 1% do PIB** em habitação ao longo da legislatura. O Estado tomaria posse administrativa de imóveis devolutos e apoiaria cooperativas.\n• **Crédito:** a Caixa Geral de Depósitos cobraria spreads e comissões abaixo da banca privada.\n• **Outras:** limitar a compra de casas por fundos imobiliários e criar residências universitárias gratuitas.\n\n## LIVRE\n• **Rendas:** os novos contratos **não podem passar em mais de 30% os limites de preço por tipologia**. Casas com financiamento do Estado teriam **tetos de renda durante pelo menos 5 anos**.\n• **Porta 65:** apoio entre **36 e 84 meses**, sem candidaturas anuais, e passaria a incluir o arrendamento de quartos.\n• **Compra:** programa **\"Ajuda de Casa\"**, um empréstimo público de capital próprio **até 30% do valor de mercado** da casa.\n• **Oferta:** **10% de habitação pública** e **600 mil casas a longo prazo**, sem data definida em 2024. Fim dos vistos gold.\n\n## PAN\n• **Rendas:** **descer o IRS dos senhorios** que pratiquem rendas acessíveis e atualizar as rendas **abaixo da inflação**. Rever o Porta 65 para incluir caução e primeira renda, sem valores concretos.\n• **Compra:** **crédito bonificado dos 18 aos 35 anos**, **25% de desconto** nas escrituras e registos e isenção de Imposto do Selo e IMT para casas com valor patrimonial **até 110 mil €**.\n• **Oferta:** transformar imóveis públicos devolutos em casas para jovens e estudantes. Possíveis limites a novas licenças de Alojamento Local.\n\n**Fontes:**\n• [Mensagem de Lisboa – Estas eleições podem acabar com a crise na habitação? (mar. 2024)](https://amensagem.pt/2024/03/07/eleicoes-habitacao-acabar-crise-propostas/)\n• [SuperCasa/Gomes da Silva – Propostas de cada partido para a habitação (7 mar. 2024)](https://gds.pt/pt/noticias/eleicoes-conheca-as-propostas-de-cada-partido-para-a-habitacao)\n• [idealista – Habitação no centro das eleições 2024](https://www.idealista.pt/news/node/62985) (só vi o resumo da pesquisa, porque a página não abriu)\n• [RR – O que prometem os partidos (2024)](https://rr.pt/especial/politica/2024/02/12/o-que-prometem-os-partidos-veja-aqui-os-programas-eleitorais/366531/)",
+  "error": null,
+  "secs": 87.7,
+  "num_turns": 9,
+  "cost_usd": 0.23491279999999998,
+  "prompt_tokens": 31971,
+  "completion_tokens": 4790,
+  "web_searches": 2,
+  "web_fetches": 6,
+  "init_tools": [
+   "WebFetch",
+   "WebSearch"
+  ],
+  "init_mcp": [],
+  "init_plugins": [
+   {
+    "name": "cc-plugin-sec-default",
+    "path": "builtin",
+    "source": "cc-plugin-sec-default@builtin"
+   },
+   {
+    "name": "cc-plugin-agents-md",
+    "path": "builtin",
+    "source": "cc-plugin-agents-md@builtin"
+   },
+   {
+    "name": "cc-plugin-telemetry",
+    "path": "builtin",
+    "source": "cc-plugin-telemetry@builtin"
+   },
+   {
+    "name": "cc-plugin-plugin-authoring",
+    "path": "builtin",
+    "source": "cc-plugin-plugin-authoring@builtin"
+   }
+  ],
+  "init_model": "claude-opus-5-5"
+ },
+ "q-36": {
+  "answer": "**Quem propõe baixar a taxa geral do IRC (21% em 2024)**\n\n• **AD (PSD/CDS-PP/PPM):** baixar de **21% para 15%**, ao ritmo de **2 pontos percentuais por ano**, até ao fim da legislatura. Propõe também retirar gradualmente a progressividade da derrama estadual e acabar com a derrama municipal.\n\n• **Iniciativa Liberal:** **taxa única de 12%** para a maioria das empresas. As grandes multinacionais, com faturação anual acima de **750 milhões de euros**, pagariam **15%**, o mínimo exigido pelas regras europeias. Propõe ainda Zonas Económicas Especiais com impostos baixos no interior.\n\n• **CHEGA:** baixar para **15% ao longo da legislatura**. Para as empresas com sede no interior, a descida teria efeito imediato. O programa também inclui uma taxa única de **15% nas regiões autónomas e no interior** e de **18% no resto do país**. As fontes não esclarecem como estas duas formulações se conjugam. Outras medidas:\n  • isentar progressivamente de IRC os jovens empresários, agricultores e empreendedores até aos **35 anos**;\n  • reduzir a derrama estadual e a municipal.\n\n**Quem propõe baixar só para as empresas mais pequenas**\n\n• **PCP:** taxa de **12,5%** para micro, pequenas e médias empresas, sobre o rendimento coletável até **15.000 €**. Ao mesmo tempo, propõe um novo escalão de **14%** na derrama estadual para rendimentos coletáveis acima de **50 milhões de euros**, e acabar com vários benefícios e isenções fiscais.\n\n**Quem não propõe baixar a taxa**\n\n• **PS:** as análises que consultei não encontraram nenhuma descida da taxa de IRC no programa. Há duas medidas para empresas:\n  • reduzir em **20%** as tributações autónomas sobre as viaturas das empresas;\n  • acompanhar o SIFIDE, o incentivo fiscal à investigação e desenvolvimento.\n\n• **BE:** quer aumentar a tributação das empresas com mais lucros:\n  • novo escalão de **7%** na derrama estadual para lucros entre **20 e 35 milhões de euros**;\n  • voltar a pôr um prazo para deduzir prejuízos fiscais: **5 anos** para grandes empresas e **12 anos** para PME;\n  • imposto sobre lucros excessivos na energia, banca e distribuição.\n\n• **LIVRE:** sobretaxa extraordinária e progressiva de IRC para empresas com lucros de **1,5 milhões de euros ou mais**. Abrange a energia, banca, seguros, imobiliário, distribuição alimentar e armamento.\n\n• **PAN:** não encontrei o que o programa de 2024 diz sobre a taxa de IRC. As fontes falam apenas de benefícios fiscais para empresas, sem dar pormenores. Em 2022, o PAN propunha baixar o IRC para 17%, mas não confirmei se repetiu a proposta em 2024.\n\n**Resumo:** quem propõe a descida maior é a **IL (12%)**. Seguem-se a **AD** e o **CHEGA (15%)**, e o CHEGA propõe **18%** fora do interior e das regiões autónomas. O **PCP** só quer baixar para as PME, para **12,5%** nos primeiros 15.000 €.\n\n**Fontes:**\n• [DN – O que propõem os partidos em termos de medidas fiscais](https://www.dn.pt/o-que-propoem-os-partidos-em-termos-de-medidas-fiscais)\n• [RFF Lawyers – Legislativas 2024: Programas Fiscais](https://www.rfflawyers.com/en/know-how/newsletters/legislativas-2024-programas-fiscais-ou-o-contribuinte-em-primeiro-lugar/4994/)\n• [ECO – IL propõe descida para 12%, em linha com o programa de 2024](https://eco.sapo.pt/2024/10/09/il-fala-em-discussao-mesquinha-de-um-ponto-no-irc-propoe-descida-substancial-para-12/)\n• [Sábado – PAN e a descida do IRC (2022)](https://www.sabado.pt/portugal/detalhe/be-discorda-do-pan-sobre-descida-do-irc-sousa-real-diz-que-nao-diaboliza-empresas)",
+  "error": null,
+  "secs": 103.9,
+  "num_turns": 12,
+  "cost_usd": 0.29063059999999996,
+  "prompt_tokens": 102574,
+  "completion_tokens": 3986,
+  "web_searches": 5,
+  "web_fetches": 6,
+  "init_tools": [
+   "WebFetch",
+   "WebSearch"
+  ],
+  "init_mcp": [],
+  "init_plugins": [
+   {
+    "name": "cc-plugin-sec-default",
+    "path": "builtin",
+    "source": "cc-plugin-sec-default@builtin"
+   },
+   {
+    "name": "cc-plugin-agents-md",
+    "path": "builtin",
+    "source": "cc-plugin-agents-md@builtin"
+   },
+   {
+    "name": "cc-plugin-telemetry",
+    "path": "builtin",
+    "source": "cc-plugin-telemetry@builtin"
+   },
+   {
+    "name": "cc-plugin-plugin-authoring",
+    "path": "builtin",
+    "source": "cc-plugin-plugin-authoring@builtin"
+   }
+  ],
+  "init_model": "claude-opus-5-5"
+ },
+ "q-41": {
+  "answer": "Quase todos os programas de 2024 defendem a alta velocidade. A exceção é a AD, que não faz um compromisso concreto. As diferenças estão no traçado, na bitola e na terceira travessia do Tejo. Nenhum partido apresenta o custo das suas propostas, segundo o ECO.\n\nSó consegui ler diretamente os textos do **Chega**, do **BE** e do **PCP**. Os PDF do PS e da AD não abriram, e para o PS, AD, IL, LIVRE e PAN usei artigos de imprensa da campanha.\n\n**PS**\n• Quer continuar as obras da linha **Porto–Lisboa** e lançar a **1.ª fase da ligação Porto–Valença** (o troço em direção a Vigo).\n• Propõe modernizar a **Gare do Oriente** a pensar na chegada da alta velocidade.\n• Defende uma **nova travessia ferroviária do Tejo**, com o objetivo de tirar mercadorias da Ponte 25 de Abril e encurtar viagens para o Alentejo, o Algarve e Espanha. Segundo o ECO, isso permitiria ligar a alta velocidade a Madrid. O DN escreve que o programa não dá mais detalhes sobre esta travessia.\n• Quer aprovar o **Plano Ferroviário Nacional**.\n\n**AD (PSD/CDS-PP/PPM)**\n• Segundo o ECO, a Mensagem de Lisboa e o Observador, o programa **não tem compromissos concretos sobre alta velocidade**. Não consegui confirmar isto no PDF.\n• As medidas ferroviárias que tem são:\n  - aumentar a quota da ferrovia no transporte de passageiros e de mercadorias;\n  - criar um novo modelo de operação de passageiros, com os serviços locais geridos de forma descentralizada e com mais abertura a novos operadores.\n\n**CHEGA** (texto lido diretamente)\n• **Proposta 237:** escolher e construir o novo aeroporto de Lisboa \"bem como de outras infra-estruturas indispensáveis, nomeadamente a Ferrovia e o TGV (Alta Velocidade)\".\n• **Proposta 411:** integrar Lisboa e o Porto na rede peninsular de alta velocidade **em bitola europeia**, com mais de 4.000 km e centrada em Madrid. O programa enquadra as ligações assim:\n  - Lisboa–Madrid: cerca de 650 km;\n  - Lisboa–Porto: parte do eixo Lisboa–Corunha (600 km);\n  - Porto–Compostela: parte do eixo Porto–Madrid (750 km).\n• As novas linhas devem passar diretamente nos **aeroportos-hub**, para que viagens de cerca de 3 horas possam combinar avião e comboio.\n• **Proposta 399:** eletrificar todas as linhas, \"acompanhando a bitola europeia\".\n• **Proposta 419:** estudar a opção pelas ligações de alta velocidade.\n• O documento inclui ainda uma proposta de alteração ao OE2024 para ligar **Bragança** à rede de alta velocidade espanhola. Tenho dúvidas se isto faz parte do programa propriamente dito ou de um anexo.\n\n**Iniciativa Liberal**\n• \"Executar o projeto TGV: linha ferroviária de alta velocidade Lisboa-Porto.\"\n• Tem um plano ferroviário próprio, com o objetivo de que **nenhuma capital de distrito fique a mais de 2 horas de Lisboa ou do Porto**.\n• Segundo o Portugal Ferroviário, propõe também uma **nova linha de altas prestações para o Algarve**.\n• Quer mais concorrência nos serviços ferroviários e uma taxa de uso da via mais baixa.\n\n**BE** (texto lido diretamente)\n• Propõe uma **terceira travessia do Tejo exclusivamente ferroviária**, para alta velocidade, comboios nacionais e regionais, metro e mercadorias.\n• Essa travessia serviria também de acesso ao futuro aeroporto em Alcochete.\n• Até 2040, quer a rede toda eletrificada, todas as capitais de distrito ligadas por comboio e **40% de quota ferroviária** no transporte terrestre.\n• No texto que li não encontrei um compromisso explícito com a linha Lisboa–Porto.\n\n**PCP** (texto lido diretamente)\n• Defende alta velocidade entre Lisboa e o Porto, \"complementar à actual Linha do Norte, mas entrando em Lisboa pela TTT\" (a terceira travessia do Tejo).\n• Quer a terceira travessia **rodoferroviária**, entre **Chelas e o Barreiro**.\n• Propõe uma nova ligação **Lisboa–Évora em alta velocidade**.\n• Quer concluir a discussão do Plano Nacional Ferroviário.\n\n**LIVRE**\n• Propõe uma rede de alta velocidade \"em articulação com a rede ferroviária existente\".\n• Segundo a Executive Digest, quer também **reduzir em 50% os tempos de viagem até 2030** no eixo **Setúbal–Lisboa–Porto–Braga–Vigo**, com ligações frequentes a Madrid. Só esta fonte refere este valor, por isso fica por confirmar.\n• Quer recuperar os **comboios noturnos** internacionais.\n\n**PAN**\n• Defende a construção do troço **Lisboa–Madrid**.\n• Para a linha Lisboa–Porto, quer:\n  - estações de preferência dentro da rede existente, ou com ligação rápida a transportes públicos;\n  - proteção de ecossistemas e corredores de fauna;\n  - uma bonificação para a produção industrial portuguesa nos concursos.\n• A Executive Digest atribui-lhe ainda o troço **Porto–Vigo com fundos europeus** (Mecanismo Interligar a Europa). Tenho dúvidas sobre este ponto: o artigo saiu a 16/02/2024, antes da apresentação do programa do PAN, e essa medida aparece no programa de 2025.\n\n**Fontes:**\n• [Programa do Chega 2024 (elege.pt)](https://elege.pt/documento/ch-programa-eleitoral-legislativas-2024)\n• [Programa do BE 2024 (elege.pt)](https://elege.pt/documento/be-programa-eleitoral-legislativas-2024)\n• [Programa do PCP 2024](https://www.pcp.pt/programa-eleitoral-do-pcp-legislativas-2024)\n• [Mensagem de Lisboa – Do TGV e bicicletas às casas frias](https://amensagem.pt/2024/03/06/cidades-lisboa-propostas-partidos-eleicoes-legislativas/)\n• [Executive Digest – O que prometem os partidos para os Transportes](https://executivedigest.sapo.pt/?p=459643)\n• [Observador – O que promete o PS e a direita para a mobilidade](https://observador.pt/programas/prometer-e-facil/o-que-promete-o-ps-e-a-direita-para-a-mobilidade/)\n• [ECO – Partidos concordam com nova vaga de investimento em infraestruturas](https://eco.sapo.pt/2024/02/28/partidos-concordam-com-nova-vaga-de-investimento-em-infraestruturas-mas-ha-diferencas/)\n• [DN – Programa do PS para os comboios](https://www.dn.pt/1995131926/programa-do-ps-para-os-comboios-tem-medidas-atrasadas-de-pedro-nuno-santos-como-ministro/)\n• [Portugal Ferroviário – Os programas políticos para 10 de Março](https://portugalferroviario.net/politicas/2024/02/17/os-programas-politicos-para-10-de-marco/)\n• [Programa da AD 2024 (PDF, não consegui ler)](https://www.psd.pt/sites/default/files/2024-04/Programa%20Eleitoral%20AD%20Legislativas%202024%20VF_0.pdf)",
+  "error": null,
+  "secs": 226.6,
+  "num_turns": 43,
+  "cost_usd": 0.9238329999999998,
+  "prompt_tokens": 401688,
+  "completion_tokens": 10961,
+  "web_searches": 16,
+  "web_fetches": 26,
+  "init_tools": [
+   "WebFetch",
+   "WebSearch"
+  ],
+  "init_mcp": [],
+  "init_plugins": [
+   {
+    "name": "cc-plugin-sec-default",
+    "path": "builtin",
+    "source": "cc-plugin-sec-default@builtin"
+   },
+   {
+    "name": "cc-plugin-agents-md",
+    "path": "builtin",
+    "source": "cc-plugin-agents-md@builtin"
+   },
+   {
+    "name": "cc-plugin-telemetry",
+    "path": "builtin",
+    "source": "cc-plugin-telemetry@builtin"
+   },
+   {
+    "name": "cc-plugin-plugin-authoring",
+    "path": "builtin",
+    "source": "cc-plugin-plugin-authoring@builtin"
+   }
+  ],
+  "init_model": "claude-opus-5-5"
+ },
+ "q-44": {
+  "answer": "Os oito partidos têm medidas sobre violência doméstica nos programas de 2024. Li diretamente os programas do **CHEGA**, **BE** e **PCP**. Para **AD**, **PS**, **IL**, **LIVRE** e **PAN** usei resumos dos programas (esQrever, Candeia, Lusa/Ordem dos Advogados), porque não consegui ler os PDFs oficiais. A lista de cada partido pode, por isso, não estar completa.\n\n## AD (PSD/CDS-PP/PPM)\n• **Salas de apoio à vítima em todas as esquadras da PSP e postos da GNR**, para casos de violência doméstica e de maus-tratos a crianças.\n• Alargar a **Rede Nacional de Apoio à Vítima** a todo o território.\n• **Plano integrado** entre polícias, tribunais e entidades de apoio, com troca rápida de informação.\n• **Sistema integrado de registo e encaminhamento multilingue**, que ligue polícia, justiça, Segurança Social, saúde e emprego.\n• Avaliar e monitorizar as medidas em vigor e consolidar a legislação, com métricas definidas por área.\n• Criar os crimes de **assédio sexual, ciberperseguição e ciberassédio**.\n• **Mais programas de reabilitação para agressores**.\n• Prevenir a **violência no namoro**, incluindo nas escolas, e a violência doméstica contra **pessoas idosas**.\n• Formar os profissionais que contactam com vítimas e agressores.\n\n## PS\n• Aplicar o **agressor imediatamente** medidas de coação suficientes para parar o perigo.\n• **Retirar o agressor da casa de família**, depois de avaliado o risco.\n• **Cooperação efetiva entre juízos de família e juízos criminais**.\n• **Inquérito obrigatório a cada morte** em contexto de violência doméstica quando a vítima já tinha apresentado queixa ou pedido ajuda.\n• Alargar a **Rede Nacional de Apoio às Vítimas** a todo o país.\n• **Assessoria especializada nos gabinetes de apoio à vítima** de todos os DIAP.\n• **Apoio judiciário automático** para as vítimas.\n• **Ordens de restrição e de proteção** efetivas para todas as formas de violência contra as mulheres, incluindo assédio, casamento forçado e mutilação genital feminina.\n• **Regime jurídico próprio para crianças vítimas** de violência doméstica.\n• **Fundo de Garantia** até à maioridade para crianças cuja mãe foi morta pelo parceiro ou ex-parceiro, cobrindo segurança, apoio psicológico, abrigo e educação.\n• **Retirar as responsabilidades parentais aos homicidas**, por medida vinculativa.\n\n## CHEGA\n• **Rever e agravar as penas** da violência doméstica (propostas 40 e 43).\n• **Mais meios de investigação** e mais formação para todos os intervenientes.\n• **Afastar o agressor da casa, em vez de pôr a vítima numa casa-abrigo**.\n• **Mais controlo à distância** do agressor por meios técnicos e revisão das fichas de avaliação de risco.\n• **Mais casas-abrigo**, numa rede nacional que cubra todo o território.\n• **Mais financiamento para as entidades de apoio** às vítimas.\n• Rever os processos de promoção e proteção para proteger melhor as crianças.\n• **Nota:** segundo a Lusa, André Ventura defendeu em janeiro de 2024 cortar as verbas para a igualdade de género, onde se inclui o apoio às vítimas. Essa proposta não está no programa.\n\n## IL\n• **Criar o crime autónomo de exposição de menor a violência doméstica**.\n• Acompanhamento social e processual das vítimas.\n• **Integrar as autarquias na rede de apoio à habitação**, em articulação com tribunais e sociedade civil.\n• Recorrer ao **setor privado**, além do social, se for preciso.\n• **Dúvida:** só tenho estas quatro medidas, tiradas de um resumo. Pode haver outras no programa.\n\n## BE\n• **Mais fogos públicos para vítimas** de violência doméstica.\n• **Prioridade na habitação pública e a custos controlados** para vítimas e filhos que tenham de sair de casa.\n• Habitação de renda acessível para **famílias monoparentais**.\n• Reforçar e alargar as **Secções Especializadas Integradas de Violência Doméstica (SEIVD)**.\n• **Afastar o agressor, e não a vítima**, durante o processo judicial.\n• **Financiamento estável** para a Rede Nacional de Apoio às Vítimas.\n• Apoio às vítimas em direitos laborais, habitação, educação e Segurança Social.\n• Formação especializada para funcionários das áreas social e judicial.\n• **Crianças que assistem à violência:** avaliar se lhes deve ser dado o estatuto de vítima e articular os processos criminais com os de família e menores, incluindo tribunais de competência mista.\n• **Violação como crime público**, princípio do consentimento na lei (Convenção de Istambul) e criação do crime de assédio sexual.\n\n## PCP\n• Dar aos serviços públicos **meios financeiros, técnicos e humanos** para aplicar a lei.\n• **Mais informação e apoios às mulheres vítimas**, através de uma estrutura pública descentralizada pelo território.\n• **Equipas multidisciplinares** (advogados, psicólogos, técnicos) de apoio às vítimas.\n• **Mais programas de recuperação de agressores**, para evitar que voltem a agredir.\n• O programa **não fala de casas-abrigo** nem de tribunais especializados.\n\n## LIVRE\n• **Continuar a alargar a rede de casas-abrigo**, o acolhimento de emergência e as soluções de habitação que deem autonomia às vítimas, com cobertura nacional.\n• Uma **rede de serviços de apoio** que siga padrões internacionais, com **tradução e interpretação** para migrantes e pessoas com deficiência.\n• **Aconselhamento jurídico e apoio judiciário gratuitos** para vítimas especialmente vulneráveis, seja qual for o rendimento.\n• **Procedimentos nos hospitais** para identificar e assistir vítimas.\n• Formação de profissionais de saúde, educação, justiça, autarquias, forças de segurança e Segurança Social.\n• Mais apoio às ONG da área e **inquérito anual** sobre violência de género.\n• Campanhas contra a violência no namoro e a violência doméstica.\n\n## PAN\n• **Mudar a moldura penal** para permitir prisão preventiva em todos os casos.\n• **Limitar a suspensão da pena de prisão**.\n• **Pulseira eletrónica sem consentimento do arguido**.\n• **Afastar o agressor da casa**, se a vítima quiser e houver segurança.\n• **Ouvir vítima e agressor em dias diferentes**.\n• **Declarações para memória futura obrigatórias** quando a vítima as pedir.\n• Ligar o processo-crime ao da regulação das responsabilidades parentais.\n• **Equipas multidisciplinares nas esquadras da PSP e postos da GNR**, 24 horas por dia, todos os dias.\n• **Bolsa de advogados** com a Ordem dos Advogados para representação imediata das vítimas e consulta jurídica nas casas-abrigo.\n• **Casas de transição** depois da casa-abrigo e mais respostas de habitação, de emergência até longo prazo.\n• **Animais de companhia aceites** nas casas de acolhimento.\n• **Psicologia gratuita** para as vítimas e para os filhos que assistiram aos crimes.\n• Programas de prevenção nas escolas e **Inquérito Nacional à Violência Doméstica e de Género**.\n\n## Medidas que se repetem\n• **Afastar o agressor em vez da vítima:** PS, CHEGA, BE, PAN.\n• **Alargar a rede de apoio a todo o país:** AD, PS, CHEGA, BE, LIVRE.\n• **Habitação para as vítimas:** BE, LIVRE, PAN, IL, com casas-abrigo no CHEGA.\n• **Programas para agressores:** AD, PCP.\n• **Penas mais pesadas:** CHEGA, PAN.\n• **Proteção específica de crianças:** PS, IL, BE, PAN.\n\n**Fontes:**\n• [Programa CHEGA 2024 (elege.pt)](https://elege.pt/documento/ch-programa-eleitoral-legislativas-2024)\n• [Programa BE 2024 (elege.pt)](https://elege.pt/documento/be-programa-eleitoral-legislativas-2024)\n• [Programa PCP 2024](https://www.pcp.pt/programa-eleitoral-do-pcp-legislativas-2024)\n• [esQrever – AD](https://esqrever.com/2024/02/17/legislativas-2024-programa-eleitoral-da-ad-a-igualdade-de-genero-e-os-direitos-lgbti/)\n• [esQrever – PS](https://esqrever.com/2024/02/19/legislativas-2024-programa-eleitoral-do-ps-a-igualdade-de-genero-e-os-direitos-lgbti/)\n• [esQrever – IL](https://esqrever.com/2024/02/21/legislativas-2024-programa-eleitoral-da-iniciativa-liberal-a-igualdade-de-genero-e-os-direitos-lgbti/)\n• [esQrever – LIVRE](https://esqrever.com/2024/02/23/legislativas-2024-programa-eleitoral-do-livre-a-igualdade-de-genero-e-os-direitos-lgbti/)\n• [esQrever – PAN](https://esqrever.com/2024/02/27/legislativas-2024-programa-eleitoral-do-pan-a-igualdade-de-genero-e-os-direitos-lgbti/)\n• [Candeia – A infância nos programas eleitorais](https://www.candeia.org/o-lugar-da-infancia-nos-programas-eleitorais/)\n• [Ordem dos Advogados/Lusa – Propostas dos partidos para as mulheres](https://portal.oa.pt/comunicacao/imprensa/2024/3/8/salarios-saude-e-combate-a-violencia-dominam-propostas-dos-partidos-para-as-mulheres/)",
+  "error": null,
+  "secs": 215.9,
+  "num_turns": 37,
+  "cost_usd": 0.8662475000000001,
+  "prompt_tokens": 370213,
+  "completion_tokens": 10489,
+  "web_searches": 14,
+  "web_fetches": 22,
+  "init_tools": [
+   "WebFetch",
+   "WebSearch"
+  ],
+  "init_mcp": [],
+  "init_plugins": [
+   {
+    "name": "cc-plugin-sec-default",
+    "path": "builtin",
+    "source": "cc-plugin-sec-default@builtin"
+   },
+   {
+    "name": "cc-plugin-agents-md",
+    "path": "builtin",
+    "source": "cc-plugin-agents-md@builtin"
+   },
+   {
+    "name": "cc-plugin-telemetry",
+    "path": "builtin",
+    "source": "cc-plugin-telemetry@builtin"
+   },
+   {
+    "name": "cc-plugin-plugin-authoring",
+    "path": "builtin",
+    "source": "cc-plugin-plugin-authoring@builtin"
+   }
+  ],
+  "init_model": "claude-opus-5-5"
+ },
+ "q-50": {
+  "answer": "A **Iniciativa Liberal (IL)** propôs uma taxa única de IRC de 12% no programa das legislativas de 2024.\n\n**A medida**\n• **Taxa de 12%** para a generalidade das empresas.\n• **Exceção:** as grandes multinacionais, com faturação anual acima de 750 milhões de euros, pagariam **15%**. O programa diz que esta taxa seria aplicada \"de acordo com o exigido pela lei europeia\", isto é, o imposto mínimo global de 15%.\n• **Contexto:** quando o programa foi publicado, a taxa geral de IRC era de **21%**.\n\n**Outras propostas de 2024**\n• **AD:** propunha baixar o IRC de 21% para **15%**, à razão de **2 pontos percentuais por ano**. Uma das fontes (um artigo de opinião no ECO) refere valores diferentes para a AD (17%, com 15% para as PME), e as fontes não esclarecem esta diferença.\n• Não encontrei mais nenhum partido com uma taxa de 12%.\n\n**Depois das eleições**\n• Em outubro de 2024, durante a discussão do Orçamento do Estado para 2025, a IL voltou a propor ao Governo os 12% para a generalidade das empresas e os 15% para as multinacionais.\n• No programa das legislativas de 2025, a IL deixou de propor os 12%. Passou a defender uma descida do IRC dos 20% em vigor até **pelo menos 15%** até ao fim da legislatura.\n\nNão confirmei se o programa da IL de 2024 também propunha eliminar as derramas. A IL defendeu acabar com a derrama estadual em 2020, mas as fontes que consultei sobre 2024 não falam disso.\n\n**Fontes:**\n• [Observador – IL deixa cair taxa única de IRS e quer reduzir IRC em cinco pontos percentuais](https://observador.pt/2025/04/10/legislativas-il-deixa-cair-taxa-unica-de-irs-e-quer-reduzir-irc-em-cinco-pontos-percentuais/)\n• [DN – O que propõem os partidos em termos de medidas fiscais](https://www.dn.pt/o-que-propoem-os-partidos-em-termos-de-medidas-fiscais)\n• [Idealista – Eleições legislativas 2024: que medidas fiscais propõem os partidos?](https://www.idealista.pt/news/node/61492)\n• [ECO – IL propõe descida substancial do IRC para 12% (out. 2024)](https://eco.sapo.pt/2024/10/09/il-fala-em-discussao-mesquinha-de-um-ponto-no-irc-propoe-descida-substancial-para-12/)\n• [ECO – IL quer menos 50 mil funcionários públicos e IRS único de 15% para horas extraordinárias (nov. 2024)](https://eco.sapo.pt/2024/11/13/il-quer-menos-50-mil-funcionarios-publicos-e-irs-unico-de-15-para-horas-extraordinarias/)\n• [ECO – Sim, devemos baixar a taxa de IRC (opinião)](https://eco.sapo.pt/opiniao/sim-devemos-baixar-a-taxa-de-irc/)",
+  "error": null,
+  "secs": 24.1,
+  "num_turns": 3,
+  "cost_usd": 0.0890848,
+  "prompt_tokens": 8798,
+  "completion_tokens": 1544,
+  "web_searches": 2,
+  "web_fetches": 0,
+  "init_tools": [
+   "WebFetch",
+   "WebSearch"
+  ],
+  "init_mcp": [],
+  "init_plugins": [
+   {
+    "name": "cc-plugin-sec-default",
+    "path": "builtin",
+    "source": "cc-plugin-sec-default@builtin"
+   },
+   {
+    "name": "cc-plugin-agents-md",
+    "path": "builtin",
+    "source": "cc-plugin-agents-md@builtin"
+   },
+   {
+    "name": "cc-plugin-telemetry",
+    "path": "builtin",
+    "source": "cc-plugin-telemetry@builtin"
+   },
+   {
+    "name": "cc-plugin-plugin-authoring",
+    "path": "builtin",
+    "source": "cc-plugin-plugin-authoring@builtin"
+   }
+  ],
+  "init_model": "claude-opus-5-5"
+ },
+ "q-51": {
+  "answer": "## Eutanásia nos programas eleitorais de 2024\n\nA lei que despenaliza a morte medicamente assistida (**Lei n.º 22/2023**) foi promulgada em maio de 2023. Nas eleições de março de 2024 ainda não tinha sido regulamentada. Segundo a Renascença, **quatro dos oito programas não falavam do tema**.\n\n### Partidos que tratam o tema no programa\n\n• **CHEGA**: propõe **revogar a Lei n.º 22/2023, de 25 de maio**. Em 2020 o partido já tinha defendido um referendo sobre a matéria e argumentou que a \"última palavra\" cabia aos portugueses.\n\n• **BE (Bloco de Esquerda)**: compromete-se a **exigir que o Governo regulamente com urgência** a lei da morte medicamente assistida.\n\n• **LIVRE**: propõe **acompanhar a aplicação da lei** que despenaliza a morte medicamente assistida.\n\n• **PAN**: **não consegui confirmar o que diz o programa nacional \"Agenda 24-28\"**. O PDF disponível não tinha texto que se pudesse ler e o resumo publicado pelo partido não fala do tema. Pela contagem da Renascença, o PAN não estará entre os quatro partidos sem referência ao tema, mas não encontrei a formulação. Nos programas de 2015 e 2019 o partido incluiu a legalização da eutanásia. O programa regional dos Açores de 2024 defende a eutanásia nos termos aprovados pela Assembleia da República.\n\n### Partidos que não falam do tema no programa\n\n• **AD (PSD/CDS/PPM)**: **o programa não fala da eutanásia**. A coligação justificou a ausência com a espera pela decisão do **Tribunal Constitucional** sobre um pedido de fiscalização apresentado em novembro de 2023 por 56 deputados do PSD.\n  – O **CDS** declarou que qualquer regulamentação da lei contaria sempre com a sua discordância. Defende um referendo e uma rede nacional de cuidados paliativos como prioridade.\n\n• **PS**: **o programa não fala do tema**. Durante a campanha, Pedro Nuno Santos prometeu **regulamentar a lei** se formasse Governo. O Governo PS anterior tinha deixado a regulamentação para o Governo seguinte.\n\n• **IL**: **o programa não fala do tema**. No Parlamento votou a favor da lei, incluindo na confirmação de 2023.\n\n• **PCP (CDU)**: **o programa não fala do tema**. No Parlamento votou contra a lei em 2021 e em 2023.\n\n### O que aconteceu depois\n\n• **Março de 2024**: a Provedora de Justiça também pediu ao Tribunal Constitucional que declarasse a lei inconstitucional.\n• **Abril de 2025**: o Tribunal Constitucional considerou **seis normas** da lei inconstitucionais.\n• **Março de 2026**: o Governo AD recusou alterar a lei. IL e BE admitiram rever o diploma. PS, Livre e PCP consideram que cabe ao Governo regulamentar a lei.\n\n**Fontes:**\n• [Renascença – O que dizem (e não dizem) os programas. Qual o caminho da eutanásia? (fev. 2024)](https://rr.pt/especial/politica/2024/02/18/o-que-dizem-e-nao-dizem-os-programas-qual-o-caminho-da-eutanasia/366944/)\n• [Renascença – Eutanásia. PSD aguarda por \"pronúncia do Tribunal Constitucional\"](https://rr.pt/noticia/politica/2024/02/11/eutanasia-psd-aguarda-por-pronuncia-do-tribunal-constitucional/366424/)\n• [Renascença – PS deixa eutanásia fora do programa eleitoral (2025)](https://rr.pt/noticia/amp/politica/2025/04/07/ps-deixa-eutanasia-fora-do-programa-eleitoral-e-quer-cuidados-paliativos-como-resposta-obrigatoria-no-sns/420557/)\n• [Renascença – Governo esclarece que não está a legislar eutanásia (ago. 2024)](https://rr.pt/noticia/politica/2024/08/22/governo-esclarece-que-nao-esta-a-legislar-eutanasia/390851/)\n• [Renascença – Governo recusa mexer na lei da eutanásia; IL e BE abrem porta a revisão (mar. 2026)](https://rr.pt/noticia/politica/2026/03/16/governo-recusa-mexer-na-lei-da-eutanasia-il-e-be-abrem-porta-a-revisao-do-diploma/463131/)\n• [Observador – Eutanásia: avanços e recuos no Parlamento desde 2016](https://observador.pt/2024/03/13/pontos-essenciais-eutanasia-avancos-e-recuos-no-parlamento-desde-2016/)\n• [Sábado – CDS garante luta contra eutanásia](https://www.sabado.pt/portugal/detalhe/cds-garante-luta-contra-eutanasia-e-pede-que-seja-dada-voz-aos-portugueses)\n• [Sábado – Chega defende referendo (2020)](https://www.sabado.pt/ultima-hora/detalhe/eutanasia-chega-defende-referendo-porque-ultima-palavra-cabe-aos-portugueses)\n• [Público – Regulamentação da lei da eutanásia adiada para próximo governo](https://www.publico.pt/2023/11/24/politica/noticia/regulamentacao-lei-eutanasia-adiada-proximo-governo-2071431)\n• [PAN – Programa eleitoral Legislativas 2024 (PDF)](https://www.pan.com.pt/files/uploads/2024/02/Programa-Eleitoral_Legislativas24_Campanhas_2024_PAN-Nacional-1.pdf)\n• [PAN Açores – Programa regional 2024 (PDF)](https://pan.com.pt/files/uploads/2024/01/Programa-Eleitoral-PAN-A-2024.pdf)",
+  "error": null,
+  "secs": 118.8,
+  "num_turns": 20,
+  "cost_usd": 0.45883060000000003,
+  "prompt_tokens": 181860,
+  "completion_tokens": 6246,
+  "web_searches": 10,
+  "web_fetches": 9,
+  "init_tools": [
+   "WebFetch",
+   "WebSearch"
+  ],
+  "init_mcp": [],
+  "init_plugins": [
+   {
+    "name": "cc-plugin-sec-default",
+    "path": "builtin",
+    "source": "cc-plugin-sec-default@builtin"
+   },
+   {
+    "name": "cc-plugin-agents-md",
+    "path": "builtin",
+    "source": "cc-plugin-agents-md@builtin"
+   },
+   {
+    "name": "cc-plugin-telemetry",
+    "path": "builtin",
+    "source": "cc-plugin-telemetry@builtin"
+   },
+   {
+    "name": "cc-plugin-plugin-authoring",
+    "path": "builtin",
+    "source": "cc-plugin-plugin-authoring@builtin"
+   }
+  ],
+  "init_model": "claude-opus-5-5"
+ },
+ "q-45": {
+  "answer": "O **IRS Jovem** é um regime fiscal que reduz o IRS dos jovens trabalhadores nos primeiros anos de carreira. Em 2024 já existia, e vários programas eleitorais propuseram alterá-lo, alargá-lo ou substituí-lo.\n\n## Regime em vigor em 2024\n\nO Observador chama-lhe \"IRS Jovem de Costa\". Tinha estas regras:\n• **Quem podia aderir:** jovens com 18 a 26 anos (até 30 anos com doutoramento), com rendimentos de trabalho dependente (categoria A) ou independente (categoria B), que não fossem dependentes.\n• **Escolaridade:** era preciso ter pelo menos o nível 4 do Quadro Nacional de Qualificações. Na prática, o ensino secundário regular ficava de fora.\n• **Duração e isenção:** cinco anos, com isenção a diminuir em cada ano:\n  • **Ano 1:** 100%, até 20.370,40 €\n  • **Ano 2:** 75%, até 15.277,80 €\n  • **Anos 3 e 4:** 50%, até 10.185,20 €\n  • **Ano 5:** 25%, até 5.092,60 €\n\n## Propostas nos programas de 2024\n\n• **AD (PSD/CDS-PP/PPM):** tornar o IRS Jovem **permanente**, com taxas **reduzidas em dois terços** e um **máximo de 15%**. Abrangeria quem tem **até 35 anos**, exceto quem tem rendimentos no último escalão do IRS.\n• **PS:** alargar o regime **a todos os jovens, seja qual for a escolaridade**, o que acabaria com o requisito do nível 4.\n• **CHEGA:** **isentar de IRS os jovens até aos 35 anos** até somarem **100.000 € de rendimentos** desde o início da carreira. O limite conta o total acumulado e não o rendimento de cada ano. O partido apresentou a medida como forma de travar a emigração dos jovens.\n• **IL:** **acabar com os regimes que tratam jovens e não jovens de forma diferente** e criar uma **taxa única de 15%** sobre os rendimentos acima do salário mínimo anualizado. Na prática, o IRS Jovem deixaria de existir como regime à parte, embora as fontes não o digam com estas palavras.\n• **BE, PCP e LIVRE:** as fontes que consultei não referem propostas destes partidos sobre o IRS Jovem. Não confirmei diretamente nos programas.\n• **PAN:** não encontrei informação, porque o programa saiu depois dos artigos comparativos que consultei.\n\n## O que aconteceu depois das eleições\n\nIsto já não faz parte dos programas.\n• **Maio de 2024:** o Governo da AD aprovou uma versão com **taxa máxima de 15% até aos 35 anos**, até ao 8.º escalão (cerca de 81.199 € por ano). Não se podia acumular com o Regime dos Residentes Não Habituais nem com o Programa Regressar. O PS disse que se opunha, porque considerava que a medida beneficiava sobretudo os salários mais altos.\n• **Outubro de 2024:** a proposta foi alterada. Passou a abranger rendimentos até cerca do 6.º escalão e a durar até 13 anos.\n• **Ressalva:** não confirmei a versão final que ficou na lei. Para as regras atuais, convém consultar o Portal das Finanças ou o Diário da República.\n\n**Fontes:**\n• [DN – O que propõem os partidos em termos de medidas fiscais](https://www.dn.pt/o-que-propoem-os-partidos-em-termos-de-medidas-fiscais)\n• [idealista – Eleições legislativas 2024: que medidas fiscais propõem os partidos?](https://www.idealista.pt/news/node/61492)\n• [Renascença – Chega propõe isenção de IRS até 100 mil euros para jovens até aos 35 anos](https://rr.pt/noticia/politica/2024/01/18/chega-propoe-isencao-de-irs-ate-100-mil-euros-para-jovens-ate-aos-35-anos/363317/)\n• [Observador – O que separa o atual IRS Jovem do PS do que quer o Governo](https://observador.pt/2024/10/03/o-que-separa-o-atual-irs-jovem-do-ps-do-que-quer-o-governo/)\n• [ECO – Governo aprova IRS máximo de 15% para jovens até aos 35 anos](https://eco.sapo.pt/2024/05/23/governo-aprova-irs-maximo-de-15-para-jovens-ate-aos-35-anos/)\n• [idealista – IRS Jovem tem taxas até 15% sem somar a benefícios do RNH e Regressar](https://www.idealista.pt/news/node/64276)\n• [ECO – PS contra novo IRS Jovem por beneficiar mais os salários mais altos](https://eco.sapo.pt/2024/05/24/ps-contra-novo-irs-jovem-por-beneficiar-mais-os-salarios-mais-altos/)",
+  "error": null,
+  "secs": 56.2,
+  "num_turns": 8,
+  "cost_usd": 0.17505110000000002,
+  "prompt_tokens": 26533,
+  "completion_tokens": 3266,
+  "web_searches": 3,
+  "web_fetches": 4,
+  "init_tools": [
+   "WebFetch",
+   "WebSearch"
+  ],
+  "init_mcp": [],
+  "init_plugins": [
+   {
+    "name": "cc-plugin-sec-default",
+    "path": "builtin",
+    "source": "cc-plugin-sec-default@builtin"
+   },
+   {
+    "name": "cc-plugin-agents-md",
+    "path": "builtin",
+    "source": "cc-plugin-agents-md@builtin"
+   },
+   {
+    "name": "cc-plugin-telemetry",
+    "path": "builtin",
+    "source": "cc-plugin-telemetry@builtin"
+   },
+   {
+    "name": "cc-plugin-plugin-authoring",
+    "path": "builtin",
+    "source": "cc-plugin-plugin-authoring@builtin"
+   }
+  ],
+  "init_model": "claude-opus-5-5"
+ },
+ "q-47": {
+  "answer": "O único programa de 2024 que verifiquei e que dá este número é o do **CHEGA**: **118.000 imigrantes** entraram em Portugal em 2022.\n\n**CHEGA (capítulo \"Garantir Fronteiras Controladas\")**\n• O programa diz que *\"2022 foi também o ano em que mais imigrantes entraram em Portugal desde que há registo, num total de 118.000\"*. A fonte indicada em nota de rodapé é a Pordata (\"População estrangeira e dos fluxos migratórios em Portugal\").\n• Afirma também que, em 2022, **10% da população residente** era imigrante, o dobro de uma década antes. Para comparar, refere **1,7% em 1995**.\n• O partido acrescenta que os imigrantes sem documentos ficam fora destas estatísticas.\n\n**BE (capítulo \"21. Imigração\")**\n• Não indica quantos imigrantes entraram em 2022.\n• Dá outro valor desse ano: os imigrantes **contribuíram com 1.861 milhões de euros para a Segurança Social** e receberam **257 milhões de euros** em apoios. O partido apresenta isto como um contributo líquido de mais de **1.600 milhões de euros**.\n\n**AD, IL, LIVRE, PAN, PCP e PS**\n• Não consegui ler os programas de 2024 destes partidos, porque a plataforma que usei só tem as versões de 2025. Não sei se referem algum número de 2022.\n\n**Limitações**\n• Li o programa do BE por partes, e o último trecho do capítulo de imigração não chegou a ser analisado. Pode haver outros dados de 2022 nessa parte.\n• Não confirmei o número de 118.000 diretamente na Pordata.\n\n**Fontes:**\n• [Programa eleitoral do CHEGA – Legislativas 2024 (elege.pt)](https://elege.pt/documento/ch-programa-eleitoral-legislativas-2024)\n• [Programa eleitoral do BE – Legislativas 2024 (elege.pt)](https://elege.pt/documento/be-programa-eleitoral-legislativas-2024)\n• [Renascença – Programa eleitoral do Chega quer criar crime de residência ilegal](https://rr.pt/noticia/politica/2024/02/08/programa-eleitoral-chega-quer-criar-crime-de-residencia-ilegal-em-portugal/366074/)\n• [Público – Programas eleitorais dos partidos (2024)](https://www.publico.pt/2024/02/19/p3/noticia/debates-nao-chegam-ve-aqui-programas-eleitorais-partidos-2080289)",
+  "error": null,
+  "secs": 90.7,
+  "num_turns": 13,
+  "cost_usd": 0.2524239,
+  "prompt_tokens": 77525,
+  "completion_tokens": 3316,
+  "web_searches": 4,
+  "web_fetches": 8,
+  "init_tools": [
+   "WebFetch",
+   "WebSearch"
+  ],
+  "init_mcp": [],
+  "init_plugins": [
+   {
+    "name": "cc-plugin-sec-default",
+    "path": "builtin",
+    "source": "cc-plugin-sec-default@builtin"
+   },
+   {
+    "name": "cc-plugin-agents-md",
+    "path": "builtin",
+    "source": "cc-plugin-agents-md@builtin"
+   },
+   {
+    "name": "cc-plugin-telemetry",
+    "path": "builtin",
+    "source": "cc-plugin-telemetry@builtin"
+   },
+   {
+    "name": "cc-plugin-plugin-authoring",
+    "path": "builtin",
+    "source": "cc-plugin-plugin-authoring@builtin"
+   }
+  ],
+  "init_model": "claude-opus-5-5"
+ },
+ "q-48": {
+  "answer": "A **\"herança social\"** é uma proposta do **LIVRE** que aparece no seu programa eleitoral para as legislativas de 2024. Pela pesquisa que fiz, não é medida de nenhum dos outros partidos. A ideia é o Estado transferir um capital a cada jovem quando chega à maioridade, pago com um imposto sobre grandes heranças.\n\n**O que diz o programa do LIVRE de 2024**\n• O programa propõe **criar um imposto sobre grandes heranças e grandes doações**. A receita formaria a \"herança social\", entregue **diretamente a cada jovem quando atinge a maioridade**.\n• No congresso de janeiro de 2024, Rui Tavares apresentou-a como um **\"novo instrumento\"** do programa. O partido enquadra-a no combate à pobreza estrutural.\n• ⚠️ Não consegui ler o texto completo do PDF oficial. Por isso não confirmo se o programa de 2024 fixava um valor ou regras de acesso. Uma das fontes de pesquisa refere acesso **entre os 18 e os 35 anos**, mas não consegui confirmar esse detalhe.\n\n**Valor e custo indicados na campanha de 2024**\n• Uma notícia da Renascença de **18 de fevereiro de 2024** indica que a medida custaria **cerca de 400 milhões de euros por ano**. Segundo o resumo dessa notícia, o valor seria de **5.000 euros por cada criança nascida em Portugal**. Não consegui abrir o artigo para confirmar estes números.\n\n**Como a proposta foi detalhada depois das eleições**\n• **Proposta de alteração ao Orçamento do Estado para 2025 (novembro de 2024):**\n  • O Estado abriria uma **conta-poupança de 5.000 euros**, ou um investimento equivalente em **certificados de aforro**, por cada bebé nascido e residente em Portugal.\n  • O dinheiro ficaria **disponível aos 18 anos**.\n  • Segundo a deputada Isabel Mendes Lopes, serviria para **dar entrada numa casa, começar um pequeno negócio ou estudar no estrangeiro**.\n  • O partido calculou o custo em **cerca de 425 milhões de euros por ano**.\n  • Nesta versão, o LIVRE propôs pagar a medida com a **verba prevista para o IRS Jovem**, e não com o imposto sobre heranças. O partido argumenta que o IRS Jovem beneficia sobretudo quem já ganha mais.\n• **Legislativas de 2025:** a proposta passou a prever uma **média de 5.000 euros, ajustada ao escalão de rendimento da família**. O financiamento voltou a ser a tributação de grandes fortunas e grandes heranças.\n\n**Origem:** a imprensa associa a ideia à \"herança universal\" que Yolanda Díaz (Sumar) propôs em Espanha em 2023: **20.000 euros aos 18 anos**.\n\n**Fontes:**\n• [Programa do LIVRE – Legislativas 2024 (PDF)](https://partidolivre.pt/wp-content/uploads/2024/02/Programa_LIVRE_2024_FINAL.pdf)\n• [Público – Livre quer atribuir um fundo à nascença (28/01/2024)](https://www.publico.pt/2024/01/28/politica/noticia/livre-quer-forca-bloqueio-extremadireita-atribuir-fundo-nascenca-2078409)\n• [Renascença – Congresso do Livre (28/01/2024)](https://rr.pt/noticia/politica/2024/01/28/congresso-do-livre-partido-sonha-com-geringonca-no-governo-e-quer-combate-firme-a-extrema-direita/364498/)\n• [Renascença – Herança social deve custar 400 milhões por ano (18/02/2024)](https://rr.pt/noticia/politica/2024/02/18/heranca-social-proposta-pelo-livre-deve-custar-400-milhoes-por-ano/367331/)\n• [Observador – Livre propõe herança social no OE2025 (02/11/2024)](https://observador.pt/2024/11/02/livre-propoe-criacao-de-heranca-social-e-aumento-do-abono-de-familia-na-alteracao-ao-orcamento/)\n• [Renascença – Herança social de 5.000 euros (06/04/2025)](https://rr.pt/noticia/amp/politica/2025/04/06/livre-diz-que-verdadeiro-pe-de-meia-e-heranca-social-de-5000-euros/420532/)\n• [ECO – Programa eleitoral do Livre 2025](https://eco.sapo.pt/2025/04/10/programa-eleitoral-livre-propoe-salario-minimo-de-1-250-euros-em-2029/)\n• [Renascença – Herança universal em Espanha (2023)](https://rr.pt/noticia/amp/mundo/2023/07/06/heranca-universal-proposta-de-dar-20-mil-euros-a-jovens-agita-espanha-antes-das-eleicoes/338176/)",
+  "error": null,
+  "secs": 62.5,
+  "num_turns": 9,
+  "cost_usd": 0.2083791,
+  "prompt_tokens": 49787,
+  "completion_tokens": 3423,
+  "web_searches": 4,
+  "web_fetches": 4,
+  "init_tools": [
+   "WebFetch",
+   "WebSearch"
+  ],
+  "init_mcp": [],
+  "init_plugins": [
+   {
+    "name": "cc-plugin-sec-default",
+    "path": "builtin",
+    "source": "cc-plugin-sec-default@builtin"
+   },
+   {
+    "name": "cc-plugin-agents-md",
+    "path": "builtin",
+    "source": "cc-plugin-agents-md@builtin"
+   },
+   {
+    "name": "cc-plugin-telemetry",
+    "path": "builtin",
+    "source": "cc-plugin-telemetry@builtin"
+   },
+   {
+    "name": "cc-plugin-plugin-authoring",
+    "path": "builtin",
+    "source": "cc-plugin-plugin-authoring@builtin"
+   }
+  ],
+  "init_model": "claude-opus-5-5"
+ },
+ "q-49": {
+  "answer": "As 35 horas na Administração Pública foram repostas em **2016**, pela **Lei n.º 18/2016, de 20 de junho**. A lei entrou em vigor a **1 de julho de 2016**.\n\n• **Conteúdo:** fixa as 35 horas como limite máximo semanal do período normal de trabalho e altera a Lei Geral do Trabalho em Funções Públicas.\n• **Votação final global (2 de junho de 2016):** votaram a favor **PS, BE, PCP, PEV e PAN**. **PSD e CDS-PP** votaram contra.\n• **Promulgação:** o Presidente da República promulgou a lei a 7 de junho de 2016, sem pedir fiscalização preventiva.\n\nIsto é um facto legislativo de 2016 e não uma medida dos programas eleitorais de 2024. Sobre esses programas, as pesquisas devolveram o seguinte:\n• **PCP:** propõe as **35 horas semanais em todos os setores de atividade**, incluindo o privado, sem perda de salário.\n• **BE:** a imprensa refere uma proposta de **35 horas de trabalho semanal**. Não confirmei se se aplica só à Administração Pública ou a todos os trabalhadores.\n• **PS:** não encontrei referência às 35 horas no programa de 2024.\n\nFontes:\n• [Observador – Lei das 35 horas publicada em Diário da República, entra em vigor a 1 de julho](https://observador.pt/2016/06/20/lei-das-35-horas-na-funcao-publica-publicada-em-diario-da-republica-entra-em-vigor-a-1-de-julho/)\n• [Renascença – Semana de 35 horas aprovada no Parlamento](https://rr.pt/noticia/politica/2016/06/01/semana-de-35-horas-de-trabalho-na-funcao-publica-aprovada-no-parlamento/55562/)\n• [Informador – Lei n.º 18/2016](https://informador.pt/legislacao/diploma/lei-n-o-18-2016/)\n• [HR Portugal – O impacto da reposição das 35 horas](https://hrportugal.sapo.pt/legislacao-laboral-o-impacto-da-reposicao-das-35-horas-semanais-de-trabalho-na-funcao-publica/)\n• [Observador – PCP propõe semana de 35 horas para todos os trabalhadores](https://observador.pt/2024/04/30/pcp-propoe-semana-de-35-horas-para-todos-os-trabalhadores/)\n• [Renascença – Legislativas 2024: os programas eleitorais](https://rr.pt/especial/politica/2024/02/19/o-que-prometem-os-partidos-veja-aqui-os-programas-eleitorais/366531/)",
+  "error": null,
+  "secs": 21.7,
+  "num_turns": 3,
+  "cost_usd": 0.086003,
+  "prompt_tokens": 8822,
+  "completion_tokens": 1382,
+  "web_searches": 2,
+  "web_fetches": 0,
+  "init_tools": [
+   "WebFetch",
+   "WebSearch"
+  ],
+  "init_mcp": [],
+  "init_plugins": [
+   {
+    "name": "cc-plugin-sec-default",
+    "path": "builtin",
+    "source": "cc-plugin-sec-default@builtin"
+   },
+   {
+    "name": "cc-plugin-agents-md",
+    "path": "builtin",
+    "source": "cc-plugin-agents-md@builtin"
+   },
+   {
+    "name": "cc-plugin-telemetry",
+    "path": "builtin",
+    "source": "cc-plugin-telemetry@builtin"
+   },
+   {
+    "name": "cc-plugin-plugin-authoring",
+    "path": "builtin",
+    "source": "cc-plugin-plugin-authoring@builtin"
+   }
+  ],
+  "init_model": "claude-opus-5-5"
+ },
+ "q-52": {
+  "answer": "**O programa eleitoral do PCP para as legislativas de 2024 não tem nenhuma proposta sobre a legalização da canábis.** Li o texto integral publicado em pcp.pt e as palavras \"canábis\" e \"cannabis\" não aparecem. \"Legalização\" surge apenas na frase \"recusar a legalização do crime de tráfico de influências\", que não tem relação com drogas.\n\n**O que o programa propõe para comportamentos aditivos e dependências (secção 4.1)**\n• **ICAD:** reativar, reforçar e dinamizar o Instituto para os Comportamentos Aditivos e as Dependências, com autonomia técnica, administrativa e de gestão.\n• **Rede pública:** reforçar a rede de prevenção, dissuasão, redução de riscos e minimização de danos, reativando e reforçando equipamentos fixos e móveis.\n• **Escolas e prisões:** reforçar a prevenção em meio escolar e \"melhorar substancialmente\" a intervenção em meio prisional.\n• **Reinserção social:** apoiar a reinserção através de formação profissional e emprego.\n• **Álcool e outras dependências:** combater o alcoolismo e o consumo excessivo de álcool, e intervir mais noutras dependências.\n• **Diagnóstico:** o partido considera que a extinção do IDT em 2011, a criação do SICAD e a passagem de competências para as ARS reduziram a capacidade de resposta. Argumenta também que os efeitos da legislação que influenciou foram travados pela \"degradação social\" e pelo \"desinvestimento\".\n• **Juventude (secção 6.6):** \"combate às dependências e o estímulo a uma vida saudável\", e apoio profissional no tratamento de dependências.\n\n**Posição anterior no Parlamento (fora do programa de 2024)**\n• **Uso recreativo, janeiro de 2019:** o PCP votou contra os projetos do BE e do PAN, ao lado do PSD e do CDS. Os projetos foram rejeitados.\n• **Uso terapêutico, 2018:** segundo a imprensa, o PCP aceitava o uso terapêutico. Opunha-se aos projetos do BE e do PAN por permitirem o autocultivo, que considerava um caminho para legalizar o uso recreativo. Apresentou um projeto de resolução a pedir que o tema fosse estudado.\n• **Dúvida a assinalar:** o DN escreveu que o PCP votaria contra a \"legalização da canábis para uso medicinal\". Parece referir-se aos projetos concretos do BE e do PAN, e não ao uso terapêutico em si, mas não consegui confirmar.\n• **Votações recentes:** não encontrei votações nem tomadas de posição do PCP posteriores a 2021 sobre a canábis recreativa, incluindo sobre o projeto que o BE apresentou em maio de 2024.\n\n**Fontes:**\n• [Programa eleitoral do PCP – Legislativas 2024 (pcp.pt)](https://www.pcp.pt/programa-eleitoral-do-pcp-legislativas-2024)\n• [Programa eleitoral do PCP 2024 (PDF, cdu.pt)](https://www.cdu.pt/assets/docs/programa_eleitoral_pcp_2024.pdf)\n• [Sábado – Lei de legalização da canábis para uso recreativo chumbada (2019)](https://www.sabado.pt/portugal/detalhe/20190118-1246-lei-de-legalizacao-da-canabis-para-uso-recreativo-chumbada)\n• [Correio da Manhã – Portugueses contra canábis para diversão (2018)](https://www.cmjornal.pt/politica/detalhe/20180819-2235-26-portugueses-contra-canabis-para-diversao)\n• [DN – Canábis: PSD vota contra diplomas que \"liberalizam cultivo\" (2018)](https://www.dn.pt/portugal/interior/canabis-psd-vota-contra-diplomas-queliberalizam-cultivo-e-tera-no-futuro-iniciativa-propria-9039964.html)\n• [Observador – Legalização da canábis: as propostas do BE e da IL (2021)](https://observador.pt/explicadores/legalizacao-da-canabis-o-que-dizem-as-propostas-que-juntam-be-e-il-quais-sao-as-diferencas-e-como-correu-noutros-paises/)\n• [Renascença – BE apresenta projeto para despenalizar o consumo recreativo de canábis (2024)](https://rr.pt/noticia/pais/2024/05/03/be-apresenta-projeto-lei-para-despenalizar-consumo-recreativo-de-canabis/376906/)",
+  "error": null,
+  "secs": 85.4,
+  "num_turns": 11,
+  "cost_usd": 0.2486045,
+  "prompt_tokens": 73456,
+  "completion_tokens": 3746,
+  "web_searches": 4,
+  "web_fetches": 6,
+  "init_tools": [
+   "WebFetch",
+   "WebSearch"
+  ],
+  "init_mcp": [],
+  "init_plugins": [
+   {
+    "name": "cc-plugin-sec-default",
+    "path": "builtin",
+    "source": "cc-plugin-sec-default@builtin"
+   },
+   {
+    "name": "cc-plugin-agents-md",
+    "path": "builtin",
+    "source": "cc-plugin-agents-md@builtin"
+   },
+   {
+    "name": "cc-plugin-telemetry",
+    "path": "builtin",
+    "source": "cc-plugin-telemetry@builtin"
+   },
+   {
+    "name": "cc-plugin-plugin-authoring",
+    "path": "builtin",
+    "source": "cc-plugin-plugin-authoring@builtin"
+   }
+  ],
+  "init_model": "claude-opus-5-5"
+ },
+ "q-54": {
+  "answer": "**O programa do PS para as legislativas de 2024 («Portugal Inteiro») não tem, segundo as fontes que consultei, nenhuma proposta sobre energia nuclear.** Não consegui ler diretamente o capítulo de energia do programa, porque o PDF não deu para extrair. Esta conclusão vem da imprensa e falta confirmá-la no texto do programa.\n\n**O que as fontes dizem**\n• O **Observador** (26/02/2024) diz que só **três partidos** tratam o nuclear nos programas de 2024: **Chega, IL e LIVRE**. O PS não está entre eles.\n• O **Jornal Económico** (07/03/2024) resume as medidas de energia de cada partido. Atribui propostas sobre o nuclear apenas ao **Chega** («complementando a produção renovável com a produção nuclear») e à **IL** («Estudar a viabilidade da energia nuclear em Portugal»). Para o PS não refere nada sobre o nuclear.\n• Uma das pesquisas atribuiu ao PS a medida de «estudar a viabilidade da energia nuclear». Isso está errado: a medida é da **IL**.\n\n**O que o PS propõe para a energia**\nO capítulo chama-se «Energia: mais renováveis, menores custos e maior competitividade» e centra-se nas renováveis:\n• **Investimento privado de cerca de 60 mil milhões de euros até 2030**, assim distribuído:\n  • 40 mil milhões em eólica offshore\n  • 5 mil milhões em solar\n  • até 9 mil milhões em hidrogénio\n  • 4,5 mil milhões em eólica\n  • o restante em redes de transporte de energia\n• **IVA da eletricidade baixa de 23% para 6%** nos primeiros 200 kWh por mês (300 kWh para famílias numerosas).\n• **Eólica offshore:** criar um cluster industrial para toda a cadeia de valor, com a meta de **10 GW até 2030**.\n• **Hidrogénio:** construir uma rede de carregamento e abastecimento nas redes transeuropeias e em terminais logísticos.\n• **Lítio:**\n  • apoiar a cadeia de valor das baterias, incluindo uma nova refinaria em Setúbal;\n  • dar às refinarias instaladas em Portugal a opção de compra do lítio extraído no país;\n  • criar um Fundo dos Recursos Geológicos para compensar os territórios;\n  • fazer de Portugal um centro de reciclagem de baterias.\n• **Emprego:** o partido prevê cerca de **200 mil postos de trabalho** diretos e indiretos com estes investimentos até 2030.\n\n**Contexto (fora do programa de 2024)**\n• Em 2021, na COP26, o Governo do PS assinou uma declaração para **excluir o nuclear do financiamento europeu**. O PS considerou então que incluir o nuclear na taxonomia europeia era «uma má decisão». É uma posição anterior e não faz parte do programa eleitoral.\n\n**Fontes:**\n• [Programa eleitoral do PS 2024 – «Plano de Ação para Portugal Inteiro» (cópia em PDF, Poder360)](https://static.poder360.com.br/2024/03/eleicoes-portugal-ps-programa-eleitoral-2024.pdf)\n• [Observador – Três partidos recuperam energia nuclear à boleia dos novos mini-reatores](https://observador.pt/especiais/uma-medida-por-dia-tres-partidos-recuperam-energia-nuclear-a-boleia-dos-novos-mini-reatores/)\n• [Jornal Económico – Energia: o que propõem os partidos?](https://jornaleconomico.sapo.pt/noticias/energia-o-que-propoem-os-partidos/)\n• [PS – COP26: Portugal assina declaração para excluir energia nuclear do financiamento europeu](https://ps.pt/cop26-portugal-assina-declaracao-para-excluir-energia-nuclear-do-financiamento-europeu/)\n• [RTP – «Portugal Inteiro»: PS apresenta programa eleitoral](https://www.rtp.pt/noticias/politica/portugal-inteiro-ps-apresenta-programa-eleitoral-com-vista-a-mudanca-e-mais-acao_n1550108)",
+  "error": null,
+  "secs": 100.0,
+  "num_turns": 18,
+  "cost_usd": 0.3559113,
+  "prompt_tokens": 116820,
+  "completion_tokens": 4508,
+  "web_searches": 8,
+  "web_fetches": 9,
+  "init_tools": [
+   "WebFetch",
+   "WebSearch"
+  ],
+  "init_mcp": [],
+  "init_plugins": [
+   {
+    "name": "cc-plugin-sec-default",
+    "path": "builtin",
+    "source": "cc-plugin-sec-default@builtin"
+   },
+   {
+    "name": "cc-plugin-agents-md",
+    "path": "builtin",
+    "source": "cc-plugin-agents-md@builtin"
+   },
+   {
+    "name": "cc-plugin-telemetry",
+    "path": "builtin",
+    "source": "cc-plugin-telemetry@builtin"
+   },
+   {
+    "name": "cc-plugin-plugin-authoring",
+    "path": "builtin",
+    "source": "cc-plugin-plugin-authoring@builtin"
+   }
+  ],
+  "init_model": "claude-opus-5-5"
+ },
+ "q-55": {
+  "answer": "**O LIVRE não defende a saída de Portugal da União Europeia.** Não encontrei essa proposta em nenhuma das fontes que consultei. O partido apresenta-se como **pró-europeu**.\n\n**Posição do LIVRE sobre a UE**\n• **Pró-europeísmo:** o pró-europeísmo é um dos princípios fundadores do partido, a par da ecologia, do socialismo e da solidariedade ([Wikipedia](https://en.wikipedia.org/wiki/LIVRE)).\n• **Filiação europeia:** é membro do **Partido Verde Europeu desde 2023** e, no Parlamento Europeu, integra o grupo **Verdes/ALE** ([Wikipedia](https://en.wikipedia.org/wiki/LIVRE)).\n• **Programa para as europeias de junho de 2024, \"A União do Futuro\":** segundo a Renascença, propõe uma **constituição europeia**, metas climáticas mais exigentes, a reversão de quase todas as medidas do Pacto de Migrações e Asilo e a revisão das regras do défice e da dívida. O partido argumenta que estas regras limitam o investimento público ([Renascença](https://rr.pt/especial/politica/2024/05/31/livre-aposta-na-semana-de-quatro-dias-e-em-fronteiras-mais-abertas/380425/); [Renascença – aprovação do programa](https://rr.pt/noticia/politica/2024/05/12/livre-aprova-programa-eleitoral-para-as-europeias/377994/)).\n• **Ligação às legislativas:** segundo a mesma fonte, parte das medidas do programa europeu vem do programa das legislativas de 2024.\n\n**Limitações**\n• Não consegui abrir o texto integral do programa do LIVRE para as legislativas de março de 2024, por isso não confirmei diretamente o capítulo sobre a Europa.\n• A descrição do programa europeu vem da imprensa, não do documento original.\n\nFontes:\n• [LIVRE – Wikipedia](https://en.wikipedia.org/wiki/LIVRE)\n• [Renascença – O que dizem os programas eleitorais? (LIVRE)](https://rr.pt/especial/politica/2024/05/31/livre-aposta-na-semana-de-quatro-dias-e-em-fronteiras-mais-abertas/380425/)\n• [Renascença – Livre aprova programa eleitoral para as europeias](https://rr.pt/noticia/politica/2024/05/12/livre-aprova-programa-eleitoral-para-as-europeias/377994/)\n• [Sábado – Rui Tavares: Livre tem de estar pronto para governar](https://www.sabado.pt/portugal/detalhe/rui-tavares-livre-tem-de-estar-pronto-para-governar)",
+  "error": null,
+  "secs": 37.1,
+  "num_turns": 5,
+  "cost_usd": 0.1052688,
+  "prompt_tokens": 20242,
+  "completion_tokens": 1662,
+  "web_searches": 2,
+  "web_fetches": 2,
+  "init_tools": [
+   "WebFetch",
+   "WebSearch"
+  ],
+  "init_mcp": [],
+  "init_plugins": [
+   {
+    "name": "cc-plugin-sec-default",
+    "path": "builtin",
+    "source": "cc-plugin-sec-default@builtin"
+   },
+   {
+    "name": "cc-plugin-agents-md",
+    "path": "builtin",
+    "source": "cc-plugin-agents-md@builtin"
+   },
+   {
+    "name": "cc-plugin-telemetry",
+    "path": "builtin",
+    "source": "cc-plugin-telemetry@builtin"
+   },
+   {
+    "name": "cc-plugin-plugin-authoring",
+    "path": "builtin",
+    "source": "cc-plugin-plugin-authoring@builtin"
+   }
+  ],
+  "init_model": "claude-opus-5-5"
+ },
+ "q-56": {
+  "answer": "**O programa do CHEGA para as legislativas de 2024 não propõe repor o serviço militar obrigatório (SMO).** Não consegui ler o texto do programa diretamente: a cópia em PDF que encontrei não se deixa extrair. O que se segue vem de fontes secundárias.\n\n**O que o programa de 2024 do CHEGA diz sobre defesa**, segundo uma análise de Fernando Figueiredo no Observador (14/02/2024):\n• O tema está num capítulo chamado **\"Dignificar as Forças Armadas\"**, com estas prioridades: investimento, pessoal, equipamentos, indústria de defesa e antigos combatentes.\n• Propõe **gastar 2% do PIB em defesa**, sem dizer até quando.\n• Propõe **aumentar o número de militares dos três ramos até aos valores de 2023 (32.122)**. Segundo o autor, a proposta **deixa de fora o SMO e a entrada de cidadãos estrangeiros nas Forças Armadas**.\n• O autor não refere nenhum serviço cívico ou voluntário nem mudanças ao Dia da Defesa Nacional.\n\n**Declarações depois das eleições (fora do programa)**\n• Em 1 de abril de 2024, o Público noticiou que André Ventura disse que voltar ao SMO **\"merece ser estudado\"**, mas que isso exigiria um **amplo consenso nacional**. ⚠️ Esta informação vem do resumo de uma pesquisa. Não consegui abrir o artigo (acesso bloqueado), por isso não confirmei as palavras exatas.\n\n**Iniciativas posteriores (também fora do programa de 2024)**\n• Em 2026, o CHEGA apresentou um projeto de resolução para que o Dia da Defesa Nacional passe a **Semana da Defesa Nacional, com pelo menos cinco dias úteis**, e inclua uma **\"inspeção militar\"** dos jovens convocados. O Parlamento aprovou-o na generalidade em maio de 2026. É uma recomendação ao Governo e não obriga a nada.\n• Uma notícia do DN refere uma moção de congresso do partido para \"repor o serviço militar obrigatório\". ⚠️ Não consegui saber a data dessa moção, e ela não faz parte do programa de 2024.\n\nFontes:\n• [Observador – \"Defesa 2024: os programas dos partidos resumidos numa palavra\"](https://observador.pt/opiniao/defesa-2024-os-programas-dos-partidos-resumidos-numa-palavra/)\n• [Programa Eleitoral CHEGA 2024 (PDF, Executive Digest)](https://executivedigest.sapo.pt/wp-content/uploads/2024/02/programa_eleitoral_chega_2024.pdf) (não consegui ler o texto)\n• [Público – \"Serviço militar obrigatório? Partidos dizem 'não', CEMGFA sugere serviço cívico\"](https://www.publico.pt/2024/04/01/politica/noticia/servico-militar-obrigatorio-partidos-apontam-nao-chefe-militares-admite-2085533)\n• [Renascença – Chega quer alargar Dia da Defesa Nacional para cinco dias e incluir inspeção militar](https://rr.pt/noticia/politica/2026/04/06/chega-quer-alargar-dia-da-defesa-nacional-para-cinco-dis-e-incluir-inspecao-militar/465831/)\n• [Sábado – AR aprova recomendação do Chega que propõe Semana da Defesa Nacional](https://www.sabado.pt/ultima-hora/detalhe/ar-aprova-recomendacao-do-chega-que-propoe-semana-da-defesa-nacional-e-estudo-do-ps)\n• [DN – O país que o Chega quer](https://www.dn.pt/o-pais-que-o-chega-quer-com-imigracao-controlada-e-com-deus-patria-e-familia)",
+  "error": null,
+  "secs": 79.0,
+  "num_turns": 11,
+  "cost_usd": 0.24802449999999998,
+  "prompt_tokens": 74649,
+  "completion_tokens": 3366,
+  "web_searches": 5,
+  "web_fetches": 5,
+  "init_tools": [
+   "WebFetch",
+   "WebSearch"
+  ],
+  "init_mcp": [],
+  "init_plugins": [
+   {
+    "name": "cc-plugin-sec-default",
+    "path": "builtin",
+    "source": "cc-plugin-sec-default@builtin"
+   },
+   {
+    "name": "cc-plugin-agents-md",
+    "path": "builtin",
+    "source": "cc-plugin-agents-md@builtin"
+   },
+   {
+    "name": "cc-plugin-telemetry",
+    "path": "builtin",
+    "source": "cc-plugin-telemetry@builtin"
+   },
+   {
+    "name": "cc-plugin-plugin-authoring",
+    "path": "builtin",
+    "source": "cc-plugin-plugin-authoring@builtin"
+   }
+  ],
+  "init_model": "claude-opus-5-5"
+ },
+ "q-59": {
+  "answer": "**O ADN (Alternativa Democrática Nacional) não está entre os partidos que posso analisar.** Cubro apenas os programas de 2024 da AD, BE, CHEGA, IL, LIVRE, PAN, PCP e PS, por isso não tenho as propostas do ADN para a habitação.\n\nComo os dois nomes se confundem com facilidade, deixo o que propõe a **AD (Aliança Democrática, PSD/CDS-PP)** para a habitação. Não consegui abrir o texto do programa e baseei-me em reportagens que o resumem.\n\n**Compra de casa por jovens (AD)**\n• **Isenção de IMT e de Imposto do Selo** para jovens até aos **35 anos** na compra da primeira casa.\n• **Garantia pública**, com o Estado como fiador, para que os jovens possam pedir ao banco a **totalidade do preço** da primeira casa. Hoje os bancos costumam emprestar até 80%. O programa não definia limites para esta garantia.\n  – ⚠️ Uma fonte refere uma garantia de até 15% do valor da casa, com teto de 450 000 €, mas não confirma que isto vinha do programa de 2024. Pode ter sido decidido depois, já no Governo.\n  – ⚠️ Um artigo do DN fala num \"prazo de 35 anos\" para estes empréstimos. Parece ser uma confusão com o limite de idade de 35 anos. Não está confirmado.\n  – ⚠️ O mesmo artigo fala de isenção de **IMI** numa parte do texto e de **IMT** noutra. As outras fontes indicam **IMT**.\n\n**Construção e oferta (AD)**\n• **IVA da construção a 6%** em vez de 23%. Segundo o DN, a taxa de 6% já se aplicava nas Áreas de Reabilitação Urbana.\n• Regras **mais flexíveis para o uso dos solos e para os licenciamentos**. A AD inclui isto num \"choque de oferta privada, pública e cooperativa\".\n• **Parcerias público-privadas** para construir e reabilitar casas em grande escala.\n\n**Arrendamento (AD)**\n• **Reformular o Porta 65**.\n• **Subsídio para inquilinos com necessidades efetivas**, calculado a partir do rendimento e da percentagem do rendimento gasta na renda.\n• **Manter um subsídio de renda dinâmico**.\n• **Revogar medidas do programa Mais Habitação**, como o congelamento de rendas. A AD chama-lhes \"medidas erradas\".\n\nSe quiser, posso comparar as propostas de habitação de todos os partidos que analiso, ou de alguns em particular.\n\n**Fontes:**\n• [DN – \"Uma casa para viver\" é o que se pede nas ruas. O que dizem os partidos?](https://www.dn.pt/uma-casa-para-viver-e-o-que-se-pede-nas-ruas-o-que-dizem-os-partidos)\n• [DN – AD e PS unidos na habitação. Estado fiador dos jovens](https://www.dn.pt/ad-e-ps-unidos-na-habitacao-estado-fiador-dos-jovens)\n• [Observador – Principais compromissos do programa eleitoral da AD](https://observador.pt/2024/04/09/pontos-essenciais-do-governo-principais-compromissos-do-programa-eleitoral-da-ad-em-dez-areas/)\n• [Observador – Estratégia de habitação do Governo](https://observador.pt/especiais/habitacao-governo-so-revela-indice-da-estrategia-com-30-medidas-detalhes-ficam-para-depois/)\n• [idealista – Habitação está no centro das eleições 2024: o que propõem os partidos](https://www.idealista.pt/news/node/62985)\n• [idealista – Futuro da habitação: o que diz o programa do Governo da AD](https://www.idealista.pt/news/node/63574)",
+  "error": null,
+  "secs": 37.8,
+  "num_turns": 4,
+  "cost_usd": 0.09197829999999999,
+  "prompt_tokens": 18750,
+  "completion_tokens": 2197,
+  "web_searches": 1,
+  "web_fetches": 2,
+  "init_tools": [
+   "WebFetch",
+   "WebSearch"
+  ],
+  "init_mcp": [],
+  "init_plugins": [
+   {
+    "name": "cc-plugin-sec-default",
+    "path": "builtin",
+    "source": "cc-plugin-sec-default@builtin"
+   },
+   {
+    "name": "cc-plugin-agents-md",
+    "path": "builtin",
+    "source": "cc-plugin-agents-md@builtin"
+   },
+   {
+    "name": "cc-plugin-telemetry",
+    "path": "builtin",
+    "source": "cc-plugin-telemetry@builtin"
+   },
+   {
+    "name": "cc-plugin-plugin-authoring",
+    "path": "builtin",
+    "source": "cc-plugin-plugin-authoring@builtin"
+   }
+  ],
+  "init_model": "claude-opus-5-5"
+ },
+ "q-60": {
+  "answer": "Já reuni o que precisava. A resposta segue abaixo.\n\n## PAN – defende o fim das touradas\n\nO programa de 2024 chama-se **\"Agenda 24-28: Compromisso com as Pessoas, os Animais e a Natureza\"**. Segundo as análises de imprensa, inclui estas medidas:\n\n• **Abolir os espetáculos tauromáquicos.** O PiT escreve que o PAN \"reafirma o seu compromisso com a abolição das touradas\".\n• **Cortar todos os apoios públicos, diretos ou indiretos**, a estes espetáculos enquanto não forem abolidos.\n• **Tirar da lista do Património Cultural Imaterial** todas as atividades e espetáculos ligados à tauromaquia.\n• **Criar um fundo para adaptar as praças de touros** a espaços de lazer e/ou cultura.\n\nNa campanha, Inês de Sousa Real disse querer \"um país em que não se matam raposas à paulada e em que não há touradas\". No debate com Pedro Nuno Santos, apontou as touradas como a diferença entre o PAN e o PS.\n\n⚠️ **Limitação:** não consegui ler o texto do PDF do programa do PAN. As medidas acima vêm de dois artigos que resumem o programa e coincidem entre si.\n\n## PS – o programa não fala de touradas\n\n• **Não encontrei nenhuma medida sobre touradas** no programa **\"Portugal Inteiro\"** do PS. Também não a encontrei nas análises que consultei.\n• O PiT resume as propostas do PS para os animais assim:\n  • esterilização e vacinação de matilhas;\n  • bem-estar animal no transporte de animais vivos;\n  • registo europeu de animais de companhia;\n  • revisão da lei dos maus-tratos a animais.\n• Uma análise das propostas para a cultura também não refere nenhuma posição do PS sobre tauromaquia.\n\n⚠️ **Limitação:** não consegui ler o texto do PDF do programa do PS. Por isso, a ausência do tema baseia-se nestas duas análises e não numa leitura completa do programa.\n\n**Contexto fora do programa:** em outubro de 2024, já depois das eleições, o PS votou contra a proposta do PAN de um **referendo sobre o fim das touradas**. Três deputados do PS abstiveram-se. Em votações anteriores, a bancada do PS dividiu-se e teve liberdade de voto.\n\n**Fontes:**\n• [PiT – O que prometem os partidos para o bem-estar animal (26/02/2024)](https://pit.nit.pt/animais/legislativas-estao-ai-prometem-os-partidos-defesa-do-bem-estar-animal)\n• [Comunidade Cultura e Arte – Propostas dos partidos para a cultura](https://comunidadeculturaearte.com/eleicoes-legislativas-2024-propostas-dos-partidos-politicos-para-a-cultura/)\n• [Observador – \"Este é o efeito PAN\"](https://observador.pt/especiais/este-e-o-efeito-pan-um-programa-com-as-causas-de-sempre-e-a-aposta-no-combate-a-corrupcao/)\n• [Programa do PAN 2024 (PDF)](https://www.pan.com.pt/files/uploads/2024/02/Programa-Eleitoral_Legislativas24_Campanhas_2024_PAN-Nacional-1.pdf)\n• [Programa do PS 2024 \"Portugal Inteiro\" (PDF)](https://ps.pt/wp-content/uploads/2024/02/PS-Portugal_Inteiro_2024-6.pdf)\n• [Público – Debate PS x PAN](https://www.publico.pt/2024/02/10/politica/noticia/debate-ps-x-pan-pedro-ines-pais-paraarranca-transicao-verde-litio-2080012)\n• [Renascença – Parlamento chumba referendo sobre abolição das touradas](https://rr.pt/noticia/politica/2024/10/04/parlamento-chumba-referendo-sobre-abolicao-das-touradas/396261/)\n• [Renascença – Projetos anti-touradas dividem deputados do PS (2020)](https://rr.pt/noticia/politica/2020/07/09/projetos-anti-touradas-dividem-deputados-do-ps/199795/)",
+  "error": null,
+  "secs": 111.8,
+  "num_turns": 20,
+  "cost_usd": 0.39434160000000007,
+  "prompt_tokens": 153821,
+  "completion_tokens": 4954,
+  "web_searches": 8,
+  "web_fetches": 11,
+  "init_tools": [
+   "WebFetch",
+   "WebSearch"
+  ],
+  "init_mcp": [],
+  "init_plugins": [
+   {
+    "name": "cc-plugin-sec-default",
+    "path": "builtin",
+    "source": "cc-plugin-sec-default@builtin"
+   },
+   {
+    "name": "cc-plugin-agents-md",
+    "path": "builtin",
+    "source": "cc-plugin-agents-md@builtin"
+   },
+   {
+    "name": "cc-plugin-telemetry",
+    "path": "builtin",
+    "source": "cc-plugin-telemetry@builtin"
+   },
+   {
+    "name": "cc-plugin-plugin-authoring",
+    "path": "builtin",
+    "source": "cc-plugin-plugin-authoring@builtin"
+   }
+  ],
+  "init_model": "claude-opus-5-5"
+ }
+}
