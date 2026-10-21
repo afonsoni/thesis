@@ -114,6 +114,14 @@ for the decision-history thread of the Proposition chapter.
   and its Challenges, Proposition (indexing / query time / evaluation),
   PoliRAG in Practice, Conclusions and Future Work. The Work Plan section
   is already gone.
+- **Results get their own chapter** (2026-10-21, amends the layout above).
+  The Proposition keeps the evaluation method (variants, gold set, metrics,
+  safeguards), so the supervisor's three-part split survives; a new Results
+  chapter reports the test-split numbers, one section per research question,
+  and absorbs PoliRAG in Practice as its last section. Layout is now
+  Introduction, State of the Art, Problem, Proposition, Results, Conclusions.
+  Reasons: one job per chapter, a findable results chapter for examiners, a
+  shorter Proposition, and the RQs answered in one place.
 - **No Preamble chapter** (2026-10-18, reverses the 2026-10-08 decision to
   keep it unnumbered). It was a checkpoint-era account of the abandoned
   bias-classification idea, mostly a literature list for that idea, and its

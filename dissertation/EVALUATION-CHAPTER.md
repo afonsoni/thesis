@@ -1,7 +1,8 @@
 # Evaluation chapter: proposed structure
 
-Claude's proposal of 2026-10-16, for reference. Not a decision until it moves to
-`DECISIONS.md` → Settled.
+Claude's proposal of 2026-10-16. The split itself is settled (2026-10-21,
+`DECISIONS.md`): this is now the plan for `chapters/Results.tex`, whose last
+section is PoliRAG in practice. The section contents below are still proposals.
 
 The chapter's job is a RAGAS-style report card of PoliRAG. Comparisons support
 the card; they are not the point.

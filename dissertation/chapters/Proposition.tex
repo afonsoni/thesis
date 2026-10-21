@@ -1154,7 +1154,7 @@ search, and an LLM-written test grades LLMs against themselves.}
 gold set itself was being written, and each revision in this chapter reports
 the questions it was measured on. The split into development and test
 questions was fixed when the gold set was finalised. The numbers in
-Section~\ref{subsec:results} come from a single run of every variant on the 36
+Chapter~\ref{ch:results} come from a single run of every variant on the 36
 test questions, on code frozen before that run and not changed afterwards
 (commit \texttt{0293a0b}, tagged \texttt{code-freeze}, which every result
 records as its \texttt{code\_version}). Development numbers appear only to
@@ -1280,10 +1280,3 @@ differ only in the feature under test; this is why the headline ladder runs in
 a single invocation. And every difference between two variants is reported
 with a paired bootstrap 95\% interval over questions, so a difference inside
 the noise does not read as a result.
-
-\subsection{Results and discussion} \label{subsec:results}
-%% src: data/eval/reports/leaderboard.md (once curated runs exist)
-\TODO{BLOCKED until curated gold-set runs are done. Leaderboard table +
-per-technique deltas + discussion.}
-%% Scope (settled, DECISIONS.md): hybrid is the default (dev nDCG +0.064 over
-%% dense_only); the reranker is reported as a negative result (Section subsec:reranking).

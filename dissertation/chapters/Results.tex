@@ -1,0 +1,58 @@
+% ============================================================
+%  RESULTS. Split from the Proposition on 2026-10-21 (DECISIONS.md):
+%  the Proposition keeps the evaluation method (variants, gold set,
+%  metrics, safeguards); this chapter reports the test-split numbers,
+%  one section per research question, and ends with the system in use
+%  (the former "PoliRAG in Practice" chapter).
+%  Sources: data/eval/extras/headline-analysis.md (tables below),
+%  data/eval/reports/leaderboard-test.md, dissertation/EVALUATION-CHAPTER.md.
+% ============================================================
+\chapter{Results} \label{ch:results}
+
+\TODO{Chapter lead-in. What this chapter answers (RQ1 to RQ5, Section~\ref{sec:research-questions}), on which data (the 36 test questions, 32 answerable and 4 not), with which code (frozen commit \texttt{0293a0b}, Section~\ref{subsec:safeguards}), and in what order. One run per variant, means with 95\% bootstrap intervals over questions, differences paired per question.}
+
+\section{Setup} \label{sec:results-setup}
+
+\TODO{Short. Point to the method in Section~\ref{sec:evaluation} rather than repeat it. Report the judge--human agreement here (claim-level Cohen's kappa, answer-level Spearman, from scripts/judge\_validation.py), since every generation number below rests on it. Optionally the table mapping RAGAS metrics to \sysname{}'s (EVALUATION-CHAPTER.md, section 1).}
+
+\section{Answer quality} \label{sec:results-quality}
+
+\TODO{RQ3. The results card: \texttt{current} on the test split, overall and by question type (single party, comparison, topic exploration, general) and for the unanswerable questions. Source: headline-analysis.md, section 2. Points to discuss: correctness is far below faithfulness (answers say true things from the sources but miss part of the reference), topic-exploration and general questions are the weakest, abstention is 1.00 on the 4 unanswerable questions. Groups of 4 to 13 questions give wide intervals; say so.}
+
+\section{Retrieval versus scale} \label{sec:results-scale}
+
+\TODO{RQ5. \texttt{current} against \texttt{no\_retrieval}, \texttt{no\_retrieval\_strong}, \texttt{current\_strong}, the three web-search assistants and \texttt{deep\_research\_claude}: correctness, correctness recall, abstention, cost per answer. Source: headline-analysis.md, sections 1 and 3. Decide which of the three \texttt{assistant\_gemini} runs is reported (abstention 0.50, 0.67 and 0.75 across runs) or report the spread. Explain how \texttt{deep\_research\_claude} was run and that its cost is notional (subscription).}
+
+\section{What each technique adds} \label{sec:results-ladder}
+
+\TODO{RQ1 and RQ2, one change per step. Retrieval: \texttt{naive}, \texttt{multiquery}, \texttt{routed}, \texttt{dense\_only}, \texttt{hybrid}, \texttt{current}. Representation (RQ1): \texttt{hybrid} (plain index), \texttt{contextual} (section headers), \texttt{current} (LLM context). The reranker as a negative result (\texttt{reranked}). Retrieval and generation metrics, with paired differences. Source: leaderboard-test.md. Other variants go to Appendix~\ref{app:results} or are left out.}
+
+\section{Cost} \label{sec:results-cost}
+
+\TODO{RQ4. Cost per answer (pipeline and judge), tokens, LLM calls and latency per variant. Source: headline-analysis.md, section 3. Which improvements are worth their cost for a free public tool.}
+
+\section{\sysname{} in practice} \label{sec:results-practice}
+
+\TODO{Lead-in: the numbers above say how often \sysname{} is right; this section shows what using it looks like, end to end, with citations.}
+
+\subsection{Walkthrough} \label{subsec:results-walkthrough}
+
+\TODO{Pick 3--4 real queries, one per query type (single-party, comparison,
+topic exploration, general). For each: the question (pt-PT), what \sysname{}
+did (route taken, parties/topics detected), the answer with its source
+citations, and a screenshot or verbatim CLI transcript. Use real system
+output --- do not polish it.}
+
+\subsection{Where it stumbles} \label{subsec:results-stumbles}
+
+\TODO{Honest notes: where the demo shines, where it stumbles (a failure case
+is worth showing --- it motivates future work and builds credibility).
+Show one follow-up failing: ask about the AD's housing plans, then ``E o PS?''
+as a second call. Each call is stateless, so the second one loses the topic
+(Limitations (g) in Chapter~\ref{ch:conclusion}).}
+
+\TODO{Presentation format: CLI transcripts, unless a minimal web UI materialises (the political quiz is parked in future work).}
+
+\section{Summary} \label{sec:results-summary}
+
+\TODO{One paragraph per research question, the answer in a sentence each, and a segue to Chapter~\ref{ch:conclusion}.}
