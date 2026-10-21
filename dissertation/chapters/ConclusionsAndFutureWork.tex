@@ -86,7 +86,55 @@ metrics flags it. Possible future work: when only one party answers, point
 out how the other manifestos treat the same topic. Citations to check
 (verify before adding to the bib): Petrocik (1996) on issue ownership;
 McCombs \& Shaw (1972) on agenda setting; Yu et al.\ (2023, CREPE) and
-Kim et al.\ (2023, (QA)$^2$) on questions that carry presuppositions.}
+Kim et al.\ (2023, (QA)$^2$) on questions that carry presuppositions.
+Add (f) language variety, the encoder side of (a). DRAFT (Claude, 2026-10-21),
+rewrite in your own words.
+The aim of this work was never to compare European Portuguese with English or
+with Brazilian Portuguese. It was to find out whether a RAG system can work in
+European Portuguese, and how well. How well depends heavily on the encoder,
+and here the work stops short of a firm conclusion. \sysname{} ends with
+Qwen3-Embedding, a multilingual model not built around European Portuguese.
+The only European Portuguese encoder tried, Serafim, was dropped because it
+reads 128 tokens, not because it retrieved badly, so whether a model trained
+on the variety would find manifesto passages better is still open. Serafim's
+limit surfaced a year after it was adopted, and its replacement was forced by
+the window rather than chosen from a comparison. Running that comparison
+afterwards is harder than it looks. Each encoder needs its own index, and the
+evaluation harness can switch the index a variant searches but not the encoder
+that reads the question, so comparing encoders needs a change to the code
+first. Serafim cannot read the 400-token chunks the other models use, so
+comparing it changes chunk size and encoder at once, and since gold chunks are
+identified by their content, new chunks mean anchoring the gold set again.
+There were also few candidates to compare against. Long-window retrieval
+encoders for European Portuguese are scarce, and MTEB-PT, the one Portuguese
+benchmark, appeared after the switch and scores only the general Serafim
+model, not the retrieval variant used here. Even a finished comparison would
+have said little about the variety itself. With 36 test questions, small gaps
+between encoders fall inside the noise, and only a handful of questions turn
+on words whose meaning differs between Portugal and Brazil, such as
+\textit{propinas} or \textit{renda}.
+Future work. Re-index the same chunks once per encoder (larger
+Qwen3-Embedding sizes, multilingual-E5, BGE-M3, BERTimbau, a long-window
+Serafim if one appears) and compare retrieval-only metrics on the gold set,
+which needs no judge and costs only indexing time. A probe set of questions
+built on words that change meaning between the varieties would show whether a
+multilingual encoder confuses them.
+Add (g) one question at a time. DRAFT (Claude, 2026-10-21), rewrite in your
+own words.
+Each call to \sysname{} starts from nothing. The analyser reads the question
+it is given and no other, so a follow-up such as ``E o PS?'' after a question
+about the AD's housing plans arrives without the topic it leans on, and the
+system answers a different question from the one the user meant. The
+evaluation never sees this, because every gold question stands on its own,
+and the assistant baselines were also asked one question per conversation.
+This was a choice before it was a limitation. Stateless calls keep each answer
+reproducible and judged on its own, and a party carried over from an earlier
+turn cannot quietly filter the next search. A reader comparing manifestos does
+ask follow-ups, though, and a chat interface would invite them. Future work is
+a rewriting step before analysis that turns a follow-up and the recent turns
+into a standalone question, measured on multi-turn questions written for this
+corpus. Citations to check (verify before adding to the bib): QReCC (Anantha
+et al., 2021), TopiOCQA (Adlakha et al., 2022), MTRAG (Katsis et al., 2025).}
 
 \TODO{Add an Implications section (or fold into the discussion): what a system
 like this could mean for political literacy and public access, who would
