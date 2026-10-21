@@ -1,0 +1,75 @@
+[  2.6s] A analisar a pergunta…
+[  3.2s] A carregar o modelo de pesquisa (só na primeira pergunta)…
+[  4.0s] A reformular a pergunta para a pesquisa…
+[  4.5s] A pesquisar nos programas de todos os partidos…
+00:32:49 [WARNING] src.rag.generation.synthesizer: Grouped context over the 32000-token budget: dropped 8 of 64 chunks, keeping every party.
+[  7.1s] A redigir a comparação entre 8 partidos…
+
+============================================================
+### Aliança Democrática
+O partido propõe rever, clarificar e reforçar a legislação que penaliza o abandono e os maus-tratos de animais de companhia [1][2]. As medidas incluem o desenvolvimento de uma campanha nacional de sensibilização para comportamentos responsáveis, o reforço das condições dos Centros de Recolha Oficiais (CRO) e o desenvolvimento de políticas de proximidade para a proteção animal [2]. O partido defende ainda o reforço dos serviços públicos para assegurar a inspeção sanitária e o bem-estar animal, bem como o reforço dos planos de sanidade animal e vegetal [3].
+
+### Bloco de Esquerda
+O partido defende o aprofundamento da legislação contra maus-tratos, estendendo-a a animais utilizados para fins de exploração agrícola, pecuária, agroindustrial ou espetáculo comercial [5][6]. Propõe a criação de uma Rede de Centros de Recolha Oficial para todos os municípios, a ampliação de abrigos e a inclusão de associações de proteção animal no mecenato [6]. As medidas incluem a presença de veterinários nos matadouros, o fim da exportação de animais vivos em viagens marítimas superiores a oito horas e a proibição gradual de gaiolas na agropecuária [6]. No entretenimento, propõe a eliminação de apoios a eventos tauromáquicos, a proibição de espetáculos com cetáceos e a proibição de corridas de galgos [7]. Defende ainda a proteção de espécies em vias de extinção e a expansão das áreas do PACLobo [8].
+
+### Chega
+O partido propõe reconhecer a dignidade constitucional dos animais [10]. Pretende agravar as penas por maus-tratos a animais de companhia, aplicar a sanção de inibição de detenção e reforçar a formação de intervenientes (médicos-veterinários, procuradores, juízes, etc.) [10]. Propõe a redução do IVA aplicado a atos médico-veterinários, medicamentos e alimentação animal, e a criação de um Programa Nacional de Apoio à Saúde Veterinária para Animais de Companhia em Risco, através do "cheque-veterinário" [10]. Defende a criação de equipas municipais para prevenir a Síndrome de Noé, a criação do estatuto do animal comunitário apenas em zonas reservadas (escolas, lares) e a inclusão dos animais nos planos de proteção civil [10]. Propõe ainda a revisão das normas de proteção de equídeos e o combate à zoofilia [10].
+
+### Iniciativa Liberal
+O partido defende uma abordagem integrada que inclua a melhor implementação dos programas de Capturar/Esterilizar/Devolver (CED) e o repensar do financiamento dos CROs e das Associações Zoófilas, garantindo que o financiamento das associações acompanhe o número de animais a cargo [14]. Propõe que os CROs possam deixar animais a cargo de pessoas, suportando parte dos encargos, e a criação de uma base de dados atualizada para os CROs [14]. Propõe também programas de prevenção do abandono para ajudar famílias em dificuldades [14].
+
+### LIVRE
+O partido defende a atribuição de direitos de personalidade jurídica aos animais e a sua consagração em sede de revisão constitucional [18]. Propõe a redução do IVA de 23% para 6% na aquisição de alimentação para todos os animais e a criação de um Serviço Nacional Veterinário em parceria com as Universidades [18][19]. Defende a proibição de animais em atividades de entretenimento (exceto com fins pedagógicos), a abolição das atividades tauromáquicas e a proibição do transporte de animais vivos em percursos longos, limitando-o à via terrestre e a períodos não superiores a 4 horas [19]. Propõe ainda a conversão de parques zoológicos em centros de conservação e o reforço do controlo do registo obrigatório de animais de companhia [19].
+
+### PAN
+O partido propõe a revisão constitucional para reconhecer o direito dos animais a um tratamento condigno e livre de sofrimento, além de alargar a tutela penal para além dos animais de companhia [20][21]. Defende a redução do IVA para 6% em atos médico-veterinários e alimentação animal, e a criação de Hospitais Veterinários Públicos [20][21]. Propõe a criação de um Ministério do Ambiente, Proteção Animal e Biodiversidade e de uma Direção-geral de Proteção e Bem-estar Animal [21]. As medidas incluem a proibição do transporte marítimo de animais vivos até 2025, a abolição de espetáculos tauromáquicos, a proibição de métodos de caça como a paulada ou matilhas, e a proibição de mutilações em leitões [21]. Defende ainda o alargamento do método CED a cães e a criação de um banco de sangue animal público [21].
+
+### Partido Socialista
+O partido pretende promover uma estratégia nacional para mitigar o problema das matilhas de animais abandonados através de programas de esterilização e vacinação [30]. Propõe reforçar o bem-estar animal no transporte de animais vivos e avaliar a necessidade de regulamentação administrativa para permitir a intervenção municipal [30]. Defende a promoção de um acordo europeu para um registo centralizado de animais de companhia e a revisão da legislação sobre a criminalização de maus-tratos, abrangendo outros animais além dos de companhia [30].
+
+### Síntese
+**Semelhanças:** A maioria dos partidos propõe a redução do IVA para alimentação e cuidados veterinários [10][18][19][20][21], o reforço da esterilização (programas CED) [14][18][19][20][30], o combate aos maus-tratos através de legislação e fiscalização [1][2][5][6][10][30] e a melhoria das condições dos Centros de Recolha Oficiais [2][6][10][14][18][19][20]. Vários partidos também mencionam a inclusão de animais nos planos de proteção civil [10][21].
+
+**Diferenças:** Os partidos divergem profundamente quanto à tauromaquia, com o Bloco de Esquerda, LIVRE e PAN a proporem a sua abolição, enquanto o Chega foca na dignidade constitucional e no combate aos maus-tratos [5][7][10][18][19][20][21]. O PAN e o LIVRE defendem alterações constitucionais para reconhecer direitos ou personalidade jurídica aos animais [18][19][20][21], enquanto o Chega foca na dignidade constitucional [10]. No que toca à exploração animal, o Bloco de Esquerda e o PAN propõem restrições severas à pecuária e transporte, enquanto a Aliança Democrática e o Partido Socialista focam na gestão e fiscalização das normas existentes [1][3][30].
+============================================================
+
+Fontes (34):
+  [1] Aliança Democrática – PROGRAMA SOCIAL E DE GOVERNAÇÃO DA ALIANÇA DEMOCRÁTICA > COM AMBIÇÃO > SUSTENTABILIDADE > AMBIENTE, ÁGUA, AÇÃO CLIMÁTICA E PROTEÇÃO ANIMAL E DOS ECOSSISTEMAS > 1. Porque é preciso mudar (rrf=0.1476)
+  [2] Aliança Democrática – PROGRAMA SOCIAL E DE GOVERNAÇÃO DA ALIANÇA DEMOCRÁTICA > COM AMBIÇÃO > SUSTENTABILIDADE > AMBIENTE, ÁGUA, AÇÃO CLIMÁTICA E PROTEÇÃO ANIMAL E DOS ECOSSISTEMAS > 3. Medidas > PROTEÇÃO ANIMAL (rrf=0.1328)
+  [3] Aliança Democrática – PROGRAMA SOCIAL E DE GOVERNAÇÃO DA ALIANÇA DEMOCRÁTICA > COM AMBIÇÃO > SUSTENTABILIDADE > AGRICULTURA, FLORESTAS E ALIMENTAÇÃO > 3. Medidas (rrf=0.1101)
+  [4] Aliança Democrática – PROGRAMA SOCIAL E DE GOVERNAÇÃO DA ALIANÇA DEMOCRÁTICA > Sumário Executivo (rrf=0.0615)
+  [5] Bloco de Esquerda – Fazer o que nunca foi feito: Programa eleitoral do Bloco de Esquerda, Legislativas 2024 > 25 Bem-estar Animal (rrf=0.1608)
+  [6] Bloco de Esquerda – Fazer o que nunca foi feito: Programa eleitoral do Bloco de Esquerda, Legislativas 2024 > 25 Bem-estar Animal > As propostas do Bloco: (rrf=0.1435)
+  [7] Bloco de Esquerda – Fazer o que nunca foi feito: Programa eleitoral do Bloco de Esquerda, Legislativas 2024 > 25 Bem-estar Animal > As propostas do Bloco: > Entretenimento com animais: (rrf=0.1096)
+  [8] Bloco de Esquerda – Fazer o que nunca foi feito: Programa eleitoral do Bloco de Esquerda, Legislativas 2024 > 25 Bem-estar Animal > As propostas do Bloco: > Atividades cinegéticas: (rrf=0.1094)
+  [9] Bloco de Esquerda – Fazer o que nunca foi feito: Programa eleitoral do Bloco de Esquerda, Legislativas 2024 > Sociedade justa, progressista e inclusiva (rrf=0.0932)
+  [10] CHEGA – PROGRAMA ELEITORAL: LIMPAR PORTUGAL > XV CAPÍTULO EQUILÍBRIO NA DEFESA DO AMBIENTE E DO BEM-ESTAR ANIMAL. COMO? > PROPOSTAS (rrf=0.1456)
+  [11] CHEGA – PROGRAMA ELEITORAL: LIMPAR PORTUGAL > XV CAPÍTULO EQUILÍBRIO NA DEFESA DO AMBIENTE E DO BEM-ESTAR ANIMAL. COMO? > PRIORIDADES (rrf=0.1105)
+  [12] CHEGA – PROGRAMA ELEITORAL: LIMPAR PORTUGAL > XV CAPÍTULO EQUILÍBRIO NA DEFESA DO AMBIENTE E DO BEM-ESTAR ANIMAL. COMO? (rrf=0.11)
+  [13] CHEGA – PROGRAMA ELEITORAL: LIMPAR PORTUGAL > XV CAPÍTULO EQUILÍBRIO NA DEFESA DO AMBIENTE E DO BEM-ESTAR ANIMAL. COMO? > PROJECTO DE LEI Nº 301/XV/1ª (CH) (rrf=0.1075)
+  [14] Iniciativa Liberal – PROGRAMA ELEITORAL > A. PORTUGAL A CRESCER > 5. AMBIENTE: CRESCIMENTO SUSTENTÁVEL > 5.2. Proteger o nosso património natural, gerar mais valor (rrf=0.1654)
+  [15] Iniciativa Liberal – PROGRAMA ELEITORAL > C. PORTUGAL MAIS LIBERAL > 1. FORTALECER A DEMOCRACIA LIBERAL > 1.3. Restaurar a confiança nas instituições > Reduzir a subvenção pública dos partidos políticos (rrf=0.0777)
+  [16] Iniciativa Liberal – PROGRAMA ELEITORAL > C. PORTUGAL MAIS LIBERAL > 1. FORTALECER A DEMOCRACIA LIBERAL > 1.3. Restaurar a confiança nas instituições > Eliminar benefícios fiscais dos partidos políticos (rrf=0.0628)
+  [17] Iniciativa Liberal – PROGRAMA ELEITORAL > C. PORTUGAL MAIS LIBERAL > 1. FORTALECER A DEMOCRACIA LIBERAL > 1.3. Restaurar a confiança nas instituições > Fomentar a transparência e promover o escrutínio > Disponibilizar programas políticos para escrutínio público (rrf=0.0489)
+  [18] LIVRE – Contrato com o Futuro: Programa do LIVRE às eleições legislativas de 2024 > **Bem-estar e direitos dos Animais** (rrf=0.1473)
+  [19] LIVRE – Contrato com o Futuro: Programa do LIVRE às eleições legislativas de 2024 > **Bem-estar e direitos dos Animais** > Por isso defendemos: (rrf=0.14)
+  [20] Pessoas-Animais-Natureza – agenda 24-28 COMPROMISSO COM AS PESSOAS, OS ANIMAIS E A NATUREZA > Por uma efetiva proteção de todos os animais, reconhecimento dos seus direitos e garantia do seu bem-estar (rrf=0.1284)
+  [21] Pessoas-Animais-Natureza – agenda 24-28 COMPROMISSO COM AS PESSOAS, OS ANIMAIS E A NATUREZA > Por uma efetiva proteção de todos os animais, reconhecimento dos seus direitos e garantia do seu bem-estar (rrf=0.1102)
+  [22] Pessoas-Animais-Natureza – agenda 24-28 COMPROMISSO COM AS PESSOAS, OS ANIMAIS E A NATUREZA > Por uma efetiva proteção de todos os animais, reconhecimento dos seus direitos e garantia do seu bem-estar (rrf=0.0934)
+  [23] Partido Comunista Português – Programa Eleitoral do PCP: Política patriótica e de esquerda – Soluções para um Portugal com futuro > 2.ª PARTE > CAPÍTULO 4 ELEVAR A QUALIDADE DE VIDA. INVESTIR NOS SERVIÇOS PÚBLICOS, CUMPRIR AS FUNÇÕES SOCIAIS DO ESTADO > 4.1. A defesa do Serviço Nacional de Saúde e uma política de saúde ao serviço dos portugueses > 4.1.3 Um SNS mais forte, com melhor organização e direção das unidades de saúde > Prevenir e tratar os comportamentos aditivos e as dependências (rrf=0.0643)
+  [24] Partido Comunista Português – Programa Eleitoral do PCP: Política patriótica e de esquerda – Soluções para um Portugal com futuro > 2.ª PARTE > CAPÍTULO 2 DESENVOLVIMENTO ECONÓMICO > 2.2. Opções estratégicas > 2.2.3. > Na agricultura (rrf=0.0479)
+  [25] Partido Comunista Português – Programa Eleitoral do PCP: Política patriótica e de esquerda – Soluções para um Portugal com futuro > 1.ª PARTE > Programa eleitoral do PCP Legislativas 2024: Política patriótica e de esquerda – Soluções para um Portugal com futuro > 1.4. Quem afundou o País não o vai salvar > 1.4.2. (rrf=0.0476)
+  [26] Partido Comunista Português – Programa Eleitoral do PCP: Política patriótica e de esquerda – Soluções para um Portugal com futuro > 1.ª PARTE > Programa eleitoral do PCP Legislativas 2024: Política patriótica e de esquerda – Soluções para um Portugal com futuro > 1.5. Responder aos problemas de hoje e assegurar o futuro do País – outra política com mais força ao PCP e à CDU > 1.5.2. (rrf=0.0474)
+  [27] Partido Comunista Português – Programa Eleitoral do PCP: Política patriótica e de esquerda – Soluções para um Portugal com futuro > 1.ª PARTE > Programa eleitoral do PCP Legislativas 2024: Política patriótica e de esquerda – Soluções para um Portugal com futuro > 1.3. A chave da mudança – uma significativa e reforçada votação do PCP e da CDU > 1.3.1. (rrf=0.0472)
+  [28] Partido Comunista Português – Programa Eleitoral do PCP: Política patriótica e de esquerda – Soluções para um Portugal com futuro > 2.ª PARTE > CAPÍTULO 2 DESENVOLVIMENTO ECONÓMICO > 2.2. Opções estratégicas > 2.2.3. (rrf=0.0464)
+  [29] Partido Comunista Português – Programa Eleitoral do PCP: Política patriótica e de esquerda – Soluções para um Portugal com futuro > 2.ª PARTE > CAPÍTULO 6 AFIRMAR A DEMOCRACIA, CUMPRIR A CONSTITUIÇÃO > 6.7. Pelos Direitos das mulheres: concretizar a igualdade no trabalho, na família e na vida > O PCP dá prioridade ao reforço dos mecanismos de prevenção e combate às discriminações e violências nos seguintes âmbitos: (rrf=0.0464)
+  [30] Partido Socialista – PLANO DE AÇÃO PARA PORTUGAL INTEIRO 2024 > INTRODUÇÃO > **3.ª MISSÃO:** UM TERRITÓRIO INTEIRO E UMA TRANSIÇÃO CLIMÁTICA JUSTA > 3. Ambiente e Clima: proteger o património natural e reafirmar a liderança na redução de emissões > 3.7. (rrf=0.1656)
+  [31] Partido Socialista – PLANO DE AÇÃO PARA PORTUGAL INTEIRO 2024 > INTRODUÇÃO > **2.ª MISSÃO:** UM ESTADO SOCIAL FORTE, MODERNO E INCLUSIVO > 2. Um Serviço Nacional de Saúde universal, forte e resiliente > 2.7. (rrf=0.0966)
+  [32] Partido Socialista – PLANO DE AÇÃO PARA PORTUGAL INTEIRO 2024 > INTRODUÇÃO > **3.ª MISSÃO:** UM TERRITÓRIO INTEIRO E UMA TRANSIÇÃO CLIMÁTICA JUSTA > 3. Ambiente e Clima: proteger o património natural e reafirmar a liderança na redução de emissões > 3.6. (rrf=0.0787)
+  [33] Partido Socialista – PLANO DE AÇÃO PARA PORTUGAL INTEIRO 2024 > INTRODUÇÃO > **4.ª MISSÃO:** UMA DEMOCRACIA DE QUALIDADE PARA TODOS > 2. Uma democracia para todos em condições de igualdade plena > 2.5. (rrf=0.0645)
+  [34] Partido Socialista – PLANO DE AÇÃO PARA PORTUGAL INTEIRO 2024 > INTRODUÇÃO (rrf=0.0466)
+
+Modelos (3 chamadas, 27693 tokens in / 1718 out, $0.0023):
+  query analysis: google/gemma-4-26b-a4b-it (0.6s)
+  query expansion: google/gemma-4-26b-a4b-it (0.5s)
+  comparison answer: google/gemma-4-26b-a4b-it (4.1s)

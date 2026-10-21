@@ -4,9 +4,20 @@
 are now printed. Read this one end to end, the topic-taxonomy table included,
 check it against the classifier prompt, and rewrite where needed.}
 
-\TODO{Full per-variant leaderboard tables (all metrics, all variants) that
-would clutter Chapter~\ref{ch:results}; per-question examples showing a
-gold question, the retrieved chunks, and the judged answer.}
+\section{Test-split leaderboard} \label{sec:app-leaderboard}
+
+The tables below give every metric for every variant on the 36 test questions,
+from the single run each variant had on the frozen code (commit
+\texttt{0293a0b}). Chapter~\ref{ch:results} reports the comparisons that answer
+the research questions and refers here for the rest. Each cell is a mean with
+its 95\% bootstrap interval over the questions that every listed variant was
+scored on, so a few values differ slightly from a single run's own average. A
+dash marks a metric that does not apply to the variant.
+
+\input{appendices/results-tables}
+
+\TODO{Per-question examples showing a gold question, the retrieved chunks, and
+the judged answer.}
 
 \section{Topic taxonomy} \label{sec:taxonomy}
 

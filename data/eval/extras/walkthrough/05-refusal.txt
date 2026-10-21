@@ -1,0 +1,22 @@
+[  2.9s] A analisar a pergunta…
+[  3.5s] A carregar o modelo de pesquisa (só na primeira pergunta)…
+[  4.6s] A reformular a pergunta para a pesquisa…
+[  5.1s] A pesquisar no programa de Partido Comunista Português…
+[  5.9s] A redigir a resposta a partir de 10 excertos…
+
+============================================================
+Não encontrei resposta a esta pergunta nos excertos dos programas que consultei, mas isso não garante que os programas não abordem o tema.
+============================================================
+
+Fontes (6):
+  [1] Partido Comunista Português – Programa Eleitoral do PCP: Política patriótica e de esquerda – Soluções para um Portugal com futuro > 2.ª PARTE > CAPÍTULO 2 DESENVOLVIMENTO ECONÓMICO > 2.3. Políticas-chave > 2.3.4 Uma Transição Digital que respeite os direitos dos cidadãos > O PCP defende: (rrf=0.0812)
+  [2] Partido Comunista Português – Programa Eleitoral do PCP: Política patriótica e de esquerda – Soluções para um Portugal com futuro > 2.ª PARTE > CAPÍTULO 2 DESENVOLVIMENTO ECONÓMICO > 2.2. Opções estratégicas > 2.2.1. > A libertação da submissão ao Euro (rrf=0.0793)
+  [3] Partido Comunista Português – Programa Eleitoral do PCP: Política patriótica e de esquerda – Soluções para um Portugal com futuro > 2.ª PARTE > CAPÍTULO 2 DESENVOLVIMENTO ECONÓMICO > 2.3. Políticas-chave > 2.3.4 Uma Transição Digital que respeite os direitos dos cidadãos > Transição Digital (rrf=0.0792)
+  [4] Partido Comunista Português – Programa Eleitoral do PCP: Política patriótica e de esquerda – Soluções para um Portugal com futuro > 2.ª PARTE > CAPÍTULO 6 AFIRMAR A DEMOCRACIA, CUMPRIR A CONSTITUIÇÃO > 6.11. Um firme e sério combate à corrupção e à criminalidade económica e financeira > Neste âmbito o PCP propõe: (rrf=0.0642)
+  [5] Partido Comunista Português – Programa Eleitoral do PCP: Política patriótica e de esquerda – Soluções para um Portugal com futuro > 2.ª PARTE > CAPÍTULO 2 DESENVOLVIMENTO ECONÓMICO > 2.3. Políticas-chave > 2.3.4 Uma Transição Digital que respeite os direitos dos cidadãos (rrf=0.0464)
+  [6] Partido Comunista Português – Programa Eleitoral do PCP: Política patriótica e de esquerda – Soluções para um Portugal com futuro > 2.ª PARTE > CAPÍTULO 3 VALORIZAR OS TRABALHADORES PROMOVER O EMPREGO COM DIREITOS, O AUMENTO DOS SALÁRIOS E A MELHORIA DAS CONDIÇÕES DE VIDA E DE TRABALHO > 3.5 Colocar a ciência e a tecnologia ao serviço dos trabalhadores e do País. Garantir os direitos laborais aos trabalhadores em teletrabalho e nas plataformas digitais > O PCP propõe: (rrf=0.0458)
+
+Modelos (3 chamadas, 5343 tokens in / 179 out, $0.0004):
+  query analysis: google/gemma-4-26b-a4b-it (0.6s)
+  query expansion: google/gemma-4-26b-a4b-it (0.5s)
+  answer: google/gemma-4-26b-a4b-it (0.9s)

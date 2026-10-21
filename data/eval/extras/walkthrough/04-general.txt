@@ -1,0 +1,94 @@
+[  2.7s] A analisar a pergunta…
+[  3.1s] A carregar o modelo de pesquisa (só na primeira pergunta)…
+[  4.0s] A reformular a pergunta para a pesquisa…
+[  4.7s] A pesquisar nos programas de todos os partidos…
+[  6.9s] A redigir a resposta a partir de 64 excertos…
+
+============================================================
+As propostas para o combate à corrupção variam significativamente entre os partidos, abrangendo medidas de prevenção, repressão e transparência:
+
+**Medidas de Prevenção e Transparência**
+* **Regulação do Lobby:**
+    * O **LIVRE** propõe a efetivação da regulação do lobby com registo obrigatório de lobistas e de reuniões com titulares de cargos políticos [1].
+    * O **PS** pretende regular as atividades de representação de interesses junto de entidades públicas [2].
+    * O **CHEGA** propõe a criação de um registo de transparência junto da Assembleia da República, com código de conduta e sanções [4].
+    * A **AD** propõe a criação de um Registo de Transparência comum a todas as entidades públicas, obrigatório e gratuito, e a adoção de uma "Agenda Pública" para registar interações entre decisores e lobistas [12].
+    * O **PAN** defende o registo obrigatório de lobistas, declaração de situação patrimonial destes e um sistema de acreditação [7].
+    * O **PCP** recusa a legalização do lobbying, considerando que este legitima a influência de interesses económicos [8].
+    * A **IL** defende o registo obrigatório de lobistas e que projetos de lei submetidos à Assembleia da República sejam acompanhados de um formulário que identifique atividades de lobbying, sob pena de rejeição [16].
+
+* **Gestão de Conflitos de Interesses e "Portas Giratórias":**
+    * O **LIVRE** propõe alterar o regime de declaração de interesses para um modelo de resolução e prevenção, estendendo as obrigações a todos os membros de gabinetes governamentais [1]. Propõe também aumentar o período de "nojo" para o setor privado [1].
+    * O **PS** pretende promover a emissão de recomendações sobre gestão de conflitos de interesses e "portas giratórias" [2].
+    * O **CHEGA** propõe limitar a celebração de negócios de titulares de cargos políticos com familiares [4] e proibir o exercício de funções em instituições tuteladas pelo Governo sem o cumprimento de um período de nojo de 8 anos [4].
+    * O **BE** defende um regime de transparência e incompatibilidades rígido e o alargamento do período de nojo para seis anos [11][18].
+    * A **AD** propõe o alargamento do período de nojo, a restrição da acumulação de funções e a criação de incompatibilidade para quem exerceu funções de magistrados nos três anos anteriores [12].
+    * O **PAN** propõe um período de nojo de oito anos para a passagem para o setor privado conexo e um período de três anos para ocupação de cargos em entidades reguladoras [7].
+
+* **Transparência e Acesso à Informação:**
+    * O **LIVRE** defende atribuir caráter vinculativo às resoluções da Comissão de Acesso aos Documentos Administrativos (CADA) e um novo regime de classificação documental [1].
+    * O **PS** propõe rever o enquadramento do acesso à informação e continuar a desenvolver o portal "Mais Transparência" [2].
+    * O **PAN** defende a gratuitidade do acesso à informação administrativa e o caráter vinculativo das decisões da CADA [7].
+    * O **CHEGA** propõe a publicação anual de listas de entidades públicas que recebem subsídios, detalhando montantes e motivos [4].
+    * A **IL** propõe que as sessões das autarquias sejam gravadas e colocadas online [16].
+
+**Medidas de Repressão e Justiça**
+* **Criminalização e Sanções:**
+    * O **LIVRE** defende a criação de tribunais especializados em corrupção e criminalidade económico-financeira [1].
+    * O **CHEGA** propõe criar o crime de enriquecimento ilícito para titulares de cargos políticos [4], ampliar a incriminação de tráfico de influências e aumentar as penas, garantindo penas mínimas que não permitam suspensão [4]. Propõe ainda sanções como a proibição de exercício de funções públicas por 10 anos [4].
+    * O **BE** defende a criminalização do enriquecimento injustificado com confisco de bens e taxação de 100% da riqueza sem origem clara [11][18].
+    * A **AD** propõe a criminalização do enriquecimento ilícito [9][12][24] e a ponderação de mecanismos como a "Ação Cível para Extinção de Domínio" para recuperar bens sem necessidade de condenação penal [24].
+    * O **PAN** propõe o regime de enriquecimento injustificado com obrigatoriedade de restituição de 100% do valor indevido ao erário público [7].
+    * O **PCP** defende o combate à criminalidade económica e financeira através de meios técnicos e tecnológicos para o Ministério Público e Polícia Judiciária [8].
+
+* **Reforço de Meios e Investigação:**
+    * O **LIVRE** propõe criar uma agência pública independente que centralize funções do Mecanismo Nacional Anticorrupção, da Entidade de Contas e da Entidade para a Transparência [1].
+    * O **PS** propõe dotar o Mecanismo Nacional Anticorrupção de todos os recursos necessários [2].
+    * O **CHEGA** propõe reforçar os poderes da Direção Central de Investigação da Corrupção e Criminalidade Económica e Financeira, bem como os meios da Polícia Judiciária e do Ministério Público [4].
+    * O **PAN** defende o reforço de meios para a Entidade da Transparência, Entidade das Contas e Mecanismo Nacional Anticorrupção [7].
+    * A **IL** defende que a Entidade para a Transparência e a Entidade das Contas e Financiamentos Políticos sejam dotadas de meios humanos e materiais para funcionar efetivamente [16].
+============================================================
+
+Fontes (37):
+  [1] LIVRE – Contrato com o Futuro: Programa do LIVRE às eleições legislativas de 2024 > **Prevenção e Combate à Corrupção** > Por isso defendemos: (rrf=0.1617)
+  [2] Partido Socialista – PLANO DE AÇÃO PARA PORTUGAL INTEIRO 2024 > INTRODUÇÃO > **4.ª MISSÃO:** UMA DEMOCRACIA DE QUALIDADE PARA TODOS > 1. Uma democracia resiliente ao populismo e à demagogia com mais participação, mais transparência e mais proximidade > 1.4. (rrf=0.1463)
+  [3] Bloco de Esquerda – Fazer o que nunca foi feito: Programa eleitoral do Bloco de Esquerda, Legislativas 2024 > 9 Combate à Corrupção e ao Crime Económico > 9.1 A democracia contra a corrupção (rrf=0.1458)
+  [4] CHEGA – PROGRAMA ELEITORAL: LIMPAR PORTUGAL > I CAPÍTULO LIMPAR PORTUGAL DA CORRUPÇÃO. COMO? > PROPOSTAS (rrf=0.1428)
+  [5] LIVRE – Contrato com o Futuro: Programa do LIVRE às eleições legislativas de 2024 > **Prevenção e Combate à Corrupção** (rrf=0.1317)
+  [6] Aliança Democrática – PROGRAMA SOCIAL E DE GOVERNAÇÃO DA ALIANÇA DEMOCRÁTICA > COM SENTIDO DE ESTADO > TRANSPARÊNCIA E COMBATE À CORRUPÇÃO > 1. Porque é preciso mudar (rrf=0.1294)
+  [7] Pessoas-Animais-Natureza – agenda 24-28 COMPROMISSO COM AS PESSOAS, OS ANIMAIS E A NATUREZA > Por um país mais transparente e uma justiça mais rápida (rrf=0.1286)
+  [8] Partido Comunista Português – Programa Eleitoral do PCP: Política patriótica e de esquerda – Soluções para um Portugal com futuro > 2.ª PARTE > CAPÍTULO 6 AFIRMAR A DEMOCRACIA, CUMPRIR A CONSTITUIÇÃO > 6.11. Um firme e sério combate à corrupção e à criminalidade económica e financeira > Neste âmbito o PCP propõe: (rrf=0.1279)
+  [9] Aliança Democrática – PROGRAMA SOCIAL E DE GOVERNAÇÃO DA ALIANÇA DEMOCRÁTICA > COM SENTIDO DE ESTADO > TRANSPARÊNCIA E COMBATE À CORRUPÇÃO > 2. Metas (rrf=0.1264)
+  [10] CHEGA – PROGRAMA ELEITORAL: LIMPAR PORTUGAL > I CAPÍTULO O QUE JÁ FIZEMOS PARA LIMPAR PORTUGAL DA CORRUPÇÃO (rrf=0.1224)
+  [11] Bloco de Esquerda – Fazer o que nunca foi feito: Programa eleitoral do Bloco de Esquerda, Legislativas 2024 > 9 Combate à Corrupção e ao Crime Económico (rrf=0.1161)
+  [12] Aliança Democrática – PROGRAMA SOCIAL E DE GOVERNAÇÃO DA ALIANÇA DEMOCRÁTICA > COM SENTIDO DE ESTADO > TRANSPARÊNCIA E COMBATE À CORRUPÇÃO > 3. Medidas > PREVENÇÃO (rrf=0.1132)
+  [13] Partido Comunista Português – Programa Eleitoral do PCP: Política patriótica e de esquerda – Soluções para um Portugal com futuro > 2.ª PARTE > CAPÍTULO 6 AFIRMAR A DEMOCRACIA, CUMPRIR A CONSTITUIÇÃO > 6.11. Um firme e sério combate à corrupção e à criminalidade económica e financeira (rrf=0.1122)
+  [14] Aliança Democrática – PROGRAMA ECONÓMICO DA ALIANÇA DEMOCRÁTICA > 3. Melhor Estado, Combater a Corrupção (rrf=0.1105)
+  [15] Bloco de Esquerda – Fazer o que nunca foi feito: Programa eleitoral do Bloco de Esquerda, Legislativas 2024 > Justiça na economia (rrf=0.11)
+  [16] Iniciativa Liberal – PROGRAMA ELEITORAL > C. PORTUGAL MAIS LIBERAL > 1. FORTALECER A DEMOCRACIA LIBERAL > 1.3. Restaurar a confiança nas instituições > Fomentar a transparência e promover o escrutínio (rrf=0.0977)
+  [17] Aliança Democrática – PROGRAMA SOCIAL E DE GOVERNAÇÃO DA ALIANÇA DEMOCRÁTICA > COM SENTIDO DE ESTADO > TRANSPARÊNCIA E COMBATE À CORRUPÇÃO > 3. Medidas > EDUCAÇÃO (rrf=0.0954)
+  [18] Bloco de Esquerda – Fazer o que nunca foi feito: Programa eleitoral do Bloco de Esquerda, Legislativas 2024 > 9 Combate à Corrupção e ao Crime Económico > 9.1 A democracia contra a corrupção > As propostas do Bloco: (rrf=0.0953)
+  [19] Iniciativa Liberal – PROGRAMA ELEITORAL > C. PORTUGAL MAIS LIBERAL > 3. PROTEGER A NOSSA VIDA E PROPRIEDADE > 3.1. Dar segurança aos cidadãos > Prevenir a criminalidade juvenil e grupal (rrf=0.0814)
+  [20] Iniciativa Liberal – PROGRAMA ELEITORAL > C. PORTUGAL MAIS LIBERAL > 4. RELANÇAR PORTUGAL NO MUNDO > 4.1. Defender as nossas liberdades > Recuperar a credibilidade e eficácia do Ministério da Defesa (rrf=0.0811)
+  [21] Partido Socialista – PLANO DE AÇÃO PARA PORTUGAL INTEIRO 2024 > INTRODUÇÃO > **2.ª MISSÃO:** UM ESTADO SOCIAL FORTE, MODERNO E INCLUSIVO > 2. Um Serviço Nacional de Saúde universal, forte e resiliente > 2.7. (rrf=0.0787)
+  [22] Bloco de Esquerda – Fazer o que nunca foi feito: Programa eleitoral do Bloco de Esquerda, Legislativas 2024 > 9 Combate à Corrupção e ao Crime Económico > 9.2 Tolerância zero aos offshores > As propostas do Bloco: (rrf=0.0784)
+  [23] CHEGA – PROGRAMA ELEITORAL: LIMPAR PORTUGAL > I CAPÍTULO LIMPAR PORTUGAL DA CORRUPÇÃO. COMO? > PRIORIDADES (rrf=0.0778)
+  [24] Aliança Democrática – PROGRAMA SOCIAL E DE GOVERNAÇÃO DA ALIANÇA DEMOCRÁTICA > COM SENTIDO DE ESTADO > TRANSPARÊNCIA E COMBATE À CORRUPÇÃO > 3. Medidas > REPRESSÃO E PENALIZAÇÃO (rrf=0.0775)
+  [25] Aliança Democrática – PROGRAMA ECONÓMICO DA ALIANÇA DEMOCRÁTICA > Sumário Executivo > 3. AS NOSSAS REFORMAS > III. MELHOR ESTADO, COMBATER A CORRUPÇÃO (rrf=0.0765)
+  [26] LIVRE – Contrato com o Futuro: Programa do LIVRE às eleições legislativas de 2024 > **Estado e Instituições** (rrf=0.0633)
+  [27] Iniciativa Liberal – PROGRAMA ELEITORAL > A. PORTUGAL A CRESCER > 1. MAIS OPORTUNIDADES, MAIS SALÁRIO > 1.2. Reforma Fiscal: Menos Impostos, Mais Salário > Transparência da gestão do dinheiro dos contribuintes e Justiça Fiscal (rrf=0.0628)
+  [28] Partido Comunista Português – Programa Eleitoral do PCP: Política patriótica e de esquerda – Soluções para um Portugal com futuro > 1.ª PARTE > Programa eleitoral do PCP Legislativas 2024: Política patriótica e de esquerda – Soluções para um Portugal com futuro > 1.4. Quem afundou o País não o vai salvar > 1.4.4. (rrf=0.0609)
+  [29] CHEGA – PROGRAMA ELEITORAL: LIMPAR PORTUGAL > XVIII CAPÍTULO SIMPLIFICAR PORTUGAL. COMO? > PROPOSTAS (rrf=0.05)
+  [30] Partido Socialista – PLANO DE AÇÃO PARA PORTUGAL INTEIRO 2024 > INTRODUÇÃO (rrf=0.0484)
+  [31] Bloco de Esquerda – Fazer o que nunca foi feito: Programa eleitoral do Bloco de Esquerda, Legislativas 2024 > 7 Controlo Público dos Setores Estratégicos > 7.5 Uma banca pública estratégica (rrf=0.0474)
+  [32] Iniciativa Liberal – PROGRAMA ELEITORAL > C. PORTUGAL MAIS LIBERAL > 1. FORTALECER A DEMOCRACIA LIBERAL > 1.3. Restaurar a confiança nas instituições > Fomentar a transparência e promover o escrutínio > Disponibilizar programas políticos para escrutínio público (rrf=0.0472)
+  [33] Bloco de Esquerda – Fazer o que nunca foi feito: Programa eleitoral do Bloco de Esquerda, Legislativas 2024 > 7 Controlo Público dos Setores Estratégicos > 7.5 Uma banca pública estratégica > O erro da privatização do Novo Banco (rrf=0.0466)
+  [34] LIVRE – Contrato com o Futuro: Programa do LIVRE às eleições legislativas de 2024 > **Justiça** (rrf=0.0464)
+  [35] Iniciativa Liberal – PROGRAMA ELEITORAL > A. PORTUGAL A CRESCER > 1. MAIS OPORTUNIDADES, MAIS SALÁRIO > 1.2. Reforma Fiscal: Menos Impostos, Mais Salário > Transparência da gestão do dinheiro dos contribuintes e Justiça Fiscal (rrf=0.0448)
+  [36] Iniciativa Liberal – PROGRAMA ELEITORAL > B. PORTUGAL A FUNCIONAR > 3. REFORMAR A ADMINISTRAÇÃO PÚBLICA > 3.2. Descomplicar e descentralizar os serviços > Reorganizar a Administração Pública (rrf=0.032)
+  [37] Partido Comunista Português – Programa Eleitoral do PCP: Política patriótica e de esquerda – Soluções para um Portugal com futuro > 2.ª PARTE > CAPÍTULO 4 ELEVAR A QUALIDADE DE VIDA. INVESTIR NOS SERVIÇOS PÚBLICOS, CUMPRIR AS FUNÇÕES SOCIAIS DO ESTADO > 4.1. A defesa do Serviço Nacional de Saúde e uma política de saúde ao serviço dos portugueses > 4.1.3 Um SNS mais forte, com melhor organização e direção das unidades de saúde > Prevenir e tratar os comportamentos aditivos e as dependências (rrf=0.0318)
+
+Modelos (3 chamadas, 27742 tokens in / 1482 out, $0.0023):
+  query analysis: google/gemma-4-26b-a4b-it (0.4s)
+  query expansion: google/gemma-4-26b-a4b-it (0.7s)
+  answer: google/gemma-4-26b-a4b-it (4.6s)

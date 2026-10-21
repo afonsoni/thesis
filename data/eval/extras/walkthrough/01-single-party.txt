@@ -1,0 +1,62 @@
+[  5.1s] A analisar a pergunta…
+[  5.9s] A carregar o modelo de pesquisa (só na primeira pergunta)…
+[  7.9s] A reformular a pergunta para a pesquisa…
+[  8.3s] A pesquisar no programa de LIVRE…
+[  9.5s] A redigir a resposta a partir de 10 excertos…
+
+============================================================
+O partido LIVRE propõe uma série de medidas para a habitação, organizadas em quatro eixos principais:
+
+**Proteger e alargar o direito à habitação**
+* **Aumento da habitação pública:** Alcançar **10% de habitação pública** (visando 600 mil fogos a longo prazo), através da aplicação de fundos do PRR e verbas do Orçamento de Estado [2].
+* **Apoio à compra:** Implementar o **Programa Ajuda de Casa**, que consiste num empréstimo de capital próprio para financiar até **30% do valor de mercado** do imóvel para a compra da primeira habitação própria e permanente, mediante garantia de fiador [2].
+* **Cooperativismo:** Implementar a **Nova Geração de Cooperativismo** para promover habitação acessível com custos de construção controlados, através de direito de superfície ou inquilinato cooperativo [2].
+* **Património público:** Inventariar e reabilitar o parque imobiliário público (incluindo imóveis devolutos do Estado e Autarquias) e criar uma base de dados digital georreferenciada [2].
+* **Apoio estudantil:** Aumentar o número de vagas em residências universitárias e os apoios sociais para estudantes deslocados [2].
+* **Acessibilidade:** Realizar um levantamento nacional sobre a acessibilidade da habitação pública para pessoas com deficiência [2].
+* **Atendimento:** Criar o **"Balcão da Habitação"**, uma rede nacional única de atendimento especializado sob a alçada do IHRU [2].
+* **Capacitação:** Reforçar os recursos técnicos e financeiros do IHRU e dos municípios para a gestão da habitação [2].
+
+**Regular o valor da propriedade urbana**
+* **Limites de renda:** Estabelecer limites máximos de renda, durante pelo menos cinco anos, para imóveis de proprietários que recebam financiamento estatal [3].
+* **Contratos de arrendamento:** Garantir que novos contratos não excedam uma majoração de **30% dos limites gerais de preço** por tipologia previstos em portaria [3].
+* **Controlo da especulação:** 
+    * Aumentar o imposto sobre as mais-valias (considerando 100% do valor para englobamento) em imóveis que não sejam a primeira habitação [3].
+    * Terminar com os **Vistos Gold**, os benefícios fiscais para residentes não habituais e para nómadas digitais [3].
+* **Benefícios fiscais e IRC:** Reduzir benefícios a organizações de especulação imobiliária e restringir a isenção de IRC a fundos que disponibilizem **30% dos seus bens** no Programa de Apoio ao Arrendamento [3].
+* **Reforma do IMI:** Alargar a isenção de IMI para habitação permanente (valores de 80.000€ para património e 30.000€ para rendimentos) e agravar o imposto para imóveis devolutos ou degradados [3].
+* **Quotas de habitação:** Implementar quotas de **20% de habitação acessível** em empreendimentos com mais de seis frações [3].
+* **Mediação e condomínios:** Rever a legislação da mediação imobiliária e gestão de condomínios, introduzindo exigências formativas e maior transparência [3].
+
+**Apoiar na emergência**
+* **Fundo de Emergência:** Efetivar o Fundo de Emergência para a Habitação para apoiar pessoas sem habitação ou sem-abrigo, financiando alojamento temporário ou rendas [5].
+* **Programa Porta 65:** 
+    * Aumentar o apoio mínimo para **36 meses** e o máximo para **84 meses** [5].
+    * Incluir o arrendamento de quartos no programa [5].
+* **Proteção financeira:** 
+    * Alargar a bonificação de juros (taxa de esforço de 30% e aumento do apoio para 85% da variação dos juros) [5].
+    * Reforçar o apoio extraordinário à renda (taxa de esforço de 30% e valor máximo de **300 Euros**) [5].
+* **Dação em cumprimento:** Tornar obrigatória a possibilidade de dação em cumprimento da dívida de crédito à habitação, para que a perda do imóvel extinga a dívida [5].
+
+**Desenvolver modelos ecológicos para o habitar**
+* **Ordenamento e solo:** Manter a reclassificação do solo nos planos territoriais para reduzir a especulação e promover a proximidade [4].
+* **Comércio local:** Criar um Programa de Planeamento e Apoio ao Comércio Local em áreas urbanas consolidadas [4].
+* **Gestão de resíduos:** Estabelecer uma **Taxa Municipal de Entulho** e criar Bancos de Materiais de Construção para reutilização [4].
+* **Sustentabilidade e Urbanismo:** 
+    * Fomentar espaços verdes municipais e regionais [4].
+    * Criar benefícios fiscais para reabilitação com critérios de sustentabilidade [4].
+    * Elaborar um **Código da Construção** e um **Código do Urbanismo** para simplificar a legislação [4].
+* **Turismo:** Reforçar a exigência de adequação de habitações para fins turísticos (Alojamento Local) e criar equipas para fiscalizar o alojamento ilegal [4].
+============================================================
+
+Fontes (5):
+  [1] LIVRE – Contrato com o Futuro: Programa do LIVRE às eleições legislativas de 2024 > **Habitação e Espaço Público** (rrf=0.1605)
+  [2] LIVRE – Contrato com o Futuro: Programa do LIVRE às eleições legislativas de 2024 > **Habitação e Espaço Público** > Por isso defendemos: > **Proteger e alargar o direito à habitação** (rrf=0.1247)
+  [3] LIVRE – Contrato com o Futuro: Programa do LIVRE às eleições legislativas de 2024 > **Habitação e Espaço Público** > Por isso defendemos: > **Regular o valor da propriedade urbana** (rrf=0.1059)
+  [4] LIVRE – Contrato com o Futuro: Programa do LIVRE às eleições legislativas de 2024 > **Habitação e Espaço Público** > Por isso defendemos: > **Desenvolver modelos ecológicos para o habitar** (rrf=0.0957)
+  [5] LIVRE – Contrato com o Futuro: Programa do LIVRE às eleições legislativas de 2024 > **Habitação e Espaço Público** > Por isso defendemos: > **Apoiar na Emergência** (rrf=0.0754)
+
+Modelos (3 chamadas, 7315 tokens in / 1351 out, $0.0008):
+  query analysis: google/gemma-4-26b-a4b-it (0.8s)
+  query expansion: google/gemma-4-26b-a4b-it (0.4s)
+  answer: google/gemma-4-26b-a4b-it (5.0s)

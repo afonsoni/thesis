@@ -162,8 +162,10 @@ The default model is `BAAI/bge-reranker-v2-m3` (multilingual, trained on pairs
 that include Portuguese); `cross-encoder/mmarco-mMiniLMv2-L12-H384-v1` is a much
 smaller alternative. Set `retrieval.reranker_model` in `config/config.yaml`.
 Enable per-variant (`reranked`, `reranked_only`) or via `RetrievalConfig`.
-Expect higher latency — one forward pass per candidate — which the leaderboard's
-`avg_latency_s` column is there to price.
+
+Measured, it lost: on the test split, adding it to `current` cut recall by 0.111
+at about three times the latency (9.5 s against 3.5 s per answer), as on dev. It
+stays off and is reported as a negative result.
 
 ## Quick Start
 
@@ -260,27 +262,66 @@ python main.py query "Políticas ambientais dos partidos de esquerda" --top-k 10
 
 ## Evaluation
 
-The system is evaluated as a ladder of **implementation steps** (`naive` →
-`multiquery` → `routed` → `dense_only` → `hybrid` → `current` → `reranked`, plus the
-`hybrid_only` / `reranked_only` isolation rungs), all run over the same gold set
-so gains are attributable to specific techniques.
-Each step is a `RetrievalConfig` preset (feature flags over the *same* production
-code) — see `src/rag/evaluation/variants.py`.
+The system is evaluated RAGAS-style over a hand-written, hand-reviewed gold set
+of 61 questions: 25 **dev** questions for tuning and 36 **test** questions held
+out for the reported numbers (`--split test`). Variants are `RetrievalConfig`
+presets over the *same* production code (`src/rag/evaluation/variants.py`):
+
+- **the ladder**, one change per step: `naive` → `multiquery` / `routed` →
+  `dense_only` → `hybrid` → `contextual` (section headers) → `current` (LLM
+  context), plus `reranked` and the retrieval-only `hybrid_only` / `reranked_only`;
+- **retrieval versus scale**: `no_retrieval` (the same generator from memory),
+  `no_retrieval_strong` and `current_strong` (`evaluation.strong_model`), and
+  `assistant_<slug>` (commercial assistants with web search, corpus unseen).
+
+Metrics: retrieval (`hit`, `recall`, `aspect_recall`, `mrr`, `ndcg`), routing
+(`query_type_acc`, `coverage_acc`, `party_f1`, `topic_f1`), and LLM-judge
+generation (claim-level `faithfulness`, `correctness`, `correctness_recall`,
+`correctness_grounded`; `answer_relevance`; `abstention` on unanswerable
+questions and `false_refusal` on the rest), with bootstrap intervals and paired
+differences. Every result records the commit it ran on (`code_version`). Full
+methodology: [`docs/evaluation.md`](docs/evaluation.md).
 
 ```bash
-# 1. Anchor the hand-written questions to indexed chunks, review, compile golden.json
+# Anchor the hand-written questions to indexed chunks, review, compile golden.json
 python scripts/anchor_gold.py candidates   # then review anchoring/ANCHORING.md
 python scripts/anchor_gold.py compile
 
-# 2. Run variants and refresh the leaderboard
-python main.py eval --variants naive,current --curated-only
+# Run variants and refresh data/eval/reports/leaderboard-<split>.md
+python main.py eval --variants naive,current --split dev
 ```
 
-Metrics: retrieval (`hit`, `recall`, `mrr`, `ndcg`), routing
-(`query_type_acc`, `party_f1`, `topic_f1`), and LLM-judge generation
-(`faithfulness`, `answer_relevance`, `correctness`). Results land in
-`data/eval/results/` and a committed `data/eval/reports/leaderboard[-<split>].md`.
-Full methodology: [`docs/evaluation.md`](docs/evaluation.md).
+## Reproducing the thesis results
+
+Every reported number comes from one judged run of each variant on the test
+split, on the commit tagged `code-freeze` (`0293a0b`).
+
+```bash
+git checkout code-freeze
+docker compose up -d
+
+# The three indexes, from the committed classified checkpoints and cached LLM
+# contexts (data/2_processed/), so no LLM call is needed to rebuild them.
+for f in data/2_processed/*-classified.json; do                       # current
+  python main.py index --from-classified "$f"; done
+for f in data/2_processed/*-classified.json; do                       # contextual
+  python main.py index --from-classified "$f" --no-llm-context --table party_programs_ctx; done
+for f in data/2_processed/*-classified.json; do                       # every rung below it
+  python main.py index --from-classified "$f" --no-llm-context --no-contextual-headers --table party_programs_plain; done
+
+# The test run (paid LLM calls; eval prints a cost estimate first)
+python main.py eval --split test --variants naive,multiquery,routed,dense_only,hybrid,contextual,current,reranked,hybrid_only,reranked_only,no_retrieval,no_retrieval_strong,current_strong,assistant_gpt,assistant_gemini,assistant_claude
+
+# Thesis tables from the saved results
+python scripts/eval_extras/rebuild_leaderboard.py   # data/eval/reports/leaderboard-test.md
+python scripts/eval_extras/headline_analysis.py     # data/eval/extras/headline-analysis.md
+```
+
+Add `--drop` to the first command of each loop to rebuild a table from scratch.
+`deep_research_claude` was collected outside the harness, through a Claude plan
+(`scripts/eval_extras/deep_research.py`). LLM outputs are not deterministic even
+at temperature 0, so a rerun lands near, not exactly on, the committed results
+in `data/eval/results/`.
 
 ## Configuration
 

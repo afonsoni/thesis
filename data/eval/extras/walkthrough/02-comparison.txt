@@ -1,0 +1,52 @@
+[  3.2s] A analisar a pergunta…
+[  3.8s] A carregar o modelo de pesquisa (só na primeira pergunta)…
+[  4.8s] A reformular a pergunta para a pesquisa…
+[  5.6s] A pesquisar nos programas de Bloco de Esquerda, Iniciativa Liberal…
+[  6.6s] A redigir a comparação entre 2 partidos…
+
+============================================================
+### Bloco de Esquerda
+
+O Bloco de Esquerda defende a reconstrução do SNS através do combate ao que denomina "negócio da saúde", argumentando que o orçamento é desviado para o setor privado [1][4]. As suas propostas incluem:
+
+*   **Financiamento e Gestão:** Adequar o orçamento às necessidades reais das instituições (hospitais, centros de saúde, INEM) [3]; conferir autonomia e responsabilização às administrações; implementar a gestão democrática das unidades de saúde e excluir o SNS da aplicação da Lei dos Compromissos [3].
+*   **Medidas Estruturais:** Criar um plano plurianual de investimentos com uma carta nacional de equipamentos para combater a obsolescência tecnológica [3]; integrar no SNS os hospitais atualmente geridos por Santas Casas da Misericórdia (Serpa, Anadia e Fafe) [3].
+*   **Combate à Privatização:** Revogar o decreto-lei das parcerias de gestão, a legislação que permite a privatização dos cuidados primários via USF-C e o decreto-lei das novas ULS [3].
+*   **Recursos Humanos e Especialidades:** Contratar profissionais para garantir rácios específicos: um médico dentista por 25 mil habitantes (ou 10-25 mil em zonas de baixa densidade); um psicólogo por 5 mil habitantes; uma equipa de saúde mental por cada 50 a 100 mil habitantes; e um nutricionista por 12 mil habitantes [6]. Propõe ainda a criação de uma carreira de médico dentista no SNS [6].
+*   **Cuidados e Diagnóstico:** Criar uma rede pública de Centros de Diagnóstico e Terapêutica e equipar centros de saúde com meios de diagnóstico (raio X, eletrocardiograma) e colheita de amostras [6].
+*   **Serviço Nacional de Cuidados:** Propõe a criação de um Serviço Nacional de Cuidados, com uma rede de estabelecimentos gratuitos e universais (creches, centros de dia, estruturas para idosos, cuidados paliativos, etc.) e a possibilidade de parcerias público-público [5].
+
+### Iniciativa Liberal
+
+A Iniciativa Liberal propõe uma mudança de paradigma através do "Sistema Universal de Acesso à Saúde" (SUA-Saúde), que integra os setores público, privado e social, focando-se no utente e na liberdade de escolha [11][12]. As suas propostas incluem:
+
+*   **Modelo de Gestão e Parcerias:** Recuperar e ampliar o modelo de Parcerias Público-Privadas (PPP) em hospitais, após estudos que demonstrem a sua vantagem [7]. Defende especificamente a recuperação das PPP nos hospitais de Braga, Vila Franca de Xira e Loures [13].
+*   **Redução de Listas de Espera:** Criar um "Programa Especial de Acesso a Cuidados de Saúde" para assegurar consultas e cirurgias através de concursos públicos de abrangência internacional quando os Tempos Máximos de Resposta Garantidos (TMRG) não forem cumpridos [9].
+*   **Cuidados Primários e Acesso:** Contratualizar a prestação de cuidados com o setor social e privado para responder a atrasos no SNS [8]. Estabelece o objetivo de garantir médico de família (público ou privado) para todos até 2028, com prioridade a idosos, grávidas e crianças até aos 9 anos até 2025 [13]. Propõe ainda a expansão das USF-B e implementação das USF-C [13].
+*   **Recursos Humanos e Eficiência:** Criar carreiras atrativas baseadas na remuneração, mérito e qualidade de serviço [9]; implementar a remuneração variável consoante o desempenho para todos os profissionais [13]; e garantir liberdade de contratação direta às instituições para maior autonomia [9].
+*   **Promoção da Saúde e Outros:** Reforçar os cuidados primários em áreas como cessação tabágica, medicina do viajante e saúde sexual [10]; garantir comparticipação a 100% de medicamentos e dispositivos médicos para quem não os possa pagar (especialmente idosos) [13]; e criar um Registo de Saúde Eletrónico Universal [13].
+
+### Síntese
+
+As propostas divergem fundamentalmente no modelo de gestão: o Bloco de Esquerda foca-se no reforço da gestão pública, na integração de serviços no SNS e na revogação de parcerias público-privadas e modelos de gestão privada [3], enquanto a Iniciativa Liberal defende a integração dos setores público, privado e social num modelo de concorrência e liberdade de escolha (SUA-Saúde), promovendo a expansão das PPP [11][13]. No que toca aos recursos humanos, ambos reconhecem a necessidade de melhorar as carreiras, mas o Bloco de Esquerda enfatiza a contratação para cumprir rácios populacionais específicos [6], enquanto a Iniciativa Liberal foca na remuneração variável por desempenho e na liberdade de gestão das instituições [9][13].
+============================================================
+
+Fontes (13):
+  [1] Bloco de Esquerda – Fazer o que nunca foi feito: Programa eleitoral do Bloco de Esquerda, Legislativas 2024 > 2 Saúde > 2.5 Investir no SNS, combater o negócio da saúde (rrf=0.0789)
+  [2] Bloco de Esquerda – Fazer o que nunca foi feito: Programa eleitoral do Bloco de Esquerda, Legislativas 2024 > 2 Saúde (rrf=0.0777)
+  [3] Bloco de Esquerda – Fazer o que nunca foi feito: Programa eleitoral do Bloco de Esquerda, Legislativas 2024 > 2 Saúde > 2.5 Investir no SNS, combater o negócio da saúde > Medidas para financiar o SNS (rrf=0.0656)
+  [4] Bloco de Esquerda – Fazer o que nunca foi feito: Programa eleitoral do Bloco de Esquerda, Legislativas 2024 > 2 Saúde > 2.2 Faltam profissionais e soluções, sobra o negócio que parasita o SNS (rrf=0.0644)
+  [5] Bloco de Esquerda – Fazer o que nunca foi feito: Programa eleitoral do Bloco de Esquerda, Legislativas 2024 > 13 Uma Nova Política de Cuidados > 13.2 Mudança de paradigma > 13.2.1 O Direito ao cuidado na Constituição - O Serviço Nacional de Cuidados como resposta pública a uma necessidade de todas as pessoas (rrf=0.0638)
+  [6] Bloco de Esquerda – Fazer o que nunca foi feito: Programa eleitoral do Bloco de Esquerda, Legislativas 2024 > 2 Saúde > 2.3 Objetivo: reconstruir o SNS > Exames na hora certa, dentro do SNS (rrf=0.0464)
+  [7] Iniciativa Liberal – PROGRAMA ELEITORAL > B. PORTUGAL A FUNCIONAR > 2. MAIS ACESSO À SAÚDE > 2.1. Mudar o Sistema de Saúde em Portugal > Recuperar as Parcerias Público-Privadas (PPP) (rrf=0.11)
+  [8] Iniciativa Liberal – PROGRAMA ELEITORAL > B. PORTUGAL A FUNCIONAR > 2. MAIS ACESSO À SAÚDE > 2.1. Mudar o Sistema de Saúde em Portugal > Mais Acesso a Cuidados de Saúde Primários (rrf=0.096)
+  [9] Iniciativa Liberal – PROGRAMA ELEITORAL > B. PORTUGAL A FUNCIONAR > 2. MAIS ACESSO À SAÚDE > 2.1. Mudar o Sistema de Saúde em Portugal > Reduzir as Listas de Espera (rrf=0.0958)
+  [10] Iniciativa Liberal – PROGRAMA ELEITORAL > B. PORTUGAL A FUNCIONAR > 2. MAIS ACESSO À SAÚDE > 2.1. Mudar o Sistema de Saúde em Portugal > Reforçar a Promoção da Saúde (rrf=0.0645)
+  [11] Iniciativa Liberal – PROGRAMA ELEITORAL > B. PORTUGAL A FUNCIONAR > 2. MAIS ACESSO À SAÚDE > 2.1. Mudar o Sistema de Saúde em Portugal > Um novo modelo de Sistema de Saúde: o Sistema Universal de Acesso à Saúde (SUA-Saúde) (rrf=0.0641)
+  [12] Iniciativa Liberal – PROGRAMA ELEITORAL > B. PORTUGAL A FUNCIONAR > 2. MAIS ACESSO À SAÚDE (rrf=0.0635)
+  [13] Iniciativa Liberal – PROGRAMA ELEITORAL > PORTUGAL A FUNCIONAR > 6. MAIS ACESSO À SAÚDE (rrf=0.0623)
+
+Modelos (3 chamadas, 9653 tokens in / 1334 out, $0.0010):
+  query analysis: google/gemma-4-26b-a4b-it (0.6s)
+  query expansion: google/gemma-4-26b-a4b-it (0.7s)
+  comparison answer: google/gemma-4-26b-a4b-it (2.7s)

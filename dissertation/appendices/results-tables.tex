@@ -1,0 +1,139 @@
+% Generated on 2026-10-22 from data/eval/reports/leaderboard-test.md and
+% data/eval/extras/headline-analysis.md (test split, code 0293a0b). Do not edit by hand.
+
+\begin{table}[H]
+    \centering
+    \footnotesize
+    \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{|l|r|r|r|r|r|}
+        \hline
+        \textbf{Variant} & \textbf{Hit} & \textbf{Recall} & \textbf{Aspect recall} & \textbf{MRR} & \textbf{nDCG} \\
+        \hline
+        \texttt{naive} & 0.906 {\scriptsize[0.81, 1.00]} & 0.452 {\scriptsize[0.35, 0.56]} & 0.536 {\scriptsize[0.43, 0.65]} & 0.655 {\scriptsize[0.51, 0.80]} & 0.475 {\scriptsize[0.37, 0.58]} \\
+        \texttt{multiquery} & 0.875 {\scriptsize[0.75, 0.97]} & 0.494 {\scriptsize[0.38, 0.61]} & 0.520 {\scriptsize[0.40, 0.64]} & 0.646 {\scriptsize[0.52, 0.78]} & 0.529 {\scriptsize[0.42, 0.64]} \\
+        \texttt{routed} & 0.938 {\scriptsize[0.84, 1.00]} & 0.661 {\scriptsize[0.56, 0.76]} & 0.728 {\scriptsize[0.62, 0.83]} & 0.677 {\scriptsize[0.54, 0.81]} & 0.567 {\scriptsize[0.47, 0.67]} \\
+        \texttt{dense\_only} & 0.969 {\scriptsize[0.91, 1.00]} & 0.706 {\scriptsize[0.60, 0.80]} & 0.734 {\scriptsize[0.64, 0.83]} & 0.668 {\scriptsize[0.54, 0.80]} & 0.580 {\scriptsize[0.48, 0.67]} \\
+        \texttt{hybrid} & 1.000 {\scriptsize[1.00, 1.00]} & 0.828 {\scriptsize[0.76, 0.89]} & 0.847 {\scriptsize[0.78, 0.91]} & 0.830 {\scriptsize[0.72, 0.93]} & 0.720 {\scriptsize[0.65, 0.79]} \\
+        \texttt{contextual} & 1.000 {\scriptsize[1.00, 1.00]} & 0.836 {\scriptsize[0.77, 0.90]} & 0.839 {\scriptsize[0.76, 0.91]} & 0.840 {\scriptsize[0.73, 0.94]} & 0.728 {\scriptsize[0.65, 0.80]} \\
+        \texttt{current} & 1.000 {\scriptsize[1.00, 1.00]} & 0.870 {\scriptsize[0.81, 0.93]} & 0.843 {\scriptsize[0.77, 0.92]} & 0.844 {\scriptsize[0.74, 0.93]} & 0.767 {\scriptsize[0.71, 0.82]} \\
+        \texttt{reranked} & 0.969 {\scriptsize[0.91, 1.00]} & 0.759 {\scriptsize[0.67, 0.85]} & 0.778 {\scriptsize[0.69, 0.86]} & 0.874 {\scriptsize[0.77, 0.96]} & 0.683 {\scriptsize[0.60, 0.76]} \\
+        \texttt{hybrid\_only} & 0.875 {\scriptsize[0.75, 0.97]} & 0.489 {\scriptsize[0.37, 0.61]} & 0.509 {\scriptsize[0.39, 0.62]} & 0.748 {\scriptsize[0.62, 0.88]} & 0.557 {\scriptsize[0.45, 0.66]} \\
+        \texttt{reranked\_only} & 0.906 {\scriptsize[0.81, 1.00]} & 0.514 {\scriptsize[0.40, 0.63]} & 0.553 {\scriptsize[0.44, 0.67]} & 0.774 {\scriptsize[0.64, 0.90]} & 0.588 {\scriptsize[0.48, 0.70]} \\
+        \hline
+    \end{tabular}
+    \end{adjustbox}
+    \caption{Retrieval on the 36 test questions, mean with 95\% bootstrap interval. Rungs without retrieval are omitted.}
+    \label{tab:app-retrieval}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \footnotesize
+    \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{|l|r|r|r|r|}
+        \hline
+        \textbf{Variant} & \textbf{Type acc.} & \textbf{Coverage acc.} & \textbf{Party F1} & \textbf{Topic F1} \\
+        \hline
+        \texttt{naive} & 0.111 {\scriptsize[0.03, 0.22]} & 0.889 {\scriptsize[0.78, 0.97]} & 0.361 {\scriptsize[0.19, 0.53]} & 0.111 {\scriptsize[0.03, 0.22]} \\
+        \texttt{multiquery} & 0.111 {\scriptsize[0.03, 0.22]} & 0.889 {\scriptsize[0.78, 0.97]} & 0.361 {\scriptsize[0.19, 0.53]} & 0.111 {\scriptsize[0.03, 0.22]} \\
+        \texttt{routed} & 0.917 {\scriptsize[0.83, 1.00]} & 0.722 {\scriptsize[0.56, 0.86]} & 1.000 {\scriptsize[1.00, 1.00]} & 0.787 {\scriptsize[0.68, 0.89]} \\
+        \texttt{dense\_only} & 0.833 {\scriptsize[0.69, 0.94]} & 0.667 {\scriptsize[0.50, 0.83]} & 1.000 {\scriptsize[1.00, 1.00]} & 0.741 {\scriptsize[0.62, 0.86]} \\
+        \texttt{hybrid} & 0.833 {\scriptsize[0.69, 0.94]} & 0.667 {\scriptsize[0.50, 0.83]} & 1.000 {\scriptsize[1.00, 1.00]} & 0.741 {\scriptsize[0.62, 0.86]} \\
+        \texttt{contextual} & 0.833 {\scriptsize[0.69, 0.94]} & 0.667 {\scriptsize[0.50, 0.83]} & 1.000 {\scriptsize[1.00, 1.00]} & 0.741 {\scriptsize[0.62, 0.86]} \\
+        \texttt{current} & 0.833 {\scriptsize[0.69, 0.94]} & 0.667 {\scriptsize[0.50, 0.83]} & 1.000 {\scriptsize[1.00, 1.00]} & 0.741 {\scriptsize[0.62, 0.86]} \\
+        \hline
+    \end{tabular}
+    \end{adjustbox}
+    \caption{Query analysis and routing on the 36 test questions. Rungs without query analysis score the fallback labels.}
+    \label{tab:app-routing}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \footnotesize
+    \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{|l|r|r|r|r|r|}
+        \hline
+        \textbf{Variant} & \textbf{Faithfulness} & \textbf{Correctness} & \textbf{Corr. recall} & \textbf{Corr. grounded} & \textbf{Relevance} \\
+        \hline
+        \texttt{naive} & 0.931 {\scriptsize[0.83, 1.00]} & 0.362 {\scriptsize[0.26, 0.47]} & 0.409 {\scriptsize[0.30, 0.51]} & 0.495 {\scriptsize[0.36, 0.62]} & 0.812 {\scriptsize[0.67, 0.92]} \\
+        \texttt{multiquery} & 0.931 {\scriptsize[0.83, 1.00]} & 0.367 {\scriptsize[0.26, 0.47]} & 0.404 {\scriptsize[0.28, 0.53]} & 0.482 {\scriptsize[0.34, 0.62]} & 0.812 {\scriptsize[0.69, 0.94]} \\
+        \texttt{routed} & 0.978 {\scriptsize[0.95, 1.00]} & 0.484 {\scriptsize[0.38, 0.58]} & 0.522 {\scriptsize[0.41, 0.63]} & 0.611 {\scriptsize[0.49, 0.72]} & 0.938 {\scriptsize[0.84, 1.00]} \\
+        \texttt{dense\_only} & 0.997 {\scriptsize[0.99, 1.00]} & 0.511 {\scriptsize[0.42, 0.60]} & 0.519 {\scriptsize[0.41, 0.62]} & 0.608 {\scriptsize[0.48, 0.72]} & 0.922 {\scriptsize[0.83, 1.00]} \\
+        \texttt{hybrid} & 0.956 {\scriptsize[0.88, 1.00]} & 0.527 {\scriptsize[0.44, 0.61]} & 0.628 {\scriptsize[0.53, 0.72]} & 0.716 {\scriptsize[0.60, 0.82]} & 0.922 {\scriptsize[0.83, 1.00]} \\
+        \texttt{contextual} & 0.959 {\scriptsize[0.88, 1.00]} & 0.552 {\scriptsize[0.47, 0.62]} & 0.648 {\scriptsize[0.56, 0.73]} & 0.740 {\scriptsize[0.64, 0.83]} & 0.922 {\scriptsize[0.83, 1.00]} \\
+        \texttt{current} & 0.951 {\scriptsize[0.87, 1.00]} & 0.529 {\scriptsize[0.45, 0.60]} & 0.635 {\scriptsize[0.54, 0.73]} & 0.729 {\scriptsize[0.62, 0.82]} & 0.922 {\scriptsize[0.83, 1.00]} \\
+        \texttt{reranked} & 0.944 {\scriptsize[0.86, 1.00]} & 0.502 {\scriptsize[0.42, 0.58]} & 0.556 {\scriptsize[0.46, 0.64]} & 0.652 {\scriptsize[0.54, 0.75]} & 0.922 {\scriptsize[0.83, 1.00]} \\
+        \texttt{no\_retrieval} & -- & 0.085 {\scriptsize[0.05, 0.13]} & 0.087 {\scriptsize[0.05, 0.13]} & -- & 0.906 {\scriptsize[0.81, 0.98]} \\
+        \texttt{no\_retrieval\_strong} & -- & 0.169 {\scriptsize[0.11, 0.23]} & 0.128 {\scriptsize[0.08, 0.17]} & -- & 0.930 {\scriptsize[0.87, 0.98]} \\
+        \texttt{current\_strong} & 0.996 {\scriptsize[0.99, 1.00]} & 0.604 {\scriptsize[0.55, 0.66]} & 0.747 {\scriptsize[0.68, 0.81]} & 0.833 {\scriptsize[0.77, 0.88]} & 0.984 {\scriptsize[0.95, 1.00]} \\
+        \texttt{assistant\_gpt} & -- & 0.510 {\scriptsize[0.44, 0.58]} & 0.540 {\scriptsize[0.47, 0.61]} & -- & 1.000 {\scriptsize[1.00, 1.00]} \\
+        \texttt{assistant\_gemini} & -- & 0.424 {\scriptsize[0.36, 0.49]} & 0.564 {\scriptsize[0.49, 0.65]} & -- & 1.000 {\scriptsize[1.00, 1.00]} \\
+        \texttt{assistant\_claude} & -- & 0.182 {\scriptsize[0.13, 0.24]} & 0.363 {\scriptsize[0.26, 0.47]} & -- & 0.875 {\scriptsize[0.77, 0.97]} \\
+        \texttt{deep\_research\_claude} & -- & 0.295 {\scriptsize[0.23, 0.36]} & 0.633 {\scriptsize[0.56, 0.71]} & -- & 1.000 {\scriptsize[1.00, 1.00]} \\
+        \hline
+    \end{tabular}
+    \end{adjustbox}
+    \caption{Generation on the 32 answerable test questions, judged by \texttt{qwen/qwen3.8-27b}. Faithfulness does not apply to closed-book and assistant rungs.}
+    \label{tab:app-generation}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \footnotesize
+    \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{|l|r|r|r|r|}
+        \hline
+        \textbf{Variant} & \textbf{Abstention} & \textbf{False refusal} & \textbf{Latency (s)} & \textbf{Error rate} \\
+        \hline
+        \texttt{naive} & 1.000 {\scriptsize[1.00, 1.00]} & 0.156 {\scriptsize[0.03, 0.28]} & 1.841 & 0.000 \\
+        \texttt{multiquery} & 1.000 {\scriptsize[1.00, 1.00]} & 0.156 {\scriptsize[0.03, 0.28]} & 3.183 & 0.000 \\
+        \texttt{routed} & 0.750 {\scriptsize[0.25, 1.00]} & 0.094 {\scriptsize[0.00, 0.22]} & 2.488 & 0.000 \\
+        \texttt{dense\_only} & 0.750 {\scriptsize[0.25, 1.00]} & 0.062 {\scriptsize[0.00, 0.16]} & 3.961 & 0.000 \\
+        \texttt{hybrid} & 0.750 {\scriptsize[0.25, 1.00]} & 0.062 {\scriptsize[0.00, 0.16]} & 3.259 & 0.000 \\
+        \texttt{contextual} & 1.000 {\scriptsize[1.00, 1.00]} & 0.062 {\scriptsize[0.00, 0.16]} & 3.059 & 0.000 \\
+        \texttt{current} & 1.000 {\scriptsize[1.00, 1.00]} & 0.062 {\scriptsize[0.00, 0.16]} & 3.496 & 0.000 \\
+        \texttt{reranked} & 0.750 {\scriptsize[0.25, 1.00]} & 0.062 {\scriptsize[0.00, 0.16]} & 9.547 & 0.000 \\
+        \texttt{no\_retrieval} & 0.500 {\scriptsize[0.00, 1.00]} & 0.094 {\scriptsize[0.00, 0.22]} & 1.417 & 0.000 \\
+        \texttt{no\_retrieval\_strong} & 0.250 {\scriptsize[0.00, 0.75]} & 0.031 {\scriptsize[0.00, 0.09]} & 9.542 & 0.000 \\
+        \texttt{current\_strong} & 1.000 {\scriptsize[1.00, 1.00]} & 0.031 {\scriptsize[0.00, 0.09]} & 12.614 & 0.000 \\
+        \texttt{assistant\_gpt} & 0.750 {\scriptsize[0.25, 1.00]} & 0.000 {\scriptsize[0.00, 0.00]} & 24.239 & 0.000 \\
+        \texttt{assistant\_gemini} & 0.750 {\scriptsize[0.25, 1.00]} & 0.000 {\scriptsize[0.00, 0.00]} & 90.822 & 0.000 \\
+        \texttt{assistant\_claude} & 0.250 {\scriptsize[0.00, 0.75]} & 0.125 {\scriptsize[0.03, 0.25]} & 23.366 & 0.000 \\
+        \texttt{deep\_research\_claude} & 0.500 {\scriptsize[0.00, 1.00]} & 0.000 {\scriptsize[0.00, 0.00]} & 107.647 & 0.000 \\
+        \hline
+    \end{tabular}
+    \end{adjustbox}
+    \caption{Refusals and run statistics. Abstention is scored on the 4 unanswerable test questions and false refusal on the 32 answerable ones.}
+    \label{tab:app-refusals}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \footnotesize
+    \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{|l|r|r|r|r|r|r|r|}
+        \hline
+        \textbf{Variant} & \textbf{Pipeline} & \textbf{Judge} & \textbf{Tokens in} & \textbf{Tokens out} & \textbf{Calls} & \textbf{Latency (s)} & \textbf{Truncated} \\
+        \hline
+        \texttt{naive} & 0.0008 & 0.0072 & 7,290 & 315 & 1.0 & 1.8 & 0 \\
+        \texttt{multiquery} & 0.0008 & 0.0068 & 7,257 & 391 & 2.0 & 3.2 & 0 \\
+        \texttt{routed} & 0.0015 & 0.0081 & 14,070 & 484 & 2.0 & 2.5 & 0 \\
+        \texttt{dense\_only} & 0.0015 & 0.0071 & 14,769 & 539 & 3.0 & 4.0 & 0 \\
+        \texttt{hybrid} & 0.0012 & 0.0083 & 14,550 & 599 & 3.0 & 3.3 & 0 \\
+        \texttt{contextual} & 0.0012 & 0.0086 & 14,428 & 600 & 3.0 & 3.1 & 0 \\
+        \texttt{current} & 0.0011 & 0.0084 & 13,984 & 604 & 3.0 & 3.5 & 0 \\
+        \texttt{reranked} & 0.0012 & 0.0086 & 14,781 & 603 & 3.0 & 9.5 & 0 \\
+        \texttt{no\_retrieval} & 0.0001 & 0.0046 & 322 & 302 & 1.0 & 1.4 & 0 \\
+        \texttt{no\_retrieval\_strong} & 0.0077 & 0.0055 & 295 & 466 & 1.0 & 9.5 & 0 \\
+        \texttt{current\_strong} & 0.0408 & 0.0116 & 13,200 & 899 & 3.0 & 12.6 & 3 \\
+        \texttt{assistant\_gpt} & 0.0915 & 0.0057 & 28,962 & 640 & 1.0 & 24.2 & 0 \\
+        \texttt{assistant\_gemini} & 0.0674 & 0.0069 & 531 & 1,309 & 1.0 & 90.8 & 2 \\
+        \texttt{assistant\_claude} & 0.0710 & 0.0079 & 4,572 & 2,283 & 1.0 & 23.4 & 5 \\
+        \texttt{deep\_research\_claude} & 0.3481 (notional) & 0.0092 & 121,047 & 4,844 & 1.0 & 107.6 & 0 \\
+        \hline
+    \end{tabular}
+    \end{adjustbox}
+    \caption{Cost per answer in US dollars. Pipeline cost is what answering costs and judge cost is evaluation overhead. The deep research cost is notional, since it ran on a subscription.}
+    \label{tab:app-cost}
+\end{table}

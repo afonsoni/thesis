@@ -28,3 +28,6 @@ data/2_processed/cleaner-validation/
 
 # Anchoring candidates (rebuild with `python scripts/anchor_gold.py candidates`)
 data/eval/questions/anchoring/candidates.json
+
+# Claude Code local state (session worktrees, preview config)
+.claude/
