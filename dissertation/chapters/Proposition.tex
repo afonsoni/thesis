@@ -42,7 +42,7 @@ as yardsticks to measure \sysname{} against (Section~\ref{subsec:variants}).
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{images/architecture-overview.pdf}
-    \caption{Overview of \sysname{}. Indexing builds the vector store that
+    \caption[Overview of \sysname{}]{Overview of \sysname{}. Indexing builds the vector store that
     retrieval searches for each question, and generation answers from the
     passages retrieved. Evaluation replays retrieval and generation under
     different feature flags. Indexing and evaluation run offline; retrieval and
@@ -73,7 +73,7 @@ how and why that choice was later revised.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{images/architecture-indexing.pdf}
-    \caption{The indexing pipeline. Document preparation runs once per
+    \caption[The indexing pipeline]{The indexing pipeline. Document preparation runs once per
     manifesto and its output is reviewed by hand; the indexing pipeline then
     chunks, classifies, contextualises and embeds the cleaned Markdown into the
     vector store.}
@@ -105,9 +105,37 @@ published.
 Table~\ref{tab:corpus} summarises the corpus. The documents are long and
 uneven, ranging from 94 to 275 pages and from about 31 to 68 thousand words
 after conversion, which totals roughly 1{,}400 pages and 427 thousand words.
-Every manifesto is a public document, freely downloadable from its party's
-website. \TODO{State where each PDF was obtained and on what date, and check
-whether any party states a licence.}
+Every manifesto is a public document that its party published as a PDF in
+February 2024, a few weeks before the vote, and none of the eight states a
+licence. Four of the copies used here (AD, LIVRE, PAN and PS) are byte for byte
+the files the parties still serve today (Table~\ref{tab:sources}). BE and PCP
+still publish their 2024 programmes, but as a different export from the copy
+used here, and CHEGA and IL now link only their 2025 programmes from the same
+pages.
+
+\begin{table}[h]
+    \centering
+    \footnotesize
+    \def\UrlBreaks{\do\/\do-\do_}
+    \begin{tabular}{|l|p{0.78\textwidth}|}
+        \hline
+        \textbf{Party} & \textbf{Source (checked October 2026)} \\
+        \hline
+        AD    & \url{https://ad2024.pt/files/pdf/ad-programa-eleitoral.pdf} \\
+        BE    & \url{https://www.bloco.org/media/PROGRAMA_BLOCO_2024.pdf} \\
+        CHEGA & \url{https://pub.portalchega.pt/programaeleitoral/} \\
+        IL    & \url{https://iniciativaliberal.pt/portugalcomfuturo/} \\
+        LIVRE & \url{https://partidolivre.pt/wp-content/uploads/2024/02/Programa_LIVRE_2024_FINAL.pdf} \\
+        PAN   & \url{https://www.pan.com.pt/files/uploads/2024/02/Programa-Eleitoral_Legislativas24_Campanhas_2024_PAN-Nacional-1.pdf} \\
+        PCP   & \url{https://www.cdu.pt/assets/docs/programa_eleitoral_pcp_2024.pdf} \\
+        PS    & \url{https://ps.pt/wp-content/uploads/2024/02/PS-Portugal_Inteiro_2024-6.pdf} \\
+        \hline
+    \end{tabular}
+    \caption[Manifesto sources]{Where each manifesto is published. The AD,
+    LIVRE, PAN and PS files match the copies used here exactly. CHEGA and IL
+    now serve their 2025 programmes at these addresses.}
+    \label{tab:sources}
+\end{table}
 
 \begin{table}[h]
     \centering
@@ -127,7 +155,7 @@ whether any party states a licence.}
         \textbf{Total} & \textbf{1{,}395} & \textbf{426{,}813} \\
         \hline
     \end{tabular}
-    \caption{The corpus: 2024 legislative manifestos of the eight parties
+    \caption[The corpus]{The corpus: 2024 legislative manifestos of the eight parties
     elected to parliament.}
     \label{tab:corpus}
 \end{table}
@@ -213,8 +241,21 @@ demotes it to body text, or drops it. A verification step rejects any output
 containing a word absent from the input, so the model cannot paraphrase or
 invent manifesto text. The manual review still had to fix part and chapter
 headings the model missed in all four documents.
-\TODO{Report the cleaner's agreement with the four hand-corrected files
-(scripts/validate\_cleaner.py), if the number is meaningful.}
+%% DRAFT (Claude, 2026-10-24) from data/eval/extras/cleaner-validation.md.
+%% Rewrite in your own words.
+To see how far the cleaner can be trusted without that review, it was run on
+the four manifestos that had also been cleaned by hand, and its raw output was
+compared with the manual files. The text survives. The cleaner keeps between
+98.4 and 100 per cent of the words the human kept and leaves at most 2.8 per
+cent of the words the human removed. The headings fare worse. Section titles
+match the manual files well for AD and PS (F1 of 0.94 and 0.95) and poorly for
+LIVRE and PCP (0.30 and 0.28), and heading depths barely agree anywhere (F1 of
+0.22 at best). The manual files are one person's choices rather than ground
+truth, though. The hand pass flattened LIVRE to 60 headings where the cleaner
+kept 101, so a low score there partly measures how much the human removed. For
+retrieval the words matter more than the hierarchy, because the chunker splits
+on every heading level alike and depth only changes the section path printed in
+each chunk's header (Section~\ref{subsec:chunking}).
 
 \subsection{Chunking} \label{subsec:chunking}
 
@@ -514,7 +555,7 @@ tutorials and blog posts.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.85\textwidth]{images/architecture-retrieval.pdf}
-    \caption{The retrieval pipeline. Dashed stages are switched by the feature
+    \caption[The retrieval pipeline]{The retrieval pipeline. Dashed stages are switched by the feature
     flag in brackets; with the flag off, a stage falls back to its simplest
     form (Section~\ref{subsec:variants}). Reranking and the topic filter are
     off by default. A question that names only parties outside the corpus
@@ -786,7 +827,7 @@ a manifesto.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.9\textwidth]{images/architecture-generation.pdf}
-    \caption{Answer synthesis. With no passages to answer from, a fixed reply
+    \caption[Answer synthesis]{Answer synthesis. With no passages to answer from, a fixed reply
     is returned without calling the LLM. Otherwise the context is fitted to the
     prompt budget, and the answer shape set by query analysis picks the
     strategy.}
@@ -818,11 +859,14 @@ something outside the system rather than by its answers.
     only way to use an LLM without paying for a subscription or depending on a
     vendor's free tier. The author's machine could run only small models,
     though, and their answers were both weaker and slow, which slowed down
-    every iteration of the system.
-    \item \textbf{A hosted router that disappeared.} A paid routing service,
-    LlamaAPI, was tried briefly. It shut down without notice, taking the
-    prepaid credit with it. That made the project wary of intermediaries for
-    some time.
+    every iteration of the system. Only the first naive prototype ever ran end
+    to end on a local model. Otherwise local models served to try out early
+    components, such as an LLM pass that tidied extracted text.
+    \item \textbf{A hosted router that disappeared.} LlamaAPI, a paid service
+    that routed each call to the model asked for, was funded in January 2025.
+    It was last reachable in March 2026 and then shut down without notice,
+    taking the prepaid credit with it. That made the project wary of
+    intermediaries for some time.
     \item \textbf{Gemini (early 2026).} Google's Gemini 2.5 Flash and Pro were
     then used through Google's API: inexpensive, with free credits, and good in
     Portuguese. Quotas and the inability to try other vendors' models through
@@ -834,8 +878,6 @@ something outside the system rather than by its answers.
     answered is recorded with every call, so evaluation results show where a
     fallback stepped in.
 \end{itemize}
-\TODO{Confirm the LlamaAPI dates and whether Ollama models were ever run end
-to end.}
 
 The judge is deliberately from another family, Qwen
 (\texttt{qwen3.8-27b}), so no number in this thesis is a model grading its own
@@ -847,7 +889,16 @@ to a paid endpoint changed the bill, not the model: everything here still runs
 on an open model.
 A judged run of the production variant over all 61 gold questions, judge
 included, costs about \$0.70.
-\TODO{Say why you moved to the paid endpoint in October 2026.}
+%% DRAFT (Claude, 2026-10-24) from commit ec46db9 and the author's note.
+%% Rewrite in your own words.
+The move was forced by evaluation. One judged run fires hundreds of calls in a
+row, and the free tier answers a burst like that with rate limits. Each limit
+meant waiting it out, so a run that costs minutes on the paid endpoint took
+hours, and a limit the retries could not outlast left a question unscored.
+The free tier also hands a call to a fallback model when Gemma is busy, which
+mixes models inside a single run. The paid endpoint keeps the free ones only as
+a safety net, and no call in the test runs needed it. Each question asked costs
+about \$0.0006.
 
 \subsection{Grounding and neutrality} \label{subsec:grounding}
 
@@ -1045,7 +1096,7 @@ that differ by one flag can be attributed to that one technique.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.85\textwidth]{images/architecture-evaluation.pdf}
-    \caption{The evaluation harness. Every variant on the ladder runs the same
+    \caption[The evaluation harness]{The evaluation harness. Every variant on the ladder runs the same
     production code over the same gold set; only the feature flags differ.}
     \label{fig:evaluation}
 \end{figure}
@@ -1084,7 +1135,7 @@ adjacent rungs is the contribution of one technique, and nothing else.
         \texttt{assistant\_*} & ChatGPT, Gemini and Claude with web search \\
         \hline
     \end{tabular}
-    \caption{The variant ladder. Above the line, each rung adds one technique to
+    \caption[The variant ladder]{The variant ladder. Above the line, each rung adds one technique to
     the one before; below it, the yardsticks for RQ5. Further single-flag
     ablations (topic filter, prompt budget, index without LLM context) are
     listed in Appendix~\ref{app:results}.}
@@ -1141,10 +1192,15 @@ Questions are split into 25 development questions and 36 test questions,
 balanced across route, party and difficulty: 26 single-party questions, 20
 comparisons, 10 topic explorations and 5 general ones overall.
 
-\TODO{Decision history: the first plan, LLM-generated questions anchored on
-sampled chunks, was dropped. Confirm the reason. Candidate wording: questions
-generated from a chunk reuse its words, which flatters both dense and lexical
-search, and an LLM-written test grades LLMs against themselves.}
+%% DRAFT (Claude, 2026-10-24), reasons confirmed by the author. Rewrite in
+%% your own words.
+The questions were not always meant to be written by hand. The first plan
+sampled chunks and had an LLM write a question for each, with the sampled chunk
+as its gold. It was dropped for two reasons. A question written from a chunk
+borrows that chunk's words, so both dense and lexical search find it with an
+ease no real user would give them. And a test written by an LLM would have LLMs
+graded on questions shaped by an LLM, which is the circularity the separate
+judge family is there to avoid (Section~\ref{subsec:metrics}).
 
 %% Added by Claude 2026-10-16 (secretary). Keep every sentence true: the
 %% revisions in this chapter cite numbers on all 61 questions (e.g. the 64k
@@ -1207,6 +1263,9 @@ and LLM judges favour answers from their own model family~\citep{zheng2023judgin
 The judge is therefore Qwen (\texttt{qwen3.8-27b}), a different family from
 the Gemma generator, and from the GPT model of the RQ5 yardsticks. A judge call
 that fails leaves its score out rather than recording a zero.
+Whether the judge agrees with a person is still being measured. A sample of 25
+judged answers, with every claim the judge ruled on, is being rated by hand, and
+its agreement with the judge will be reported here.
 \TODO{Report judge--human agreement (claim-level Cohen's kappa, answer-level
 Spearman) from scripts/judge\_validation.py once the sheet is rated.}
 

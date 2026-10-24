@@ -22,7 +22,7 @@
         \hline
     \end{tabular}
     \end{adjustbox}
-    \caption{Retrieval on the 36 test questions, mean with 95\% bootstrap interval. Rungs without retrieval are omitted.}
+    \caption[Retrieval on the test set]{Retrieval on the 36 test questions, mean with 95\% bootstrap interval. Rungs without retrieval are omitted.}
     \label{tab:app-retrieval}
 \end{table}
 
@@ -44,7 +44,7 @@
         \hline
     \end{tabular}
     \end{adjustbox}
-    \caption{Query analysis and routing on the 36 test questions. Rungs without query analysis score the fallback labels.}
+    \caption[Query analysis and routing on the test set]{Query analysis and routing on the 36 test questions. Rungs without query analysis score the fallback labels.}
     \label{tab:app-routing}
 \end{table}
 
@@ -74,7 +74,7 @@
         \hline
     \end{tabular}
     \end{adjustbox}
-    \caption{Generation on the 32 answerable test questions, judged by \texttt{qwen/qwen3.8-27b}. Faithfulness does not apply to closed-book and assistant rungs.}
+    \caption[Generation on the test set]{Generation on the 32 answerable test questions, judged by \texttt{qwen/qwen3.8-27b}. Faithfulness does not apply to closed-book and assistant rungs.}
     \label{tab:app-generation}
 \end{table}
 
@@ -104,7 +104,7 @@
         \hline
     \end{tabular}
     \end{adjustbox}
-    \caption{Refusals and run statistics. Abstention is scored on the 4 unanswerable test questions and false refusal on the 32 answerable ones.}
+    \caption[Refusals and run statistics]{Refusals and run statistics. Abstention is scored on the 4 unanswerable test questions and false refusal on the 32 answerable ones.}
     \label{tab:app-refusals}
 \end{table}
 
@@ -134,6 +134,6 @@
         \hline
     \end{tabular}
     \end{adjustbox}
-    \caption{Cost per answer in US dollars. Pipeline cost is what answering costs and judge cost is evaluation overhead. The deep research cost is notional, since it ran on a subscription.}
+    \caption[Cost per answer]{Cost per answer in US dollars. Pipeline cost is what answering costs and judge cost is evaluation overhead. The deep research cost is notional, since it ran on a subscription.}
     \label{tab:app-cost}
 \end{table}

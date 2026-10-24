@@ -90,6 +90,23 @@ record, and a stable, checkable record of what a party committed to has value
 precisely when public statements drift from it. Re-indexing per cycle, or
 carrying temporal metadata, is the future-work answer.
 
+## 6. Can I have a conversation with it, or ask a follow-up?
+
+**Where in the thesis:** Limitations (g) in the conclusions, and a failing
+follow-up shown in "PoliRAG in Practice".
+
+**Notes toward an answer.** No. Every call is stateless: `main.py query` takes
+one question, and the analyser, retrieval and generator see only that text, so
+"E o PS?" after a question about the AD's housing plans loses the topic. Say it
+was a choice before it was a limitation. Stateless answers are reproducible and
+judged one by one, and a party filter carried over from an earlier turn cannot
+silently bias the next search. The evaluation is fair to it: the gold set is
+single-turn, and the assistant baselines were also asked one question per
+conversation. The fix is known (rewrite a follow-up plus recent turns into a
+standalone question before analysis) and was left out by the code freeze of
+2026-10-15. Measuring it needs multi-turn questions written for this corpus,
+which the gold set does not have.
+
 ---
 
 ## Questions to expect that are not on this list
