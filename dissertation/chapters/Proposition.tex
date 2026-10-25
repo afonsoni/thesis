@@ -983,8 +983,23 @@ work. None of the automatic metrics sees the problem
 (Section~\ref{subsec:metrics}).
 
 \TODO{Disclosure and check: the blind count was annotated by a Claude
-subagent, not a person. Say so here, and report the human check of 20 of the
-122 answers (data/eval/results/framing-human-check.md, not yet filled in).
+subagent, not a person. Say so here, and report the human check
+(data/eval/results/framing-human-check.md, done 2026-10-25): a stratified
+sample of 20 of the 122 answers (by the subagent's label: 6 clear, 7
+borderline, 7 none), marked blind against the same rubric. Exact agreement
+19 of 20, Cohen's $\kappa = 0.93$ (0.94 linearly weighted); clear versus not
+clear $\kappa = 0.89$. The one disagreement is q-15 (CHEGA, old prompt):
+borderline for the subagent, clear for the human, over ``imigrantes ilegais''
+and ``impedir o avanço do fundamentalismo islâmico''. The human was never the
+more lenient, so the 6-of-61 figure is if anything a floor (roughly 7 of 61
+per run on this sample), the same for both prompts. Caveat: 5 of the 20
+answers (q-08, q-26, q-11, q-32, q-15) had their leaking phrases discussed
+during development, so those marks were not fully independent; on the other
+15, agreement was 15 of 15. Draft, to rewrite in your own words: ``I labelled
+a stratified sample of 20 of the 122 answers independently. Agreement with
+the automatic annotation was 19 of 20 (Cohen's $\kappa = 0.93$), and 15 of 15
+on the answers I had not seen during development. The one disagreement was a
+single level of severity, with the human label the stricter.''
 Side effects of the rule to mention if wanted: faithfulness 0.946 to 0.976,
 correctness 0.509 to 0.491, abstention 1.00 to 0.75 (q-55 adds a sentence
 after the refusal, so the detector stops counting it). Optional VAA parallel
