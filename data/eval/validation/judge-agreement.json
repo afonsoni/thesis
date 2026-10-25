@@ -1,0 +1,32 @@
+{
+ "faithfulness": {
+  "claims": 553,
+  "answers": 25,
+  "agreement": 0.9891500904159132,
+  "kappa": 0.5659340659340628,
+  "pabak": 0.9783001808318263,
+  "both_yes": 543,
+  "both_no": 4,
+  "human_no_judge_yes": 3,
+  "human_yes_judge_no": 3,
+  "spearman_answer_level": 0.6506849315068493
+ },
+ "correctness_recall": {
+  "claims": 535,
+  "answers": 25,
+  "agreement": 0.9495327102803738,
+  "kappa": 0.8968634198933291,
+  "pabak": 0.8990654205607476,
+  "both_yes": 294,
+  "both_no": 214,
+  "human_no_judge_yes": 5,
+  "human_yes_judge_no": 22,
+  "spearman_answer_level": 0.9476219567038211
+ },
+ "answer_relevance": {
+  "answers": 25,
+  "spearman": 0.5875199899255271,
+  "exact_agreement": 0.68,
+  "within_one": 1.0
+ }
+}

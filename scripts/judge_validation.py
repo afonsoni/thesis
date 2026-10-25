@@ -7,13 +7,23 @@ Check the LLM judge against a human: blind rating sheet, then agreement.
   score   Read the filled-in sheet and report, per metric, claim-level agreement
           with the judge (raw % and Cohen's kappa) and answer-level correlation
           (Spearman) of the human and judge scores; relevance is compared 1-5.
+  borrow  Give closed-book answers (no_retrieval) the context another variant
+          retrieved for the same question, and judge faithfulness against it.
+          A faithful RAG run has few unsupported claims, so a sheet drawn from
+          one alone barely tests whether the judge catches them; these answers
+          supply negatives picked without looking at the judge's verdicts.
 
 In the sheet, mark each claim [x] (supported / covered) or [n] (not); leave [ ]
-to skip it. Write the 1-5 relevance after "relevance:".
+to skip it. Write the 1-5 relevance after "relevance:". ``--name`` keeps a second
+sheet (``<name>-sheet.md``, ``<name>-key.json``) apart from the first.
 
 Usage:
   python scripts/judge_validation.py export data/eval/results/current-*.json --n 25
-  python scripts/judge_validation.py score
+  python scripts/judge_validation.py score --ratings data/eval/validation/ratings.json
+  python scripts/judge_validation.py borrow data/eval/results/no_retrieval-X.json \
+      --context-from data/eval/results/current-X.json --n 12
+  python scripts/judge_validation.py export data/eval/validation/no_retrieval-borrowed.json \
+      --n 12 --name judge-noret
 """
 
 import argparse
@@ -27,8 +37,6 @@ from typing import Dict, List, Optional, Sequence
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 OUT_DIR = "data/eval/validation"
-SHEET = os.path.join(OUT_DIR, "judge-sheet.md")
-KEY = os.path.join(OUT_DIR, "judge-key.json")
 CLAIM_METRICS = {
     "faithfulness": "Is the claim supported by the CONTEXT?",
     "correctness_recall": "Does the ANSWER state this reference claim?",
@@ -46,7 +54,47 @@ def cohen_kappa(a: Sequence[bool], b: Sequence[bool]) -> Optional[float]:
     return None if pe == 1 else (po - pe) / (1 - pe)
 
 
+def _paths(name: str):
+    return (os.path.join(OUT_DIR, f"{name}-sheet.md"), os.path.join(OUT_DIR, f"{name}-key.json"),
+            os.path.join(OUT_DIR, f"{name}-agreement.json"))
+
+
+def cmd_borrow(args) -> None:
+    from dotenv import load_dotenv
+
+    load_dotenv()
+    from src.rag.evaluation.judge import extract_claims, verify_claims
+    from src.rag.evaluation.metrics.generation import _log
+
+    questions = {q["id"]: q for q in json.load(open(args.dataset, encoding="utf-8"))["questions"]}
+    donor = json.load(open(args.context_from, encoding="utf-8"))
+    contexts = {r["question_id"]: r.get("context", "") for r in donor["per_question"]}
+    runs = [r for r in json.load(open(args.results, encoding="utf-8"))["per_question"]
+            if r["answer"].strip() and questions.get(r["question_id"], {}).get("answerable", True)
+            and contexts.get(r["question_id"], "").strip()]
+    random.Random(args.seed).shuffle(runs)
+    out = []
+    for r in runs[: args.n]:
+        context = contexts[r["question_id"]]
+        claims = extract_claims(questions[r["question_id"]]["question"], r["answer"])
+        verdicts = verify_claims(claims, context) if claims else None
+        if not verdicts:  # failed judge call or no claims: nothing to rate
+            print(f"skip {r['question_id']}")
+            continue
+        out.append(dict(r, context=context, variant=f"{r['variant']}+context:{donor['variant']}",
+                        judgements=dict(r.get("judgements") or {}, faithfulness=_log(claims, verdicts))))
+    if not out:
+        sys.exit("every judge call failed; nothing written")
+    path = os.path.join(OUT_DIR, f"{out[0]['variant'].split('+')[0]}-borrowed.json")
+    json.dump({"results": args.results, "context_from": args.context_from, "per_question": out},
+              open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    unsupported = sum(not c["supported"] for r in out for c in r["judgements"]["faithfulness"])
+    total = sum(len(r["judgements"]["faithfulness"]) for r in out)
+    print(f"{len(out)} answers, {unsupported}/{total} claims unsupported -> {path}")
+
+
 def cmd_export(args) -> None:
+    sheet_path, key_path, _ = _paths(args.name)
     runs = []
     for path in args.results:
         for r in json.load(open(path, encoding="utf-8"))["per_question"]:
@@ -84,9 +132,9 @@ def cmd_export(args) -> None:
                   r.get("context", ""), "", "</details>", ""]
         key.append(entry)
     os.makedirs(OUT_DIR, exist_ok=True)
-    open(SHEET, "w", encoding="utf-8").write("\n".join(sheet))
-    json.dump(key, open(KEY, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-    print(f"{len(runs)} items -> {SHEET} (key: {KEY})")
+    open(sheet_path, "w", encoding="utf-8").write("\n".join(sheet))
+    json.dump(key, open(key_path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    print(f"{len(runs)} items -> {sheet_path} (key: {key_path})")
 
 
 def parse_sheet(path: str) -> Dict[int, dict]:
@@ -117,10 +165,18 @@ def parse_sheet(path: str) -> Dict[int, dict]:
     return items
 
 
-def cmd_score(_args) -> None:
+def load_ratings(path: str) -> Dict[int, dict]:
+    """The rater page's JSON ({item: {"f": [...], "r": [...], "rel": n}}) in parse_sheet's shape."""
+    return {int(i): {"metrics": {"faithfulness": v["f"], "correctness_recall": v["r"]}, "relevance": v["rel"]}
+            for i, v in json.load(open(path, encoding="utf-8")).items()}
+
+
+def cmd_score(args) -> None:
     from scipy.stats import spearmanr
 
-    human, key = parse_sheet(SHEET), json.load(open(KEY, encoding="utf-8"))
+    sheet_path, key_path, report_path = _paths(args.name)
+    human = load_ratings(args.ratings) if args.ratings else parse_sheet(sheet_path)
+    key = json.load(open(key_path, encoding="utf-8"))
     report = {}
     for metric in CLAIM_METRICS:
         h_claims, j_claims, h_scores, j_scores = [], [], [], []
@@ -139,17 +195,24 @@ def cmd_score(_args) -> None:
         if not h_claims:
             continue
         rho = spearmanr(h_scores, j_scores).statistic if len(h_scores) > 2 else None
+        agreement = sum(a == b for a, b in zip(h_claims, j_claims)) / len(h_claims)
+        pairs = list(zip(h_claims, j_claims))
         report[metric] = {
-            "claims": len(h_claims), "answers": len(h_scores),
-            "agreement": sum(a == b for a, b in zip(h_claims, j_claims)) / len(h_claims),
-            "kappa": cohen_kappa(h_claims, j_claims), "spearman_answer_level": rho,
+            "claims": len(h_claims), "answers": len(h_scores), "agreement": agreement,
+            "kappa": cohen_kappa(h_claims, j_claims),
+            # Kappa collapses when nearly every claim is supported; PABAK does not.
+            "pabak": 2 * agreement - 1,
+            "both_yes": pairs.count((True, True)), "both_no": pairs.count((False, False)),
+            "human_no_judge_yes": pairs.count((False, True)), "human_yes_judge_no": pairs.count((True, False)),
+            "spearman_answer_level": rho,
         }
     rel = [(human[e["item"]]["relevance"], e["relevance"]) for e in key
            if e.get("relevance") and human.get(e["item"], {}).get("relevance")]
     if len(rel) > 2:
         report["answer_relevance"] = {"answers": len(rel), "spearman": spearmanr(*zip(*rel)).statistic,
-                                      "exact_agreement": sum(a == b for a, b in rel) / len(rel)}
-    json.dump(report, open(os.path.join(OUT_DIR, "judge-agreement.json"), "w"), indent=1)
+                                      "exact_agreement": sum(a == b for a, b in rel) / len(rel),
+                                      "within_one": sum(abs(a - b) <= 1 for a, b in rel) / len(rel)}
+    json.dump(report, open(report_path, "w"), indent=1)
     for metric, r in report.items():
         print(metric, {k: (round(v, 3) if isinstance(v, float) else v) for k, v in r.items()})
 
@@ -162,9 +225,18 @@ def main() -> None:
     e.add_argument("--n", type=int, default=25)
     e.add_argument("--seed", type=int, default=0)
     e.add_argument("--dataset", default="data/eval/questions/golden.json")
-    sub.add_parser("score")
+    e.add_argument("--name", default="judge")
+    s = sub.add_parser("score")
+    s.add_argument("--name", default="judge")
+    s.add_argument("--ratings", help="rater-page JSON to score instead of the sheet's [x]/[n] marks")
+    b = sub.add_parser("borrow")
+    b.add_argument("results")
+    b.add_argument("--context-from", required=True)
+    b.add_argument("--n", type=int, default=12)
+    b.add_argument("--seed", type=int, default=0)
+    b.add_argument("--dataset", default="data/eval/questions/golden.json")
     args = ap.parse_args()
-    {"export": cmd_export, "score": cmd_score}[args.cmd](args)
+    {"export": cmd_export, "score": cmd_score, "borrow": cmd_borrow}[args.cmd](args)
 
 
 if __name__ == "__main__":
