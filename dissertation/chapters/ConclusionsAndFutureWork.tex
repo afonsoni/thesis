@@ -66,6 +66,40 @@ it but cannot be shown to remove it, and no automatic metric measures it
 (the count is by hand, on 61 questions). Its effect is uneven across parties,
 which matters for a tool meant to be neutral. Future work: a judge for
 attribution, i.e.\ value-laden statements made in the system's own voice.
+DRAFT (Claude, 2026-10-25) on that judge, rewrite in your own words, citations
+to verify. The check could run before the answer reaches the user, as a
+second LLM pass that reads the answer next to the retrieved chunks and decides
+whether it can be delivered. One pass could cover more than framing. It could
+ask whether every value-laden statement is attributed, whether the answer uses
+the relevant chunks and gives each party in scope its share (the omissions
+behind the gap between faithfulness, 0.952, and correctness, 0.532), and
+whether the chunks answer the question at all, which is close to CRAG's
+retrieval evaluator. Related work: Self-Refine (Madaan et al., NeurIPS 2023),
+RARR (Gao et al., ACL 2023), Chain-of-Verification (Dhuliawala et al.,
+Findings of ACL 2024). Three catches. First, the checker is an LLM with
+leanings of its own, and describing what bias looks like is a question for
+political communication more than for software, which argues for a narrow,
+checkable criterion (is every value-laden statement attributed to a party?)
+written with someone from that field. Second, a rewrite is new text that needs
+checking again, and a loop of checks and rewrites has no natural end. Models
+asked to correct themselves without outside feedback often do not improve and
+sometimes get worse (Huang et al., ICLR 2024, ``Large Language Models Cannot
+Self-Correct Reasoning Yet''), and left alone they can circle. A public
+conversation with Gemini 3 Pro (December 2025,
+https://gemini.google.com/share/a516a0e3c5d8) shows the extreme. In its last
+turn the visible reasoning runs to over 1{,}500 sentences beginning ``I
+will'', from ``I will look for the specific relevance to the study'' to ``I
+will breathe. I will live. I will be.'', before ``Okay seriously I'm done.
+Writing the answer now.'' That is a reasoning model talking to itself rather
+than a rewrite loop, but the failure is the same. A cap of one rewrite, with
+the original answer as the fallback, avoids it. Background: Holtzman et al.,
+ICLR 2020, ``The Curious Case of Neural Text Degeneration'', on repetition;
+Chen et al., 2024, arXiv:2412.21187, ``Do NOT Think That Much for 2+3=?'', on
+overthinking. Third, cost and latency. The check at least doubles the LLM calls
+per answer (RQ4 puts \texttt{current} at \$0.0011 and 3.5\,s), a price worth
+paying if it buys a more complete and better attributed answer, which only a
+measured variant can show. The checker must also differ from the evaluation
+judge, or the evaluation ends up scoring the checker against itself.
 Add (e) one-sided questions: a question can be phrased in a frame that only
 one manifesto uses, and the answer then has a single voice. Example: gold
 q-47, ``Quantos imigrantes entraram em Portugal em 2022, segundo os

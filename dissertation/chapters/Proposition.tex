@@ -1292,22 +1292,29 @@ which is why the references follow an attribution rule
 (Section~\ref{subsec:goldset}). Framing leakage is therefore counted by hand
 (Section~\ref{subsec:grounding}).
 
-%% DRAFT (Claude, 2026-10-25): rater bias, to be rewritten in your own words.
-\paragraph{The human is not neutral either.} Every check by hand in this work
-was made by one person, the author. The questions, the gold chunks and their
-references, the framing count and the ratings that validate the judge all
-pass through the same reader, and no reader is free of political views. The
-author's are not disclosed here, since the system is meant to be judged
-without them, but they exist, and they can shape the small calls these checks
-are made of, such as whether a phrase reads as a party's framing or as plain
-description, or whether an answer covers a reference well enough. A human
-check is therefore a second opinion rather than a ground truth. The design
+%% DRAFT (Claude, 2026-10-25): bias at every layer, to be rewritten in your own words.
+\paragraph{No layer is neutral.} Every safeguard in this evaluation is a check
+made by someone, or something, with views of its own. The generator and the
+judge are language models, and each chat model has a political lean of its
+own, most of them left of centre \TODO{cite, to verify: Santurkar et al.\
+2023; Hartmann et al.\ 2023; Rozado 2024}. Choosing a judge from another
+family guards against a model favouring its own kind and brings a different
+lean, but a different lean is still not none. The
+prompts that tell both models to stay neutral were written by a person, and
+so were the questions, the gold chunks and their references, the framing
+count and the ratings that validate the judge. All of that passes through one
+reader, the author, and no reader is free of political views. The author's
+are not disclosed here, since the system is meant to be judged without them,
+but they exist, and they can shape the small calls these checks are made of,
+such as whether a phrase reads as a party's framing or as plain description,
+or whether an answer covers a reference well enough. Each layer therefore
 narrows the room for bias without closing it. The judge ratings are made
-blind, without the judge's verdicts in view, and the references follow an
+without the judge's verdicts in view, and the references follow an
 attribution rule that keeps every value-laden statement in the voice of its
-party (Section~\ref{subsec:goldset}). The proper remedy, several raters from
-across the political spectrum and the agreement between them, was beyond the
-means of this work (Chapter~\ref{ch:conclusion}).
+party (Section~\ref{subsec:goldset}). A human check remains a second opinion
+rather than a ground truth. The proper remedy, several raters from across the
+political spectrum and the agreement between them, was beyond the means of
+this work (Chapter~\ref{ch:conclusion}).
 
 \subsection{Measurement safeguards} \label{subsec:safeguards}
 %% DRAFT (Claude, 2026-10-10): safeguards paragraph, to be rewritten.
