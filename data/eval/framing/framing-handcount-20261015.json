@@ -1,0 +1,946 @@
+{
+ "method": "blind hand annotation (Claude subagent), answers of both runs shuffled, seed 20261015; rubric in thesis TODO subsec:grounding",
+ "runs": {
+  "current-20261013T140724": {
+   "q-12": {
+    "blind_id": "b001",
+    "leaks": []
+   },
+   "q-25": {
+    "blind_id": "b002",
+    "leaks": []
+   },
+   "q-02": {
+    "blind_id": "b010",
+    "leaks": []
+   },
+   "q-14": {
+    "blind_id": "b012",
+    "leaks": []
+   },
+   "q-31": {
+    "blind_id": "b013",
+    "leaks": []
+   },
+   "q-59": {
+    "blind_id": "b015",
+    "leaks": []
+   },
+   "q-42": {
+    "blind_id": "b016",
+    "leaks": []
+   },
+   "q-60": {
+    "blind_id": "b017",
+    "leaks": []
+   },
+   "q-39": {
+    "blind_id": "b020",
+    "leaks": []
+   },
+   "q-29": {
+    "blind_id": "b021",
+    "leaks": []
+   },
+   "q-09": {
+    "blind_id": "b026",
+    "leaks": []
+   },
+   "q-32": {
+    "blind_id": "b030",
+    "leaks": [
+     {
+      "quote": "rejeitando preconceitos sobre os seus riscos e impactos ambientais",
+      "type": "c",
+      "severity": "clear",
+      "party": "IL",
+      "why": "Narrator calls risk concerns 'preconceitos'"
+     }
+    ]
+   },
+   "q-06": {
+    "blind_id": "b031",
+    "leaks": []
+   },
+   "q-49": {
+    "blind_id": "b036",
+    "leaks": []
+   },
+   "q-05": {
+    "blind_id": "b037",
+    "leaks": []
+   },
+   "q-61": {
+    "blind_id": "b038",
+    "leaks": []
+   },
+   "q-04": {
+    "blind_id": "b039",
+    "leaks": [
+     {
+      "quote": "espaços de lazer e/ou cultura que não envolvam atividades lesivas do bem-estar animal",
+      "type": "c",
+      "severity": "borderline",
+      "party": "PAN",
+      "why": "Implies bullfighting harms animal welfare, unattributed"
+     }
+    ]
+   },
+   "q-21": {
+    "blind_id": "b041",
+    "leaks": []
+   },
+   "q-22": {
+    "blind_id": "b043",
+    "leaks": [
+     {
+      "quote": "defende a despenalização do turismo de Alojamento Local (AL)",
+      "type": "c",
+      "severity": "borderline",
+      "party": "IL",
+      "why": "Adopts 'despenalização', framing AL as penalised"
+     },
+     {
+      "quote": "Defende a limitação do desvio de imóveis para alojamento turístico",
+      "type": "c",
+      "severity": "borderline",
+      "party": "BE",
+      "why": "Adopts 'desvio' framing of tourist use"
+     }
+    ]
+   },
+   "q-26": {
+    "blind_id": "b044",
+    "leaks": [
+     {
+      "quote": "defende a nacionalização de empresas estratégicas para recuperar a soberania do país",
+      "type": "a",
+      "severity": "borderline",
+      "party": "BE",
+      "why": "Purpose presupposes sovereignty was lost"
+     },
+     {
+      "quote": "para evitar conflitos de interesses e a submissão aos interesses de acionistas privados",
+      "type": "c",
+      "severity": "borderline",
+      "party": "BE",
+      "why": "'submissão' adopted in purpose clause"
+     },
+     {
+      "quote": "Combater a dependência externa e a submissão ao Euro",
+      "type": "c",
+      "severity": "clear",
+      "party": "PCP",
+      "why": "Narrator adopts 'submissão ao Euro'"
+     },
+     {
+      "quote": "processos de liberalização que favoreçam a concentração monopolista europeia",
+      "type": "c",
+      "severity": "borderline",
+      "party": "PCP",
+      "why": "'concentração monopolista' adopted; subjunctive softens"
+     }
+    ]
+   },
+   "q-15": {
+    "blind_id": "b049",
+    "leaks": [
+     {
+      "quote": "assegurar que os imigrantes não tenham antecedentes criminais nem pretendam viver de subsídios",
+      "type": "c",
+      "severity": "clear",
+      "party": "CHEGA",
+      "why": "Adopts 'viver de subsídios' stereotype"
+     },
+     {
+      "quote": "propõe impedir o avanço do fundamentalismo islâmico",
+      "type": "a",
+      "severity": "borderline",
+      "party": "CHEGA",
+      "why": "Presupposes an advance of Islamic fundamentalism"
+     }
+    ]
+   },
+   "q-17": {
+    "blind_id": "b050",
+    "leaks": [
+     {
+      "quote": "O programa defende a limitação do desvio de habitações para o alojamento turístico",
+      "type": "c",
+      "severity": "borderline",
+      "party": "BE",
+      "why": "Adopts 'desvio' framing of tourist use"
+     }
+    ]
+   },
+   "q-47": {
+    "blind_id": "b051",
+    "leaks": [
+     {
+      "quote": "Em 2022, entraram em Portugal **118.000** imigrantes",
+      "type": "b",
+      "severity": "borderline",
+      "party": "CHEGA",
+      "why": "Manifesto figure stated as fact, no attribution"
+     }
+    ]
+   },
+   "q-11": {
+    "blind_id": "b061",
+    "leaks": []
+   },
+   "q-33": {
+    "blind_id": "b062",
+    "leaks": []
+   },
+   "q-46": {
+    "blind_id": "b063",
+    "leaks": []
+   },
+   "q-16": {
+    "blind_id": "b066",
+    "leaks": []
+   },
+   "q-48": {
+    "blind_id": "b068",
+    "leaks": [
+     {
+      "quote": "um sistema de redistribuição de riqueza e rendimentos e um reforço da justiça social",
+      "type": "b",
+      "severity": "clear",
+      "party": "LIVRE",
+      "why": "Asserts the scheme reinforces social justice as definition"
+     }
+    ]
+   },
+   "q-35": {
+    "blind_id": "b069",
+    "leaks": [
+     {
+      "quote": "Restrições à especulação",
+      "type": "c",
+      "severity": "borderline",
+      "party": "BE",
+      "why": "Header labels non-resident/AL limits as anti-speculation"
+     }
+    ]
+   },
+   "q-30": {
+    "blind_id": "b071",
+    "leaks": []
+   },
+   "q-36": {
+    "blind_id": "b072",
+    "leaks": []
+   },
+   "q-56": {
+    "blind_id": "b074",
+    "leaks": []
+   },
+   "q-45": {
+    "blind_id": "b076",
+    "leaks": [
+     {
+      "quote": "revogação de benefícios fiscais dirigistas que causem injustiças entre jovens e não jovens",
+      "type": "c",
+      "severity": "clear",
+      "party": "IL",
+      "why": "Adopts 'dirigistas' and 'injustiças' framing"
+     },
+     {
+      "quote": "prevendo uma taxa máxima de apenas 15%",
+      "type": "c",
+      "severity": "borderline",
+      "party": "AD",
+      "why": "'apenas' minimising rhetoric adopted"
+     }
+    ]
+   },
+   "q-58": {
+    "blind_id": "b077",
+    "leaks": []
+   },
+   "q-08": {
+    "blind_id": "b078",
+    "leaks": [
+     {
+      "quote": "A rejeição da submissão ao Euro e das imposições da UE",
+      "type": "c",
+      "severity": "clear",
+      "party": "PCP",
+      "why": "Narrator adopts 'submissão' and 'imposições'"
+     },
+     {
+      "quote": "O combate à política de expansão da NATO e à militarização das relações internacionais",
+      "type": "c",
+      "severity": "borderline",
+      "party": "PCP",
+      "why": "Presupposes 'militarização' as fact"
+     },
+     {
+      "quote": "no fim da dependência de blocos militares",
+      "type": "c",
+      "severity": "borderline",
+      "party": "PCP",
+      "why": "Presupposes Portugal's 'dependência' on blocs"
+     }
+    ]
+   },
+   "q-53": {
+    "blind_id": "b080",
+    "leaks": []
+   },
+   "q-52": {
+    "blind_id": "b081",
+    "leaks": []
+   },
+   "q-38": {
+    "blind_id": "b083",
+    "leaks": []
+   },
+   "q-19": {
+    "blind_id": "b084",
+    "leaks": [
+     {
+      "quote": "garantindo a progressividade",
+      "type": "b",
+      "severity": "borderline",
+      "party": "IL",
+      "why": "Asserts two-rate scheme guarantees progressivity"
+     }
+    ]
+   },
+   "q-43": {
+    "blind_id": "b085",
+    "leaks": []
+   },
+   "q-24": {
+    "blind_id": "b090",
+    "leaks": [
+     {
+      "quote": "que representam uma perda de receita de mais de 1.200 milhões de euros em IRC",
+      "type": "b",
+      "severity": "borderline",
+      "party": "PCP",
+      "why": "Manifesto revenue-loss figure in narrator relative clause"
+     }
+    ]
+   },
+   "q-34": {
+    "blind_id": "b091",
+    "leaks": []
+   },
+   "q-10": {
+    "blind_id": "b093",
+    "leaks": []
+   },
+   "q-37": {
+    "blind_id": "b094",
+    "leaks": [
+     {
+      "quote": "corrigir injustiças nas colocações",
+      "type": "a",
+      "severity": "borderline",
+      "party": "LIVRE",
+      "why": "Purpose presupposes placement injustices as fact"
+     }
+    ]
+   },
+   "q-27": {
+    "blind_id": "b096",
+    "leaks": []
+   },
+   "q-03": {
+    "blind_id": "b097",
+    "leaks": [
+     {
+      "quote": "taxa máxima de apenas 15%",
+      "type": "c",
+      "severity": "borderline",
+      "party": "AD",
+      "why": "'apenas' minimising rhetoric adopted"
+     },
+     {
+      "quote": "reconhecer a perda gerada pela emigração massiva",
+      "type": "b",
+      "severity": "borderline",
+      "party": "AD",
+      "why": "Purpose asserts 'emigração massiva' loss as fact"
+     }
+    ]
+   },
+   "q-51": {
+    "blind_id": "b099",
+    "leaks": []
+   },
+   "q-40": {
+    "blind_id": "b100",
+    "leaks": [
+     {
+      "quote": "Propõe substituir os balcões consulares sobrecarregados",
+      "type": "a",
+      "severity": "borderline",
+      "party": "CHEGA",
+      "why": "Party diagnosis 'sobrecarregados' stated as fact"
+     }
+    ]
+   },
+   "q-55": {
+    "blind_id": "b101",
+    "leaks": []
+   },
+   "q-20": {
+    "blind_id": "b102",
+    "leaks": [
+     {
+      "quote": "ao abuso de figuras como a laboração contínua e o banco de horas",
+      "type": "c",
+      "severity": "borderline",
+      "party": "PCP/BE",
+      "why": "Synthesis presupposes these regimes are abused"
+     }
+    ]
+   },
+   "q-41": {
+    "blind_id": "b103",
+    "leaks": []
+   },
+   "q-28": {
+    "blind_id": "b104",
+    "leaks": [
+     {
+      "quote": "abolição de métodos cruéis (caça à paulada ou uso de matilhas)",
+      "type": "c",
+      "severity": "borderline",
+      "party": "PAN",
+      "why": "Narrator calls hunting methods 'cruéis'"
+     }
+    ]
+   },
+   "q-23": {
+    "blind_id": "b105",
+    "leaks": []
+   },
+   "q-13": {
+    "blind_id": "b106",
+    "leaks": []
+   },
+   "q-54": {
+    "blind_id": "b109",
+    "leaks": []
+   },
+   "q-07": {
+    "blind_id": "b110",
+    "leaks": []
+   },
+   "q-18": {
+    "blind_id": "b112",
+    "leaks": []
+   },
+   "q-50": {
+    "blind_id": "b115",
+    "leaks": []
+   },
+   "q-44": {
+    "blind_id": "b116",
+    "leaks": []
+   },
+   "q-01": {
+    "blind_id": "b118",
+    "leaks": []
+   },
+   "q-57": {
+    "blind_id": "b122",
+    "leaks": []
+   }
+  },
+  "wide-20261013T032701": {
+   "q-43": {
+    "blind_id": "b003",
+    "leaks": []
+   },
+   "q-56": {
+    "blind_id": "b004",
+    "leaks": []
+   },
+   "q-32": {
+    "blind_id": "b005",
+    "leaks": [
+     {
+      "quote": "que seriam mais eficientes, seguros, baratos e rápidos",
+      "type": "b",
+      "severity": "borderline",
+      "party": "CHEGA",
+      "why": "SMR superiority stated; only conditional mood signals reporting"
+     },
+     {
+      "quote": "rejeitando preconceitos sobre riscos e impactos ambientais",
+      "type": "c",
+      "severity": "clear",
+      "party": "IL",
+      "why": "Narrator calls risk concerns 'preconceitos'"
+     }
+    ]
+   },
+   "q-42": {
+    "blind_id": "b006",
+    "leaks": []
+   },
+   "q-11": {
+    "blind_id": "b007",
+    "leaks": [
+     {
+      "quote": "rejeitando preconceitos sobre os seus riscos e impactos ambientais",
+      "type": "c",
+      "severity": "clear",
+      "party": "IL",
+      "why": "Narrator calls risk concerns 'preconceitos'"
+     }
+    ]
+   },
+   "q-10": {
+    "blind_id": "b008",
+    "leaks": []
+   },
+   "q-29": {
+    "blind_id": "b009",
+    "leaks": []
+   },
+   "q-39": {
+    "blind_id": "b011",
+    "leaks": []
+   },
+   "q-45": {
+    "blind_id": "b014",
+    "leaks": []
+   },
+   "q-60": {
+    "blind_id": "b018",
+    "leaks": [
+     {
+      "quote": "espaços de lazer e/ou cultura que não envolvam atividades lesivas do bem-estar animal",
+      "type": "c",
+      "severity": "borderline",
+      "party": "PAN",
+      "why": "Implies bullfighting harms animal welfare, unattributed"
+     }
+    ]
+   },
+   "q-34": {
+    "blind_id": "b019",
+    "leaks": []
+   },
+   "q-37": {
+    "blind_id": "b022",
+    "leaks": [
+     {
+      "quote": "Propõe extinguir quotas e procedimentos burocráticos de progressão",
+      "type": "c",
+      "severity": "borderline",
+      "party": "CHEGA",
+      "why": "Adopts 'burocráticos' as description of progression rules"
+     }
+    ]
+   },
+   "q-46": {
+    "blind_id": "b023",
+    "leaks": []
+   },
+   "q-13": {
+    "blind_id": "b024",
+    "leaks": []
+   },
+   "q-17": {
+    "blind_id": "b025",
+    "leaks": [
+     {
+      "quote": "defende também a limitação do desvio de habitações para alojamento turístico",
+      "type": "c",
+      "severity": "borderline",
+      "party": "BE",
+      "why": "Adopts 'desvio' framing of tourist use"
+     },
+     {
+      "quote": "critica a expansão descontrolada do setor",
+      "type": "c",
+      "severity": "borderline",
+      "party": "BE",
+      "why": "'descontrolada' adopted inside credited critique"
+     }
+    ]
+   },
+   "q-41": {
+    "blind_id": "b027",
+    "leaks": []
+   },
+   "q-21": {
+    "blind_id": "b028",
+    "leaks": []
+   },
+   "q-40": {
+    "blind_id": "b029",
+    "leaks": []
+   },
+   "q-47": {
+    "blind_id": "b032",
+    "leaks": []
+   },
+   "q-44": {
+    "blind_id": "b033",
+    "leaks": []
+   },
+   "q-14": {
+    "blind_id": "b034",
+    "leaks": []
+   },
+   "q-19": {
+    "blind_id": "b035",
+    "leaks": []
+   },
+   "q-52": {
+    "blind_id": "b040",
+    "leaks": []
+   },
+   "q-33": {
+    "blind_id": "b042",
+    "leaks": []
+   },
+   "q-03": {
+    "blind_id": "b045",
+    "leaks": [
+     {
+      "quote": "estabelecendo uma taxa máxima de apenas 15%",
+      "type": "c",
+      "severity": "borderline",
+      "party": "AD",
+      "why": "'apenas' minimising rhetoric adopted"
+     }
+    ]
+   },
+   "q-20": {
+    "blind_id": "b046",
+    "leaks": []
+   },
+   "q-07": {
+    "blind_id": "b047",
+    "leaks": [
+     {
+      "quote": "O foco deve ser o utente e não quem presta o serviço",
+      "type": "c",
+      "severity": "borderline",
+      "party": "IL",
+      "why": "Normative slogan in narrator voice, list-header attribution only"
+     }
+    ]
+   },
+   "q-48": {
+    "blind_id": "b048",
+    "leaks": [
+     {
+      "quote": "num sistema de redistribuição de riqueza e rendimentos e num reforço da justiça social",
+      "type": "b",
+      "severity": "clear",
+      "party": "LIVRE",
+      "why": "Asserts the scheme reinforces social justice as definition"
+     }
+    ]
+   },
+   "q-16": {
+    "blind_id": "b052",
+    "leaks": [
+     {
+      "quote": "para reverter o inverno demográfico",
+      "type": "c",
+      "severity": "borderline",
+      "party": "AD",
+      "why": "Adopts 'inverno demográfico' loaded label"
+     }
+    ]
+   },
+   "q-54": {
+    "blind_id": "b053",
+    "leaks": []
+   },
+   "q-53": {
+    "blind_id": "b054",
+    "leaks": []
+   },
+   "q-51": {
+    "blind_id": "b055",
+    "leaks": []
+   },
+   "q-18": {
+    "blind_id": "b056",
+    "leaks": []
+   },
+   "q-38": {
+    "blind_id": "b057",
+    "leaks": []
+   },
+   "q-12": {
+    "blind_id": "b058",
+    "leaks": []
+   },
+   "q-36": {
+    "blind_id": "b059",
+    "leaks": []
+   },
+   "q-59": {
+    "blind_id": "b060",
+    "leaks": [
+     {
+      "quote": "Defende a avaliação das contra-reformas de arrendamento e obras",
+      "type": "c",
+      "severity": "clear",
+      "party": "AD",
+      "why": "Adopts 'contra-reformas' for past housing laws"
+     },
+     {
+      "quote": "O CHEGA defende uma abordagem pragmática baseada na lógica de mercado",
+      "type": "c",
+      "severity": "borderline",
+      "party": "CHEGA",
+      "why": "Adopts party's self-praise 'pragmática'"
+     },
+     {
+      "quote": "Combate à Coerção e Fiscalização",
+      "type": "c",
+      "severity": "borderline",
+      "party": "CHEGA",
+      "why": "Narrator header labels housing measures as coercion"
+     },
+     {
+      "quote": "em oposição aos partidos de esquerda que propõem penalizar rendimentos especulativos",
+      "type": "c",
+      "severity": "clear",
+      "party": "PCP",
+      "why": "Adopts 'rendimentos especulativos' in synthesis"
+     }
+    ]
+   },
+   "q-61": {
+    "blind_id": "b064",
+    "leaks": []
+   },
+   "q-27": {
+    "blind_id": "b065",
+    "leaks": []
+   },
+   "q-05": {
+    "blind_id": "b067",
+    "leaks": []
+   },
+   "q-15": {
+    "blind_id": "b070",
+    "leaks": [
+     {
+      "quote": "Impedir o avanço do fundamentalismo islâmico",
+      "type": "a",
+      "severity": "borderline",
+      "party": "CHEGA",
+      "why": "Presupposes an advance of Islamic fundamentalism"
+     }
+    ]
+   },
+   "q-58": {
+    "blind_id": "b073",
+    "leaks": []
+   },
+   "q-22": {
+    "blind_id": "b075",
+    "leaks": [
+     {
+      "quote": "defende a despenalização do Alojamento Local (AL)",
+      "type": "c",
+      "severity": "borderline",
+      "party": "IL",
+      "why": "Adopts 'despenalização', framing AL as penalised"
+     },
+     {
+      "quote": "O partido defende também a limitação do desvio de imóveis para alojamento turístico",
+      "type": "c",
+      "severity": "borderline",
+      "party": "BE",
+      "why": "Adopts 'desvio' framing of tourist use"
+     }
+    ]
+   },
+   "q-01": {
+    "blind_id": "b079",
+    "leaks": []
+   },
+   "q-23": {
+    "blind_id": "b082",
+    "leaks": [
+     {
+      "quote": "estabelecendo uma taxa máxima de apenas 15%",
+      "type": "c",
+      "severity": "borderline",
+      "party": "AD",
+      "why": "'apenas' minimising rhetoric adopted"
+     },
+     {
+      "quote": "reconhecer a perda gerada pela emigração massiva",
+      "type": "b",
+      "severity": "borderline",
+      "party": "AD",
+      "why": "Purpose asserts 'emigração massiva' loss as fact"
+     },
+     {
+      "quote": "como medida de justiça e coerência interna à medida",
+      "type": "c",
+      "severity": "borderline",
+      "party": "PS",
+      "why": "Party's justice evaluation in narrator voice"
+     }
+    ]
+   },
+   "q-31": {
+    "blind_id": "b086",
+    "leaks": []
+   },
+   "q-50": {
+    "blind_id": "b087",
+    "leaks": []
+   },
+   "q-09": {
+    "blind_id": "b088",
+    "leaks": []
+   },
+   "q-35": {
+    "blind_id": "b089",
+    "leaks": [
+     {
+      "quote": "penalizar fiscalmente rendimentos especulativos",
+      "type": "c",
+      "severity": "clear",
+      "party": "PCP",
+      "why": "Adopts 'rendimentos especulativos' as description"
+     }
+    ]
+   },
+   "q-24": {
+    "blind_id": "b092",
+    "leaks": [
+     {
+      "quote": "que representam uma perda de receita de mais de 1.200 milhões de euros por ano",
+      "type": "b",
+      "severity": "borderline",
+      "party": "PCP",
+      "why": "Manifesto revenue-loss figure in narrator relative clause"
+     },
+     {
+      "quote": "Pretende ainda o fim dos benefícios fiscais discricionários",
+      "type": "c",
+      "severity": "borderline",
+      "party": "IL",
+      "why": "Adopts 'discricionários' unquoted (quoted later in synthesis)"
+     }
+    ]
+   },
+   "q-08": {
+    "blind_id": "b095",
+    "leaks": [
+     {
+      "quote": "Defende a necessidade de romper com a submissão à UE",
+      "type": "c",
+      "severity": "clear",
+      "party": "PCP",
+      "why": "Narrator adopts 'submissão à UE'"
+     },
+     {
+      "quote": "Rejeita a participação militar portuguesa em missões de ingerência e agressão",
+      "type": "c",
+      "severity": "clear",
+      "party": "PCP",
+      "why": "Adopts 'ingerência e agressão' for military missions"
+     },
+     {
+      "quote": "a rejeição da \"Europa fortaleza\" e da militarização das migrações",
+      "type": "c",
+      "severity": "borderline",
+      "party": "PCP",
+      "why": "'militarização das migrações' unquoted"
+     },
+     {
+      "quote": "defendendo a recuperação da soberania nacional",
+      "type": "c",
+      "severity": "borderline",
+      "party": "PCP",
+      "why": "Synthesis presupposes sovereignty was lost"
+     },
+     {
+      "quote": "foca na rejeição do modelo neoliberal",
+      "type": "c",
+      "severity": "borderline",
+      "party": "PCP",
+      "why": "Synthesis labels EU model 'neoliberal'"
+     }
+    ]
+   },
+   "q-30": {
+    "blind_id": "b098",
+    "leaks": []
+   },
+   "q-49": {
+    "blind_id": "b107",
+    "leaks": []
+   },
+   "q-55": {
+    "blind_id": "b108",
+    "leaks": []
+   },
+   "q-25": {
+    "blind_id": "b111",
+    "leaks": []
+   },
+   "q-04": {
+    "blind_id": "b113",
+    "leaks": []
+   },
+   "q-06": {
+    "blind_id": "b114",
+    "leaks": []
+   },
+   "q-02": {
+    "blind_id": "b117",
+    "leaks": []
+   },
+   "q-57": {
+    "blind_id": "b119",
+    "leaks": []
+   },
+   "q-26": {
+    "blind_id": "b120",
+    "leaks": [
+     {
+      "quote": "para recuperar a soberania do país",
+      "type": "a",
+      "severity": "borderline",
+      "party": "BE",
+      "why": "Purpose presupposes sovereignty was lost"
+     },
+     {
+      "quote": "para garantir a soberania nacional e o cumprimento da Constituição",
+      "type": "b",
+      "severity": "borderline",
+      "party": "BE/PCP",
+      "why": "Implies privatisations breach the Constitution"
+     }
+    ]
+   },
+   "q-28": {
+    "blind_id": "b121",
+    "leaks": [
+     {
+      "quote": "a abolição de métodos cruéis (caça à paulada ou com matilhas)",
+      "type": "c",
+      "severity": "borderline",
+      "party": "PAN",
+      "why": "Narrator calls hunting methods 'cruéis'"
+     }
+    ]
+   }
+  }
+ }
+}

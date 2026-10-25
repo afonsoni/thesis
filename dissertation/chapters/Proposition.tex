@@ -945,7 +945,7 @@ manifestos do not cover. When a question rests on a premise the context does
 not confirm, the model should say so rather than accept it.
 
 %% DRAFT (Claude, 2026-10-16) from the framing-leakage TODO and the blind
-%% hand count (data/eval/results/framing-handcount-20261015.json).
+%% hand count (data/eval/framing/framing-handcount-20261015.json).
 %% src: src/rag/generation/prompts.py (_NEUTRALITY_RULE, Oct 2026)
 \paragraph{Revision: framing leakage.} Grounding has a side effect. Told to
 stay close to the text, the generator repeated each manifesto's framing in the
@@ -984,7 +984,7 @@ work. None of the automatic metrics sees the problem
 
 \TODO{Disclosure and check: the blind count was annotated by a Claude
 subagent, not a person. Say so here, and report the human check
-(data/eval/results/framing-human-check.md, done 2026-10-25): a stratified
+(data/eval/framing/framing-human-check.md, done 2026-10-25): a stratified
 sample of 20 of the 122 answers (by the subagent's label: 6 clear, 7
 borderline, 7 none), marked blind against the same rubric. Exact agreement
 19 of 20, Cohen's $\kappa = 0.93$ (0.94 linearly weighted); clear versus not
