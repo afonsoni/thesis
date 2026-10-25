@@ -107,6 +107,49 @@ standalone question before analysis) and was left out by the code freeze of
 2026-10-15. Measuring it needs multi-turn questions written for this corpus,
 which the gold set does not have.
 
+## 7. Did the test questions influence your design decisions?
+
+**Where in the thesis:** Proposition, Gold set construction, the Protocol
+paragraph. Evidence: `data/eval/extras/dev-only-recheck.md`
+(`scripts/eval_extras/dev_only_recheck.py`).
+
+**Notes toward an answer.** Yes, a little, and say so before being asked. Most
+revisions were chosen on the 25 development questions (hybrid default,
+reranker, `lexical_wide`, the topic-filter diagnosis). Three late ones were
+judged on all 61 to narrow the intervals: contextual retrieval (`524d9ea`),
+the wider net of 10 / 8 without the topic filter, and the 64k budget (both
+`b054bf8`). Re-checked on dev alone from the stored runs, all three go the
+same way: the wider net is even stronger on dev (recall +0.141*, against
++0.110* on test), 64k still loses, and contextual retrieval keeps its
+direction with intervals touching zero (recall +0.034, nDCG +0.032). So the
+decisions do not depend on test; what is not fully independent is contextual
+retrieval's own gain on test.
+
+Why it matters little:
+- Each was a choice between two options, not a search. How much a test set
+  leaks grows with the number of configurations tried on it.
+- The test run was a fresh run on frozen code (`0293a0b`): analysis,
+  generation and judging all redone; only the questions are shared.
+- The headline claims do not rest on these choices. Routing (+0.209* recall)
+  predates the split, hybrid (+0.121*) was chosen on dev, and the RQ5 gaps
+  (−0.55 closed book) dwarf anything a two-way choice could inflate.
+- The leaked effect is small and claimed modestly: on test the LLM context
+  helps nDCG (+0.040*) but not `correctness_recall` (−0.012).
+
+Follow-ups:
+- *Why not keep test untouched?* With 22 answerable dev questions the
+  intervals could not decide (contextual retrieval recall [−0.004, +0.074]).
+  More confidence in the decision for a slightly less clean test, disclosed.
+- *So the results card is optimistic?* At most slightly, through contextual
+  retrieval. The wider net gains more on dev than on test, so test was not
+  flattering it.
+- *And q-59?* A bug fix, not tuning: the analyser mapped an unknown party
+  onto a known one, and the fix covers every party outside the corpus. It is
+  one of the four unanswerable test questions, so say "4 of 4, one of which
+  motivated the fix".
+- *Next time?* Write a small fresh test set after the code freeze. The
+  harness exists, so it is the cheapest future-work item.
+
 ---
 
 ## Questions to expect that are not on this list

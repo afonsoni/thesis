@@ -1028,9 +1028,9 @@ tokens an eight-party comparison overflowed with one passage per party. At
 16{,}000, one all-party question (q-33, minimum wage) lost 11 of its 24
 passages, 4 of them gold, and scored 0.43 on correctness; at 32{,}000 nothing
 was trimmed and it scored 0.77. One question justifies a setting, not a
-headline. 64{,}000 was then judged on all 61 gold questions and read no better
-(correctness +0.029, within noise) for 18\% more input tokens, so the budget
-stays at 32{,}000. Deduplication also grew smarter: overlapping parent windows
+headline. 64{,}000 was then judged against 32{,}000 on all 61 gold questions
+and read no better (correctness 0.014 lower, within noise) for 18\% more input
+tokens, so the budget stays at 32{,}000. Deduplication also grew smarter: overlapping parent windows
 of the same section are now merged, not only identical ones (one tax question
 went from five passages to three, about 5.3k tokens to 2.9k).
 
@@ -1190,19 +1190,32 @@ ease no real user would give them. And a test written by an LLM would have LLMs
 graded on questions shaped by an LLM, which is the circularity the separate
 judge family is there to avoid (Section~\ref{subsec:metrics}).
 
-%% Added by Claude 2026-10-16 (secretary). Keep every sentence true: the
-%% revisions in this chapter cite numbers on all 61 questions (e.g. the 64k
-%% budget) and q-59 (a test question) motivated the out-of-corpus revision, so
+%% DRAFT (Claude, 2026-10-25), rewrite in your own words. Keep every sentence
+%% true: three revisions were judged on all 61 questions (commits 524d9ea and
+%% b054bf8) and q-59 (a test question) motivated the out-of-corpus revision, so
 %% do NOT claim tuning used dev questions only or that test was never seen.
+%% Numbers: data/eval/extras/dev-only-recheck.md
+%% (scripts/eval_extras/dev_only_recheck.py).
 \paragraph{Protocol.} The system was built against the gold set while the
 gold set itself was being written, and each revision in this chapter reports
 the questions it was measured on. The split into development and test
-questions was fixed when the gold set was finalised. The numbers in
+questions was fixed when the gold set was finalised, and most revisions were
+chosen on the 25 development questions. Three late ones were judged on all 61
+to narrow the intervals, namely contextual retrieval
+(Section~\ref{subsec:contextual}), the wider retrieval net
+(Section~\ref{subsec:routing}) and the larger prompt budget
+(Section~\ref{subsec:context}). Re-checked on the development questions alone,
+all three go the same way. The wider net keeps a clear gain (recall +0.141, CI
+[+0.08, +0.22]), the larger budget still reads no better, and contextual
+retrieval keeps its direction with intervals that touch zero (recall +0.034,
+nDCG +0.032). Its gain on the test questions is therefore not fully
+independent of the choice. One bug fix also came from a test question, q-59,
+whose answer showed that a party outside the corpus could be mistaken for one
+inside it (Section~\ref{subsec:queryanalysis}). The numbers in
 Chapter~\ref{ch:results} come from a single run of every variant on the 36
 test questions, on code frozen before that run and not changed afterwards
 (commit \texttt{0293a0b}, tagged \texttt{code-freeze}, which every result
-records as its \texttt{code\_version}). Development numbers appear only to
-explain individual revisions.
+records as its \texttt{code\_version}).
 
 \paragraph{Neutral references.} The reference answers follow a written
 rule: describe each measure in neutral language, give a party's reasons only
