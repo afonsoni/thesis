@@ -1,12 +1,3 @@
-% ============================================================
-%  PROPOSITION — skeleton only.
-%  Every place that needs YOUR writing is marked \TODO{...}.
-%  Find them all: search "TODO" in this file, or look for red
-%  text in the compiled PDF. Comments starting with "%% src:"
-%  point to raw material (commits, notes, README) — they are
-%  pointers for you, not content.
-% ============================================================
-
 % Searchable, impossible-to-miss placeholder macro
 \providecommand{\TODO}[1]{\textcolor{red}{\textbf{[TODO: #1]}}}
 
@@ -1300,6 +1291,23 @@ inherits the blind spot whenever the reference carries the same framing,
 which is why the references follow an attribution rule
 (Section~\ref{subsec:goldset}). Framing leakage is therefore counted by hand
 (Section~\ref{subsec:grounding}).
+
+%% DRAFT (Claude, 2026-10-25): rater bias, to be rewritten in your own words.
+\paragraph{The human is not neutral either.} Every check by hand in this work
+was made by one person, the author. The questions, the gold chunks and their
+references, the framing count and the ratings that validate the judge all
+pass through the same reader, and no reader is free of political views. The
+author's are not disclosed here, since the system is meant to be judged
+without them, but they exist, and they can shape the small calls these checks
+are made of, such as whether a phrase reads as a party's framing or as plain
+description, or whether an answer covers a reference well enough. A human
+check is therefore a second opinion rather than a ground truth. The design
+narrows the room for bias without closing it. The judge ratings are made
+blind, without the judge's verdicts in view, and the references follow an
+attribution rule that keeps every value-laden statement in the voice of its
+party (Section~\ref{subsec:goldset}). The proper remedy, several raters from
+across the political spectrum and the agreement between them, was beyond the
+means of this work (Chapter~\ref{ch:conclusion}).
 
 \subsection{Measurement safeguards} \label{subsec:safeguards}
 %% DRAFT (Claude, 2026-10-10): safeguards paragraph, to be rewritten.

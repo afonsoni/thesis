@@ -134,7 +134,16 @@ ask follow-ups, though, and a chat interface would invite them. Future work is
 a rewriting step before analysis that turns a follow-up and the recent turns
 into a standalone question, measured on multi-turn questions written for this
 corpus. Citations to check (verify before adding to the bib): QReCC (Anantha
-et al., 2021), TopiOCQA (Adlakha et al., 2022), MTRAG (Katsis et al., 2025).}
+et al., 2021), TopiOCQA (Adlakha et al., 2022), MTRAG (Katsis et al., 2025).
+Add (h) one rater. DRAFT (Claude, 2026-10-25), rewrite in your own words.
+Every human judgement in the evaluation, from the gold set to the framing
+count and the validation of the judge, comes from the author alone
+(Section~\ref{subsec:metrics}). A single rater brings one set of political
+views to every call, and no agreement between raters can be reported, so the
+human checks bound the error of the automatic ones without being free of error
+themselves. Future work: a small panel of raters with different political
+leanings, rating the same sample, with inter-rater agreement (Cohen's or
+Fleiss' kappa) reported next to the judge's.}
 
 \TODO{Add an Implications section (or fold into the discussion): what a system
 like this could mean for political literacy and public access, who would
