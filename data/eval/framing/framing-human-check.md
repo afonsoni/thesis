@@ -1,9 +1,9 @@
 # Framing leakage: human check
 
 20 answers, picked from the 122 in the blind hand count. Mark each one **without
-looking at the subagent's annotations** (they are in a separate file; please don't
+looking at the original annotations** (they are in a separate file; please don't
 open it until you are done). Order and ids are random; nothing here tells you which
-prompt produced an answer or what the subagent said.
+prompt produced an answer or how it was marked the first time.
 
 ## Rubric
 

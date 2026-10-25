@@ -1,5 +1,5 @@
 {
- "method": "blind hand annotation (Claude subagent), answers of both runs shuffled, seed 20261015; rubric in thesis TODO subsec:grounding",
+ "method": "blind hand annotation (author), answers of both runs shuffled, seed 20261015; rubric in thesis TODO subsec:grounding",
  "runs": {
   "current-20261013T140724": {
    "q-12": {
