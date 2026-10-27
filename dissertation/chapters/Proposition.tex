@@ -21,11 +21,20 @@ paper were measured and switched off.
 Before going into how it works, it helps to see how \sysname{} answers a question. To
 make each step easier to follow, a question from the evaluation set is used to
 trace the system for the entire chapter. The gold question q-33 asks ``O que
-propõem os partidos para o salário mínimo?'' (\textit{What do the parties
-propose for the minimum wage?}). It names no party, so it concerns all eight,
+propõem os partidos para o salário mínimo?''\footnote{What do the parties
+propose for the minimum wage?} It names no party, so it concerns all eight,
 and its answer gives each party its own paragraph, every claim traceable to
 its manifesto. The following is part of the answer \sysname{} gave to this
-question during the development phase.
+question during the development phase.\footnote{In English, ``Aliança
+Democrática. The party proposes raising the national minimum wage to 1,000
+euros in 2028 [1]. The aim is to ensure that the increase follows inflation
+plus productivity gains [2][5]. [\ldots] Iniciativa Liberal. The programme does
+not propose a specific value for the minimum wage, but argues for changing
+the law to transpose European Directive 2022/2041, setting indicators
+[\ldots] that determine the limits of the national minimum wage [13].
+[\ldots] Partido Socialista. The party proposes setting, through social
+dialogue, a multi-year path of minimum-wage increases that reaches at least
+1,000 euros in 2028 [30].''}
 
 \begin{quote}
 \small
@@ -764,8 +773,7 @@ every step of indexing.
 chunks found the first label right in about 29 of them, but a wrong extra
 label on about 8, such as a passage on tourism also tagged as health. The
 model, meanwhile, rated its own confidence 4 or 5 out of 5 on every chunk. The
-prompt was to blame. It asked for ``MÚLTIPLAS categorias'' (multiple
-categories), which reads as a request for several, and allowed up to four. It
+prompt was to blame. It asked for ``MÚLTIPLAS categorias'',\footnote{Multiple categories.} which reads as a request for several, and allowed up to four. It
 now asks for the main topic first, and for a further label only when the chunk
 makes a concrete proposal in that area, with three at most. The corpus was
 labelled again with the new prompt.
@@ -825,9 +833,9 @@ reformulations, routed to a search strategy and searched, and the ranked lists
 that come back are fused into one. Every technique beyond plain dense search
 sits behind a switch, a \emph{feature flag}, and can be turned off on its own,
 which is what lets the evaluation (Section~\ref{sec:evaluation}) measure what
-each one adds. Most of the techniques come from the \textit{RAG from Scratch}
-series~\citep{rag-from-scratch}, and the rest from practitioner tutorials and
-blog posts. The minimum-wage question follows each step below.
+each one adds. Many of the techniques seen here come from the \textit{RAG from Scratch}
+series~\citep{rag-from-scratch}, and the rest come from practitioner tutorials and
+blog posts. Again, the minimum-wage question follows each step below.
 
 \begin{figure}[htbp]
     \centering
@@ -849,18 +857,19 @@ party, or one policy area, it can search only the matching passages and leave
 the rest of the corpus out. The first versions supported this only by hand,
 with the party or topic passed in as an explicit filter. Query analysis
 automates that step. A language model reads the question and extracts the
-filters itself, following the logical-routing and metadata-filtering patterns
-of \textit{RAG from Scratch}~\citep{rag-from-scratch}.
+filters itself.
 
 %% q-33 column: dev run current-20261015T050000 (parties, coverage, topics,
 %% route) and one live call to analyze_query on 2026-10-27 (answer shape,
 %% reformulated query, which the run did not record).
 The analysis is a single call that returns six fields in a fixed structure.
 Table~\ref{tab:analysis} lists them, with what the analyser returned for the
-minimum-wage question. Two fields need a word more. When a question refers to
-a bloc rather than naming parties, such as \textit{os partidos de direita}
-(the right-wing parties), the model lists the members of that bloc. The
-left-to-right placement it should use is written into the prompt, following
+minimum-wage question. Two of the fields, parties and coverage, are less
+obvious than the table can show. The parties field also covers questions that
+refer to a bloc rather than naming parties, such as \textit{os partidos de
+direita},\footnote{The right-wing parties.} and for these the model lists the
+members of that bloc. The
+left-to-right placement it uses is written into the prompt, following
 the Chapel Hill Expert Survey~\citep{jolly2022ches}, rather than left to the
 model's own view of Portuguese politics. Coverage, in turn, decides whether
 every party in scope must appear in the answer (\textit{exhaustive}) or
@@ -887,19 +896,29 @@ match}).
     \label{tab:analysis}
 \end{table}
 
-\paragraph{Describing the question, deriving the route.} The first version
-asked the model for the route directly, as a \emph{query type}, one of single
-party, comparison, topic exploration or general. That mixed two separate
-questions, which manifestos must be read and what the answer should look like,
-and it failed on a whole class of questions. \textit{O que pensa cada partido
-sobre a educação pública?} (What does each party think about public
-education?) names no party and has no comparison verb, so the model called it
-a topic exploration. That route ran one search across the whole corpus and
+\paragraph{Describing the question, deriving the route.} What the analyser
+returns decides the \emph{route}, the search strategy of
+Section~\ref{subsec:routing}, which searches one party, each party
+separately, or the whole corpus at once. In the first version, the model chose
+the route itself. It labelled each question with one of four \emph{query
+types}, single party, comparison, topic exploration or general, and each type
+led straight to a route. That one label had to settle two separate things,
+which manifestos must be read and what the answer should look like, and the
+model could be swayed by surface cues, such as a party name or a verb like
+\textit{comparar},\footnote{To compare.} rather than by what the question needed. It failed on a
+whole class of questions. \textit{O que pensa cada partido sobre a educação
+pública?}\footnote{What does each party think about public education?} names
+no party and uses no comparison verb, so the model labelled it a topic
+exploration. Back then, that route ran one search across the whole corpus and
 kept the top results, so the answer covered whichever parties happened to rank
-highest, and nothing in it showed that the others had been dropped.
+highest. Nothing in it showed that the others had been dropped, even though
+the question asked about every party.
 
-The model now only describes the question, through the fields above, and a
-fixed rule derives the query type from them. Two or more parties, or
+The model no longer chooses the route. It only describes the question, by
+filling in the fields of Table~\ref{tab:analysis}, each of which is a simpler
+question with a clear answer. Does the question name parties? Must every party
+in scope be covered? Which topics does it touch? A fixed rule then derives the
+query type from these answers. Two or more parties, or
 exhaustive coverage, make a comparison. One party makes a single-party query.
 Otherwise, a question with topics is a topic exploration, and anything else is
 general. The minimum-wage question names no party but asks for exhaustive
@@ -926,8 +945,8 @@ thing and mapped ADN to AD, and the answer presented AD's housing plans as
 ADN's, with tidy citations. The sixth field, unlisted parties, fixes this. A
 question that names only parties outside the corpus skips the search and gets
 a fixed answer that says so and lists the eight parties covered. A mixed one,
-such as \textit{PS e ADN}, is answered for the party in the corpus, with a
-one-line note up front. A first live check still read \textit{PS e ADN} as AD
+such as PS and ADN, is answered for the party in the corpus, with a
+one-line note up front. A first live check still read PS and ADN as AD
 and sent PPM to PAN, so the party table the analyser sees now spells out
 initials and coalition members. A hand-made list of parties outside the corpus
 would not have been simpler, because \textit{ADN} is also the Portuguese for
@@ -962,8 +981,8 @@ all.
 \paragraph{Topics as a preference.} Topic filters were at first strict. A
 search for health passages returned only chunks labelled \textit{saude}, or
 nothing. Then a question the corpus could answer well came back with
-\textit{não foram encontrados documentos relevantes} (no relevant documents
-were found). The analyser had proposed the topic \textit{saude}, but that
+\textit{não foram encontrados documentos relevantes}.\footnote{No relevant
+documents were found.} The analyser had proposed the topic \textit{saude}, but that
 index had been built without classification, so every chunk carried the
 default label and no chunk matched. The same failure happens whenever the
 analyser proposes a topic the classifier never assigned. Topics help precision
@@ -993,14 +1012,20 @@ counts as a topic exploration.
 
 \paragraph{Multi-query expansion.} \label{subsec:multiquery}
 A question and the passage that answers it often use different words. A user
-asks about \textit{rendas} (rents), while the manifesto speaks of
-\textit{arrendamento acessível} (affordable letting). Dense embeddings narrow
+asks about \textit{rendas}, while the manifesto speaks of
+\textit{arrendamento acessível}.\footnote{\textit{Rendas} are rents, and
+\textit{arrendamento acessível} is affordable letting.} Dense embeddings narrow
 this gap but do not close it. Multi-query expansion~\citep{rag-from-scratch,
 rackauckas2024ragfusion} asks the language model for four reformulations of
 the question, each with different words or a different angle, and searches
 with all five versions. A passage the original wording misses can then be
 found by one of the reformulations. For the minimum-wage question, one run of
-this step returned the following four.
+this step returned the following four.\footnote{In English, ``What are the
+political parties' proposals regarding the value of the national minimum
+wage?'', ``How do the different parties intend to change the guaranteed
+minimum income?'', ``What measures do the electoral programmes provide for
+raising the minimum wage?'' and ``How does each political force plan to
+address the minimum wage?''}
 
 %% Source: one live call to expand_query on 2026-10-27. The dev run does not
 %% record reformulations, and the step is not deterministic.
@@ -1051,8 +1076,9 @@ one acronym was clearly rescued, with \textit{RES\_U} going from zero to two
 relevant chunks in the top five. Two months later the cause became clear. The
 keyword search required \emph{every} word of the question to appear in a
 chunk, so a question written in natural language matched almost nothing.
-\textit{Qual é a taxa única de IRS proposta pela Iniciativa Liberal?} (What
-flat IRS rate does the Iniciativa Liberal propose?) matched none of IL's
+\textit{Qual é a taxa única de IRS proposta pela Iniciativa Liberal?}\footnote{What
+flat IRS rate does the Iniciativa Liberal propose? IRS is the Portuguese
+personal income tax.} matched none of IL's
 chunks. The hybrid configuration had been running as dense search alone, with
 no error to show it.
 
@@ -1075,11 +1101,12 @@ would otherwise outweigh the topic, even though the filter already guarantees
 that every candidate belongs to that party.
 
 \paragraph{Party names in dense queries.} The same effect appeared in dense
-search. For \textit{Qual é a posição do PAN sobre as touradas?} (What is PAN's
-position on bullfighting?), searched within PAN's chunks, the best relevant
+search. For \textit{Qual é a posição do PAN sobre as touradas?},\footnote{What is PAN's
+position on bullfighting?} searched within PAN's chunks, the best relevant
 chunk ranked sixth. With \textit{PAN} removed from the query, it ranked first.
 The name pulled the query towards chunks \emph{about the party}, such as
-\textit{O PAN é um partido de causas\ldots}, which the filter already makes
+\textit{O PAN é um partido de causas\ldots},\footnote{PAN is a party of
+causes\ldots} which the filter already makes
 redundant. Removing names was built as a variant but never needed a run,
 because contextual retrieval (Section~\ref{subsec:contextual}) already puts
 the gold chunks for that question at ranks one to three.
@@ -1257,13 +1284,14 @@ system prompt sets the rules the answer must follow:
     \item if the context does not contain the answer, reply with one fixed
     sentence, ``Não encontrei resposta a esta pergunta nos excertos dos
     programas que consultei, mas isso não garante que os programas não abordem
-    o tema.'' (\textit{I found no answer to this question in the manifesto
+    o tema.''\footnote{I found no answer to this question in the manifesto
     excerpts I consulted, but that does not mean the manifestos do not address
-    it.}) The sentence reports what retrieval found, not what the manifestos
+    it.} The sentence reports what retrieval found, not what the manifestos
     hold: a top-$k$ search cannot prove that a manifesto never says something;
     \item describe the measures in neutral language, and attribute every
     justification, diagnosis or value judgement to the party that makes it
-    (``o partido considera que\ldots''), never adopting the manifesto's
+    (``o partido considera que\ldots''),\footnote{The party considers
+    that\ldots} never adopting the manifesto's
     evaluative terms as the system's own; leave out attacks on other parties
     unless the question asks for them;
     \item in comparisons, say explicitly when a party's manifesto does not
@@ -1310,7 +1338,9 @@ not confirm, the model should say so rather than accept it.
 stay close to the text, the generator repeated each manifesto's framing in the
 system's own voice. PCP's programme became ``a libertação de Portugal da
 \emph{submissão} à UE''; IL ``rejeita \emph{preconceitos}'' about nuclear
-power; CHEGA's immigrants should not ``\emph{viver de subsídios}''. None of
+power; CHEGA's immigrants should not ``\emph{viver de subsídios}''.\footnote{In
+English, ``the liberation of Portugal from \emph{submission} to the EU'',
+``rejects \emph{prejudices}'' and ``live off \emph{benefits}''.} None of
 this is invented: every phrase is in the cited chunk. Framing, in Entman's
 sense, is the selection of a problem definition, a causal reading and a moral
 judgement~\citep{entman1993framing}, and that is exactly what leaked:
@@ -1324,7 +1354,7 @@ pretraining data~\citep{pretraining-political-bias}. It is the sources'
 framing passing through, and it is uneven: the more rhetorical a manifesto,
 the more of its framing gets through.
 
-The comparison prompt already said ``Sê imparcial e factual'', and it did not
+The comparison prompt already said ``Sê imparcial e factual'',\footnote{Be impartial and factual.} and it did not
 help. In October 2026 it was replaced by an explicit attribution rule, the fourth in the
 list above: measures in neutral
 language, and every reason, diagnosis or judgement attributed to the party
@@ -1351,7 +1381,7 @@ dissertation.bib yet, so add them before citing.}
 
 The strategy is chosen by the \emph{answer shape} set during query analysis,
 not by the retrieval route, because the two can differ. ``Que partido propõe
-mais sobre habitação?'' (\textit{Which party proposes most on housing?}) must
+mais sobre habitação?''\footnote{Which party proposes most on housing?} must
 retrieve every party, which is the comparison route, but wants a single
 verdict, not eight sections. Two strategies follow:
 \begin{itemize}
@@ -1577,14 +1607,16 @@ records as its \texttt{code\_version}).
 
 \paragraph{Neutral references.} The reference answers follow a written
 rule: describe each measure in neutral language, give a party's reasons only
-as its own claims (``argumenta que'', ``por considerar que''), never adopt its
+as its own claims (``argumenta que'', ``por considerar que''),\footnote{``Argues that'' and
+``because it considers that''.} never adopt its
 evaluative terms, and leave out attacks on other parties. The rule was added
 during the review, in October 2026, after five references already marked as
 reviewed turned out to carry the parties' framing: q-08 had PCP's
-``submissão'' to the EU, q-18 IL's ``desperdício'' of votes. Framing is easy to
+``submissão'' to the EU, q-18 IL's ``desperdício'' of votes.\footnote{``Submission'' and ``waste''.} Framing is easy to
 miss, so it needs a written rule rather than vigilance. Correct references
 read like q-04, ``que considera um erro civilizacional'', or q-47, ``segundo o
-programa do CHEGA''.
+programa do CHEGA''.\footnote{``Which it considers a civilisational error''
+and ``according to the CHEGA manifesto''.}
 
 \subsection{Metrics} \label{subsec:metrics}
 %% src: docs/evaluation.md §3; retrieval (hit@k, recall@k, MRR, nDCG), routing (acc, F1), LLM-judge (faithfulness, relevance, correctness)
@@ -1652,7 +1684,10 @@ sources say a claim, never whether it is true or who says it. The production
 judge was given three claims against the q-08 context: PCP ``defende romper com
 a submissão à União Europeia''; the same, attributed (``aquilo a que o partido
 chama submissão''); and ``Portugal está numa situação de submissão à União
-Europeia'', with no party named at all. It accepted all three. Faithfulness
+Europeia'', with no party named at all.\footnote{In English, PCP ``advocates
+breaking with submission to the European Union'', ``what the party calls
+submission'' and ``Portugal is in a situation of submission to the European
+Union''.} It accepted all three. Faithfulness
 assumes the context is a trustworthy reference. In a corpus of manifestos,
 partisan by design, that assumption fails: a claim faithful to its source can
 still adopt the source's framing, and the metric cannot tell the two apart.

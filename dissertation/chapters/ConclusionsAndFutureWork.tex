@@ -43,9 +43,9 @@ cycle, and party positions move, so \sysname{} answers "what the 2024
 manifestos say", not "what the parties currently hold"; (c) existence
 questions --- "does party X ever mention Y?" ask for an exhaustive search,
 and top-$k$ retrieval cannot prove absence. Example: gold q-61, "O Chega
-menciona alguma vez touradas?". CHEGA mentions bullfighting once, as
+menciona alguma vez touradas?".\footnote{Does Chega ever mention bullfighting?} CHEGA mentions bullfighting once, as
 rhetoric, not policy: at 16 one may have sex-reassignment surgery but not
-attend an ``espectáculo tauromáquico''. Three things hide it: the chunk is
+attend an ``espectáculo tauromáquico''.\footnote{A bullfighting show.} Three things hide it: the chunk is
 classified \texttt{jovens}/\texttt{educacao}, so the analyzer's
 \texttt{cultura} filter excludes it; ``touradas'' and ``tauromáquico'' share no
 stem, so BM25 misses it; and RRF rewards agreement across lists, which a lone
@@ -103,7 +103,9 @@ judge, or the evaluation ends up scoring the checker against itself.
 Add (e) one-sided questions: a question can be phrased in a frame that only
 one manifesto uses, and the answer then has a single voice. Example: gold
 q-47, ``Quantos imigrantes entraram em Portugal em 2022, segundo os
-programas?''. Only CHEGA counts arrivals (``num total de 118.000''), and it
+programas?''.\footnote{How many immigrants entered Portugal in 2022,
+according to the manifestos?} Only CHEGA counts arrivals (``num total de
+118.000''),\footnote{A total of 118,000.} and it
 gives the figure as evidence that immigration puts pressure on housing. The
 other manifestos do discuss immigration (AD, BE, IL and PCP give it a section
 of its own), but in terms of integration, regularisation and immigrants'
@@ -112,7 +114,8 @@ none counts arrivals. A faithful answer can only report CHEGA's number and
 CHEGA's reading of it. The other parties are silent on this frame, which is
 not a rebuttal, and a reader may take the absence of a counter-view as
 agreement. The attribution rule keeps the claim in CHEGA's voice
-(``segundo o programa do CHEGA''), and the reference says that no other
+(``segundo o programa do CHEGA''),\footnote{According to the CHEGA
+manifesto.} and the reference says that no other
 manifesto gives the figure, but the asymmetry stays: the party that sets the
 frame of a topic owns the answer to every question asked in that frame. This
 is a property of the question as much as of the system, and none of the
