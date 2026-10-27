@@ -1,0 +1,96 @@
+\chapter{Example sessions} \label{app:examples}
+
+%% DRAFT (Claude, 2026-10-28), rewrite in your own words.
+%% Gold traces: data/eval/results/current-20261020T044840.json (frozen code
+%% 0293a0b), analysis timings from dense_only-20261020T022900.json. The q-21
+%% omission: the workplace creche line sits under ###### NATALIDADE in
+%% data/1_markdown/ad/ad-2024-manual.md (retrieved, rank 4); the higher-education
+%% creche line under ###### ESTUDANTES: APOIOS SOCIAIS E BEM-ESTAR (not retrieved).
+%% Transcripts: copies of data/eval/extras/walkthrough/*.txt, kept here so the
+%% Overleaf zip carries them.
+This appendix completes Section~\ref{sec:results-practice}. The first part
+traces two more gold questions from the test run, as q-03 was traced in
+Section~\ref{subsec:results-trace}. The second gives the seven command-line
+transcripts of Table~\ref{tab:walkthrough} in full, as the system printed
+them.
+
+\section{Two more gold questions} \label{sec:app-traces}
+
+\paragraph{A comparison (q-21).} ``Em que diferem AD e PS nas
+creches?''\footnote{``How do the AD and the PS differ on nurseries?''} The
+analyser read it as a comparison of the AD and the PS on \textbf{educacao}.
+The gold set also expects \textbf{seguranca\_social}, and it marks the
+question as asking for the best match rather than everything each party says,
+so topic F1 is 0.667 and coverage accuracy 0. The search fetched 8 chunks
+per party, 16 in all, merged into 13 passages.
+Three of the five gold chunks were among them, at ranks 1, 2 and 4 (recall
+0.60, nDCG 0.699). The answer follows in full.
+
+\begin{Verbatim}[fontsize=\scriptsize, breaklines=true, frame=single]
+### Aliança Democrática
+
+A Aliança Democrática propõe integrar a faixa etária dos 0 aos 3 anos no sistema educativo tutelado pelo Ministério da Educação [1]. O partido defende o acesso universal e gratuito às creches e ao pré-escolar, pretendendo alargar a oferta pública e sem custos para as famílias através do aumento da capacidade do Estado ou da contratualização com os setores social, particular e cooperativo [1][2]. No plano orçamental, o partido prevê a inclusão de despesas adicionais com as creches e o pré-escolar no seu cenário de despesa [6].
+
+### Partido Socialista
+
+O Partido Socialista compromete-se a prosseguir a política de alargamento da gratuitidade das creches e do pré-escolar [9]. O partido pretende reforçar a capacidade instalada da rede de respostas de creche em todo o país para garantir o acesso gratuito a todas as crianças, visando permitir a conciliação entre a vida pessoal, familiar e profissional [9]. O programa menciona que a gratuitidade das creches é uma medida já em implementação [13].
+
+### Síntese
+
+Ambos os partidos defendem o acesso universal e gratuito às creches e ao pré-escolar [1][2][9][13]. A diferença reside na abordagem de implementação: a Aliança Democrática foca na integração da faixa dos 0-3 anos no sistema educativo tutelado pelo Ministério da Educação e na mobilização dos setores público, social e privado [1][2], enquanto o Partido Socialista enfatiza a continuidade de uma política de alargamento já em curso, visando reforçar a capacidade instalada da rede [9][13].
+\end{Verbatim}
+
+Every claim in the answer is in the excerpts (faithfulness 1.00), and it
+covers 9 of the reference's 11 claims (correctness recall 0.818). The two it
+misses fail for different reasons. Crèches in higher education institutions
+are proposed in the AD's section on student support, which the search never
+reached, so the generator could not know about them. Tax benefits for firms
+that open workplace crèches are proposed in the AD's section on the birth
+rate, which the search did retrieve, and the generator left them out. One miss
+belongs to retrieval and the other to generation, and only reading the
+excerpts tells them apart.
+
+\paragraph{A party outside the corpus (q-59).} ``O que propõe o ADN para a
+habitação?''\footnote{``What does the ADN propose for housing?''} The ADN
+ran in 2024 but its manifesto is not in the corpus. The analyser recognised
+the party, found it outside the corpus and named no corpus party, so
+\sysname{} skipped the search and the generator and returned its fixed
+answer (Section~\ref{subsec:queryanalysis}).
+
+\begin{Verbatim}[fontsize=\scriptsize, breaklines=true, frame=single]
+O corpus não inclui o programa eleitoral destes partidos: ADN. Inclui apenas os de: Aliança Democrática, Bloco de Esquerda, CHEGA, Iniciativa Liberal, LIVRE, Pessoas-Animais-Natureza, Partido Comunista Português, Partido Socialista.
+\end{Verbatim}
+
+The answer\footnote{``The corpus does not include the manifesto of these
+parties: ADN. It only includes those of'' the eight parties listed.} took one
+LLM call, the analysis, and about a second. Before this guard existed,
+\sysname{} answered the question with the AD's housing proposals.
+
+\section{Command-line transcripts} \label{sec:app-transcripts}
+
+Each transcript is the full output of one \texttt{python main.py query} call
+on the frozen code, unedited. The lines in brackets are the progress messages
+shown while the user waits, the answer sits between the two rules, and the
+sources and model calls follow it. Each call loads the search model, because
+each question ran in a fresh process.
+
+\subsection*{O que propõe o LIVRE para a habitação?}
+\VerbatimInput[fontsize=\scriptsize, breaklines=true, frame=single]{appendices/walkthrough/01-single-party.txt}
+
+\subsection*{Compara as propostas do BE e da IL para o Serviço Nacional de Saúde.}
+\VerbatimInput[fontsize=\scriptsize, breaklines=true, frame=single]{appendices/walkthrough/02-comparison.txt}
+
+\subsection*{Que partidos falam sobre o bem-estar animal?}
+\VerbatimInput[fontsize=\scriptsize, breaklines=true, frame=single]{appendices/walkthrough/03-topic.txt}
+
+\subsection*{Que propostas existem para combater a corrupção?}
+\VerbatimInput[fontsize=\scriptsize, breaklines=true, frame=single]{appendices/walkthrough/04-general.txt}
+
+\subsection*{O que propõe o PCP sobre criptomoedas?}
+\VerbatimInput[fontsize=\scriptsize, breaklines=true, frame=single]{appendices/walkthrough/05-refusal.txt}
+
+\subsection*{Quais são os planos da AD para a habitação?}
+\VerbatimInput[fontsize=\scriptsize, breaklines=true, frame=single]{appendices/walkthrough/06-followup-1.txt}
+
+\subsection*{E o PS?}
+\VerbatimInput[fontsize=\scriptsize, breaklines=true, frame=single]{appendices/walkthrough/07-followup-2.txt}

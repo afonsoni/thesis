@@ -5,8 +5,9 @@
 3. Cost (RQ4): per answer, the pipeline's own LLM spend, tokens, calls and latency; judging apart.
 
 Query analysis and expansion are cached per process (query_analyzer.py), so in one `eval` call only
-the first rung that needs them logs their calls. Those costs are imputed per question from the rung
-that logged them (dense_only), for every rung whose config uses the stage.
+the first rung that needs them logs their calls. Their cost, tokens and seconds are imputed per question
+from the rung that logged them (dense_only), for every rung whose config uses the stage, so a cached
+rung's latency is what answering would take without the cache.
 Usage: python scripts/eval_extras/headline_analysis.py
 """
 import glob, json, statistics, sys
@@ -85,9 +86,9 @@ lines += ["", "Single-party unanswerable questions (3) and one topic question ar
 
 # 3. Cost
 def stage_costs(run_name, step):
-    """Per question: (cost, tokens in, tokens out) of one logged stage."""
-    return {r.question_id: tuple(sum(c[k] for c in r.llm_calls if c["step"] == step)
-                                 for k in ("cost", "prompt_tokens", "completion_tokens"))
+    """Per question: (cost, tokens in, tokens out, seconds) of one logged stage."""
+    return {r.question_id: tuple(sum(c[k] or 0 for c in r.llm_calls if c["step"] == step)
+                                 for k in ("cost", "prompt_tokens", "completion_tokens", "secs"))
             for r in latest[run_name].per_question}
 
 
@@ -101,7 +102,9 @@ for v in LADDER + ["hybrid_only", "reranked_only"] + RQ5:
     r = latest[v]
     n = len(r.per_question)
     pipe = judge = tin = tout = calls = 0.0
+    lat = []
     for q in r.per_question:
+        extra = 0.0
         own = [c for c in q.llm_calls if not c["step"].startswith("judge")]
         pipe += sum(c["cost"] for c in own)
         judge += sum(c["cost"] for c in q.llm_calls if c["step"].startswith("judge"))
@@ -110,16 +113,17 @@ for v in LADDER + ["hybrid_only", "reranked_only"] + RQ5:
         calls += len(own)
         for flag, step in logged.items():  # stage cached by an earlier rung of the same process
             if r.config.get(flag) and r.config.get("use_retrieval", True) and not any(c["step"] == step for c in own):
-                c_, i_, o_ = imputed[flag].get(q.question_id, (0.0, 0, 0))
-                pipe, tin, tout, calls = pipe + c_, tin + i_, tout + o_, calls + 1
-    lat = [q.latency_s for q in r.per_question if q.latency_s is not None]
+                c_, i_, o_, s_ = imputed[flag].get(q.question_id, (0.0, 0, 0, 0.0))
+                pipe, tin, tout, calls, extra = pipe + c_, tin + i_, tout + o_, calls + 1, extra + s_
+        if q.latency_s is not None:
+            lat.append(q.latency_s + extra)
     trunc = sum(any("[truncated]" in c["step"] for c in q.llm_calls) for q in r.per_question)
     note = " (notional, Claude plan)" if v == "deep_research_claude" else ""
     lines.append(f"| {v} | {pipe / n:.4f}{note} | {judge / n:.4f} | {tin / n:,.0f} | {tout / n:,.0f} | "
                  f"{calls / n:.1f} | {statistics.fmean(lat):.1f} | {statistics.median(lat):.1f} | {trunc} |")
 lines += ["", "Pipeline cost is what answering costs (analysis, expansion, generation); judging is evaluation "
-          "overhead. Cached stages add their imputed cost, tokens and one call. Latency excludes judging "
-          "but includes provider retries (most of Gemini's mean). `answers truncated` counts answers "
+          "overhead. Cached stages add their imputed cost, tokens, seconds and one call. Latency excludes "
+          "judging but includes provider retries (most of Gemini's mean). `answers truncated` counts answers "
           "that hit the 3,000-token cap (`llm.openrouter.max_tokens`). Assistant cost includes the "
           "provider's web-search fee; deep research is Claude Code's notional `total_cost_usd`.", ""]
 

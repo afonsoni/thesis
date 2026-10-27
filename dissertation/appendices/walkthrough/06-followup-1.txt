@@ -1,0 +1,47 @@
+[  2.6s] A analisar a pergunta…
+[  3.3s] A carregar o modelo de pesquisa (só na primeira pergunta)…
+[  4.1s] A reformular a pergunta para a pesquisa…
+[  4.6s] A pesquisar no programa de Aliança Democrática…
+[  5.4s] A redigir a resposta a partir de 10 excertos…
+
+============================================================
+A Aliança Democrática (AD) propõe um "Choque de Oferta Privada, Pública e Cooperativa" para resolver a crise da habitação [2], baseando a sua política nos seguintes eixos e medidas:
+
+**Medidas para o aumento da oferta e flexibilização urbanística**
+* **Flexibilização de normas:** Propõe a flexibilização das limitações de ocupação de solos, densidades urbanísticas (incluindo construção em altura), requisitos construtivos e a possibilidade de aumento dos perímetros urbanos [2].
+* **Gestão de património público:** Injeção "quase-automática" de imóveis e solos públicos que estejam devolutos ou subutilizados no mercado [2].
+* **Simplificação administrativa:** Análise do enquadramento legislativo do licenciamento para reduzir obstáculos e transitar de um modelo de controlo prévio para um modelo de fiscalização *ex-post* [2].
+* **Novos conceitos de alojamento:** Estímulo a modelos como *build to rent*, *mixed housing* (com bónus de densidade), *co-living*, habitação modular e cooperativas [2].
+* **Parcerias:** Implementação de um Programa de Parcerias Público-Privadas para construção e reabilitação em larga escala, abrangendo habitação geral e alojamento estudantil [2].
+
+**Medidas fiscais e incentivos**
+* **Redução de custos de construção:** Regime excecional e temporário de eliminação ou redução de custos tributários em obras de construção ou reabilitação para habitação permanente [2].
+* **Taxas e IVA:** Redução substancial ou eliminação de taxas de urbanização, edificação, utilização e ocupação, e aplicação da taxa mínima de IVA (6%) em obras e serviços de construção e reabilitação [2].
+* **Compensação autárquica:** As perdas de receita das autarquias decorrentes destas reduções fiscais seriam compensadas através do Orçamento do Estado [2].
+
+**Apoio específico aos jovens**
+* **Compra da primeira casa:** Programa para libertar os jovens de duas barreiras financeiras:
+    * **Isenção de IMT e Imposto de Selo** [3].
+    * **Garantia Pública** para viabilizar o financiamento bancário de 100% do preço de aquisição [3].
+
+**Alterações ao regime de arrendamento e Alojamento Local**
+* **Revogação de medidas do "Mais Habitação":** O partido pretende revogar o arrendamento forçado, os congelamentos de rendas (propondo, em alternativa, subsídios aos arrendatários vulneráveis) e as medidas penalizadoras do Alojamento Local [3].
+* **Alojamento Local:** Eliminação imediata da Contribuição Extraordinária sobre o Alojamento Local e da caducidade das licenças anteriores ao programa "Mais Habitação" [3][4].
+
+**Infraestruturas e sustentabilidade**
+* **Transportes:** Planeamento de uma oferta de transportes públicos que sustente o aumento dos perímetros urbanos e encurte distâncias [2].
+* **Cidades sustentáveis:** A ambição é criar cidades que promovam o bem-estar, a revitalização (evitando a gentrificação), a inovação e a integração social, incluindo cuidados à população sénior [1].
+============================================================
+
+Fontes (6):
+  [1] Aliança Democrática – PROGRAMA ECONÓMICO DA ALIANÇA DEMOCRÁTICA > 4. Uma Economia de Futuro > 4.3. POPULAÇÃO COM FUTURO: VENCER A CRISE DEMOGRÁFICA E EXPANDIR A OFERTA HABITACIONAL > 4.3.2. HABITAÇÃO, REFORMAS PARA RESOLVER A CRISE DA HABITAÇÃO (rrf=0.1457)
+  [2] Aliança Democrática – PROGRAMA ECONÓMICO DA ALIANÇA DEMOCRÁTICA > 4. Uma Economia de Futuro > 4.3. POPULAÇÃO COM FUTURO: VENCER A CRISE DEMOGRÁFICA E EXPANDIR A OFERTA HABITACIONAL > 4.3.2. HABITAÇÃO, REFORMAS PARA RESOLVER A CRISE DA HABITAÇÃO > **Choque de Oferta Privada, Pública e Cooperativa** (rrf=0.1432)
+  [3] Aliança Democrática – PROGRAMA ECONÓMICO DA ALIANÇA DEMOCRÁTICA > 4. Uma Economia de Futuro > 4.3. POPULAÇÃO COM FUTURO: VENCER A CRISE DEMOGRÁFICA E EXPANDIR A OFERTA HABITACIONAL > 4.3.2. HABITAÇÃO, REFORMAS PARA RESOLVER A CRISE DA HABITAÇÃO > **Programa de Apoio à Compra da Primeira Casa pelos Jovens** (rrf=0.1089)
+  [4] Aliança Democrática – PROGRAMA ECONÓMICO DA ALIANÇA DEMOCRÁTICA > 2. Apostar na Iniciativa Privada e na Produtividade > 2.1. MAIS CONCORRÊNCIA, MENOS BUROCRACIA, MENORES CUSTOS DE CONTEXTO: > MEDIDAS TENDENTES A ELIMINAR BARREIRAS E CONSTRANGIMENTOS À ATIVIDADE ECONÓMICA > Revogação de Medidas penalizadoras do Alojamento Local (rrf=0.0936)
+  [5] Aliança Democrática – PROGRAMA SOCIAL E DE GOVERNAÇÃO DA ALIANÇA DEMOCRÁTICA (rrf=0.0467)
+  [6] Aliança Democrática – PROGRAMA SOCIAL E DE GOVERNAÇÃO DA ALIANÇA DEMOCRÁTICA > Sumário Executivo (rrf=0.0459)
+
+Modelos (3 chamadas, 5372 tokens in / 906 out, $0.0006):
+  query analysis: google/gemma-4-26b-a4b-it (0.8s)
+  query expansion: google/gemma-4-26b-a4b-it (0.5s)
+  answer: google/gemma-4-26b-a4b-it (1.4s)

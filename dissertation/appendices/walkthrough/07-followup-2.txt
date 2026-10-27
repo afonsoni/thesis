@@ -1,0 +1,23 @@
+[  2.7s] A analisar a pergunta…
+[  3.2s] A carregar o modelo de pesquisa (só na primeira pergunta)…
+[  4.1s] A reformular a pergunta para a pesquisa…
+[  4.6s] A pesquisar no programa de Partido Socialista…
+[  5.4s] A redigir a resposta a partir de 10 excertos…
+
+============================================================
+Não encontrei resposta a esta pergunta nos excertos dos programas que consultei, mas isso não garante que os programas não abordem o tema.
+============================================================
+
+Fontes (7):
+  [1] Partido Socialista – PLANO DE AÇÃO PARA PORTUGAL INTEIRO 2024 > INTRODUÇÃO > **2.ª MISSÃO:** UM ESTADO SOCIAL FORTE, MODERNO E INCLUSIVO > 1. Um Estado social que garante os direitos sociais e combate a pobreza com uma segurança social pública equitativa e sustentável (rrf=0.0813)
+  [2] Partido Socialista – PLANO DE AÇÃO PARA PORTUGAL INTEIRO 2024 > INTRODUÇÃO (rrf=0.0763)
+  [3] Partido Socialista – PLANO DE AÇÃO PARA PORTUGAL INTEIRO 2024 > INTRODUÇÃO > **2.ª MISSÃO:** UM ESTADO SOCIAL FORTE, MODERNO E INCLUSIVO (rrf=0.0623)
+  [4] Partido Socialista – PLANO DE AÇÃO PARA PORTUGAL INTEIRO 2024 > INTRODUÇÃO > **4.ª MISSÃO:** UMA DEMOCRACIA DE QUALIDADE PARA TODOS > 1. Uma democracia resiliente ao populismo e à demagogia com mais participação, mais transparência e mais proximidade (rrf=0.0487)
+  [5] Partido Socialista – PLANO DE AÇÃO PARA PORTUGAL INTEIRO 2024 > INTRODUÇÃO > **5.ª MISSÃO:** UM PORTUGAL CENTRAL NA EUROPA E NO MUNDO (rrf=0.0478)
+  [6] Partido Socialista – PLANO DE AÇÃO PARA PORTUGAL INTEIRO 2024 (rrf=0.0474)
+  [7] Partido Socialista – PLANO DE AÇÃO PARA PORTUGAL INTEIRO 2024 > INTRODUÇÃO > **4.ª MISSÃO:** UMA DEMOCRACIA DE QUALIDADE PARA TODOS > 1. Uma democracia resiliente ao populismo e à demagogia com mais participação, mais transparência e mais proximidade > 1.2. (rrf=0.0472)
+
+Modelos (3 chamadas, 6272 tokens in / 175 out, $0.0005):
+  query analysis: google/gemma-4-26b-a4b-it (0.6s)
+  query expansion: google/gemma-4-26b-a4b-it (0.5s)
+  answer: google/gemma-4-26b-a4b-it (0.5s)

@@ -50,18 +50,18 @@ Single-party unanswerable questions (3) and one topic question are in `unanswera
 | multiquery | 0.0008 | 0.0068 | 7,257 | 391 | 2.0 | 3.2 | 2.6 | 0 |
 | routed | 0.0015 | 0.0081 | 14,070 | 484 | 2.0 | 2.5 | 2.2 | 0 |
 | dense_only | 0.0015 | 0.0071 | 14,769 | 539 | 3.0 | 4.0 | 3.6 | 0 |
-| hybrid | 0.0012 | 0.0083 | 14,550 | 599 | 3.0 | 3.3 | 3.1 | 0 |
-| contextual | 0.0012 | 0.0086 | 14,428 | 600 | 3.0 | 3.1 | 2.5 | 0 |
-| current | 0.0011 | 0.0084 | 13,984 | 604 | 3.0 | 3.5 | 3.4 | 0 |
-| reranked | 0.0012 | 0.0086 | 14,781 | 603 | 3.0 | 9.5 | 6.9 | 0 |
+| hybrid | 0.0012 | 0.0083 | 14,550 | 599 | 3.0 | 4.7 | 4.2 | 0 |
+| contextual | 0.0012 | 0.0086 | 14,428 | 600 | 3.0 | 4.5 | 3.7 | 0 |
+| current | 0.0011 | 0.0084 | 13,984 | 604 | 3.0 | 4.9 | 4.7 | 0 |
+| reranked | 0.0012 | 0.0086 | 14,781 | 603 | 3.0 | 11.0 | 8.3 | 0 |
 | hybrid_only | 0.0000 | 0.0000 | 0 | 0 | 0.0 | 0.2 | 0.1 | 0 |
 | reranked_only | 0.0000 | 0.0000 | 0 | 0 | 0.0 | 1.9 | 1.8 | 0 |
 | no_retrieval | 0.0001 | 0.0046 | 322 | 302 | 1.0 | 1.4 | 1.3 | 0 |
 | no_retrieval_strong | 0.0077 | 0.0055 | 295 | 466 | 1.0 | 9.5 | 8.5 | 0 |
-| current_strong | 0.0408 | 0.0116 | 13,200 | 899 | 3.0 | 12.6 | 9.7 | 3 |
+| current_strong | 0.0408 | 0.0116 | 13,200 | 899 | 3.0 | 14.0 | 11.1 | 3 |
 | assistant_gpt | 0.0915 | 0.0057 | 28,962 | 640 | 1.0 | 24.2 | 18.6 | 0 |
 | assistant_gemini | 0.0674 | 0.0069 | 531 | 1,309 | 1.0 | 90.8 | 41.2 | 2 |
 | assistant_claude | 0.0710 | 0.0079 | 4,572 | 2,283 | 1.0 | 23.4 | 23.2 | 5 |
 | deep_research_claude | 0.3481 (notional, Claude plan) | 0.0092 | 121,047 | 4,844 | 1.0 | 107.6 | 94.0 | 0 |
 
-Pipeline cost is what answering costs (analysis, expansion, generation); judging is evaluation overhead. Cached stages add their imputed cost, tokens and one call. Latency excludes judging but includes provider retries (most of Gemini's mean). `answers truncated` counts answers that hit the 3,000-token cap (`llm.openrouter.max_tokens`). Assistant cost includes the provider's web-search fee; deep research is Claude Code's notional `total_cost_usd`.
+Pipeline cost is what answering costs (analysis, expansion, generation); judging is evaluation overhead. Cached stages add their imputed cost, tokens, seconds and one call. Latency excludes judging but includes provider retries (most of Gemini's mean). `answers truncated` counts answers that hit the 3,000-token cap (`llm.openrouter.max_tokens`). Assistant cost includes the provider's web-search fee; deep research is Claude Code's notional `total_cost_usd`.
