@@ -811,10 +811,6 @@ Appendix~\ref{sec:tooling-schema}.
 \clearpage
 \section{Retrieval} \label{sec:retrieval}
 % ============================================================
-%% DRAFT (Claude, 2026-10-10) from the code, commit bodies and DECISIONS.md.
-%% To be read and rewritten in the author's own words before it stands.
-\TODO{REVIEW: Claude's draft of this section (2026-10-10). Read it, check the
-facts against your memory, and rewrite it in your own words.}
 
 Indexing happens once, ahead of time. Retrieval happens every time someone
 asks a question. This split between work done ahead of time and work done at
@@ -982,9 +978,13 @@ all.
 search for health passages returned only chunks labelled \textit{saude}, or
 nothing. Then a question the corpus could answer well came back with
 \textit{não foram encontrados documentos relevantes}.\footnote{No relevant
-documents were found.} The analyser had proposed the topic \textit{saude}, but that
-index had been built without classification, so every chunk carried the
-default label and no chunk matched. The same failure happens whenever the
+documents were found.} The question was fine, and so was the analyser, which
+proposed the topic \textit{saude}. The problem was the index. Classifying
+every chunk costs one call to the language model per batch, so it had been
+made optional, to rebuild the index quickly while testing other changes
+(Section~\ref{subsec:classification}). This index had been built that way,
+without classification, so every chunk carried the default label
+\textit{outros}, and no chunk matched \textit{saude}. The same failure happens whenever the
 analyser proposes a topic the classifier never assigned. Topics help precision
 but are not needed for a correct answer, so they became a preference. The
 search runs with the topic filter first and, if nothing matches, runs again
@@ -1004,7 +1004,8 @@ default. Together with a wider net, 10 chunks and 8 per party instead of 5 and
 5, this was judged on all 61 gold questions with the metrics of
 Section~\ref{subsec:metrics}. Recall rose by 0.123 and correctness by 0.041,
 both with confidence intervals above zero, while faithfulness stayed the same
-within noise. The filter survives as an ablation
+within noise. The filter survives only as an evaluation variant, one switch
+away from production, to measure what it costs
 (Section~\ref{subsec:variants}), and topics still decide whether a question
 counts as a topic exploration.
 
@@ -1045,19 +1046,39 @@ The second shows the risk as well as the benefit. The \textit{rendimento
 mínimo garantido} is not the minimum wage but a social benefit, the guaranteed
 minimum income, so its search pulls in passages on a different subject. Fusion
 keeps this drift in check, because a passage found by only one of five
-versions ranks below passages found by several. Expansion costs one extra call
-to the language model and four extra searches per question.
+versions ranks below passages found by several. Multi-query expansion costs
+one extra call to the language model and four extra searches per question.
 
 \paragraph{Fusion.} Each version of the question is embedded and matched
 against the stored chunk vectors by cosine similarity, within whatever party
 filter the route applies. Expansion therefore produces one ranked list per
 version, and these are merged with Reciprocal Rank Fusion
-(RRF)~\citep{cormack2009rrf}. RRF gives a chunk $1/(k + r)$ for every list in
-which it appears at rank $r$, with $k = 60$, and adds these up. A chunk ranked
-first in a single list earns $1/61$, about 0.016, while a chunk ranked fifth
-in four lists earns $4/65$, about 0.062, and comes out well ahead. RRF uses
-only ranks, not scores, so lists whose scores sit on different scales can be
-fused without calibrating them.
+(RRF)~\citep{cormack2009rrf}. For every list in which a chunk appears at
+rank $r$, RRF gives it $1/(60 + r)$, and it adds these up
+(Table~\ref{tab:rrf}). Agreement wins. A chunk found by several versions of
+the question beats one that a single version ranked first. RRF uses only
+ranks, not scores, so lists whose scores sit on different scales can be fused
+without calibrating them.
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|l|c|c|c|c|c|c|}
+        \hline
+        & \multicolumn{5}{c|}{\textbf{Rank in list}} & \\
+        \cline{2-6}
+        \textbf{Chunk} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{RRF score} \\
+        \hline
+        A & 1 & -- & -- & -- & -- & $\frac{1}{61} \approx 0.016$ \\
+        B & 3 & 2 & -- & -- & -- & $\frac{1}{63} + \frac{1}{62} \approx 0.032$ \\
+        C & 5 & 5 & 5 & 5 & -- & $4 \times \frac{1}{65} \approx 0.062$ \\
+        \hline
+    \end{tabular}
+    \caption[Reciprocal Rank Fusion]{Reciprocal Rank Fusion on three made-up
+    chunks and five ranked lists, one per version of the question. A dash means
+    the chunk is not in that list. Chunk C never ranks above fifth but comes
+    out first.}
+    \label{tab:rrf}
+\end{table}
 
 \paragraph{Hybrid retrieval.} Dense embeddings capture meaning but can
 under-weight rare exact strings, such as acronyms, programme names and codes
@@ -1115,25 +1136,25 @@ the gold chunks for that question at ranks one to three.
 %% 18 of 20 gold retrieved, MRR 1.0. Missed: IL "PORTUGAL A CRESCER > 4.
 %% REFORMA LABORAL" (summary section) and PCP "Assegurar a autonomia
 %% económica e social das famílias".
-\paragraph{The minimum-wage question, retrieved.} Eight searches over ten
-lists each hand the generator 64 chunks, eight from every party. They include
-18 of the 20 chunks marked as gold for this question, and the first chunk in
-the list is one of them. The two that were missed both mention the minimum
-wage in passing. One is the short summary of labour reform near the start of
-the IL manifesto, whose full chapter on labour supplied three other gold
-chunks. The other is a PCP section on the economic autonomy of families, which
-lists the minimum wage among other measures. Every party is represented, which
-is the point of the comparison route.
+In the end, retrieval hands the generator 64 chunks for the minimum-wage
+question, eight from every party. Among them are 18 of the 20 chunks that the
+gold set marks as answering it (Section~\ref{subsec:goldset}), and the two
+missed ones mention the minimum wage only in passing. Section~\ref{sec:generation}
+picks the question up from there.
 
 \subsection{Reranking} \label{subsec:reranking}
 
-Dense retrieval embeds the question and each chunk separately. That is what
-makes searching a whole corpus affordable, and also what limits its precision,
-since a chunk's vector cannot depend on the question being asked. A
-\emph{cross-encoder} reads the question and a passage together and scores how
-well they match directly~\citep{nogueira2019passagererankingbert}. It is far
-more accurate but far too slow to run over the whole corpus, so it runs
-second, over a shortlist.
+Dense search turns every chunk into a vector once, at indexing time, and
+the question into a vector when it arrives. Comparing vectors is fast, which
+is why the whole corpus can be searched in a fraction of a second. The cost is
+that each chunk is encoded without ever seeing the question, so its vector
+cannot reflect what the question is asking. A \emph{cross-encoder} works the
+other way round. It reads the question and a chunk together, as one text, and
+scores how well they match~\citep{nogueira2019passagererankingbert}. That is
+much more accurate, but it means one run of the model per chunk for every
+question, far too slow for the whole corpus. So it is used second, to reorder
+a shortlist that ordinary search has already found. This second pass is
+called \emph{reranking}.
 
 With reranking turned on, each search fetches 30 candidates instead of the
 usual ten, the fused list keeps all 30, and the cross-encoder
@@ -1152,28 +1173,23 @@ by 0.055 and doubled latency, so it stays off and is reported as a negative
 result. That runs against published experience. In Anthropic's tests,
 contextual embeddings with BM25 cut failed retrievals by 49\%, and adding a
 reranker raised the cut to 67\%~\citep{anthropic2024contextual}.
-%% DRAFT (Claude, 2026-10-16): hypotheses only; replace with your own view if you have one.
-Why it lost was not investigated, and three explanations fit. The reranker is
+Why it lost was not investigated, and four explanations fit. The first is
+the least flattering. The fault may lie in this implementation rather than in
+reranking, and given how well it has worked elsewhere, it deserves another
+attempt. Beyond that, the reranker is
 a general multilingual model, not trained on European Portuguese policy prose.
 It scores each small chunk without the section around it, which is exactly the
 context that contextual retrieval adds to the index. And hybrid fusion over
 five versions of the question may already have done the reranker's job,
 leaving it only good candidates to reshuffle, sometimes for the worse.
 
-\paragraph{Agentic retrieval.} \label{subsec:agentic}
-\TODO{STRUCTURE (2026-10-25): keep this as a paragraph or move it to Future
-work in Chapter~\ref{ch:conclusion}. The Problem chapter points here
-(``Sections~\ref{subsec:queryanalysis} to~\ref{subsec:agentic}''), so update that
-reference if it moves.}
-%% DRAFT (Claude, 2026-10-16), from DECISIONS.md (code freeze, 2026-10-15).
-The last rung planned for the ladder was agentic
+\paragraph{Agentic retrieval.} \label{subsec:agentic} The last rung planned for the ladder was agentic
 retrieval~\citep{agentic-rag}, a loop in which a language model drives the
 existing pipeline. It decides whether and what to retrieve, searches again
 when the results fall short, and checks the evidence before an answer is
-written. It was not built before the code freeze and is left as future work.
-Empty modules for agentic and corrective retrieval were created early in the
-project and deleted, still empty, ten months later. Corrective
-RAG~\citep{crag} would stay out even then, because when retrieval falls short
+written. It was not built before the code freeze and is left as future work
+(Chapter~\ref{ch:conclusion}). Corrective RAG~\citep{crag} would stay out
+even then, because when retrieval falls short
 its fallback is web search, and \sysname{} must answer from the manifestos
 alone.
 
@@ -1512,8 +1528,8 @@ adjacent rungs is the contribution of one technique, and nothing else.
         \hline
     \end{tabular}
     \caption[The variant ladder]{The variant ladder. Above the line, each rung adds one technique to
-    the one before; below it, the points of comparison for RQ5. Further single-flag
-    ablations (topic filter, prompt budget, index without LLM context) are
+    the one before; below it, the points of comparison for RQ5. Further variants that
+    each change one setting (topic filter, prompt budget, index without LLM context) are
     listed in Appendix~\ref{app:results}.}
     \label{tab:ladder}
 \end{table}
@@ -1758,7 +1774,7 @@ repository's test suite.
     changed as the corpus grows.
     \item \textbf{Stable gold identity.} Gold chunks are identified by a hash of
     their content (Section~\ref{subsec:goldset}). A test checks that the
-    contextual-header ablation changes only the text that is embedded, not the
+    contextual-header variant changes only the text that is embedded, not the
     stored content, so one gold set scores every variant.
     \item \textbf{No silent substitutions.} A reranker that fails to load stops
     the run instead of returning un-reranked results under the
