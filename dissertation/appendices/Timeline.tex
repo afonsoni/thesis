@@ -1,0 +1,57 @@
+\chapter{Decision timeline} \label{app:timeline}
+%% DRAFT (Claude, 2026-10-26) from the dates in the Proposition, each checked
+%% against the git history (first commit 2024-11-04, code-freeze tag 0293a0b,
+%% 2026-10-20). Rewrite the lead-in in your own words.
+
+Table~\ref{tab:timeline} lists, month by month, the decisions described in
+Chapter~\ref{ch:proposition}, so that the chapter can tell each story without
+its calendar. The dates come from the repository history and match the
+commits that made each change.
+
+\begin{table}[p]
+    \centering
+    \footnotesize
+    \begin{tabular}{|l|l|p{0.56\textwidth}|l|}
+        \hline
+        \textbf{Date} & \textbf{Area} & \textbf{Decision} & \textbf{Section} \\
+        \hline
+        Nov 2024 & Language model & Project starts with small local models through Ollama & \ref{subsec:llm} \\
+        Jan 2025 & Parsing & pdfminer.six and PyMuPDF tried and set aside & \ref{subsec:parsing} \\
+        Jan 2025 & Language model & LlamaAPI, a paid model router, funded & \ref{subsec:llm} \\
+        Apr 2025 & Parsing & Marker adopted, all eight manifestos converted & \ref{subsec:parsing} \\
+        May 2025 & Prototype & First prototype, with word chunks, MiniLM and Milvus Lite & \ref{subsec:chunking}, \ref{subsec:vectorstore} \\
+        Aug 2025 & Cleaning & Four manifestos corrected by hand & \ref{subsec:cleaning} \\
+        Aug 2025 & Embeddings & Serafim replaces \texttt{all-MiniLM-L6-v2} & \ref{subsec:embeddings} \\
+        Aug 2025 & Storage & PostgreSQL with pgvector replaces Milvus & \ref{subsec:vectorstore} \\
+        Early 2026 & Language model & Gemini 2.5 through Google's API & \ref{subsec:llm} \\
+        Mar 2026 & Retrieval & Query analysis and routing introduced & \ref{subsec:queryanalysis} \\
+        Mar 2026 & Chunking & Chunks of 1{,}000 characters & \ref{subsec:chunking} \\
+        Mar 2026 & Language model & LlamaAPI shuts down, taking its credit & \ref{subsec:llm} \\
+        Apr 2026 & Language model & OpenRouter with Gemma~4 on the free tier & \ref{subsec:llm} \\
+        Apr 2026 & Chunking & Chunks grow to 1{,}600 characters & \ref{subsec:chunking} \\
+        Apr 2026 & Classification & Keyword fallback removed, runs fail fast and resume & \ref{subsec:classification} \\
+        Aug 2026 & Chunking & Truncation found, chunks sized in tokens, small-to-big retrieval & \ref{subsec:chunking} \\
+        Aug 2026 & Embeddings & Qwen3-Embedding replaces Serafim & \ref{subsec:embeddings} \\
+        Aug 2026 & Classification & Topic classification made optional & \ref{subsec:classification} \\
+        Aug 2026 & Retrieval & Hybrid search added, its lexical half matching every word & \ref{subsec:search} \\
+        Aug 2026 & Retrieval & Route derived from parties and coverage, ideology field dropped & \ref{subsec:queryanalysis} \\
+        Aug 2026 & Retrieval & Topic filter becomes a preference & \ref{subsec:routing} \\
+        Aug 2026 & Retrieval & Cross-encoder reranker added & \ref{subsec:reranking} \\
+        Aug 2026 & Generation & Answer shape picks the synthesis, decomposition narrowed & \ref{subsec:synthesis} \\
+        Sep 2026 & Evaluation & First gold-set questions written & \ref{subsec:goldset} \\
+        Oct 2026 & Cleaning & Automated cleaner for the other four manifestos & \ref{subsec:cleaning} \\
+        Oct 2026 & Retrieval & Lexical search rewritten as BM25 & \ref{subsec:search} \\
+        Oct 2026 & Generation & Decomposition retired, prompt budget raised to 32{,}000 tokens & \ref{subsec:synthesis}, \ref{subsec:context} \\
+        Oct 2026 & Language model & Paid Gemma endpoint, judge moved to Qwen & \ref{subsec:llm}, \ref{subsec:metrics} \\
+        Oct 2026 & Retrieval & Hybrid search becomes the default, reranker loses on dev & \ref{subsec:search}, \ref{subsec:reranking} \\
+        Oct 2026 & Indexing & Contextual retrieval becomes the default index & \ref{subsec:contextual} \\
+        Oct 2026 & Retrieval & Ten chunks, eight per party, topic filter off & \ref{subsec:routing} \\
+        Oct 2026 & Generation & Attribution rule against framing leakage & \ref{subsec:grounding} \\
+        Oct 2026 & Evaluation & Gold set reviewed and compiled, 61 questions & \ref{subsec:goldset} \\
+        Oct 2026 & Evaluation & Code frozen (\texttt{0293a0b}), final test run & \ref{subsec:goldset} \\
+        \hline
+    \end{tabular}
+    \caption[Decision timeline]{Dated decisions behind \sysname{}, with the
+    section of Chapter~\ref{ch:proposition} that discusses each.}
+    \label{tab:timeline}
+\end{table}

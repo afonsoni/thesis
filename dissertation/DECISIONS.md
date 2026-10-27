@@ -52,6 +52,16 @@ for the decision-history thread of the Proposition chapter.
 
 ## Settled
 
+- **Proposition structure** (2026-10-25). Pipeline order kept. Chapter
+  retitled "Building PoliRAG". Indexing now follows the State of the Art
+  order (chunking, embeddings, context, then classification and the store).
+  Multi-query folded into Search and fusion, Citations into Grounding, Agentic
+  retrieval into a paragraph closing Reranking (labels kept, so references
+  still resolve). The schema paragraph moved to the Tooling appendix. New:
+  lead-in skeleton (mini-thesis, five design principles, try-it pitch,
+  timeline), running example q-33 (salário mínimo, dev) in every section, and
+  a closing "What building it taught" section with four lessons. All as
+  `STRUCTURE`/`RUNNING EXAMPLE`/`LESSON` TODOs, with no prose rewritten yet.
 - **Omitted judge scores re-judged** (2026-10-22,
   `scripts/eval_extras/rejudge_missing.py`). The judge left 5 (variant,
   question) pairs unscored on test. Re-running the same judge on the stored

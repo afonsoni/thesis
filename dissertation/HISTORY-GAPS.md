@@ -63,7 +63,7 @@ Finally, Markdown headers ended up being needed for header-aware chunking. I did
 
 I mostly fixed some broken headers and removed text that was not important. Basically the differences you can see between the regular extracted text and the manual variant. Check it please and fill in the missing parts.
 I only got to fix those parties for now. I want to fix the rest soon. All parties should have a manual version before embedding. Perhaps I wil rerun marker with new settings, as it has gotten a newer version, and check if indeed we get less errors.
-It took a while to fix a single political party program (around 20-30 minutes, depending on size and amount of things that must be cleaned up). We should try to make the cleanup of markdown political programs automated, so that in the future we can just had new political programs, from other years, for example, to add even more context to the RAG system.
+It took a while to fix a single political party program (about an hour each, often more, depending on size and amount of things that must be cleaned up; corrected on 2026-10-26 from an earlier "20-30 minutes"). We should try to make the cleanup of markdown political programs automated, so that in the future we can just had new political programs, from other years, for example, to add even more context to the RAG system.
 
 ---
 
@@ -96,6 +96,8 @@ The first time I started seeing actual ok results was when I started using seraf
 On HuggingFace it had one of the best results in Portuguese encoding. Especially since it was tuned for information retrieval (IR). It was also a sentence transformer made for Portuguese, by Portuguese. However, it also became less interesting because it had a big limitation: max_seq_length is 128 tokens. Our median chunk was 365 tokens. I did not notice it at the time of choosing, and only after a while of testing, was I able to understand its limitation. Once the limitation was found, it was time to choose another embedding model.
 For now we use Qwen embedding, but I still wonder if there is another possible one, better for Portuguese. I still would like to compare our current Embedding model to Bertimbau or some other embedding model that is currently on the top of Portuguese embeddings, especially for information retrieval. But how would I compare it? How does one compare embedding models/encoders/decoders etc? What are the differences, even? Should we shortly explain that in the thesis?
 Perhaps changing the model is something for the future.
+
+Addendum (2026-10-27): after all-MiniLM-L6-v2, a couple of other encoders were tried locally (never committed) before settling on Serafim as the best of them.
 
 ---
 

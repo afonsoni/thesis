@@ -1,65 +1,132 @@
 % Searchable, impossible-to-miss placeholder macro
 \providecommand{\TODO}[1]{\textcolor{red}{\textbf{[TODO: #1]}}}
 
-\chapter{\sysname{} Proposal} \label{ch:proposition}
+\chapter{Building \sysname{}} \label{ch:proposition}
 
-%% DRAFT (Claude, 2026-10-08): naming sentence, to be rewritten.
-This chapter presents \sysname{}, the system built in this work to answer
-questions about the 2024 Portuguese electoral manifestos.
+This chapter finally presents \sysname{}, the system developed to answer
+questions about the 2024 Portuguese manifestos. It becomes evident, throughout this
+chapter, that the quality of an answer depends less on the language model used to write it than on the steps that come before.
+By the time the model starts writing, the decisions that matter most have already been made, namely
+which passages it reads, whether every party is among them, and whether each claim can be traced back to its source.
 
-%% DRAFT (Claude, 2026-10-16): chapter lead-in, to be rewritten.
-It is presented in four parts, in the order a question meets them
-(Figure~\ref{fig:system-overview}). Indexing (Section~\ref{sec:indexing})
-turns the manifestos into a searchable store; retrieval
-(Section~\ref{sec:retrieval}) finds the passages that answer a question;
-generation (Section~\ref{sec:generation}) writes the answer from them; and
-evaluation (Section~\ref{sec:evaluation}) measures every step. Indexing and
-evaluation run offline, ahead of time; retrieval and generation run online,
-every time someone asks.
+The catch is that these steps can fail without anyone noticing. A model given
+the wrong passages still writes a fluent answer with cited claims. Two of the
+failures in this chapter did exactly that, raising no error and going
+unnoticed for months (Sections~\ref{subsec:chunking}
+and~\ref{subsec:search}). And several techniques that looked promising on
+paper were measured and switched off.
 
-Each component follows the same rhythm: the problem it solves, the candidates
-researched, the choice made and, where it happened, how and why that choice
-was later revised. The revisions are not tidied away. Several are the most
-instructive results of this work, and two of them were failures that raised no
-error at all (Sections~\ref{subsec:chunking} and~\ref{subsec:search}).
+%% Running example: q-33 from the dev run current-20261015T050000 (before the
+%% code freeze, same retrieval settings). Answer quoted verbatim, cut only.
+Before going into how it works, it helps to see how \sysname{} answers a question. To
+make each step easier to follow, a question from the evaluation set is used to
+trace the system for the entire chapter. The gold question q-33 asks ``O que
+propõem os partidos para o salário mínimo?'' (\textit{What do the parties
+propose for the minimum wage?}). It names no party, so it concerns all eight,
+and its answer gives each party its own paragraph, every claim traceable to
+its manifesto. The following is part of the answer \sysname{} gave to this
+question during the development phase.
 
-One constraint holds throughout: every model and library in \sysname{} is open
-source or has open weights. Proprietary models appear only in the evaluation,
-as yardsticks to measure \sysname{} against (Section~\ref{subsec:variants}).
+\begin{quote}
+\small
+\textbf{Aliança Democrática.} O partido propõe aumentar o salário mínimo
+nacional para 1.000 euros em 2028 [1]. O objetivo é garantir que o aumento
+seja feito em linha com a inflação acrescida dos ganhos de produtividade
+[2][5]. [\ldots]
+
+\textbf{Iniciativa Liberal.} O programa não apresenta uma proposta de valor
+específico para o salário mínimo, mas defende a alteração da legislação para
+transpor a Diretiva Europeia n.º 2022/2041, estabelecendo indicadores [\ldots]
+que determinem os limites do salário mínimo nacional [13]. [\ldots]
+
+\textbf{Partido Socialista.} O partido propõe estabelecer, através de diálogo
+social, uma trajetória plurianual de aumento do salário mínimo que permita
+atingir pelo menos 1.000 euros em 2028 [30].
+\end{quote}
+
+Every number in the answer comes from a cited passage. And when a party sets
+no figure at all, as with Iniciativa Liberal, the answer says so instead
+of quietly leaving it out.
+
+The system's design follows five principles, and each section returns to at least one
+of them.
+\begin{enumerate}
+    \item \textbf{Open models.} Every model and library is open source or has
+    open weights. Proprietary models appear only in the evaluation phase, for
+    the sake of comparison (Section~\ref{subsec:variants}).
+    \item \textbf{Strict ahead of time, forgiving at question time.} Work done ahead of time
+    can afford to be strict, because nobody is waiting for it. When a call
+    fails during indexing, the run stops and later resumes where it stopped, so
+    nothing half-finished is ever stored (Section~\ref{subsec:classification}).
+    Work done at question time has a user waiting, so it never stops. When a
+    call fails there, the step falls back to a simpler version of itself, such
+    as spotting party names instead of analysing the question, and the user
+    still gets an answer (Section~\ref{subsec:queryanalysis}).
+    \item \textbf{Every technique is a switch.} Every technique beyond plain
+    search can be turned off on its own, so its contribution can be measured
+    on its own (Section~\ref{subsec:variants}).
+    \item \textbf{No party is left behind.} Every party in the question's scope
+    gets the same number of places in the search and keeps at least one in the answer
+    (Sections~\ref{subsec:routing} and~\ref{subsec:context}).
+    \item \textbf{Manifestos are the source of truth.} An answer can only come from the
+    manifestos, and every claim must point to the passage it came from
+    (Section~\ref{subsec:grounding}).
+\end{enumerate}
+
+\sysname{} has four parts (Figure~\ref{fig:system-overview}), and each gets a
+section of its own.
+\begin{itemize}
+    \item \textbf{Indexing} (Section~\ref{sec:indexing}) turns the manifestos
+    into chunks and embeds them in a database ready to be searched.
+    \item \textbf{Retrieval} (Section~\ref{sec:retrieval}) finds the passages
+    that answer a question.
+    \item \textbf{Generation} (Section~\ref{sec:generation}) writes the answer
+    from them.
+    \item \textbf{Evaluation} (Section~\ref{sec:evaluation}) measures how well
+    each step does its job.
+\end{itemize}
+Section~\ref{sec:lessons} closes the chapter with what building it taught,
+and Appendix~\ref{app:timeline} lists every dated decision in order.
 
 %% Figures in this chapter are rendered from the Mermaid diagrams in
 %% docs/architecture.md by scripts/render_diagrams.sh; edit them there.
 %% DRAFT (Claude, 2026-10-08): figure captions, to be rewritten.
-\begin{figure}[htbp]
+%% [H] (float package): pinned here so the next paragraph starts after it.
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/architecture-overview.pdf}
     \caption[Overview of \sysname{}]{Overview of \sysname{}. Indexing builds the vector store that
     retrieval searches for each question, and generation answers from the
     passages retrieved. Evaluation replays retrieval and generation under
-    different feature flags. Indexing and evaluation run offline; retrieval and
-    generation run online.}
+    different feature flags. Indexing and evaluation run ahead of time, and
+    retrieval and generation run each time a question is asked.}
     \label{fig:system-overview}
 \end{figure}
+
+\sysname{} is also cheap enough to try. It can run on a laptop, with the
+language model reached through an API. An answer costs about a tenth of a
+cent and takes three and a half seconds on average
+(Section~\ref{sec:results-cost}), so a hundred questions cost about ten cents.
+The code is public at \url{https://github.com/afonsoni/thesis}, and
+Appendix~\ref{app:tooling} explains how to set it up.
+
+\TODO{STYLE: the dated decisions are now in Appendix~\ref{app:timeline}. In the
+style pass, drop month-and-year dates from the prose except those that carry
+meaning, such as ``a year before it was found''.}
 
 % ============================================================
 \section{Indexing} \label{sec:indexing}
 % ============================================================
-%% DRAFT (Claude, 2026-10-06) from dissertation/HISTORY-GAPS.md and commit
-%% bodies. To be rewritten in the author's own words. Remaining \TODO markers
-%% are missing citations or facts to confirm, not passages to write.
-\TODO{REVIEW: Claude's draft of this section (2026-10-06). Read it, check the
-facts against your memory, and rewrite it in your own words.}
 
-Indexing turns the eight manifesto PDFs into a searchable store in seven
-steps: each document is parsed to Markdown, cleaned, split into chunks,
-labelled with policy topics, given a short context of its own, embedded, and
-written to a vector database.
-It runs offline, once per corpus change, and everything the retrieval
-pipeline (Section~\ref{sec:retrieval}) does depends on the representation it
-produces. The subsections below follow the pipeline in order
-(Figure~\ref{fig:indexing}). Each one states
-the problem, the options considered, the choice made, and, where it happened,
-how and why that choice was later revised.
+The indexing step prepares the manifestos for search. It runs ahead of time, once for every
+change to the corpus, and turns each PDF into short passages, the chunks,
+stored in a database with everything retrieval needs to find them. Each
+document is parsed into text, cleaned and split into chunks. Each chunk is
+then labelled with policy topics, given a short description of where it sits
+in its manifesto, encoded as a vector and stored (Figure~\ref{fig:indexing}).
+Everything retrieval does later depends on what this stage produces. The
+subsections follow the pipeline, except that embeddings come straight after
+chunking, because the two share the most instructive failure of this work.
 
 \begin{figure}[htbp]
     \centering
@@ -73,36 +140,30 @@ how and why that choice was later revised.
 
 \subsection{Corpus} \label{subsec:corpus}
 
-The corpus consists of the electoral manifestos published for the 2024
-Portuguese legislative election by the eight parties already represented in
-the Assembleia da República before that election: Aliança Democrática (AD), Partido Socialista
-(PS), CHEGA, Iniciativa Liberal (IL), Bloco de Esquerda (BE), Partido
-Comunista Português (PCP), LIVRE and Pessoas--Animais--Natureza (PAN).
-PSD sat in the outgoing parliament on its own and stood in 2024 within the
-AD coalition. All eight were re-elected, so the corpus also covers every party
-in the parliament that resulted. The 2024 election was chosen because it was
-under way when this work began. Limiting the corpus to one election and to
-parties already in parliament kept the manual work of preparing documents
-manageable. The cost is that parties on the ballot but outside parliament,
-often the ones voters know least about, are not represented. The indexing
-pipeline was later made easier to extend for this reason
-(Section~\ref{subsec:cleaning}). Every chunk also records the election year,
-so manifestos from other elections can sit alongside these. That would make
-longitudinal questions possible, such as how a party's position on a given
-issue changed between elections (Chapter~\ref{ch:conclusion}). AD and PCP ran as coalitions (PSD/CDS-PP/PPM and CDU
-respectively); the documents used are the programmes those coalitions
-published.
+The corpus is the set of manifestos published for the 2024 Portuguese
+legislative election by the eight parties already in the Assembleia da
+República, namely Aliança Democrática (AD), Partido Socialista (PS), CHEGA,
+Iniciativa Liberal (IL), Bloco de Esquerda (BE), Partido Comunista Português
+(PCP), LIVRE and Pessoas--Animais--Natureza (PAN). Two of them ran as
+coalitions. The PSD, which sat in the outgoing parliament on its own, stood
+with CDS-PP and PPM as AD, and PCP stood with PEV as CDU. In both cases the
+document used is the coalition's manifesto. All eight parties were re-elected,
+so the corpus also covers the parliament that resulted from the election.
 
-Table~\ref{tab:corpus} summarises the corpus. The documents are long and
-uneven, ranging from 94 to 275 pages and from about 31 to 68 thousand words
-after conversion, which totals roughly 1{,}400 pages and 427 thousand words.
-Every manifesto is a public document that its party published as a PDF in
-February 2024, a few weeks before the vote, and none of the eight states a
-licence. Four of the copies used here (AD, LIVRE, PAN and PS) are byte for byte
-the files the parties still serve today (Table~\ref{tab:sources}). BE and PCP
-still publish their 2024 programmes, but as a different export from the copy
-used here, and CHEGA and IL now link only their 2025 programmes from the same
-pages.
+The 2024 election was chosen because it was under way when this work began,
+and keeping to parties already in parliament kept the manual preparation
+manageable. The price is that the parties voters know least about, those on
+the ballot but outside parliament, are left out. The pipeline was later made
+easier to extend for this reason (Section~\ref{subsec:cleaning}). Every chunk
+also records its election year, so manifestos from other elections could sit
+alongside these and support questions about how a position changed over time
+(Chapter~\ref{ch:conclusion}).
+
+Table~\ref{tab:corpus} summarises the corpus. The manifestos are long and
+uneven, from 94 to 275 pages and from about 31 to 68 thousand words, some
+1{,}400 pages and 427 thousand words in all. Each party published its
+manifesto as a PDF in February 2024, a few weeks before the vote.
+All eight are still published by their parties (Table~\ref{tab:sources}).
 
 \begin{table}[h]
     \centering
@@ -114,17 +175,15 @@ pages.
         \hline
         AD    & \url{https://ad2024.pt/files/pdf/ad-programa-eleitoral.pdf} \\
         BE    & \url{https://www.bloco.org/media/PROGRAMA_BLOCO_2024.pdf} \\
-        CHEGA & \url{https://pub.portalchega.pt/programaeleitoral/} \\
-        IL    & \url{https://iniciativaliberal.pt/portugalcomfuturo/} \\
+        CHEGA & \url{https://partidochega.pt/wp-content/uploads/2025/10/Programa_Eleitoral_CHEGA_2024_LQ.pdf} \\
+        IL    & \url{https://iniciativaliberal.pt/wp-content/uploads/PROGRAMA_Portugal_com_Futuro_14.pdf} \\
         LIVRE & \url{https://partidolivre.pt/wp-content/uploads/2024/02/Programa_LIVRE_2024_FINAL.pdf} \\
         PAN   & \url{https://www.pan.com.pt/files/uploads/2024/02/Programa-Eleitoral_Legislativas24_Campanhas_2024_PAN-Nacional-1.pdf} \\
         PCP   & \url{https://www.cdu.pt/assets/docs/programa_eleitoral_pcp_2024.pdf} \\
         PS    & \url{https://ps.pt/wp-content/uploads/2024/02/PS-Portugal_Inteiro_2024-6.pdf} \\
         \hline
     \end{tabular}
-    \caption[Manifesto sources]{Where each manifesto is published. The AD,
-    LIVRE, PAN and PS files match the copies used here exactly. CHEGA and IL
-    now serve their 2025 programmes at these addresses.}
+    \caption[Manifesto sources]{All eight parties still publish their 2024 manifestos at these addresses.}
     \label{tab:sources}
 \end{table}
 
@@ -136,61 +195,58 @@ pages.
         \hline
         AD    & 184 & 55{,}474 \\
         BE    & 275 & 66{,}303 \\
-        CHEGA & 176 & 53{,}260 \\
+        CHEGA & 176 & 53{,}150 \\
         IL    & 166 & 67{,}866 \\
         LIVRE & 155 & 60{,}247 \\
         PAN   & 201 & 30{,}925 \\
         PCP   &  94 & 41{,}070 \\
         PS    & 144 & 51{,}668 \\
         \hline
-        \textbf{Total} & \textbf{1{,}395} & \textbf{426{,}813} \\
+        \textbf{Total} & \textbf{1{,}395} & \textbf{426{,}703} \\
         \hline
     \end{tabular}
-    \caption[The corpus]{The corpus: 2024 legislative manifestos of the eight parties
-    elected to parliament.}
+    \caption[The corpus]{Size of each 2024 manifesto, in PDF pages and in words
+    after cleaning.}
     \label{tab:corpus}
 \end{table}
 
 \subsection{Document parsing} \label{subsec:parsing}
 
-Manifestos are written to be printed and read, not parsed. They use
-multi-column layouts, decorative title pages, running page headers, pull
-quotes, tables of contents and infographics. A text extractor must recover
-the running text in reading order and, ideally, the heading structure that
-organises it into chapters and sections.
+Manifestos are designed for people to read, with multi-column layouts,
+decorative covers, running headers, tables of contents and infographics
+(Section~\ref{subsec:challenge-documents}). A parser has to recover the
+running text in reading order and, ideally, the headings that organise it.
 
-Five tools were identified as candidates during the preliminary research:
-\href{https://pymupdf.readthedocs.io/en/latest/}{PyMuPDF},
-\href{https://github.com/pdfminer/pdfminer.six}{pdfminer.six},
-\href{https://pypi.org/project/pypdf/}{PyPDF},
+%% Sources: dissertation/HISTORY-GAPS.md §1 (author's answer), commits 80530d7
+%% (pdfminer, PyMuPDF) and 1af3074 (Marker).
+Four parsers were tried in turn, and only the last one worked well. The first
+two were widely used plain-text extractors,
+\href{https://github.com/pdfminer/pdfminer.six}{pdfminer.six} and
+\href{https://pymupdf.readthedocs.io/en/latest/}{PyMuPDF}, followed by
+Microsoft's MarkItDown~\citep{markitdown}. None of them extracted the text
+well enough to spare a great deal of repair by hand.
 \href{https://docs.llamaindex.ai/en/stable/llama_cloud/llama_parse/}{LlamaParse}
-and Marker~\citep{marker}. Of these,
-pdfminer.six and PyMuPDF were tried first (January 2025), as both are
-widely used plain-text extractors, and Microsoft's
-MarkItDown~\citep{markitdown} was tried as well. None extracted the text
-reliably enough to avoid substantial manual repair. LlamaParse was ruled out
-without being tried because it is a paid cloud service. No record survives of
-PyPDF being tested.
+was ruled out without a trial, because it is a paid cloud service.
 
-Marker was adopted in April 2025 and all eight manifestos were converted with
-it. It converts PDF directly to Markdown using neural layout-detection and
-OCR models, runs locally, and is free for research use. It also offers an
-LLM-assisted mode, which was not used. Its code is licensed under the GPL,
-while its model weights carry a modified OpenRAIL-M licence that permits
-research and personal use. Direct
-Markdown output turned out to matter more than expected. Markdown headings
-are what the chunker later uses to split documents along their own sections
-(Section~\ref{subsec:chunking}), so the parser's ability to recover headings
-ended up being load-bearing for retrieval. The selection was pragmatic.
-Parsing is a means here, not the object of study, and Marker was the first
-tool that met the requirement. No systematic comparison of parsers was run.
+That last one was Marker~\citep{marker}, and it converted all
+eight manifestos. It turns a PDF straight into Markdown, using neural models
+for layout detection and optical character recognition (OCR), and it runs
+locally. Its
+code is under the GPL licence and its model weights under a modified
+OpenRAIL-M licence that allows research use, and its optional LLM-assisted
+mode was not used. Marker was chosen for clean text, not for its Markdown, but
+the Markdown later proved essential. The chunker, written afterwards, splits
+each document along its headings (Section~\ref{subsec:chunking}), and it can
+only do so because Marker turns the PDF's headings into Markdown ones.
+
+The choice of Marker was pragmatic. Parsing is a means here rather than the object of
+study, so no systematic comparison of parsers was run.
 
 \subsection{Cleaning} \label{subsec:cleaning}
 
-Marker's output was usable but not clean. Comparing its first output (April
-2025) with the hand-corrected versions produced in August 2025 shows where
-the errors were. Table~\ref{tab:cleaning} gives the counts for the four
-manifestos corrected by hand.
+Marker's output was usable but not clean. Four of the manifestos, those of AD,
+LIVRE, PCP and PS, were corrected by hand, and comparing Marker's output with
+the corrected versions shows where the errors were (Table~\ref{tab:cleaning}).
 
 \begin{table}[h]
     \centering
@@ -208,55 +264,89 @@ manifestos corrected by hand.
     \label{tab:cleaning}
 \end{table}
 
-The corrections fall into three kinds. First, and most important, is the
-heading hierarchy. Marker frequently promoted running page headers and
-section titles to top-level headings; the LIVRE manifesto came out with 57 of
-them, one for nearly every page. Each document was restored to a single title
-and a consistent tree of sections beneath it. Second, tables of contents
-were removed: Marker renders them as Markdown tables of section names and page
-numbers, which match almost any query while containing no proposals. Third,
-layout residue was removed: image links, page anchors, repeated page headers
-and fragmented cover titles. Proposal text was left alone; between 1\% and
-4\% of words were removed, almost all of them from tables of contents and
-page furniture.
+Most of the work went into the heading hierarchy. Marker often promoted
+running page headers and section titles to top-level headings, and the LIVRE
+manifesto came out with 57 of them, nearly one per page. Each document was
+restored to a single title with a consistent tree of sections beneath it.
+Tables of contents went next. Marker turns each one into a table full of
+section names, and such a table shares words with almost any question while
+containing no proposal at all, so it would be retrieved often and answer
+nothing. Finally, layout residue such as image links, page anchors, repeated
+headers and broken cover titles were removed. Proposal text was left alone.
+Between 1.2 and 4.2\% of the words were removed, almost all of them from tables
+of contents and page furniture.
 
-Hand correction took twenty to thirty minutes per manifesto and was done for
-four of the eight. That cost is acceptable once but does not scale to new
-election cycles, to earlier manifestos, or to parties outside parliament.
-In October 2026 the remaining four manifestos were therefore cleaned with an
-automated cleaner written for the purpose, followed by a manual review. It runs
-in two passes. A deterministic pass removes the residue described above. An
-LLM pass then decides only the heading structure: the model is shown the
-existing heading candidates and, for each one, keeps it at a given level,
-demotes it to body text, or drops it. A verification step rejects any output
-containing a word absent from the input, so the model cannot paraphrase or
-invent manifesto text. The manual review still had to fix part and chapter
-headings the model missed in all four documents.
-%% DRAFT (Claude, 2026-10-24) from data/eval/extras/cleaner-validation.md.
-%% Rewrite in your own words.
-To see how far the cleaner can be trusted without that review, it was run on
-the four manifestos that had also been cleaned by hand, and its raw output was
-compared with the manual files. The text survives. The cleaner keeps between
-98.4 and 100 per cent of the words the human kept and leaves at most 2.8 per
-cent of the words the human removed. The headings fare worse. Section titles
-match the manual files well for AD and PS (F1 of 0.94 and 0.95) and poorly for
-LIVRE and PCP (0.30 and 0.28), and heading depths barely agree anywhere (F1 of
-0.22 at best). The manual files are one person's choices rather than ground
-truth, though. The hand pass flattened LIVRE to 60 headings where the cleaner
-kept 101, so a low score there partly measures how much the human removed. For
-retrieval the words matter more than the hierarchy, because the chunker splits
-on every heading level alike and depth only changes the section path printed in
-each chunk's header (Section~\ref{subsec:chunking}).
+%% Source: dissertation/HISTORY-GAPS.md §2 (author's answer, corrected
+%% 2026-10-26 to about an hour per manifesto).
+Correcting a manifesto by hand took about an hour, often more. That is hardly
+acceptable, and even less so once the corpus grows to manifestos from earlier
+or later elections, or from parties without a seat in parliament. An automated
+cleaner was considered since the beginning, but only after four manifestos were
+cleaned by hand did that sort of cleaner become indispensable.
+The work was tedious and slow enough to stall the project for a while, and
+automating it was no longer optional. The other four manifestos were cleaned by
+an automated cleaner written for the purpose and then reviewed by hand.
+
+The cleaner works in two passes. A fixed set of rules first removes the
+residue described above. A language model then sees only the candidate
+heading lines, never the body text, and returns a decision for each one, to
+keep it as a heading at a given level, turn it into body text, or drop it.
+Table~\ref{tab:cleaner-plan} shows these decisions on the opening pages of
+the Bloco de Esquerda manifesto. A page header that repeats the introduction's
+title is dropped, the numbered sections keep their place in the tree, and the
+label and title of a chart, which Marker had promoted to headings, go back to
+being plain text.
+
+%% Source: data/2_processed/cleaner-cache/be-2024-plan.json (lines 81-125 of
+%% the prepared be-2024.md), checked against data/1_markdown/be/be-2024-clean.md.
+\begin{table}[H]
+    \centering
+    \small
+    \begin{tabular}{|l|l|}
+        \hline
+        \textbf{Heading line from Marker} & \textbf{Decision} \\
+        \hline
+        \texttt{\#\#\# INTRODUÇÃO} & heading, level 2 \\
+        \texttt{\#\#\# INTRODUÇÃO} (repeated on the next page) & drop \\
+        \texttt{\# 1 Habitação} & heading, level 2 \\
+        \texttt{\#\#\# 1.1 A especulação está a tirar-nos as casas} & heading, level 3 \\
+        \texttt{\#\#\# **GRÁFICO 1**} & body text \\
+        \texttt{\#\#\# Evolução dos preços da habitação em Portugal} & body text \\
+        \hline
+    \end{tabular}
+    \caption[Heading decisions by the cleaner]{Decisions of the cleaner's
+    language model on six heading lines of the Bloco de Esquerda manifesto.}
+    \label{tab:cleaner-plan}
+\end{table}
+
+The model never writes the cleaned file. The code applies its decisions and
+then compares the result with the input word by word. Every word in the
+output is counted, and if any word appears more often than it did in the
+input, the whole output is rejected. Removing words is allowed, since dropping
+a running header removes some, but adding or changing one is not, and even a
+light paraphrase would bring in a word the manifesto never used. When the
+model suggests a tidier version of a heading, the suggestion is kept only if
+it passes the same test. Every word in a cleaned file therefore comes from the
+manifesto itself. The model was right about most headings but not all, so each
+cleaned file was still reviewed by hand.
+
+Run without that review on the four manifestos cleaned
+by hand, the cleaner keeps at least 98.4\% of the words the manual cleaning
+kept, and at most 2.8\% of its own words are ones the manual cleaning removed.
+The headings did not do as well. Section titles match the manual files closely
+for AD and PS (F1 of 0.95 and 0.94) but poorly for LIVRE and PCP (0.30 and
+0.28), partly because the manual cleaning flattened LIVRE to 60 headings where
+the cleaner kept 101. For retrieval the words matter more than the
+hierarchy, since the chunker splits on every heading level alike.
 
 \subsection{Chunking} \label{subsec:chunking}
 
-Retrieval operates on chunks, not documents, so chunk size sets the
-granularity of everything downstream. Small chunks give precise matches and
-more diverse sources but lose surrounding context. Large chunks keep context
-but dilute the embedding and risk burying the relevant sentence in the middle
-of the passage (Table~\ref{tab:chunk-sizes}).
+Retrieval works on chunks rather than whole documents, so chunk size sets the
+granularity of everything that follows. Small chunks match precisely but lose
+their surroundings, while large ones keep context but blur the embedding and
+can bury the relevant sentence in the middle (Table~\ref{tab:chunk-sizes}).
 
-\begin{table}[h]
+\begin{table}[H]
     \centering
     \begin{tabular}{|c|c|}
         \hline
@@ -271,251 +361,446 @@ of the passage (Table~\ref{tab:chunk-sizes}).
     \label{tab:chunk-sizes}
 \end{table}
 
-The final design combines three ideas. First, documents are split along their
-own Markdown headings, so every chunk belongs to exactly one section and
-carries that section's path (for example \textit{Com Sensibilidade Social
-$>$ Saúde $>$ Medidas}) as metadata. Second, sections longer than the budget
-are windowed recursively at paragraph, then sentence, then word boundaries,
-with overlap between consecutive windows. Third, the windows are retrieved
-small-to-big: the small window is what gets embedded and matched, while the
-full parent section is what the generator reads. The current budget is 400
-tokens per window with an 80-token overlap, which yields 383 chunks for the
-AD manifesto.
+%% Path example: data/1_markdown/ad/ad-2024-manual.md, headings at lines 1,
+%% 565, 567 and 624. Sizes: config.yaml (max_chunk_tokens, chunk_overlap_tokens,
+%% max_parent_tokens).
+The final design rests on three ideas.
 
-\paragraph{How the design was reached.} Chunk size was revised four times.
-The first prototype (May 2025) split text by words.
-Its configuration asked for 512 words with an overlap of 200, but the code
-never read that setting and used its own defaults of 1{,}000 words with 200
-of overlap. The encoder at the time, \texttt{all-MiniLM-L6-v2}, reads at most
-256 tokens, so truncation was already present in the first prototype, a year
-before it was found. The rewrite of March 2026 switched to 1{,}000 characters
-with 100 of overlap, and in April 2026 this grew to 1{,}600 characters with
-200 of overlap. The increases followed practitioner guidance at the time,
-which moved towards larger chunks as LLM context windows grew. One widely
-read benchmark found page-level chunks gave the best average answer accuracy
-across its datasets~\citep{nvidia-chunking}. The evidence is more nuanced
-than the trend, however. A multi-dataset study found that small chunks
-(64--128 tokens) suit questions with short factual answers, while larger ones
-(512--1{,}024 tokens) help only when answers need broader
-context~\citep{bhat2025rethinkingchunksize}.
+The first is to split each manifesto along its own headings. Every chunk then
+belongs to exactly one section and never mixes the end of one topic with the
+start of the next. It also carries that section's path, such as
+\textit{Programa Social e de Governação da Aliança Democrática $>$ Com
+Sensibilidade Social $>$ Saúde $>$ 3.~Medidas} in the AD manifesto.
 
-The flaw in these choices only appeared in August 2026, when chunk lengths
-were first measured in the unit the embedding model actually uses. The
-encoder then in use, serafim-900m (Section~\ref{subsec:embeddings}),
-accepts at most 128 tokens and silently drops the rest. At 1{,}600
-characters the median chunk was 365 tokens: 89.5\% of chunks were truncated,
-and only 37.3\% of the corpus text was ever embedded. A probe made the cost
-concrete. Queried with its own opening, a chunk ranked first (cosine
-similarity 0.986). Queried with its own closing text, it did not appear in the
-top five. Two thirds of each chunk was invisible to retrieval, and nothing in
-the pipeline reported an error.
+The second is to cap every chunk at 400 tokens, counted with the encoder's
+own tokenizer, so that no chunk is longer than what the encoder reads. A
+section that fits stays whole. A longer one is cut into overlapping
+\emph{windows}, at paragraph breaks where possible, then at sentence breaks,
+and only as a last resort between words. Each window repeats the last 80
+tokens of the one before, so a sentence cut at the edge of one window appears
+whole in the next. This gives, as an example, 383 chunks for the AD manifesto
+and 2{,}815 for the entire corpus.
 
-There is an irony here worth stating plainly. The research plan written
-before implementation had already proposed a chunk-size experiment measured
-in tokens, from 128 to 2{,}048. The implementation drifted to characters
-because that is the default unit of the common splitting libraries, and the
-plan's own unit would have exposed the problem at once.
+The third, called small-to-big retrieval, separates the text that is
+searched from the text that is read. Search works best on small pieces,
+because a short window is about one thing and its embedding matches a
+question about that thing closely. Answering works best with more text,
+because a proposal often only makes sense next to the sentences around it. So
+each small window is embedded and matched on its own, but once it is
+retrieved, the generator receives its \emph{parent} instead, that is, the whole section
+the window came from. A section can be very long, so a parent is capped at
+1{,}500 tokens. A window from a longer section receives the stretch of that
+section around it, up to the same cap.
 
-The diagnosis was that one number had been made to serve two budgets.
-The \emph{retrieval budget} is set by the encoder's maximum input length,
-and exceeding it truncates silently. The \emph{generation budget} is set by
-the LLM's context window, and at these sizes it is never exceeded. The
-character-sized chunks had been sized for the second budget and fed to a
-component bound by the first. Two fixes followed. Chunk length is now
-measured with the embedding model's own tokenizer, so the budget is expressed
-in the unit that constrains it. Small-to-big retrieval decouples the two
-budgets entirely: the embedded window can be small and precise while the
-generator still receives the full section. After the change, no AD chunk was
-truncated and the whole corpus was embedded. The character-based strategy is
-kept only as the baseline against which this is measured.
+%% Sources: chunk_markdown_file on data/1_markdown (small_to_big, 400/80, parent
+%% cap 1500, Qwen3 tokenizer), matched to the q-33 gold keys sha1:ae701d2c (BE)
+%% and sha1:9edcbce2 (LIVRE). BE section 819 tokens, 3 windows, child 349 tokens.
+%% LIVRE section 5,341 tokens, 16 windows, child 241, parent = windows 0-3,
+%% 1,369 tokens.
+The minimum-wage question shows both cases. In the Bloco de Esquerda
+manifesto, the list \textit{As propostas do Bloco} under \textit{3.1 Salários}
+is 819 tokens long and is cut into three windows. The first, of 349 tokens,
+opens with the proposal to raise the minimum wage to 900 euros in 2024, and
+that window is what the search matches. The generator then reads all 819
+tokens of the section, so the answer can also draw on the wage proposals
+listed after it. The LIVRE manifesto puts its whole programme for work,
+income and social protection in a single section of 5{,}341 tokens, sixteen
+windows long, and its first window holds the pledge of a minimum wage of
+1{,}150 euros by 2028. Handing the generator all sixteen windows would spend
+a large share of the prompt on one party, so it receives the first four
+instead, 1{,}369 tokens in all. Figure~\ref{fig:small-to-big} draws both
+cases.
 
-\subsection{Topic classification} \label{subsec:classification}
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[
+        win/.style={draw, minimum width=5.5mm, minimum height=5.5mm, inner sep=0pt},
+        hit/.style={win, fill=black!75},
+        read/.style={win, fill=black!20},
+        unsent/.style={win, draw=black!45, fill=white},
+        frame/.style={draw, dashed, rounded corners=2pt}]
+        \small
+        % Bloco de Esquerda: section of 819 tokens, three windows, all read.
+        \node[anchor=east] at (-0.5,2) {BE};
+        \node[hit]  at (0,2)   {};
+        \node[read] at (0.7,2) {};
+        \node[read] at (1.4,2) {};
+        \draw[frame] (-0.35,1.65) rectangle (1.75,2.35);
+        \node[anchor=west] at (2.0,2) {section of 819 tokens, all of it read};
+        % LIVRE: section of 5,341 tokens, sixteen windows, first four read.
+        \node[anchor=east] at (-0.5,0) {LIVRE};
+        \node[hit] at (0,0) {};
+        \foreach \i in {1,2,3} {\node[read] at (0.7*\i,0) {};}
+        \foreach \i in {4,...,15} {\node[unsent] at (0.7*\i,0) {};}
+        \draw[frame] (-0.35,-0.35) rectangle (2.45,0.35);
+        \node[anchor=south] at (1.05,0.4) {read, 1{,}369 tokens};
+        \node[anchor=south] at (6.65,0.4) {not sent, 12 windows};
+        \node[anchor=west] at (10.75,0) {section of 5{,}341 tokens};
+        % Legend.
+        \node[hit, minimum width=3.5mm, minimum height=3.5mm] at (0,-1.1) {};
+        \node[anchor=west] at (0.25,-1.1) {matched by the search};
+        \node[read, minimum width=3.5mm, minimum height=3.5mm] at (4.0,-1.1) {};
+        \node[anchor=west] at (4.25,-1.1) {also read by the generator};
+        \node[unsent, minimum width=3.5mm, minimum height=3.5mm] at (8.6,-1.1) {};
+        \node[anchor=west] at (8.85,-1.1) {not sent};
+    \end{tikzpicture}
+    \caption[Small-to-big retrieval]{Small-to-big retrieval on two gold
+    passages for the minimum-wage question. Each square is one window of up to
+    400 tokens, and the overlap between windows is not drawn.}
+    \label{fig:small-to-big}
+\end{figure}
 
-Query-time routing (Section~\ref{subsec:routing}) needs to know what each
-chunk is about, so that a question on housing can be restricted to housing
-passages, or a topic can be explored across parties. No labelled Portuguese
-manifesto data exists for this, and none of the documents tag their own
-sections consistently. Topics are therefore assigned by an LLM during indexing.
+\paragraph{How the design was reached.} The current design is the fourth
+attempt. The three attempts before this one measured chunks in words or characters, the
+units of the common splitting libraries, while the encoder measures what it
+reads in tokens. Nothing in between compares the two.
 
-\paragraph{Taxonomy.} The 18 categories (Table~\ref{tab:topics} in
-Appendix~\ref{app:results}) were derived by reading the
-manifestos for recurring policy areas and by consulting two public online
-tools for comparing party programmes, the \textit{Expresso} manifesto
-comparator for the 2024 election~\citep{expresso-comparador} and
-\textit{PolíticaAtivaPT}~\citep{politicaativa-comparar}. The final list
-combines categories from both. Classification is multi-label because manifesto passages often
-address several areas at once. A proposal to build student residences
-concerns housing, education and youth. Exempting young buyers from property
-transfer tax concerns housing, taxation and youth.
+The first prototype cut chunks of 1{,}000 words, which was the splitter's default.
+Meanwhile, the encoder, \texttt{all-MiniLM-L6-v2}, read at most 256 tokens. Later
+versions moved to 1{,}000 and then 1{,}600 characters, in line with the common advice
+of the time, which favoured larger chunks as models grew to read longer
+inputs (Section~\ref{subsec:sota-indexing}).
 
-\paragraph{Method.} Chunks are classified in batches of 15 through structured
-output: the model returns, for each chunk, a list of categories, a confidence
-score and keywords, validated against a schema. The model is
-\texttt{gemma-4-31b-it}, an open-weights model served free of charge through
-OpenRouter.
+The mismatch came to light once chunk lengths were measured in tokens, the
+unit the encoder actually reads. The encoder then in use, Serafim
+(Section~\ref{subsec:embeddings}), which read at most 128 tokens, dropped the rest
+without any warning. At 1{,}600 characters the median chunk was 365 tokens
+long, so 89.5\% of the chunks were cut short and only 37.3\% of the corpus text
+reached the embeddings. After testing with a simple probe, the effect was confirmed.
+Queried with its own opening, a chunk came first, with a cosine similarity of 0.986.
+Queried with its own closing lines, it did not reach the top five.
 
-\paragraph{Revisions.} Three changes followed from running the classifier at
-scale.
-\begin{itemize}
-    \item \textbf{Fail fast, resume cheaply.} The first version fell back to
-    keyword matching whenever an LLM call failed. Under free-tier rate limits
-    that happened often, and it produced a silent mix of LLM labels and much
-    cruder substring-match labels, with nothing to tell them apart. The
-    fallback was removed in April 2026. A failed call now stops the run, and a
-    checkpoint lets it resume where it stopped, so a stored label is always an
-    LLM label.
-    \item \textbf{Optional classification.} Classification costs roughly
-    thirty minutes of rate-limited calls per manifesto, so in August 2026 it
-    became optional. Retrieval experiments that do not depend on topics
-    (chunking, encoders, hybrid search) can then re-index without spending
-    that quota.
-    \item \textbf{Fewer, better labels.} A manual check of 30 random AD chunks
-    (October 2026) found the first label correct in about 29 cases. However,
-    about 8 chunks carried a clearly wrong additional label (tourism tagged
-    as health, business financing as public finance), and about 6 more carried
-    a reflexive \textit{governance} label whenever the State was mentioned.
-    The self-reported confidence was 4 or 5 out of 5 on all 383 chunks, so it
-    could not be used to filter. The cause was the prompt, which asked for
-    ``multiple categories (up to four)''. It now asks for the main topic
-    first, adds a further label only when the passage contains a concrete
-    proposal or figure on it, and caps labels at three.
-    \TODO{Re-run the spot check after re-classification and report
-    before/after.}
-\end{itemize}
+%% Source: chunk_markdown_file on data/1_markdown/ad/ad-2024-manual.md with the
+%% char strategy (1,600 / 200), Serafim tokenizer; the phrase "salário mínimo
+%% para 1.000€" starts at token 245 of a 470-token chunk (3. Medidas, window 0).
+The minimum-wage question shows what that meant in practice. In the AD
+manifesto, the pledge to raise the minimum wage to 1{,}000 euros by the end
+of the legislature sat at token 245 of a 470-token chunk, far past the 128
+that Serafim read. The chunk could still be found through its opening lines
+on social benefits, but the pledge itself never reached the embedding. Most
+of each chunk was invisible to retrieval, while every component ran without an error, which
+is exactly the kind of quiet failure this chapter keeps returning to
+(Section~\ref{sec:lessons}).
+
+%% Checked 2026-10-26: the vault note "5 - rag/Chunking.md" (written early, per
+%% the author) lists 128 to 2048 and the same three metrics as the LlamaIndex
+%% post (Ravi Theja, 5 Oct 2023). LlamaIndex's SentenceSplitter documents
+%% chunk_size as "The token chunk size for each chunk". The DataCamp tutorial
+%% (Eugenia Anello, 12 Apr 2024) calls the same LlamaIndex setting characters.
+The irony is that the right unit had been in the research notes from the
+start. Early in the work, the notes planned to compare chunk sizes from 128 to
+2{,}048, following a LlamaIndex tutorial~\citep{theja2023chunksize}. In
+LlamaIndex, those sizes are counted in tokens.
+
+In short, one number had to respect two different limits. The first is how
+much the encoder can read, the \emph{retrieval limit}, and text past it is
+dropped without warning. The second is how much the language model can read,
+the \emph{generation limit}, which chunks of this size never come close to.
+The chunks had been sized with the second limit in mind, but they were handed
+to the encoder, which is bound by the first. Two changes fixed this. Chunk
+length is now counted with the encoder's own tokenizer, so no window is longer
+than what the encoder reads. And small-to-big retrieval gives each limit its
+own text, a small window for the encoder and the whole section for the
+language model. No chunk has been truncated since, and the old
+character-sized chunks are kept only as a baseline to compare against.
+
+\subsection{Embeddings} \label{subsec:embeddings}
+
+The encoder decides which chunks a question can find. For this corpus it has
+three requirements. It has to handle European Portuguese. It has to be trained
+for \emph{retrieval}, which means placing a short question close to the longer
+passage that answers it, a different task from judging whether two sentences
+mean the same thing. And it has to read a whole chunk at once.
+
+\paragraph{Language.} Before choosing a model, there was a more basic choice
+to make, whether to work in Portuguese at all. Early on, Portuguese models were
+scarce enough that translating the whole corpus into English, where stronger
+models existed, looked like a way around the problem. The idea was dropped for
+three reasons. In political text the exact wording matters. A translation
+would put a layer of interpretation between the voter and the party. And
+studying RAG in European Portuguese was, and still is, part of what this work
+set out to do.
+
+%% Sources: dissertation/HISTORY-GAPS.md §3 (pre-thesis shortlist, author's
+%% answer). Only three encoders were ever committed (git history):
+%% all-MiniLM-L6-v2, Serafim, Qwen3-Embedding-0.6B. The author tried a couple
+%% of other encoders locally after MiniLM, without committing them (author,
+%% 2026-10-27). The pre-thesis also names
+%% Gemini 2.0 Flash, so it postdates Dec 2024 and predates Qwen3-Embedding
+%% (June 2025).
+\paragraph{Candidates.} Before any code was written, the preliminary research
+used MTEB~\citep{mtebmassivetextembedding} to shortlist encoders that support
+Portuguese, namely BERTimbau~\citep{souza2020bertimbau},
+Sentence-BERT~\citep{reimers2019sentencebert},
+\texttt{paraphrase-multilingual-MiniLM-L12-v2} and
+\texttt{multilingual-e5-large-instruct}~\citep{wang2024multilinguale5textembeddings},
+together with two commercial services, OpenAI's \texttt{text-embedding-3-large}
+and Google's \texttt{text-multilingual-embedding-002}. The commercial services
+were set aside so that \sysname{} could run on open models alone. A shortlist
+drawn up before any code exists can only go so far, and this one was soon
+overtaken. Neither encoder that \sysname{} ended up relying on was on it.
+Serafim was not included, and Qwen3-Embedding had not yet been released.
+
+\paragraph{First choices.} The first prototype used \texttt{all-MiniLM-L6-v2},
+a small and widely used default encoder, so that the rest of the pipeline
+could be built and tested before the choice of model mattered. It reads
+English only, so its answers were poor, as expected, but it showed that the
+pipeline worked end to end. With that in place, a couple of the open
+candidates were swapped in and judged by the answers they produced. There was
+no gold set yet to measure them against, since it came much later. The search
+then turned to encoders trained for retrieval in European Portuguese, which
+the shortlist did not cover, and one stood out among them,
+\texttt{serafim-900m-portuguese-pt-sentence-encoder-ir}, from the Serafim
+family of European Portuguese encoders~\citep{gomes2024serafim}. Serafim
+looked right on every visible criterion. It was trained on European
+Portuguese, came in a variant built for retrieval and was recent. Its authors
+reported it as the state of the art for Portuguese, and on their Portuguese
+retrieval test the retrieval variant beat every model they
+compared~\citep{gomes2024serafim}. That comparison left out the strongest
+multilingual encoders, though, and used a machine-translated test set.
+%% Checked 2026-10-26: Table 4 of arXiv 2407.19527, MRR@10 0.854 for Serafim
+%% 900 IR against 0.741 for the best non-Serafim model (GTE); test set is MS
+%% MARCO (TREC DL 2019) translated with Google Translate.
+It was the first encoder with which
+\sysname{}'s answers became acceptable.
+
+%% Checked 2026-10-26: the model's sentence_bert_config.json sets max_seq_length
+%% 128, its DeBERTa-v2 config allows 512 positions, and the paper (arXiv
+%% 2407.19527) builds the 900M model on Albertina PT-PT and tunes the IR variant
+%% on mMARCO. The paper states no sequence length.
+\paragraph{Reversal.} One property of Serafim was never checked when it was
+chosen, the length of text it reads. It ships set to read at most 128 tokens and silently discards the rest, which
+caused the truncation described above. The cap could have been raised, since
+the network underneath, Albertina, accepts 512 tokens. But the retrieval
+variant was tuned on mMARCO, a translation of MS~MARCO whose passages run to a
+few sentences~\citep{gomes2024serafim}. There is no evidence that it would
+represent well a passage as long as the median chunk of the time, 365 tokens
+(Section~\ref{subsec:chunking}), and 512 tokens would still have bound the size
+of every chunk. It was replaced by
+\texttt{Qwen3-Embedding-0.6B}~\citep{zhang2025qwen3embedding}, an encoder
+built on a language model and trained for retrieval, which reads up to 32
+thousand tokens, so the encoder no longer limits chunk size at all. It is also
+smaller than Serafim (0.6 against 0.9 billion parameters) and produces shorter
+vectors (1{,}024 against 1{,}536 numbers). It scores 78.9 on retrieval in MTEB-PT, a Portuguese
+benchmark published after the switch~\citep{okamura2026mtebpt}, which does not
+score the Serafim variant used here, so no like-for-like comparison exists.
+
+%% Source: the model's config_sentence_transformers.json (query prompt, empty
+%% document prompt) and src/rag/indexing/embedder.py (encode_query).
+The new encoder also changed how questions are encoded. A question and the
+passage that answers it look different. The question is short and asks, while
+the passage is long and states. A \emph{symmetric} encoder treats both texts
+the same way, which suits comparing two similar sentences. Qwen3-Embedding,
+like most current retrieval encoders, is \emph{asymmetric}. Every question is
+prefixed with a short instruction that names the task, \textit{Given a web
+search query, retrieve relevant passages that answer the query}, while the
+chunks are encoded as they are. The instruction tells the model which side of
+the match a text is on. Leaving it out at search time would place questions
+in the wrong part of the vector space, and nothing would report the mistake.
+\sysname{} therefore encodes questions and chunks through two separate
+functions, and only the question path adds the instruction.
+
+The move from a Portuguese model to a multilingual one is a trade-off rather
+than a plain upgrade. A model not built around European Portuguese may handle
+words whose meaning changes between varieties less well (such as was seen with
+\textit{propinas} and \textit{renda} in Section~\ref{subsec:challenge-language}).
+%% Sources: commits f896f61 (small-to-big with Serafim, 112-token windows, 0%
+%% truncated on AD) and ee2ff51 (switch to Qwen3, 30 minutes later). Prefix
+%% length: party | section path + LLM context for all 2,815 chunks, counted
+%% with the Serafim tokenizer, median 131, 59% at or above 126.
+The design itself does not rule Serafim out. Small-to-big retrieval separates
+the window that is embedded from the text the generator reads, so \sysname{}
+could run Serafim again by changing its configuration alone, with windows of
+about 112 tokens that fit inside its 128. That configuration did run briefly,
+right after the truncation was fixed and before the switch, but it was never
+compared on the gold set. The obstacle today is contextual retrieval
+(Section~\ref{subsec:contextual}). The party, section path and context
+written before each chunk take a median of 131 Serafim tokens on their own,
+more than its whole window, so for most chunks the encoder would never reach
+the chunk's own text. Using Serafim would mean giving up contextual retrieval,
+raising its limit towards 512 tokens, a length its retrieval tuning never
+covered, or embedding the context separately from the chunk, which changes the
+index. Qwen3-Embedding was chosen because it removed the limit altogether, not
+because Serafim could not be made to fit.
+
+Whether a long-window Portuguese encoder would do better on this corpus is an
+empirical question. Answering it means indexing the corpus once per encoder and
+comparing retrieval on the same gold set, which was not done before the code
+was frozen for the final evaluation (Chapter~\ref{ch:conclusion}).
 
 \subsection{Contextual retrieval} \label{subsec:contextual}
 
 A chunk cut from the middle of a section is an orphan. It no longer says which
-party wrote it or what the section is about. In this corpus, 58\% of chunks
-(1{,}635 of 2{,}815) contain no heading at all. Voters do not help either: they
-rarely use the manifesto's own words.
+party wrote it or what the section is about, and 58\% of the chunks in this
+corpus (1{,}634 of 2{,}815) contain no heading at all. Voters do not help
+either, since they rarely use the manifesto's own words.
 
-Contextual retrieval~\citep{anthropic2024contextual} gives each orphan a
-label. Before embedding, an LLM reads the chunk alongside its section and
-writes a sentence or two placing it in context. The chunk is then embedded,
-and indexed for lexical search, together with that context and its
-``party | section'' path. The original text is stored untouched, so citations
-and the gold set still point at exactly what the manifesto says. Contexts are
-cached by content hash, so a rebuild never pays for them twice, and, like
-classification, a context that cannot be written stops the run.
+Contextual retrieval~\citep{anthropic2024contextual} gives each orphan its
+bearings. Before embedding, a language model reads the chunk alongside its
+section and writes a sentence or two placing it in context. The chunk is then
+embedded together with that context and its party and section path, and the
+context is added to the keyword index as well. The stored text is left untouched, so citations and
+the gold set still point at exactly what the manifesto says. Contexts are
+cached by content, so rebuilding the index never pays for them twice, and, as
+in every other step of indexing, a context that cannot be written stops the
+run.
 
-It paid off. Over all 61 gold questions, run twice, the contextual index beat
-the plain hybrid one on recall (+0.046, 95\% CI [+0.011, +0.089]), MRR
-(+0.082) and nDCG (+0.057, CI [+0.025, +0.095]). Section paths alone gave
-about half of that. Since October 2026 it is the default index.
+%% Sources: commit 524d9ea; runs current-20261011T210519/211256 (plain hybrid),
+%% contextual-20261011T210746/211528 (paths), contextual_llm-20261011T211023/
+%% 211803 (paths + context), top_k 5, averaged over the two passes.
+It paid off (Table~\ref{tab:contextual}). The comparison ran on all 61 gold
+questions, twice, with the retrieval metrics of Section~\ref{subsec:metrics}.
+The section paths alone gave about half of the gain, and the context written
+by the language model gave the rest. The gains in recall and nDCG are larger
+than the noise between runs, since their 95\% confidence intervals stay above
+zero. It has been the default index since.
 
-\subsection{Embeddings} \label{subsec:embeddings}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|c|c|c|}
+        \hline
+        \textbf{Embedded text} & \textbf{Recall} & \textbf{MRR} & \textbf{nDCG} \\
+        \hline
+        Chunk only & 0.731 & 0.729 & 0.649 \\
+        Party and section path, then chunk & 0.756 & 0.785 & 0.680 \\
+        Party, section path and context, then chunk & \textbf{0.777} & \textbf{0.811} & \textbf{0.706} \\
+        \hline
+    \end{tabular}
+    \caption[Contextual retrieval]{Retrieval with and without contextual
+    retrieval, averaged over two runs of the 61 gold questions with five
+    chunks retrieved per question, the setting of the time. Against the first
+    row, the last gains +0.046 in recall (95\% CI +0.011 to +0.089) and +0.057
+    in nDCG (+0.025 to +0.095).}
+    \label{tab:contextual}
+\end{table}
 
-The embedding model decides which chunks a query can find. Three properties
-matter for this corpus. The model must handle European Portuguese well, it
-must be trained for \emph{retrieval} (matching a short question to a longer
-passage that answers it) rather than for sentence similarity, and its input
-window must fit the chunk budget.
+%% q-33 chunk: data/1_markdown/ad/ad-2024-manual.md re-chunked with the
+%% production settings (sha1:cfa43c8ce1...), context from
+%% data/2_processed/contexts-gemma-4-31b-it.json. Quoted verbatim, cut only.
+\paragraph{The running example.} The gold answer to q-33 lies in 20 chunks
+spread over 17 sections of the eight manifestos.
+Figure~\ref{fig:q33-chunk} shows one of them, the AD's goals for social and
+labour policy, as the encoder reads it. The section is short, 266 tokens, so
+it fits in a single chunk, and here the chunk the search matches and the
+section the generator reads are the same text.
 
-\paragraph{Language.} One option came before any model. Early in the work,
-Portuguese models were scarce enough that translating the corpus into English,
-where stronger encoders and LLMs existed, looked like a way around the problem.
-It was ruled out for three reasons. In political text the exact wording
-matters, a translation would add a layer of interpretation between the voter
-and the party, and studying RAG in European Portuguese is part of what this
-work set out to do.
+\begin{figure}[htbp]
+    \centering
+    \fbox{\begin{minipage}{0.93\textwidth}
+    \small
+    \textbf{Aliança Democrática \textbar{} PROGRAMA SOCIAL E DE GOVERNAÇÃO DA
+    ALIANÇA DEMOCRÁTICA $>$ COM SENSIBILIDADE SOCIAL $>$ POLÍTICAS SOCIAIS,
+    TRABALHO E SEGURANÇA SOCIAL $>$ 2.~Metas}
 
-\paragraph{Candidates.} The preliminary research used the Massive Text
-Embedding Benchmark (MTEB)~\cite{mtebmassivetextembedding} to shortlist
-models supporting Portuguese: BERTimbau~\citep{souza2020bertimbau}, Sentence-BERT~\citep{reimers2019sentencebert},
-\texttt{paraphrase-multilingual-MiniLM-L12-v2},
-\texttt{multilingual-e5-large-instruct}~\cite{wang2024multilinguale5textembeddings},
-and two commercial APIs (OpenAI's \texttt{text-embedding-3-large} and Google's
-\texttt{text-multilingual-embedding-002}). The commercial options were set
-aside so that \sysname{} could run entirely locally on open models.
+    \medskip
+    \textit{Metas do programa eleitoral da Aliança Democrática no âmbito das
+    políticas sociais e de trabalho, focando-se no aumento do salário mínimo,
+    do CSI, combate à precariedade e incentivos à produtividade.}
 
-\paragraph{First choices.} The first prototype (May 2025) used
-\texttt{all-MiniLM-L6-v2}, an English-only model chosen to get the
-pipeline running end to end rather than for quality. Results were poor, as
-expected, and the encoder was the first component revisited. In August 2025
-it was replaced by \texttt{serafim-900m-portuguese-pt-sentence-encoder-ir}
-from the Serafim family of European Portuguese
-encoders~\citep{gomes2024serafim}. Serafim was attractive on every visible criterion: trained on
-European Portuguese specifically, released in an information-retrieval
-variant, recent, and near the top of the Portuguese leaderboards. It was the
-first encoder with which \sysname{}'s answers became acceptable.
+    \medskip
+    2. Metas \\
+    \textbullet{} Reduzir a taxa de pobreza entre os trabalhadores; \\
+    \textbullet{} Aumentar o valor de referência do Complemento Solidário para
+    Idosos (CSI) para um valor de 820 euros em 2028 [\ldots]; \\
+    \textbullet{} Aumentar o salário mínimo nacional para 1.000 euros, em
+    2028, e aumentar o salário médio para 1.750 euros, em 2030, com base em
+    ganhos de produtividade e diálogo social; \\
+    {}[\ldots]
+    \end{minipage}}
+    \caption[A chunk as the encoder reads it]{One of q-33's gold chunks as the
+    encoder reads it. The first line is the party and section path, the line in
+    italics the context written by the language model, and the rest the
+    manifesto text, cut here for space. Only the manifesto text is stored as
+    the chunk itself.}
+    \label{fig:q33-chunk}
+\end{figure}
 
-\paragraph{Reversal.} Serafim had one property that was not noticed at
-selection time: it reads at most 128 tokens and silently discards the rest,
-which caused the truncation described in Section~\ref{subsec:chunking}. The
-limit is not a configuration detail that could simply be raised. The model
-was trained on short inputs, so there is no evidence it would represent a
-365-token passage well even if allowed to read one. In August 2026 it was
-replaced by \texttt{Qwen3-Embedding-0.6B}~\citep{zhang2025qwen3embedding},
-a decoder-based encoder trained for retrieval that accepts inputs of up to 32
-thousand tokens. The encoder therefore no longer constrains chunk size at
-all. It is also smaller (0.6B against 0.9B parameters) and produces narrower
-vectors (1{,}024 against 1{,}536 dimensions). On MTEB-PT, a Portuguese
-benchmark published after the switch, it scores 78.9 on
-retrieval~\citep{okamura2026mtebpt}. That benchmark evaluates only the
-general-purpose Serafim sentence encoder (54.9 on retrieval, 86.7 on semantic
-similarity), not the retrieval-tuned variant used here, so it offers no
-like-for-like comparison, and none was run on this corpus.
+\subsection{Topic classification} \label{subsec:classification}
 
-The replacement also brought a change in how the model is used. Like most
-current retrieval encoders, Qwen3-Embedding is \emph{asymmetric}: queries are
-prefixed with an instruction, while documents are encoded as they are. \sysname{}
-therefore encodes queries and documents through separate paths, so the
-instruction is never omitted at search time.
+Every chunk is also labelled with policy topics, so that a search could be
+limited to, say, passages on housing. No labelled data exists for Portuguese
+manifestos, and the documents do not tag their own sections consistently, so
+the labels are assigned by a language model during indexing. The 18 categories
+(Table~\ref{tab:topics} in Appendix~\ref{app:results}) come from reading the
+manifestos for recurring policy areas and from two public comparators of party
+programmes~\citep{expresso-comparador, politicaativa-comparar}. A chunk can
+carry several topics, because a proposal to build student residences concerns
+housing, education and youth at once. To classify them, the model reads chunks
+in batches of 15 and returns, for each, its categories, a confidence score
+and keywords, checked against a schema.
 
-The move from a Portuguese-native model to a multilingual one is a trade-off,
-not a straightforward upgrade. A model not built around Portuguese may
-represent the language's ambiguities less well, for example homonyms such as
-\textit{canto} (``corner'' or ``I sing'') or \textit{rio} (``river'' or ``I
-laugh''). Whether a long-window Portuguese encoder would outperform Qwen3 on
-this corpus is an empirical question. The evaluation harness can answer it by
-re-indexing the corpus once per encoder and comparing retrieval metrics on the
-same gold set (Section~\ref{sec:evaluation}). It was not run before the code
-was frozen for the final evaluation, and is left as future work
-(Chapter~\ref{ch:conclusion}).
+In the end, the labels matter less than planned. A search limited to one
+topic turned out to miss relevant passages that had been labelled under
+another, so the topic filter is off in the production system
+(Section~\ref{subsec:routing}). The labels are now used only by the
+evaluation variants that turn the filter back on, to measure what it costs.
+
+Building the classifier still taught two lessons.
+
+%% Source: commit c298e4b (removed TOPIC_KEYWORDS and
+%% classify_topics_fallback, which matched keywords as substrings).
+\paragraph{A failed call stops the run.} The first version of the classifier
+had a backup plan. Whenever a call to the model failed, it labelled the batch
+itself by looking for a short list of words per topic, such as
+\textit{hospital}, \textit{médico} or \textit{SNS} for health, and
+\textit{casa}, \textit{renda} or \textit{arrendamento} for housing. Such
+matching is crude. It cannot tell a proposal on hospitals from a passing
+mention of one, and since it matched fragments of words, \textit{casa} also
+fired inside \textit{casamento}, so a passage on marriage could be labelled as
+housing. Under free-tier rate limits, calls failed often, so the backup ran
+often too. The run always finished and every chunk got labels, but some came
+from the model and some from the word lists, and nothing recorded which. The
+backup even filled in the same confidence score, from the number of words it
+had matched. A
+corpus that looked fully labelled was in fact labelled two different ways.
+
+The backup was removed. A failed call now stops the run, and a checkpoint
+saves the labels already obtained, so the next run resumes where the last one
+stopped instead of starting over. A stopped run is visible and cheap to
+finish, while a silently degraded one is neither. This became the rule for
+every step of indexing.
+
+\paragraph{The prompt asked for too many labels.} A check by hand of 30 AD
+chunks found the first label right in about 29 of them, but a wrong extra
+label on about 8, such as a passage on tourism also tagged as health. The
+model, meanwhile, rated its own confidence 4 or 5 out of 5 on every chunk. The
+prompt was to blame. It asked for ``MÚLTIPLAS categorias'' (multiple
+categories), which reads as a request for several, and allowed up to four. It
+now asks for the main topic first, and for a further label only when the chunk
+makes a concrete proposal in that area, with three at most. The corpus was
+labelled again with the new prompt.
 
 \subsection{Vector store} \label{subsec:vectorstore}
 
-The store must hold one vector per chunk alongside its metadata (party,
-section path, topics), and answer nearest-neighbour queries filtered by that
-metadata.
+The store holds one vector per chunk, with its text and metadata (party,
+section path and topics), and answers nearest-neighbour searches filtered by
+that metadata.
 
 \paragraph{Candidates and first choice.} The preliminary research surveyed
-dedicated vector databases (Faiss, Pinecone, Qdrant, Milvus, ChromaDB and
-Weaviate) with reference to ANN-Benchmarks~\citep{aumuller2020annbenchmarks}. All but Pinecone are
-open source. Milvus was chosen first (May 2025), on the strength of its
-reputation in practitioner discussions for being lightweight and fast, and
-because a dedicated vector database seemed the natural component for the job.
-In practice, it ran only in its embedded Milvus Lite mode, a single local
-file. The configuration for a standalone Milvus server was written but never
-used, because setting the server up proved more involved than the project
-warranted.
+dedicated vector databases, namely Faiss, Pinecone, Qdrant, Milvus, ChromaDB
+and Weaviate, with ANN-Benchmarks~\citep{aumuller2020annbenchmarks} as a
+reference, and all but Pinecone are open source. Milvus came first, on its
+reputation among practitioners for being light and fast, and because a
+dedicated vector database seemed the natural tool for the job. In practice it
+only ever ran as Milvus Lite, a single local file, because setting up a Milvus
+server proved more trouble than the project warranted.
 
-\paragraph{Reversal.} In August 2025 the store was replaced by PostgreSQL~17
-with the pgvector extension~\citep{pgvector}. PostgreSQL had not been on the
-surveyed list at all, which is worth admitting: the survey had framed the
-question as \emph{which vector database}, and an extension to a general
-relational database fell outside that frame. The case for it rested on three
-points. The project does not need a separate vector service, given a corpus of
-a few thousand chunks. PostgreSQL was already familiar to the author. And
-metadata filtering becomes plain SQL rather than a product-specific filter
-language. A fourth benefit was not planned for. PostgreSQL ships with
-language-aware full-text search, including a Portuguese configuration, so
-when hybrid retrieval was added a year later (Section~\ref{subsec:search}),
-its lexical half needed no new component.
-
-\paragraph{Schema.} Each chunk is one row holding its text, the parent
-section text, party and ideology, topic labels as an array, the heading path
-as JSON, and a 1{,}024-dimensional vector. Similarity search uses an HNSW
-index~\citep{malkov2020hnsw} on cosine distance
-($m = 16$, $\mathit{ef\_construction} = 64$). Topic filters use a GIN index
-on the label array. A generated \texttt{tsvector} column, computed with
-PostgreSQL's Portuguese text-search configuration and also GIN-indexed,
-serves lexical search. Because the column is generated by the database, it
-cannot drift out of sync with the text it indexes. PostgreSQL runs in Docker,
-so the whole store is reproducible from one configuration file.
+\paragraph{Reversal.} A few months later the store was replaced by
+PostgreSQL~17 with the pgvector extension~\citep{pgvector}, which had not been
+on the surveyed list at all. The survey had asked \emph{which vector
+database}, and an extension to a general relational database fell outside the
+question. Three reasons made the case. A corpus of a few thousand chunks does
+not need a separate vector service, PostgreSQL was already a familiar tool
+with nothing new to learn, and filtering by metadata becomes plain SQL instead
+of a
+product-specific language. A fourth benefit was not planned for. PostgreSQL
+ships with full-text search for Portuguese, so when hybrid retrieval arrived a
+year later (Section~\ref{subsec:search}), its keyword half needed no new
+component. The table layout and its indexes are described in
+Appendix~\ref{sec:tooling-schema}.
 
 % ============================================================
+\clearpage
 \section{Retrieval} \label{sec:retrieval}
 % ============================================================
 %% DRAFT (Claude, 2026-10-10) from the code, commit bodies and DECISIONS.md.
@@ -523,282 +808,347 @@ so the whole store is reproducible from one configuration file.
 \TODO{REVIEW: Claude's draft of this section (2026-10-10). Read it, check the
 facts against your memory, and rewrite it in your own words.}
 
-Indexing happens once, ahead of time; retrieval happens every time a user asks
-a question. That split between an offline and an online half is the usual
-shape of a RAG system, and it explains several design choices in this chapter.
-Offline work can be slow, expensive and strict. Indexing stops on the first
-classification error because a bad label would be stored permanently
-(Section~\ref{subsec:classification}). Online work must answer within seconds,
-and a degraded answer is better than none, so every online step falls back to
-a simpler behaviour when an LLM call fails.
+Indexing happens once, ahead of time. Retrieval happens every time someone
+asks a question. This split between work done ahead of time and work done at
+question time is the usual shape of a RAG system, and it explains a principle
+met throughout this chapter. Work done ahead of time can be slow and strict. Indexing stops at the first
+failed call, because a bad label or a missing context would be stored for good
+(Section~\ref{subsec:classification}). Work done at question time must answer
+within seconds, and a weaker answer is better than none, so every step at
+question time falls back to a
+simpler behaviour when a call to the language model fails.
 
 Retrieval turns a question into a ranked set of manifesto passages in five
-steps (Figure~\ref{fig:retrieval}). The question is analysed to find which
-parties and topics it concerns. It is expanded into several reformulations,
-routed to a search strategy, searched, and the resulting ranked lists are fused
-into one. Every technique beyond plain dense search sits behind a feature flag
-and can be switched off on its own. This is what allows the evaluation
-(Section~\ref{sec:evaluation}) to measure each technique's contribution
-separately. Most of the techniques come from the \textit{RAG from Scratch}
-series~\citep{rag-from-scratch}; others were adapted from practitioner
-tutorials and blog posts.
+steps (Figure~\ref{fig:retrieval}). The question is first analysed, to find
+which parties and topics it concerns. It is then expanded into several
+reformulations, routed to a search strategy and searched, and the ranked lists
+that come back are fused into one. Every technique beyond plain dense search
+sits behind a switch, a \emph{feature flag}, and can be turned off on its own,
+which is what lets the evaluation (Section~\ref{sec:evaluation}) measure what
+each one adds. Most of the techniques come from the \textit{RAG from Scratch}
+series~\citep{rag-from-scratch}, and the rest from practitioner tutorials and
+blog posts. The minimum-wage question follows each step below.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.85\textwidth]{images/architecture-retrieval.pdf}
-    \caption[The retrieval pipeline]{The retrieval pipeline. Dashed stages are switched by the feature
-    flag in brackets; with the flag off, a stage falls back to its simplest
-    form (Section~\ref{subsec:variants}). Reranking and the topic filter are
-    off by default. A question that names only parties outside the corpus
-    skips search. Answer synthesis follows in Figure~\ref{fig:generation}.}
+    \caption[The retrieval pipeline]{The retrieval pipeline. Dashed stages are
+    switched by the feature flag in brackets, and with the flag off a stage
+    falls back to its simplest form (Section~\ref{subsec:variants}). Reranking
+    and the topic filter are off by default. A question that names only
+    parties outside the corpus skips search. Answer synthesis follows in
+    Figure~\ref{fig:generation}.}
     \label{fig:retrieval}
 \end{figure}
 
 \subsection{Query analysis} \label{subsec:queryanalysis}
 
-Every chunk in the store carries its party and its topic labels. Those fields
-were added with filtering in mind: if the system knows a question concerns
-one party, or one policy area, it can search only the passages that match
-and leave the rest of the corpus out. The first versions of the system
-supported this only by hand. The caller passed the party or topic as an
-explicit filter. Query analysis, introduced in March 2026, automates that
-step: an LLM reads the question and extracts the filters itself, following
-the logical-routing and metadata-filtering patterns of \textit{RAG from
-Scratch}~\citep{rag-from-scratch}.
+Every chunk in the store carries its party and its topic labels, which were
+added with filtering in mind. If the system knows that a question concerns one
+party, or one policy area, it can search only the matching passages and leave
+the rest of the corpus out. The first versions supported this only by hand,
+with the party or topic passed in as an explicit filter. Query analysis
+automates that step. A language model reads the question and extracts the
+filters itself, following the logical-routing and metadata-filtering patterns
+of \textit{RAG from Scratch}~\citep{rag-from-scratch}.
 
-The analysis is a single structured-output call that returns six fields:
-\begin{itemize}
-    \item \textbf{parties}: the parties the question concerns. When a question
-    refers to a bloc rather than naming parties (``os partidos de direita'',
-    \textit{the right-wing parties}), the model lists the members of that bloc.
-    The left--right placement it uses is stated in the prompt, following the
-    Chapel Hill Expert Survey~\citep{jolly2022ches}, rather than left to the
-    model's own view of Portuguese politics.
-    \item \textbf{coverage}: whether the answer must represent every party in
-    scope (\textit{exhaustive}) or the most relevant passages are enough,
-    wherever they come from (\textit{best match}).
-    \item \textbf{topics}: labels from the same 18-category taxonomy used at
-    indexing time.
-    \item \textbf{answer shape}: whether the answer should be laid out party by
-    party or as a single text (Section~\ref{sec:generation}).
-    \item \textbf{reformulated query}: a cleaned-up version of the question for
-    search.
-    \item \textbf{unlisted parties}: parties the question names that are not in
-    the corpus.
-\end{itemize}
+%% q-33 column: dev run current-20261015T050000 (parties, coverage, topics,
+%% route) and one live call to analyze_query on 2026-10-27 (answer shape,
+%% reformulated query, which the run did not record).
+The analysis is a single call that returns six fields in a fixed structure.
+Table~\ref{tab:analysis} lists them, with what the analyser returned for the
+minimum-wage question. Two fields need a word more. When a question refers to
+a bloc rather than naming parties, such as \textit{os partidos de direita}
+(the right-wing parties), the model lists the members of that bloc. The
+left-to-right placement it should use is written into the prompt, following
+the Chapel Hill Expert Survey~\citep{jolly2022ches}, rather than left to the
+model's own view of Portuguese politics. Coverage, in turn, decides whether
+every party in scope must appear in the answer (\textit{exhaustive}) or
+whether the best passages are enough, wherever they come from (\textit{best
+match}).
 
-\paragraph{Revision: describe the question, derive the route.} The first
-version asked the model for a \emph{query type} directly: single party,
-comparison, topic exploration or general. That conflated two independent
-questions, namely which manifestos must be read and what the answer should
-look like, and it failed on a whole class of questions. ``O que pensa cada
-partido sobre a educação pública?'' (\textit{What does each party think about
-public education?}) names no party and contains no comparison verb, so the model
-labelled it a topic exploration. That route runs one search across the whole
-corpus and keeps the top results, so the answer covered whichever parties
-happened to rank highest. Nothing in the output showed the others had been
-dropped.
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabular}{|l|>{\raggedright\arraybackslash}p{0.42\textwidth}|>{\raggedright\arraybackslash}p{0.27\textwidth}|}
+        \hline
+        \textbf{Field} & \textbf{What it holds} & \textbf{Minimum-wage question} \\
+        \hline
+        Parties & The parties the question concerns & None named \\
+        Coverage & Whether every party in scope must be covered & Exhaustive \\
+        Topics & Labels from the 18 categories used at indexing & \textit{trabalho} \\
+        Answer shape & Party by party, or a single text (Section~\ref{sec:generation}) & Party by party \\
+        Reformulated query & A cleaned-up version of the question, for search & \textit{Quais são as propostas dos partidos políticos para o salário mínimo?} \\
+        Unlisted parties & Parties named in the question but missing from the corpus & None \\
+        \hline
+    \end{tabular}
+    \caption[Query analysis]{The six fields of query analysis, and the
+    analyser's output for the minimum-wage question.}
+    \label{tab:analysis}
+\end{table}
 
-Since August 2026 the model only describes the question, through the fields
-above, and the query type is derived from them by a fixed rule. Two or more
-parties, or exhaustive coverage, yield a comparison. One party yields a
-single-party query. Otherwise, topics yield a topic exploration, and the rest
-is general. There is now one source of truth: the router cannot disagree with
-the analyser, and the analyser's output can be scored against hand-written
-annotations without depending on any particular route. The same revision
-removed an \emph{ideology} field. A single left--right label is too coarse
-for questions about, say, ``the conservative parties'', so bloc language is now
-resolved into an explicit list of parties, which is visible and can be checked.
-The revision also fixed party matching, which worked on substrings:
-``PSD'' resolved to the Partido Socialista because ``ps'' is inside ``psd'', so
-a question about one party was answered from another's manifesto, with
-citations that looked correct. Names are now matched as whole words, and
-coalition members resolve to the programme actually published (PSD, CDS-PP
-and PPM to AD; the CDU's PCP and PEV to PCP).
+\paragraph{Describing the question, deriving the route.} The first version
+asked the model for the route directly, as a \emph{query type}, one of single
+party, comparison, topic exploration or general. That mixed two separate
+questions, which manifestos must be read and what the answer should look like,
+and it failed on a whole class of questions. \textit{O que pensa cada partido
+sobre a educação pública?} (What does each party think about public
+education?) names no party and has no comparison verb, so the model called it
+a topic exploration. That route ran one search across the whole corpus and
+kept the top results, so the answer covered whichever parties happened to rank
+highest, and nothing in it showed that the others had been dropped.
 
-\paragraph{Revision: parties outside the corpus.} Gold question q-59 asks what
-ADN proposes for housing. ADN is a real party; its manifesto is not in the
+The model now only describes the question, through the fields above, and a
+fixed rule derives the query type from them. Two or more parties, or
+exhaustive coverage, make a comparison. One party makes a single-party query.
+Otherwise, a question with topics is a topic exploration, and anything else is
+general. The minimum-wage question names no party but asks for exhaustive
+coverage, so it becomes a comparison over all eight parties. There is now one
+source of truth. The router cannot disagree with the analyser, and the
+analyser's output can be scored against hand-written annotations whatever
+route it leads to.
+
+The same revision made two smaller fixes. It removed an \emph{ideology} field,
+since a single left-to-right label is too coarse for a question about, say,
+the conservative parties. Bloc language is now turned into an explicit list of
+parties, which can be seen and checked. It also fixed how party names were
+matched. Matching worked on fragments of words, so \textit{PSD} resolved to
+the Partido Socialista, because \textit{ps} sits inside \textit{psd}, and a
+question about one party was answered from another's manifesto, with citations
+that looked correct. Names are now matched as whole words, and the members of
+a coalition resolve to the programme it actually published. PSD, CDS-PP and
+PPM map to AD, and PCP and PEV, which run together as the CDU, map to PCP.
+
+\paragraph{Parties outside the corpus.} Gold question q-59 asks what ADN
+proposes for housing. ADN is a real party, but its manifesto is not in the
 corpus. Told to use only the names on its list, the analyser did the obliging
 thing and mapped ADN to AD, and the answer presented AD's housing plans as
-ADN's, with tidy citations. The sixth field fixes this. A question naming only
-unlisted parties skips the search and gets a fixed answer that says so and
-lists the eight parties covered. A mixed one (``PS e ADN'') is answered for
-the corpus party, with a one-line note up front. A first live check still read
-``PS e ADN'' as AD and sent PPM to PAN, so the party table the analyser sees
-now spells out initials and coalition members. Why not keep a hand-made list
-of parties outside the corpus? Because ``ADN'' is also Portuguese for DNA.
+ADN's, with tidy citations. The sixth field, unlisted parties, fixes this. A
+question that names only parties outside the corpus skips the search and gets
+a fixed answer that says so and lists the eight parties covered. A mixed one,
+such as \textit{PS e ADN}, is answered for the party in the corpus, with a
+one-line note up front. A first live check still read \textit{PS e ADN} as AD
+and sent PPM to PAN, so the party table the analyser sees now spells out
+initials and coalition members. A hand-made list of parties outside the corpus
+would not have been simpler, because \textit{ADN} is also the Portuguese for
+DNA.
 
-\paragraph{Fallback.} If the analysis call fails after its retries, a
-deterministic fallback takes over. It extracts only what needs no
-interpretation: party names, matched exactly against a list of aliases. Every
-other field defaults towards wider coverage: no topic filter, and exhaustive
-coverage so that the router searches each party separately. The search may be
-wider than the question needed, but no party is silently left out.
-
-\subsection{Multi-query expansion} \label{subsec:multiquery}
-
-A question and the passage that answers it often use different words. A user
-asks about \textit{rendas} (rents); the manifesto speaks of
-\textit{arrendamento acessível} (affordable letting). Dense embeddings narrow
-this gap but do not close it. Multi-query expansion~\citep{rag-from-scratch,
-rackauckas2024ragfusion} asks the LLM for four reformulations of the
-question, each with a different vocabulary or perspective, and searches with
-all five versions. A passage missed by the original wording can then be found
-by one of the reformulations. The reformulations are fused into a single
-ranking (Section~\ref{subsec:search}), so this adds recall at the cost of one
-extra LLM call and four extra searches per question.
+\paragraph{Fallback.} If the analysis call still fails after its retries, a
+fixed procedure takes over. It extracts only what needs no interpretation, the
+party names, matched exactly against a list of aliases. Every other field
+defaults towards wider coverage, with no topic filter and exhaustive coverage,
+so that the router searches each party separately. The search may be wider
+than the question needed, but no party is silently left out.
 
 \subsection{Routing and metadata filtering} \label{subsec:routing}
 
-The derived query type selects one of four search strategies:
-\begin{itemize}
-    \item \textbf{Single party}: search only that party's chunks, keeping the
-    top ten.
-    \item \textbf{Comparison}: search each party in scope separately, eight
-    results per party, and keep the results grouped by party. When the question
-    names no party, every party is in scope.
-    \item \textbf{Topic exploration}: the same per-party search. ``What is
-    proposed on X?'' is a comparison in disguise.
-    \item \textbf{General}: search the whole corpus, keeping the top ten.
-\end{itemize}
+The derived query type selects one of four search strategies. A single-party
+query searches only that party's chunks and keeps the top ten. A general query
+searches the whole corpus and also keeps the top ten. A comparison searches
+each party in scope separately, keeps eight results per party and keeps them
+grouped by party, and when the question names no party, every party is in
+scope. A topic exploration uses the same per-party search, because a question
+such as \textit{what is proposed on housing?} is a comparison in disguise. For
+the minimum-wage question this means eight separate searches, one per party,
+and 64 chunks in all.
 
 The comparison route matters most for a civic tool. A single search over the
-whole corpus returns whichever passages score highest, and parties with
-longer or more verbose manifestos win more of those slots. Searching each
-party separately gives every party the same number of slots. It is the only
-route that guarantees no party is crowded out of an answer that claims to
-cover them all.
+whole corpus returns whichever passages score highest, and parties with longer
+or wordier manifestos win more of those slots. Searching each party separately
+gives every party the same number of slots. It is the only route that
+guarantees that no party is crowded out of an answer that claims to cover them
+all.
 
-\paragraph{Revision: topics as a preference.} Topic filters were originally
-strict: a search for health-related passages returned only chunks labelled
-\textit{saude}, or nothing. In August 2026 a question the corpus could answer
-well came back with ``não foram encontrados documentos relevantes''
-(\textit{no relevant documents were found}). The analyser had proposed the
-topic \textit{saude}, but that index had been built without classification, so
-every chunk carried the default label and the intersection was empty. The same
-failure occurs whenever the analyser proposes a topic the classifier never
-assigned. Topics are a precision aid, not a correctness requirement, so they
-became a preference: the search runs with the topic filter first and, if
-nothing matches, runs again without it and logs a warning. Comparison queries
-relax the filter per party, so a party that does not mention a topic cannot
-remove it from the search for the others.
+\paragraph{Topics as a preference.} Topic filters were at first strict. A
+search for health passages returned only chunks labelled \textit{saude}, or
+nothing. Then a question the corpus could answer well came back with
+\textit{não foram encontrados documentos relevantes} (no relevant documents
+were found). The analyser had proposed the topic \textit{saude}, but that
+index had been built without classification, so every chunk carried the
+default label and no chunk matched. The same failure happens whenever the
+analyser proposes a topic the classifier never assigned. Topics help precision
+but are not needed for a correct answer, so they became a preference. The
+search runs with the topic filter first and, if nothing matches, runs again
+without it and logs a warning. Comparisons relax the filter party by party, so
+a party that never mentions a topic cannot remove that topic from the search
+for the others.
 
-\paragraph{Revision: no filter at all.} The gold set then showed the filter
-hurting even when it matched something. On the development questions, 41\% of
-the gold chunks the system missed had been excluded by the topic filter, often
-because the analyser answered \textit{outros}, the catch-all, which as a filter
-keeps only the chunks the classifier could not place. A topic exploration also
-got a single search of five chunks for eight parties, so a question could score
-zero with every relevant chunk sitting in its party's top three. Topic
-explorations now fan out per party, and the filter is off by default. Together
-with a wider net (10 chunks, 8 per party, up from 5 and 5), this was judged on
-all 61 gold questions: recall +0.123 (CI [+0.08, +0.17]) and correctness
-+0.041 (CI [+0.01, +0.07]), with faithfulness unchanged within noise. The
-filter survives as an ablation (Section~\ref{subsec:variants}); topics still
-decide whether a question is a topic exploration.
+\paragraph{No topic filter at all.} The gold set then showed the filter hurting
+even when it matched something. On the development questions, 41\% of the
+gold chunks the system missed had been excluded by the topic filter. Often the
+analyser had answered \textit{outros}, the catch-all, which as a filter keeps
+only the chunks the classifier could not place anywhere else. A topic
+exploration also got a single search of five chunks for eight parties, so a
+question could score zero with every relevant chunk sitting in its party's top
+three. Topic explorations now fan out per party, and the filter is off by
+default. Together with a wider net, 10 chunks and 8 per party instead of 5 and
+5, this was judged on all 61 gold questions with the metrics of
+Section~\ref{subsec:metrics}. Recall rose by 0.123 and correctness by 0.041,
+both with confidence intervals above zero, while faithfulness stayed the same
+within noise. The filter survives as an ablation
+(Section~\ref{subsec:variants}), and topics still decide whether a question
+counts as a topic exploration.
 
 \subsection{Search and fusion} \label{subsec:search}
 
-Each query version is embedded and matched against the stored chunk vectors
-by cosine similarity, within whatever party filter the route applies. Multi-query expansion produces one ranked list per version, and these
-are merged with Reciprocal Rank Fusion (RRF)~\citep{cormack2009rrf}. RRF
-scores each chunk by the sum of $1/(k + r)$ over the lists in which it
-appears at rank $r$, with $k = 60$. It uses only ranks, not scores, so lists
-whose scores are on different scales can be fused without calibration, and a
-chunk that ranks well for several reformulations rises above one that ranks
-first for only one.
+\paragraph{Multi-query expansion.} \label{subsec:multiquery}
+A question and the passage that answers it often use different words. A user
+asks about \textit{rendas} (rents), while the manifesto speaks of
+\textit{arrendamento acessível} (affordable letting). Dense embeddings narrow
+this gap but do not close it. Multi-query expansion~\citep{rag-from-scratch,
+rackauckas2024ragfusion} asks the language model for four reformulations of
+the question, each with different words or a different angle, and searches
+with all five versions. A passage the original wording misses can then be
+found by one of the reformulations. For the minimum-wage question, one run of
+this step returned the following four.
+
+%% Source: one live call to expand_query on 2026-10-27. The dev run does not
+%% record reformulations, and the step is not deterministic.
+\begin{quote}
+    \small
+    \textit{Quais são as propostas dos partidos políticos relativamente ao
+    valor do salário mínimo nacional?}\\
+    \textit{Como pretendem os diferentes partidos alterar o rendimento mínimo
+    garantido?}\\
+    \textit{Quais as medidas previstas nos programas eleitorais para o aumento
+    do salário mínimo?}\\
+    \textit{De que forma cada força política planeia abordar a questão do
+    salário mínimo?}
+\end{quote}
+
+The second shows the risk as well as the benefit. The \textit{rendimento
+mínimo garantido} is not the minimum wage but a social benefit, the guaranteed
+minimum income, so its search pulls in passages on a different subject. Fusion
+keeps this drift in check, because a passage found by only one of five
+versions ranks below passages found by several. Expansion costs one extra call
+to the language model and four extra searches per question.
+
+\paragraph{Fusion.} Each version of the question is embedded and matched
+against the stored chunk vectors by cosine similarity, within whatever party
+filter the route applies. Expansion therefore produces one ranked list per
+version, and these are merged with Reciprocal Rank Fusion
+(RRF)~\citep{cormack2009rrf}. RRF gives a chunk $1/(k + r)$ for every list in
+which it appears at rank $r$, with $k = 60$, and adds these up. A chunk ranked
+first in a single list earns $1/61$, about 0.016, while a chunk ranked fifth
+in four lists earns $4/65$, about 0.062, and comes out well ahead. RRF uses
+only ranks, not scores, so lists whose scores sit on different scales can be
+fused without calibrating them.
 
 \paragraph{Hybrid retrieval.} Dense embeddings capture meaning but can
-under-weight rare exact strings: acronyms, programme names, codes
+under-weight rare exact strings, such as acronyms, programme names and codes
 (\textit{RES\_U}, \textit{TMRG}, \textit{USF tipo C}). These are often exactly
-what a user quotes. Hybrid retrieval adds a lexical search over PostgreSQL's
-Portuguese full-text index (Section~\ref{subsec:vectorstore}) for every query
-version, and fuses all dense and lexical lists in a single RRF pass, so each
-list carries the same weight.
+what a user types. Hybrid retrieval adds a keyword search over PostgreSQL's
+Portuguese full-text index (Section~\ref{subsec:vectorstore}) for every
+version of the question, and fuses all dense and keyword lists in a single RRF
+pass, so each list carries the same weight. For the minimum-wage question that
+makes ten lists for each of the eight parties, five dense and five from
+keywords.
 
-The history of this feature is the second silent failure in this work, after
+The history of this feature is the second quiet failure in this work, after
 the encoder truncation of Section~\ref{subsec:chunking}. When hybrid retrieval
-was added in August 2026, a handful of probes showed a smaller gain than
-expected. Only one acronym was clearly rescued: \textit{RES\_U} went from zero
-to two relevant chunks in the top five. In October 2026 the cause became
-clear. The lexical search required \emph{every} word of the question to
-appear in a chunk, so a natural-language question matched almost nothing. ``Qual
-é a taxa única de IRS proposta pela Iniciativa Liberal?'' (\textit{What flat
-IRS rate does the Iniciativa Liberal propose?}) matched none of IL's chunks.
-The hybrid configuration had been running as dense search alone, with no error
-to show it. Lexical search was rewritten as Okapi
-BM25~\citep{robertson2009bm25}, in which any query term can match and rarer
-terms weigh more. After the rewrite, lexical search alone found a relevant
-chunk in its top ten for 44 of the 51 gold questions. Measured properly this
-time, hybrid beat dense search alone on the development set (nDCG +0.064, with
-a paired 95\% CI excluding zero; MRR +0.10) at no cost in latency, helping most
-where a comparison's wording is exact. It has been the default since October
-2026.
+was first added, a handful of probes showed a smaller gain than expected. Only
+one acronym was clearly rescued, with \textit{RES\_U} going from zero to two
+relevant chunks in the top five. Two months later the cause became clear. The
+keyword search required \emph{every} word of the question to appear in a
+chunk, so a question written in natural language matched almost nothing.
+\textit{Qual é a taxa única de IRS proposta pela Iniciativa Liberal?} (What
+flat IRS rate does the Iniciativa Liberal propose?) matched none of IL's
+chunks. The hybrid configuration had been running as dense search alone, with
+no error to show it.
 
-Two refinements followed. Accents are folded after stemming, so a question
-typed without accents (``saude'') still finds chunks about \textit{saúde}.
-Folding before stemming would break the Portuguese stemmer, which needs the
-accents to recognise suffixes. And under a party filter, the party's name is
-removed from the lexical query. As a rare term it would otherwise outweigh the
-topic, even though the filter already guarantees every candidate belongs to
-that party.
+%% Source: commit e9e4990 (44/51 lexical-only hit@10 on the gold sets then
+%% proposed), DECISIONS.md (dev nDCG +0.064 over dense_only).
+The keyword search was rewritten as Okapi BM25~\citep{robertson2009bm25}, in
+which any word of the question can match and rarer words weigh more. After the
+rewrite, keyword search alone found a relevant chunk in its top ten for 44 of
+the 51 gold questions written by then. Measured properly this time, hybrid
+search beat dense search alone on the development set, raising nDCG by 0.064
+with a confidence interval above zero, at no cost in latency. It helped most
+where a comparison's wording is exact, and it has been the default since.
+
+Two refinements followed. Accents are removed after stemming, so a question
+typed without accents, such as \textit{saude}, still finds chunks about
+\textit{saúde}. Removing them before stemming would break the Portuguese
+stemmer, which needs the accents to recognise word endings. And under a party
+filter, the party's name is removed from the keyword query. As a rare word it
+would otherwise outweigh the topic, even though the filter already guarantees
+that every candidate belongs to that party.
 
 \paragraph{Party names in dense queries.} The same effect appeared in dense
-search. On ``Qual é a posição do PAN sobre as touradas?'' (\textit{What is
-PAN's position on bullfighting?}), searched within PAN's chunks, the best
-relevant chunk ranked sixth; with ``PAN'' removed from the query, first. The
-name pulled the query towards chunks \emph{about the party} (``O PAN é um
-partido de causas\ldots''), which the filter already makes redundant. Stripping
-names was built as a variant, but never needed a run: contextual retrieval
-(Section~\ref{subsec:contextual}) already puts the gold chunks for that
-question at ranks one to three.
+search. For \textit{Qual é a posição do PAN sobre as touradas?} (What is PAN's
+position on bullfighting?), searched within PAN's chunks, the best relevant
+chunk ranked sixth. With \textit{PAN} removed from the query, it ranked first.
+The name pulled the query towards chunks \emph{about the party}, such as
+\textit{O PAN é um partido de causas\ldots}, which the filter already makes
+redundant. Removing names was built as a variant but never needed a run,
+because contextual retrieval (Section~\ref{subsec:contextual}) already puts
+the gold chunks for that question at ranks one to three.
+
+%% Source: dev run current-20261015T050000, q-33: 64 chunks, 8 per party,
+%% 18 of 20 gold retrieved, MRR 1.0. Missed: IL "PORTUGAL A CRESCER > 4.
+%% REFORMA LABORAL" (summary section) and PCP "Assegurar a autonomia
+%% económica e social das famílias".
+\paragraph{The minimum-wage question, retrieved.} Eight searches over ten
+lists each hand the generator 64 chunks, eight from every party. They include
+18 of the 20 chunks marked as gold for this question, and the first chunk in
+the list is one of them. The two that were missed both mention the minimum
+wage in passing. One is the short summary of labour reform near the start of
+the IL manifesto, whose full chapter on labour supplied three other gold
+chunks. The other is a PCP section on the economic autonomy of families, which
+lists the minimum wage among other measures. Every party is represented, which
+is the point of the comparison route.
 
 \subsection{Reranking} \label{subsec:reranking}
 
-Dense retrieval embeds the question and each chunk independently. That is what
-makes searching a whole corpus affordable, and also what limits its precision:
-a chunk's vector cannot depend on the question being asked. A
-\emph{cross-encoder} reads the question and a passage together and scores
-their relevance directly~\citep{nogueira2019passagererankingbert}. It is
-far more accurate but far too slow to apply to the whole corpus, so it runs
+Dense retrieval embeds the question and each chunk separately. That is what
+makes searching a whole corpus affordable, and also what limits its precision,
+since a chunk's vector cannot depend on the question being asked. A
+\emph{cross-encoder} reads the question and a passage together and scores how
+well they match directly~\citep{nogueira2019passagererankingbert}. It is far
+more accurate but far too slow to run over the whole corpus, so it runs
 second, over a shortlist.
 
-With reranking enabled, each search fetches 30 candidates instead of the
+With reranking turned on, each search fetches 30 candidates instead of the
 usual ten, the fused list keeps all 30, and the cross-encoder
-(\texttt{bge-reranker-v2-m3}~\citep{bge-reranker-v2-m3}, a multilingual
-model) reorders them before the list is cut back. The wider fetch is the
-point: a reranker can only promote what retrieval already found, so reranking
-exactly ten candidates would reorder the answer without ever improving its
-contents. The number of candidates is therefore the real limit on what
-reranking can recall. The model scores the user's original question against
+(\texttt{bge-reranker-v2-m3}~\citep{bge-reranker-v2-m3}, a multilingual model)
+reorders them before the list is cut back. The wider fetch is the whole point.
+A reranker can only promote what retrieval already found, so reranking exactly
+ten candidates would reorder the answer without ever improving what it
+contains. The number of candidates is therefore the real limit on what
+reranking can recover. The model scores the user's original question against
 each \emph{small} chunk, not its parent section. Under small-to-big retrieval
-many chunks share one parent, and scoring the parent would give all of them the
-same score.
+many chunks share one parent, and scoring the parent would give all of them
+the same score.
 
-\paragraph{Verdict: it lost.} On the development set the reranker cut recall by
-0.055 and doubled latency, so it stays off and is reported as a negative
-result. That runs against the published experience, where reranking on top of
-contextual retrieval cut failed retrievals further, from 49\% to 67\%
-fewer~\citep{anthropic2024contextual}.
+\paragraph{The reranker lost.} On the development set the reranker cut recall
+by 0.055 and doubled latency, so it stays off and is reported as a negative
+result. That runs against published experience. In Anthropic's tests,
+contextual embeddings with BM25 cut failed retrievals by 49\%, and adding a
+reranker raised the cut to 67\%~\citep{anthropic2024contextual}.
 %% DRAFT (Claude, 2026-10-16): hypotheses only; replace with your own view if you have one.
 Why it lost was not investigated, and three explanations fit. The reranker is
 a general multilingual model, not trained on European Portuguese policy prose.
 It scores each small chunk without the section around it, which is exactly the
-context contextual retrieval adds to the index. And hybrid fusion over five
-query versions may already have done the reranker's job, leaving it only good
-candidates to reshuffle, sometimes for the worse.
+context that contextual retrieval adds to the index. And hybrid fusion over
+five versions of the question may already have done the reranker's job,
+leaving it only good candidates to reshuffle, sometimes for the worse.
 
-\subsection{Agentic retrieval} \label{subsec:agentic}
+\paragraph{Agentic retrieval.} \label{subsec:agentic}
+\TODO{STRUCTURE (2026-10-25): keep this as a paragraph or move it to Future
+work in Chapter~\ref{ch:conclusion}. The Problem chapter points here
+(``Sections~\ref{subsec:queryanalysis} to~\ref{subsec:agentic}''), so update that
+reference if it moves.}
 %% DRAFT (Claude, 2026-10-16), from DECISIONS.md (code freeze, 2026-10-15).
 The last rung planned for the ladder was agentic
-retrieval~\citep{agentic-rag}: an LLM loop over the existing pipeline that
-decides whether and what to retrieve, searches again when the results fall
-short, and checks the evidence before an answer is written. It was not built
-before the code freeze, and is left as future work. Its history is short:
-empty agentic and corrective modules were created in May 2025 and deleted,
-still empty, in March 2026. Corrective RAG~\citep{crag} would stay out even
-then. When retrieval falls short its fallback is web search, and \sysname{}
-must answer from the manifestos alone.
+retrieval~\citep{agentic-rag}, a loop in which a language model drives the
+existing pipeline. It decides whether and what to retrieve, searches again
+when the results fall short, and checks the evidence before an answer is
+written. It was not built before the code freeze and is left as future work.
+Empty modules for agentic and corrective retrieval were created early in the
+project and deleted, still empty, ten months later. Corrective
+RAG~\citep{crag} would stay out even then, because when retrieval falls short
+its fallback is web search, and \sysname{} must answer from the manifestos
+alone.
 
 % ============================================================
 \section{Generation} \label{sec:generation}
@@ -825,6 +1175,11 @@ a manifesto.
     \label{fig:generation}
 \end{figure}
 
+\TODO{RUNNING EXAMPLE (q-33): the passages after deduplication and the
+budget (q-33 is already the budget story of Section~\ref{subsec:context}, 24
+passages, 11 lost at 16k tokens), the comparison prompt's layout, and the
+final answer with its citations, one party's paragraph in full.}
+
 \subsection{Language model} \label{subsec:llm}
 
 The preliminary research shortlisted four models in early 2025: two open
@@ -840,10 +1195,10 @@ parameters active per token) analyses, expands and answers, and the 31B dense
 model writes the chunk contexts of Section~\ref{subsec:contextual}. If a call
 fails, free endpoints are tried in order (Gemma~4 31B, then two NVIDIA
 Nemotron models). The judge is Qwen; the only proprietary models are the
-yardsticks of the evaluation (Section~\ref{subsec:variants}).
+points of comparison in the evaluation (Section~\ref{subsec:variants}).
 
-The language model changed four times, and each change was forced by
-something outside the system rather than by its answers.
+The project went through four ways of reaching a language model, and each
+move was forced by something outside the system rather than by its answers.
 \begin{itemize}
     \item \textbf{Local models (2024--2025).} The project started with small
     open models run locally through Ollama. In 2024, local inference was the
@@ -878,8 +1233,9 @@ The free tier carried the project for months and shaped the code: retries with
 backoff, fallbacks, and the fail-fast-then-resume design of indexing. The move
 to a paid endpoint changed the bill, not the model: everything here still runs
 on an open model.
-A judged run of the production variant over all 61 gold questions, judge
-included, costs about \$0.70.
+On the 36 test questions, the production variant spent about \$0.0011 per
+answer, and the judge about \$0.0084 more to score it
+(Section~\ref{sec:results-cost}).
 %% DRAFT (Claude, 2026-10-24) from commit ec46db9 and the author's note.
 %% Rewrite in your own words.
 The move was forced by evaluation. One judged run fires hundreds of calls in a
@@ -888,8 +1244,7 @@ meant waiting it out, so a run that costs minutes on the paid endpoint took
 hours, and a limit the retries could not outlast left a question unscored.
 The free tier also hands a call to a fallback model when Gemma is busy, which
 mixes models inside a single run. The paid endpoint keeps the free ones only as
-a safety net, and no call in the test runs needed it. Each question asked costs
-about \$0.0006.
+a safety net, and no call in the test runs needed it.
 
 \subsection{Grounding and neutrality} \label{subsec:grounding}
 
@@ -898,7 +1253,7 @@ system prompt sets the rules the answer must follow:
 \begin{itemize}
     \item answer \emph{only} from the context supplied, never from the model's
     own knowledge;
-    \item cite the source of every claim (Section~\ref{subsec:citations});
+    \item cite the source of every claim;
     \item if the context does not contain the answer, reply with one fixed
     sentence, ``Não encontrei resposta a esta pergunta nos excertos dos
     programas que consultei, mas isso não garante que os programas não abordem
@@ -926,6 +1281,19 @@ The fixed refusal sentence has a practical purpose too. The evaluation detects
 it to measure whether the system abstains on questions the manifestos cannot
 answer, and whether it wrongly refuses questions they can
 (Section~\ref{subsec:metrics}).
+
+\paragraph{Citations.} \label{subsec:citations}
+Source transparency is a requirement, not a feature, for a system that
+summarises political positions. Every passage in the prompt is numbered,
+\texttt{[Documento 1]} to \texttt{[Documento $n$]}, across the whole
+context, with its party and section path. The model must cite each claim
+inline with the matching number, for example \texttt{[2]} or
+\texttt{[1][3]}. Since the answer's list of sources uses the same numbers,
+every claim can be traced to the chunk, section and manifesto it came from,
+and the evaluation can check each claim against its cited passage
+(Section~\ref{subsec:metrics}). Earlier prompts asked the model to mention the party
+and section in prose, which named where information came from but could not
+tie a statement to one specific passage.
 
 \paragraph{Revision: partial answers and false premises.} The first prompts
 allowed only two outcomes: a full answer or a refusal. Real questions often
@@ -1052,29 +1420,12 @@ returns the fixed no-information answer instead of prompting the model with no
 context. An answer that stops at the length limit is flagged as cut off,
 instead of passing as complete.
 
-\subsection{Citations} \label{subsec:citations}
-
-Source transparency is a requirement, not a feature, for a system that
-summarises political positions. Every passage in the prompt is numbered,
-\texttt{[Documento 1]} to \texttt{[Documento $n$]}, across the whole
-context, with its party and section path. The model must cite each claim
-inline with the matching number, for example \texttt{[2]} or
-\texttt{[1][3]}. Since the answer's list of sources uses the same numbers,
-every claim can be traced to the chunk, section and manifesto it came from,
-and the evaluation can check each claim against its cited passage
-(Section~\ref{subsec:metrics}). Earlier prompts asked the model to mention the party
-and section in prose, which named where information came from but could not
-tie a statement to one specific passage.
-
 % ============================================================
 \section{Evaluation} \label{sec:evaluation}
 % ============================================================
 
-% We should mention in a subsection that we're getting rate limited because of the tokens per minute limit
-% We should mention that we're using the free tier of the OpenRouter API
-
 %% DRAFT (Claude, 2026-10-08): section lead-in, to be rewritten.
-Evaluation runs offline, like indexing, against the same vector store that
+Evaluation runs ahead of time, like indexing, against the same vector store that
 retrieval searches. Its goal is to attribute differences in quality to
 individual techniques. Each variant replays the production retrieval
 pipeline over the same gold questions, with only the feature flags changed
@@ -1089,7 +1440,14 @@ that differ by one flag can be attributed to that one technique.
     \label{fig:evaluation}
 \end{figure}
 
+\TODO{RUNNING EXAMPLE (q-33): its gold (number of chunks and manifesto
+sections), an excerpt of its reference answer, and its scores in the dev
+run (recall, correctness, faithfulness), as a worked example of the metrics
+below.}
+
 \subsection{Variant ladder} \label{subsec:variants}
+\TODO{STRUCTURE: the Introduction says ``step-by-step evaluation'' where this
+chapter says ``variant ladder''. Pick one term for the whole thesis.}
 %% src: docs/evaluation.md §1; variants.py; naive -> multiquery -> routed -> current (+ reserved reranked/hybrid)
 %% DRAFT (Claude, 2026-10-16) from docs/evaluation.md §1 and variants.py.
 The original plan was to build three separate RAG systems (a naive one, an
@@ -1124,13 +1482,13 @@ adjacent rungs is the contribution of one technique, and nothing else.
         \hline
     \end{tabular}
     \caption[The variant ladder]{The variant ladder. Above the line, each rung adds one technique to
-    the one before; below it, the yardsticks for RQ5. Further single-flag
+    the one before; below it, the points of comparison for RQ5. Further single-flag
     ablations (topic filter, prompt budget, index without LLM context) are
     listed in Appendix~\ref{app:results}.}
     \label{tab:ladder}
 \end{table}
 
-The yardsticks below the line answer RQ5. They switch retrieval off and let a
+The variants below the line answer RQ5. They switch retrieval off and let a
 model answer from what it already knows, with the same rules and the same
 answer length. The \texttt{assistant\_*} rungs are what a citizen gets today
 by asking a commercial chatbot: a frontier model with web search on, free to
@@ -1262,13 +1620,32 @@ on the rest.
 \paragraph{The judge.} Every generation metric is computed by an LLM judge,
 and LLM judges favour answers from their own model family~\citep{zheng2023judging}.
 The judge is therefore Qwen (\texttt{qwen3.8-27b}), a different family from
-the Gemma generator, and from the GPT model of the RQ5 yardsticks. A judge call
+the Gemma generator, and from the GPT model of the RQ5 comparisons. A judge call
 that fails leaves its score out rather than recording a zero.
-Whether the judge agrees with a person is still being measured. A sample of 25
-judged answers, with every claim the judge ruled on, is being rated by hand, and
-its agreement with the judge will be reported here.
-\TODO{Report judge--human agreement (claim-level Cohen's kappa, answer-level
-Spearman) from scripts/judge\_validation.py once the sheet is rated.}
+%% DRAFT (Claude, 2026-10-25) from data/eval/extras/judge-validation.md, to be
+%% rewritten in your own words.
+The judge was then checked claim by claim against blind ratings of 25
+production answers from the test split, 1{,}088 claims in all. The author rated
+every claim blind, without seeing the judge's verdicts.
+Correctness recall holds up, with 95\% agreement and a Cohen's $\kappa$ of 0.90,
+and when the two part ways the judge is usually the stricter.
+Faithfulness agrees on 98.9\% of claims, a figure that proves little when
+nearly every claim is supported and a judge that waved everything through
+would score almost as well. So twelve closed-book answers were judged against
+the context the production variant had retrieved for the same questions,
+which leaves about two in five of their claims unsupported. The judge caught
+89\% of the claims the rater rejected, and most of its extra flags refused an
+embellishment, such as ``principal motor'', whose substance the context did
+support. Its blind spot is absence. It credited a refusal with ``no other
+manifesto gives the year'', and passed ``the manifestos do not give the year''
+while citing the one that does. Relevance is the weakest of the three scores.
+The judge gave the top mark to 22 of 25 production answers and to 10 of 12
+closed-book answers that got almost nothing right, so relevance tells whether
+an answer is on topic, not whether it is correct.
+\TODO{Decide whether relevance stays in the results card or is read only for
+abstention and false refusal.
+Full figures, PABAK and the confusion counts in
+data/eval/extras/judge-validation.md.}
 
 \paragraph{Faithfulness is not neutrality.} Faithfulness asks whether the
 sources say a claim, never whether it is true or who says it. The production
@@ -1364,3 +1741,69 @@ differ only in the feature under test; this is why the headline ladder runs in
 a single invocation. And every difference between two variants is reported
 with a paired bootstrap 95\% interval over questions, so a difference inside
 the noise does not read as a result.
+
+% ============================================================
+\section{What building it taught} \label{sec:lessons}
+% ============================================================
+%% DRAFT (Claude, 2026-10-25): closing lessons. Rewrite in your own words.
+The multiple revisions in this chapter were not random. Read together, they come down
+to four lessons, each paid for by at least one failure.
+
+\paragraph{Quiet failures are the worst.} Several failures in this chapter
+produced answers that looked fine. The encoder read only the first 128 tokens
+of each chunk, so about two thirds of the corpus was never embedded
+(Section~\ref{subsec:chunking}). Lexical search demanded every word of the
+question, so hybrid retrieval ran as dense search alone
+(Section~\ref{subsec:search}). A keyword fallback mixed crude labels with LLM
+labels (Section~\ref{subsec:classification}), a topic filter emptied the search
+(Section~\ref{subsec:routing}), ``PSD'' matched the Partido Socialista, and ADN
+was answered as AD (Section~\ref{subsec:queryanalysis}). None of them raised an
+error, and most came with tidy citations. Two habits came out of them. Every
+limit is measured in the unit that sets it, which for an encoder means tokens
+rather than characters. And a step that cannot do its job stops or says so,
+instead of quietly doing something smaller (Section~\ref{subsec:safeguards}).
+
+\paragraph{Each step must be fair.} Searching each party
+separately guarantees that every party is retrieved
+(Section~\ref{subsec:routing}). It does not guarantee that every party reaches
+the answer. A narrative verdict was once written from the top five passages of
+an eight-party search, and a grouped context was once trimmed as a flat list,
+which could drop a low-ranking party altogether
+(Section~\ref{subsec:context}). Both defects sat after the step that was meant
+to make the system fair. Fairness is a property of the whole path from
+question to answer, and every step that cuts, trims or ranks has to be checked
+for the party it might leave behind.
+
+\paragraph{One cannot just tell the model to be neutral.} Telling the model to be
+impartial did not help, and the more precise attribution rule that replaced
+it had no measurable effect. About one answer in ten still repeats a party's
+framing (Section~\ref{subsec:grounding}). The metrics do not see it either. A
+judge checking faithfulness accepts a party's framing as long as the source
+says it (Section~\ref{subsec:metrics}), and the reference answers carried the
+same framing until a written rule removed it (Section~\ref{subsec:goldset}).
+What helps is making political choices explicit and checkable, such as
+resolving ``the right-wing parties'' through a published scale rather than the
+model's own view (Section~\ref{subsec:queryanalysis}), and admitting that every
+check, the author's included, comes from someone with views.
+
+\paragraph{Measure first, believe later.} Several techniques that looked like
+clear improvements did not survive measurement. The cross-encoder reranker cut
+recall (Section~\ref{subsec:reranking}), question decomposition multiplied
+calls without shrinking a single prompt (Section~\ref{subsec:synthesis}), the
+topic filter excluded the passages it was meant to find
+(Section~\ref{subsec:routing}), and doubling the prompt budget read no better
+(Section~\ref{subsec:context}). Contextual retrieval and BM25, both simple,
+earned their place. None of this would have been visible without the switches
+that let each technique be turned off and measured on its own
+(Section~\ref{subsec:variants}).
+
+Together, these make \sysname{} less a pipeline of techniques than a set of
+guarantees, each one bought with a failure. What it already does is modest and
+useful. A citizen can ask any question about the 2024 manifestos, in European
+Portuguese, and get an answer that covers every party in scope and points to
+the passage behind each claim, for a fraction of a cent. A version with more
+resources could cover every party on the ballot and every election, and follow
+how positions change from one manifesto to the next
+(Chapter~\ref{ch:conclusion}). Whether its answers are right often enough to be
+trusted is a question for measurement, and Chapter~\ref{ch:results} takes it
+up.

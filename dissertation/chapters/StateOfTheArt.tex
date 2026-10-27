@@ -10,7 +10,7 @@ A plain LLM answers from its parameters, which means that whatever it learned in
 
 \subsection{The RAG pipeline} \label{subsec:sota-pipeline}
 
-A basic RAG pipeline has three stages \citep{rag-survey}. \textbf{Indexing}, done once and offline, splits the documents into chunks, encodes each chunk as a vector and stores it. \textbf{Retrieval}, at question time, encodes the question the same way and fetches the closest chunks. \textbf{Generation} gives those chunks and the question to a language model, which writes the answer. Figure~\ref{fig:rag-diagram} shows the flow.
+A basic RAG pipeline has three stages \citep{rag-survey}. \textbf{Indexing}, done once and ahead of time, splits the documents into chunks, encodes each chunk as a vector and stores it. \textbf{Retrieval}, at question time, encodes the question the same way and fetches the closest chunks. \textbf{Generation} gives those chunks and the question to a language model, which writes the answer. Figure~\ref{fig:rag-diagram} shows the flow.
 
 \begin{figure}[h]
 \begin{center}

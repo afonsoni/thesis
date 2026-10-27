@@ -3,10 +3,10 @@
 This document explains how the RAG system works, stage by stage, with Mermaid
 diagrams. The system has four parts:
 
-1. **Indexing** (offline) — turns the manifesto PDFs into a searchable vector store.
-2. **Retrieval** (online) — turns a user question into a ranked set of manifesto passages.
-3. **Generation** (online) — answers from those passages, with source citations.
-4. **Evaluation** (offline) — replays the *same* retrieval and generation code as
+1. **Indexing** (ahead of time) — turns the manifesto PDFs into a searchable vector store.
+2. **Retrieval** (at question time) — turns a user question into a ranked set of manifesto passages.
+3. **Generation** (at question time) — answers from those passages, with source citations.
+4. **Evaluation** (ahead of time) — replays the *same* retrieval and generation code as
    a ladder of feature-flagged variants to measure what each technique contributes.
 
 Each retrieval/generation technique maps to a specific method from the
