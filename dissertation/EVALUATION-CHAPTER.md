@@ -155,3 +155,30 @@ against 0.518 over 32. Results card: per-run means (n = 32). Comparisons:
 paired differences, which drop a question only when one of the two sides
 lacks it.
 
+
+**10. Why `routed` scores higher on routing, and why it is not the system.**
+`routed` is a lower rung: query analysis and routing, but one query, dense
+search only, on the plain index. `current` adds multi-query expansion, BM25 and
+the contextual index on top of the *same* analyzer (same prompt, model and
+temperature 0). Its higher routing scores (type accuracy 0.917 against 0.833,
+coverage 0.722 against 0.667, topic F1 0.787 against 0.741) are not a property
+of the variant. The analysis is cached per process so every variant in one run
+routes on the same analysis (`query_analyzer._ANALYSES`), and `routed` ran in a
+separate process, so it got a different draw from the LLM: all rungs from
+`dense_only` to `current_strong` share one analysis, and `routed` differs from
+it on 6 of 36 questions (q-05, q-20, q-41, q-47, q-49, q-51). Paired, the
+routing gap is −0.083 type accuracy [−0.17, 0.00], about 3 questions, and not
+significant. Meanwhile `current` beats `routed` where it matters: recall
++0.210*, nDCG +0.200*, `correctness_recall` +0.107*, and the same holds on the
+26 questions both analysed identically (+0.205*, +0.214*, +0.112*). Better
+labels did not even mean better answers: on q-51 `routed` labelled the question
+correctly (an all-party comparison) and scored 0.17 `correctness_recall`, while
+`current`, with the wrong label, scored 0.61.
+
+Two things to say in the thesis. First, LLM query analysis is not stable at
+temperature 0: two draws disagreed on 17% of the test questions, so report the
+routing metrics once, as the analyzer's, not per rung. Second, the
+`routed` → `dense_only` step mixes multi-query with that analysis drift; on
+the 26 questions with identical analysis it is still nothing (recall +0.040,
+`correctness_recall` −0.021, both intervals crossing zero), so finding 2
+stands.
