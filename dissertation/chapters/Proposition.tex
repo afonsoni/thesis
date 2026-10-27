@@ -1196,17 +1196,13 @@ alone.
 % ============================================================
 \section{Generation} \label{sec:generation}
 % ============================================================
-%% DRAFT (Claude, 2026-10-10) from the code, commit bodies and
-%% HISTORY-GAPS.md §5. To be read and rewritten in the author's own words.
-\TODO{REVIEW: Claude's draft of this section (2026-10-10). Read it, check the
-facts against your memory, and rewrite it in your own words.}
 
 Generation turns the retrieved passages into an answer
-(Figure~\ref{fig:generation}). It is the step a user actually sees, and the
-one where a civic tool can do the most harm: an answer that sounds fluent but
-misstates a party's position is worse than no answer. Every choice below aims
-at one property: each claim in an answer should be traceable to a passage of
-a manifesto.
+(Figure~\ref{fig:generation}). It is the only step a user actually sees, and
+the one where a civic tool can do the most harm. A fluent answer that gets a
+party's position wrong is worse than no answer at all. Every choice in this
+section therefore aims at one property, that each claim in an answer can be
+traced back to a passage of a manifesto.
 
 \begin{figure}[htbp]
     \centering
@@ -1218,253 +1214,348 @@ a manifesto.
     \label{fig:generation}
 \end{figure}
 
-\TODO{RUNNING EXAMPLE (q-33): the passages after deduplication and the
-budget (q-33 is already the budget story of Section~\ref{subsec:context}, 24
-passages, 11 lost at 16k tokens), the comparison prompt's layout, and the
-final answer with its citations, one party's paragraph in full.}
-
 \subsection{Language model} \label{subsec:llm}
 
-The preliminary research shortlisted four models in early 2025: two open
-models, Llama~3.3 70B and DeepSeek-V3, and two proprietary ones, OpenAI's
-GPT-4 and Google's Gemini~2.0 Flash. None of them is used today. Within a
-year all four had been overtaken by newer models that were stronger, cheaper
-and able to read far longer inputs, which is one face of the moving-target
-challenge of Section~\ref{subsec:challenge-obsolescence}.
-%% DRAFT (Claude, 2026-10-16), from config/config.yaml.
-Today every LLM role in \sysname{} runs on Google's open-weights Gemma~4:
-the 26B mixture-of-experts model (\texttt{gemma-4-26b-a4b-it}, about 4B
-parameters active per token) analyses, expands and answers, and the 31B dense
-model writes the chunk contexts of Section~\ref{subsec:contextual}. If a call
-fails, free endpoints are tried in order (Gemma~4 31B, then two NVIDIA
-Nemotron models). The judge is Qwen; the only proprietary models are the
-points of comparison in the evaluation (Section~\ref{subsec:variants}).
+The preliminary research shortlisted four models, two open ones (Llama~3.3
+70B and DeepSeek-V3) and two proprietary ones (OpenAI's GPT-4 and Google's
+Gemini~2.0 Flash). None of them is used today. Within a year all four had been
+overtaken by models that were stronger, cheaper and able to read far longer
+inputs, which is one face of the moving-target challenge of
+Section~\ref{subsec:challenge-obsolescence}.
 
-The project went through four ways of reaching a language model, and each
-move was forced by something outside the system rather than by its answers.
-\begin{itemize}
-    \item \textbf{Local models (2024--2025).} The project started with small
-    open models run locally through Ollama. In 2024, local inference was the
-    only way to use an LLM without paying for a subscription or depending on a
-    vendor's free tier. The author's machine could run only small models,
-    though, and their answers were both weaker and slow, which slowed down
-    every iteration of the system. Only the first naive prototype ever ran end
-    to end on a local model. Otherwise local models served to try out early
-    components, such as an LLM pass that tidied extracted text.
-    \item \textbf{A hosted router that disappeared.} LlamaAPI, a paid service
-    that routed each call to the model asked for, was funded in January 2025.
-    It was last reachable in March 2026 and then shut down without notice,
-    taking the prepaid credit with it. That made the project wary of
-    intermediaries for some time.
-    \item \textbf{Gemini (early 2026).} Google's Gemini 2.5 Flash and Pro were
-    then used through Google's API: inexpensive, with free credits, and good in
-    Portuguese. Quotas and the inability to try other vendors' models through
-    the same interface eventually became limiting.
-    \item \textbf{OpenRouter (April 2026 onwards).} OpenRouter puts many models
-    behind one interface. The system uses Gemma~4 (\texttt{gemma-4-26b-a4b-it}),
-    an open-weights model: on the free tier until October 2026, then on a cheap
-    paid endpoint, with free endpoints as fallbacks. The model that actually
-    answered is recorded with every call, so evaluation results show where a
-    fallback stepped in.
-\end{itemize}
+%% Source: config/config.yaml (llm.openrouter.model, fallback_models).
+Today every LLM role in \sysname{} runs on Google's open-weights Gemma~4. The
+26B mixture-of-experts model (\texttt{gemma-4-26b-a4b-it}, with about 4B
+parameters active per token) analyses the question, expands it and writes the
+answer. The 31B dense model writes the chunk contexts of
+Section~\ref{subsec:contextual}. If a call fails, free endpoints are tried in
+order, first Gemma~4 31B and then two NVIDIA Nemotron models. The judge comes
+from another family on purpose, Qwen (\texttt{qwen3.8-27b}), so no number in
+this thesis comes from a model judging its own answers
+(Section~\ref{subsec:metrics}). Proprietary models appear only as points of
+comparison in the evaluation (Section~\ref{subsec:variants}).
 
-The judge is deliberately from another family, Qwen
-(\texttt{qwen3.8-27b}), so no number in this thesis is a model grading its own
-homework (Section~\ref{subsec:metrics}).
+\paragraph{Ways to reach a model.} Gemma on OpenRouter is the fourth and current way
+the project reaches a language model. Each of the three before it
+was forced by something outside the system, such as cost, hardware or a
+provider closing down, rather than by the quality of the answers. The project
+started with
+small open models run locally through Ollama, at the time the only way to use
+an LLM without paying for a subscription or relying on a vendor's free tier.
+The laptop at hand could run only small models, though, and their answers
+were weak and slow, which slowed down every iteration of the system. Only the
+first naive prototype ever ran end to end on a local model. Otherwise local
+models served to try out early components, such as an LLM pass that tidied
+extracted text.
 
-The free tier carried the project for months and shaped the code: retries with
-backoff, fallbacks, and the fail-fast-then-resume design of indexing. The move
-to a paid endpoint changed the bill, not the model: everything here still runs
-on an open model.
-On the 36 test questions, the production variant spent about \$0.0011 per
+The second was LlamaAPI, a paid service that routed each call to the model
+asked for. A little over a year after it was paid for, it shut down without
+notice and took the prepaid credit with it, which made the project wary of
+intermediaries for a while. The third was Google's own API, with Gemini~2.5
+Flash and Pro. They were inexpensive, came with free credits and wrote good
+Portuguese, but the quotas, and having no way to try other vendors' models
+through the same interface, eventually became limiting. The fourth, and the
+current one, is OpenRouter, which puts many models behind one interface. It
+also records which model actually answered each call, so the evaluation
+results show whenever a fallback stepped in.
+
+%% Source: commit ec46db9 and the author's note (2026-10-24).
+\paragraph{From the free tier to a paid endpoint.} Gemma ran on OpenRouter's
+free tier for months, and the free tier shaped the code, with retries and
+backoff, fallbacks, and the fail-fast-then-resume design of indexing. It was
+evaluation that forced the move to a paid endpoint. One judged run fires
+hundreds of calls in a row, and on the free tier a burst like that was
+rate-limited almost at once. Each time a rate limit hit, the run had to stop
+and wait for it to lift, so a run that takes minutes on the paid endpoint took
+hours on the free one. When a limit lasted longer than all the retries put together, the
+question was left without a score. The free tier also hands a call to a fallback model when
+Gemma is busy, which mixes models inside a single run. The move changed the
+bill, not the model. Everything still runs on the same open model, the free
+endpoints remain only as a safety net, and no call in the test runs needed
+them. On the 36 test questions the production variant spent about \$0.0011 per
 answer, and the judge about \$0.0084 more to score it
 (Section~\ref{sec:results-cost}).
-%% DRAFT (Claude, 2026-10-24) from commit ec46db9 and the author's note.
-%% Rewrite in your own words.
-The move was forced by evaluation. One judged run fires hundreds of calls in a
-row, and the free tier answers a burst like that with rate limits. Each limit
-meant waiting it out, so a run that costs minutes on the paid endpoint took
-hours, and a limit the retries could not outlast left a question unscored.
-The free tier also hands a call to a fallback model when Gemma is busy, which
-mixes models inside a single run. The paid endpoint keeps the free ones only as
-a safety net, and no call in the test runs needed it.
 
 \subsection{Grounding and neutrality} \label{subsec:grounding}
 
 All prompts are written in European Portuguese, and so are all answers. The
-system prompt sets the rules the answer must follow:
-\begin{itemize}
-    \item answer \emph{only} from the context supplied, never from the model's
-    own knowledge;
-    \item cite the source of every claim;
-    \item if the context does not contain the answer, reply with one fixed
+system prompt sets six rules for the answer.
+\begin{enumerate}
+    \item Answer \emph{only} from the context supplied, never from the model's
+    own knowledge.
+    \item Cite the source of every claim.
+    \item If the context does not contain the answer, reply with one fixed
     sentence, ``Não encontrei resposta a esta pergunta nos excertos dos
     programas que consultei, mas isso não garante que os programas não abordem
     o tema.''\footnote{I found no answer to this question in the manifesto
     excerpts I consulted, but that does not mean the manifestos do not address
-    it.} The sentence reports what retrieval found, not what the manifestos
-    hold: a top-$k$ search cannot prove that a manifesto never says something;
-    \item describe the measures in neutral language, and attribute every
+    it.}
+    \item Describe the measures in neutral language, and attribute every
     justification, diagnosis or value judgement to the party that makes it
-    (``o partido considera que\ldots''),\footnote{The party considers
-    that\ldots} never adopting the manifesto's
-    evaluative terms as the system's own; leave out attacks on other parties
-    unless the question asks for them;
-    \item in comparisons, say explicitly when a party's manifesto does not
+    (``o partido considera que\ldots'').\footnote{The party considers
+    that\ldots} Never adopt the manifesto's evaluative terms as the system's
+    own, and leave out attacks on other parties unless the question asks for
+    them.
+    \item In comparisons, say explicitly when a party's manifesto does not
     address the topic.
-\end{itemize}
-Query analysis, expansion and generation all run at temperature zero. The same
-question should produce the same answer, and a rerun should repeat, so a
-difference between two runs is the change being measured rather than noise.
+    \item Be direct, with no introduction, no courtesies and no restating of
+    the question. Every sentence should carry something concrete from the
+    context, such as a measure, a value or a deadline.
+\end{enumerate}
 
-Questions about parties outside the corpus get a different fixed reply
-(Section~\ref{subsec:queryanalysis}). The two must not be confused: one means
-``I searched and found nothing'', the other ``I have nothing to search''.
+The no-answer sentence of rule 3 is worded with care. It says that the
+excerpts consulted held no answer, not that the manifestos say nothing on the
+subject. The difference matters because retrieval only returns the top $k$
+passages, so it can never prove that a manifesto does not mention something.
 
-The fixed refusal sentence has a practical purpose too. The evaluation detects
-it to measure whether the system abstains on questions the manifestos cannot
-answer, and whether it wrongly refuses questions they can
-(Section~\ref{subsec:metrics}).
+Refusals are also tracked by the evaluation (Section~\ref{subsec:metrics}). A
+judge reads every answer and flags the ones that decline to answer. Some gold
+questions cannot be answered from the manifestos, and on those a refusal is the
+right outcome, so the evaluation counts how often the system abstains. On the
+questions that can be answered, a refusal is a mistake, so it also counts how
+often the system refuses wrongly.
+
+Questions about parties outside the corpus get
+a different fixed reply (Section~\ref{subsec:queryanalysis}), and the two must
+not be confused. One means ``I searched and found nothing'', the other ``I
+have nothing to search''.
+
+Query analysis, expansion and generation all run at temperature zero.
+Temperature sets how much randomness the model uses when it picks each word,
+and at zero it always picks the most likely one, so the same prompt should
+produce the same text. This matters for the evaluation. When two variants are
+compared, a difference in their scores should come from the setting that
+changed between them, not from the model phrasing an answer differently on a
+second try. Hosted models do not repeat themselves exactly even at zero, a
+limit that Section~\ref{subsec:safeguards} returns to.
 
 \paragraph{Citations.} \label{subsec:citations}
 Source transparency is a requirement, not a feature, for a system that
 summarises political positions. Every passage in the prompt is numbered,
-\texttt{[Documento 1]} to \texttt{[Documento $n$]}, across the whole
-context, with its party and section path. The model must cite each claim
-inline with the matching number, for example \texttt{[2]} or
-\texttt{[1][3]}. Since the answer's list of sources uses the same numbers,
-every claim can be traced to the chunk, section and manifesto it came from,
-and the evaluation can check each claim against its cited passage
-(Section~\ref{subsec:metrics}). Earlier prompts asked the model to mention the party
-and section in prose, which named where information came from but could not
-tie a statement to one specific passage.
+\texttt{[Documento 1]} to \texttt{[Documento $n$]}, across the whole context,
+and carries its party and section path. The model must cite each claim inline
+with the matching number, for example \texttt{[2]} or \texttt{[1][3]}. The
+answer's list of sources uses the same numbers, so every claim can be traced
+to the chunk, section and manifesto it came from, and the evaluation can check
+each claim against the passage it cites (Section~\ref{subsec:metrics}). Earlier
+prompts asked the model to name the party and section in prose, which named
+where information came from, but could not tie a statement to one
+specific passage.
 
-\paragraph{Revision: partial answers and false premises.} The first prompts
-allowed only two outcomes: a full answer or a refusal. Real questions often
-fall in between. The context covers part of the question, or the question
-assumes something the manifestos do not say. Since October 2026 the prompts
-ask the model to answer the part the context supports and to say what the
-manifestos do not cover. When a question rests on a premise the context does
-not confirm, the model should say so rather than accept it.
+\paragraph{Partial answers and false premises.} The first prompts allowed only
+two outcomes, a full answer or a refusal. Real questions often fall in
+between. The context may cover only part of the question, or the question may
+assume something the manifestos do not say. The prompts now ask the model to
+answer the part the context supports and to say what the manifestos do not
+cover. When a question rests on a premise the context does not confirm, the
+model should say so rather than accept it.
 
-%% DRAFT (Claude, 2026-10-16) from the framing-leakage TODO and the blind
-%% hand count (data/eval/framing/framing-handcount-20261015.json).
-%% src: src/rag/generation/prompts.py (_NEUTRALITY_RULE, Oct 2026)
-\paragraph{Revision: framing leakage.} Grounding has a side effect. Told to
-stay close to the text, the generator repeated each manifesto's framing in the
-system's own voice. PCP's programme became ``a libertação de Portugal da
-\emph{submissão} à UE''; IL ``rejeita \emph{preconceitos}'' about nuclear
-power; CHEGA's immigrants should not ``\emph{viver de subsídios}''.\footnote{In
-English, ``the liberation of Portugal from \emph{submission} to the EU'',
-``rejects \emph{prejudices}'' and ``live off \emph{benefits}''.} None of
-this is invented: every phrase is in the cited chunk. Framing, in Entman's
-sense, is the selection of a problem definition, a causal reading and a moral
-judgement~\citep{entman1993framing}, and that is exactly what leaked:
-diagnoses and value words, not the measures themselves. Open attacks did not
-survive (AD's ``caminho socialista'' that ``asfixia'' the young never reached
-an answer); subtle framing did.
+%% Source: the framing-leakage TODO and the blind hand count
+%% (data/eval/framing/framing-handcount-20261015.json); rule in
+%% src/rag/generation/prompts.py (_NEUTRALITY_RULE).
+\paragraph{Framing leakage.} Grounding has a side effect. Told to stay close
+to the text, the generator repeated each manifesto's framing in the system's
+own voice. The answers said that PCP wants to ``romper com a
+\emph{submissão} à UE'', that IL wants to repeal ``benefícios fiscais
+\emph{dirigistas}'', and that CHEGA wants to make sure immigrants do not
+``pretendam \emph{viver de subsídios}''.\footnote{In English, to ``break with
+the \emph{submission} to the EU'', ``\emph{state-steered} tax benefits'', and
+``intend to \emph{live off benefits}''.} None of this is invented, since every
+phrase is in the cited chunk. The problem is whose voice it is in. Each
+italicised word is the party's judgement, and the answer states it as plain
+fact. This is what \citet{entman1993framing} calls framing, the way a text
+presents an issue by choosing what counts as the problem, what caused it and
+how it should be judged. The measures themselves came through in neutral
+terms. What leaked were the words that carry those judgements. Open attacks
+did not survive, and AD's ``caminho socialista'' that ``asfixia'' the
+young\footnote{The ``socialist path'' that ``suffocates'' the young.} never
+reached an answer. Subtle framing did.
 
 This is not the model's own political lean, which studies measure with no
 context at all~\citep{rozado2024political,motoki2024more} and trace to
 pretraining data~\citep{pretraining-political-bias}. It is the sources'
-framing passing through, and it is uneven: the more rhetorical a manifesto,
+framing passing through, and it is uneven. The more rhetorical a manifesto,
 the more of its framing gets through.
 
-The comparison prompt already said ``Sê imparcial e factual'',\footnote{Be impartial and factual.} and it did not
-help. In October 2026 it was replaced by an explicit attribution rule, the fourth in the
-list above: measures in neutral
-language, and every reason, diagnosis or judgement attributed to the party
-that makes it. The rule fixed the answers it was written against. A blind
-count of 122 answers by the author (all 61 gold questions, before and after
-the rule, shuffled and marked against a written rubric) found a clear leak in 6 of 61
-answers both times, and any leak, clear or borderline, in 18 of 61 both
-times. Old leaks disappeared and new ones appeared, mostly in PCP and IL
-wording. Retrieval was not identical between the runs, since query analysis is
-itself an LLM call, so this is not a clean single-factor comparison; but at
-this sample size the rule has no measurable effect. About one answer in ten
-repeats a party's framing either way. An instruction is not enough, and a
-check after generation (an attribution judge, or a rewriting pass) is future
-work. None of the automatic metrics sees the problem
-(Section~\ref{subsec:metrics}).
+Voting advice applications (Section~\ref{sec:sota-political}) know a version
+of this problem. They do not answer questions. Instead, they ask the voter to
+react to a fixed set of statements, and the choice of statements alone is
+enough to change the advice that the same voter
+receives~\citep{walgrave2009statement}. How the statements are worded matters
+as well. In a study of 26 such tools, almost one statement in five was
+double-barrelled, asking two questions at once, so that a voter could agree
+with one half and disagree with the other~\citep{vancamp2014statements}. A tool that looks neutral passes its
+own choices on to the user, who rarely sees them. Framing leakage is the same
+effect in a RAG system, with one difference. The loaded words are not chosen by
+the people who built the tool but borrowed from the parties themselves.
 
-\TODO{Side effects of the rule to mention if wanted: faithfulness 0.946 to 0.976,
-correctness 0.509 to 0.491, abstention 1.00 to 0.75 (q-55 adds a sentence
-after the refusal, so the detector stops counting it). Optional VAA parallel
-(Walgrave et al.\ 2009; Van Camp et al.\ 2014): those two entries are NOT in
-dissertation.bib yet, so add them before citing.}
+\TODO{REVIEW CITATION: vancamp2014statements is a new bib entry drafted by
+Claude (marked DRAFT in dissertation.bib). Check the authors, title, editors
+and pages (11--31, taken from the UvA DARE listing) against the book, and the
+``almost one statement in five'' claim against the chapter's Table 1.6.}
+
+The comparison prompt already told the model ``Sê imparcial e
+factual'',\footnote{Be impartial and factual.} and the leaks above happened
+with that line in place. A general request for impartiality does not tell the
+model what to do with a party's value words. It was therefore replaced by an
+explicit attribution rule, the fourth in the list above, which asks for the
+measures in neutral language and for every reason, diagnosis or judgement to be
+attributed to the party that makes it. The rule fixed the answers it was
+written against.
+
+Whether it did more than that was then checked by hand. All 61 gold questions
+were answered once before the rule and once after it. The 122 answers were
+shuffled, with nothing to show which run each came from, and every one was
+marked against a written rubric. The counts did not move. Both before and after
+the rule, 6 of the 61 answers had a clear leak, and 18 had a leak of some kind,
+clear or borderline. The leaks themselves did change. Some old ones
+disappeared and new ones appeared, mostly in PCP and IL wording.
+
+Two caveats apply. The two runs did not retrieve exactly the same passages,
+because query analysis is itself an LLM call, so the comparison is not
+perfectly clean. And 61 questions are too few to detect a small effect. The
+honest reading is still that the rule made no measurable difference, and that
+about one answer in ten repeats a party's framing either way. An instruction
+alone is not enough. A check after generation, such as a judge that looks for
+unattributed judgements or a pass that rewrites them, is left as future work.
+None of the automatic metrics catches the problem
+(Section~\ref{subsec:metrics}).
 
 \subsection{Synthesis strategies} \label{subsec:synthesis}
 
-The strategy is chosen by the \emph{answer shape} set during query analysis,
-not by the retrieval route, because the two can differ. ``Que partido propõe
-mais sobre habitação?''\footnote{Which party proposes most on housing?} must
-retrieve every party, which is the comparison route, but wants a single
-verdict, not eight sections. Two strategies follow:
-\begin{itemize}
-    \item \textbf{Direct}: one prompt with all passages, producing one text.
-    Used for narrative answers.
-    \item \textbf{Comparison}: passages grouped under party headings, with a
-    prompt asking for each party's position in turn and then the similarities
-    and differences. Used for party-by-party answers, but only when at least two
-    parties have results; a ``comparison'' of one party once closed with a
-    solemn summary that there was nothing to compare.
-\end{itemize}
+\sysname{} has two ways of writing an answer, called synthesis strategies.
+Which one runs depends on the \emph{answer shape}, one of the fields that query
+analysis fills in (Section~\ref{subsec:queryanalysis}). It records whether the
+user wants one continuous text or an answer laid out party by party.
 
-\paragraph{Revision: decomposition, retired.} A third strategy, question
-decomposition~\citep{rag-from-scratch}, split a question into sub-questions
-and answered each from the same context. It was first triggered by any
-question with more than eight passages, on the theory that big contexts needed
-breaking down. They did not: decomposition reused the full context every time,
-so it multiplied LLM calls (five per answer) without ever shrinking a prompt.
-It was narrowed in August 2026 and retired in October: grouping the passages by
-party and using the comparison prompt gives the same layout in one call.
+The \emph{direct} strategy serves the first kind. It puts all the passages
+into one prompt, as a single numbered list, and asks for one text. The
+\emph{comparison} strategy serves the second. It groups the passages under a
+heading for each party, and its prompt asks for each party's position in turn,
+followed by a short summary of the similarities and differences. The minimum-wage
+question takes this path, as the end of this section shows. The comparison
+strategy needs at least two parties with results, and a party-by-party answer
+with only one party represented in the answer falls back to the direct strategy.
+Before that guard existed, a ``comparison'' of a single party once closed with a
+solemn summary that there was nothing to compare.
+
+The strategy follows the answer shape and not the retrieval route, because the
+two can differ. ``Que partido propõe mais sobre habitação?''\footnote{Which
+party proposes most on housing?} must search every party, so it takes the
+comparison route, but it asks for a single verdict rather than eight sections,
+so it gets the direct strategy.
 
 \subsection{Fitting the context} \label{subsec:context}
 
 Retrieval returns small chunks, but under small-to-big retrieval the generator
-reads each chunk's parent section (Section~\ref{subsec:chunking}). Several
-chunks often share a parent, so passages are deduplicated by the text the
-generator will read. Otherwise one section could appear two or three times in
-the same prompt.
+reads each chunk's parent section, or a window of it
+(Section~\ref{subsec:chunking}). Several chunks often share a parent, so
+passages are deduplicated by the text the generator will read, and overlapping
+windows of the same section are merged into one passage. Otherwise one section
+could appear two or three times in the same prompt. In one tax question this
+took five passages down to three, and about 5,300 tokens down to 2,900.
 
-The prompt has a budget of 32{,}000 tokens of context. The generation model
+The context then has to fit a budget of 32,000 tokens. The generation model
 runs remotely, so its tokenizer is not available locally, and the budget is
-enforced with a deliberately cautious estimate of 3.5 characters per token: it
-overestimates, so trimming happens a little early rather than one passage too
-late. When the context is too long, a flat list loses its lowest-ranked
-passages. A context grouped by party is trimmed differently: passages come off
-whichever party currently contributes most, and every party keeps at least one,
-even if the prompt then exceeds the budget. An over-long prompt is a visible
-failure; an answer that silently omits a party is not.
+checked with a deliberately cautious estimate of 3.5 characters per token. The
+estimate overstates the count, so trimming happens a little early rather than
+one passage too late.
 
-\paragraph{Revision: how big a budget.} The budget doubled twice. At 8{,}000
-tokens an eight-party comparison overflowed with one passage per party. At
-16{,}000, one all-party question (q-33, minimum wage) lost 11 of its 24
-passages, 4 of them gold, and scored 0.43 on correctness; at 32{,}000 nothing
-was trimmed and it scored 0.77. One question justifies a setting, not a
-headline. 64{,}000 was then judged against 32{,}000 on all 61 gold questions
-and read no better (correctness 0.014 lower, within noise) for 18\% more input
-tokens, so the budget stays at 32{,}000. Deduplication also grew smarter: overlapping parent windows
-of the same section are now merged, not only identical ones (one tax question
-went from five passages to three, about 5.3k tokens to 2.9k).
+When the context is too long, passages have to be dropped, and how they are
+dropped depends on the layout. A flat list simply loses its lowest-ranked
+passages. A context grouped by party is trimmed one passage at a time, always
+from the party that currently has the most, so the parties shrink evenly. No
+party is ever trimmed to zero. If one passage per party is already over the
+budget, the prompt is sent over the budget anyway. Going over only makes the
+prompt longer and leaves a warning in the log, whereas an answer that quietly
+leaves out a party looks complete and misleads the reader.
 
-\paragraph{Revision: no party lost on the way to the answer.} The per-party
-route of Section~\ref{subsec:routing} guarantees every party is
-\emph{retrieved}. Two later defects showed that this does not guarantee every
-party reaches the \emph{answer}.
-\begin{itemize}
-    \item A narrative answer over a per-party search read the router's flat
-    list, then cut to the top five passages. A verdict claiming to weigh
-    eight parties was written from five passages, with nothing in the output to
-    show it. It now reads the full grouped set (August 2026).
-    \item That grouped set was then trimmed to budget as one flat list, which
-    could drop every passage of a low-ranking party. It is now trimmed per party
-    before being flattened (October 2026).
-\end{itemize}
-In the same vein, a per-party search in which every party came back empty now
-returns the fixed no-information answer instead of prompting the model with no
-context. An answer that stops at the length limit is flagged as cut off,
-instead of passing as complete.
+\paragraph{How big a budget.} The budget doubled twice. At 8,000 tokens an
+eight-party comparison overflowed with just one passage per party. At 16,000,
+when retrieval still sent 24 chunks, the minimum-wage question lost 11 of its
+24 passages, 4 of them gold, and scored 0.43 on correctness. At 32,000 nothing
+was trimmed and it scored 0.77. One question can justify a setting but not a
+headline result, so a budget of 64,000 was then judged against 32,000 on all
+61 gold questions. It did no better (correctness 0.014 lower, within noise)
+and cost 18\% more input tokens, so the budget stays at 32,000.
+
+\paragraph{No party lost on the way to the answer.} For a question about every
+party, the router runs one search per party (Section~\ref{subsec:routing}), so
+every party is guaranteed to be \emph{retrieved}. That alone does not
+guarantee that every party reaches the \emph{answer}, because the passages
+still go through the generator's own steps. Two bugs showed this. Both hit
+questions that search every party but ask for a single verdict, such as the
+housing question above in synthesis strategy. These use the direct strategy, so the per-party results
+have to be turned into one list first.
+
+The first bug was in how that list was built. Besides the per-party results,
+the router also returns one overall ranking, cut to the top five passages
+(the limit at the time), and the direct strategy read that ranking instead. A
+verdict that claimed to weigh eight parties could be written from the passages
+of three or four, with nothing in the answer to show it. The direct strategy
+now starts from the full per-party results. The second bug was in the trim.
+Those results were joined into one list first and trimmed afterwards, so the
+lowest-ranked passages went first, and a party whose passages all ranked low
+could vanish entirely. They are now trimmed party by party, as described above,
+and only then joined into one list.
+
+Two smaller checks catch similar silent failures. If every party's search comes
+back empty, the system returns the fixed no-answer sentence directly, instead
+of asking the model to answer from an empty context. If the model stops because
+it reached the maximum answer length of 3,000 tokens, the answer is marked as
+cut off instead of being presented as complete.
+
+%% Source: dev run current-20261015T050000, q-33 (the stored context and
+%% answer): 30 passages (AD 5, BE 3, CHEGA 4, IL 3, LIVRE 3, PAN 5, PCP 5,
+%% PS 2), 109,152 characters = 31,186 estimated tokens, 26,430 real prompt
+%% tokens. The 49 distinct passages come from wide_64k-20261013T051430, the
+%% same 64-chunk retrieval at a 64k budget, where nothing was trimmed.
+\paragraph{The running example.} Retrieval hands the generator 64 chunks for
+the minimum-wage question, eight per party (Section~\ref{subsec:search}). Many
+are siblings from the same section, and deduplication merges them into about
+49 distinct passages. Those still overflow the budget, so the trim takes
+passages from the parties with the most until the estimate falls to about
+31,200 tokens. Thirty passages remain, between two and five for every party.
+The real prompt, instructions included, came to 26,430 tokens, which shows how
+cautious the estimate is.
+
+The analysis asked for a party-by-party answer, so the comparison strategy
+builds the prompt. Each party gets a heading, and under it come its numbered
+passages, each with its section path. The last passage of the Socialist Party
+(PS) opens like this.
+\begin{quote}
+    \small\ttfamily\raggedright
+    [Documento 30]\\
+    Secção: PLANO DE AÇÃO PARA PORTUGAL INTEIRO 2024 \textgreater{} \ldots{}
+    \textgreater{} 5.1. Trabalho e relações laborais
+\end{quote}
+Further down, the passage proposes to set, ``em diálogo social na Comissão
+Permanente de Concertação Social, uma trajetória plurianual de aumento do
+SMN'',\footnote{Through social dialogue in the Standing Committee for Social
+Concertation, a multi-year path for raising the national minimum wage.} one
+that reaches at least 1,000 euros in 2028. Before that, it notes that the
+minimum wage ``cresceu por mais de 60\% desde que o PS é
+Governo''.\footnote{Grew by more than 60\% since PS has been in
+government.}
+
+The answer has one heading for each of the eight parties and closes with a
+short summary. The PS paragraph reads in full as follows.
+\begin{quote}
+    \small
+    \textit{O partido propõe estabelecer, através de diálogo social, uma
+    trajetória plurianual de aumento do salário mínimo que permita atingir
+    pelo menos 1.000 euros em 2028 [30].}\footnote{The party proposes to
+    establish, through social dialogue, a multi-year path for raising the
+    minimum wage that reaches at least 1,000 euros in 2028.}
+\end{quote}
+The citation \texttt{[30]} points to exactly that passage. The claim keeps the
+proposal's substance and leaves out the party's praise of its own record,
+which is what the neutrality rule asks for. The summary then sets the parties
+side by side. PCP wants 1,000 euros already in 2024 and CHEGA by 2026, while
+AD, PS and LIVRE set targets for 2028, with LIVRE's 1,150 euros the highest.
+IL stands apart by proposing a method for setting the wage rather than a
+value. Section~\ref{sec:evaluation} picks the answer up from there and scores
+it.
 
 % ============================================================
 \section{Evaluation} \label{sec:evaluation}
@@ -1689,11 +1780,10 @@ manifesto gives the year'', and passed ``the manifestos do not give the year''
 while citing the one that does. Relevance is the weakest of the three scores.
 The judge gave the top mark to 22 of 25 production answers and to 10 of 12
 closed-book answers that got almost nothing right, so relevance tells whether
-an answer is on topic, not whether it is correct.
-\TODO{Decide whether relevance stays in the results card or is read only for
+an answer is on topic, not whether it is correct. Relevance is therefore never
+used to rank variants. It is read only through its \emph{abstained} flag, for
 abstention and false refusal.
-Full figures, PABAK and the confusion counts in
-data/eval/extras/judge-validation.md.}
+%% Full figures, PABAK and the confusion counts in data/eval/extras/judge-validation.md.
 
 \paragraph{Faithfulness is not neutrality.} Faithfulness asks whether the
 sources say a claim, never whether it is true or who says it. The production
@@ -1839,8 +1929,7 @@ check, the author's included, comes from someone with views.
 
 \paragraph{Measure first, believe later.} Several techniques that looked like
 clear improvements did not survive measurement. The cross-encoder reranker cut
-recall (Section~\ref{subsec:reranking}), question decomposition multiplied
-calls without shrinking a single prompt (Section~\ref{subsec:synthesis}), the
+recall (Section~\ref{subsec:reranking}), the
 topic filter excluded the passages it was meant to find
 (Section~\ref{subsec:routing}), and doubling the prompt budget read no better
 (Section~\ref{subsec:context}). Contextual retrieval and BM25, both simple,
