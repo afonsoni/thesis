@@ -4,56 +4,526 @@
 %  metrics, safeguards); this chapter reports the test-split numbers,
 %  one section per research question, and ends with the system in use
 %  (the former "PoliRAG in Practice" chapter).
-%  Sources: data/eval/extras/headline-analysis.md (tables below),
-%  data/eval/reports/leaderboard-test.md, dissertation/EVALUATION-CHAPTER.md.
+%  Sources: data/eval/extras/headline-analysis.md (results card, RQ5,
+%  cost), data/eval/reports/leaderboard-test.md (ladder),
+%  data/eval/extras/judge-validation.md, data/eval/extras/walkthrough/,
+%  dissertation/EVALUATION-CHAPTER.md (findings 1-10).
+%  Adjacent-step paired differences (Table tab:results-ladder) computed
+%  with src/rag/evaluation/stats.py over the same result files.
 % ============================================================
 \chapter{Results} \label{ch:results}
 
-\TODO{Chapter lead-in. What this chapter answers (RQ1 to RQ5, Section~\ref{sec:research-questions}), on which data (the 36 test questions, 32 answerable and 4 not), with which code (frozen commit \texttt{0293a0b}, Section~\ref{subsec:safeguards}), and in what order. One run per variant, means with 95\% bootstrap intervals over questions, differences paired per question.}
+%% DRAFT (Claude, 2026-10-27), rewrite in your own words. Every number below
+%% comes from the files named in the header; check any you change.
+This chapter answers the five research questions of
+Section~\ref{sec:research-questions} with the numbers the evaluation of
+Section~\ref{sec:evaluation} produced. All of them come from one run per
+variant on the 36 test questions (32 answerable and 4 not), made on the frozen
+code of commit \texttt{0293a0b} after the last change to the system
+(Section~\ref{subsec:safeguards}). Each figure is a mean over questions with a
+95\% bootstrap interval, and each comparison between two variants is a paired
+difference per question, marked with an asterisk when its interval excludes
+zero.
+
+The chapter starts with the answers \sysname{} gives (RQ3), because that is
+what a reader of the manifestos meets. It then sets \sysname{} against models
+without retrieval and against commercial assistants (RQ5), takes the ladder
+apart one technique at a time (RQ1 and RQ2), and prices each step (RQ4). It
+ends with the system in use, on questions outside the gold set.
 
 \section{Setup} \label{sec:results-setup}
 
-\TODO{Short. Point to the method in Section~\ref{sec:evaluation} rather than repeat it. Report the judge--human agreement here (claim-level Cohen's kappa, answer-level Spearman, from scripts/judge\_validation.py), since every generation number below rests on it. Optionally the table mapping RAGAS metrics to \sysname{}'s (EVALUATION-CHAPTER.md, section 1).}
+The method is the one of Section~\ref{sec:evaluation}, and only two points
+need repeating. Every generation score comes from the Qwen judge, which was
+checked claim by claim against the author's blind ratings
+(Section~\ref{subsec:metrics}). Its correctness recall agrees with the ratings
+at a Cohen's $\kappa$ of 0.90, and it caught 89\% of the unsupported claims
+planted in its path, so the generation scores below can be read as
+measurements. When judge and rater disagree the judge is usually the stricter,
+so the scores lean pessimistic. Its relevance score, on the other hand, tells
+whether an answer is on topic and not whether it is right, since it gave the
+top mark to closed-book answers that got almost nothing right. Relevance is
+therefore not reported as a quality score. It is used only through its
+\emph{abstained} flag, which gives abstention on the unanswerable questions
+and false refusal on the answerable ones.
+
+Correctness needs a word of caution too. It is an F1 over claims, and its
+precision half counts as wrong any claim the reference answer does not
+contain, true or not. An answer to how much the PCP wants to raise the minimum
+wage that says ``1\,000 euros mensais em 2024''\footnote{In English, ``1,000
+euros a month in 2024''.} scores zero precision if the reference never says
+``mensais''. Long answers that bring in outside detail lose the most, which
+matters when \sysname{} meets the assistants. Comparisons across systems are
+therefore led by \emph{correctness recall}, the share of the reference the
+answer covers, with the F1 reported beside it.
+
+Full tables for every variant and metric are in Appendix~\ref{app:results}.
+They average each variant over the questions every variant was scored on,
+while the tables in this chapter average each variant over its own scored
+questions, so the two can differ in the third decimal.
 
 \section{Answer quality} \label{sec:results-quality}
 
-\TODO{RQ3. The results card: \texttt{current} on the test split, overall and by question type (single party, comparison, topic exploration, general) and for the unanswerable questions. Source: headline-analysis.md, section 2. Points to discuss: correctness is far below faithfulness (answers say true things from the sources but miss part of the reference), topic-exploration and general questions are the weakest, abstention is 1.00 on the 4 unanswerable questions. Groups of 4 to 13 questions give wide intervals; say so.}
+RQ3 asks whether retrieval translates into good answers. For the production
+system, \texttt{current}, the short answer is that its answers are grounded
+and usually on target, but they leave out part of what the manifestos say.
+Table~\ref{tab:results-card} breaks the scores down by the type of question
+the gold set assigns (Section~\ref{subsec:queryanalysis}).
+
+\begin{table}[htbp]
+    \centering
+    \footnotesize
+    \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{|l|r|r|r|r|r|r|r|}
+        \hline
+        \textbf{Questions} & \textbf{n} & \textbf{Recall} & \textbf{nDCG} & \textbf{Faithfulness} & \textbf{Correctness} & \textbf{Corr.\ recall} & \textbf{False refusal} \\
+        \hline
+        All answerable & 32 & 0.870 & 0.767 & 0.952 & 0.532 & 0.634 & 2 of 32 \\
+         & & {\scriptsize[0.80, 0.93]} & {\scriptsize[0.71, 0.82]} & {\scriptsize[0.88, 1.00]} & {\scriptsize[0.45, 0.61]} & {\scriptsize[0.54, 0.72]} & \\
+        Single party & 11 & 0.915 & 0.843 & 0.970 & 0.550 & 0.741 & 1 of 11 \\
+        Comparison & 13 & 0.845 & 0.789 & 0.989 & 0.606 & 0.709 & 0 of 13 \\
+        Topic exploration & 4 & 0.822 & 0.657 & 0.989 & 0.349 & 0.296 & 0 of 4 \\
+        General & 4 & 0.875 & 0.597 & 0.750 & 0.423 & 0.438 & 1 of 4 \\
+        \hline
+        Unanswerable & 4 & \multicolumn{6}{l|}{Abstained on 4 of 4} \\
+        \hline
+    \end{tabular}
+    \end{adjustbox}
+    \caption[Results card of \sysname{}]{Results card of \texttt{current} on the
+    test split, by question type, with 95\% bootstrap intervals for the
+    answerable questions as a whole. Groups of 4 to 13 questions have wide
+    intervals, which are omitted.}
+    \label{tab:results-card}
+\end{table}
+
+\paragraph{Retrieval.} The gold chunks are mostly found. On the answerable
+questions \sysname{} hands the generator 87\% of the chunks a human picked as
+the answer, and at least one of them every time (hit rate 1.00). The eight
+broad questions, those with more gold chunks than the system has slots, are
+harder, and there it finds 85\% of what fits (capped recall 0.847) and draws on
+77\% of the manifesto sections involved (aspect recall 0.769).
+
+\paragraph{Grounding.} The answers stick to their sources. Faithfulness is
+0.952, and the judge validation found the same at the claim level, with 99\%
+of claims supported by the excerpts. The one low score in the table, 0.750 on
+general questions, is a single answer (q-49) that refused to answer and so
+had no supported claim to count.
+
+\paragraph{Coverage.} Correct is not the same as complete. An answer covers
+on average 63\% of its reference, well below its faithfulness. The answers say
+true things from the manifestos and miss others. Where they fall shortest is
+telling. Topic explorations (``which parties talk about X?'') and general
+questions ask about every party at once, their references list many aspects,
+and an answer covers only 30 to 44\% of them. Single-party questions and
+comparisons of two or three parties fare best, at 74 and 71\%.
+
+\paragraph{Refusals.} \sysname{} declined all four unanswerable questions,
+and wrongly declined two of the 32 answerable ones. Both false refusals had
+the evidence in hand. In q-49 the PCP's account of restoring the 35-hour week
+in 2016 was among the excerpts, and in q-56 the CHEGA's recruitment
+proposals were too. These are failures of generation, not of retrieval. With
+four unanswerable questions, a single miss would move abstention by 0.25, so
+these rates are reported as counts.
 
 \section{Retrieval versus scale} \label{sec:results-scale}
 
-\TODO{RQ5. \texttt{current} against \texttt{no\_retrieval}, \texttt{no\_retrieval\_strong}, \texttt{current\_strong}, the three web-search assistants and \texttt{deep\_research\_claude}: correctness, correctness recall, abstention, cost per answer. Source: headline-analysis.md, sections 1 and 3. Decide which of the three \texttt{assistant\_gemini} runs is reported (abstention 0.50, 0.67 and 0.75 across runs) or report the spread. Explain how \texttt{deep\_research\_claude} was run and that its cost is notional (subscription).}
+RQ5 asks whether a small model that reads the manifestos can match a larger
+one that does not. Table~\ref{tab:results-scale} sets \texttt{current} against
+three groups. The first answers from memory, either the same Gemma model
+(\texttt{no\_retrieval}) or GPT-5.4 (\texttt{no\_retrieval\_strong}). The second
+is GPT-5.4 with \sysname{}'s retrieval (\texttt{current\_strong}). The third is
+what a citizen can use today, which is ChatGPT, Gemini and Claude with web
+search on (\texttt{assistant\_*}), plus a research agent with no limits
+(\texttt{deep\_research\_claude}). That agent is Claude Opus run through Claude
+Code in an empty folder, with only web search and page fetching enabled, at
+high reasoning effort and with no cap on searches, turns or tokens. It
+answered with the same instructions as the assistants, after 6.1 searches and
+8.6 pages read per question on average. It ran on a subscription, so its cost
+is the one Claude Code reports, a notional figure rather than money spent.
+
+\begin{table}[htbp]
+    \centering
+    \footnotesize
+    \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{|l|r|r|r|r|r|r|}
+        \hline
+        \textbf{Variant} & \textbf{Corr.\ recall} & \textbf{$\Delta$ vs \texttt{current}} & \textbf{Correctness} & \textbf{Abstained} & \textbf{False refusals} & \textbf{\$ per answer} \\
+        \hline
+        \texttt{current} & 0.634 & & 0.532 & 4 of 4 & 2 of 32 & 0.0011 \\
+        \hline
+        \texttt{no\_retrieval} & 0.085 & $-$0.550* & 0.083 & 2 of 4 & 3 of 32 & 0.0001 \\
+        \texttt{no\_retrieval\_strong} & 0.126 & $-$0.508* & 0.167 & 1 of 4 & 1 of 32 & 0.0077 \\
+        \texttt{current\_strong} & 0.746 & $+$0.111* & 0.601 & 4 of 4 & 1 of 32 & 0.0408 \\
+        \hline
+        \texttt{assistant\_gpt} & 0.551 & $-$0.084 & 0.518 & 3 of 4 & 0 of 32 & 0.0915 \\
+        \texttt{assistant\_gemini} & 0.556 & $-$0.078 & 0.421 & 3 of 4 & 0 of 32 & 0.0674 \\
+        \texttt{assistant\_claude} & 0.352 & $-$0.283* & 0.176 & 1 of 4 & 4 of 32 & 0.0710 \\
+        \texttt{deep\_research\_claude} & 0.629 & $-$0.005 & 0.295 & 2 of 4 & 0 of 32 & 0.3481 \\
+        \hline
+    \end{tabular}
+    \end{adjustbox}
+    \caption[Retrieval versus scale]{Retrieval versus scale on the test split.
+    $\Delta$ is the paired difference in correctness recall against
+    \texttt{current}, with * when its 95\% interval excludes zero. Cost is the
+    pipeline's per answer in US dollars, and the deep research cost is notional.
+    Intervals are in Appendix~\ref{app:results}.}
+    \label{tab:results-scale}
+\end{table}
+
+\paragraph{Memory is not enough.} A model answering from memory covers 9\% of
+the reference, and GPT-5.4, a frontier model, covers 13\%. Scale helps a
+little, since the difference between the two is significant (+0.042*), but
+both lose to \sysname{} by half the reference. Manifesto detail, the specific
+figure or the name of a programme, is not in the weights of either model. The
+two also differ in how they handle what they do not know. The small model
+declined two of the four unanswerable questions, and GPT-5.4 only one,
+answering the other three with confident content the manifestos do not hold.
+
+\paragraph{Scale on top of retrieval helps.} Given the same excerpts, GPT-5.4
+covers 75\% of the reference against Gemma's 63\% (+0.111*). It is the only
+variant that beats \sysname{} on correctness recall with an interval clear of
+zero. It does so at 37 times the cost per answer and nearly three times the
+median latency, and three of its answers ran into the 3\,000-token cap.
+
+\paragraph{The assistants do not beat \sysname{}.} ChatGPT and Gemini with web
+search cover 55 to 56\% of the reference, about eight points below
+\sysname{}, with intervals that cross zero. On that measure they are no better,
+at 60 to 85 times the cost and five to twelve times the median latency.
+Gemini's F1 is significantly lower ($-$0.111*), because its answers add much
+that the references do not contain.\footnote{The Gemini run hit provider
+errors (rate limits, then timeouts) on 10 of the 36 questions. Those questions
+were retried twice on the same code, and the reported figures come from the
+complete file. The incomplete files score correctness recall 0.585 and 0.572
+and abstention 0.50 and 0.67, but over 24 and 26 answered questions and over
+2 and 3 of the 4 unanswerable ones, so the spread reflects which questions
+were missing and not run-to-run variation. Its mean latency, 91\,s, is
+inflated by the retries, which is why the median is reported.} The Claude
+assistant trails clearly ($-$0.283*). Its answers often say that it could not
+reach the manifesto and fall back on press coverage and parliamentary
+records, which is honest behaviour but answers a different question. Its
+answers were also the longest, and five of them ran into the 3\,000-token cap.
+
+\paragraph{A research agent can match it, slowly.} The unlimited research
+agent covers 63\% of the reference, the same as \sysname{} ($-$0.005). It needs
+108 seconds on average and a notional \$0.35 per answer, more than 300 times
+\sysname{}'s cost, and its F1 is far lower (0.295) because its long answers
+carry much that the references leave out. It also answered two of the four
+unanswerable questions instead of declining them, as did every assistant at
+least once. \sysname{} declined all four.
 
 \section{What each technique adds} \label{sec:results-ladder}
 
-\TODO{RQ1 and RQ2, one change per step. Retrieval: \texttt{naive}, \texttt{multiquery}, \texttt{routed}, \texttt{dense\_only}, \texttt{hybrid}, \texttt{current}. Representation (RQ1): \texttt{hybrid} (plain index), \texttt{contextual} (section headers), \texttt{current} (LLM context). The reranker as a negative result (\texttt{reranked}). Retrieval and generation metrics, with paired differences. Source: leaderboard-test.md. Other variants go to Appendix~\ref{app:results} or are left out.}
+RQ1 and RQ2 ask what each technique contributes. The ladder of
+Section~\ref{subsec:variants} answers them one rung at a time, and
+Table~\ref{tab:results-ladder} gives the paired difference of each rung
+against the one below it.
+
+\begin{table}[htbp]
+    \centering
+    \footnotesize
+    \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{|l|l|r|r|r|r|}
+        \hline
+        \textbf{Step} & \textbf{Rungs} & \textbf{Recall} & \textbf{nDCG} & \textbf{Corr.\ recall} & \textbf{Latency (s)} \\
+        \hline
+        Multi-query expansion & \texttt{naive} $\rightarrow$ \texttt{multiquery} & $+$0.042 & $+$0.053 & $-$0.005 & 1.8 $\rightarrow$ 3.2 \\
+        Query analysis and routing & \texttt{naive} $\rightarrow$ \texttt{routed} & $+$0.209* & $+$0.092* & $+$0.113* & 1.8 $\rightarrow$ 2.5 \\
+        Expansion after routing & \texttt{routed} $\rightarrow$ \texttt{dense\_only} & $+$0.046 & $+$0.013 & $-$0.003 & 2.5 $\rightarrow$ 4.0 \\
+        Lexical search (BM25) & \texttt{dense\_only} $\rightarrow$ \texttt{hybrid} & $+$0.121* & $+$0.140* & $+$0.102* & 4.0 $\rightarrow$ 3.3 \\
+        Section headers & \texttt{hybrid} $\rightarrow$ \texttt{contextual} & $+$0.008 & $+$0.007 & $+$0.020 & 3.3 $\rightarrow$ 3.1 \\
+        LLM-written context & \texttt{contextual} $\rightarrow$ \texttt{current} & $+$0.035 & $+$0.040* & $-$0.012 & 3.1 $\rightarrow$ 3.5 \\
+        \hline
+        Cross-encoder reranking & \texttt{current} $\rightarrow$ \texttt{reranked} & $-$0.111* & $-$0.084 & $-$0.074 & 3.5 $\rightarrow$ 9.5 \\
+        \hline
+        Whole ladder & \texttt{naive} $\rightarrow$ \texttt{current} & $+$0.418* & $+$0.292* & $+$0.226* & 1.8 $\rightarrow$ 3.5 \\
+        \hline
+    \end{tabular}
+    \end{adjustbox}
+    \caption[What each technique adds]{What each technique adds on the test
+    split, as paired differences between rungs, with * when the 95\% interval
+    excludes zero. Latency is the mean seconds per answer, judging excluded.}
+    \label{tab:results-ladder}
+\end{table}
+
+\paragraph{Retrieval (RQ2).} Two techniques carry the gains. Query analysis
+with routing, which searches each party's manifesto separately when a
+question names several, adds 21 points of recall and 11 of correctness
+recall on its own. Lexical search adds another 12 points of recall and 10 of
+correctness recall, because the words of a question (``propinas'', ``IRS
+Jovem'') often appear verbatim in the passage that answers it, and a dense
+encoder can rank those passages below vaguer ones on the same theme. Multi-query
+expansion did nothing measurable, neither on the naive pipeline nor after
+routing. It remains in the production pipeline, but the test split gives no
+reason to credit it with any of the gains. Taken
+together, the ladder doubles recall (0.452 to 0.870) and raises correctness
+recall from 0.41 to 0.63.
+
+\paragraph{Representation (RQ1).} Writing the section path into each chunk
+before embedding it changed nothing measurable. Adding the LLM-written context
+of Section~\ref{subsec:contextual} ranked the gold chunks higher (nDCG
++0.040*), and against the plain index it found more of them (recall +0.043*,
+from \texttt{hybrid} to \texttt{current}), but the answers did not improve
+(correctness recall +0.008). On the development questions the same step had
+looked larger (recall +0.046), and the test split shrinks it to a gain in
+ranking that the generator, which reads all ten excerpts anyway, does not turn
+into better answers. The larger representation finding came before the
+ladder. Measuring chunks in characters had left 62.7\% of the corpus
+unembedded under the Serafim encoder (Section~\ref{subsec:chunking}), and no
+rung would have been worth measuring without that fix.
+
+\paragraph{Reranking, a negative result.} A cross-encoder that re-scores 30
+candidates and keeps the best ten is the textbook way to improve
+precision~\citep{nogueira2019passagererankingbert}. Here it put the first gold chunk
+slightly higher (MRR +0.030, not significant) but lost 11 points of recall
+($-$0.111*), and it nearly tripled the latency. The same loss appeared on the
+development questions ($-$0.055). On the naive pipeline the same reranker helps
+(recall +0.062*, nDCG +0.113*), so the problem is not the model. A likely reason is
+that the cross-encoder reads each chunk bare, without the section path and
+the LLM-written context that help \texttt{current} rank it, so once fusion
+already orders the candidates well it has more to lose than to gain.
+
+\paragraph{Routing scores.} The scores of the query analysis itself (query
+type, coverage, parties and topics) are in Table~\ref{tab:app-routing}. They
+are the analyser's and not a rung's, since every rung from
+\texttt{dense\_only} up shares one analysis per question. One caveat follows
+from that table. The \texttt{routed} rung ran in a separate process and drew a
+different analysis on 6 of the 36 questions, because the analyser is not
+stable even at temperature zero. Its slightly higher routing scores are that
+draw, not a better router, and its recall is still 21 points below
+\texttt{current}'s.
 
 \section{Cost} \label{sec:results-cost}
 
-\TODO{RQ4. Cost per answer (pipeline and judge), tokens, LLM calls and latency per variant. Source: headline-analysis.md, section 3. Which improvements are worth their cost for a free public tool.}
+RQ4 asks what these improvements cost and which are worth it for a tool meant
+to be free. Table~\ref{tab:results-cost} gives the cost of answering, without
+the cost of judging.
+
+\begin{table}[htbp]
+    \centering
+    \footnotesize
+    \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{|l|r|r|r|r|r|}
+        \hline
+        \textbf{Variant} & \textbf{\$ per answer} & \textbf{$\times$ \texttt{current}} & \textbf{Tokens in} & \textbf{LLM calls} & \textbf{Median latency (s)} \\
+        \hline
+        \texttt{naive} & 0.0008 & 0.7 & 7\,290 & 1 & 1.6 \\
+        \texttt{hybrid} & 0.0012 & 1.1 & 14\,550 & 3 & 3.1 \\
+        \texttt{current} & 0.0011 & 1 & 13\,984 & 3 & 3.4 \\
+        \texttt{reranked} & 0.0012 & 1.1 & 14\,781 & 3 & 6.9 \\
+        \hline
+        \texttt{current\_strong} & 0.0408 & 37 & 13\,200 & 3 & 9.7 \\
+        \texttt{assistant\_gpt} & 0.0915 & 83 & 28\,962 & 1 & 18.6 \\
+        \texttt{assistant\_gemini} & 0.0674 & 61 & 531 & 1 & 41.2 \\
+        \texttt{assistant\_claude} & 0.0710 & 65 & 4\,572 & 1 & 23.2 \\
+        \texttt{deep\_research\_claude} & 0.3481 & 316 & 121\,047 & 1 & 94.0 \\
+        \hline
+    \end{tabular}
+    \end{adjustbox}
+    \caption[Cost per answer]{Cost per answer on the test split, in US dollars,
+    excluding the judge. Assistant costs include the provider's web search fee,
+    and the deep research cost is notional. Every variant is in
+    Table~\ref{tab:app-cost}.}
+    \label{tab:results-cost}
+\end{table}
+
+\paragraph{The ladder is nearly free.} \sysname{} answers for about a tenth
+of a cent, \$1.10 per thousand answers, and the whole ladder adds 30 cents per
+thousand answers to the naive pipeline's cost and under two seconds of
+latency. Routing doubles the tokens the generator reads, and those are still
+the best-spent tokens in the system.
+Every technique the ladder kept is worth its price at this scale. The one
+that is not is the reranker, which nearly triples latency for a loss.
+
+\paragraph{The alternatives are not.} The one variant that beats \sysname{}
+on coverage, the frontier model with the same retrieval, costs 37 times as
+much for 11 more points. For a tool paid for by a university project, or
+offered free to voters, that trade does not pay. The assistants cost 60 to 85
+times as much and are no better, and the research agent costs over 300 times
+as much to match it.
+
+\paragraph{Judging costs more than answering.} Scoring one \texttt{current}
+answer costs \$0.0084, almost eight times the answer itself, because the judge
+reads the excerpts and the reference claim by claim. Apart from the
+assistants, evaluation and not the system is where the money of this work
+went.
 
 \section{\sysname{} in practice} \label{sec:results-practice}
 
-\TODO{Lead-in: the numbers above say how often \sysname{} is right; this section shows what using it looks like, end to end, with citations.}
+The numbers above say how often \sysname{} is right. This section shows what
+using it looks like. Seven questions were asked through the command line on
+the frozen code, none of them from the gold set, and the transcripts are kept
+verbatim in the repository (\texttt{data/eval/extras/walkthrough/}).
+Table~\ref{tab:walkthrough} summarises them.
+
+\begin{table}[htbp]
+    \centering
+    \footnotesize
+    \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{|p{0.48\textwidth}|l|r|r|}
+        \hline
+        \textbf{Question} & \textbf{Route} & \textbf{Sources cited} & \textbf{\$} \\
+        \hline
+        O que propõe o LIVRE para a habitação? & LIVRE only & 5 & 0.0008 \\
+        Compara as propostas do BE e da IL para o Serviço Nacional de Saúde. & BE and IL, per party & 13 & 0.0010 \\
+        Que partidos falam sobre o bem-estar animal? & all 8, per party & 34 & 0.0023 \\
+        Que propostas existem para combater a corrupção? & all 8 & 37 & 0.0023 \\
+        O que propõe o PCP sobre criptomoedas? & PCP only & refusal & 0.0004 \\
+        Quais são os planos da AD para a habitação? & AD only & 6 & 0.0006 \\
+        E o PS? & PS only & refusal & 0.0005 \\
+        \hline
+    \end{tabular}
+    \end{adjustbox}
+    \caption[Walkthrough questions]{Seven questions asked on the frozen code,
+    outside the gold set. The animal welfare question lost 8 of its 64 excerpts
+    to the 32k-token prompt budget, with every party kept.}
+    \label{tab:walkthrough}
+\end{table}
 
 \subsection{Walkthrough} \label{subsec:results-walkthrough}
 
-\TODO{Open with q-33, the running example of Chapter~\ref{ch:proposition}
-(salário mínimo), run on the frozen code. Then pick 2--3 more real queries, one per remaining query type (single-party, comparison,
-topic exploration, general). For each: the question (pt-PT), what \sysname{}
-did (route taken, parties/topics detected), the answer with its source
-citations, and a screenshot or verbatim CLI transcript. Use real system
-output --- do not polish it.}
+\paragraph{A comparison.} The question ``Compara as propostas do BE e da IL
+para o Serviço Nacional de Saúde''\footnote{``Compare the BE's and the IL's
+proposals for the National Health Service.''} shows the whole pipeline. The
+analyser reads it as a comparison of two parties, routing searches each
+manifesto on its own, and the comparison prompt writes one section per party
+and a closing synthesis. The command line reports each step as it runs.
+
+\begin{Verbatim}[fontsize=\scriptsize, breaklines=true, frame=single]
+[  3.2s] A analisar a pergunta…
+[  4.8s] A reformular a pergunta para a pesquisa…
+[  5.6s] A pesquisar nos programas de Bloco de Esquerda, Iniciativa Liberal…
+[  6.6s] A redigir a comparação entre 2 partidos…
+\end{Verbatim}
+
+The answer then lays the two positions side by side, each claim tied to its
+excerpt by a bracketed number, and the synthesis states the difference in the
+parties' own terms. An excerpt of the synthesis follows.
+
+\begin{Verbatim}[fontsize=\scriptsize, breaklines=true, frame=single]
+### Síntese
+
+As propostas divergem fundamentalmente no modelo de gestão: o Bloco de Esquerda foca-se no reforço da gestão pública, na integração de serviços no SNS e na revogação de parcerias público-privadas e modelos de gestão privada [3], enquanto a Iniciativa Liberal defende a integração dos setores público, privado e social num modelo de concorrência e liberdade de escolha (SUA-Saúde), promovendo a expansão das PPP [11][13]. [...]
+\end{Verbatim}
+
+The sources follow, each with its manifesto, its full section path and its
+fusion score, so a reader can open the manifesto at the right page and check.
+
+\begin{Verbatim}[fontsize=\scriptsize, breaklines=true, frame=single]
+Fontes (13):
+  [1] Bloco de Esquerda – Fazer o que nunca foi feito: Programa eleitoral do Bloco de Esquerda, Legislativas 2024 > 2 Saúde > 2.5 Investir no SNS, combater o negócio da saúde (rrf=0.0789)
+  [...]
+  [7] Iniciativa Liberal – PROGRAMA ELEITORAL > B. PORTUGAL A FUNCIONAR > 2. MAIS ACESSO À SAÚDE > 2.1. Mudar o Sistema de Saúde em Portugal > Recuperar as Parcerias Público-Privadas (PPP) (rrf=0.11)
+  [...]
+Modelos (3 chamadas, 9653 tokens in / 1334 out, $0.0010):
+  query analysis: google/gemma-4-26b-a4b-it (0.6s)
+  query expansion: google/gemma-4-26b-a4b-it (0.7s)
+  comparison answer: google/gemma-4-26b-a4b-it (2.7s)
+\end{Verbatim}
+
+Two details are worth noticing. The BE's position is reported as the BE's
+(``O Bloco de Esquerda defende a reconstrução do SNS através do combate ao que
+denomina `negócio da saúde'\,''\footnote{``The Bloco de Esquerda advocates
+rebuilding the SNS by fighting what it calls `the health business'.''}), which
+is the attribution rule of Section~\ref{subsec:grounding} at work. And the
+whole answer took under ten seconds and a tenth of a cent.
+
+\paragraph{The other questions.} The single-party question about the LIVRE's
+housing plans returned an answer organised in the manifesto's own four
+headings, with the figures the manifesto gives (10\% public housing, loans of up
+to 30\% of the market value for a first home). The animal welfare question fanned out to all
+eight parties and returned a section for each. The corruption question, which
+names no party, drew 64 excerpts from all of them and grouped the answer by
+kind of measure (lobbying registers, asset declarations, sanctions), naming
+the party behind each. The question about the PCP and cryptocurrencies, a
+subject its manifesto never mentions, got the hedged refusal of
+Section~\ref{subsec:grounding}.
+
+\begin{Verbatim}[fontsize=\scriptsize, breaklines=true, frame=single]
+Não encontrei resposta a esta pergunta nos excertos dos programas que consultei, mas isso não garante que os programas não abordem o tema.
+\end{Verbatim}
+
+The refusal\footnote{``I found no answer to this question in the excerpts of
+the manifestos I consulted, but that does not guarantee the manifestos do not
+address the topic.''} says what was searched, not what the manifesto lacks,
+because top-$k$ retrieval cannot prove an absence (Chapter~\ref{ch:conclusion}).
 
 \subsection{Where it stumbles} \label{subsec:results-stumbles}
 
-\TODO{Honest notes: where the demo shines, where it stumbles (a failure case
-is worth showing --- it motivates future work and builds credibility).
-Show one follow-up failing: ask about the AD's housing plans, then ``E o PS?''
-as a second call. Each call is stateless, so the second one loses the topic
-(Limitations (g) in Chapter~\ref{ch:conclusion}).}
+\paragraph{Follow-up questions.} The last two questions were asked one after
+the other, as a person would. ``Quais são os planos da AD para a
+habitação?''\footnote{``What are the AD's plans for housing?''} got a normal
+answer from the AD's housing chapter, citing six sources. ``E o PS?''\footnote{``And
+the PS?''} got this.
 
-\TODO{Presentation format: CLI transcripts, unless a minimal web UI materialises (the political quiz is parked in future work).}
+\begin{Verbatim}[fontsize=\scriptsize, breaklines=true, frame=single]
+[  4.6s] A pesquisar no programa de Partido Socialista…
+[  5.4s] A redigir a resposta a partir de 10 excertos…
+
+Não encontrei resposta a esta pergunta nos excertos dos programas que consultei, mas isso não garante que os programas não abordem o tema.
+
+Fontes (7):
+  [1] Partido Socialista – PLANO DE AÇÃO PARA PORTUGAL INTEIRO 2024 > INTRODUÇÃO > **2.ª MISSÃO:** UM ESTADO SOCIAL FORTE, MODERNO E INCLUSIVO > [...]
+  [2] Partido Socialista – PLANO DE AÇÃO PARA PORTUGAL INTEIRO 2024 > INTRODUÇÃO (rrf=0.0763)
+  [...]
+\end{Verbatim}
+
+Each call to \sysname{} starts from nothing. The analyser found the party but
+no topic, routing searched the PS manifesto for ``E o PS?'', and the search
+returned its introduction. The PS manifesto has a housing chapter (``Uma
+habitação digna para todos''), and that is what the person meant. The refusal is at least honest about what happened,
+but it is the wrong outcome, and the evaluation never sees it, since every
+gold question stands alone (Chapter~\ref{ch:conclusion}).
+
+\paragraph{Refusing with the answer in hand.} The evaluation found the
+opposite failure as well. Asked in what year the 35-hour week was restored in
+the public administration (q-49), \sysname{} retrieved the PCP passage that
+gives the year, 2016, and still answered that it found nothing. The same
+happened with the CHEGA's recruitment proposals (q-56). Both are the two false
+refusals of Table~\ref{tab:results-card}, and both are the generator being
+too cautious, not the search missing.
+
+\paragraph{Wrong absence claims.} The reverse also happens, if rarely. In
+q-51 an answer stated that the PAN does not mention euthanasia, while one of
+its own excerpts was the PAN calling for the law to be regulated. The judge
+caught it, and faithfulness dropped for that answer, but a reader would have
+been told something false about a party.
+
+\paragraph{The budget.} The animal welfare question retrieved 64 excerpts, 8
+per party, and the prompt budget of Section~\ref{subsec:context} dropped 8 of
+them. Every party kept a section, so the answer stayed balanced, but the
+lowest-ranked excerpts of each were never read. On questions about every
+party, the budget and not the search limits how much of each manifesto the
+answer can reflect, which matches the low coverage of topic explorations in
+Table~\ref{tab:results-card}.
 
 \section{Summary} \label{sec:results-summary}
 
-\TODO{One paragraph per research question, the answer in a sentence each, and a segue to Chapter~\ref{ch:conclusion}.}
+\paragraph{RQ1 (Representation).} Section headers changed nothing, and the
+LLM-written context improved ranking (nDCG +0.040*) without improving the
+answers. The representation choice that mattered was sizing chunks in the
+encoder's own tokens, without which most of the corpus was never embedded.
+
+\paragraph{RQ2 (Retrieval).} Routing per party and hybrid lexical search carry
+the gains, together doubling recall over the naive pipeline. Multi-query
+expansion adds nothing measurable, and cross-encoder reranking loses recall
+($-$0.111*).
+
+\paragraph{RQ3 (Generation).} Better retrieval gives better answers, with
+correctness recall rising from 0.409 to 0.634. The answers are faithful
+(0.952) but incomplete, and they are weakest on questions about every party at
+once.
+
+\paragraph{RQ4 (Cost).} \sysname{} answers for \$0.0011 in about three and a
+half seconds, and the techniques it kept add little to either. The reranker
+and the frontier model are the only steps whose cost the results do not
+justify.
+
+\paragraph{RQ5 (Retrieval versus scale).} A small model with the manifestos
+covers five times as much of the reference as a frontier model without them,
+matches the commercial assistants and an unlimited research agent at a
+sixtieth to a three-hundredth of their cost, and is the only system that
+declined every unanswerable question. A frontier model with the same
+retrieval does better still, at 37 times the price.
+
+Chapter~\ref{ch:conclusion} turns these answers into conclusions, and sets
+out the limits of what 36 questions and one rater can show.
