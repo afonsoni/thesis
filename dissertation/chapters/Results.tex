@@ -35,7 +35,7 @@ ends with the system in use, on questions outside the gold set.
 
 The method is the one of Section~\ref{sec:evaluation}, and only two points
 need repeating. Every generation score comes from the Qwen judge, which was
-checked claim by claim against the author's blind ratings
+checked claim by claim against blind ratings made by hand
 (Section~\ref{subsec:metrics}). Its correctness recall agrees with the ratings
 at a Cohen's $\kappa$ of 0.90, and on a sample built to contain many
 unsupported claims it caught 89\% of them, so the generation scores below can be read as
@@ -52,7 +52,8 @@ precision half counts as wrong any claim the reference answer does not
 contain, true or not. Asked how much the PCP wants to raise the minimum wage
 (q-02), ChatGPT answered ``1\,000 euros mensais em 2024''\footnote{In English, ``1,000
 euros a month in 2024''.}, which is right, and scored zero precision because
-the reference does not say ``mensais''. Long answers that bring in outside detail lose the most, which
+the reference says neither ``mensais'' nor that the figure comes from the 2024
+manifesto. Long answers that bring in outside detail lose the most, which
 matters when \sysname{} meets the assistants. Comparisons across systems are
 therefore led by \emph{correctness recall}, the share of the reference the
 answer covers, with the F1 reported beside it.
@@ -60,7 +61,7 @@ answer covers, with the F1 reported beside it.
 Full tables for every variant and metric are in Appendix~\ref{app:results}.
 They average each variant over the questions every variant was scored on,
 while the tables in this chapter average each variant over its own scored
-questions, so the two can differ by up to a hundredth.
+questions, so the two can differ by about a hundredth.
 
 \section{Answer quality} \label{sec:results-quality}
 
@@ -97,7 +98,7 @@ the gold set assigns (Section~\ref{subsec:queryanalysis}).
 \end{table}
 
 \paragraph{Retrieval.} The gold chunks are mostly found. On the answerable
-questions \sysname{} hands the generator 87\% of the chunks a human picked as
+questions \sysname{} hands the generator 87\% of the gold chunks for
 the answer, and at least one of them every time (hit rate 1.00). The eight
 broad questions, those with more gold chunks than the system has slots, are
 harder, and there it finds 85\% of what fits (capped recall 0.847) and draws on
@@ -105,17 +106,20 @@ harder, and there it finds 85\% of what fits (capped recall 0.847) and draws on
 
 \paragraph{Grounding.} The answers stick to their sources. Faithfulness is
 0.952, and the judge validation found the same at the claim level, with 99\%
-of claims supported by the excerpts. The one low score in the table, 0.750 on
-general questions, is a single answer (q-49) that refused to answer and so
-had no supported claim to count.
+of claims supported by the excerpts. The lowest faithfulness in the table, 0.750 on
+general questions, is a single answer (q-49) that refused to answer. Its one
+claim, that the excerpts held no answer, was judged false, because one of
+them gave the year.
 
 \paragraph{Coverage.} Correct is not the same as complete. An answer covers
 on average 63\% of its reference, well below its faithfulness. The answers say
 true things from the manifestos and miss others. Where they fall shortest is
-telling. Topic explorations (``which parties talk about X?'') and general
-questions ask about every party at once, their references list many aspects,
-and an answer covers only 30 to 44\% of them. Single-party questions and
-comparisons of two or three parties fare best, at 74 and 71\%.
+telling. Topic explorations ask what all the manifestos propose on a
+subject, their references list many aspects, and an answer covers only 30\%
+of them. General questions, which name no party, reach 44\%. Single-party
+questions and comparisons do best, at 74 and 71\%, and among comparisons
+those between two named parties (76\%) do better than those across every
+party (60\%).
 
 \paragraph{Refusals.} \sysname{} declined all four unanswerable questions,
 and wrongly declined two of the 32 answerable ones. Both false refusals had
@@ -172,7 +176,8 @@ is the one Claude Code reports, a notional figure rather than money spent.
 
 \paragraph{Memory is not enough.} A model answering from memory covers 9\% of
 the reference, and GPT-5.4, a frontier model, covers 13\%. Scale helps a
-little, since the difference between the two is significant (+0.042*), but
+little, and only just significantly, since the interval of the difference
+(+0.042*) barely clears zero, but
 both lose to \sysname{} by half the reference. Manifesto detail, the specific
 figure or the name of a programme, is not in the weights of either model. The
 two also differ in how they handle what they do not know. Asked what the PCP
@@ -185,16 +190,16 @@ rejects the question's false premise.
 \paragraph{Scale on top of retrieval helps.} Given the same excerpts, GPT-5.4
 covers 75\% of the reference against Gemma's 63\% (+0.111*). It is the only
 variant that beats \sysname{} on correctness recall with an interval clear of
-zero. It does so at 37 times the cost per answer and more than twice the
+zero. It does so at 36 times the cost per answer and more than twice the
 median latency, and three of its answers ran into the 3\,000-token cap.
 
 \paragraph{The assistants do not beat \sysname{}.} ChatGPT and Gemini with web
 search cover 55 to 56\% of the reference, about eight points below
 \sysname{}, with intervals that cross zero. On that measure they are no better,
-at 60 to 85 times the cost and four to nine times the median latency.
+at 60 to 81 times the cost and four to nine times the median latency.
 Gemini's F1 is significantly lower ($-$0.111*), because its answers add much
 that the references do not contain.\footnote{The Gemini run hit provider
-errors (rate limits, then timeouts) on 10 of the 36 questions. Those questions
+errors (gateway timeouts) on 10 of the 36 questions. Those questions
 were retried twice on the same code, and the reported figures come from the
 complete file. The incomplete files score correctness recall 0.585 and 0.572
 and abstention 0.50 and 0.67, but over 24 and 26 answered questions and over
@@ -249,7 +254,9 @@ against the one below it.
     split, as paired differences between rungs, with * when the 95\% interval
     excludes zero. Latency is the mean seconds per answer, judging excluded,
     with the query analysis and expansion that one rung computed and later rungs
-    reused added back to every rung that uses them.}
+    reused added back to every rung that uses them. The first question of
+    \texttt{naive} and of \texttt{multiquery} also loaded the search model,
+    which raises their means by about 0.15\,s.}
     \label{tab:results-ladder}
 \end{table}
 
@@ -284,8 +291,9 @@ rung would have been worth measuring without that fix.
 candidates and keeps the best ten is the textbook way to improve
 precision~\citep{nogueira2019passagererankingbert}. Here it put the first gold chunk
 slightly higher (MRR +0.030, not significant) but lost 11 points of recall
-($-$0.111*), and it more than doubled the latency. The same loss appeared on the
-development questions ($-$0.055). On the naive pipeline the same reranker helps
+($-$0.111*), and it more than doubled the latency. An earlier run on the development
+questions, with an older version of the pipeline, had shown the same loss
+($-$0.055). On the naive pipeline the same reranker helps
 (recall +0.062*, nDCG +0.113*), so the problem is not the model. A likely reason is
 that the cross-encoder reads each chunk bare, without the section path and
 the LLM-written context that help \texttt{current} rank it, so once fusion
@@ -296,7 +304,8 @@ type, coverage, parties and topics) are in Table~\ref{tab:app-routing}. They
 are the analyser's and not a rung's, since every rung from
 \texttt{dense\_only} up shares one analysis per question. One caveat follows
 from that table. The \texttt{routed} rung ran in a separate process and drew a
-different analysis on 6 of the 36 questions, because the analyser is not
+different analysis on 6 of the 36 questions (on one of them only the order
+of the parties differs), because the analyser is not
 stable even at temperature zero. Its slightly higher routing scores are that
 draw, not a better router, and its recall is still 21 points below
 \texttt{current}'s.
@@ -320,38 +329,39 @@ the cost of judging.
         \texttt{current} & 0.0011 & 1 & 13\,984 & 3 & 4.7 \\
         \texttt{reranked} & 0.0012 & 1.1 & 14\,781 & 3 & 8.3 \\
         \hline
-        \texttt{current\_strong} & 0.0408 & 37 & 13\,200 & 3 & 11.1 \\
-        \texttt{assistant\_gpt} & 0.0915 & 83 & 28\,962 & 1 & 18.6 \\
-        \texttt{assistant\_gemini} & 0.0674 & 61 & 531 & 1 & 41.2 \\
-        \texttt{assistant\_claude} & 0.0710 & 65 & 4\,572 & 1 & 23.2 \\
-        \texttt{deep\_research\_claude} & 0.3481 & 316 & 121\,047 & 1 & 94.0 \\
+        \texttt{current\_strong} & 0.0408 & 36 & 13\,200 & 3 & 11.1 \\
+        \texttt{assistant\_gpt} & 0.0915 & 81 & 28\,962 & 1 & 18.6 \\
+        \texttt{assistant\_gemini} & 0.0674 & 60 & 531 & 1 & 41.2 \\
+        \texttt{assistant\_claude} & 0.0710 & 63 & 4\,572 & 1 & 23.2 \\
+        \texttt{deep\_research\_claude} & 0.3481 & 308 & 121\,047 & 1 & 94.0 \\
         \hline
     \end{tabular}
     \end{adjustbox}
     \caption[Cost per answer]{Cost per answer on the test split, in US dollars,
     excluding the judge. Assistant costs include the provider's web search fee,
-    and the deep research cost is notional. Every variant is in
-    Table~\ref{tab:app-cost}.}
+    and the deep research cost is notional. Deep research counts as one call to
+    Claude Code, inside which the agent took 15.75 turns per question on
+    average. Every variant is in Table~\ref{tab:app-cost}.}
     \label{tab:results-cost}
 \end{table}
 
 \paragraph{The ladder is nearly free.} \sysname{} answers for about a tenth
-of a cent, \$1.10 per thousand answers, and the whole ladder adds 30 cents per
+of a cent, \$1.13 per thousand answers, and the whole ladder adds 36 cents per
 thousand answers to the naive pipeline's cost and about three seconds of
-latency. Routing doubles the tokens the generator reads, and those are still
+latency. Routing nearly doubles the tokens the generator reads, and those are still
 the best-spent tokens in the system.
 Every technique the ladder kept is worth its price at this scale. The one
-that is not is the reranker, which more than doubles latency for a loss.
+that is not is the reranker, which more than doubles mean latency for a loss.
 
 \paragraph{The alternatives are not.} The one variant that beats \sysname{}
-on coverage, the frontier model with the same retrieval, costs 37 times as
+on coverage, the frontier model with the same retrieval, costs 36 times as
 much for 11 more points. For a tool paid for by a university project, or
-offered free to voters, that trade does not pay. The assistants cost 60 to 85
+offered free to voters, that trade does not pay. The assistants cost 60 to 81
 times as much and are no better, and the research agent costs over 300 times
 as much to match it.
 
 \paragraph{Judging costs more than answering.} Scoring one \texttt{current}
-answer costs \$0.0084, almost eight times the answer itself, because the judge
+answer costs \$0.0084, more than seven times the answer itself, because the judge
 reads the excerpts and the reference claim by claim. Apart from the
 assistants, evaluation and not the system is where the money of this work
 went.
@@ -450,7 +460,8 @@ correctness recall leads the comparisons.
 \subsection{Outside the gold set} \label{subsec:results-walkthrough}
 
 Seven more questions were asked through the command line on the frozen code,
-none of them from the gold set. Table~\ref{tab:walkthrough} summarises them,
+none of them a gold question, although the one on corruption is close to the
+development question q-39. Table~\ref{tab:walkthrough} summarises them,
 and Appendix~\ref{app:examples} gives the transcripts in full.
 
 \begin{table}[htbp]
@@ -592,8 +603,8 @@ expansion adds nothing measurable, and cross-encoder reranking loses recall
 
 \paragraph{RQ3 (Generation).} Better retrieval gives better answers, with
 correctness recall rising from 0.409 to 0.634. The answers are faithful
-(0.952) but incomplete, and they are weakest on questions about every party at
-once.
+(0.952) but incomplete, and they are weakest on topic explorations and general
+questions.
 
 \paragraph{RQ4 (Cost).} \sysname{} answers for \$0.0011 in about five seconds, and the techniques it kept add little to either. The reranker
 and the frontier model are the only steps whose cost the results do not
@@ -604,7 +615,7 @@ covers five times as much of the reference as a frontier model without them,
 matches the commercial assistants and an unlimited research agent at a
 sixtieth to a three-hundredth of their cost, and declined every unanswerable
 question. A frontier model with the same
-retrieval does better still, at 37 times the price.
+retrieval does better still, at 36 times the price.
 
 Chapter~\ref{ch:conclusion} turns these answers into conclusions, and sets
 out the limits of what 36 questions and one rater can show.
