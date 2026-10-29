@@ -225,9 +225,9 @@ with the other systems only loosely.
 \section{What each technique adds} \label{sec:results-ladder}
 
 RQ1 and RQ2 ask what each technique contributes. The ladder of
-Section~\ref{subsec:variants} answers them one rung at a time, and
-Table~\ref{tab:results-ladder} gives the paired difference of each rung
-against the one below it.
+Section~\ref{subsec:variants} answers them one step at a time, and
+Table~\ref{tab:results-ladder} gives the paired difference of each variant
+against the variant it builds on.
 
 \begin{table}[htbp]
     \centering
@@ -235,7 +235,7 @@ against the one below it.
     \begin{adjustbox}{max width=\textwidth}
     \begin{tabular}{|l|l|r|r|r|r|}
         \hline
-        \textbf{Step} & \textbf{Rungs} & \textbf{Recall} & \textbf{nDCG} & \textbf{Corr.\ recall} & \textbf{Latency (s)} \\
+        \textbf{Step} & \textbf{Variants} & \textbf{Recall} & \textbf{nDCG} & \textbf{Corr.\ recall} & \textbf{Latency (s)} \\
         \hline
         Multi-query expansion & \texttt{naive} $\rightarrow$ \texttt{multiquery} & $+$0.042 & $+$0.053 & $-$0.005 & 1.8 $\rightarrow$ 3.2 \\
         Query analysis and routing & \texttt{naive} $\rightarrow$ \texttt{routed} & $+$0.209* & $+$0.092* & $+$0.113* & 1.8 $\rightarrow$ 2.5 \\
@@ -251,10 +251,10 @@ against the one below it.
     \end{tabular}
     \end{adjustbox}
     \caption[What each technique adds]{What each technique adds on the test
-    split, as paired differences between rungs, with * when the 95\% interval
+    split, as paired differences between variants, with * when the 95\% interval
     excludes zero. Latency is the mean seconds per answer, judging excluded,
-    with the query analysis and expansion that one rung computed and later rungs
-    reused added back to every rung that uses them. The first question of
+    with the query analysis and expansion that one variant computed and later variants
+    reused added back to every variant that uses them. The first question of
     \texttt{naive} and of \texttt{multiquery} also loaded the search model,
     which raises their means by about 0.15\,s.}
     \label{tab:results-ladder}
@@ -285,7 +285,7 @@ ranking that the generator, which reads every excerpt it is given whatever
 its rank, does not seem to turn into better answers. The larger representation finding came before the
 ladder. Measuring chunks in characters had left 62.7\% of the corpus
 unembedded under the Serafim encoder (Section~\ref{subsec:chunking}), and no
-rung would have been worth measuring without that fix.
+variant would have been worth measuring without that fix.
 
 \paragraph{Reranking, a negative result.} A cross-encoder that re-scores 30
 candidates and keeps the best ten is the textbook way to improve
@@ -301,9 +301,9 @@ already orders the candidates well it has more to lose than to gain.
 
 \paragraph{Routing scores.} The scores of the query analysis itself (query
 type, coverage, parties and topics) are in Table~\ref{tab:app-routing}. They
-are the analyser's and not a rung's, since every rung from
+are the analyser's and not a variant's, since every variant from
 \texttt{dense\_only} up shares one analysis per question. One caveat follows
-from that table. The \texttt{routed} rung ran in a separate process and drew a
+from that table. The \texttt{routed} variant ran in a separate process and drew a
 different analysis on 6 of the 36 questions (on one of them only the order
 of the parties differs), because the analyser is not
 stable even at temperature zero. Its slightly higher routing scores are that
@@ -370,7 +370,7 @@ went.
 
 %% q-03 trace: current-20261020T044840.json (frozen code 0293a0b); query
 %% analysis and expansion timings and cost from dense_only-20261020T022900.json,
-%% the rung of the same run that computed them.
+%% the variant of the same run that computed them.
 The numbers above say how often \sysname{} is right. This section shows what
 one answer is made of. It follows a test question of the gold set through
 every stage, with the scores the judge gave it, then shows the system on

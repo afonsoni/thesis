@@ -119,10 +119,6 @@ cent and takes about five seconds on average
 The code is public at \url{https://github.com/afonsoni/thesis}, and
 Appendix~\ref{app:tooling} explains how to set it up.
 
-\TODO{STYLE: the dated decisions are now in Appendix~\ref{app:timeline}. In the
-style pass, drop month-and-year dates from the prose except those that carry
-meaning, such as ``a year before it was found''.}
-
 % ============================================================
 \section{Indexing} \label{sec:indexing}
 % ============================================================
@@ -1183,7 +1179,7 @@ context that contextual retrieval adds to the index. And hybrid fusion over
 five versions of the question may already have done the reranker's job,
 leaving it only good candidates to reshuffle, sometimes for the worse.
 
-\paragraph{Agentic retrieval.} \label{subsec:agentic} The last rung planned for the ladder was agentic
+\paragraph{Agentic retrieval.} \label{subsec:agentic} The last step planned for the ladder was agentic
 retrieval~\citep{agentic-rag}, a loop in which a language model drives the
 existing pipeline. It decides whether and what to retrieve, searches again
 when the results fall short, and checks the evidence before an answer is
@@ -1572,42 +1568,55 @@ agentic one and one in between, and compare them. It was dropped because two
 systems that differ in five ways can be ranked, but nobody can say which of the
 five differences made one of them better. \sysname{} has a single pipeline
 instead, and every technique beyond plain dense search can be switched on or
-off. A \emph{variant} is one combination of these switches. The variants form a
-ladder, in which each rung adds one technique to the rung below
-(Table~\ref{tab:ladder}), and this ladder is how the step-by-step evaluation
-promised in the Introduction is built. Every rung runs the same code over the
-same questions, so the difference between two neighbouring rungs is the
-contribution of one technique and nothing else. The rungs below
-\texttt{current} search an index built without the contextual text of
-Section~\ref{subsec:contextual}, so that contextual retrieval also arrives as a
-single step.
+off. A \emph{variant} is one combination of these switches, and the
+variants are ordered into a ladder (Table~\ref{tab:ladder}). This ladder is how
+the step-by-step evaluation promised in the Introduction is built. Each variant
+builds on an earlier one and switches on one more technique. Both run the same
+code over the same questions, so the difference between their scores is the
+contribution of that technique and nothing else.
+
+At the bottom is \texttt{naive}, which searches once with the question as typed
+and answers directly. Two variants build on it, each with one technique of its
+own. \texttt{multiquery} adds multi-query expansion, and \texttt{routed} adds
+query analysis with routing. Measured apart like this, each technique shows
+what it is worth without the other. \texttt{dense\_only} then switches both
+on, which also shows whether expansion still helps once routing is in place.
+From there the ladder climbs in a single line. \texttt{hybrid} adds lexical
+search to \texttt{dense\_only}, \texttt{current} adds contextual retrieval to
+\texttt{hybrid} and is the production system, and \texttt{reranked} adds a
+cross-encoder to \texttt{current}. Contextual retrieval changes the index
+rather than the search, so every variant below \texttt{current} searches a
+second index built without the contextual text of
+Section~\ref{subsec:contextual}. Otherwise that text would already be there at
+the bottom of the ladder, and its gain could not be measured as a step of its
+own.
 
 \begin{table}[htbp]
     \centering
     \small
-    \begin{tabular}{|l|p{0.62\textwidth}|}
+    \begin{tabular}{|l|l|p{0.45\textwidth}|}
         \hline
-        \textbf{Variant} & \textbf{What it adds} \\
+        \textbf{Variant} & \textbf{Builds on} & \textbf{What it changes} \\
         \hline
-        \texttt{naive} & One dense search with the question as typed, and a direct answer \\
-        \texttt{multiquery} & Multi-query expansion and RRF fusion \\
-        \texttt{routed} & Query analysis and routing, without expansion \\
-        \texttt{dense\_only} & Analysis, routing and expansion together \\
-        \texttt{hybrid} & BM25 lists fused with the dense ones \\
-        \texttt{current} & Contextual retrieval, which gives the production system \\
-        \texttt{reranked} & A cross-encoder over 30 candidates \\
+        \texttt{naive} & & One dense search with the question as typed, and a direct answer \\
+        \texttt{multiquery} & \texttt{naive} & Adds multi-query expansion and RRF fusion \\
+        \texttt{routed} & \texttt{naive} & Adds query analysis and routing \\
+        \texttt{dense\_only} & both above & Switches on both techniques together \\
+        \texttt{hybrid} & \texttt{dense\_only} & Adds BM25 lists, fused with the dense ones \\
+        \texttt{current} & \texttt{hybrid} & Adds contextual retrieval, which gives the production system \\
+        \texttt{reranked} & \texttt{current} & Adds a cross-encoder over 30 candidates \\
         \hline
-        \texttt{no\_retrieval} & The production model answering from memory \\
-        \texttt{no\_retrieval\_strong} & A frontier model (GPT-5.4) answering from memory \\
-        \texttt{current\_strong} & \texttt{current} with the frontier model \\
-        \texttt{assistant\_*} & ChatGPT, Gemini and Claude with web search \\
+        \texttt{no\_retrieval} & \texttt{current} & Switches retrieval off, so the production model answers from memory \\
+        \texttt{no\_retrieval\_strong} & \texttt{no\_retrieval} & Swaps in a frontier model (GPT-5.4) \\
+        \texttt{current\_strong} & \texttt{current} & Swaps in the same frontier model \\
+        \texttt{assistant\_*} & & ChatGPT, Gemini and Claude with web search \\
         \hline
     \end{tabular}
-    \caption[The variant ladder]{The variant ladder. Above the line, each rung
-    adds one technique to the one before. Below it are the points of comparison
-    for RQ5. Further variants that each change one setting (the topic filter,
-    the prompt budget, an index without the LLM-written context) are listed in
-    Appendix~\ref{app:results}.}
+    \caption[The variant ladder]{The variant ladder. Above the line, each
+    variant switches on one technique in the variant it builds on. Below it are
+    the points of comparison for RQ5. Further variants that each change one
+    setting (the topic filter, the prompt budget, an index without the
+    LLM-written context) are listed in Appendix~\ref{app:results}.}
     \label{tab:ladder}
 \end{table}
 
@@ -1618,10 +1627,10 @@ maximum answer length. \texttt{no\_retrieval} is the production model
 answering from memory, and \texttt{no\_retrieval\_strong} does the same with
 GPT-5.4, a much larger model from a third family. \texttt{current\_strong}
 gives that larger model the production retrieval. The \texttt{assistant\_*}
-rungs are what a citizen gets today by asking a commercial chatbot, ChatGPT,
+variants are what a citizen gets today by asking a commercial chatbot, ChatGPT,
 Gemini or Claude with web search on, free to find the manifestos for itself.
 Without retrieval there is no context to check an answer against, so these
-rungs are scored only on correctness, relevance, abstention and cost.
+variants are scored only on correctness, relevance, abstention and cost.
 
 \subsection{Gold set construction} \label{subsec:goldset}
 %% Source: docs/evaluation.md §2, data/eval/questions/CANDIDATES.md,
@@ -1634,25 +1643,40 @@ sections of the eight manifestos, and a reference answer that gives each
 party's target in a sentence or two.
 
 The set was built in four steps. First, the questions were written by hand.
-Fifty-one were written against the eight manifestos, each with a note on where
-its answer lies, checked against the indexed text. The note also records the
-route the question should take (its parties, topics and coverage), the rung of
-the ladder it is meant to test, and how hard it is expected to be. Ten probes
+Fifty-one were written against the eight manifestos, each with a short note on
+where in the manifestos its answer lies, checked against the indexed text.
+Beside the note, each question records the route it should take (its parties,
+topics and coverage), the technique on the ladder it is meant to test, and how
+hard it is expected to be. Ten probes
 were then added to test behaviour rather than recall. Seven cannot be answered
 from the manifestos and test whether the system declines, among them q-59 on a
 party outside the corpus. Two can be answered only in part, and q-61 asks about
 a single passing mention.
 
-Second, a script gathered candidate chunks for each question and each party it
-names, by dense search and by short keyword searches. Third, an LLM (Claude)
-proposed the gold chunks and a reference answer for each question, from those
-candidates and the note. Every proposal was then reviewed by hand. Picks were
-fixed, references rewritten and each question marked as reviewed, and all 61
-went through this review. The proposals are kept, so every change made in
-review can be seen. Last, the reviewed set is compiled into one file. Each
-question's route is derived from its parties and coverage by the same rule the
-pipeline uses (Section~\ref{subsec:queryanalysis}), so the routing metrics get
-their expected answers without any extra labelling.
+Second, a script gathered \emph{candidate chunks} for each question, the
+passages most likely to hold its answer. It searched the manifesto of each
+party the question names, both by meaning with dense search and with a few
+short keyword searches. Third, an LLM (Claude) read each question together
+with its note from the first step and its candidate chunks from the second. It
+proposed which candidates were gold and drafted a reference answer. Every
+proposal was then reviewed by hand, and nothing entered the gold set without
+that human review. Chunks the LLM had picked wrongly were dropped, chunks it
+had missed were added, reference answers were rewritten where needed, and a
+question was marked as reviewed only once it was right. All 61 went through
+this review.
+
+Last, a script compiles the reviewed questions into the single file the
+evaluation reads, and on the way it fills in one label that nobody writes by
+hand. Query analysis ends by giving each question a query type, such as
+single party or comparison, and that type decides how the question is
+searched (Section~\ref{subsec:queryanalysis}). To check whether the system
+chose the right type, each gold question needs the type a correct analysis
+would arrive at. That type already follows from what the question records,
+namely the parties it names and whether it asks about every party, so the
+script derives it with the same rule the pipeline uses. A question naming PS
+and Chega is expected to be a comparison, for instance, and one naming only PS
+a single-party question. Derived this way, the expected type can never
+contradict the parties and coverage recorded beside it.
 
 Some questions are broad on purpose. q-42 asks ``Que apoios são propostos
 para pessoas com deficiência?''\footnote{What support is proposed for people
@@ -1675,10 +1699,13 @@ to sample chunks and have an LLM write a question for each, with the sampled
 chunk as its gold. It was dropped for two reasons. A question written from a
 chunk borrows that chunk's words, so dense and lexical search find it far more
 easily than they would find a real user's question. And a test written by an
-LLM would grade LLMs on questions shaped by an LLM, the kind of circularity the
-separate judge family is there to avoid (Section~\ref{subsec:metrics}). The LLM
-proposals of the third step carry a milder form of the same risk, which is why
-every one of them was reviewed by hand.
+LLM would grade LLMs on questions shaped by an LLM, so its scores could not be
+trusted to say anything about the questions real users ask. Circularity of
+this kind is avoided throughout the evaluation, which is also why the judge
+comes from a different model family than the generator
+(Section~\ref{subsec:metrics}). The LLM proposals of the third step carry a
+milder form of the same risk, which is why every one of them was reviewed by
+hand.
 
 %% Keep every sentence true: three revisions were judged on all 61 questions
 %% (commits 524d9ea and b054bf8) and q-59 (a test question) motivated the
@@ -1703,9 +1730,8 @@ bug fix also came from a test question. The answer to q-59 showed that a party
 outside the corpus could be mistaken for one inside it
 (Section~\ref{subsec:queryanalysis}). The numbers in Chapter~\ref{ch:results}
 come from a single run of every variant on the 36 test questions, on code that
-was frozen before that run and not changed afterwards. That code is commit
-\texttt{0293a0b}, tagged \texttt{code-freeze}, and every result records it as
-its \texttt{code\_version}.
+was frozen before that run and not changed afterwards.
+%% Frozen code: commit 0293a0b, tag code-freeze, recorded as code_version.
 
 \paragraph{Neutral references.} The reference answers follow a written rule,
 much like the one later given to the generator
@@ -1729,24 +1755,77 @@ the CHEGA manifesto''.}
 Three families of metrics score each run, one for each stage of the pipeline.
 
 \paragraph{Retrieval.} Retrieval is scored against the gold chunks with the
-standard metrics of information retrieval (Section~\ref{subsec:sota-metrics}),
-computed over the full list of chunks handed to generation. \emph{Hit rate}
-asks whether at least one gold chunk was found, and \emph{recall} what share of
-them was found. \emph{MRR} looks at how high the first gold chunk ranks, and
-\emph{nDCG} at how high all of them rank. Broad questions need two more. A
-question can have more gold chunks than the system retrieves. q-42 has 88,
-while the system retrieves at most 64, so \emph{capped recall} divides by
-whichever of the two is smaller. \emph{Aspect recall} counts manifesto sections
-instead of chunks, since ten chunks from one section cover less of a broad
-answer than three chunks from three different sections. Unlike the context
-metrics of RAGAs, none of these needs a judge. They are exact, cost nothing,
-and two of them take the order of the list into account.
+standard metrics of information retrieval, introduced in
+Section~\ref{subsec:sota-metrics}. Each of them looks at the ranked list of
+chunks retrieved for a question and asks a different question of it. The list
+scored is the full one handed to the generator, which for a comparison holds
+up to eight chunks for each party, rather than only the first ten results.
+Scoring the first ten alone would hide most of what routing adds, since the
+whole point of routing is to reach parties that a single search would rank too
+low.
 
-\paragraph{Routing.} Query analysis is scored against the route each question
-is expected to take. The scores are the accuracy of the derived query type, F1
-over the parties and the topics it extracts, and \emph{coverage accuracy}. The
-last one catches the costliest mistake, a question about every party answered
-from a single search that leaves half of them out.
+\emph{Hit rate} is the simplest. A question scores 1 if at least one of its
+gold chunks is in the list and 0 otherwise, and the average over all questions
+is the share for which retrieval found anything useful at all. \emph{Recall}
+asks how much was found. It is the number of gold chunks in the list divided
+by the number of gold chunks the question has, so a question with 20 gold
+chunks, of which 18 were retrieved, scores 0.90. Recall matters most in this
+system, because a proposal the generator never sees cannot appear in the
+answer.
+
+Neither of these cares where in the list a gold chunk appears, and the next
+two do. Order matters wherever a list is cut short, and improving it is the
+whole job of fusion and reranking (Sections~\ref{subsec:search}
+and~\ref{subsec:reranking}). \emph{Mean
+reciprocal rank} (MRR) looks only at the first gold chunk in the list. A
+question scores 1 if that chunk is in first place, 1/2 if it is second, 1/3 if
+it is third, and so on, and 0 if no gold chunk was found at all. MRR is the
+average of these scores over the questions. It rewards a system that puts
+something useful right at the top, but it ignores every gold chunk after the
+first. \emph{Normalised discounted cumulative gain} (nDCG) looks at all of
+them. Each gold chunk in the list earns credit that shrinks with its position,
+a full point in first place and gradually less further down. The total is then
+divided by the score of the best possible list, one with every gold chunk at
+the top, so nDCG is 1 for a perfect ordering and falls as gold chunks slip down
+the list or go missing from it.
+
+Broad questions need two more measures. Some questions have more gold chunks
+than the system can retrieve. q-42 has 88, while the list holds at most 64, so
+its recall could never pass 0.73 however good the search. \emph{Capped recall}
+divides the gold chunks found by whichever is smaller, the number of gold
+chunks or the length of the list, so a list made entirely of gold chunks
+scores 1. \emph{Aspect recall} counts manifesto sections instead of chunks.
+Every gold chunk belongs to a section of its party's manifesto, and aspect
+recall is the share of those sections from which at least one gold chunk was
+retrieved. Ten chunks from one section cover less of a broad answer than three
+chunks from three different sections, and aspect recall rewards the second.
+
+Unlike the context metrics of RAGAs, none of these needs a judge. They compare
+lists of chunk identifiers, so they are exact and cost nothing to compute.
+
+\paragraph{Routing.} Query analysis describes each question before any search
+runs (Section~\ref{subsec:queryanalysis}). It lists the parties and topics the
+question involves and decides its coverage, whether every party must appear in
+the answer, and a fixed rule derives the query type from these. Each gold
+question carries the labels a correct analysis would return.
+
+Coverage and query type have one right value per question, so each is scored
+by \emph{accuracy}, the share of questions on which the analyser got it right.
+Coverage matters most, since it exists to stop the costliest mistake of the
+first version, a question about every party answered from a single search that
+left half of them out. Query type adds no evidence of its own, because it is
+derived from the other labels, but it sums up whether the system searched the
+right way.
+
+Parties and topics are sets, and an analysis can get part of a set right. A
+question about PS and Chega read as being about PS alone is half right, so
+these labels are scored with three numbers. \emph{Precision} ($P$) is the
+share of the returned labels that are correct, here 1, and it falls when the
+analyser adds a party the question never mentions. \emph{Recall} ($R$) is the
+share of the expected labels that were returned, here 0.5, and it falls when
+one is left out. \emph{F1} combines them as $2PR/(P+R)$, an average that stays
+low unless both are high, here 0.67. A question that names no party, analysed
+as naming none, scores 1.
 
 \paragraph{Generation.} Answers are scored claim by claim, following
 RAGAs~\citep{es2024ragas}. The judge first breaks an answer into short claims
@@ -1755,21 +1834,23 @@ supported by the context the generator read. \emph{Correctness} compares the
 answer's claims with the claims of the reference answer. Its precision is the
 share of the answer's claims found in the reference, its recall the share of
 the reference's claims found in the answer, and correctness is the F1 of the
-two. Recall on its own, called \emph{correctness recall}, says how much of the
+two, combined exactly as for parties and topics above. Recall on its own, called \emph{correctness recall}, says how much of the
 reference an answer covers. Last, a \emph{relevance} judgement scores from 1 to
-5 whether the answer addresses the question. It also records whether the
+5 how well the answer addresses the question that was asked, whether or not
+what it says is true. It also records whether the
 answer declined to answer, which gives two more measures. \emph{Abstention} is
 the share of unanswerable questions the system declined, and \emph{false
 refusal} the share of answerable ones it wrongly declined.
 
 %% Source: dev run current-20261015T050000, q-33 (metrics and judgements):
-%% recall 0.90, MRR 1.0, aspect recall 15/17, faithfulness 27/27,
+%% recall 0.90, MRR 1.0, nDCG 0.899, aspect recall 15/17, faithfulness 27/27,
 %% correctness recall 14/16, precision 18/27, correctness 0.757.
 \paragraph{The running example.} In a development run, retrieval found 18 of
 the 20 gold chunks for the minimum-wage question (recall 0.90), with a gold
-chunk in first place (MRR 1.0), and the chunks it found come from 15 of the 17
-gold sections (aspect recall 0.88). Query analysis got every part of the route
-right. All 27 claims of the answer are supported by the passages it read, so
+chunk in first place (MRR 1.0) and most of the others near the top (nDCG
+0.90). The chunks it found come from 15 of the 17 gold sections (aspect recall
+0.88). Query analysis got every label right, so its accuracies and F1 scores
+are all 1. All 27 claims of the answer are supported by the passages it read, so
 faithfulness is 1.0. Correctness tells a different story. The answer covers 14
 of the 16 claims of the reference, a correctness recall of 0.88, and misses,
 for instance, PAN's call for a more ambitious European minimum wage. But only
@@ -1792,34 +1873,41 @@ out rather than recording a zero.
 \paragraph{Checking the judge.} A judge is only useful if it agrees with a
 careful reader, so its verdicts were compared with ratings made by hand. The
 sample was 25 production answers from the test questions, 1,088 claims in
-all, and each claim was rated without seeing the judge's verdict. Correctness
-recall holds up well. The two agree on 95\% of claims, with a Cohen's $\kappa$
-of 0.90 (a measure of agreement that discounts what chance alone would give),
-and where they disagree the judge is usually the stricter.
+all, each rated without seeing the judge's verdict. Correctness recall holds
+up well. The two agree on 95\% of claims, with a Cohen's $\kappa$ of 0.90 (a
+measure of agreement that discounts what chance alone would give), and where
+they disagree the judge is usually the stricter.
 
-Faithfulness agrees on 98.9\% of claims, but that figure proves little. Nearly
-every claim of the production system is supported, so a judge that accepted
-everything would score almost as well. To test whether the judge can reject a
-claim, twelve closed-book answers were judged against the passages that the
-production variant had retrieved for the same questions. Those answers were
-written without the passages, so about two in five of their claims are not
-supported by them. The judge caught 89\% of the claims rejected by hand. Most
-of its extra rejections were strict readings of an embellishment whose
-substance the passages did support, such as calling something the
-``principal motor''\footnote{Main driver.} of a policy. Its blind spot is
-absence. It credited a refusal with the reference claim that ``nenhum outro
-programa indica'' the year,\footnote{No other manifesto gives (the year).}
-and it passed ``os programas não indicam o ano''\footnote{The manifestos do
-not give the year.} while its own reasoning cited the manifesto that does.
+Faithfulness agrees on 98.9\% of claims, but that proves little. Nearly every
+production claim is supported, so a judge that accepted everything would score
+almost as well. To see whether the judge notices an unsupported claim, twelve
+closed-book answers, written by the production model from memory, were judged
+against the passages the production system had retrieved for the same
+questions. About two in five of their claims are not supported by those
+passages. The judge caught 89\% of the claims rejected by hand. Most of its
+extra rejections were strict readings, where the passages supported the
+substance of a claim but not a word the answer had added, such as ``principal
+motor''.\footnote{Main driver.} Errors in that direction make the scores
+slightly pessimistic rather than inflated.
 
-Relevance is the weakest of the three. The judge gave the top mark to 22 of
-the 25 production answers, and also to 10 of 12 closed-book answers that got
-almost nothing right. Relevance therefore says whether an answer is on topic,
-not whether it is correct. It is never used to rank variants, and it is read
-only through its record of whether the answer declined, for abstention and
-false refusal.
+The judge's blind spot is absence. q-49 asks in what year the 35-hour week was
+restored in the public administration, and only the PCP manifesto gives the
+year. The judge credited a refusal with the reference claim that ``nenhum
+outro programa indica'' the date,\footnote{No other manifesto gives (the
+date).} although a refusal implies that no manifesto does. It also accepted
+``os programas não indicam o ano''\footnote{The manifestos do not give the
+year.} while its own written reason cited the PCP passage that gives it.
+Checking that something is absent means reading every passage and finding
+nothing, and the judge's clearest errors are of this kind.
 
-\paragraph{Faithfulness is not neutrality.} Faithfulness asks whether the
+Relevance is the weakest of the three. It scores from 1 to 5 how well an
+answer addresses the question, and the judge gave the top mark to 22 of the 25
+production answers but also to 10 of 12 closed-book answers that got almost
+nothing right. It therefore says whether an answer is on topic, not whether it
+is correct, and it is read only through its record of whether the answer
+declined, for abstention and false refusal.
+
+\paragraph{Faithfulness does not mean neutrality.} Faithfulness asks whether the
 sources say a claim. It never asks whether the claim is true, or whose view it
 is. To show this, the judge was given three claims against the context of q-08.
 The first was that PCP ``defende romper com a submissão à União Europeia'', the
@@ -1837,7 +1925,7 @@ nor something RAGAs claims to cover. The metric was never meant to measure
 neutrality, and the RAGAs paper validates it on Wikipedia pages. Correctness
 has the same blind spot whenever the reference carries the same framing, which
 is why the references follow an attribution rule
-(Section~\ref{subsec:goldset}). Framing leakage is therefore counted by hand
+(Section~\ref{subsec:goldset}). Thus framing leakage is counted by hand
 (Section~\ref{subsec:grounding}).
 
 \paragraph{No layer is neutral.} Every safeguard in this evaluation is a check
@@ -1846,20 +1934,19 @@ judge are language models, and chat models show political leanings of their
 own, most of them left of centre~\citep{rozado2024political,motoki2024more}. A
 judge from another family guards against a model favouring its own kind, but
 it brings a different leaning, and a different leaning is still not none. The
-prompts that tell both models to stay neutral were written by a person. So
+prompts that tell both models to stay neutral were written by hand, and so
 were the questions, the gold chunks and their references, the count of framing
-leaks and the ratings that check the judge. All of these were made by the same
-person who built the system, and nobody is free of political views. Those
-views are not disclosed here, since the system is meant to be judged without
-them. They still exist, and they can shape the small calls these checks are
-made of, such as whether a phrase reads as a party's framing or as plain
+leaks and the ratings that check the judge. All of them come from a single
+point of view, and no point of view is free of politics. That view is not
+disclosed here, since the system is meant to be judged without it. It still
+exists, and it can shape the small calls these checks are made of, such as whether a phrase reads as a party's framing or as plain
 description, or whether an answer covers a reference well enough. Each layer
 therefore narrows the room for bias without closing it. The ratings that check
 the judge were made without its verdicts in view, and the references keep
-every value-laden statement in the voice of its party
+every opinion in the voice of the party that holds it
 (Section~\ref{subsec:goldset}). A check by hand is still a second opinion
 rather than the truth. The proper remedy, several raters from across the
-political spectrum and a measure of how far they agree, was beyond the means
+political spectrum and a measure of how far they agree, was of course beyond the means
 of this work (Chapter~\ref{ch:conclusion}).
 
 \subsection{Measurement safeguards} \label{subsec:safeguards}
@@ -1889,17 +1976,24 @@ recorded as an error for that question. In the same way, a judge call that
 fails leaves its score out instead of recording a zero, so an outage at the
 provider cannot pass for a bad answer.
 
-\paragraph{Filtered searches that return everything.} pgvector applies
-metadata filters after its approximate index scan (HNSW), so a filtered query
-can return fewer rows than it asked for. Measured here, a party filter under an
-HNSW plan returned 3 of the 30 rows requested, as the pgvector documentation
-warns~\citep{pgvector}. At the current corpus size, PostgreSQL plans a
-party-filtered search with an ordinary index on the party column and an exact
-sort instead, so the results are complete. A test on a table shaped like the
-real one, with the same number of chunks per party and the same vector size,
-checks that a party-filtered search returns the full top-$k$. If the corpus
-grows or a pgvector upgrade switches the plan to HNSW, the test fails instead
-of retrieval silently receiving fewer passages.
+\paragraph{Filtered searches that return everything.} Routing searches one
+manifesto at a time by adding a party filter to the search
+(Section~\ref{subsec:routing}), and the database can run such a search in two
+ways. The fast way uses the approximate nearest-neighbour index (HNSW). It
+first collects a fixed number of chunks close to the question from the whole
+corpus, 40 by default, and only then drops those from other parties. With
+eight parties, about one in eight survives, so a request for 30 chunks from
+one party came back with only 3, a pitfall the pgvector documentation warns
+about~\citep{pgvector}. Nothing fails when this happens, and retrieval simply
+receives fewer passages. The slow way first selects every chunk of that party,
+a few hundred, and compares each one with the question, which always returns
+the full 30. At the current corpus size PostgreSQL chooses the slow way on its
+own, because a few hundred comparisons cost almost nothing. A test makes sure
+it stays that way. On a table shaped like the real one, with the same number
+of chunks per party and vectors of the same size, it checks that a
+party-filtered search returns every chunk it asked for. If the corpus grows,
+or a pgvector upgrade makes PostgreSQL switch to the fast way, the test fails
+instead of retrieval quietly losing passages.
 
 \paragraph{One gold set for every index.} Gold chunks are identified by a hash
 of their text (Section~\ref{subsec:goldset}). Contextual retrieval adds
@@ -1931,7 +2025,6 @@ could be noise, and it is not read as a result.
 % ============================================================
 \section{What building it taught} \label{sec:lessons}
 % ============================================================
-%% DRAFT (Claude, 2026-10-25): closing lessons. Rewrite in your own words.
 The multiple revisions in this chapter were not random. Read together, they come down
 to four lessons, each paid for by at least one failure.
 
@@ -1970,7 +2063,7 @@ same framing until a written rule removed it (Section~\ref{subsec:goldset}).
 What helps is making political choices explicit and checkable, such as
 resolving ``the right-wing parties'' through a published scale rather than the
 model's own view (Section~\ref{subsec:queryanalysis}), and admitting that every
-check, the author's included, comes from someone with views.
+check, including those made by hand, comes from someone with views.
 
 \paragraph{Measure first, believe later.} Several techniques that looked like
 clear improvements did not survive measurement. The cross-encoder reranker cut
@@ -1982,8 +2075,9 @@ earned their place. None of this would have been visible without the switches
 that let each technique be turned off and measured on its own
 (Section~\ref{subsec:variants}).
 
-Together, these make \sysname{} less a pipeline of techniques than a set of
-guarantees, each one bought with a failure. What it already does is modest and
+Together, these lessons say that the techniques matter less than the
+checks around them, and that most of those checks exist because something once
+failed without a warning. What \sysname{} already does is modest and
 useful. A citizen can ask any question about the 2024 manifestos, in European
 Portuguese, and get an answer that covers every party in scope and points to
 the passage behind each claim, for a fraction of a cent. A version with more
